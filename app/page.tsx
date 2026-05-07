@@ -29,7 +29,7 @@ const DOC_TYPES = [
   { id: 'familia',   icon: '👨‍👩‍👧', label: 'Derecho de Familia', desc: 'Alimentos, tuición, visitas',   price: '$16.990' },
   { id: 'arrendamiento', icon: '🏠', label: 'Arrendamiento',   desc: 'Contratos y desalojos',         price: '$14.990' },
   { id: 'proteccion',icon: '⚖️', label: 'Recurso de Protección', desc: 'Derechos fundamentales',    price: '$19.990' },
-  { id: 'otro',      icon: '📝', label: 'Otro documento',      desc: 'Cualquier escrito legal',       price: 'Consultar' },
+  { id: 'otro',      icon: '📝', label: 'Otro documento',      desc: 'Cualquier escrito legal',       price: '$10.000'  },
 ];
 
 const EMPTY_CASE: CaseData = {
@@ -619,7 +619,7 @@ export default function Home() {
                     </div>
                     <div className="text-right">
                       <p className="text-[#c9a84c] font-bold text-xl">
-                        {DOC_TYPES.find(d => d.id === selectedDoc)?.price ?? '$13.990'}
+                        {DOC_TYPES.find(d => d.id === selectedDoc)?.price ?? '$10.000'}
                       </p>
                       <p className="text-xs text-[#8a7f72]">pago único</p>
                     </div>
@@ -631,32 +631,6 @@ export default function Home() {
                   </div>
                 </button>
 
-                {/* Monthly plan */}
-                <button
-                  onClick={() => handlePayment('monthly')}
-                  disabled={paymentLoading}
-                  className="w-full text-left border-2 border-[#0b1f3a] rounded-xl p-4 hover:bg-[#f0f3f8] transition relative disabled:opacity-60">
-                  <div className="absolute -top-2.5 left-4 bg-[#e05c3a] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                    Más popular
-                  </div>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <p className="font-bold text-[#0b1f3a] text-base">Plan mensual</p>
-                      <p className="text-xs text-[#8a7f72] mt-0.5">Documentos ilimitados por 30 días</p>
-                      <ul className="mt-1.5 space-y-0.5">
-                        {['Todos los tipos de documento','Regeneraciones ilimitadas','Descarga en PDF'].map(f => (
-                          <li key={f} className="text-xs text-[#555] flex items-center gap-1">
-                            <span className="text-emerald-500">✓</span> {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="text-right shrink-0 ml-3">
-                      <p className="text-[#0b1f3a] font-bold text-xl">$19.990</p>
-                      <p className="text-xs text-[#8a7f72]">por mes</p>
-                    </div>
-                  </div>
-                </button>
 
               </div>
 

@@ -10,7 +10,7 @@ const isSandbox   = accessToken.startsWith('TEST-');
 const mp = new MercadoPagoConfig({ accessToken });
 
 const PLANS = {
-  single:  { label: 'Documento legal único – Legalhelp', amount: 13990 },
+  single:  { label: 'Documento legal único – Legalhelp', amount: 10000 },
   monthly: { label: 'Plan mensual ilimitado – Legalhelp', amount: 19990 },
 } as const;
 
