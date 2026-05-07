@@ -79,8 +79,13 @@ export async function POST(req: NextRequest) {
         : preference.init_point,
     });
 
-  } catch (err) {
-    console.error('[payment/create]', err);
-    return NextResponse.json({ error: 'Error creando preferencia de pago' }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    const cause = (err as Record<string, unknown>)?.cause;
+    const mpError = (err as Record<string, unknown>)?.error;
+    console.error('[payment/create] error:', message);
+    console.error('[payment/create] cause:', JSON.stringify(cause ?? null));
+    console.error('[payment/create] mpError:', JSON.stringify(mpError ?? null));
+    return NextResponse.json({ error: 'Error creando preferencia de pago', detail: message }, { status: 500 });
   }
 }
