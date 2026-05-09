@@ -285,9 +285,9 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="bg-[#0b1f3a] border-b border-[#c9a84c]/30">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.webp" alt="Legalhelp" className="h-10 w-auto" />
+            <img src="/logo.webp" alt="Legalhelp" className="h-16 w-auto object-contain" />
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
             <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
