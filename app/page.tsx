@@ -285,9 +285,30 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="bg-[#0b1f3a] border-b border-[#c9a84c]/30">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center">
-            <img src="/logo.webp" alt="Legalhelp" className="h-16 w-auto object-contain" />
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            {/* LH Shield icon */}
+            <svg width="38" height="44" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lgB" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#1a56db"/>
+                  <stop offset="100%" stopColor="#60a5fa"/>
+                </linearGradient>
+              </defs>
+              {/* Blue L shape: left column + bottom shelf + shield tip */}
+              <path d="M2 2 L13 2 L13 26 L36 26 L36 34 Q19 44 2 36 Z" fill="url(#lgB)"/>
+              {/* White H: left bar */}
+              <rect x="14" y="2" width="5" height="24" fill="white" rx="0.5"/>
+              {/* White H: right bar */}
+              <rect x="27" y="2" width="5" height="24" fill="white" rx="0.5"/>
+              {/* White H: crossbar */}
+              <rect x="14" y="11" width="18" height="5" fill="white" rx="0.5"/>
+            </svg>
+            {/* LEGALHELP text */}
+            <div className="flex items-baseline" style={{ fontFamily: "'Arial Black', 'Arial', sans-serif", fontWeight: 900, letterSpacing: '-0.02em' }}>
+              <span className="text-white text-2xl">LEGAL</span>
+              <span className="text-blue-400 text-2xl">HELP</span>
+            </div>
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
             <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
@@ -577,8 +598,23 @@ export default function Home() {
 
             {/* Header */}
             <div className="bg-[#0b1f3a] px-6 py-5">
-              <div className="mb-1">
-                <img src="/logo.webp" alt="Legalhelp" className="h-8 w-auto" />
+              <div className="flex items-center gap-2 mb-1">
+                <svg width="22" height="26" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lgBm" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#1a56db"/>
+                      <stop offset="100%" stopColor="#60a5fa"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M2 2 L13 2 L13 26 L36 26 L36 34 Q19 44 2 36 Z" fill="url(#lgBm)"/>
+                  <rect x="14" y="2" width="5" height="24" fill="white" rx="0.5"/>
+                  <rect x="27" y="2" width="5" height="24" fill="white" rx="0.5"/>
+                  <rect x="14" y="11" width="18" height="5" fill="white" rx="0.5"/>
+                </svg>
+                <div style={{ fontFamily: "'Arial Black', 'Arial', sans-serif", fontWeight: 900 }}>
+                  <span className="text-white text-lg">LEGAL</span>
+                  <span className="text-blue-400 text-lg">HELP</span>
+                </div>
               </div>
               {caseData.ready ? (
                 <p className="text-[#a8b8cc] text-sm" style={{ fontFamily: 'sans-serif' }}>
