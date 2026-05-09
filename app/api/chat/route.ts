@@ -3,48 +3,6 @@ import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 
 type CaseData = Record<string, unknown>;
 
-// ─── Detección programática del tipo de documento ────────────────────────────
-// Corre en el servidor ANTES de DeepSeek — no depende del LLM
-function detectTipo(msg: string): string | null {
-  const m = msg.toLowerCase();
-
-  // Licencia de conducir
-  if (/licencia.*(conducir|manejar)|conducir.*licencia|renovar.*licencia|sacar.*licencia/.test(m)) {
-    if (/pens[ií]on|alimento|debo|deuda|suspend/.test(m))
-      return 'solicitud de alzamiento de suspensión de licencia de conducir';
-    return 'solicitud de licencia de conducir';
-  }
-  // TAG / multas
-  if (/\btag\b|autopista|telepass|multa.*(transit|auto)|prescripci[oó]n.*multa/.test(m))
-    return 'prescripción de deuda TAG';
-  // Finiquito / laboral
-  if (/finiquito|me despidieron|despido|desvincula|term[ií]n.*contrato|laboral/.test(m))
-    return 'finiquito laboral';
-  // Pensión alimenticia
-  if (/pens[ií]on.*(aliment|hijo)|aliment.*pens[ií]on|no.*paga.*pension|demand.*alimento/.test(m))
-    return 'demanda de alimentos';
-  // SERNAC / reclamo consumidor
-  if (/sernac|reclamo.*(empresa|tienda|product)|consumidor|garantía|devoluci[oó]n/.test(m))
-    return 'carta reclamo SERNAC';
-  // Arriendo
-  if (/arrend|arrendador|arrendatario|contrato.*arriendo|desalojo|lanzamiento/.test(m))
-    return 'contrato de arriendo';
-  // Recurso de protección
-  if (/recurso.*protecci[oó]n|protecci[oó]n.*recurso|derecho.*vulnerad/.test(m))
-    return 'recurso de protección';
-  // Poder / autorización
-  if (/poder simple|autoriza.*notarial|mandato|apoderado/.test(m))
-    return 'poder simple';
-  // Deuda / cobro
-  if (/me deben|cobrar.*deuda|deuda.*cobrar|carta.*cobro/.test(m))
-    return 'carta de cobro de deuda';
-  // Herencia
-  if (/herencia|sucesi[oó]n|falleci[oó]|difunto/.test(m))
-    return 'posesión efectiva';
-
-  return null;
-}
-
 // ─── JSON extraction ──────────────────────────────────────────────────────────
 function extractJSON(text: string): CaseData | null {
   const start = text.indexOf('{');
@@ -59,50 +17,51 @@ function extractJSON(text: string): CaseData | null {
   try { return JSON.parse(text.slice(start, end + 1)); } catch { return null; }
 }
 
-// ─── Smart mock (sin API key) ─────────────────────────────────────────────────
+// ─── Smart mock (solo cuando no hay API key) ──────────────────────────────────
 function smartMock(message: string, current: CaseData): CaseData {
   const updated: CaseData = { ...current };
+  const m = message.toLowerCase();
 
   if (!updated.tipo_documento) {
-    updated.tipo_documento = detectTipo(message);
+    if (/licencia.*(conducir|manejar)|sacar.*licencia|conducir.*licencia/.test(m))
+      updated.tipo_documento = /pens[ií]on|alimento|debo/.test(m)
+        ? 'solicitud de alzamiento de suspensión de licencia de conducir'
+        : 'solicitud de licencia de conducir';
+    else if (/finiquito|despido|desvincula/.test(m)) updated.tipo_documento = 'finiquito laboral';
+    else if (/\btag\b|autopista|telepass/.test(m))   updated.tipo_documento = 'prescripción de deuda TAG';
+    else if (/sernac|reclamo/.test(m))               updated.tipo_documento = 'carta reclamo SERNAC';
+    else if (/arrend|desalojo/.test(m))              updated.tipo_documento = 'contrato de arriendo';
+    else if (/pens[ií]on|alimento/.test(m))          updated.tipo_documento = 'demanda de alimentos';
+    else if (/recurso.*protecci[oó]n/.test(m))       updated.tipo_documento = 'recurso de protección';
+    else if (/poder simple|autoriza/.test(m))        updated.tipo_documento = 'poder simple';
   }
 
-  const isDescription = message.length > 50
-    || /\b(necesito|quiero|tengo|debo|para|porque|me |mis |hay |quisiera|busco)\b/i.test(message);
+  const isDesc = message.length > 40 || /\b(necesito|quiero|tengo|debo|para)\b/i.test(message);
+  if (!updated.nombre && !isDesc) updated.nombre = message.trim();
+  else if (!updated.rut && /\d{6,}/.test(message)) updated.rut = message.trim();
+  else if (updated.nombre && updated.rut && !updated.direccion) updated.direccion = message.trim();
 
-  if (!updated.nombre && !isDescription) {
-    updated.nombre = message.trim();
-  } else if (!updated.rut && /\d{6,}/.test(message)) {
-    updated.rut = message.trim();
-  } else if (updated.nombre && updated.rut && !updated.direccion) {
-    updated.direccion = message.trim();
-  } else if (!updated.nombre && isDescription && !updated.contexto) {
-    updated.contexto = message.trim();
-  }
+  const tipo  = updated.tipo_documento as string | undefined;
+  const first = (updated.nombre as string | undefined)?.split(' ')[0] ?? '';
 
-  const nombre  = updated.nombre as string | undefined;
-  const first   = nombre?.split(' ')[0] ?? '';
-  const tipo    = updated.tipo_documento as string | undefined;
+  const nextQ = !tipo
+    ? 'Contame tu situación para identificar qué documento necesitás.'
+    : !updated.nombre
+      ? `Para redactar la ${tipo}, ¿cuál es tu nombre completo?`
+      : !updated.rut
+        ? `${first}, ¿cuál es tu RUT?`
+        : !updated.direccion
+          ? '¿Cuál es tu domicilio?'
+          : `¡Listo, ${first}! Tengo todo lo necesario.`;
 
-  let nextQ: string;
-  if (!tipo) {
-    nextQ = '¿Cuál es tu situación? Contame qué necesitás resolver.';
-  } else if (!updated.nombre) {
-    nextQ = `Para redactar tu ${tipo}, ¿cuál es tu nombre completo?`;
-  } else if (!updated.rut) {
-    nextQ = `${first}, ¿cuál es tu RUT?`;
-  } else if (!updated.direccion) {
-    nextQ = '¿Cuál es tu domicilio?';
-  } else {
-    nextQ = `¡Perfecto, ${first}! Tengo todo lo necesario. Tu documento está listo.`;
-  }
-
-  const ready = !!(updated.nombre && updated.rut && updated.direccion);
-
-  return { ...updated, response_message: nextQ, ready };
+  return {
+    ...updated,
+    response_message: nextQ,
+    ready: !!(updated.nombre && updated.rut && updated.direccion),
+  };
 }
 
-// ─── DeepSeek call ────────────────────────────────────────────────────────────
+// ─── DeepSeek ─────────────────────────────────────────────────────────────────
 async function callDeepSeek(messages: { role: string; content: string }[]): Promise<string | null> {
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey || apiKey === 'mock') return null;
@@ -113,7 +72,7 @@ async function callDeepSeek(messages: { role: string; content: string }[]): Prom
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
-        temperature: 0.3,
+        temperature: 0.2,
         max_tokens: 512,
       }),
     });
@@ -126,7 +85,7 @@ async function callDeepSeek(messages: { role: string; content: string }[]): Prom
   }
 }
 
-// ─── Route handler ────────────────────────────────────────────────────────────
+// ─── Route ────────────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
     const { message, caseHistory, currentCaseData } = await req.json();
@@ -135,52 +94,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
     }
 
-    // Detección programática del tipo — siempre corre, independiente del LLM
-    const detectedTipo = detectTipo(message);
-    const currentTipo  = currentCaseData?.tipo_documento as string | null;
-    const tipoFinal    = currentTipo ?? detectedTipo;
-
     const useMock = !process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_API_KEY === 'mock';
+    if (useMock) return NextResponse.json(smartMock(message, currentCaseData ?? {}));
 
-    if (useMock) {
-      const mockResult = smartMock(message, currentCaseData ?? {});
-      if (detectedTipo && !mockResult.tipo_documento) mockResult.tipo_documento = detectedTipo;
-      return NextResponse.json(mockResult);
-    }
-
-    // Inyectar el tipo detectado en el mensaje para que DeepSeek no lo tenga que adivinar
-    const enrichedMessage = tipoFinal
-      ? `[DOCUMENTO: ${tipoFinal}]\n\nMensaje del usuario: ${message}`
-      : message;
-
-    const messages = [
-      ...(caseHistory ?? []),
-      { role: 'user', content: enrichedMessage },
-    ];
-
+    const messages = [...(caseHistory ?? []), { role: 'user', content: message }];
     let responseText = await callDeepSeek(messages);
-    let jsonData     = responseText ? extractJSON(responseText) : null;
+    let jsonData = responseText ? extractJSON(responseText) : null;
 
-    // Retry si no devolvió JSON válido
+    // Hasta 2 reintentos si no devuelve JSON
     for (let i = 0; i < 2 && !jsonData; i++) {
       responseText = await callDeepSeek([
         ...messages,
         { role: 'assistant', content: responseText ?? '' },
-        { role: 'user', content: 'Responde SOLO con JSON válido, sin texto fuera del JSON.' },
+        { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
       ]);
       jsonData = responseText ? extractJSON(responseText) : null;
     }
 
-    if (!jsonData) {
-      return NextResponse.json(smartMock(message, currentCaseData ?? {}));
-    }
-
-    // Garantizar que el tipo detectado programáticamente no se pierda
-    if (tipoFinal && !jsonData.tipo_documento) {
-      jsonData.tipo_documento = tipoFinal;
-    }
-
-    return NextResponse.json(jsonData);
+    return NextResponse.json(jsonData ?? smartMock(message, currentCaseData ?? {}));
 
   } catch (err) {
     console.error('Chat API error:', err);
