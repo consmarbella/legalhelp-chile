@@ -3,18 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { downloadLegalPdf } from '@/lib/generatePdf';
 
-interface CaseData {
-  response_message: string;
-  materia: string | null;
-  nombre: string | null;
-  rut: string | null;
-  direccion: string | null;
-  destinatario: string | null;
-  hechos: string | null;
-  ley_citada: string | null;
-  ready: boolean;
-  campos_faltantes: string[];
-}
+// Dynamic — fields depend on document type, decided by DeepSeek
+type CaseData = Record<string, unknown>;
 
 interface Message {
   role: 'user' | 'assistant';
@@ -32,11 +22,7 @@ const DOC_TYPES = [
   { id: 'otro',      icon: '📝', label: 'Otro documento',      desc: 'Cualquier escrito legal',       price: '$10.000'  },
 ];
 
-const EMPTY_CASE: CaseData = {
-  response_message: '', materia: null, nombre: null, rut: null,
-  direccion: null, destinatario: null, hechos: null, ley_citada: null,
-  ready: false, campos_faltantes: ['nombre','rut','direccion','destinatario','hechos'],
-};
+const EMPTY_CASE: CaseData = { ready: false };
 
 // ── Renderizador de escrito judicial ─────────────────────────────────────────
 function CourtDocument({ text }: { text: string }) {
@@ -210,7 +196,7 @@ export default function Home() {
       if (!res.ok) throw new Error();
       const data: CaseData = await res.json();
       setCaseData(prev => ({ ...prev, ...data }));
-      setMessages(prev => [...prev, { role: 'assistant', content: data.response_message }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: String(data.response_message ?? '') }]);
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', content: 'Problema al conectar. Intentá de nuevo.' }]);
     } finally {
@@ -221,7 +207,7 @@ export default function Home() {
   const handleGenerate = async () => {
     setGenerating(true);
     try {
-      const res = await fetch('/api/generate', {
+      const res = await fetch('/api/generate-final', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(caseData),
@@ -287,7 +273,8 @@ export default function Home() {
 
   const handleDownload = () => {
     if (!generatedDoc) return;
-    const fileName = `escrito-legal-${caseData.nombre?.replace(/\s+/g, '-').toLowerCase() ?? 'documento'}`;
+    const nombreStr = String(caseData.nombre ?? 'documento');
+    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
     downloadLegalPdf(generatedDoc, fileName);
   };
 
@@ -427,7 +414,7 @@ export default function Home() {
                   {generatedDoc ? 'Documento generado con IA' : 'Formato profesional · Redacción en tiempo real'}
                 </div>
               </div>
-              {caseData.ready && (
+              {!!caseData.ready && (
                 <span className="bg-emerald-500 text-white text-xs px-2.5 py-1 rounded-full font-medium" style={{ fontFamily: 'sans-serif' }}>✓ Listo</span>
               )}
             </div>
@@ -464,97 +451,74 @@ export default function Home() {
                 </div>
               )}
 
-              {/* ── Vista previa en tiempo real — formato escrito judicial ── */}
-              {!generatedDoc && !generating && (
-                <div style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '13px', lineHeight: '2', color: '#111' }}>
+              {/* ── Vista previa dinámica — muestra los datos recopilados ── */}
+              {!generatedDoc && !generating && (() => {
+                // Fields to skip in the preview (internal/meta)
+                const SKIP = new Set(['response_message', 'ready', 'campos_faltantes']);
+                const collected = Object.entries(caseData).filter(
+                  ([k, v]) => !SKIP.has(k) && v !== null && v !== undefined && v !== ''
+                );
+                const tipoDoc = caseData.tipo_documento as string | null | undefined;
 
-                  {/* Fecha — derecha */}
-                  <p style={{ textAlign: 'right', marginBottom: '16px', color: '#4a4030' }}>
-                    Santiago, {todayChile()}
-                  </p>
+                return (
+                  <div style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '13px', lineHeight: '1.8', color: '#111' }}>
 
-                  {/* EN LO PRINCIPAL (materia como sumilla, si existe) */}
-                  {caseData.materia && (
-                    <p style={{ marginBottom: '12px', fontSize: '12px', color: '#555' }}>
-                      <span style={{ fontWeight: 'bold' }}>EN LO PRINCIPAL:</span>{' '}
-                      {caseData.materia}.
+                    {/* Fecha — derecha */}
+                    <p style={{ textAlign: 'right', marginBottom: '16px', color: '#4a4030', fontSize: '12px' }}>
+                      Santiago, {todayChile()}
                     </p>
-                  )}
 
-                  {/* Destinatario — centrado, mayúsculas */}
-                  <p style={{ textAlign: 'center', fontWeight: 'bold', textTransform: 'uppercase',
-                    letterSpacing: '0.04em', marginBottom: '4px',
-                    color: caseData.destinatario ? '#111' : '#ccc' }}>
-                    {caseData.destinatario ?? 'SEÑOR(A) JUEZ(A) / INSTITUCIÓN'}
-                  </p>
-                  <p style={{ textAlign: 'center', marginBottom: '20px', color: '#555', fontSize: '12px' }}>
-                    PRESENTE
-                  </p>
-
-                  {/* Compareciente */}
-                  <p style={{ textAlign: 'justify', marginBottom: '16px' }}>
-                    <span style={{ color: caseData.nombre ? '#111' : '#ccc' }}>
-                      {caseData.nombre?.toUpperCase() ?? '[NOMBRE DEL SOLICITANTE]'}
-                    </span>
-                    {', RUT '}
-                    <span style={{ color: caseData.rut ? '#111' : '#ccc' }}>
-                      {caseData.rut ?? '[RUT]'}
-                    </span>
-                    {', domiciliado en '}
-                    <span style={{ color: caseData.direccion ? '#111' : '#ccc' }}>
-                      {caseData.direccion ?? '[domicilio]'}
-                    </span>
-                    {', a US. respetuosamente digo:'}
-                  </p>
-
-                  <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-                  {/* Hechos */}
-                  <p style={{ fontWeight: 'bold', textTransform: 'uppercase',
-                    fontSize: '11px', letterSpacing: '0.05em', marginBottom: '8px' }}>
-                    I. Antecedentes de hecho
-                  </p>
-                  <p style={{ textAlign: 'justify', color: caseData.hechos ? '#111' : '#ccc',
-                    fontStyle: caseData.hechos ? 'normal' : 'italic', marginBottom: '16px' }}>
-                    {caseData.hechos ?? 'Que… [se completará con los hechos que indique el solicitante]'}
-                  </p>
-
-                  <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-                  {/* Fundamento legal placeholder */}
-                  <p style={{ fontWeight: 'bold', textTransform: 'uppercase',
-                    fontSize: '11px', letterSpacing: '0.05em', marginBottom: '8px' }}>
-                    II. Fundamento legal
-                  </p>
-                  <p style={{ textAlign: 'justify', color: caseData.ley_citada ? '#111' : '#ccc',
-                    fontStyle: caseData.ley_citada ? 'normal' : 'italic', marginBottom: '16px' }}>
-                    {caseData.ley_citada ?? '[La ley aplicable será determinada por el asistente]'}
-                  </p>
-
-                  <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-                  <p style={{ marginBottom: '6px' }}>
-                    <span style={{ fontWeight: 'bold' }}>POR TANTO,</span>
-                  </p>
-                  <p style={{ textAlign: 'justify', color: '#aaa', fontStyle: 'italic' }}>
-                    RUEGO A US.: [petición concreta — se generará al finalizar]
-                  </p>
-
-                  {/* Campos pendientes */}
-                  {caseData.campos_faltantes.length > 0 && (
-                    <div style={{ marginTop: '20px', padding: '10px 12px',
-                      border: '1px dashed #c9a84c', borderRadius: '8px', background: '#fdf9f0' }}>
-                      <p style={{ fontSize: '11px', fontWeight: 'bold', color: '#9a8054',
-                        fontFamily: 'sans-serif', marginBottom: '4px' }}>
-                        Datos que faltan:
+                    {/* Tipo de documento */}
+                    <div style={{ marginBottom: '16px', paddingBottom: '12px', borderBottom: '2px solid #c9a84c' }}>
+                      <p style={{ fontSize: '10px', fontFamily: 'sans-serif', color: '#9a8054', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>
+                        Tipo de documento
                       </p>
-                      <p style={{ fontSize: '11px', color: '#b09a6e', fontFamily: 'sans-serif' }}>
-                        {caseData.campos_faltantes.join(' · ')}
+                      <p style={{ fontSize: '15px', fontWeight: 'bold', color: tipoDoc ? '#0b1f3a' : '#ccc', textTransform: 'capitalize' }}>
+                        {tipoDoc ?? 'Por determinar según tu consulta'}
                       </p>
                     </div>
-                  )}
-                </div>
-              )}
+
+                    {/* Datos recopilados */}
+                    {collected.length > 0 ? (
+                      <div>
+                        <p style={{ fontSize: '10px', fontFamily: 'sans-serif', color: '#9a8054', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                          Datos recopilados
+                        </p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          {collected.map(([key, value]) => (
+                            key === 'tipo_documento' ? null : (
+                              <div key={key} style={{ display: 'flex', gap: '8px', alignItems: 'baseline', fontSize: '12px' }}>
+                                <span style={{ color: '#9a8054', fontFamily: 'sans-serif', minWidth: '110px', flexShrink: 0, textTransform: 'capitalize' }}>
+                                  {key.replace(/_/g, ' ')}
+                                </span>
+                                <span style={{ color: '#111', flex: 1 }}>
+                                  {String(value)}
+                                </span>
+                              </div>
+                            )
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <p style={{ color: '#ccc', fontStyle: 'italic', fontSize: '12px' }}>
+                        Los datos se irán completando a medida que respondas las preguntas.
+                      </p>
+                    )}
+
+                    {/* Estado — listo o pendiente */}
+                    <div style={{ marginTop: '20px', padding: '10px 12px', borderRadius: '8px',
+                      border: `1px dashed ${caseData.ready ? '#16a34a' : '#c9a84c'}`,
+                      background: caseData.ready ? '#f0fdf4' : '#fdf9f0' }}>
+                      <p style={{ fontSize: '11px', fontFamily: 'sans-serif',
+                        color: caseData.ready ? '#15803d' : '#9a8054', fontWeight: 'bold' }}>
+                        {caseData.ready
+                          ? '✓ Información completa — listo para generar'
+                          : '⏳ Recopilando información...'}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
 
@@ -596,11 +560,11 @@ export default function Home() {
             <div className="px-6 py-5" style={{ fontFamily: 'sans-serif' }}>
 
               {/* Doc summary if ready */}
-              {caseData.ready && caseData.materia && (
+              {!!caseData.ready && !!caseData.tipo_documento && (
                 <div className="mb-4 bg-[#f5f3ef] rounded-xl p-3 border border-[#e8e2d8]">
                   <p className="text-xs text-[#8a7f72] uppercase tracking-wider mb-1">Documento a generar</p>
-                  <p className="text-[#0b1f3a] font-semibold text-sm capitalize">{caseData.materia}</p>
-                  <p className="text-xs text-[#8a7f72] mt-0.5">Para: {caseData.nombre}</p>
+                  <p className="text-[#0b1f3a] font-semibold text-sm capitalize">{String(caseData.tipo_documento)}</p>
+                  {!!caseData.nombre && <p className="text-xs text-[#8a7f72] mt-0.5">Para: {String(caseData.nombre)}</p>}
                 </div>
               )}
 
@@ -649,7 +613,7 @@ export default function Home() {
                   Volver ({creditsLeft} consultas gratis restantes)
                 </button>
               )}
-              {caseData.ready && (
+              {!!caseData.ready && (
                 <button onClick={() => setShowPaywall(false)}
                   className="w-full text-center text-xs text-[#9a9185] hover:text-[#555] py-1 transition">
                   Cancelar

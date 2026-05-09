@@ -1,18 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT, MOCK_FALLBACK_RESPONSE } from '@/lib/prompts';
 
-interface CaseData {
-  response_message: string;
-  materia: string | null;
-  nombre: string | null;
-  rut: string | null;
-  direccion: string | null;
-  destinatario: string | null;
-  hechos: string | null;
-  ley_citada: string | null;
-  ready: boolean;
-  campos_faltantes: string[];
-}
+// Dynamic — DeepSeek decides which fields to collect per document type
+type CaseData = Record<string, unknown>;
 
 // ─── JSON extraction with brace balancing ────────────────────────────────────
 function extractJSON(text: string): CaseData | null {
@@ -28,118 +18,59 @@ function extractJSON(text: string): CaseData | null {
   try { return JSON.parse(text.slice(start, end + 1)); } catch { return null; }
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-const capitalize = (s: string) =>
-  s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-
-// Detect what field we're currently waiting for based on current state
-function pendingField(data: Partial<CaseData>): string | null {
-  if (!data.nombre)       return 'nombre';
-  if (!data.rut)          return 'rut';
-  if (!data.direccion)    return 'direccion';
-  if (!data.destinatario) return 'destinatario';
-  if (!data.hechos)       return 'hechos';
-  return null;
-}
-
-// ─── Detect if a message is a situation description vs a direct answer ────────
-function isDescription(msg: string): boolean {
-  // Long messages or messages with sentence verbs are descriptions, not answers
-  if (msg.length > 40) return true;
-  if (/\b(necesito|quiero|tengo|debo|para|porque|ya que|me|mis|hay|es que|quisiera|busco)\b/i.test(msg)) return true;
-  return false;
-}
-
-function detectMateria(msg: string): string | null {
+// ─── Smart mock (used when no API key) ───────────────────────────────────────
+function detectTipo(msg: string): string | null {
   const m = msg.toLowerCase();
-  if (/licencia|conducir|manejar/.test(m))         return 'Licencia de conducir';
-  if (/finiquito|despido|laboral/.test(m))          return 'Laboral';
-  if (/\btag\b|multa|autopista/.test(m))            return 'Prescripción TAG';
-  if (/sernac|reclamo|consumidor/.test(m))          return 'Reclamo SERNAC';
-  if (/arrend/.test(m))                             return 'Arrendamiento';
-  if (/pension|alimento/.test(m))                   return 'Pensión de alimentos';
+  if (/arrend/.test(m))                   return 'contrato de arriendo';
+  if (/finiquito|despido|laboral/.test(m)) return 'finiquito laboral';
+  if (/\btag\b|multa|autopista/.test(m))  return 'prescripción TAG';
+  if (/sernac|reclamo|consumidor/.test(m)) return 'carta reclamo SERNAC';
+  if (/pension|alimento/.test(m))          return 'demanda de alimentos';
+  if (/poder|autoriza/.test(m))            return 'poder simple';
+  if (/proteccion|recurso/.test(m))        return 'recurso de protección';
+  if (/desalojo|lanzamiento/.test(m))      return 'demanda de desalojo';
   return null;
 }
 
-// ─── Smart mock ──────────────────────────────────────────────────────────────
-function smartMock(message: string, current: Partial<CaseData>): CaseData {
-  const updated: Partial<CaseData> = { ...current };
-  const firstChar = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+function smartMock(message: string, current: CaseData): CaseData {
+  const updated: CaseData = { ...current };
 
-  // Always try to detect materia
-  if (!updated.materia) updated.materia = detectMateria(message);
-
-  // ── STATE MACHINE ──────────────────────────────────────────────────────────
-  // We look at what's currently missing and decide what this message answers.
-
-  if (!updated.nombre) {
-    // Expecting: nombre  OR  initial description
-    if (isDescription(message)) {
-      // It's the opening description — save as hechos, ask for nombre
-      if (!updated.hechos) updated.hechos = firstChar(message);
-      // nombre stays null → will ask for it below
-    } else {
-      // Direct answer → it's the name
-      updated.nombre = capitalize(message.trim());
-    }
-
-  } else if (!updated.rut) {
-    // Expecting: RUT — accept ANYTHING the user types, no format enforcement
-    updated.rut = message.trim().toUpperCase();
-
-  } else if (!updated.direccion) {
-    // Expecting: address
-    updated.direccion = firstChar(message.trim());
-
-  } else if (!updated.destinatario) {
-    // Expecting: destinatario
-    updated.destinatario = firstChar(message.trim());
-
-  } else if (!updated.hechos) {
-    // Expecting: hechos (rare, usually set from first message)
-    updated.hechos = firstChar(message.trim());
+  if (!updated.tipo_documento) {
+    updated.tipo_documento = detectTipo(message);
   }
 
-  // ── Explicit overrides for packed messages ("soy Juan, RUT 1234, vivo en X")
-  const explicitName = message.match(/(?:me llamo|soy|mi nombre es)\s+([A-Za-záéíóúüñÁÉÍÓÚÜÑ ]{3,40})/i);
-  if (explicitName && !updated.nombre) updated.nombre = capitalize(explicitName[1].trim());
+  const isDescription = message.length > 50
+    || /\b(necesito|quiero|tengo|debo|para|porque|me |mis |hay |quisiera|busco)\b/i.test(message);
 
-  const explicitRut = message.match(/\b\d{7,8}[-–]\d[kK]?\b/);
-  if (explicitRut && !updated.rut) updated.rut = explicitRut[0].toUpperCase();
+  if (!updated.nombre && !isDescription) {
+    updated.nombre = message.trim();
+  } else if (!updated.rut && /\d{6,}/.test(message)) {
+    updated.rut = message.trim();
+  } else if (!updated.nombre && isDescription && !updated.contexto) {
+    updated.contexto = message.trim();
+  } else if (updated.nombre && updated.rut && !updated.direccion) {
+    updated.direccion = message.trim();
+  }
 
-  const explicitAddr = message.match(/(?:vivo en|domicilio[: ]+|dirección[: ]+)\s*(.{5,60})/i);
-  if (explicitAddr && !updated.direccion) updated.direccion = firstChar(explicitAddr[1].trim());
+  const nombre = updated.nombre as string | undefined;
+  const first = nombre?.split(' ')[0] ?? '';
 
-  // ── Build response ──────────────────────────────────────────────────────────
-  const missing: string[] = [];
-  if (!updated.nombre)       missing.push('nombre');
-  if (!updated.rut)          missing.push('rut');
-  if (!updated.direccion)    missing.push('direccion');
-  if (!updated.destinatario) missing.push('destinatario');
-  if (!updated.hechos)       missing.push('hechos');
+  const nextQ = !updated.tipo_documento
+    ? '¿Qué tipo de documento necesitás redactar?'
+    : !updated.nombre
+      ? '¿Cuál es tu nombre completo?'
+      : !updated.rut
+        ? `${first}, ¿cuál es tu RUT?`
+        : !updated.direccion
+          ? '¿Cuál es tu domicilio?'
+          : `¡Perfecto, ${first}! Tengo todo lo necesario. Tu documento está listo para generarse.`;
 
-  const first = updated.nombre?.split(' ')[0] ?? '';
-
-  const nextQuestion = (() => {
-    if (!updated.nombre)       return '¿Cuál es tu nombre completo?';
-    if (!updated.rut)          return `${first}, ¿cuál es tu RUT?`;
-    if (!updated.direccion)    return `Perfecto. ¿Cuál es tu dirección de domicilio?`;
-    if (!updated.destinatario) return '¿A quién va dirigido el escrito? (institución, empresa o persona)';
-    if (!updated.hechos)       return 'Contame brevemente los hechos de tu situación.';
-    return `¡Listo, ${first}! Tengo todo lo necesario. Tu documento está listo para descargar.`;
-  })();
+  const ready = !!(updated.nombre && updated.rut && updated.direccion);
 
   return {
-    response_message:    nextQuestion,
-    materia:             updated.materia      ?? null,
-    nombre:              updated.nombre       ?? null,
-    rut:                 updated.rut          ?? null,
-    direccion:           updated.direccion    ?? null,
-    destinatario:        updated.destinatario ?? null,
-    hechos:              updated.hechos       ?? null,
-    ley_citada:          updated.ley_citada   ?? null,
-    ready:               missing.length === 0,
-    campos_faltantes:    missing,
+    ...updated,
+    response_message: nextQ,
+    ready,
   };
 }
 
@@ -187,6 +118,7 @@ export async function POST(req: NextRequest) {
     let responseText = await callDeepSeek(messages);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
+    // Retry up to 2 times if JSON parse fails
     for (let i = 0; i < 2 && !jsonData; i++) {
       responseText = await callDeepSeek([
         ...messages,
