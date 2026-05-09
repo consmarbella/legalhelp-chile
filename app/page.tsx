@@ -286,9 +286,8 @@ export default function Home() {
       {/* NAV */}
       <nav className="bg-[#0b1f3a] border-b border-[#c9a84c]/30">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-[#c9a84c] font-bold text-xl tracking-tight">⚖ Legalhelp</span>
-            <span className="hidden sm:inline text-[#c9a84c]/50 text-xs ml-1 uppercase tracking-widest font-light" style={{ fontFamily: 'sans-serif' }}>Chile</span>
+          <div className="flex items-center">
+            <img src="/logo.webp" alt="Legalhelp" className="h-10 w-auto" />
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
             <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
@@ -578,9 +577,8 @@ export default function Home() {
 
             {/* Header */}
             <div className="bg-[#0b1f3a] px-6 py-5">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-[#c9a84c] text-xl">⚖</span>
-                <span className="text-white font-bold text-lg" style={{ fontFamily: 'sans-serif' }}>Legalhelp</span>
+              <div className="mb-1">
+                <img src="/logo.webp" alt="Legalhelp" className="h-8 w-auto" />
               </div>
               {caseData.ready ? (
                 <p className="text-[#a8b8cc] text-sm" style={{ fontFamily: 'sans-serif' }}>
