@@ -10,8 +10,8 @@ const isSandbox   = accessToken.startsWith('TEST-');
 const mp = new MercadoPagoConfig({ accessToken });
 
 const PLANS = {
-  single:  { label: 'Documento legal único – Legalhelp', amount: 10000 },
-  monthly: { label: 'Plan mensual ilimitado – Legalhelp', amount: 19990 },
+  single:  { label: 'Documento legal - Legalhelp', amount: 10000 },
+  monthly: { label: 'Plan mensual - Legalhelp', amount: 19990 },
 } as const;
 
 export async function POST(req: NextRequest) {
@@ -51,9 +51,15 @@ export async function POST(req: NextRequest) {
           failure: `${base}/pago/error?orderId=${orderId}`,
           pending: `${base}/pago/pendiente?orderId=${orderId}`,
         },
-        auto_return: 'approved',              // redirige automáticamente si pago OK
+        auto_return: 'approved',
         notification_url: `${base}/api/payment/webhook`,
         statement_descriptor: 'Legalhelp',
+        payment_methods: {
+          installments: 1,             // 1 cuota = compatible con débito y crédito
+          default_installments: 1,
+          excluded_payment_methods: [],
+          excluded_payment_types: [],
+        },
       },
     });
 
