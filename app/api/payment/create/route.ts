@@ -51,6 +51,7 @@ export async function POST(req: NextRequest) {
           failure: `${base}/pago/error?orderId=${orderId}`,
           pending: `${base}/pago/pendiente?orderId=${orderId}`,
         },
+        binary_mode: true,
         auto_return: 'approved',
         notification_url: `${base}/api/payment/webhook`,
         statement_descriptor: 'Legalhelp',
