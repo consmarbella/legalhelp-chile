@@ -161,13 +161,13 @@ export default function Home() {
     }
   }, [caseData.ready]);
 
-  // After payment confirmed: generate
+  // After payment confirmed: generate (se dispara cuando paid o caseData.ready cambian)
   useEffect(() => {
     if (paid && caseData.ready && !generatedDoc && !generating) {
       handleGenerate();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseData.ready]);
+  }, [paid, caseData.ready]);
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -226,17 +226,26 @@ export default function Home() {
     if (typeof window === 'undefined') return;
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('paid') === '1') {
-      const stored = sessionStorage.getItem('lh_paid_order');
-      if (stored) {
-        try {
+      const stored     = sessionStorage.getItem('lh_paid_order');
+      const storedCase = sessionStorage.getItem('lh_case_data');
+      const storedMsgs = sessionStorage.getItem('lh_messages');
+      try {
+        // Restaurar datos del caso para poder generar el documento
+        if (storedCase) {
+          const restoredCase = JSON.parse(storedCase);
+          setCaseData(restoredCase);
+        }
+        if (storedMsgs) {
+          setMessages(JSON.parse(storedMsgs));
+        }
+        if (stored) {
           const { plan } = JSON.parse(stored);
           setPaid(true);
           if (plan === 'monthly') setCreditsLeft(999);
-          setShowPaywall(false);
-          // Limpiar URL sin recargar
-          window.history.replaceState({}, '', '/');
-        } catch { /* ignore */ }
-      }
+        }
+        setShowPaywall(false);
+        window.history.replaceState({}, '', '/');
+      } catch { /* ignore */ }
     }
   }, []);
 
@@ -257,9 +266,9 @@ export default function Home() {
       const data = await res.json();
 
       if (data.checkoutUrl) {
-        // Guardar datos del caso en sessionStorage antes de redirigir
+        // Guardar caso y mensajes antes de salir a MercadoPago
         sessionStorage.setItem('lh_case_data', JSON.stringify(caseData));
-        // Redirigir a MercadoPago checkout
+        sessionStorage.setItem('lh_messages',  JSON.stringify(messages));
         window.location.href = data.checkoutUrl;
       } else {
         console.error('No checkoutUrl:', data);
