@@ -54,8 +54,6 @@ export async function POST(req: NextRequest) {
         auto_return: 'approved',              // redirige automáticamente si pago OK
         notification_url: `${base}/api/payment/webhook`,
         statement_descriptor: 'Legalhelp',
-        expires: true,
-        expiration_date_to: new Date(Date.now() + 30 * 60 * 1000).toISOString(), // expira en 30 min
       },
     });
 
