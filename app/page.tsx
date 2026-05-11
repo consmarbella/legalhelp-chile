@@ -596,6 +596,7 @@ export default function Home() {
           {['🔒 SSL Certificado','🇨🇱 Válido en todo Chile','⚖ Marco legal actualizado 2026'].map(t => (
             <span key={t}>{t}</span>
           ))}
+          <span>📧 contacto@legalhelp.cl</span>
         </div>
       </footer>
 
