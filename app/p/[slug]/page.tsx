@@ -9,13 +9,26 @@ export async function generateStaticParams() {
   return paginas.map((p) => ({ slug: p.slug }));
 }
 
+const BASE_URL = 'https://legalhelp.cl';
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return {};
   return {
     title: `${data.categoria} en ${data.variable} | LegalHelp Chile`,
-    description: `Redactá tu ${data.categoria.toLowerCase()} en ${data.variable} en minutos. Documento legal válido, redactado por IA con base en la ${data.ley}. ${data.entidad}.`,
+    description: `${data.categoria} en ${data.variable}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad}.`,
+    alternates: {
+      canonical: `${BASE_URL}/p/${slug}`,
+    },
+    openGraph: {
+      title: `${data.categoria} en ${data.variable} | LegalHelp Chile`,
+      description: `${data.categoria} en ${data.variable} — documento listo en minutos. Válido ante ${data.entidad}.`,
+      url: `${BASE_URL}/p/${slug}`,
+      siteName: 'LegalHelp Chile',
+      locale: 'es_CL',
+      type: 'website',
+    },
   };
 }
 
