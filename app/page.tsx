@@ -132,23 +132,12 @@ export default function Home() {
   const [input, setInput]               = useState('');
   const [loading, setLoading]           = useState(false);
   const [selectedDoc, setSelectedDoc]   = useState<string | null>(null);
-  const [creditsLeft, setCreditsLeft]   = useState<number>(() => {
-    if (typeof window === 'undefined') return 5;
-    return parseInt(localStorage.getItem('lh_credits') ?? '5', 10);
-  });
   const [generatedDoc, setGeneratedDoc] = useState<string | null>(null);
   const [generating, setGenerating]     = useState(false);
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // Persist credits to localStorage
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('lh_credits', String(creditsLeft));
-    }
-  }, [creditsLeft]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -173,19 +162,10 @@ export default function Home() {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
-    // Credits gate: if no credits and not paid, show paywall
-    if (creditsLeft <= 0 && !paid) {
-      setShowPaywall(true);
-      return;
-    }
-
     const text = input.trim();
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: text }]);
     setLoading(true);
-
-    // Decrement credits only for unpaid users
-    if (!paid) setCreditsLeft(prev => Math.max(0, prev - 1));
 
     try {
       const res = await fetch('/api/chat', {
@@ -239,9 +219,7 @@ export default function Home() {
           setMessages(JSON.parse(storedMsgs));
         }
         if (stored) {
-          const { plan } = JSON.parse(stored);
           setPaid(true);
-          if (plan === 'monthly') setCreditsLeft(999);
         }
         setShowPaywall(false);
         window.history.replaceState({}, '', '/');
@@ -340,7 +318,7 @@ export default function Home() {
             Documentos listos para presentar.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-xs" style={{ fontFamily: 'sans-serif' }}>
-            {[`🎁 ${creditsLeft > 0 && !paid ? `${creditsLeft} consultas gratis restantes` : paid ? 'Plan activo' : 'Activá tu plan'}`,
+            {[paid ? '✅ Plan activo' : '🎁 Consulta gratis · pagás solo el documento',
               '🔒 Datos cifrados','📋 Formato judicial chileno'].map(b => (
               <span key={b} className="bg-white/5 border border-white/10 text-[#a8b8cc] px-3 py-1.5 rounded-full">{b}</span>
             ))}
@@ -382,9 +360,7 @@ export default function Home() {
                   <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
                     {paid
                       ? 'Plan activo · documentos ilimitados'
-                      : creditsLeft > 0
-                        ? `En línea · ${creditsLeft} consulta${creditsLeft !== 1 ? 's' : ''} gratis restante${creditsLeft !== 1 ? 's' : ''}`
-                        : 'Límite alcanzado · activá tu plan'}
+                      : 'En línea · consulta gratis, pagás solo el documento'}
                   </span>
                 </div>
               </div>
@@ -686,11 +662,11 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Credits info or close */}
-              {creditsLeft > 0 && !caseData.ready && (
+              {/* Back button — only show if not ready (user opened paywall manually) */}
+              {!caseData.ready && (
                 <button onClick={() => setShowPaywall(false)}
                   className="w-full text-center text-xs text-[#9a9185] hover:text-[#555] py-1 transition">
-                  Volver ({creditsLeft} consultas gratis restantes)
+                  Volver · la consulta es gratis
                 </button>
               )}
               {!!caseData.ready && (
