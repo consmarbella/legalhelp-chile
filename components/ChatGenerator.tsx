@@ -110,6 +110,9 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [contextSent, setContextSent]   = useState(false);
+  // Contador de mensajes del usuario (no persistido — se resetea al recargar)
+  const [msgCount, setMsgCount]         = useState(0);
+  const FREE_MSGS = 3; // paywall al 4to mensaje
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
@@ -143,9 +146,11 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
       const storedCase = sessionStorage.getItem('lh_case_data');
       const storedMsgs = sessionStorage.getItem('lh_messages');
       try {
-        if (storedCase) setCaseData({ ...JSON.parse(storedCase), ready: true });
+        // Restaurar el estado real — NO forzar ready:true
+        // Si estaba listo al pagar → ready queda true → handleGenerate dispara solo
+        // Si no estaba listo → sigue la conversación con paid=true hasta que ready:true
+        if (storedCase) setCaseData(JSON.parse(storedCase));
         if (storedMsgs) setMessages(JSON.parse(storedMsgs));
-        // plan stored for future reference
         setPaid(true);
         setShowPaywall(false);
         window.history.replaceState({}, '', window.location.pathname);
@@ -176,8 +181,16 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
+
+    // Paywall al 4to mensaje del usuario (o cuando ready:true, lo que ocurra primero)
+    if (!paid && msgCount >= FREE_MSGS) {
+      setShowPaywall(true);
+      return;
+    }
+
     const text = input.trim();
     setInput('');
+    setMsgCount(prev => prev + 1);
     await sendMessage(text);
   };
 
@@ -235,8 +248,11 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
-                  {paid ? 'Plan activo · documentos ilimitados'
-                        : 'En línea · consulta gratis, pagás solo el documento'}
+                  {paid
+                    ? 'Plan activo · documentos ilimitados'
+                    : msgCount < FREE_MSGS
+                      ? `En línea · ${FREE_MSGS - msgCount} pregunta${FREE_MSGS - msgCount !== 1 ? 's' : ''} gratis restante${FREE_MSGS - msgCount !== 1 ? 's' : ''}`
+                      : 'Activá tu plan para continuar'}
                 </span>
               </div>
             </div>
@@ -433,10 +449,11 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
                   Redirigiendo a MercadoPago...
                 </div>
               )}
-              {!caseData.ready && (
+              {/* Volver solo si aún tiene preguntas gratis (antes del gate) */}
+              {!caseData.ready && msgCount < FREE_MSGS && (
                 <button onClick={() => setShowPaywall(false)}
                   className="w-full text-center text-xs text-[#9a9185] hover:text-[#555] py-1 transition">
-                  Volver · la consulta es gratis
+                  Volver
                 </button>
               )}
             </div>
