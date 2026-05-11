@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!data) return {};
   return {
     title: `${data.categoria} en ${data.variable} | LegalHelp Chile`,
-    description: `${data.categoria} en ${data.variable}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad}.`,
+    description: `${data.categoria} en ${data.variable}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`,
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
@@ -39,8 +39,56 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
   const initialContext = `${data.categoria} en ${data.variable}`;
 
+  // Same-category pages for internal linking
+  const relacionadas = paginas.filter(
+    (p) => p.categoria === data.categoria && p.slug !== data.slug
+  );
+
   return (
     <div className="min-h-screen bg-[#f5f3ef]" style={{ fontFamily: 'sans-serif' }}>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "LegalHelp Chile", item: BASE_URL },
+              { "@type": "ListItem", position: 2, name: data.categoria, item: `${BASE_URL}/#${data.categoria}` },
+              { "@type": "ListItem", position: 3, name: data.variable, item: `${BASE_URL}/p/${slug}` },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LegalService",
+            name: `${data.categoria} en ${data.variable}`,
+            description: `Servicio de generación de documentos legales para ${data.categoria.toLowerCase()} en ${data.variable}, Chile.`,
+            provider: {
+              "@type": "Organization",
+              name: "LegalHelp Chile",
+              url: BASE_URL,
+            },
+            areaServed: {
+              "@type": "City",
+              name: data.variable,
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "CL",
+              },
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: `${BASE_URL}/p/${slug}`,
+            },
+          }),
+        }}
+      />
 
       {/* NAV */}
       <nav className="bg-[#0b1f3a] px-6 py-3 flex items-center justify-between">
@@ -59,8 +107,9 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           {data.entidad}
         </p>
         <p className="text-[#a8bdd4] text-sm max-w-xl mx-auto">
-          Describí tu caso y en minutos tenés tu documento listo para presentar.
-          Válido según la {data.ley}.
+          Si necesitás {data.categoria.toLowerCase()} en {data.variable}, presentá tu solicitud ante {data.entidad} ubicado en {data.direccion}.
+          {' '}Tenés un plazo de {data.plazo.toLowerCase()} según la {data.ley}.
+          {' '}Describí tu caso y en minutos tenés tu documento listo para presentar.
         </p>
 
         {/* PILLS */}
@@ -113,6 +162,28 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           </div>
         </div>
       </div>
+
+      {/* RELATED CITIES */}
+      {relacionadas.length > 0 && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">
+              {data.categoria} en otras ciudades
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {relacionadas.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/p/${r.slug}`}
+                  className="text-xs text-[#0b1f3a] bg-[#f5f3ef] hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full transition-colors"
+                >
+                  {r.variable}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-6">

@@ -279,6 +279,30 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f5f3ef]" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+      <link rel="canonical" href="https://legalhelp.cl" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            url: "https://legalhelp.cl",
+            name: "LegalHelp Chile",
+            description:
+              "Documentos legales con inteligencia artificial para Chile",
+            inLanguage: "es-CL",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate:
+                  "https://legalhelp.cl/p/{search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
 
       {/* NAV */}
       <nav className="bg-[#0b1f3a] border-b border-[#c9a84c]/30">
