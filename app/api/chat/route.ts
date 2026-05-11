@@ -78,14 +78,24 @@ async function callDeepSeek(messages: { role: string; content: string }[]): Prom
         model: 'deepseek-chat',
         messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
         temperature: 0.2,
-        max_tokens: 512,
+        max_tokens: 1024,  // aumentado: el JSON acumulado puede tener muchos campos
       }),
     });
-    if (!res.ok) { console.error('DeepSeek error:', res.status); return null; }
+    if (!res.ok) {
+      const errBody = await res.text().catch(() => '');
+      console.error(`[chat] DeepSeek HTTP ${res.status}:`, errBody.slice(0, 200));
+      return null;
+    }
     const data = await res.json();
-    return data.choices?.[0]?.message?.content ?? null;
+    const content: string | null = data.choices?.[0]?.message?.content ?? null;
+    const finishReason: string = data.choices?.[0]?.finish_reason ?? 'unknown';
+    if (finishReason === 'length') {
+      console.warn('[chat] DeepSeek finish_reason=length — JSON truncado, aumentar max_tokens');
+    }
+    console.log(`[chat] DeepSeek OK finish=${finishReason} tokens=${data.usage?.completion_tokens ?? '?'}`);
+    return content;
   } catch (err) {
-    console.error('DeepSeek fetch error:', err);
+    console.error('[chat] DeepSeek fetch error:', err);
     return null;
   }
 }
@@ -100,7 +110,10 @@ export async function POST(req: NextRequest) {
     }
 
     const useMock = !process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_API_KEY === 'mock';
-    if (useMock) return NextResponse.json(smartMock(message, currentCaseData ?? {}));
+    if (useMock) {
+      console.warn('[chat] USANDO MOCK — DEEPSEEK_API_KEY no configurada o es "mock"');
+      return NextResponse.json(smartMock(message, currentCaseData ?? {}));
+    }
 
     const messages = [...(caseHistory ?? []), { role: 'user', content: message }];
     let responseText = await callDeepSeek(messages);
@@ -116,6 +129,9 @@ export async function POST(req: NextRequest) {
       jsonData = responseText ? extractJSON(responseText) : null;
     }
 
+    if (!jsonData) {
+      console.error('[chat] DeepSeek no devolvió JSON válido después de reintentos — usando mock');
+    }
     // Merge: previous accumulated data + new output from DeepSeek
     // This ensures fields collected in earlier turns are never lost even if
     // DeepSeek omits them while still asking follow-up questions.
