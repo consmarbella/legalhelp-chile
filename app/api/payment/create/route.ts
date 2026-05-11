@@ -34,6 +34,12 @@ export async function POST(req: NextRequest) {
     // Precio: usa el del documento si es pago único y viene definido
     const amount = plan === 'single' && docPrice ? docPrice : PLANS[plan].amount;
 
+    // Si el usuario proporcionó su e-mail en el chat, pasárselo a MP
+    // → el campo llega validado y el botón "Pagar" arranca en azul (no gris)
+    const payerEmail = typeof caseData.email === 'string' && caseData.email.includes('@')
+      ? caseData.email
+      : undefined;
+
     const preference = await new Preference(mp).create({
       body: {
         external_reference: orderId,          // lo usamos para recuperar la orden en el webhook
@@ -46,6 +52,7 @@ export async function POST(req: NextRequest) {
             currency_id: 'CLP',
           },
         ],
+        ...(payerEmail ? { payer: { email: payerEmail } } : {}),
         back_urls: {
           success: `${base}/pago/exito?orderId=${orderId}`,
           failure: `${base}/pago/error?orderId=${orderId}`,
@@ -58,8 +65,6 @@ export async function POST(req: NextRequest) {
         payment_methods: {
           installments: 1,             // 1 cuota = compatible con débito y crédito
           default_installments: 1,
-          excluded_payment_methods: [],
-          excluded_payment_types: [],
         },
       },
     });
