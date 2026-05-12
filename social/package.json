@@ -1,15 +1,13 @@
 {
   "name": "legalhelp-social",
-  "version": "1.0.0",
-  "description": "Automatización de redes sociales para LegalHelp Chile",
+  "version": "2.0.0",
+  "description": "Generador y publicador automatico de contenido para redes sociales - LegalHelp Chile",
   "type": "module",
   "scripts": {
-    "post": "node src/index.js",
-    "post:twitter": "node src/clients/twitter.js",
-    "post:facebook": "node src/clients/facebook.js",
-    "post:tiktok": "node src/clients/tiktok.js",
     "generate": "node src/generate.js",
-    "scheduler": "node src/scheduler.js"
+    "post:twitter": "node src/clients/twitter.js",
+    "schedule": "node src/scheduler.js",
+    "all": "node src/generate.js --all"
   },
   "dependencies": {
     "twitter-api-v2": "^1.16.0",
