@@ -1,0 +1,42 @@
+{
+  "id": "2026-05-12-tag-1",
+  "fecha": "2026-05-12",
+  "plataforma": "Instagram",
+  "formato": "Carrusel (3-5 slides)",
+  "tema": "¿Sabías que las deudas TAG prescriben?",
+  "caption": "⚠️ ¿Deuda TAG sin pagar hace más de 3 años?\n\nLas deudas TAG prescriben a los 3 años según el Art. 2515 del Código Civil. Si no te han notificado judicialmente, podrías estar libre de esa deuda.\n\n👇 Dale like si te sirvio\n💬 Comenta si tenes dudas\n🔔 Seguinos para mas contenido legal\n\nRevisá tu caso gratis → legalhelp.cl\n\n#LegalHelpChile #PrescripciónTAG #DerechoChileno #Chile",
+  "slides": [
+    {
+      "slide": 1,
+      "tipo": "Portada",
+      "texto": "\"⚠️ ¿Deuda TAG sin pagar hace más de 3 años?\"",
+      "diseno": "Fondo oscuro, texto grande dorado, logo LegalHelp arriba"
+    },
+    {
+      "slide": 2,
+      "tipo": "Contenido",
+      "texto": "Las deudas TAG prescriben a los 3 años según el Art. 2515 del Código Civil. Si no te han notificado judicialmente, podrías estar libre de esa deuda.",
+      "diseno": "Bullet points con iconos de ley, fondo blanco"
+    },
+    {
+      "slide": 3,
+      "tipo": "Dato legal",
+      "texto": "Base legal: referencias a la ley",
+      "diseno": "Estilo documento judicial"
+    },
+    {
+      "slide": 4,
+      "tipo": "Beneficio",
+      "texto": "Documento listo en minutos, sin abogado caro",
+      "diseno": "Checklist visual"
+    },
+    {
+      "slide": 5,
+      "tipo": "CTA",
+      "texto": "Revisá tu caso gratis → legalhelp.cl",
+      "diseno": "Fondo dorado, texto oscuro, boton de accion"
+    }
+  ],
+  "hashtags": "#LegalHelpChile #PrescripciónTAG #DerechoChileno #Chile #Abogados",
+  "mejor_horario": "12:00 - 14:00 hrs (lun-vie)"
+}
