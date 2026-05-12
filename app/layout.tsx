@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     default: "LegalHelp Chile – Documentos legales con IA",
     template: "%s | LegalHelp Chile",
   },
+  verification: {
+    google: "REEMPLAZAR_CON_CODIGO_GSC",
+  },
   description:
     "Generá documentos legales válidos en Chile con IA. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más. Listo en minutos.",
   metadataBase: new URL("https://legalhelp.cl"),
