@@ -43,3 +43,9 @@ next-env.d.ts
 # claude internal
 .claude/
 dev.log
+
+# Credenciales
+social/.env
+scripts/.env
+social/session/
+
