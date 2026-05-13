@@ -332,14 +332,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
-            <a
-              href="https://wa.me/56967658939?text=Hola%20LegalHelp%2C%20quiero%20generar%20un%20documento"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] text-white text-xs px-4 py-2 rounded-full font-bold hover:bg-[#20ba5a] transition-colors"
-            >
-              📱 WhatsApp
-            </a>
+            <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
             <div className="w-px h-4 bg-[#c9a84c]/20" />
             <span className="text-[#c9a84c] text-xs font-semibold uppercase tracking-widest">Chile</span>
           </div>
@@ -363,16 +356,6 @@ export default function Home() {
               '🔒 Datos cifrados','📋 Formato judicial chileno'].map(b => (
               <span key={b} className="bg-white/5 border border-white/10 text-[#a8b8cc] px-3 py-1.5 rounded-full">{b}</span>
             ))}
-          </div>
-          <div className="mt-6">
-            <a
-              href="https://wa.me/56967658939?text=Hola%20LegalHelp%2C%20quiero%20generar%20un%20documento"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#25D366] text-white font-bold px-8 py-3 rounded-xl text-lg hover:bg-[#20ba5a] transition-colors shadow-lg"
-            >
-              💬 Cotizar por WhatsApp
-            </a>
           </div>
         </div>
       </div>
