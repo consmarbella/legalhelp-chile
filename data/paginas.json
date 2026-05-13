@@ -952,5 +952,1769 @@
     "plazo": "5 años sin notificación judicial",
     "entidad": "Juzgado de Letras en lo Civil de Colina",
     "direccion": "Av. Colina 1100, Colina"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-santiago",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Santiago",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Santiago",
+    "direccion": "Oficina del Registro Civil de Santiago, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-concepcion",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Concepción",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Concepción",
+    "direccion": "Oficina del Registro Civil de Concepción, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-valparaiso",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Valparaíso",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Valparaíso",
+    "direccion": "Oficina del Registro Civil de Valparaíso, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-vina-del-mar",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Viña del Mar",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Viña del Mar",
+    "direccion": "Oficina del Registro Civil de Viña del Mar, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-temuco",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Temuco",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Temuco",
+    "direccion": "Oficina del Registro Civil de Temuco, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-rancagua",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Rancagua",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Rancagua",
+    "direccion": "Oficina del Registro Civil de Rancagua, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-antofagasta",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Antofagasta",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Antofagasta",
+    "direccion": "Oficina del Registro Civil de Antofagasta, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-la-serena",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "La Serena",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de La Serena",
+    "direccion": "Oficina del Registro Civil de La Serena, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-puerto-montt",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Puerto Montt",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Puerto Montt",
+    "direccion": "Oficina del Registro Civil de Puerto Montt, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-iquique",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Iquique",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Iquique",
+    "direccion": "Oficina del Registro Civil de Iquique, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-arica",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Arica",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Arica",
+    "direccion": "Oficina del Registro Civil de Arica, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-talca",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Talca",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Talca",
+    "direccion": "Oficina del Registro Civil de Talca, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-chillan",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Chillán",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Chillán",
+    "direccion": "Oficina del Registro Civil de Chillán, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-copiapo",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Copiapó",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Copiapó",
+    "direccion": "Oficina del Registro Civil de Copiapó, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-punta-arenas",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Punta Arenas",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Punta Arenas",
+    "direccion": "Oficina del Registro Civil de Punta Arenas, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-los-angeles",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Los Ángeles",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Los Ángeles",
+    "direccion": "Oficina del Registro Civil de Los Ángeles, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-osorno",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Osorno",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Osorno",
+    "direccion": "Oficina del Registro Civil de Osorno, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-valdivia",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Valdivia",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Valdivia",
+    "direccion": "Oficina del Registro Civil de Valdivia, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-coquimbo",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Coquimbo",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Coquimbo",
+    "direccion": "Oficina del Registro Civil de Coquimbo, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-calama",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Calama",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Calama",
+    "direccion": "Oficina del Registro Civil de Calama, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-las-condes",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Las Condes",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Las Condes",
+    "direccion": "Oficina del Registro Civil de Las Condes, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-providencia",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Providencia",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Providencia",
+    "direccion": "Oficina del Registro Civil de Providencia, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-maipu",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Maipú",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Maipú",
+    "direccion": "Oficina del Registro Civil de Maipú, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-puente-alto",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Puente Alto",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Puente Alto",
+    "direccion": "Oficina del Registro Civil de Puente Alto, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-la-florida",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "La Florida",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de La Florida",
+    "direccion": "Oficina del Registro Civil de La Florida, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-san-bernardo",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "San Bernardo",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de San Bernardo",
+    "direccion": "Oficina del Registro Civil de San Bernardo, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-nunoa",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Ñuñoa",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Ñuñoa",
+    "direccion": "Oficina del Registro Civil de Ñuñoa, Chile"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-santiago-centro",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Santiago Centro",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Registro Civil e Identificación de Santiago Centro",
+    "direccion": "Oficina del Registro Civil de Santiago Centro, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-santiago",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Santiago",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Santiago",
+    "direccion": "Oficina del Registro Civil de Santiago, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-concepcion",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Concepción",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Concepción",
+    "direccion": "Oficina del Registro Civil de Concepción, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-valparaiso",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Valparaíso",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Valparaíso",
+    "direccion": "Oficina del Registro Civil de Valparaíso, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-vina-del-mar",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Viña del Mar",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Viña del Mar",
+    "direccion": "Oficina del Registro Civil de Viña del Mar, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-temuco",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Temuco",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Temuco",
+    "direccion": "Oficina del Registro Civil de Temuco, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-rancagua",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Rancagua",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Rancagua",
+    "direccion": "Oficina del Registro Civil de Rancagua, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-antofagasta",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Antofagasta",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Antofagasta",
+    "direccion": "Oficina del Registro Civil de Antofagasta, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-la-serena",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "La Serena",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de La Serena",
+    "direccion": "Oficina del Registro Civil de La Serena, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-puerto-montt",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Puerto Montt",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Puerto Montt",
+    "direccion": "Oficina del Registro Civil de Puerto Montt, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-iquique",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Iquique",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Iquique",
+    "direccion": "Oficina del Registro Civil de Iquique, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-arica",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Arica",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Arica",
+    "direccion": "Oficina del Registro Civil de Arica, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-talca",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Talca",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Talca",
+    "direccion": "Oficina del Registro Civil de Talca, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-chillan",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Chillán",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Chillán",
+    "direccion": "Oficina del Registro Civil de Chillán, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-copiapo",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Copiapó",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Copiapó",
+    "direccion": "Oficina del Registro Civil de Copiapó, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-punta-arenas",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Punta Arenas",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Punta Arenas",
+    "direccion": "Oficina del Registro Civil de Punta Arenas, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-los-angeles",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Los Ángeles",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Los Ángeles",
+    "direccion": "Oficina del Registro Civil de Los Ángeles, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-osorno",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Osorno",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Osorno",
+    "direccion": "Oficina del Registro Civil de Osorno, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-valdivia",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Valdivia",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Valdivia",
+    "direccion": "Oficina del Registro Civil de Valdivia, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-coquimbo",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Coquimbo",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Coquimbo",
+    "direccion": "Oficina del Registro Civil de Coquimbo, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-calama",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Calama",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Calama",
+    "direccion": "Oficina del Registro Civil de Calama, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-las-condes",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Las Condes",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Las Condes",
+    "direccion": "Oficina del Registro Civil de Las Condes, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-providencia",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Providencia",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Providencia",
+    "direccion": "Oficina del Registro Civil de Providencia, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-maipu",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Maipú",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Maipú",
+    "direccion": "Oficina del Registro Civil de Maipú, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-puente-alto",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Puente Alto",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Puente Alto",
+    "direccion": "Oficina del Registro Civil de Puente Alto, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-la-florida",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "La Florida",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de La Florida",
+    "direccion": "Oficina del Registro Civil de La Florida, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-san-bernardo",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "San Bernardo",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de San Bernardo",
+    "direccion": "Oficina del Registro Civil de San Bernardo, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-nunoa",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Ñuñoa",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Ñuñoa",
+    "direccion": "Oficina del Registro Civil de Ñuñoa, Chile"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-santiago-centro",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Santiago Centro",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Registro Civil e Identificación de Santiago Centro",
+    "direccion": "Oficina del Registro Civil de Santiago Centro, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Santiago",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Santiago",
+    "direccion": "Tribunal de Familia de Santiago, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-concepcion",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Concepción",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Concepción",
+    "direccion": "Tribunal de Familia de Concepción, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-valparaiso",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Valparaíso",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Valparaíso",
+    "direccion": "Tribunal de Familia de Valparaíso, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-vina-del-mar",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Viña del Mar",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Viña del Mar",
+    "direccion": "Tribunal de Familia de Viña del Mar, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-temuco",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Temuco",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Temuco",
+    "direccion": "Tribunal de Familia de Temuco, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-rancagua",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Rancagua",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Rancagua",
+    "direccion": "Tribunal de Familia de Rancagua, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-antofagasta",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Antofagasta",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Antofagasta",
+    "direccion": "Tribunal de Familia de Antofagasta, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-la-serena",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "La Serena",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de La Serena",
+    "direccion": "Tribunal de Familia de La Serena, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-puerto-montt",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Puerto Montt",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Puerto Montt",
+    "direccion": "Tribunal de Familia de Puerto Montt, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-iquique",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Iquique",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Iquique",
+    "direccion": "Tribunal de Familia de Iquique, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-arica",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Arica",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Arica",
+    "direccion": "Tribunal de Familia de Arica, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-talca",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Talca",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Talca",
+    "direccion": "Tribunal de Familia de Talca, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-chillan",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Chillán",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Chillán",
+    "direccion": "Tribunal de Familia de Chillán, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-copiapo",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Copiapó",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Copiapó",
+    "direccion": "Tribunal de Familia de Copiapó, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-punta-arenas",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Punta Arenas",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Punta Arenas",
+    "direccion": "Tribunal de Familia de Punta Arenas, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-los-angeles",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Los Ángeles",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Los Ángeles",
+    "direccion": "Tribunal de Familia de Los Ángeles, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-osorno",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Osorno",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Osorno",
+    "direccion": "Tribunal de Familia de Osorno, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-valdivia",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Valdivia",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Valdivia",
+    "direccion": "Tribunal de Familia de Valdivia, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-coquimbo",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Coquimbo",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Coquimbo",
+    "direccion": "Tribunal de Familia de Coquimbo, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-calama",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Calama",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Calama",
+    "direccion": "Tribunal de Familia de Calama, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-las-condes",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Las Condes",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Las Condes",
+    "direccion": "Tribunal de Familia de Las Condes, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-providencia",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Providencia",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Providencia",
+    "direccion": "Tribunal de Familia de Providencia, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-maipu",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Maipú",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Maipú",
+    "direccion": "Tribunal de Familia de Maipú, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-puente-alto",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Puente Alto",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Puente Alto",
+    "direccion": "Tribunal de Familia de Puente Alto, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-la-florida",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "La Florida",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de La Florida",
+    "direccion": "Tribunal de Familia de La Florida, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-san-bernardo",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "San Bernardo",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de San Bernardo",
+    "direccion": "Tribunal de Familia de San Bernardo, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-nunoa",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Ñuñoa",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Ñuñoa",
+    "direccion": "Tribunal de Familia de Ñuñoa, Chile"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago-centro",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Santiago Centro",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Juzgado de Familia de Santiago Centro",
+    "direccion": "Tribunal de Familia de Santiago Centro, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-santiago",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Santiago",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Santiago",
+    "direccion": "Juzgado de Policía Local de Santiago, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-concepcion",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Concepción",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Concepción",
+    "direccion": "Juzgado de Policía Local de Concepción, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-valparaiso",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Valparaíso",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Valparaíso",
+    "direccion": "Juzgado de Policía Local de Valparaíso, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-vina-del-mar",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Viña del Mar",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Viña del Mar",
+    "direccion": "Juzgado de Policía Local de Viña del Mar, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-temuco",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Temuco",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Temuco",
+    "direccion": "Juzgado de Policía Local de Temuco, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-rancagua",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Rancagua",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Rancagua",
+    "direccion": "Juzgado de Policía Local de Rancagua, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-antofagasta",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Antofagasta",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Antofagasta",
+    "direccion": "Juzgado de Policía Local de Antofagasta, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-la-serena",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "La Serena",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de La Serena",
+    "direccion": "Juzgado de Policía Local de La Serena, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-puerto-montt",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Puerto Montt",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Puerto Montt",
+    "direccion": "Juzgado de Policía Local de Puerto Montt, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-iquique",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Iquique",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Iquique",
+    "direccion": "Juzgado de Policía Local de Iquique, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-arica",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Arica",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Arica",
+    "direccion": "Juzgado de Policía Local de Arica, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-talca",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Talca",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Talca",
+    "direccion": "Juzgado de Policía Local de Talca, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-chillan",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Chillán",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Chillán",
+    "direccion": "Juzgado de Policía Local de Chillán, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-copiapo",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Copiapó",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Copiapó",
+    "direccion": "Juzgado de Policía Local de Copiapó, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-punta-arenas",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Punta Arenas",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Punta Arenas",
+    "direccion": "Juzgado de Policía Local de Punta Arenas, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-los-angeles",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Los Ángeles",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Los Ángeles",
+    "direccion": "Juzgado de Policía Local de Los Ángeles, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-osorno",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Osorno",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Osorno",
+    "direccion": "Juzgado de Policía Local de Osorno, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-valdivia",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Valdivia",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Valdivia",
+    "direccion": "Juzgado de Policía Local de Valdivia, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-coquimbo",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Coquimbo",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Coquimbo",
+    "direccion": "Juzgado de Policía Local de Coquimbo, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-calama",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Calama",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Calama",
+    "direccion": "Juzgado de Policía Local de Calama, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-las-condes",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Las Condes",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Las Condes",
+    "direccion": "Juzgado de Policía Local de Las Condes, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-providencia",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Providencia",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Providencia",
+    "direccion": "Juzgado de Policía Local de Providencia, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-maipu",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Maipú",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Maipú",
+    "direccion": "Juzgado de Policía Local de Maipú, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-puente-alto",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Puente Alto",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Puente Alto",
+    "direccion": "Juzgado de Policía Local de Puente Alto, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-la-florida",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "La Florida",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de La Florida",
+    "direccion": "Juzgado de Policía Local de La Florida, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-san-bernardo",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "San Bernardo",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de San Bernardo",
+    "direccion": "Juzgado de Policía Local de San Bernardo, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-nunoa",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Ñuñoa",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Ñuñoa",
+    "direccion": "Juzgado de Policía Local de Ñuñoa, Chile"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito-santiago-centro",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": "Santiago Centro",
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de Santiago Centro",
+    "direccion": "Juzgado de Policía Local de Santiago Centro, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Santiago",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Santiago",
+    "direccion": "Tribunal Civil de Santiago, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-concepcion",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Concepción",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Concepción",
+    "direccion": "Tribunal Civil de Concepción, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-valparaiso",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Valparaíso",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
+    "direccion": "Tribunal Civil de Valparaíso, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-vina-del-mar",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Viña del Mar",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
+    "direccion": "Tribunal Civil de Viña del Mar, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-temuco",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Temuco",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Temuco",
+    "direccion": "Tribunal Civil de Temuco, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-rancagua",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Rancagua",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
+    "direccion": "Tribunal Civil de Rancagua, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-antofagasta",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Antofagasta",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
+    "direccion": "Tribunal Civil de Antofagasta, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-la-serena",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "La Serena",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de La Serena",
+    "direccion": "Tribunal Civil de La Serena, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-puerto-montt",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Puerto Montt",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
+    "direccion": "Tribunal Civil de Puerto Montt, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-iquique",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Iquique",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Iquique",
+    "direccion": "Tribunal Civil de Iquique, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-arica",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Arica",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Arica",
+    "direccion": "Tribunal Civil de Arica, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-talca",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Talca",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Talca",
+    "direccion": "Tribunal Civil de Talca, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-chillan",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Chillán",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Chillán",
+    "direccion": "Tribunal Civil de Chillán, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-copiapo",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Copiapó",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
+    "direccion": "Tribunal Civil de Copiapó, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-punta-arenas",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Punta Arenas",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
+    "direccion": "Tribunal Civil de Punta Arenas, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-los-angeles",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Los Ángeles",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Los Ángeles",
+    "direccion": "Tribunal Civil de Los Ángeles, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-osorno",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Osorno",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Osorno",
+    "direccion": "Tribunal Civil de Osorno, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-valdivia",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Valdivia",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Valdivia",
+    "direccion": "Tribunal Civil de Valdivia, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-coquimbo",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Coquimbo",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Coquimbo",
+    "direccion": "Tribunal Civil de Coquimbo, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-calama",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Calama",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Calama",
+    "direccion": "Tribunal Civil de Calama, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-las-condes",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Las Condes",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
+    "direccion": "Tribunal Civil de Las Condes, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-providencia",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Providencia",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Providencia",
+    "direccion": "Tribunal Civil de Providencia, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-maipu",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Maipú",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Maipú",
+    "direccion": "Tribunal Civil de Maipú, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-puente-alto",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Puente Alto",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
+    "direccion": "Tribunal Civil de Puente Alto, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-la-florida",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "La Florida",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de La Florida",
+    "direccion": "Tribunal Civil de La Florida, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-san-bernardo",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "San Bernardo",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
+    "direccion": "Tribunal Civil de San Bernardo, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-nunoa",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Ñuñoa",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Ñuñoa",
+    "direccion": "Tribunal Civil de Ñuñoa, Chile"
+  },
+  {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago-centro",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": "Santiago Centro",
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Juzgado de Letras en lo Civil de Santiago Centro",
+    "direccion": "Tribunal Civil de Santiago Centro, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-santiago",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Santiago",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Santiago",
+    "direccion": "Tribunal de Familia de Santiago, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-concepcion",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Concepción",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Concepción",
+    "direccion": "Tribunal de Familia de Concepción, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-valparaiso",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Valparaíso",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Valparaíso",
+    "direccion": "Tribunal de Familia de Valparaíso, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-vina-del-mar",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Viña del Mar",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Viña del Mar",
+    "direccion": "Tribunal de Familia de Viña del Mar, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-temuco",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Temuco",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Temuco",
+    "direccion": "Tribunal de Familia de Temuco, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-rancagua",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Rancagua",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Rancagua",
+    "direccion": "Tribunal de Familia de Rancagua, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-antofagasta",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Antofagasta",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Antofagasta",
+    "direccion": "Tribunal de Familia de Antofagasta, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-la-serena",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "La Serena",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de La Serena",
+    "direccion": "Tribunal de Familia de La Serena, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-puerto-montt",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Puerto Montt",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Puerto Montt",
+    "direccion": "Tribunal de Familia de Puerto Montt, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-iquique",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Iquique",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Iquique",
+    "direccion": "Tribunal de Familia de Iquique, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-arica",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Arica",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Arica",
+    "direccion": "Tribunal de Familia de Arica, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-talca",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Talca",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Talca",
+    "direccion": "Tribunal de Familia de Talca, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-chillan",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Chillán",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Chillán",
+    "direccion": "Tribunal de Familia de Chillán, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-copiapo",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Copiapó",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Copiapó",
+    "direccion": "Tribunal de Familia de Copiapó, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-punta-arenas",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Punta Arenas",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Punta Arenas",
+    "direccion": "Tribunal de Familia de Punta Arenas, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-los-angeles",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Los Ángeles",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Los Ángeles",
+    "direccion": "Tribunal de Familia de Los Ángeles, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-osorno",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Osorno",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Osorno",
+    "direccion": "Tribunal de Familia de Osorno, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-valdivia",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Valdivia",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Valdivia",
+    "direccion": "Tribunal de Familia de Valdivia, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-coquimbo",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Coquimbo",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Coquimbo",
+    "direccion": "Tribunal de Familia de Coquimbo, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-calama",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Calama",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Calama",
+    "direccion": "Tribunal de Familia de Calama, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-las-condes",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Las Condes",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Las Condes",
+    "direccion": "Tribunal de Familia de Las Condes, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-providencia",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Providencia",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Providencia",
+    "direccion": "Tribunal de Familia de Providencia, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-maipu",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Maipú",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Maipú",
+    "direccion": "Tribunal de Familia de Maipú, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-puente-alto",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Puente Alto",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Puente Alto",
+    "direccion": "Tribunal de Familia de Puente Alto, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-la-florida",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "La Florida",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de La Florida",
+    "direccion": "Tribunal de Familia de La Florida, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-san-bernardo",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "San Bernardo",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de San Bernardo",
+    "direccion": "Tribunal de Familia de San Bernardo, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-nunoa",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Ñuñoa",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Ñuñoa",
+    "direccion": "Tribunal de Familia de Ñuñoa, Chile"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-santiago-centro",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": "Santiago Centro",
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Juzgado de Familia de Santiago Centro",
+    "direccion": "Tribunal de Familia de Santiago Centro, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-santiago",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Santiago",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Santiago",
+    "direccion": "Oficina del Registro Civil de Santiago, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-concepcion",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Concepción",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Concepción",
+    "direccion": "Oficina del Registro Civil de Concepción, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-valparaiso",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Valparaíso",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Valparaíso",
+    "direccion": "Oficina del Registro Civil de Valparaíso, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-vina-del-mar",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Viña del Mar",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Viña del Mar",
+    "direccion": "Oficina del Registro Civil de Viña del Mar, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-temuco",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Temuco",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Temuco",
+    "direccion": "Oficina del Registro Civil de Temuco, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-rancagua",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Rancagua",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Rancagua",
+    "direccion": "Oficina del Registro Civil de Rancagua, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-antofagasta",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Antofagasta",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Antofagasta",
+    "direccion": "Oficina del Registro Civil de Antofagasta, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-la-serena",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "La Serena",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de La Serena",
+    "direccion": "Oficina del Registro Civil de La Serena, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-puerto-montt",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Puerto Montt",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Puerto Montt",
+    "direccion": "Oficina del Registro Civil de Puerto Montt, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-iquique",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Iquique",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Iquique",
+    "direccion": "Oficina del Registro Civil de Iquique, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-arica",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Arica",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Arica",
+    "direccion": "Oficina del Registro Civil de Arica, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-talca",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Talca",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Talca",
+    "direccion": "Oficina del Registro Civil de Talca, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-chillan",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Chillán",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Chillán",
+    "direccion": "Oficina del Registro Civil de Chillán, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-copiapo",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Copiapó",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Copiapó",
+    "direccion": "Oficina del Registro Civil de Copiapó, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-punta-arenas",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Punta Arenas",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Punta Arenas",
+    "direccion": "Oficina del Registro Civil de Punta Arenas, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-los-angeles",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Los Ángeles",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Los Ángeles",
+    "direccion": "Oficina del Registro Civil de Los Ángeles, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-osorno",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Osorno",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Osorno",
+    "direccion": "Oficina del Registro Civil de Osorno, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-valdivia",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Valdivia",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Valdivia",
+    "direccion": "Oficina del Registro Civil de Valdivia, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-coquimbo",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Coquimbo",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Coquimbo",
+    "direccion": "Oficina del Registro Civil de Coquimbo, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-calama",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Calama",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Calama",
+    "direccion": "Oficina del Registro Civil de Calama, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-las-condes",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Las Condes",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Las Condes",
+    "direccion": "Oficina del Registro Civil de Las Condes, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-providencia",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Providencia",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Providencia",
+    "direccion": "Oficina del Registro Civil de Providencia, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-maipu",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Maipú",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Maipú",
+    "direccion": "Oficina del Registro Civil de Maipú, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-puente-alto",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Puente Alto",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Puente Alto",
+    "direccion": "Oficina del Registro Civil de Puente Alto, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-la-florida",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "La Florida",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de La Florida",
+    "direccion": "Oficina del Registro Civil de La Florida, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-san-bernardo",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "San Bernardo",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de San Bernardo",
+    "direccion": "Oficina del Registro Civil de San Bernardo, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-nunoa",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Ñuñoa",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Ñuñoa",
+    "direccion": "Oficina del Registro Civil de Ñuñoa, Chile"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-santiago-centro",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Santiago Centro",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Registro Civil e Identificación de Santiago Centro",
+    "direccion": "Oficina del Registro Civil de Santiago Centro, Chile"
   }
 ]
