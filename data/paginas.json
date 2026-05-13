@@ -2716,5 +2716,140 @@
     "plazo": "Trámite administrativo en días hábiles",
     "entidad": "Registro Civil e Identificación de Santiago Centro",
     "direccion": "Oficina del Registro Civil de Santiago Centro, Chile"
+  },
+  {
+    "slug": "prescripcion-deuda-tag",
+    "categoria": "Prescripción de deuda TAG",
+    "variable": "",
+    "ley": "Art. 2515 CC — prescripción 3 años acción ejecutiva",
+    "plazo": "3 años desde la fecha del cobro",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "prescripcion-deuda-bancaria",
+    "categoria": "Prescripción de deuda bancaria",
+    "variable": "",
+    "ley": "Art. 2515 CC — prescripción 5 años acción ordinaria",
+    "plazo": "5 años sin notificación judicial",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "demanda-alimentos",
+    "categoria": "Demanda de alimentos",
+    "variable": "",
+    "ley": "Ley 14.908 + Art. 321 CC — obligación alimenticia",
+    "plazo": "Se puede demandar en cualquier momento",
+    "entidad": "Juzgado de Familia de tu comuna",
+    "direccion": "Tribunal de Familia correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "escrito-pension-alimenticia",
+    "categoria": "Demanda de alimentos",
+    "variable": "",
+    "ley": "Ley 14.908 + Art. 321 CC — obligación alimenticia",
+    "plazo": "Se puede demandar en cualquier momento",
+    "entidad": "Juzgado de Familia de tu comuna",
+    "direccion": "Tribunal de Familia correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "recurso-proteccion",
+    "categoria": "Recurso de protección",
+    "variable": "",
+    "ley": "Art. 20 Constitución + Art. 19 N°1/N°9 CPR",
+    "plazo": "30 días desde el acto u omisión",
+    "entidad": "Corte de Apelaciones de tu región",
+    "direccion": "Corte de Apelaciones correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "carta-reclamo-sernac",
+    "categoria": "Carta reclamo SERNAC",
+    "variable": "",
+    "ley": "Ley 19.496 Art. 3° y 20 — protección al consumidor",
+    "plazo": "Dentro de 6 meses desde la compra",
+    "entidad": "SERNAC de tu región",
+    "direccion": "Oficina SERNAC correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "denuncia-despido-injustificado",
+    "categoria": "Denuncia por despido injustificado",
+    "variable": "",
+    "ley": "Art. 161, 163, 168 Código del Trabajo",
+    "plazo": "60 días hábiles desde el despido",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Inspección del Trabajo correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "finiquito-laboral",
+    "categoria": "Denuncia por despido injustificado",
+    "variable": "",
+    "ley": "Art. 161, 163, 168 Código del Trabajo",
+    "plazo": "60 días hábiles desde el despido",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Inspección del Trabajo correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "demanda-desalojo",
+    "categoria": "Demanda de desalojo por no pago",
+    "variable": "",
+    "ley": "Ley 18.101 Art. 1° + Art. 1977 CC",
+    "plazo": "Acción desde el primer mes impago",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "poder-simple",
+    "categoria": "Poder simple notarial",
+    "variable": "",
+    "ley": "Art. 2116 CC + Ley del Notariado",
+    "plazo": "Vigencia definida en el documento",
+    "entidad": "Notaría de tu comuna",
+    "direccion": "Notaría correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "crear-escrito-legal",
+    "categoria": "Servicios legales",
+    "variable": "Chile",
+    "ley": "Legislación chilena vigente",
+    "plazo": "Minutos desde que completas el formulario",
+    "entidad": "LegalHelp Chile — online",
+    "direccion": "Disponible en todo Chile vía legalhelp.cl"
+  },
+  {
+    "slug": "modelo-escrito-judicial",
+    "categoria": "Servicios legales",
+    "variable": "Chile",
+    "ley": "Legislación chilena vigente",
+    "plazo": "Minutos desde que completas el formulario",
+    "entidad": "LegalHelp Chile — online",
+    "direccion": "Disponible en todo Chile vía legalhelp.cl"
+  },
+  {
+    "slug": "como-hacer-una-demanda",
+    "categoria": "Servicios legales",
+    "variable": "Chile",
+    "ley": "Legislación chilena vigente",
+    "plazo": "Minutos desde que completas el formulario",
+    "entidad": "LegalHelp Chile — online",
+    "direccion": "Disponible en todo Chile vía legalhelp.cl"
+  },
+  {
+    "slug": "denuncia-no-pago-cotizaciones",
+    "categoria": "Denuncia por no pago de cotizaciones",
+    "variable": "",
+    "ley": "Art. 19 DL 3.500 + Ley 17.322",
+    "plazo": "Se puede denunciar en cualquier momento",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Inspección del Trabajo correspondiente a tu domicilio, Chile"
+  },
+  {
+    "slug": "como-redactar-contrato",
+    "categoria": "Servicios legales",
+    "variable": "Chile",
+    "ley": "Legislación chilena vigente",
+    "plazo": "Minutos desde que completas el formulario",
+    "entidad": "LegalHelp Chile — online",
+    "direccion": "Disponible en todo Chile vía legalhelp.cl"
   }
 ]
