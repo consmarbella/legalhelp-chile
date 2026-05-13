@@ -95,7 +95,17 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         <Link href="/" className="text-white font-bold text-lg tracking-tight">
           ⚖️ LegalHelp Chile
         </Link>
-        <span className="text-[#c9a84c] text-xs font-medium">🇨🇱 Documentos legales al instante</span>
+        <div className="flex items-center gap-3">
+          <span className="text-[#c9a84c] text-xs font-medium hidden sm:block">🇨🇱 Documentos legales al instante</span>
+          <a
+            href={`https://wa.me/56967658939?text=Hola%20LegalHelp%2C%20vengo%20de%20${slug}%20y%20quiero%20un%20documento`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#25D366] text-white text-xs px-3 py-1.5 rounded-full font-bold hover:bg-[#20ba5a] transition-colors"
+          >
+            📱 WhatsApp
+          </a>
+        </div>
       </nav>
 
       {/* HERO */}
@@ -126,6 +136,18 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
               {pill}
             </span>
           ))}
+        </div>
+
+        {/* WhatsApp CTA */}
+        <div className="mt-6">
+          <a
+            href={`https://wa.me/56967658939?text=Hola%20LegalHelp%2C%20necesito%20un%20documento%20de%20${encodeURIComponent(data.categoria)}%20en%20${encodeURIComponent(data.variable)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#25D366] text-white font-bold px-8 py-3 rounded-xl text-lg hover:bg-[#20ba5a] transition-colors shadow-lg hover:shadow-xl"
+          >
+            💬 Cotizar por WhatsApp
+          </a>
         </div>
       </div>
 
