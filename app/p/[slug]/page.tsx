@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return {};
   return {
-    title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} | LegalHelp Chile`,
+    title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`,
     description: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`,
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
     openGraph: {
-      title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} | LegalHelp Chile`,
+      title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`,
       description: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} — documento listo en minutos. Válido ante ${data.entidad}.`,
       url: `${BASE_URL}/p/${slug}`,
       siteName: 'LegalHelp Chile',
