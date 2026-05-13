@@ -16,14 +16,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return {};
   return {
-    title: `${data.categoria} en ${data.variable} | LegalHelp Chile`,
-    description: `${data.categoria} en ${data.variable}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`,
+    title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} | LegalHelp Chile`,
+    description: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`,
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
     openGraph: {
-      title: `${data.categoria} en ${data.variable} | LegalHelp Chile`,
-      description: `${data.categoria} en ${data.variable} — documento listo en minutos. Válido ante ${data.entidad}.`,
+      title: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} | LegalHelp Chile`,
+      description: `${data.categoria}${data.variable ? ` en ${data.variable}` : ''} — documento listo en minutos. Válido ante ${data.entidad}.`,
       url: `${BASE_URL}/p/${slug}`,
       siteName: 'LegalHelp Chile',
       locale: 'es_CL',
@@ -37,7 +37,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return notFound();
 
-  const initialContext = `${data.categoria} en ${data.variable}`;
+  const initialContext = `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`;
 
   // Same-category pages for internal linking
   const relacionadas = paginas.filter(
@@ -101,13 +101,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* HERO */}
       <div className="bg-[#0b1f3a] px-6 pt-10 pb-12 text-center">
         <h1 className="text-3xl font-bold text-white mb-3 leading-tight">
-          {data.categoria} en {data.variable}
+          {data.categoria}{data.variable ? ` en ${data.variable}` : ''}
         </h1>
         <p className="text-[#c9a84c] text-sm font-medium mb-4">
           {data.entidad}
         </p>
         <p className="text-[#a8bdd4] text-sm max-w-xl mx-auto">
-          Si necesitás {data.categoria.toLowerCase()} en {data.variable}, presentá tu solicitud ante {data.entidad} ubicado en {data.direccion}.
+          {data.variable
+            ? `Si necesitás ${data.categoria.toLowerCase()} en ${data.variable}, presentá tu solicitud ante ${data.entidad} ubicado en ${data.direccion}.`
+            : `${data.categoria}: presentá tu solicitud ante ${data.entidad} (${data.direccion}).`}
           {' '}Tenés un plazo de {data.plazo.toLowerCase()} según la {data.ley}.
           {' '}Describí tu caso y en minutos tenés tu documento listo para presentar.
         </p>
@@ -115,7 +117,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         {/* PILLS */}
         <div className="flex flex-wrap justify-center gap-2 mt-6">
           {[
-            `📍 ${data.variable}`,
+            ...(data.variable ? [`📍 ${data.variable}`] : []),
             `⏱ Plazo: ${data.plazo}`,
             `🏛 ${data.entidad}`,
           ].map((pill) => (
