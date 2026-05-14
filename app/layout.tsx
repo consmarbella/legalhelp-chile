@@ -34,12 +34,21 @@ export const metadata: Metadata = {
     siteName: "LegalHelp Chile",
     locale: "es_CL",
     type: "website",
+    images: [
+      {
+        url: "https://legalhelp.cl/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LegalHelp Chile – Documentos legales con IA",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "LegalHelp Chile – Documentos legales con IA",
     description:
       "Generá documentos legales válidos en Chile con IA. Listo en minutos.",
+    images: ["https://legalhelp.cl/og-image.png"],
   },
   robots: {
     index: true,
