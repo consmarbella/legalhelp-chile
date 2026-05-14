@@ -18,7 +18,10 @@ export const metadata: Metadata = {
     template: "%s | LegalHelp Chile",
   },
   verification: {
-    google: "REEMPLAZAR_CON_CODIGO_GSC",
+    google: "JipDFGc1s1C9-2_55zczlp36vdlW3-VuDweJWJMgGmo",
+    other: {
+      "msvalidate.01": "5FA314B20BB93FD6E5357FBFF4B76C39",
+    },
   },
   description:
     "Generá documentos legales válidos en Chile con IA. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más. Listo en minutos.",
@@ -55,7 +58,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <meta name="msvalidate.01" content="5FA314B20BB93FD6E5357FBFF4B76C39" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
