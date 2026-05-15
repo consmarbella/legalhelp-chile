@@ -115,7 +115,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(smartMock(message, currentCaseData ?? {}));
     }
 
-    const messages = [...(caseHistory ?? []), { role: 'user', content: message }];
+    // Contar intercambios: cada par pregunta/respuesta del usuario cuenta como 1
+    const userTurns = (caseHistory ?? []).filter((m: { role: string }) => m.role === 'user').length + 1;
+    const taggedMessage = `[INTERCAMBIO ${userTurns}] ${message}`;
+
+    const messages = [...(caseHistory ?? []), { role: 'user', content: taggedMessage }];
     let responseText = await callDeepSeek(messages);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
