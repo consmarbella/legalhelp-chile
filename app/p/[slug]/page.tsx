@@ -3,7 +3,7 @@ import paginas from '@/data/paginas.json';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-type Pagina = (typeof paginas)[number];
+type Pagina = (typeof paginas)[number] & { intro?: string };
 
 export async function generateStaticParams() {
   return paginas.map((p) => ({ slug: p.slug }));
@@ -68,9 +68,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return {};
   const pageTitle = `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`;
+  const isHub = !data.variable;
+  const description = isHub
+    ? `Guía completa sobre ${data.categoria} en Chile. Plazo de 3 años (Art. 2515 CC), paso a paso, documentos necesarios y cómo presentarlo ante el tribunal. Escrito listo en minutos.`
+    : `${pageTitle}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`;
   return {
-    title: pageTitle,
-    description: `${pageTitle}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`,
+    title: isHub ? `${data.categoria} en Chile — Guía Completa | LegalHelp` : pageTitle,
+    description,
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
@@ -98,6 +102,46 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
   };
 }
+
+// ── Contenido guía para páginas hub (sin ciudad) ─────────────────────────────
+const HUB_GUIDE: Record<string, { sections: { heading: string; body: string }[] }> = {
+  'Prescripción de deuda TAG': {
+    sections: [
+      {
+        heading: '¿Qué es la prescripción de deuda TAG?',
+        body: 'La prescripción extintiva es un mecanismo legal consagrado en el Art. 2515 del Código Civil chileno que extingue la obligación de pago cuando ha transcurrido un plazo determinado sin que el acreedor haya ejercido acción judicial. Para deudas de autopistas de peaje (TAG), la acción ejecutiva prescribe en 3 años contados desde la fecha en que se generó cada cobro. Esto significa que si una concesionaria de autopista no te ha demandado judicialmente dentro de ese plazo, pierde el derecho a cobrarte por la vía ejecutiva.',
+      },
+      {
+        heading: '¿A qué deudas TAG aplica la prescripción de 3 años?',
+        body: 'La prescripción de 3 años aplica a los cobros de todas las autopistas urbanas e interurbanas de Chile que operan con sistema TAG o telepeaje: Autopista Central, Costanera Norte, Vespucio Sur, Vespucio Norte Express, Acceso Nororiente, Autopista del Sol, Ruta 68, Ruta 5 Norte y Sur, y demás vías concesionadas. Cada cobro individual genera su propio plazo de prescripción desde la fecha en que fue generado, por lo que es posible que parte de tu deuda esté prescrita y otra parte aún no.',
+      },
+      {
+        heading: 'Paso a paso: cómo alegar la prescripción de deuda TAG',
+        body: '1. Verificá la fecha de cada cobro TAG: buscá el detalle en tu cuenta TAG o en la notificación de la concesionaria.\n2. Calculá si han pasado más de 3 años desde esa fecha sin notificación judicial: si es así, esa deuda está prescrita.\n3. Generá el escrito de excepción de prescripción con LegalHelp: el sistema redacta el documento con tus datos, el tribunal competente y la base legal.\n4. Presentá el escrito ante el Juzgado de Letras en lo Civil de tu comuna: podés hacerlo en persona en el tribunal, de lunes a viernes.\n5. El tribunal notifica a la concesionaria y resuelve: en causas de menor cuantía, el proceso puede resolverse sin necesidad de audiencia.',
+      },
+      {
+        heading: '¿Qué documentos necesitás para presentar la prescripción?',
+        body: 'Para presentar la solicitud de prescripción de deuda TAG necesitás: (1) tu cédula de identidad vigente, (2) el número o detalle del cobro TAG (aparece en la notificación de la concesionaria o en tu cuenta TAG), (3) la fecha exacta del cobro (para acreditar que han pasado más de 3 años), y (4) el escrito de excepción de prescripción firmado. LegalHelp genera el escrito completo con todos estos datos una vez que describís tu caso.',
+      },
+      {
+        heading: '¿Cuánto cuesta presentar la prescripción?',
+        body: 'La presentación ante el tribunal civil no tiene costo en causas de menor cuantía (deudas bajo aproximadamente $700.000). Si necesitás patrocinio de abogado por la cuantía de la deuda, podés acudir a las Corporaciones de Asistencia Judicial (CAJ) gratuitamente si tu ingreso es bajo. LegalHelp cobra solo por la generación del documento base, no por el trámite judicial.',
+      },
+      {
+        heading: '¿Qué pasa si la deuda ya fue demandada judicialmente?',
+        body: 'Si la concesionaria ya inició juicio ejecutivo antes de que pasaran los 3 años, la prescripción no opera automáticamente: debés alegarla como excepción dentro del juicio. En ese caso es importante actuar rápido porque los plazos procesales son estrictos. Si ya recibiste notificación judicial, generá el escrito de excepción de prescripción y preséntalo dentro del plazo que indica la resolución del tribunal (generalmente 4 días hábiles para oponer excepciones en juicio ejecutivo).',
+      },
+      {
+        heading: 'Tabla: plazos de prescripción según tipo de deuda TAG',
+        body: 'Deuda por uso de autopista sin pago → prescripción ejecutiva: 3 años (Art. 2515 CC) | Acción ordinaria de cobro → prescripción: 5 años (Art. 2515 CC) | Multa de tránsito emitida por concesionaria → prescripción: 3 años (depende del instrumento) | Deuda reconocida o con pago parcial → el plazo se interrumpe y comienza de nuevo desde el último pago o reconocimiento.',
+      },
+      {
+        heading: '¿Puedo alegar la prescripción sin abogado?',
+        body: 'En causas de menor cuantía (hasta aproximadamente 500 UTM, es decir cerca de $35 millones en 2026) la ley permite actuar sin abogado ante los juzgados civiles. Sin embargo, si la concesionaria contesta el escrito o el tribunal requiere más antecedentes, puede ser conveniente contar con orientación legal. Las Corporaciones de Asistencia Judicial ofrecen asesoría gratuita en todo Chile para quienes no pueden costear un abogado privado.',
+      },
+    ],
+  },
+};
 
 export default async function PSELanding({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -215,6 +259,20 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
       </div>
 
+      {/* INTRO LOCAL — solo para páginas ciudad (variable no vacío) */}
+      {data.variable && (data as Pagina).intro && (
+        <div className="max-w-4xl mx-auto px-4 pt-6">
+          <div className="bg-white rounded-2xl shadow-sm px-6 py-4 border-l-4 border-[#c9a84c]">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-2">
+              Información local — {data.variable}
+            </p>
+            <p className="text-sm text-[#3a3330] leading-relaxed">
+              {(data as Pagina).intro}
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* CHAT SECTION */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -275,6 +333,29 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
                   </summary>
                   <p className="mt-2 text-xs text-[#5a5245] leading-relaxed">{a}</p>
                 </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* GUÍA COMPLETA — solo para hub pages (variable vacío) */}
+      {!data.variable && HUB_GUIDE[data.categoria] && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-6">
+              Guía completa — {data.categoria}
+            </p>
+            <div className="divide-y divide-[#f0ebe3] space-y-0">
+              {HUB_GUIDE[data.categoria].sections.map(({ heading, body }) => (
+                <div key={heading} className="py-5">
+                  <h2 className="text-base font-bold text-[#0b1f3a] mb-2">{heading}</h2>
+                  <div className="text-sm text-[#5a5245] leading-relaxed space-y-2">
+                    {body.split('\n').map((line, i) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

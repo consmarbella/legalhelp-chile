@@ -602,6 +602,31 @@ export default function Home() {
         </div>
       </div>
 
+      {/* GUÍAS POPULARES */}
+      <div className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-6" style={{ fontFamily: 'sans-serif' }}>
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">Guías legales populares</p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { href: '/p/prescripcion-deuda-tag',      label: 'Prescripción de deuda TAG — Guía completa' },
+              { href: '/p/prescripcion-deuda-bancaria',  label: 'Prescripción de deuda bancaria' },
+              { href: '/p/demanda-de-alimentos',         label: 'Demanda de alimentos' },
+              { href: '/p/carta-reclamo-sernac',         label: 'Carta reclamo SERNAC' },
+              { href: '/p/denuncia-por-despido-injustificado', label: 'Denuncia por despido injustificado' },
+              { href: '/p/recurso-de-proteccion',        label: 'Recurso de protección' },
+            ].map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-xs text-[#0b1f3a] bg-white hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full border border-[#ddd8cc] transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* FOOTER */}
       <footer className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-4">
         <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#9a9185]" style={{ fontFamily: 'sans-serif' }}>
