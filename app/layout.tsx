@@ -84,6 +84,11 @@ export default function RootLayout({
                   addressCountry: "CL",
                 },
               },
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "contacto@legalhelp.cl",
+                contactType: "Customer Service",
+              },
             }),
           }}
         />
