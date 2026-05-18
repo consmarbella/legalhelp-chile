@@ -2766,8 +2766,8 @@
     "slug": "prescripcion-deuda-tag",
     "categoria": "Prescripción de deuda TAG",
     "variable": "",
-    "ley": "Art. 2515 CC — prescripción 3 años acción ejecutiva",
-    "plazo": "3 años desde la fecha del cobro",
+    "ley": "Art. 2515 CC — prescripción 5 años acción ordinaria, 3 años acción ejecutiva",
+    "plazo": "5 años (deuda civil ordinaria) o 3 años (multa de policía local)",
     "entidad": "Juzgado de Letras en lo Civil de tu comuna",
     "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
   },

@@ -4,10 +4,12 @@ import paginas from '@/data/paginas.json';
 const BASE_URL = 'https://legalhelp.cl';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date('2026-05-01');
+
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'weekly',
       priority: 1,
     },
@@ -15,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const dynamicRoutes: MetadataRoute.Sitemap = paginas.map((p) => ({
     url: `${BASE_URL}/p/${p.slug}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));

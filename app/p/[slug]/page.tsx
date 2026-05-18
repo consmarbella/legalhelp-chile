@@ -14,8 +14,8 @@ const BASE_URL = 'https://legalhelp.cl';
 // FAQ por categoría legal — para FAQPage JSON-LD (AI Overviews eligibility)
 const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
   'Prescripción de deuda TAG': [
-    { q: '¿Qué es la prescripción de deuda TAG?', a: 'La prescripción extingue la obligación de pago de multas TAG cuando han transcurrido 3 años sin que se haya iniciado un cobro judicial, según el Art. 2515 del Código Civil chileno.' },
-    { q: '¿Cuánto tarda en prescribir una deuda TAG?', a: 'La acción ejecutiva prescribe en 3 años desde la fecha del cobro. Pasado ese plazo, podés alegar la prescripción ante el tribunal civil competente.' },
+    { q: '¿Qué es la prescripción de deuda TAG?', a: 'La prescripción extingue la obligación de pago cuando ha transcurrido un plazo sin que se haya iniciado un cobro judicial. Para deuda civil con autopistas: 5 años (acción ordinaria, Art. 2515 CC). Para multas por circular sin TAG: 3 años (Juzgado de Policía Local). Son dos procedimientos distintos.' },
+    { q: '¿Cuánto tarda en prescribir una deuda TAG?', a: 'Deuda civil ordinaria: 5 años desde el cobro (Art. 2515 CC). Acción ejecutiva: 3 años. Multa de tránsito por circular sin TAG: 3 años ante Juzgado de Policía Local. El plazo aplica desde la fecha de cada cobro sin interrupción judicial.' },
     { q: '¿Puedo presentar la solicitud de prescripción sin abogado?', a: 'En Chile, para alegar prescripción ante tribunal se requiere patrocinio de abogado. LegalHelp genera el documento base que luego podés presentar con asistencia legal o a través de las Corporaciones de Asistencia Judicial.' },
     { q: '¿Qué información necesito para generar el documento?', a: 'Necesitás tu RUT, el número de infracción o documento de cobro TAG, la fecha de la multa y el nombre del juzgado civil de tu comuna.' },
   ],
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const pageTitle = `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`;
   const isHub = !data.variable;
   const description = isHub
-    ? `Guía completa sobre ${data.categoria} en Chile. Plazo de 3 años (Art. 2515 CC), paso a paso, documentos necesarios y cómo presentarlo ante el tribunal. Escrito listo en minutos.`
+    ? `Guía completa sobre ${data.categoria} en Chile. Plazo de 5 años (deuda civil ordinaria, Art. 2515 CC) o 3 años (multa de policía local). Paso a paso, documentos necesarios y cómo presentarlo ante el tribunal. Escrito listo en minutos.`
     : `${pageTitle}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`;
   return {
     title: isHub ? `${data.categoria} en Chile — Guía Completa | LegalHelp` : pageTitle,
@@ -100,6 +100,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: `${pageTitle} — documento listo en minutos. Válido ante ${data.entidad}.`,
       images: [`${BASE_URL}/og-image.png`],
     },
+    other: {
+      'article:modified_time': '2026-05-01T00:00:00Z',
+    },
   };
 }
 
@@ -109,11 +112,11 @@ const HUB_GUIDE: Record<string, { sections: { heading: string; body: string }[] 
     sections: [
       {
         heading: '¿Qué es la prescripción de deuda TAG?',
-        body: 'La prescripción extintiva es un mecanismo legal consagrado en el Art. 2515 del Código Civil chileno que extingue la obligación de pago cuando ha transcurrido un plazo determinado sin que el acreedor haya ejercido acción judicial. Para deudas de autopistas de peaje (TAG), la acción ejecutiva prescribe en 3 años contados desde la fecha en que se generó cada cobro. Esto significa que si una concesionaria de autopista no te ha demandado judicialmente dentro de ese plazo, pierde el derecho a cobrarte por la vía ejecutiva.',
+        body: 'La prescripción extintiva es un mecanismo legal consagrado en el Art. 2515 del Código Civil chileno que extingue la obligación de pago cuando ha transcurrido un plazo determinado sin que el acreedor haya ejercido acción judicial. Para deudas de autopistas de peaje (TAG), hay dos casos: (1) Deuda civil ordinaria por uso de autopista: prescribe en 5 años contados desde la fecha de cada cobro (acción ordinaria). (2) Multa por circular sin TAG emitida por Juzgado de Policía Local: prescribe en 3 años. Esto significa que si una concesionaria o autoridad no te ha demandado judicialmente dentro del plazo correspondiente, pierde el derecho a cobrarte.',
       },
       {
-        heading: '¿A qué deudas TAG aplica la prescripción de 3 años?',
-        body: 'La prescripción de 3 años aplica a los cobros de todas las autopistas urbanas e interurbanas de Chile que operan con sistema TAG o telepeaje: Autopista Central, Costanera Norte, Vespucio Sur, Vespucio Norte Express, Acceso Nororiente, Autopista del Sol, Ruta 68, Ruta 5 Norte y Sur, y demás vías concesionadas. Cada cobro individual genera su propio plazo de prescripción desde la fecha en que fue generado, por lo que es posible que parte de tu deuda esté prescrita y otra parte aún no.',
+        heading: '¿A qué deudas TAG aplica la prescripción?',
+        body: 'La prescripción aplica a los cobros de todas las autopistas urbanas e interurbanas de Chile que operan con sistema TAG o telepeaje: Autopista Central, Costanera Norte, Vespucio Sur, Vespucio Norte Express, Acceso Nororiente, Autopista del Sol, Ruta 68, Ruta 5 Norte y Sur, y demás vías concesionadas. Para deuda civil ordinaria: 5 años desde cada cobro. Para multas de tránsito por circular sin TAG: 3 años desde la infracción. Cada cobro individual genera su propio plazo de prescripción, por lo que es posible que parte de tu deuda esté prescrita y otra parte aún no.',
       },
       {
         heading: 'Paso a paso: cómo alegar la prescripción de deuda TAG',
@@ -133,7 +136,7 @@ const HUB_GUIDE: Record<string, { sections: { heading: string; body: string }[] 
       },
       {
         heading: 'Tabla: plazos de prescripción según tipo de deuda TAG',
-        body: 'Deuda por uso de autopista sin pago → prescripción ejecutiva: 3 años (Art. 2515 CC) | Acción ordinaria de cobro → prescripción: 5 años (Art. 2515 CC) | Multa de tránsito emitida por concesionaria → prescripción: 3 años (depende del instrumento) | Deuda reconocida o con pago parcial → el plazo se interrumpe y comienza de nuevo desde el último pago o reconocimiento.',
+        body: 'Deuda civil ordinaria por uso de autopista → prescripción: 5 años (Art. 2515 CC, acción ordinaria) | Acción ejecutiva de cobro → prescripción: 3 años (Art. 2515 CC) | Multa de tránsito por circular sin TAG → prescripción: 3 años (Juzgado de Policía Local) | Deuda reconocida o con pago parcial → el plazo se interrumpe y comienza de nuevo desde el último pago o reconocimiento.',
       },
       {
         heading: '¿Puedo alegar la prescripción sin abogado?',
@@ -194,24 +197,21 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LegalService",
-            name: `${data.categoria} en ${data.variable}`,
-            description: `Servicio de generación de documentos legales para ${data.categoria.toLowerCase()} en ${data.variable}, Chile.`,
+            name: data.categoria,
+            description: data.variable ? `${data.categoria} en ${data.variable}, Chile` : `Guía completa sobre ${data.categoria} en Chile`,
+            url: `${BASE_URL}/p/${slug}`,
+            areaServed: {
+              "@type": "Country",
+              name: "Chile",
+            },
             provider: {
               "@type": "Organization",
               name: "LegalHelp Chile",
               url: BASE_URL,
-            },
-            areaServed: {
-              "@type": "City",
-              name: data.variable,
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "CL",
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "contacto@legalhelp.cl",
               },
-            },
-            availableChannel: {
-              "@type": "ServiceChannel",
-              serviceUrl: `${BASE_URL}/p/${slug}`,
             },
           }),
         }}
@@ -283,6 +283,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
             </span>
           </div>
           <ChatGenerator initialContext={initialContext} />
+        </div>
+      </div>
+
+      {/* AUTORÍA Y FECHA */}
+      <div className="max-w-4xl mx-auto px-4 pb-4">
+        <div className="bg-white rounded-xl px-5 py-3 border border-[#e8e2d8] text-center">
+          <p className="text-xs text-[#8a7f72] leading-relaxed">
+            Contenido revisado por el equipo jurídico de LegalHelp Chile • Actualizado: mayo 2026
+          </p>
         </div>
       </div>
 

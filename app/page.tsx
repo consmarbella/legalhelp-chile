@@ -610,10 +610,15 @@ export default function Home() {
             {[
               { href: '/p/prescripcion-deuda-tag',      label: 'Prescripción de deuda TAG — Guía completa' },
               { href: '/p/prescripcion-deuda-bancaria',  label: 'Prescripción de deuda bancaria' },
-              { href: '/p/demanda-de-alimentos',         label: 'Demanda de alimentos' },
+              { href: '/p/demanda-alimentos',         label: 'Demanda de alimentos' },
               { href: '/p/carta-reclamo-sernac',         label: 'Carta reclamo SERNAC' },
-              { href: '/p/denuncia-por-despido-injustificado', label: 'Denuncia por despido injustificado' },
-              { href: '/p/recurso-de-proteccion',        label: 'Recurso de protección' },
+              { href: '/p/denuncia-despido-injustificado', label: 'Denuncia por despido injustificado' },
+              { href: '/p/recurso-proteccion',        label: 'Recurso de protección' },
+              { href: '/p/finiquito-laboral',         label: 'Finiquito laboral' },
+              { href: '/p/demanda-desalojo',          label: 'Demanda de desalojo' },
+              { href: '/p/denuncia-no-pago-cotizaciones', label: 'Denuncia por no pago de cotizaciones' },
+              { href: '/p/poder-simple',              label: 'Poder simple notarial' },
+              { href: '/p/escrito-pension-alimenticia', label: 'Escrito pensión alimenticia' },
             ].map(({ href, label }) => (
               <a
                 key={href}
