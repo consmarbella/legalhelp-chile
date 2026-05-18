@@ -1,5 +1,158 @@
 [
   {
+    "slug": "alzamiento-de-embargo-sobre-vehiculo",
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "variable": null,
+    "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
+    "plazo": "Una vez pagada la deuda o fenecido el embargo",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "carta-reclamo-sernac",
+    "categoria": "Carta reclamo SERNAC",
+    "variable": null,
+    "ley": "Ley 19.496 Art. 3° y 20 — protección al consumidor",
+    "plazo": "Dentro de 6 meses desde la compra",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": null,
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "demanda-de-alimentos",
+    "categoria": "Demanda de alimentos",
+    "variable": null,
+    "ley": "Ley 14.908 + Art. 321 CC — obligación alimenticia",
+    "plazo": "Se puede demandar en cualquier momento",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "demanda-de-desalojo-por-no-pago",
+    "categoria": "Demanda de desalojo por no pago",
+    "variable": null,
+    "ley": "Ley 18.101 Art. 1° + Art. 1977 CC — arrendamiento urbano",
+    "plazo": "Acción desde el primer mes impago",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "denuncia-por-despido-injustificado",
+    "categoria": "Denuncia por despido injustificado",
+    "variable": null,
+    "ley": "Art. 161, 163, 168 Código del Trabajo — indemnizaciones por despido",
+    "plazo": "60 días hábiles desde el despido",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "denuncia-por-no-pago-de-cotizaciones",
+    "categoria": "Denuncia por no pago de cotizaciones",
+    "variable": null,
+    "ley": "Art. 19 DL 3.500 + Ley 17.322 — cotizaciones previsionales",
+    "plazo": "Se puede denunciar en cualquier momento",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": null,
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": null,
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "omision-de-antecedentes-por-violencia-intrafamiliar",
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "variable": null,
+    "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
+    "plazo": "5 años desde la resolución, dependiendo del caso",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "poder-simple-notarial",
+    "categoria": "Poder simple notarial",
+    "variable": null,
+    "ley": "Art. 2116 CC + Ley del Notariado — mandato especial",
+    "plazo": "Vigencia definida en el documento",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "prescripcion-de-deuda-tag",
+    "categoria": "Prescripción de deuda TAG",
+    "variable": null,
+    "ley": "Art. 2515 CC — prescripción 3 años acción ejecutiva",
+    "plazo": "3 años desde la fecha del cobro",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "prescripcion-de-deuda-bancaria",
+    "categoria": "Prescripción de deuda bancaria",
+    "variable": null,
+    "ley": "Art. 2515 CC — prescripción 5 años acción ordinaria",
+    "plazo": "5 años sin notificación judicial",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "prescripcion-de-multas-de-transito",
+    "categoria": "Prescripción de multas de tránsito",
+    "variable": null,
+    "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "recurso-de-proteccion",
+    "categoria": "Recurso de protección",
+    "variable": null,
+    "ley": "Art. 20 Constitución + Art. 19 N°1/N°9 CPR — derechos fundamentales",
+    "plazo": "30 días desde el acto u omisión",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": null,
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "servicios-legales",
+    "categoria": "Servicios legales",
+    "variable": null,
+    "ley": "Legislación chilena vigente",
+    "plazo": "Minutos desde que completas el formulario",
+    "entidad": "Aplicable en toda Chile",
+    "direccion": "Varía según domicilio"
+  },
+  {
     "slug": "prescripcion-deuda-tag-santiago",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Santiago",
