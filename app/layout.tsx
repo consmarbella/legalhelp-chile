@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     default: "LegalHelp Chile – Documentos legales con IA",
     template: "%s | LegalHelp Chile",
   },
+  viewport: "width=device-width, initial-scale=1.0",
+  icons: { icon: "/favicon.ico" },
   verification: {
     google: "JipDFGc1s1C9-2_55zczlp36vdlW3-VuDweJWJMgGmo",
     other: {
