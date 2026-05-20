@@ -1,5 +1,6 @@
 import ChatGenerator from '@/components/ChatGenerator';
 import paginas from '@/data/paginas.json';
+import hubGuides from '@/data/hub_guides.json';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { LEYES, findLey } from '@/data/leyes';
@@ -743,15 +744,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         </div>
       )}
 
-      {/* GUÍA COMPLETA — solo para hub pages (variable vacío) */}
-      {!data.variable && HUB_GUIDE[data.categoria] && (
+      {/* GUÍA COMPLETA — para hub pages y city pages */}
+      {(hubGuides as Record<string, { sections: { heading: string; body: string }[] }>)[data.categoria] && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
           <div className="bg-white rounded-2xl shadow-sm p-6">
             <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-6">
-              Guía completa — {data.categoria}
+              Guía completa — {data.categoria}{data.variable ? ` en ${data.variable}` : ''}
             </p>
             <div className="divide-y divide-[#f0ebe3] space-y-0">
-              {HUB_GUIDE[data.categoria].sections.map(({ heading, body }) => (
+              {(hubGuides as Record<string, { sections: { heading: string; body: string }[] }>)[data.categoria].sections.map(({ heading, body }) => (
                 <div key={heading} className="py-5">
                   <h2 className="text-base font-bold text-[#0b1f3a] mb-2">{heading}</h2>
                   <div className="text-sm text-[#5a5245] leading-relaxed space-y-2">
