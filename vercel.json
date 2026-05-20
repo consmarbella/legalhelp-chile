@@ -1,12 +1,12 @@
 {
   "functions": {
-    "api/chat/route.ts": {
+    "app/api/chat/route.ts": {
       "maxDuration": 60
     },
-    "api/generate-final/route.ts": {
+    "app/api/generate-final/route.ts": {
       "maxDuration": 60
     },
-    "api/payment/create/route.ts": {
+    "app/api/payment/create/route.ts": {
       "maxDuration": 30
     }
   },
