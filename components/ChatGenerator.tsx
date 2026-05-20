@@ -110,9 +110,6 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [contextSent, setContextSent]   = useState(false);
-  // Contador de mensajes del usuario (no persistido — se resetea al recargar)
-  const [msgCount, setMsgCount]         = useState(0);
-  const FREE_MSGS = 3; // paywall al 4to mensaje
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
@@ -182,15 +179,8 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
-    // Paywall al 4to mensaje del usuario (o cuando ready:true, lo que ocurra primero)
-    if (!paid && msgCount >= FREE_MSGS) {
-      setShowPaywall(true);
-      return;
-    }
-
     const text = input.trim();
     setInput('');
-    setMsgCount(prev => prev + 1);
     await sendMessage(text);
   };
 
@@ -250,9 +240,7 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
                 <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
                   {paid
                     ? 'Plan activo · documentos ilimitados'
-                    : msgCount < FREE_MSGS
-                      ? `En línea · ${FREE_MSGS - msgCount} pregunta${FREE_MSGS - msgCount !== 1 ? 's' : ''} gratis restante${FREE_MSGS - msgCount !== 1 ? 's' : ''}`
-                      : 'Activá tu plan para continuar'}
+                    : 'En línea · respondiendo tus consultas'}
                 </span>
               </div>
             </div>
@@ -449,8 +437,8 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
                   Redirigiendo a MercadoPago...
                 </div>
               )}
-              {/* Volver solo si aún tiene preguntas gratis (antes del gate) */}
-              {!caseData.ready && msgCount < FREE_MSGS && (
+              {/* Volver solo si el paywall se abrió antes de que el caso esté listo */}
+              {!caseData.ready && (
                 <button onClick={() => setShowPaywall(false)}
                   className="w-full text-center text-xs text-[#9a9185] hover:text-[#555] py-1 transition">
                   Volver

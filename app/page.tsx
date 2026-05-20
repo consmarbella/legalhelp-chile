@@ -139,9 +139,6 @@ export default function Home() {
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
-  // Contador de mensajes del usuario en esta sesión (no persistido)
-  const [msgCount, setMsgCount]         = useState(0);
-  const FREE_MSGS = 3; // paywall al 4to mensaje
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -167,15 +164,8 @@ export default function Home() {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
-    // Paywall al 4to mensaje (o cuando ready:true, lo que ocurra primero)
-    if (!paid && msgCount >= FREE_MSGS) {
-      setShowPaywall(true);
-      return;
-    }
-
     const text = input.trim();
     setInput('');
-    setMsgCount(prev => prev + 1);
     setMessages(prev => [...prev, { role: 'user', content: text }]);
     setLoading(true);
 
@@ -354,7 +344,7 @@ export default function Home() {
             Documentos listos para presentar.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-xs" style={{ fontFamily: 'sans-serif' }}>
-            {[paid ? '✅ Plan activo' : `🎁 ${Math.max(0, FREE_MSGS - msgCount)} preguntas gratis restantes`,
+            {[paid ? '✅ Plan activo' : '🎁 Consulta gratuita',
               '🔒 Datos cifrados','📋 Formato judicial chileno'].map(b => (
               <span key={b} className="bg-white/5 border border-white/10 text-[#a8b8cc] px-3 py-1.5 rounded-full">{b}</span>
             ))}
@@ -396,9 +386,7 @@ export default function Home() {
                   <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
                     {paid
                       ? 'Plan activo · documentos ilimitados'
-                      : msgCount < FREE_MSGS
-                        ? `En línea · ${FREE_MSGS - msgCount} pregunta${FREE_MSGS - msgCount !== 1 ? 's' : ''} gratis restante${FREE_MSGS - msgCount !== 1 ? 's' : ''}`
-                        : 'Activá tu plan para continuar'}
+                      : 'En línea · respondiendo tus consultas'}
                   </span>
                 </div>
               </div>
@@ -731,7 +719,7 @@ export default function Home() {
               )}
 
               {/* Volver solo si el usuario abre el modal manualmente (antes de ready) */}
-              {!caseData.ready && msgCount < FREE_MSGS && (
+              {!caseData.ready && (
                 <button onClick={() => setShowPaywall(false)}
                   className="w-full text-center text-xs text-[#9a9185] hover:text-[#555] py-1 transition">
                   Volver
