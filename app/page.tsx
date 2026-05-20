@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { downloadLegalPdf } from '@/lib/generatePdf';
 
+
+
 // Dynamic — fields depend on document type, decided by DeepSeek
 type CaseData = Record<string, unknown>;
 

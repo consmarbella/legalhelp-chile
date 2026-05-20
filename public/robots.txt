@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
 
 # AI retrieval bots — permitidos (visibilidad en Google AI Overviews, ChatGPT, Perplexity)
 User-agent: GPTBot

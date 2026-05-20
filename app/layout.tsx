@@ -94,6 +94,28 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "LegalHelp Chile",
+              url: "https://legalhelp.cl",
+              description:
+                "Generá documentos legales válidos en Chile con inteligencia artificial. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más.",
+              inLanguage: "es-CL",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://legalhelp.cl/?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

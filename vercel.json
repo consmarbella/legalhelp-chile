@@ -1,3 +1,361 @@
 {
-  "redirects": []
+  "functions": {
+    "api/chat/route.ts": {
+      "maxDuration": 60
+    },
+    "api/generate-final/route.ts": {
+      "maxDuration": 60
+    },
+    "api/payment/create/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "redirects": [
+
+    {
+      "source": "/p/prescripcion-deuda-tag",
+      "destination": "/p/prescripcion-deuda-tag-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/prescripcion-de-multas-de-transito",
+      "destination": "/p/prescripcion-de-multas-de-transito-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/prescripcion-deuda-bancaria",
+      "destination": "/p/prescripcion-deuda-bancaria-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-simple",
+      "destination": "/p/poder-simple-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-simple-notarial",
+      "destination": "/p/poder-simple-notarial-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-notarial",
+      "destination": "/p/poder-notarial-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/certificado-de-antecedentes-para-fines-especiales",
+      "destination": "/p/certificado-de-antecedentes-para-fines-especiales-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/demanda-de-alimentos",
+      "destination": "/p/demanda-alimentos-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/demanda-de-desalojo",
+      "destination": "/p/demanda-desalojo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/denuncia-despido-injustificado",
+      "destination": "/p/denuncia-despido-injustificado-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/recurso-de-proteccion",
+      "destination": "/p/recurso-proteccion-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-sernac",
+      "destination": "/p/carta-reclamo-sernac-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-arriendo",
+      "destination": "/p/contrato-de-arriendo-de-departamento-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo",
+      "destination": "/p/contrato-de-trabajo-indefinido-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/declaracion-jurada",
+      "destination": "/p/declaracion-jurada-simple-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/eliminacion-de-antecedentes-penales",
+      "destination": "/p/eliminacion-de-antecedentes-penales-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/limpieza-de-hoja-de-vida-del-conductor",
+      "destination": "/p/limpieza-de-hoja-de-vida-del-conductor-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/registro-nacional-de-deudores-de-pensiones-de-alimentos",
+      "destination": "/p/registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/escrito-de-defensa-por-infraccion-de-transito",
+      "destination": "/p/escrito-de-defensa-por-infraccion-de-transito-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/escrito-de-prescripcion-de-multa-de-transito",
+      "destination": "/p/escrito-de-prescripcion-de-multa-de-transito-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/denuncia-por-ruidos-molestos",
+      "destination": "/p/denuncia-por-ruidos-molestos-de-vecinos-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/denuncia-por-maltrato-animal",
+      "destination": "/p/denuncia-por-maltrato-animal-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/acuerdo-de-divorcio",
+      "destination": "/p/acuerdo-de-divorcio-por-mutuo-acuerdo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/solicitud-de-regimen-de-visitas",
+      "destination": "/p/solicitud-de-regimen-de-visitas-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-cobranza",
+      "destination": "/p/carta-de-cobranza-de-deuda-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/acuerdo-de-pago",
+      "destination": "/p/acuerdo-de-pago-de-deuda-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-prescripcion-de-deuda",
+      "destination": "/p/carta-de-prescripcion-de-deuda-general-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/finiquito-laboral",
+      "destination": "/p/finiquito-laboral-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-renuncia",
+      "destination": "/p/carta-de-renuncia-laboral-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/promesa-de-compraventa",
+      "destination": "/p/promesa-de-compraventa-de-inmueble-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-compraventa-de-vehiculo",
+      "destination": "/p/contrato-de-compraventa-de-vehiculo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-freelance",
+      "destination": "/p/contrato-freelance-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-prestacion-de-servicios",
+      "destination": "/p/contrato-de-prestacion-de-servicios-a-honorarios-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/mandato-especial",
+      "destination": "/p/mandato-especial-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-para-cobrar-finiquito",
+      "destination": "/p/poder-para-cobrar-finiquito-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-para-tramites-bancarios",
+      "destination": "/p/poder-para-tramites-bancarios-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/poder-para-vender-vehiculo",
+      "destination": "/p/poder-para-vender-vehiculo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/alzamiento-de-embargo-sobre-vehiculo",
+      "destination": "/p/alzamiento-de-embargo-sobre-vehiculo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/solicitud-de-alzamiento-de-protesto",
+      "destination": "/p/solicitud-de-alzamiento-de-protesto-bancario-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/omision-de-antecedentes-por-violencia-intrafamiliar",
+      "destination": "/p/omision-de-antecedentes-por-violencia-intrafamiliar-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-aerolinea",
+      "destination": "/p/carta-reclamo-aerolinea-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-banco",
+      "destination": "/p/carta-reclamo-banco-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-isapre",
+      "destination": "/p/carta-reclamo-isapre-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-telecomunicaciones",
+      "destination": "/p/carta-reclamo-empresa-de-telecomunicaciones-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-seguro",
+      "destination": "/p/carta-reclamo-seguro-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-reclamo-tienda",
+      "destination": "/p/carta-reclamo-tienda-retail-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/denuncia-por-no-pago-de-cotizaciones",
+      "destination": "/p/denuncia-no-pago-cotizaciones-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/escrito-de-impugnacion-de-multa-municipal",
+      "destination": "/p/escrito-de-impugnacion-de-multa-municipal-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/recurso-de-apelacion-ante-juzgado-de-policia-local",
+      "destination": "/p/recurso-de-apelacion-ante-juzgado-de-policia-local-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/declaracion-jurada-de-domicilio",
+      "destination": "/p/declaracion-jurada-de-domicilio-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/declaracion-jurada-de-ingresos",
+      "destination": "/p/declaracion-jurada-de-ingresos-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/declaracion-jurada-de-cargas-familiares",
+      "destination": "/p/declaracion-jurada-de-cargas-familiares-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-subarriendo",
+      "destination": "/p/contrato-de-subarriendo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-cobro-de-arriendo-impago",
+      "destination": "/p/carta-de-cobro-de-arriendo-impago-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-termino-de-contrato-de-arriendo",
+      "destination": "/p/carta-de-termino-de-contrato-de-arriendo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/anexo-de-contrato-de-trabajo",
+      "destination": "/p/anexo-de-contrato-de-trabajo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/carta-de-amonestacion-laboral",
+      "destination": "/p/carta-de-amonestacion-laboral-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/convenio-de-regulacion-de-divorcio",
+      "destination": "/p/convenio-de-regulacion-de-divorcio-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/acuerdo-de-tuicion-compartida",
+      "destination": "/p/acuerdo-de-tuicion-compartida-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-arriendo-de-casa",
+      "destination": "/p/contrato-de-arriendo-de-casa-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-arriendo-de-departamento",
+      "destination": "/p/contrato-de-arriendo-de-departamento-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-arriendo-de-local-comercial",
+      "destination": "/p/contrato-de-arriendo-de-local-comercial-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo-indefinido",
+      "destination": "/p/contrato-de-trabajo-indefinido-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo-a-plazo-fijo",
+      "destination": "/p/contrato-de-trabajo-a-plazo-fijo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo-part-time",
+      "destination": "/p/contrato-de-trabajo-part-time-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo-teletrabajo",
+      "destination": "/p/contrato-de-trabajo-teletrabajo-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-trabajo-por-obra-o-faena",
+      "destination": "/p/contrato-de-trabajo-por-obra-o-faena-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/contrato-de-compraventa-de-bien-mueble",
+      "destination": "/p/contrato-de-compraventa-de-bien-mueble-santiago",
+      "permanent": true
+    },
+    {
+      "source": "/p/servicios-legales",
+      "destination": "/p/servicios-legales-santiago",
+      "permanent": true
+    }
+  ]
 }

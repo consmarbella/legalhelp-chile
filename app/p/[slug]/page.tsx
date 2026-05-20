@@ -2,6 +2,7 @@ import ChatGenerator from '@/components/ChatGenerator';
 import paginas from '@/data/paginas.json';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { LEYES, findLey } from '@/data/leyes';
 
 type Pagina = (typeof paginas)[number] & { intro?: string };
 
@@ -389,18 +390,81 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!data) return {};
   const pageTitle = `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`;
   const isHub = !data.variable;
-  const description = isHub
-    ? `Guía completa sobre ${data.categoria} en Chile. Plazo de 5 años (deuda civil ordinaria, Art. 2515 CC) o 3 años (multa de policía local). Paso a paso, documentos necesarios y cómo presentarlo ante el tribunal. Escrito listo en minutos.`
-    : `${pageTitle}: documento legal válido en minutos, redactado por IA. Base: ${data.ley}. Presentar ante: ${data.entidad} (${data.direccion}).`;
+
+  // Meta descriptions más ricas y únicas según categoría
+  const getRichDescription = (): string => {
+    if (isHub) {
+      // Descripciones únicas por categoría hub
+      const hubDescs: Record<string, string> = {
+        'Prescripción de deuda TAG': `Guía completa sobre prescripción de deuda TAG en Chile. Plazos de 3 a 5 años según Art. 2515 CC. Cómo solicitar la prescripción ante el Juzgado Civil. Documento listo en minutos.`,
+        'Prescripción de deuda bancaria': `¿Tu deuda bancaria prescribió? Guía completa sobre prescripción de deudas bancarias en Chile. Plazos de 3 años (ejecutiva) y 5 años (ordinaria). Cómo alegar la prescripción.`,
+        'Prescripción de multas de tránsito': `Guía completa sobre prescripción de multas de tránsito en Chile. Las multas prescriben a los 3 años según Art. 2521 CC. Cómo solicitar la prescripción ante el Juzgado de Policía Local.`,
+        'Poder simple': `Guía completa sobre el poder simple en Chile. Sin notario, sin abogado. Válido con dos testigos. Cómo redactarlo y presentarlo. Descarga tu documento en minutos.`,
+        'Poder notarial': `Guía completa sobre el poder notarial en Chile. Cuándo se necesita, costo, requisitos y cómo otorgarlo. Válido para trámites bancarios, Registro Civil y más.`,
+        'Demanda de alimentos': `Guía completa sobre demanda de alimentos en Chile. Quiénes pueden demandar, plazos, montos y proceso ante el Juzgado de Familia. Documento listo en minutos.`,
+        'Demanda de desalojo por no pago': `Guía completa sobre demanda de desalojo por no pago de arriendo en Chile. Ley 21.461 (Devuélveme Mi Casa). Proceso acelerado en 30 a 60 días.`,
+        'Denuncia por despido injustificado': `Guía completa sobre denuncia por despido injustificado en Chile. Plazo de 60 días hábiles. Indemnizaciones y proceso ante la Inspección del Trabajo.`,
+        'Recurso de protección': `Guía completa sobre el recurso de protección en Chile. Art. 20 Constitución. Plazo de 30 días. Cómo interponerlo ante la Corte de Apelaciones.`,
+        'Carta reclamo SERNAC': `Guía completa sobre carta reclamo SERNAC en Chile. Cómo reclamar ante SERNAC, plazos, derechos del consumidor y modelo de carta. Gratuito.`,
+        'Contrato de trabajo indefinido': `Guía completa sobre contrato de trabajo indefinido en Chile. Requisitos, cláusulas obligatorias, derechos del trabajador. Descarga tu contrato listo.`,
+        'Contrato de trabajo a plazo fijo': `Guía completa sobre contrato a plazo fijo en Chile. Duración máxima, renovaciones, conversión a indefinido. Descarga tu contrato listo.`,
+        'Contrato de arriendo de casa': `Guía completa sobre contrato de arriendo de casa en Chile. Ley 18.101. Garantía, plazos, derechos y obligaciones. Descarga tu contrato listo.`,
+        'Contrato de arriendo de departamento': `Guía completa sobre contrato de arriendo de departamento en Chile. Gastos comunes, mascotas, subarriendo. Descarga tu contrato listo.`,
+        'Finiquito laboral': `Guía completa sobre finiquito laboral en Chile. Plazos de pago, cálculo de indemnizaciones, cómo firmar bajo protesta. Descarga tu finiquito listo.`,
+        'Carta de renuncia laboral': `Guía completa sobre carta de renuncia laboral en Chile. Sin aviso previo, sin indemnización. Cómo redactarla y presentarla. Descarga tu carta lista.`,
+        'Certificado de antecedentes para fines especiales': `Guía completa sobre el certificado de antecedentes para fines especiales en Chile. Gratuito, inmediato. Dónde solicitarlo y para qué sirve.`,
+        'Eliminación de antecedentes penales': `Guía completa sobre eliminación de antecedentes penales en Chile. DS 64. Plazos de 5 o 10 años. Cómo solicitarlo ante el Registro Civil.`,
+        'Limpieza de hoja de vida del conductor': `Guía completa sobre limpieza de hoja de vida del conductor en Chile. Elimina infracciones del registro. Cómo solicitarlo ante el Registro Civil.`,
+        'Registro Nacional de Deudores de Pensiones de Alimentos': `Guía completa sobre el Registro Nacional de Deudores de Pensiones de Alimentos en Chile. Ley 21.389. Cómo consultarlo y salir del registro.`,
+        'Acuerdo de divorcio por mutuo acuerdo': `Guía completa sobre divorcio de mutuo acuerdo en Chile. Ley 19.947. Requisitos, plazos y proceso ante el Juzgado de Familia.`,
+        'Contrato de compraventa de vehículo': `Guía completa sobre compraventa de vehículo en Chile. Ley 18.290. Transferencia en Registro Civil, multas, prendas. Descarga tu contrato listo.`,
+        'Contrato de prestación de servicios a honorarios': `Guía completa sobre contrato a honorarios en Chile. Diferencias con relación laboral, cotizaciones, derechos. Descarga tu contrato listo.`,
+        'Carta reclamo banco': `Guía completa sobre carta reclamo banco en Chile. SERNAC Financiero, cobros no autorizados, comisiones indebidas. Modelo de reclamo listo.`,
+        'Carta reclamo Isapre': `Guía completa sobre carta reclamo Isapre en Chile. Rechazo de prestaciones, alza de planes. Reclama ante la Superintendencia de Salud.`,
+        'Carta reclamo aerolínea': `Guía completa sobre carta reclamo aerolínea en Chile. Vuelos cancelados, atrasos, overbooking. Reclama ante SERNAC o JAC.`,
+        'Carta reclamo seguro': `Guía completa sobre carta reclamo seguro en Chile. Siniestros rechazados, plazos de respuesta. Reclama ante la CMF.`,
+        'Carta reclamo tienda retail': `Guía completa sobre carta reclamo tienda retail en Chile. Garantía legal, productos defectuosos. Reclama ante SERNAC.`,
+        'Carta reclamo empresa de telecomunicaciones': `Guía completa sobre reclamo de telecomunicaciones en Chile. Internet, telefonía, TV cable. Reclama ante SERNAC o SUBTEL.`,
+        'Denuncia por no pago de cotizaciones': `Guía completa sobre denuncia por no pago de cotizaciones en Chile. AFP, Isapre, Fonasa. Cómo denunciar ante la Inspección del Trabajo.`,
+        'Denuncia por ruidos molestos de vecinos': `Guía completa sobre denuncia por ruidos molestos en Chile. Límites legales, cómo denunciar ante el JPL. Multas de 1 a 5 UTM.`,
+        'Denuncia por maltrato animal': `Guía completa sobre denuncia por maltrato animal en Chile. Ley 21.020. Cómo denunciar ante Carabineros o JPL. Multas de 10 a 30 UTM.`,
+        'Escrito de defensa por infracción de tránsito': `Guía completa sobre defensa de infracción de tránsito en Chile. Plazo de 5 días. Cómo impugnar multas ante el Juzgado de Policía Local.`,
+        'Escrito de prescripción de multa de tránsito': `Guía completa sobre prescripción de multa de tránsito en Chile. 3 años según Art. 2521 CC. Cómo solicitar la prescripción ante el JPL.`,
+        'Acuerdo de pago de deuda': `Guía completa sobre acuerdo de pago de deuda en Chile. Cómo negociar, cláusulas, fuerza ejecutiva. Descarga tu acuerdo listo.`,
+        'Carta de cobranza de deuda': `Guía completa sobre carta de cobranza de deuda en Chile. Ley 20.974. Qué puede y no puede hacer una empresa de cobranza.`,
+        'Declaración jurada simple': `Guía completa sobre declaración jurada simple en Chile. Valor legal, para qué sirve, cómo redactarla. Descarga tu declaración lista.`,
+        'Declaración jurada de domicilio': `Guía completa sobre declaración jurada de domicilio en Chile. Para bancos, SII, municipios. Descarga tu declaración lista.`,
+        'Declaración jurada de ingresos': `Guía completa sobre declaración jurada de ingresos en Chile. Para subsidios, arriendos, créditos. Descarga tu declaración lista.`,
+      };
+      return hubDescs[data.categoria] || `Guía completa sobre ${data.categoria} en Chile. Plazos, documentos necesarios y cómo presentarlo. Escrito listo en minutos.`;
+    }
+
+    // Para páginas ciudad: descripción más rica con datos locales
+    const intro = (data as Pagina).intro;
+    if (intro) {
+      // Usar primeros 155 caracteres de la intro como descripción
+      const shortIntro = intro.length > 155 ? intro.substring(0, 152) + '...' : intro;
+      return shortIntro;
+    }
+    return `Documento legal para ${pageTitle}. Listo en minutos para presentar ante ${data.entidad} (${data.direccion}). Base legal: ${data.ley}.`;
+  };
+
+  const description = getRichDescription();
+
   return {
-    title: isHub ? `${data.categoria} en Chile — Guía Completa | LegalHelp` : pageTitle,
+    title: isHub
+      ? `${data.categoria} en Chile — Guía Completa`
+      : `${pageTitle} — Documento Legal`,
+
     description,
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
     openGraph: {
-      title: pageTitle,
-      description: `${pageTitle} — documento listo en minutos. Válido ante ${data.entidad}.`,
+      title: isHub
+        ? `${data.categoria} en Chile — Guía Completa | LegalHelp Chile`
+        : `${pageTitle} — Documento Legal | LegalHelp Chile`,
+      description: description.length > 200 ? description.substring(0, 197) + '...' : description,
       url: `${BASE_URL}/p/${slug}`,
       siteName: 'LegalHelp Chile',
       locale: 'es_CL',
@@ -416,8 +480,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: 'summary_large_image',
-      title: pageTitle,
-      description: `${pageTitle} — documento listo en minutos. Válido ante ${data.entidad}.`,
+      title: isHub
+        ? `${data.categoria} en Chile — Guía Completa | LegalHelp Chile`
+        : `${pageTitle} — Documento Legal | LegalHelp Chile`,
+      description: description.length > 200 ? description.substring(0, 197) + '...' : description,
       images: [`${BASE_URL}/og-image.png`],
     },
     other: {
@@ -631,7 +697,16 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           <div>
             <div className="text-2xl mb-1">⚖️</div>
             <div className="font-semibold text-[#0b1f3a] text-sm mb-1">Base legal</div>
-            <div className="text-xs text-[#8a7f72]">{data.ley}</div>
+            <div className="text-xs text-[#8a7f72]">
+              {(() => {
+                const leyInfo = findLey(data.ley);
+                return leyInfo ? (
+                  <a href={leyInfo.url} target="_blank" rel="noopener noreferrer" className="text-[#0b1f3a] underline hover:text-[#c9a84c] transition-colors">
+                    {data.ley} ↗
+                  </a>
+                ) : data.ley;
+              })()}
+            </div>
           </div>
           <div>
             <div className="text-2xl mb-1">🏛</div>
