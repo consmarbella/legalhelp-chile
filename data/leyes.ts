@@ -263,6 +263,41 @@ export const LEYES: Record<string, LeyInfo> = {
     url: "https://www.bcn.cl/leychile/navegar?idNorma=22740&idParte=8717776",
     descripcion: "Procedimiento ejecutivo de embargo",
   },
+  "Ley 21.643": {
+    nombre: "Ley 21.643 (Ley Karin) — Acoso laboral, acoso sexual y violencia en el trabajo",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=1199634",
+    descripcion: "Regula la prevención, investigación y sanción del acoso laboral, acoso sexual y violencia en el trabajo",
+  },
+  "Art. 2196 CC": {
+    nombre: "Artículo 2196 del Código Civil — Contrato de mutuo",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776",
+    descripcion: "Contrato de mutuo o préstamo de consumo: el mutuante transfiere la propiedad de una cantidad de dinero al mutuario",
+  },
+  "Art. 688 CC": {
+    nombre: "Artículo 688 del Código Civil — Posesión efectiva",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=172986&idParte=8717776",
+    descripcion: "Posesión efectiva de la herencia: se otorga por el juez o el Registro Civil",
+  },
+  "Ley 19.903": {
+    nombre: "Ley 19.903 — Posesión efectiva ante el Registro Civil",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=210595",
+    descripcion: "Establece la tramitación de la posesión efectiva ante el Servicio de Registro Civil",
+  },
+  "Ley 20.027": {
+    nombre: "Ley 20.027 — Crédito con Aval del Estado (CAE)",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=228792",
+    descripcion: "Crea el sistema de Crédito con Aval del Estado para financiar estudios de educación superior",
+  },
+  "Ley 17.344": {
+    nombre: "Ley 17.344 — Cambio de nombre y apellido",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=28595",
+    descripcion: "Autoriza cambio de nombres y apellidos por justa causa ante tribunal civil",
+  },
+  "Art. 200 Código Tributario": {
+    nombre: "Artículo 200 del Código Tributario",
+    url: "https://www.bcn.cl/leychile/navegar?idNorma=6374",
+    descripcion: "Prescripción de la acción del Fisco para el cobro de impuestos: 3 años",
+  },
 };
 
 // Función helper para buscar una ley por texto parcial

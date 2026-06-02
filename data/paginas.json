@@ -29662,5 +29662,50 @@
     "entidad": "Juzgado de Letras de Ñuñoa",
     "direccion": "Ñuñoa",
     "intro": "En Ñuñoa, el contrato de mutuo es la mejor forma de formalizar un préstamo entre particulares. Establece el monto, plazo, intereses y forma de pago. Si no se paga, puedes demandar ante Juzgado de Letras de Ñuñoa en Ñuñoa. LegalHelp te genera el contrato listo para firmar."
+  },
+  {
+    "slug": "prescripcion-deuda-cae",
+    "categoria": "Prescripción de deuda CAE",
+    "variable": null,
+    "ley": "Ley 20.027 Art. 10 + Art. 2515 CC — prescripción deuda CAE y Fondo Solidario",
+    "plazo": "5 años desde que la deuda se hizo exigible",
+    "entidad": "Tesorería General de la República o Juzgado Civil",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "posesion-efectiva",
+    "categoria": "Solicitud de posesión efectiva",
+    "variable": null,
+    "ley": "Art. 877 CC + Ley 19.903 — posesión efectiva de herencia intestada",
+    "plazo": "Sin plazo fijo; se recomienda dentro de 3 años del fallecimiento",
+    "entidad": "Registro Civil e Identificación",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "cambio-apellido",
+    "categoria": "Solicitud de cambio de apellido",
+    "variable": null,
+    "ley": "Ley 17.344 — cambio de nombre y apellido por justa causa",
+    "plazo": "2-6 meses de tramitación ante tribunal civil",
+    "entidad": "Juzgado de Letras en lo Civil",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "prescripcion-deuda-tesoreria",
+    "categoria": "Prescripción de deuda Tesorería",
+    "variable": null,
+    "ley": "Art. 200 Código Tributario + Art. 2515 CC — prescripción deudas fiscales",
+    "plazo": "3 años para acciones del Fisco; 5 años acción ordinaria",
+    "entidad": "Tesorería General de la República (TGR)",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "prescripcion-deuda-alimentos",
+    "categoria": "Prescripción de deuda de alimentos",
+    "variable": null,
+    "ley": "Art. 2515 CC — pensión alimenticia prescribe en 5 años desde cada cuota",
+    "plazo": "5 años desde cada cuota impaga",
+    "entidad": "Juzgado de Familia",
+    "direccion": "Varía según domicilio"
   }
 ]

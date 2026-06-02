@@ -2,10 +2,18 @@ import { notFound, redirect } from 'next/navigation';
 import ChatGenerator from '@/components/ChatGenerator';
 import paginas from '@/data/paginas.json';
 import hubGuides from '@/data/hub_guides.json';
+import contenidoUnico from '@/data/contenido-unico.json';
 import Link from 'next/link';
 import { LEYES, findLey } from '@/data/leyes';
 
 type Pagina = (typeof paginas)[number] & { intro?: string };
+type ContenidoUnico = Record<string, {
+  faqs: { q: string; a: string }[];
+  paragraph: string;
+  ciudad: string | null;
+  categoria: string;
+  noindex: boolean;
+}>;
 
 export async function generateStaticParams() {
   return paginas.map((p) => ({ slug: p.slug }));
@@ -369,7 +377,36 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
     { q: '¿Tiene el acuerdo de pago de deuda fuerza ejecutiva?', a: 'Si el acuerdo está en escritura pública o es reconocido judicialmente, tiene fuerza ejecutiva (puedes demandar ejecutivamente si no se paga). Un acuerdo privado firmado solo permite demanda ordinaria.' },
     { q: '¿Qué pasa si el deudor incumple el acuerdo de pago?', a: 'Si hay cláusula de aceleración, todas las cuotas se hacen exigibles de inmediato. El acreedor puede demandar ejecutivamente el total adeudado. Si no hay cláusula, debe demandar cuota por cuota.' },
     { q: '¿El acuerdo de pago quita el deudor de DICOM?', a: 'El solo acuerdo no borra DICOM. Para salir de DICOM debes pagar la totalidad de la deuda. Una vez pagado, el acreedor tiene la obligación legal de informar el pago y el deudor puede exigir la eliminación del registro.' },
-    { q: '¿Puede el acuerdo de pago incluir condonación parcial de la deuda?', a: 'Sí. Las partes pueden acordar libremente la quita de intereses, multas o incluso parte del capital. Esta negociación es común cuando la deuda lleva mucho tiempo impaga y el acreedor prefiere recuperar parte en vez de nada.' },
+    { q: '¿Puede el acuerdo de pago incluir condonación parcial de la deuda?', a: 'Sí. Las partes pueden acordar libremente la quita de intereses, multas o incluso parte del capital. Esta negociación es común cuando la deuda lleva mucho tiempo impago y el acreedor prefiere recuperar parte en vez de nada.' },
+  ],
+  'Prescripción de deuda CAE': [
+    { q: '¿Qué es el CAE y cuándo prescribe la deuda?', a: 'El Crédito con Aval del Estado (CAE) es un crédito estudiantil administrado por la Comisión Ingresa. La deuda prescribe a los 5 años desde que se hizo exigible (Art. 2515 CC, acción ordinaria). Si la TGR inició cobro ejecutivo, el plazo ejecutivo es de 3 años.' },
+    { q: '¿Puedo liberarme del CAE por prescripción?', a: 'Sí, si han pasado más de 5 años desde que la cuota se hizo exigible sin que la Tesorería haya iniciado acción judicial. Sin embargo, si la TGR ya inició cobro judicial, debés alegar la prescripción como excepción dentro del juicio.' },
+    { q: '¿Cómo sé si mi deuda CAE prescribe?', a: 'Revisá la fecha de exigibilidad de cada cuota en tu cuenta de Comisión Ingresa o en la TGR. Contá 5 años desde esa fecha. Si no hay notificación judicial en ese período, la cuota está prescrita.' },
+    { q: '¿Qué pasa si no pago el CAE a la TGR?', a: 'La TGR puede iniciar un procedimiento ejecutivo de cobro. Si no alegás prescripción a tiempo, el tribunal puede ordenar embargo de bienes o retención de devolución de impuestos.' },
+  ],
+  'Solicitud de posesión efectiva': [
+    { q: '¿Qué es la posesión efectiva y para qué sirve?', a: 'La posesión efectiva es el trámite legal que declara quiénes son los herederos de una persona fallecida y les permite disponer de sus bienes. Se regula en los Art. 877 y siguientes del Código Civil.' },
+    { q: '¿Se puede hacer la posesión efectiva sin abogado?', a: 'Sí, para herencias sin testamento se puede tramitar directamente en el Registro Civil (posesión efectiva intestada). Si hay testamento o conflicto entre herederos, se requiere abogado y tramitación ante juzgado civil.' },
+    { q: '¿Cuánto demora la posesión efectiva en Chile?', a: 'En el Registro Civil demora aproximadamente 15 a 45 días hábiles. Si es ante tribunal civil, puede demorar 3 a 8 meses dependiendo de la complejidad.' },
+    { q: '¿Qué documentos necesito para la posesión efectiva?', a: 'Certificado de defunción, certificado de nacimiento del causante, certificados de nacimiento de todos los herederos, y certificado de matrimonio si corresponde. Todos se obtienen en el Registro Civil.' },
+  ],
+  'Solicitud de cambio de apellido': [
+    { q: '¿Cuánto cuesta cambiarse el apellido en Chile?', a: 'El trámite judicial no tiene costo de ingreso, pero necesitás patrocinio de abogado. Los honorarios varían entre $200.000 y $600.000 CLP. También hay Corporaciones de Asistencia Judicial gratuitas para quienes no pueden pagar.' },
+    { q: '¿Qué razones justifican un cambio de apellido en Chile?', a: 'La Ley 17.344 exige justa causa: nombres o apellidos ridículos, lesivos, extranjeros de difícil pronunciación, que generen confusión filiativa, o que hayan sido conocidos públicamente por otro nombre durante 5+ años.' },
+    { q: '¿Cuánto demora el cambio de apellido?', a: 'El proceso judicial completo demora entre 2 y 6 meses. Incluye publicación en el Diario Oficial y en un diario regional, más la resolución del juez.' },
+    { q: '¿Puedo cambiarme el apellido paterno?', a: 'Sí, se puede cambiar el apellido paterno, materno o ambos si existe justa causa. También se puede solicitar el cambio de orden de los apellidos o eliminar uno de ellos por razones fundadas.' },
+  ],
+  'Prescripción de deuda Tesorería': [
+    { q: '¿Cuándo prescribe una deuda con la Tesorería General de la República?', a: 'Las acciones del Fisco para cobrar deudas tributarias prescriben en 3 años (Art. 200 Código Tributario). Las deudas no tributarias (multas municipales, TAG) prescriben en 5 años según el Art. 2515 CC.' },
+    { q: '¿Qué deudas de la TGR prescriben?', a: 'Prescriben deudas de impuestos (IVA, renta), multas fiscales, derechos de aduana, contribuciones de bienes raíces, y deudas de crédito universitario (CAE, Fondo Solidario) que se cobran por la TGR.' },
+    { q: '¿Cómo solicito la prescripción de una deuda de Tesorería?', a: 'Presentando un escrito de excepción de prescripción ante el Tribunal Tributario Aduanero (TTA) o ante el juzgado civil que conoce del cobro, según corresponda.' },
+    { q: '¿La TGR puede embargarme por una deuda prescrita?', a: 'No. Si la deuda está prescrita, la TGR no puede embargar ni retener fondos. Sin embargo, debés alegar la prescripción formalmente; el tribunal no la declara de oficio.' },
+  ],
+  'Prescripción de deuda de alimentos': [
+    { q: '¿Prescribe la deuda de pensión alimenticia en Chile?', a: 'Sí. Cada cuota de alimentos impaga prescribe individualmente a los 5 años desde que se hizo exigible (Art. 2515 CC). La prescripción debe alegarse ante el tribunal.' },
+    { q: '¿El Registro de Deudores de Alimentos afecta la prescripción?', a: 'El registro no interrumpe la prescripción. La deuda sigue existiendo aunque esté en el registro. Solo una demanda judicial del alimentario interrumpe el plazo de prescripción.' },
+    { q: '¿Cómo se calcula el plazo de prescripción de alimentos?', a: 'Se cuenta desde la fecha en que cada cuota de alimentos se hizo exigible y no fue pagada. Si en esos 5 años el acreedor inició acciones judiciales de cobro, la prescripción se interrumpe.' },
   ],
   'Solicitud de alzamiento de protesto bancario': [
     { q: '¿Qué es el protesto de un cheque y cómo afecta?', a: 'El protesto es el registro público de que un cheque fue presentado al banco y no fue pagado por falta de fondos, cuenta cerrada o firma disconforme. Aparece en DICOM, puede afectar el crédito y en algunos casos configura el delito de giro doloso de cheques.' },
@@ -452,6 +489,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const description = getRichDescription();
 
+  // Verificar si esta página debe ser noindex (canibalización)
+  const cu = (contenidoUnico as ContenidoUnico)[slug];
+  const shouldNoIndex = cu?.noindex === true;
+
   return {
     title: isHub
       ? `${data.categoria} en Chile — Guía Completa`
@@ -461,6 +502,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: {
       canonical: `${BASE_URL}/p/${slug}`,
     },
+    robots: shouldNoIndex ? {
+      index: false,
+      follow: true,
+    } : undefined,
     openGraph: {
       title: isHub
         ? `${data.categoria} en Chile — Guía Completa | LegalHelp Chile`
@@ -548,6 +593,9 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
   if (!data) return notFound();
 
   const initialContext = `${data.categoria}${data.variable ? ` en ${data.variable}` : ''}`;
+
+  // Contenido único SSR (FAQ local + párrafo + noindex)
+  const cu = (contenidoUnico as ContenidoUnico)[slug];
 
   // Same-category pages for internal linking
   const relacionadas = paginas.filter(
@@ -700,6 +748,42 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           </p>
         </div>
       </div>
+
+      {/* CONTENIDO ÚNICO SSR — párrafo local para páginas ciudad */}
+      {data.variable && cu?.paragraph && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">
+              Información útil — {data.variable}
+            </p>
+            <p className="text-sm text-[#3a3330] leading-relaxed">
+              {cu.paragraph}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* FAQ LOCAL SSR — solo para páginas ciudad con FAQs generadas */}
+      {data.variable && cu?.faqs && cu.faqs.length > 0 && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-4">
+              Preguntas frecuentes sobre {data.categoria.toLowerCase()} en {data.variable}
+            </p>
+            <div className="divide-y divide-[#f0ebe3]">
+              {cu.faqs.map(({ q, a }: { q: string; a: string }) => (
+                <details key={q} className="py-3 group">
+                  <summary className="cursor-pointer text-sm font-semibold text-[#0b1f3a] list-none flex justify-between items-start gap-2">
+                    <span>{q}</span>
+                    <span className="text-[#c9a84c] font-bold text-base mt-0.5 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-2 text-xs text-[#5a5245] leading-relaxed">{a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* INFO BOX */}
       <div className="max-w-4xl mx-auto px-4 pb-8">
