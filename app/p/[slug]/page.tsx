@@ -1,7 +1,7 @@
+import { notFound, redirect } from 'next/navigation';
 import ChatGenerator from '@/components/ChatGenerator';
 import paginas from '@/data/paginas.json';
 import hubGuides from '@/data/hub_guides.json';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { LEYES, findLey } from '@/data/leyes';
 
@@ -540,9 +540,9 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
     const cleanSlug = slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
     const exists = paginas.find((p: Pagina) => p.slug === cleanSlug);
     if (exists) {
-      return Response.redirect(new URL(`/p/${cleanSlug}`, BASE_URL), 301);
+      redirect(`/p/${cleanSlug}`);
     }
-    return notFound();
+    notFound();
   }
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return notFound();
