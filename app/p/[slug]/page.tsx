@@ -535,6 +535,15 @@ const HUB_GUIDE: Record<string, { sections: { heading: string; body: string }[] 
 
 export default async function PSELanding({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  // Normalize: redirect URLs with special chars to avoid 500s
+  if (/[^a-z0-9-]/.test(slug)) {
+    const cleanSlug = slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+    const exists = paginas.find((p: Pagina) => p.slug === cleanSlug);
+    if (exists) {
+      return Response.redirect(new URL(`/p/${cleanSlug}`, BASE_URL), 301);
+    }
+    return notFound();
+  }
   const data = paginas.find((p: Pagina) => p.slug === slug);
   if (!data) return notFound();
 
