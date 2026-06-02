@@ -356,6 +356,26 @@
       "source": "/p/servicios-legales",
       "destination": "/p/servicios-legales-santiago",
       "permanent": true
+    },
+    {
+      "source": "/nosotros",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": false
     }
   ]
 }
