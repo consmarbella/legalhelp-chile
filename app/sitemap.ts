@@ -24,8 +24,9 @@ const HUBS = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const seen = new Set<string>();
   const pages: MetadataRoute.Sitemap = paginas
-    .filter((p) => HUBS.includes(p.slug))
+    .filter((p) => HUBS.includes(p.slug) && !seen.has(p.slug) && seen.add(p.slug))
     .map((p) => ({
       url: `${BASE_URL}/p/${p.slug}`,
       lastModified: new Date('2026-05-01'),
