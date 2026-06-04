@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
       { source: '/p/eliminacion-de-antecedentes-penales-:ciudad', destination: '/p/eliminacion-de-antecedentes-penales', permanent: true },
       { source: '/p/limpieza-de-hoja-de-vida-del-conductor-:ciudad', destination: '/p/limpieza-de-hoja-de-vida-del-conductor', permanent: true },
       { source: '/p/omision-de-antecedentes-por-violencia-intrafamiliar-:ciudad', destination: '/p/omision-de-antecedentes-por-violencia-intrafamiliar', permanent: true },
-      { source: '/p/poder-simple-:ciudad', destination: '/p/poder-simple-notarial', permanent: true },
+      { source: '/p/poder-simple-:ciudad((?!notarial$)[a-z-]+)', destination: '/p/poder-simple-notarial', permanent: true },
       { source: '/p/prescripcion-deuda-tag-:ciudad', destination: '/p/prescripcion-de-deuda-tag', permanent: true },
       { source: '/p/prescripcion-deuda-bancaria-:ciudad', destination: '/p/prescripcion-de-deuda-bancaria', permanent: true },
       { source: '/p/prescripcion-de-multas-de-transito-:ciudad', destination: '/p/prescripcion-de-multas-de-transito', permanent: true },
