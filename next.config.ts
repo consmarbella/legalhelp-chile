@@ -3,49 +3,41 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // www.legalhelp.cl → legalhelp.cl (301 permanente)
+      // www.legalhelp.cl → legalhelp.cl
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.legalhelp.cl' }],
         destination: 'https://legalhelp.cl/:path*',
         permanent: true,
       },
-      // Alias slug cortos → slugs reales con "deuda" en el nombre
-      {
-        source: '/p/prescripcion-tag-:ciudad',
-        destination: '/p/prescripcion-deuda-tag-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/prescripcion-bancaria-:ciudad',
-        destination: '/p/prescripcion-deuda-bancaria-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/alimentos-:ciudad',
-        destination: '/p/demanda-de-alimentos-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/despido-:ciudad',
-        destination: '/p/denuncia-por-despido-injustificado-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/sernac-:ciudad',
-        destination: '/p/carta-reclamo-sernac-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/desalojo-:ciudad',
-        destination: '/p/demanda-de-desalojo-por-no-pago-:ciudad',
-        permanent: true,
-      },
-      {
-        source: '/p/cotizaciones-:ciudad',
-        destination: '/p/denuncia-por-no-pago-de-cotizaciones-:ciudad',
-        permanent: true,
-      },
+
+      // Alias cortos → hub
+      { source: '/p/prescripcion-tag-:ciudad', destination: '/p/prescripcion-de-deuda-tag', permanent: true },
+      { source: '/p/prescripcion-bancaria-:ciudad', destination: '/p/prescripcion-de-deuda-bancaria', permanent: true },
+      { source: '/p/alimentos-:ciudad', destination: '/p/demanda-de-alimentos', permanent: true },
+      { source: '/p/despido-:ciudad', destination: '/p/denuncia-por-despido-injustificado', permanent: true },
+      { source: '/p/sernac-:ciudad', destination: '/p/carta-reclamo-sernac', permanent: true },
+      { source: '/p/desalojo-:ciudad', destination: '/p/demanda-de-desalojo-por-no-pago', permanent: true },
+      { source: '/p/cotizaciones-:ciudad', destination: '/p/denuncia-por-no-pago-de-cotizaciones', permanent: true },
+
+      // PSEO thin content → 17 hubs (~2.500 URLs consolidadas)
+      { source: '/p/alzamiento-de-embargo-sobre-vehiculo-:ciudad', destination: '/p/alzamiento-de-embargo-sobre-vehiculo', permanent: true },
+      { source: '/p/carta-reclamo-sernac-:ciudad', destination: '/p/carta-reclamo-sernac', permanent: true },
+      { source: '/p/certificado-de-antecedentes-para-fines-especiales-:ciudad', destination: '/p/certificado-de-antecedentes-para-fines-especiales', permanent: true },
+      { source: '/p/demanda-de-alimentos-:ciudad', destination: '/p/demanda-de-alimentos', permanent: true },
+      { source: '/p/demanda-de-desalojo-por-no-pago-:ciudad', destination: '/p/demanda-de-desalojo-por-no-pago', permanent: true },
+      { source: '/p/denuncia-por-despido-injustificado-:ciudad', destination: '/p/denuncia-por-despido-injustificado', permanent: true },
+      { source: '/p/denuncia-por-no-pago-de-cotizaciones-:ciudad', destination: '/p/denuncia-por-no-pago-de-cotizaciones', permanent: true },
+      { source: '/p/eliminacion-de-antecedentes-penales-:ciudad', destination: '/p/eliminacion-de-antecedentes-penales', permanent: true },
+      { source: '/p/limpieza-de-hoja-de-vida-del-conductor-:ciudad', destination: '/p/limpieza-de-hoja-de-vida-del-conductor', permanent: true },
+      { source: '/p/omision-de-antecedentes-por-violencia-intrafamiliar-:ciudad', destination: '/p/omision-de-antecedentes-por-violencia-intrafamiliar', permanent: true },
+      { source: '/p/poder-simple-notarial-:ciudad', destination: '/p/poder-simple-notarial', permanent: true },
+      { source: '/p/prescripcion-de-deuda-tag-:ciudad', destination: '/p/prescripcion-de-deuda-tag', permanent: true },
+      { source: '/p/prescripcion-de-deuda-bancaria-:ciudad', destination: '/p/prescripcion-de-deuda-bancaria', permanent: true },
+      { source: '/p/prescripcion-de-multas-de-transito-:ciudad', destination: '/p/prescripcion-de-multas-de-transito', permanent: true },
+      { source: '/p/recurso-de-proteccion-:ciudad', destination: '/p/recurso-de-proteccion', permanent: true },
+      { source: '/p/registro-nacional-de-deudores-de-pensiones-de-alimentos-:ciudad', destination: '/p/registro-nacional-de-deudores-de-pensiones-de-alimentos', permanent: true },
+      { source: '/p/servicios-legales-:ciudad', destination: '/p/servicios-legales', permanent: true },
     ];
   },
 

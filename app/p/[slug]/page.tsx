@@ -15,8 +15,28 @@ type ContenidoUnico = Record<string, {
   noindex: boolean;
 }>;
 
+const HUBS = [
+  'alzamiento-de-embargo-sobre-vehiculo',
+  'carta-reclamo-sernac',
+  'certificado-de-antecedentes-para-fines-especiales',
+  'demanda-de-alimentos',
+  'demanda-de-desalojo-por-no-pago',
+  'denuncia-por-despido-injustificado',
+  'denuncia-por-no-pago-de-cotizaciones',
+  'eliminacion-de-antecedentes-penales',
+  'limpieza-de-hoja-de-vida-del-conductor',
+  'omision-de-antecedentes-por-violencia-intrafamiliar',
+  'poder-simple-notarial',
+  'prescripcion-de-deuda-tag',
+  'prescripcion-de-deuda-bancaria',
+  'prescripcion-de-multas-de-transito',
+  'recurso-de-proteccion',
+  'registro-nacional-de-deudores-de-pensiones-de-alimentos',
+  'servicios-legales',
+];
+
 export async function generateStaticParams() {
-  return paginas.map((p) => ({ slug: p.slug }));
+  return paginas.filter((p) => HUBS.includes(p.slug)).map((p) => ({ slug: p.slug }));
 }
 
 const BASE_URL = 'https://legalhelp.cl';
