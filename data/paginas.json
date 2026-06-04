@@ -5,7 +5,7 @@
     "variable": null,
     "ley": "Artículos 446 y siguientes del Código de Procedimiento Civil",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -14,7 +14,7 @@
     "variable": null,
     "ley": "Ley 19.496 Art. 3° y 20 — protección al consumidor",
     "plazo": "Dentro de 6 meses desde la compra",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el SERNAC o el Juzgado de Policía Local de tu comuna",
     "direccion": "Varía según domicilio"
   },
   {
@@ -23,7 +23,7 @@
     "variable": null,
     "ley": "DS 64 + Ley 19.628 — protección de datos personales",
     "plazo": "Trámite administrativo en días hábiles",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
     "direccion": "Varía según domicilio"
   },
   {
@@ -32,7 +32,7 @@
     "variable": null,
     "ley": "Ley 14.908 + Art. 321 CC — obligación alimenticia",
     "plazo": "Se puede demandar en cualquier momento",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Familia competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -41,7 +41,7 @@
     "variable": null,
     "ley": "Ley 18.101 Art. 1° + Art. 1977 CC — arrendamiento urbano",
     "plazo": "Acción desde el primer mes impago",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -50,7 +50,7 @@
     "variable": null,
     "ley": "Art. 161, 163, 168 Código del Trabajo — indemnizaciones por despido",
     "plazo": "60 días hábiles desde el despido",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "la Inspección del Trabajo o el Juzgado de Letras del Trabajo",
     "direccion": "Varía según domicilio"
   },
   {
@@ -59,7 +59,7 @@
     "variable": null,
     "ley": "Art. 19 DL 3.500 + Ley 17.322 — cotizaciones previsionales",
     "plazo": "Se puede denunciar en cualquier momento",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "la Inspección del Trabajo o el Juzgado de Letras del Trabajo",
     "direccion": "Varía según domicilio"
   },
   {
@@ -68,7 +68,7 @@
     "variable": null,
     "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
     "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
     "direccion": "Varía según domicilio"
   },
   {
@@ -77,7 +77,7 @@
     "variable": null,
     "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
     "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Policía Local de la comuna correspondiente",
     "direccion": "Varía según domicilio"
   },
   {
@@ -86,7 +86,7 @@
     "variable": null,
     "ley": "Ley 20.066 — Ley de Violencia Intrafamiliar y DS 64",
     "plazo": "5 años desde la resolución, dependiendo del caso",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
     "direccion": "Varía según domicilio"
   },
   {
@@ -95,7 +95,7 @@
     "variable": null,
     "ley": "Art. 2116 CC + Ley del Notariado — mandato especial",
     "plazo": "Vigencia definida en el documento",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -104,7 +104,7 @@
     "variable": null,
     "ley": "Art. 2515 CC — prescripción 3 años acción ejecutiva",
     "plazo": "3 años desde la fecha del cobro",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Policía Local de la comuna correspondiente",
     "direccion": "Varía según domicilio"
   },
   {
@@ -113,7 +113,7 @@
     "variable": null,
     "ley": "Art. 2515 CC — prescripción 5 años acción ordinaria",
     "plazo": "5 años sin notificación judicial",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -122,7 +122,7 @@
     "variable": null,
     "ley": "Ley 18.287 — Juzgados de Policía Local, prescripción de multas",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Policía Local de la comuna correspondiente",
     "direccion": "Varía según domicilio"
   },
   {
@@ -131,7 +131,7 @@
     "variable": null,
     "ley": "Art. 20 Constitución + Art. 19 N°1/N°9 CPR — derechos fundamentales",
     "plazo": "30 días desde el acto u omisión",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "la Corte de Apelaciones del domicilio del afectado o del lugar donde ocurrió el acto",
     "direccion": "Varía según domicilio"
   },
   {
@@ -140,7 +140,7 @@
     "variable": null,
     "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
     "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Familia competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -149,7 +149,7 @@
     "variable": null,
     "ley": "Legislación chilena vigente",
     "plazo": "Minutos desde que completas el formulario",
-    "entidad": "Aplicable en toda Chile",
+    "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
   {
@@ -3223,7 +3223,7 @@
     "variable": "",
     "ley": "Ley 19.496 Art. 3° y 20 — protección al consumidor",
     "plazo": "Dentro de 6 meses desde la compra",
-    "entidad": "SERNAC de tu región",
+    "entidad": "el SERNAC o el Juzgado de Policía Local de tu comuna",
     "direccion": "Oficina SERNAC correspondiente a tu domicilio, Chile"
   },
   {
