@@ -40,8 +40,11 @@ function smartMock(message: string, current: CaseData): CaseData {
   }
 
   // Recopilar datos básicos en secuencia
+  const originalTipo = updated.tipo_documento;
   const isDesc = message.length > 35 || /\b(necesito|quiero|tengo|debo|para|porque)\b/i.test(message);
-  if (!updated.nombre && !isDesc)                                          updated.nombre = message.trim();
+  // Si el mensaje activó tipo_documento por keyword (ej: initialContext "Poder simple notarial")
+  // y no es descriptivo, NO lo trates como nombre del usuario
+  if (!updated.nombre && !isDesc && !(originalTipo !== updated.tipo_documento && updated.tipo_documento)) updated.nombre = message.trim();
   else if (!updated.rut && /^\d[\d.\-kK]+$/.test(message.trim()))         updated.rut = message.trim();
   else if (updated.nombre && updated.rut && !updated.direccion)           updated.direccion = message.trim();
   else if (updated.nombre && updated.rut && updated.direccion && !updated.detalle_caso) updated.detalle_caso = message.trim();
