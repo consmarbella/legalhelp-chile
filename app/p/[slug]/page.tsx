@@ -35,9 +35,8 @@ const HUBS = [
   'servicios-legales',
 ];
 
-export async function generateStaticParams() {
-  return paginas.filter((p) => HUBS.includes(p.slug)).map((p) => ({ slug: p.slug }));
-}
+// Sin generateStaticParams — las páginas se renderizan on-demand (ISR)
+// Esto evita timeouts de build con 3114+ páginas
 
 const BASE_URL = 'https://legalhelp.cl';
 
