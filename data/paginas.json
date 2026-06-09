@@ -27712,213 +27712,6 @@
     "direccion": "Varía según domicilio laboral"
   },
   {
-    "slug": "denuncia-acoso-laboral-santiago",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Santiago",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-valparaiso",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Valparaíso",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-concepcion",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Concepción",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-vina-del-mar",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Viña del Mar",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-antofagasta",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Antofagasta",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-la-serena",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "La Serena",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-rancagua",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Rancagua",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-talca",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Talca",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-temuco",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Temuco",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-puerto-montt",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Puerto Montt",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-iquique",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Iquique",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-copiapo",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Copiapo",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-punta-arenas",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Punta Arenas",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-arica",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Arica",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-curico",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Curicó",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-osorno",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Osorno",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-chillan",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Chillán",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-maipu",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Maipú",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-las-condes",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Las Condes",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-providencia",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Providencia",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-la-florida",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "La Florida",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-puente-alto",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "Puente Alto",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "denuncia-acoso-laboral-san-bernardo",
-    "categoria": "Denuncia por acoso laboral (Ley Karin)",
-    "variable": "San Bernardo",
-    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
-    "plazo": "60 días hábiles desde el último hecho de acoso",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "pagare",
     "categoria": "Pagaré",
     "variable": null,
@@ -27926,213 +27719,6 @@
     "plazo": "Según acuerdo entre las partes",
     "entidad": "No requiere tribunal — firma ante Notario recomendada",
     "direccion": "Notaría de tu comuna"
-  },
-  {
-    "slug": "pagare-santiago",
-    "categoria": "Pagaré",
-    "variable": "Santiago",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "pagare-valparaiso",
-    "categoria": "Pagaré",
-    "variable": "Valparaíso",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "pagare-concepcion",
-    "categoria": "Pagaré",
-    "variable": "Concepción",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "pagare-vina-del-mar",
-    "categoria": "Pagaré",
-    "variable": "Viña del Mar",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "pagare-antofagasta",
-    "categoria": "Pagaré",
-    "variable": "Antofagasta",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "pagare-la-serena",
-    "categoria": "Pagaré",
-    "variable": "La Serena",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "pagare-rancagua",
-    "categoria": "Pagaré",
-    "variable": "Rancagua",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "pagare-talca",
-    "categoria": "Pagaré",
-    "variable": "Talca",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "pagare-temuco",
-    "categoria": "Pagaré",
-    "variable": "Temuco",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "pagare-puerto-montt",
-    "categoria": "Pagaré",
-    "variable": "Puerto Montt",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "pagare-iquique",
-    "categoria": "Pagaré",
-    "variable": "Iquique",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "pagare-copiapo",
-    "categoria": "Pagaré",
-    "variable": "Copiapo",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "pagare-punta-arenas",
-    "categoria": "Pagaré",
-    "variable": "Punta Arenas",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "pagare-arica",
-    "categoria": "Pagaré",
-    "variable": "Arica",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "pagare-curico",
-    "categoria": "Pagaré",
-    "variable": "Curicó",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "pagare-osorno",
-    "categoria": "Pagaré",
-    "variable": "Osorno",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "pagare-chillan",
-    "categoria": "Pagaré",
-    "variable": "Chillán",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "pagare-maipu",
-    "categoria": "Pagaré",
-    "variable": "Maipú",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "pagare-las-condes",
-    "categoria": "Pagaré",
-    "variable": "Las Condes",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "pagare-providencia",
-    "categoria": "Pagaré",
-    "variable": "Providencia",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "pagare-la-florida",
-    "categoria": "Pagaré",
-    "variable": "La Florida",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "pagare-puente-alto",
-    "categoria": "Pagaré",
-    "variable": "Puente Alto",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "pagare-san-bernardo",
-    "categoria": "Pagaré",
-    "variable": "San Bernardo",
-    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "contrato-mutuo",
@@ -28144,213 +27730,6 @@
     "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "contrato-mutuo-santiago",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Santiago",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "contrato-mutuo-valparaiso",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Valparaíso",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "contrato-mutuo-concepcion",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Concepción",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "contrato-mutuo-vina-del-mar",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Viña del Mar",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "contrato-mutuo-antofagasta",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Antofagasta",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "contrato-mutuo-la-serena",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "La Serena",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "contrato-mutuo-rancagua",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Rancagua",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "contrato-mutuo-talca",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Talca",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "contrato-mutuo-temuco",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Temuco",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "contrato-mutuo-puerto-montt",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Puerto Montt",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "contrato-mutuo-iquique",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Iquique",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "contrato-mutuo-copiapo",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Copiapo",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "contrato-mutuo-punta-arenas",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Punta Arenas",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "contrato-mutuo-arica",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Arica",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "contrato-mutuo-curico",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Curicó",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "contrato-mutuo-osorno",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Osorno",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "contrato-mutuo-chillan",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Chillán",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "contrato-mutuo-maipu",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Maipú",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "contrato-mutuo-las-condes",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Las Condes",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "contrato-mutuo-providencia",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Providencia",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "contrato-mutuo-la-florida",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "La Florida",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "contrato-mutuo-puente-alto",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "Puente Alto",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "contrato-mutuo-san-bernardo",
-    "categoria": "Contrato de mutuo (préstamo de dinero)",
-    "variable": "San Bernardo",
-    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "posecion-efectiva",
     "categoria": "Solicitud de posesión efectiva (herencia)",
     "variable": null,
@@ -28358,213 +27737,6 @@
     "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
     "entidad": "Registro Civil de tu comuna",
     "direccion": "Varía según domicilio del causante"
-  },
-  {
-    "slug": "posecion-efectiva-santiago",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Santiago",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "posecion-efectiva-valparaiso",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Valparaíso",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "posecion-efectiva-concepcion",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Concepción",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "posecion-efectiva-vina-del-mar",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Viña del Mar",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "posecion-efectiva-antofagasta",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Antofagasta",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "posecion-efectiva-la-serena",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "La Serena",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "posecion-efectiva-rancagua",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Rancagua",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "posecion-efectiva-talca",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Talca",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "posecion-efectiva-temuco",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Temuco",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "posecion-efectiva-puerto-montt",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Puerto Montt",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "posecion-efectiva-iquique",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Iquique",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "posecion-efectiva-copiapo",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Copiapo",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "posecion-efectiva-punta-arenas",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Punta Arenas",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "posecion-efectiva-arica",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Arica",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "posecion-efectiva-curico",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Curicó",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "posecion-efectiva-osorno",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Osorno",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "posecion-efectiva-chillan",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Chillán",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "posecion-efectiva-maipu",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Maipú",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "posecion-efectiva-las-condes",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Las Condes",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "posecion-efectiva-providencia",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Providencia",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "posecion-efectiva-la-florida",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "La Florida",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "posecion-efectiva-puente-alto",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "Puente Alto",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "posecion-efectiva-san-bernardo",
-    "categoria": "Solicitud de posesión efectiva (herencia)",
-    "variable": "San Bernardo",
-    "ley": "Art. 955 y siguientes Código Civil + Ley 19.903 — posesión efectiva",
-    "plazo": "Se puede solicitar en cualquier momento tras el fallecimiento",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "denuncia-estafa",
@@ -28576,213 +27748,6 @@
     "direccion": "Varía según domicilio"
   },
   {
-    "slug": "denuncia-estafa-santiago",
-    "categoria": "Denuncia por estafa",
-    "variable": "Santiago",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "denuncia-estafa-valparaiso",
-    "categoria": "Denuncia por estafa",
-    "variable": "Valparaíso",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "denuncia-estafa-concepcion",
-    "categoria": "Denuncia por estafa",
-    "variable": "Concepción",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "denuncia-estafa-vina-del-mar",
-    "categoria": "Denuncia por estafa",
-    "variable": "Viña del Mar",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "denuncia-estafa-antofagasta",
-    "categoria": "Denuncia por estafa",
-    "variable": "Antofagasta",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "denuncia-estafa-la-serena",
-    "categoria": "Denuncia por estafa",
-    "variable": "La Serena",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "denuncia-estafa-rancagua",
-    "categoria": "Denuncia por estafa",
-    "variable": "Rancagua",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "denuncia-estafa-talca",
-    "categoria": "Denuncia por estafa",
-    "variable": "Talca",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "denuncia-estafa-temuco",
-    "categoria": "Denuncia por estafa",
-    "variable": "Temuco",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "denuncia-estafa-puerto-montt",
-    "categoria": "Denuncia por estafa",
-    "variable": "Puerto Montt",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "denuncia-estafa-iquique",
-    "categoria": "Denuncia por estafa",
-    "variable": "Iquique",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "denuncia-estafa-copiapo",
-    "categoria": "Denuncia por estafa",
-    "variable": "Copiapo",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "denuncia-estafa-punta-arenas",
-    "categoria": "Denuncia por estafa",
-    "variable": "Punta Arenas",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "denuncia-estafa-arica",
-    "categoria": "Denuncia por estafa",
-    "variable": "Arica",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "denuncia-estafa-curico",
-    "categoria": "Denuncia por estafa",
-    "variable": "Curicó",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "denuncia-estafa-osorno",
-    "categoria": "Denuncia por estafa",
-    "variable": "Osorno",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "denuncia-estafa-chillan",
-    "categoria": "Denuncia por estafa",
-    "variable": "Chillán",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "denuncia-estafa-maipu",
-    "categoria": "Denuncia por estafa",
-    "variable": "Maipú",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "denuncia-estafa-las-condes",
-    "categoria": "Denuncia por estafa",
-    "variable": "Las Condes",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "denuncia-estafa-providencia",
-    "categoria": "Denuncia por estafa",
-    "variable": "Providencia",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "denuncia-estafa-la-florida",
-    "categoria": "Denuncia por estafa",
-    "variable": "La Florida",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "denuncia-estafa-puente-alto",
-    "categoria": "Denuncia por estafa",
-    "variable": "Puente Alto",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "denuncia-estafa-san-bernardo",
-    "categoria": "Denuncia por estafa",
-    "variable": "San Bernardo",
-    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
-    "plazo": "5 años desde el hecho (acción penal pública)",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "demanda-accidente-transito",
     "categoria": "Demanda por accidente de tránsito",
     "variable": null,
@@ -28790,213 +27755,6 @@
     "plazo": "5 años desde el accidente (acción ordinaria)",
     "entidad": "Juzgado de Letras en lo Civil de tu comuna",
     "direccion": "Varía según domicilio"
-  },
-  {
-    "slug": "demanda-accidente-transito-santiago",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Santiago",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "demanda-accidente-transito-valparaiso",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Valparaíso",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "demanda-accidente-transito-concepcion",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Concepción",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "demanda-accidente-transito-vina-del-mar",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Viña del Mar",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "demanda-accidente-transito-antofagasta",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Antofagasta",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "demanda-accidente-transito-la-serena",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "La Serena",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "demanda-accidente-transito-rancagua",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Rancagua",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "demanda-accidente-transito-talca",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Talca",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "demanda-accidente-transito-temuco",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Temuco",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "demanda-accidente-transito-puerto-montt",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Puerto Montt",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "demanda-accidente-transito-iquique",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Iquique",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "demanda-accidente-transito-copiapo",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Copiapo",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "demanda-accidente-transito-punta-arenas",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Punta Arenas",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "demanda-accidente-transito-arica",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Arica",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "demanda-accidente-transito-curico",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Curicó",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "demanda-accidente-transito-osorno",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Osorno",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "demanda-accidente-transito-chillan",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Chillán",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "demanda-accidente-transito-maipu",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Maipú",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "demanda-accidente-transito-las-condes",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Las Condes",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "demanda-accidente-transito-providencia",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Providencia",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "demanda-accidente-transito-la-florida",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "La Florida",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "demanda-accidente-transito-puente-alto",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "Puente Alto",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "demanda-accidente-transito-san-bernardo",
-    "categoria": "Demanda por accidente de tránsito",
-    "variable": "San Bernardo",
-    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
-    "plazo": "5 años desde el accidente (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "carta-despido",
@@ -29008,213 +27766,6 @@
     "direccion": "Domicilio del trabajador"
   },
   {
-    "slug": "carta-despido-santiago",
-    "categoria": "Carta de despido",
-    "variable": "Santiago",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "carta-despido-valparaiso",
-    "categoria": "Carta de despido",
-    "variable": "Valparaíso",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "carta-despido-concepcion",
-    "categoria": "Carta de despido",
-    "variable": "Concepción",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "carta-despido-vina-del-mar",
-    "categoria": "Carta de despido",
-    "variable": "Viña del Mar",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "carta-despido-antofagasta",
-    "categoria": "Carta de despido",
-    "variable": "Antofagasta",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "carta-despido-la-serena",
-    "categoria": "Carta de despido",
-    "variable": "La Serena",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "carta-despido-rancagua",
-    "categoria": "Carta de despido",
-    "variable": "Rancagua",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "carta-despido-talca",
-    "categoria": "Carta de despido",
-    "variable": "Talca",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "carta-despido-temuco",
-    "categoria": "Carta de despido",
-    "variable": "Temuco",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "carta-despido-puerto-montt",
-    "categoria": "Carta de despido",
-    "variable": "Puerto Montt",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "carta-despido-iquique",
-    "categoria": "Carta de despido",
-    "variable": "Iquique",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "carta-despido-copiapo",
-    "categoria": "Carta de despido",
-    "variable": "Copiapo",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "carta-despido-punta-arenas",
-    "categoria": "Carta de despido",
-    "variable": "Punta Arenas",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "carta-despido-arica",
-    "categoria": "Carta de despido",
-    "variable": "Arica",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "carta-despido-curico",
-    "categoria": "Carta de despido",
-    "variable": "Curicó",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "carta-despido-osorno",
-    "categoria": "Carta de despido",
-    "variable": "Osorno",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "carta-despido-chillan",
-    "categoria": "Carta de despido",
-    "variable": "Chillán",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "carta-despido-maipu",
-    "categoria": "Carta de despido",
-    "variable": "Maipú",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "carta-despido-las-condes",
-    "categoria": "Carta de despido",
-    "variable": "Las Condes",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "carta-despido-providencia",
-    "categoria": "Carta de despido",
-    "variable": "Providencia",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "carta-despido-la-florida",
-    "categoria": "Carta de despido",
-    "variable": "La Florida",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "carta-despido-puente-alto",
-    "categoria": "Carta de despido",
-    "variable": "Puente Alto",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "carta-despido-san-bernardo",
-    "categoria": "Carta de despido",
-    "variable": "San Bernardo",
-    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
-    "plazo": "Al momento del despido",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "constitucion-spa",
     "categoria": "Constitución de Sociedad SpA",
     "variable": null,
@@ -29222,213 +27773,6 @@
     "plazo": "Trámite en 1 día en el Registro de Empresas",
     "entidad": "Registro de Empresas y Sociedades (eSCRV)",
     "direccion": "En línea a través del Diario Oficial"
-  },
-  {
-    "slug": "constitucion-spa-santiago",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Santiago",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "constitucion-spa-valparaiso",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Valparaíso",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "constitucion-spa-concepcion",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Concepción",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "constitucion-spa-vina-del-mar",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Viña del Mar",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "constitucion-spa-antofagasta",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Antofagasta",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "constitucion-spa-la-serena",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "La Serena",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "constitucion-spa-rancagua",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Rancagua",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "constitucion-spa-talca",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Talca",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "constitucion-spa-temuco",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Temuco",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "constitucion-spa-puerto-montt",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Puerto Montt",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "constitucion-spa-iquique",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Iquique",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "constitucion-spa-copiapo",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Copiapo",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "constitucion-spa-punta-arenas",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Punta Arenas",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "constitucion-spa-arica",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Arica",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "constitucion-spa-curico",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Curicó",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "constitucion-spa-osorno",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Osorno",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "constitucion-spa-chillan",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Chillán",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "constitucion-spa-maipu",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Maipú",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "constitucion-spa-las-condes",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Las Condes",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "constitucion-spa-providencia",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Providencia",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "constitucion-spa-la-florida",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "La Florida",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "constitucion-spa-puente-alto",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "Puente Alto",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "constitucion-spa-san-bernardo",
-    "categoria": "Constitución de Sociedad SpA",
-    "variable": "San Bernardo",
-    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
-    "plazo": "Trámite en 1 día en el Registro de Empresas",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "demanda-dano-moral",
@@ -29440,213 +27784,6 @@
     "direccion": "Varía según domicilio"
   },
   {
-    "slug": "demanda-dano-moral-santiago",
-    "categoria": "Demanda por daño moral",
-    "variable": "Santiago",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "demanda-dano-moral-valparaiso",
-    "categoria": "Demanda por daño moral",
-    "variable": "Valparaíso",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "demanda-dano-moral-concepcion",
-    "categoria": "Demanda por daño moral",
-    "variable": "Concepción",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "demanda-dano-moral-vina-del-mar",
-    "categoria": "Demanda por daño moral",
-    "variable": "Viña del Mar",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "demanda-dano-moral-antofagasta",
-    "categoria": "Demanda por daño moral",
-    "variable": "Antofagasta",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "demanda-dano-moral-la-serena",
-    "categoria": "Demanda por daño moral",
-    "variable": "La Serena",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "demanda-dano-moral-rancagua",
-    "categoria": "Demanda por daño moral",
-    "variable": "Rancagua",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "demanda-dano-moral-talca",
-    "categoria": "Demanda por daño moral",
-    "variable": "Talca",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "demanda-dano-moral-temuco",
-    "categoria": "Demanda por daño moral",
-    "variable": "Temuco",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "demanda-dano-moral-puerto-montt",
-    "categoria": "Demanda por daño moral",
-    "variable": "Puerto Montt",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "demanda-dano-moral-iquique",
-    "categoria": "Demanda por daño moral",
-    "variable": "Iquique",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "demanda-dano-moral-copiapo",
-    "categoria": "Demanda por daño moral",
-    "variable": "Copiapo",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "demanda-dano-moral-punta-arenas",
-    "categoria": "Demanda por daño moral",
-    "variable": "Punta Arenas",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "demanda-dano-moral-arica",
-    "categoria": "Demanda por daño moral",
-    "variable": "Arica",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "demanda-dano-moral-curico",
-    "categoria": "Demanda por daño moral",
-    "variable": "Curicó",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "demanda-dano-moral-osorno",
-    "categoria": "Demanda por daño moral",
-    "variable": "Osorno",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "demanda-dano-moral-chillan",
-    "categoria": "Demanda por daño moral",
-    "variable": "Chillán",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "demanda-dano-moral-maipu",
-    "categoria": "Demanda por daño moral",
-    "variable": "Maipú",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "demanda-dano-moral-las-condes",
-    "categoria": "Demanda por daño moral",
-    "variable": "Las Condes",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "demanda-dano-moral-providencia",
-    "categoria": "Demanda por daño moral",
-    "variable": "Providencia",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "demanda-dano-moral-la-florida",
-    "categoria": "Demanda por daño moral",
-    "variable": "La Florida",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "demanda-dano-moral-puente-alto",
-    "categoria": "Demanda por daño moral",
-    "variable": "Puente Alto",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "demanda-dano-moral-san-bernardo",
-    "categoria": "Demanda por daño moral",
-    "variable": "San Bernardo",
-    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
-    "plazo": "5 años desde el hecho (acción ordinaria)",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "recurso-amparo",
     "categoria": "Recurso de amparo",
     "variable": null,
@@ -29654,213 +27791,6 @@
     "plazo": "En cualquier momento mientras dure la privación de libertad",
     "entidad": "Corte de Apelaciones de tu región",
     "direccion": "Varía según domicilio"
-  },
-  {
-    "slug": "recurso-amparo-santiago",
-    "categoria": "Recurso de amparo",
-    "variable": "Santiago",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "recurso-amparo-valparaiso",
-    "categoria": "Recurso de amparo",
-    "variable": "Valparaíso",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "recurso-amparo-concepcion",
-    "categoria": "Recurso de amparo",
-    "variable": "Concepción",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "recurso-amparo-vina-del-mar",
-    "categoria": "Recurso de amparo",
-    "variable": "Viña del Mar",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "recurso-amparo-antofagasta",
-    "categoria": "Recurso de amparo",
-    "variable": "Antofagasta",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "recurso-amparo-la-serena",
-    "categoria": "Recurso de amparo",
-    "variable": "La Serena",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "recurso-amparo-rancagua",
-    "categoria": "Recurso de amparo",
-    "variable": "Rancagua",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "recurso-amparo-talca",
-    "categoria": "Recurso de amparo",
-    "variable": "Talca",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "recurso-amparo-temuco",
-    "categoria": "Recurso de amparo",
-    "variable": "Temuco",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "recurso-amparo-puerto-montt",
-    "categoria": "Recurso de amparo",
-    "variable": "Puerto Montt",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "recurso-amparo-iquique",
-    "categoria": "Recurso de amparo",
-    "variable": "Iquique",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "recurso-amparo-copiapo",
-    "categoria": "Recurso de amparo",
-    "variable": "Copiapo",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "recurso-amparo-punta-arenas",
-    "categoria": "Recurso de amparo",
-    "variable": "Punta Arenas",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "recurso-amparo-arica",
-    "categoria": "Recurso de amparo",
-    "variable": "Arica",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "recurso-amparo-curico",
-    "categoria": "Recurso de amparo",
-    "variable": "Curicó",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "recurso-amparo-osorno",
-    "categoria": "Recurso de amparo",
-    "variable": "Osorno",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "recurso-amparo-chillan",
-    "categoria": "Recurso de amparo",
-    "variable": "Chillán",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "recurso-amparo-maipu",
-    "categoria": "Recurso de amparo",
-    "variable": "Maipú",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "recurso-amparo-las-condes",
-    "categoria": "Recurso de amparo",
-    "variable": "Las Condes",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "recurso-amparo-providencia",
-    "categoria": "Recurso de amparo",
-    "variable": "Providencia",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "recurso-amparo-la-florida",
-    "categoria": "Recurso de amparo",
-    "variable": "La Florida",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "recurso-amparo-puente-alto",
-    "categoria": "Recurso de amparo",
-    "variable": "Puente Alto",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "recurso-amparo-san-bernardo",
-    "categoria": "Recurso de amparo",
-    "variable": "San Bernardo",
-    "ley": "Art. 21 Constitución Política de Chile — recurso de amparo",
-    "plazo": "En cualquier momento mientras dure la privación de libertad",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "mediacion-familiar",
@@ -29872,213 +27802,6 @@
     "direccion": "Varía según domicilio"
   },
   {
-    "slug": "mediacion-familiar-santiago",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Santiago",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "mediacion-familiar-valparaiso",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Valparaíso",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "mediacion-familiar-concepcion",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Concepción",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "mediacion-familiar-vina-del-mar",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Viña del Mar",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "mediacion-familiar-antofagasta",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Antofagasta",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "mediacion-familiar-la-serena",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "La Serena",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "mediacion-familiar-rancagua",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Rancagua",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "mediacion-familiar-talca",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Talca",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "mediacion-familiar-temuco",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Temuco",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "mediacion-familiar-puerto-montt",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Puerto Montt",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "mediacion-familiar-iquique",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Iquique",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "mediacion-familiar-copiapo",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Copiapo",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "mediacion-familiar-punta-arenas",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Punta Arenas",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "mediacion-familiar-arica",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Arica",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "mediacion-familiar-curico",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Curicó",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "mediacion-familiar-osorno",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Osorno",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "mediacion-familiar-chillan",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Chillán",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "mediacion-familiar-maipu",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Maipú",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "mediacion-familiar-las-condes",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Las Condes",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "mediacion-familiar-providencia",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Providencia",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "mediacion-familiar-la-florida",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "La Florida",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "mediacion-familiar-puente-alto",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "Puente Alto",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "mediacion-familiar-san-bernardo",
-    "categoria": "Solicitud de mediación familiar",
-    "variable": "San Bernardo",
-    "ley": "Ley 19.968 Tribunales de Familia — mediación previa obligatoria",
-    "plazo": "Antes de iniciar juicio de familia",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "testamento",
     "categoria": "Testamento simple",
     "variable": null,
@@ -30086,213 +27809,6 @@
     "plazo": "En cualquier momento",
     "entidad": "Notaría de tu comuna (testamento solemne) o escritura de puño y letra (ológrafo)",
     "direccion": "Notaría de tu comuna"
-  },
-  {
-    "slug": "testamento-santiago",
-    "categoria": "Testamento simple",
-    "variable": "Santiago",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "testamento-valparaiso",
-    "categoria": "Testamento simple",
-    "variable": "Valparaíso",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "testamento-concepcion",
-    "categoria": "Testamento simple",
-    "variable": "Concepción",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "testamento-vina-del-mar",
-    "categoria": "Testamento simple",
-    "variable": "Viña del Mar",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "testamento-antofagasta",
-    "categoria": "Testamento simple",
-    "variable": "Antofagasta",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "testamento-la-serena",
-    "categoria": "Testamento simple",
-    "variable": "La Serena",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "testamento-rancagua",
-    "categoria": "Testamento simple",
-    "variable": "Rancagua",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "testamento-talca",
-    "categoria": "Testamento simple",
-    "variable": "Talca",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "testamento-temuco",
-    "categoria": "Testamento simple",
-    "variable": "Temuco",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "testamento-puerto-montt",
-    "categoria": "Testamento simple",
-    "variable": "Puerto Montt",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "testamento-iquique",
-    "categoria": "Testamento simple",
-    "variable": "Iquique",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "testamento-copiapo",
-    "categoria": "Testamento simple",
-    "variable": "Copiapo",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "testamento-punta-arenas",
-    "categoria": "Testamento simple",
-    "variable": "Punta Arenas",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "testamento-arica",
-    "categoria": "Testamento simple",
-    "variable": "Arica",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "testamento-curico",
-    "categoria": "Testamento simple",
-    "variable": "Curicó",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "testamento-osorno",
-    "categoria": "Testamento simple",
-    "variable": "Osorno",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "testamento-chillan",
-    "categoria": "Testamento simple",
-    "variable": "Chillán",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "testamento-maipu",
-    "categoria": "Testamento simple",
-    "variable": "Maipú",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "testamento-las-condes",
-    "categoria": "Testamento simple",
-    "variable": "Las Condes",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "testamento-providencia",
-    "categoria": "Testamento simple",
-    "variable": "Providencia",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "testamento-la-florida",
-    "categoria": "Testamento simple",
-    "variable": "La Florida",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "testamento-puente-alto",
-    "categoria": "Testamento simple",
-    "variable": "Puente Alto",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "testamento-san-bernardo",
-    "categoria": "Testamento simple",
-    "variable": "San Bernardo",
-    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
-    "plazo": "En cualquier momento",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
   },
   {
     "slug": "carta-recomendacion-laboral",
@@ -30304,213 +27820,6 @@
     "direccion": "Domicilio del empleador"
   },
   {
-    "slug": "carta-recomendacion-laboral-santiago",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Santiago",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-valparaiso",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Valparaíso",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-concepcion",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Concepción",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-vina-del-mar",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Viña del Mar",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-antofagasta",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Antofagasta",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-la-serena",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "La Serena",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-rancagua",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Rancagua",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-talca",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Talca",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-temuco",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Temuco",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-puerto-montt",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Puerto Montt",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-iquique",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Iquique",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-copiapo",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Copiapo",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-punta-arenas",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Punta Arenas",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-arica",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Arica",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-curico",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Curicó",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-osorno",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Osorno",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-chillan",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Chillán",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-maipu",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Maipú",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-las-condes",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Las Condes",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-providencia",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Providencia",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-la-florida",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "La Florida",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-puente-alto",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "Puente Alto",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
-  },
-  {
-    "slug": "carta-recomendacion-laboral-san-bernardo",
-    "categoria": "Carta de recomendación laboral",
-    "variable": "San Bernardo",
-    "ley": "No requiere base legal específica — carta de referencia laboral",
-    "plazo": "Al momento de la solicitud",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
-  },
-  {
     "slug": "acuerdo-confidencialidad",
     "categoria": "Carta de confidencialidad (NDA)",
     "variable": null,
@@ -30520,210 +27829,291 @@
     "direccion": "Domicilio de las partes"
   },
   {
-    "slug": "acuerdo-confidencialidad-santiago",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Santiago",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Santiago",
-    "direccion": "Huérfanos 1409, Santiago"
+    "slug": "denuncia-acoso-laboral-jefe",
+    "categoria": "Denuncia por acoso laboral (Ley Karin)",
+    "variable": "Acoso laboral vertical descendente",
+    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
+    "plazo": "60 días hábiles desde el último hecho de acoso",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Varía según domicilio laboral"
   },
   {
-    "slug": "acuerdo-confidencialidad-valparaiso",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Valparaíso",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Valparaíso",
-    "direccion": "Blanco 1833, Valparaíso"
+    "slug": "denuncia-acoso-laboral-sexual",
+    "categoria": "Denuncia por acoso laboral (Ley Karin)",
+    "variable": "Acoso sexual laboral",
+    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
+    "plazo": "60 días hábiles desde el último hecho de acoso",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Varía según domicilio laboral"
   },
   {
-    "slug": "acuerdo-confidencialidad-concepcion",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Concepción",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Concepción",
-    "direccion": "Barros Arana 429, Concepción"
+    "slug": "denuncia-acoso-laboral-violencia",
+    "categoria": "Denuncia por acoso laboral (Ley Karin)",
+    "variable": "Violencia laboral",
+    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
+    "plazo": "60 días hábiles desde el último hecho de acoso",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Varía según domicilio laboral"
   },
   {
-    "slug": "acuerdo-confidencialidad-vina-del-mar",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Viña del Mar",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Viña del Mar",
-    "direccion": "Arlegui 676, Viña del Mar"
+    "slug": "denuncia-acoso-laboral-represalias",
+    "categoria": "Denuncia por acoso laboral (Ley Karin)",
+    "variable": "Represalias laborales",
+    "ley": "Ley 21.643 (Ley Karin) — acoso laboral y sexual en el trabajo",
+    "plazo": "60 días hábiles desde el último hecho de acoso",
+    "entidad": "Inspección del Trabajo de tu comuna",
+    "direccion": "Varía según domicilio laboral"
   },
   {
-    "slug": "acuerdo-confidencialidad-antofagasta",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Antofagasta",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "pagare-simple",
+    "categoria": "Pagaré",
+    "variable": "Pagaré simple",
+    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Antofagasta",
-    "direccion": "San Martín 2545, Antofagasta"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-la-serena",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "La Serena",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "pagare-con-intereses",
+    "categoria": "Pagaré",
+    "variable": "Pagaré con interés",
+    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Serena",
-    "direccion": "Ovalle 660, La Serena"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-rancagua",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Rancagua",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "pagare-con-aval",
+    "categoria": "Pagaré",
+    "variable": "Pagaré con aval",
+    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Rancagua",
-    "direccion": "Estado 560, Rancagua"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-talca",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Talca",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "pagare-plazo",
+    "categoria": "Pagaré",
+    "variable": "Pagaré a plazo",
+    "ley": "Art. 709 y siguientes Código de Comercio — pagaré a la orden",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Talca",
-    "direccion": "2 Sur 1251, Talca"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-temuco",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Temuco",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "contrato-mutuo-simple",
+    "categoria": "Contrato de mutuo (préstamo de dinero)",
+    "variable": "Mutuo simple",
+    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Temuco",
-    "direccion": "Claro Solar 807, Temuco"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-puerto-montt",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Puerto Montt",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "contrato-mutuo-intereses",
+    "categoria": "Contrato de mutuo (préstamo de dinero)",
+    "variable": "Mutuo con interés",
+    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puerto Montt",
-    "direccion": "Benavente 380, Puerto Montt"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-iquique",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Iquique",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
+    "slug": "contrato-mutuo-hipotecario",
+    "categoria": "Contrato de mutuo (préstamo de dinero)",
+    "variable": "Mutuo hipotecario",
+    "ley": "Art. 2196 y siguientes Código Civil — contrato de mutuo",
     "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Iquique",
-    "direccion": "Bolívar 364, Iquique"
+    "entidad": "No requiere tribunal — firma ante Notario recomendada",
+    "direccion": "Notaría de tu comuna"
   },
   {
-    "slug": "acuerdo-confidencialidad-copiapo",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Copiapo",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Copiapó",
-    "direccion": "Chacabuco 480, Copiapó"
+    "slug": "denuncia-estafa-online",
+    "categoria": "Denuncia por estafa",
+    "variable": "Estafa online",
+    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
+    "plazo": "5 años desde el hecho (acción penal pública)",
+    "entidad": "Fiscalía Local de tu comuna (MINISTERIO PÚBLICO)",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-punta-arenas",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Punta Arenas",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Punta Arenas",
-    "direccion": "Bories 465, Punta Arenas"
+    "slug": "denuncia-estafa-transferencia",
+    "categoria": "Denuncia por estafa",
+    "variable": "Estafa transferencia",
+    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
+    "plazo": "5 años desde el hecho (acción penal pública)",
+    "entidad": "Fiscalía Local de tu comuna (MINISTERIO PÚBLICO)",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-arica",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Arica",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Arica",
-    "direccion": "San Marcos 413, Arica"
+    "slug": "denuncia-estafa-documentos",
+    "categoria": "Denuncia por estafa",
+    "variable": "Estafa documentos",
+    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
+    "plazo": "5 años desde el hecho (acción penal pública)",
+    "entidad": "Fiscalía Local de tu comuna (MINISTERIO PÚBLICO)",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-curico",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Curicó",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Curicó",
-    "direccion": "Carmen 356, Curicó"
+    "slug": "denuncia-estafa-inversion",
+    "categoria": "Denuncia por estafa",
+    "variable": "Estafa inversión",
+    "ley": "Art. 467 a 473 Código Penal — estafa y defraudaciones",
+    "plazo": "5 años desde el hecho (acción penal pública)",
+    "entidad": "Fiscalía Local de tu comuna (MINISTERIO PÚBLICO)",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-osorno",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Osorno",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Osorno",
-    "direccion": "Mackenna 980, Osorno"
+    "slug": "demanda-accidente-lesiones-leves",
+    "categoria": "Demanda por accidente de tránsito",
+    "variable": "Accidente lesiones leves",
+    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
+    "plazo": "5 años desde el accidente (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-chillan",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Chillán",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Chillán",
-    "direccion": "Arauco 525, Chillán"
+    "slug": "demanda-accidente-lesiones-graves",
+    "categoria": "Demanda por accidente de tránsito",
+    "variable": "Accidente lesiones graves",
+    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
+    "plazo": "5 años desde el accidente (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-maipu",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Maipú",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Maipú",
-    "direccion": "Av. Pajaritos 1520, Maipú"
+    "slug": "demanda-accidente-danos-materiales",
+    "categoria": "Demanda por accidente de tránsito",
+    "variable": "Accidente daños materiales",
+    "ley": "Art. 2314 Código Civil + Ley 18.290 Ley de Tránsito",
+    "plazo": "5 años desde el accidente (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
   },
   {
-    "slug": "acuerdo-confidencialidad-las-condes",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Las Condes",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Las Condes",
-    "direccion": "Av. Apoquindo 5570, Las Condes"
+    "slug": "carta-despido-necesidades-empresa",
+    "categoria": "Carta de despido",
+    "variable": "Despido necesidades empresa",
+    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
+    "plazo": "Al momento del despido",
+    "entidad": "Empleador hacia el trabajador",
+    "direccion": "Domicilio del trabajador"
   },
   {
-    "slug": "acuerdo-confidencialidad-providencia",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Providencia",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Providencia",
-    "direccion": "Av. Providencia 1991, Providencia"
+    "slug": "carta-despido-incumplimiento-grave",
+    "categoria": "Carta de despido",
+    "variable": "Despido incumplimiento",
+    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
+    "plazo": "Al momento del despido",
+    "entidad": "Empleador hacia el trabajador",
+    "direccion": "Domicilio del trabajador"
   },
   {
-    "slug": "acuerdo-confidencialidad-la-florida",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "La Florida",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de La Florida",
-    "direccion": "Av. La Florida 9740, La Florida"
+    "slug": "carta-despido-vencimiento-plazo",
+    "categoria": "Carta de despido",
+    "variable": "Despido vencimiento plazo",
+    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
+    "plazo": "Al momento del despido",
+    "entidad": "Empleador hacia el trabajador",
+    "direccion": "Domicilio del trabajador"
   },
   {
-    "slug": "acuerdo-confidencialidad-puente-alto",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "Puente Alto",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de Puente Alto",
-    "direccion": "Concha y Toro 1580, Puente Alto"
+    "slug": "carta-despido-salud",
+    "categoria": "Carta de despido",
+    "variable": "Despido salud",
+    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
+    "plazo": "Al momento del despido",
+    "entidad": "Empleador hacia el trabajador",
+    "direccion": "Domicilio del trabajador"
   },
   {
-    "slug": "acuerdo-confidencialidad-san-bernardo",
-    "categoria": "Carta de confidencialidad (NDA)",
-    "variable": "San Bernardo",
-    "ley": "Art. 1461 y siguientes Código Civil — obligaciones contractuales y confidencialidad",
-    "plazo": "Según acuerdo entre las partes",
-    "entidad": "Juzgado de Letras en lo Civil de San Bernardo",
-    "direccion": "Eyzaguirre 350, San Bernardo"
+    "slug": "carta-despido-mutuo-acuerdo",
+    "categoria": "Carta de despido",
+    "variable": "Despido mutuo acuerdo",
+    "ley": "Art. 159, 160 y 161 Código del Trabajo — causales de despido",
+    "plazo": "Al momento del despido",
+    "entidad": "Empleador hacia el trabajador",
+    "direccion": "Domicilio del trabajador"
+  },
+  {
+    "slug": "constitucion-spa-unipersonal",
+    "categoria": "Constitución de Sociedad SpA",
+    "variable": "SpA unipersonal",
+    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
+    "plazo": "Trámite en 1 día en el Registro de Empresas",
+    "entidad": "Registro de Empresas y Sociedades (eSCRV)",
+    "direccion": "En línea a través del Diario Oficial"
+  },
+  {
+    "slug": "constitucion-spa-socios",
+    "categoria": "Constitución de Sociedad SpA",
+    "variable": "SpA socios",
+    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
+    "plazo": "Trámite en 1 día en el Registro de Empresas",
+    "entidad": "Registro de Empresas y Sociedades (eSCRV)",
+    "direccion": "En línea a través del Diario Oficial"
+  },
+  {
+    "slug": "constitucion-spa-aportes",
+    "categoria": "Constitución de Sociedad SpA",
+    "variable": "SpA aportes",
+    "ley": "Ley 20.659 + Art. 424 Código Civil — Empresa Individual de Responsabilidad Limitada",
+    "plazo": "Trámite en 1 día en el Registro de Empresas",
+    "entidad": "Registro de Empresas y Sociedades (eSCRV)",
+    "direccion": "En línea a través del Diario Oficial"
+  },
+  {
+    "slug": "demanda-dano-moral-negligencia-medica",
+    "categoria": "Demanda por daño moral",
+    "variable": "Daño moral negligencia",
+    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
+    "plazo": "5 años desde el hecho (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "demanda-dano-moral-accidente",
+    "categoria": "Demanda por daño moral",
+    "variable": "Daño moral accidente",
+    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
+    "plazo": "5 años desde el hecho (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "demanda-dano-moral-incumplimiento",
+    "categoria": "Demanda por daño moral",
+    "variable": "Daño moral incumplimiento",
+    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
+    "plazo": "5 años desde el hecho (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "demanda-dano-moral-derechos",
+    "categoria": "Demanda por daño moral",
+    "variable": "Daño moral derechos",
+    "ley": "Art. 2329 Código Civil + Art. 19 N°1 CPR — indemnización daño moral",
+    "plazo": "5 años desde el hecho (acción ordinaria)",
+    "entidad": "Juzgado de Letras en lo Civil de tu comuna",
+    "direccion": "Varía según domicilio"
+  },
+  {
+    "slug": "testamento-solemne",
+    "categoria": "Testamento simple",
+    "variable": "Testamento solemne",
+    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
+    "plazo": "En cualquier momento",
+    "entidad": "Notaría de tu comuna (testamento solemne) o escritura de puño y letra (ológrafo)",
+    "direccion": "Notaría de tu comuna"
+  },
+  {
+    "slug": "testamento-olografo",
+    "categoria": "Testamento simple",
+    "variable": "Testamento ológrafo",
+    "ley": "Art. 999 a 1028 Código Civil — testamento solemne y ológrafo",
+    "plazo": "En cualquier momento",
+    "entidad": "Notaría de tu comuna (testamento solemne) o escritura de puño y letra (ológrafo)",
+    "direccion": "Notaría de tu comuna"
   }
 ]
