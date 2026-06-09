@@ -709,7 +709,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "LegalHelp Chile", item: BASE_URL },
               { "@type": "ListItem", position: 2, name: data.categoria, item: `${BASE_URL}/#${data.categoria}` },
-              { "@type": "ListItem", position: 3, name: data.variable, item: `${BASE_URL}/p/${slug}` },
+              { "@type": "ListItem", position: 3, name: data.variable || data.categoria, item: `${BASE_URL}/p/${slug}` },
             ],
           }),
         }}
