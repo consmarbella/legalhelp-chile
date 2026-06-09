@@ -187,10 +187,20 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   const handleGenerate = async () => {
     setGenerating(true);
     try {
-      const res = await fetch('/api/generate-final', {
+      // Mapear campos del chat al formato que espera /api/generate
+      const generateData = {
+        materia: String(caseData.tipo_documento ?? caseData.materia ?? ''),
+        nombre: String(caseData.nombre ?? ''),
+        rut: String(caseData.rut ?? ''),
+        direccion: String(caseData.direccion ?? ''),
+        destinatario: String(caseData.destinatario_inferido ?? caseData.destinatario ?? ''),
+        hechos: String(caseData.detalle_caso ?? caseData.hechos ?? ''),
+        ley_citada: String(caseData.ley_citada ?? ''),
+      };
+      const res = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(caseData),
+        body: JSON.stringify(generateData),
       });
       const data = await res.json();
       if (data.document) setGeneratedDoc(data.document);
@@ -240,7 +250,9 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
                 <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
                   {paid
                     ? 'Plan activo · documentos ilimitados'
-                    : 'En línea · respondiendo tus consultas'}
+                    : caseData.ready
+                      ? 'Listo para generar tu documento'
+                      : 'En línea · respondedor consultas'}
                 </span>
               </div>
             </div>

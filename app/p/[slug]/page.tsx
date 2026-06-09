@@ -440,7 +440,83 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
     { q: '¿La prescripción borra automáticamente el registro en DICOM?', a: 'No. Incluso si la deuda está prescrita, el registro en DICOM puede persistir. Para eliminar el dato de DICOM debes pagar la deuda o demostrar judicialmente la prescripción y notificarlo a la empresa de registro.' },
     { q: '¿Todas las deudas prescriben en el mismo plazo?', a: 'No. Los plazos varían: deuda civil ordinaria 5 años, ejecutiva 3 años, impuestos (SII) 3 o 6 años, cotizaciones laborales 5 años, deuda TAG civil 5 años, multas de tránsito 3 años. El plazo depende del tipo de acción y el origen de la deuda.' },
   ],
-};
+    'Denuncia por acoso laboral (Ley Karin)': [
+      { q: '¿Qué es la Ley Karin en Chile?', a: 'La Ley 21.643 (Ley Karin) modifica el Código del Trabajo para prevenir, investigar y sancionar el acoso laboral, acoso sexual y violencia en el trabajo. Rige desde agosto de 2024. Exige que toda empresa cuente con un protocolo de prevención y un canal de denuncia.' },
+      { q: '¿Cuánto tengo para denunciar acoso laboral?', a: 'Tienes 60 días hábiles desde el último hecho de acoso para denunciar ante la Inspección del Trabajo. Si el acoso es reiterado, el plazo se cuenta desde la última conducta denunciada.' },
+      { q: '¿Dónde denuncio el acoso laboral en Chile?', a: 'Puedes denunciar ante la Inspección del Trabajo de tu comuna (denuncia administrativa) o ante los tribunales de justicia (denuncia judicial). La denuncia administrativa no requiere abogado.' },
+      { q: '¿Qué sanciones contempla la Ley Karin?', a: 'Las sanciones van desde amonestaciones y multas para la empresa (hasta 150 UTM) hasta la posibilidad de autodespido indirecto del trabajador afectado con derecho a indemnización.' },
+    ],
+    'Pagaré': [
+      { q: '¿Qué es un pagaré en Chile?', a: 'Un pagaré es un título de crédito por el cual una persona (suscriptor) se obliga a pagar a otra (beneficiario) una suma determinada de dinero en una fecha específica. Está regulado por el Código de Comercio.' },
+      { q: '¿El pagaré tiene fuerza ejecutiva?', a: 'Sí. Si el pagaré está correctamente emitido (fecha, monto, nombre del beneficiario, firma) y no es pagado a su vencimiento, el beneficiario puede demandar ejecutivamente al deudor sin necesidad de un juicio declarativo previo.' },
+      { q: '¿Necesito Notario para un pagaré?', a: 'No es obligatorio, pero es recomendable firmarlo ante Notario para darle mayor fuerza probatoria. Un pagaré con firma reconocida ante Notario es muy difícil de impugnar.' },
+      { q: '¿Cuánto tiempo prescribe un pagaré?', a: 'La acción ejecutiva del pagaré prescribe en 3 años desde la fecha de vencimiento. La acción ordinaria prescribe en 5 años. Es importante cobrar antes de ese plazo.' },
+    ],
+    'Contrato de mutuo (préstamo de dinero)': [
+      { q: '¿Qué es un contrato de mutuo en Chile?', a: 'El mutuo es un contrato por el cual una parte entrega dinero a otra, que se obliga a devolver otro tanto de la misma especie y calidad. Está regulado en el Art. 2196 y siguientes del Código Civil.' },
+      { q: '¿El mutuo puede ser con o sin intereses?', a: 'Puede ser gratuito (sin intereses) o con intereses. Si hay intereses, deben pactarse expresamente por escrito. Si no se pactan, se presume gratuito (salvo que se trate de comerciantes). Los intereses no pueden superar el interés máximo convencional.' },
+      { q: '¿Qué diferencia hay entre mutuo y pagaré?', a: 'El mutuo es el contrato que regula el préstamo. El pagaré es el título ejecutivo que facilita el cobro judicial. Se pueden usar juntos: un contrato de mutuo + un pagaré como respaldo ejecutivo.' },
+      { q: '¿El mutuo debe firmarse ante Notario?', a: 'No es obligatorio, pero si el mutuo se firma en escritura pública o con firma reconocida ante Notario, el documento tiene mérito ejecutivo, lo que permite demandar ejecutivamente sin necesidad de juicio ordinario.' },
+    ],
+    'Solicitud de posesión efectiva (herencia)': [
+      { q: '¿Qué es la posesión efectiva en Chile?', a: 'La posesión efectiva es el reconocimiento legal de los herederos de una persona fallecida. Otorga la calidad de heredero y permite disponer de los bienes del causante. Se tramita ante el Registro Civil cuando no hay testamento (intestada).' },
+      { q: '¿Cuánto tiempo tengo para solicitar la posesión efectiva?', a: 'No hay plazo para solicitarla. Puedes pedirla en cualquier momento tras el fallecimiento. Sin embargo, es recomendable hacerlo pronto para evitar complicaciones con los bienes y deudas del causante.' },
+      { q: '¿Qué documentos necesito para la posesión efectiva?', a: 'Certificado de defunción del causante, certificado de matrimonio o nacimiento que acredite el vínculo, cédula de identidad de los herederos y declaración de bienes del causante. Si hay testamento, se requiere su inscripción previa.' },
+      { q: '¿La posesión efectiva incluye las deudas del fallecido?', a: 'Sí. Los herederos responden por las deudas del causante hasta el valor de los bienes heredados (beneficio de inventario). No se heredan deudas que superen el valor de los bienes recibidos.' },
+    ],
+    'Denuncia por estafa': [
+      { q: '¿Qué tipos de estafa existen en Chile?', a: 'Las estafas más comunes incluyen: estafa por entrega de cosa mueble, por suscripción de documentos, por engaño contractual, estafa informática y las defraudaciones. Están tipificadas en los Arts. 467 a 473 del Código Penal.' },
+      { q: '¿Dónde denuncio una estafa en Chile?', a: 'Debes denunciar ante la Fiscalía Local del domicilio del imputado o del lugar donde ocurrió el delito. La denuncia puede ser presencial o por escrito. También puedes hacerla en Carabineros o la PDI.' },
+      { q: '¿Cuánto tiempo tengo para denunciar una estafa?', a: '5 años desde la perpetración del delito (acción penal pública). Si el monto es menor, puede ser falta y prescribe en 6 meses. Siempre es mejor denunciar lo antes posible.' },
+      { q: '¿Puedo recuperar el dinero perdido en una estafa?', a: 'Sí, mediante la acción civil indemnizatoria dentro del proceso penal (querella con demanda civil). LegalHelp genera el escrito de denuncia y la solicitud de indemnización.' },
+    ],
+    'Demanda por accidente de tránsito': [
+      { q: '¿Qué puedo reclamar en una demanda por accidente de tránsito?', a: 'Puedes reclamar indemnización por daños al vehículo, lesiones corporales (días de recuperación, secuelas), daño moral (dolor y sufrimiento), lucro cesante (pérdida de ingresos) y gastos médicos.' },
+      { q: '¿Cuánto tengo para demandar por accidente de tránsito?', a: 'La acción ordinaria prescribe en 5 años desde el accidente. La acción ejecutiva prescribe en 3 años. Es recomendable iniciar acciones dentro del primer año para asegurar la disponibilidad de pruebas.' },
+      { q: '¿Necesito abogado para demandar por accidente de tránsito?', a: 'Para demandar ante tribunales civiles se requiere patrocinio de abogado. LegalHelp genera la demanda base que luego tu abogado revisa y presenta.' },
+      { q: '¿Qué tribunal ve las demandas por accidente de tránsito?', a: 'El Juzgado de Letras en lo Civil del domicilio del demandado o del lugar donde ocurrió el accidente. Si hay lesiones graves, puede ser competencia penal.' },
+    ],
+    'Carta de despido': [
+      { q: '¿Qué debe incluir una carta de despido en Chile?', a: 'La carta de despido debe contener: fecha del despido, causal legal (Art. 159, 160 o 161 del Código del Trabajo), descripción detallada de los hechos que configuran la causal, y el monto del finiquito. Si la causal requiere aviso previo, debe acreditarse.' },
+      { q: '¿Cuándo se considera despido injustificado?', a: 'Cuando la causal invocada no es real, no está acreditada, o no se ajusta a la ley. También cuando el empleador no paga las indemnizaciones legales o no entrega la carta de despido dentro del plazo.' },
+      { q: '¿Puedo despedir a un trabajador sin previo aviso?', a: 'Depende de la causal. Art. 159 N°4 (vencimiento del plazo) no requiere aviso. Art. 160 (incumplimiento grave del trabajador) no requiere aviso. Art. 161 (necesidades de la empresa) requiere aviso con 30 días de anticipación.' },
+      { q: '¿Qué documentos debo adjuntar a la carta de despido?', a: 'Debes adjuntar el finiquito (liquidación de pagos pendientes), certificado de cotizaciones previsionales al día, y la carta misma firmada por el empleador con copia al trabajador.' },
+    ],
+    'Constitución de Sociedad SpA': [
+      { q: '¿Qué es una Sociedad por Acciones (SpA)?', a: 'La SpA es un tipo societario chileno que combina las ventajas de una sociedad anónima (limitación de responsabilidad) con la flexibilidad de una sociedad de responsabilidad limitada. Se puede constituir en 1 día por internet.' },
+      { q: '¿Cómo se constituye una SpA en Chile?', a: 'Se constituye mediante escritura pública o mediante el formulario en línea del Registro de Empresas y Sociedades (eSCRV). La constitución en línea es más rápida y económica. Se requiere: nombre, RUT, capital, socios, objeto social.' },
+      { q: '¿Cuánto cuesta constituir una SpA?', a: 'La constitución en línea a través de eSCRV no tiene costo. La publicación en el Diario Oficial cuesta aproximadamente $10.000 CLP. La constitución por escritura pública en Notaría puede costar entre $50.000 y $150.000 CLP.' },
+      { q: '¿Cuánto tiempo dura la constitución de una SpA?', a: 'Por eSCRV: 1 día hábil. Por escritura pública: 3 a 5 días hábiles (incluyendo la publicación en el Diario Oficial y la inscripción en el Registro de Comercio).' },
+    ],
+    'Demanda por daño moral': [
+      { q: '¿Qué es el daño moral en Chile?', a: 'Es el daño no patrimonial que afecta los sentimientos, la integridad física o psíquica, el honor, la privacidad o la calidad de vida de una persona. Se indemniza mediante una suma de dinero fijada prudencialmente por el tribunal.' },
+      { q: '¿Cuánto se puede pedir por daño moral?', a: 'No hay montos fijos. El tribunal evalúa la gravedad del daño, la repercusión en la vida de la víctima, la capacidad económica del demandado y la repercusión pública del hecho. Los montos varían entre $1.000.000 y $100.000.000 CLP.' },
+      { q: '¿Cuánto tiempo tengo para demandar por daño moral?', a: 'La acción prescribe en 5 años desde el hecho que causa el daño (acción ordinaria). En materia penal, el plazo puede ser distinto según el delito.' },
+      { q: '¿Qué tribunal conoce las demandas por daño moral?', a: 'El Juzgado de Letras en lo Civil del domicilio del demandado o del lugar donde ocurrió el hecho dañoso. Si el daño deriva de un delito, se tramita en el Juzgado de Garantía.' },
+    ],
+    'Recurso de amparo': [
+      { q: '¿Qué es el recurso de amparo?', a: 'Es una acción constitucional consagrada en el Art. 21 de la Constitución que protege la libertad personal y la seguridad individual ante cualquier privación de libertad ilegal o arbitraria. Cualquier persona puede interponerlo.' },
+      { q: '¿Cuándo procede el recurso de amparo?', a: 'Procede cuando alguien es privado de libertad sin orden judicial, cuando la detención se prolonga más allá del plazo legal, o cuando las condiciones de la prisión son ilegales o arbitrarias.' },
+      { q: '¿Ante qué tribunal se presenta el recurso de amparo?', a: 'Se presenta ante la Corte de Apelaciones del territorio donde ocurrió la privación de libertad. La Corte debe conocer y resolver de urgencia, incluso en días festivos.' },
+      { q: '¿Necesito abogado para el recurso de amparo?', a: 'No. Cualquier persona puede interponer un recurso de amparo sin necesidad de abogado. Incluso puede ser presentado por un tercero a favor del detenido. LegalHelp genera el escrito que puedes presentar directamente.' },
+    ],
+    'Solicitud de mediación familiar': [
+      { q: '¿Qué es la mediación familiar en Chile?', a: 'Es un proceso voluntario u obligatorio (según la materia) en el que un mediador certificado ayuda a las partes a llegar a un acuerdo sobre materias de familia: alimentos, tuición, régimen de visitas, etc. Está regulada por la Ley 19.968.' },
+      { q: '¿En qué casos la mediación familiar es obligatoria?', a: 'Es obligatoria antes de iniciar un juicio en materias de: alimentos, tuición, cuidado personal, relación directa y regular (visitas), y otros asuntos de familia. Sin mediación previa, el tribunal no admite la demanda.' },
+      { q: '¿Dónde se solicita la mediación familiar?', a: 'Se solicita en los Centros de Mediación de las Corporaciones de Asistencia Judicial, en mediadores privados certificados, o en las CAJ (Corporación de Asistencia Judicial). La mediación en CAJ es gratuita.' },
+      { q: '¿Cuánto dura el proceso de mediación familiar?', a: 'El proceso de mediación dura entre 30 y 60 días aproximadamente. Si se llega a acuerdo, se firma un acta que tiene efecto de sentencia judicial. Si no hay acuerdo, se emite un certificado que permite iniciar el juicio.' },
+    ],
+    'Carta de recomendación laboral': [
+      { q: '¿Qué debe incluir una carta de recomendación laboral?', a: 'Debe incluir: datos del empleador, datos del trabajador, cargo desempeñado, período de trabajo, funciones principales, habilidades destacadas, motivo de retiro (sin detalles negativos) y una recomendación expresa.' },
+      { q: '¿La carta de recomendación es vinculante para el empleador?', a: 'No, el empleador no está obligado a emitirla. Sin embargo, su negativa puede ser considerada como mala fe en un juicio laboral. Es una muestra de buena práctica laboral.' },
+      { q: '¿Qué no debe decir una carta de recomendación?', a: 'No debe incluir información negativa, crítica al desempeño, causas del despido, deudas pendientes, ni información confidencial del trabajador. Solo hechos objetivos y positivos.' },
+    ],
+    'Acuerdo de confidencialidad (NDA)': [
+      { q: '¿Qué es un acuerdo de confidencialidad NDA?', a: 'Es un contrato mediante el cual una o ambas partes se obligan a no divulgar información confidencial compartida durante una relación comercial o laboral. Protege secretos comerciales, know-how, datos de clientes y estrategias de negocio.' },
+      { q: '¿Cuánto dura la obligación de confidencialidad?', a: 'El plazo se pacta en el contrato. Puede ser por la duración de la relación comercial y extenderse 2 a 5 años después de terminada. Algunos NDAs son indefinidos para secretos comerciales críticos.' },
+      { q: '¿Qué información no cubre un NDA?', a: 'No cubre: información que ya era pública antes del acuerdo, información que la parte receptora ya conocía antes del acuerdo (debe acreditarlo), información que se vuelve pública sin culpa de la parte receptora, y la información que debe divulgarse por ley u orden judicial.' },
+    ],
+  };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
