@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
 import paginas from '@/data/paginas.json';
 
+export const dynamic = 'force-dynamic';
+
 const BASE_URL = 'https://legalhelp.cl';
 
-const HUBS = [
+const HUBS = new Set([
   'alzamiento-de-embargo-sobre-vehiculo',
   'carta-reclamo-sernac',
   'certificado-de-antecedentes-para-fines-especiales',
@@ -21,23 +23,39 @@ const HUBS = [
   'recurso-de-proteccion',
   'registro-nacional-de-deudores-de-pensiones-de-alimentos',
   'servicios-legales',
-];
+  'denuncia-acoso-laboral',
+  'pagare',
+  'contrato-mutuo',
+  'posecion-efectiva',
+  'denuncia-estafa',
+  'demanda-accidente-transito',
+  'carta-despido',
+  'constitucion-spa',
+  'demanda-dano-moral',
+  'recurso-amparo',
+  'mediacion-familiar',
+  'testamento',
+  'carta-recomendacion-laboral',
+  'acuerdo-confidencialidad',
+]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const seen = new Set<string>();
+  const lastMod = new Date('2026-06-09');
+
   const pages: MetadataRoute.Sitemap = paginas
-    .filter((p) => HUBS.includes(p.slug) && !seen.has(p.slug) && seen.add(p.slug))
+    .filter((p) => !seen.has(p.slug) && seen.add(p.slug))
     .map((p) => ({
       url: `${BASE_URL}/p/${p.slug}`,
-      lastModified: new Date('2026-05-01'),
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      lastModified: lastMod,
+      changeFrequency: (HUBS.has(p.slug) ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
+      priority: HUBS.has(p.slug) ? 0.9 : 0.6,
     }));
 
   return [
     {
       url: BASE_URL,
-      lastModified: new Date('2026-05-01'),
+      lastModified: lastMod,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
