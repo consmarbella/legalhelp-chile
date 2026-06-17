@@ -20,9 +20,8 @@ const nextConfig: NextConfig = {
       { source: '/p/desalojo-:ciudad', destination: '/p/demanda-de-desalojo-por-no-pago', permanent: true },
       { source: '/p/cotizaciones-:ciudad', destination: '/p/denuncia-por-no-pago-de-cotizaciones', permanent: true },
 
-      // PSEO geo → NO redirect: cada página de ciudad tiene su propio contenido
-      // La línea /p/prescripcion-deuda-tag-:ciudad se eliminó para que cada comuna
-      // tenga su propia página indexable con chat generador de documentos
+      // PSEO geo → solo categorías GEO mantienen páginas de ciudad
+      // Las categorías NO-GEO redirigen vía vercel.json (regex), no aquí
     ];
   },
 
