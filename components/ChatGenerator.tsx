@@ -23,6 +23,28 @@ const DOC_TYPES = [
 
 const EMPTY_CASE: CaseData = { ready: false };
 
+function hasMeaningfulValue(value: unknown) {
+  return typeof value === 'string' ? value.trim().length > 0 : value !== null && value !== undefined;
+}
+
+function isLegallyUsefulCaseData(caseData: CaseData) {
+  const requiredAny = [
+    caseData.nombre,
+    caseData.rut,
+    caseData.direccion,
+    caseData.destinatario_inferido ?? caseData.destinatario,
+    caseData.detalle_caso ?? caseData.hechos,
+    caseData.materia ?? caseData.tipo_documento,
+  ];
+
+  const presentCount = requiredAny.filter(hasMeaningfulValue).length;
+  const hasNarrative = hasMeaningfulValue(caseData.detalle_caso ?? caseData.hechos);
+  const hasIdentity = hasMeaningfulValue(caseData.nombre) || hasMeaningfulValue(caseData.rut);
+  const hasMatter = hasMeaningfulValue(caseData.materia ?? caseData.tipo_documento);
+
+  return hasNarrative && hasIdentity && hasMatter && presentCount >= 4;
+}
+
 // ── Renderizador de escrito judicial ─────────────────────────────────────────
 function CourtDocument({ text }: { text: string }) {
   const lines = text.split('\n');
@@ -123,16 +145,29 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialContext]);
 
-  // When ready: show paywall
+  // When ready AND legally useful: show paywall
   useEffect(() => {
-    if (caseData.ready && !paid && !showPaywall && !generatedDoc) setShowPaywall(true);
-  }, [caseData.ready]);
+    const shouldOpenPaywall =
+      Boolean(caseData.ready) &&
+      isLegallyUsefulCaseData(caseData) &&
+      !paid &&
+      !showPaywall &&
+      !generatedDoc;
 
-  // After payment: generate
+    if (shouldOpenPaywall) setShowPaywall(true);
+  }, [caseData, paid, showPaywall, generatedDoc]);
+
+  // After payment: generate (only if legally useful)
   useEffect(() => {
-    if (paid && caseData.ready && !generatedDoc && !generating) handleGenerate();
+    if (
+      paid &&
+      caseData.ready &&
+      isLegallyUsefulCaseData(caseData) &&
+      !generatedDoc &&
+      !generating
+    ) handleGenerate();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paid, caseData.ready]);
+  }, [paid, caseData.ready, caseData, generatedDoc, generating]);
 
   // Restore session after MercadoPago return
   useEffect(() => {
