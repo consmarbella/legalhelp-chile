@@ -24,7 +24,7 @@
     },
     {
       "src": "^/p/poder-simple(-[^/]+)?/?$",
-      "headers": { "Location": "/p/poder-simple-notarial" },
+      "headers": { "Location": "/p/servicios-legales" },
       "status": 301
     },
     {
@@ -33,11 +33,11 @@
       "status": 301
     },
     {
-      "src": "^/p/(carta-despido|demanda-accidente|demanda-dano-moral|denuncia-acoso-laboral|denuncia-estafa|constitucion-spa|pagare|contrato-mutuo|testamento)-[^/]+/?$",
-      "headers": { "Location": "/p/$1" },
+      "src": "^/p/(carta-despido|demanda-dano-moral|denuncia-acoso-laboral|denuncia-estafa|constitucion-spa|pagare|contrato-mutuo|testamento)-[^/]+/?$",
+      "headers": { "Location": "/p/servicios-legales" },
       "status": 301
     },
-    { "src": "^/p/posecion-efectiva/?$", "headers": { "Location": "/p/solicitud-de-posesion-efectiva-herencia" }, "status": 301 },
+    { "src": "^/p/posecion-efectiva/?$", "headers": { "Location": "/p/posecion-efectiva" }, "status": 200 },
     { "src": "^/p/crear-escrito-legal/?$", "headers": { "Location": "/p/servicios-legales" }, "status": 301 },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/$1" }
