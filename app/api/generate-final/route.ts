@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit, getClientIp, GENERATE_RATE_LIMIT } from '@/lib/rateLimit';
+import { getOrderByOrderId } from '@/lib/orderStore';
 
 // ─── System prompt ────────────────────────────────────────────────────────────
 const SYSTEM = `Sos un redactor legal chileno con 20 años de experiencia. Recibís los datos de un caso y redactás el documento legal correspondiente.
@@ -182,8 +184,31 @@ RUT: ${rut}`;
 
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`generate:${ip}`, GENERATE_RATE_LIMIT);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: 'Demasiadas solicitudes. Intenta en unos segundos.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetMs / 1000)) } }
+    );
+  }
+
   try {
     const caseData: Record<string, unknown> = await req.json();
+
+    // ─── Payment verification ───────────────────────────────────────────────
+    const orderId = typeof caseData.orderId === 'string' ? caseData.orderId : null;
+    if (orderId) {
+      const order = await getOrderByOrderId(orderId);
+      if (!order || order.status !== 'approved') {
+        return NextResponse.json({ error: 'Pago no verificado' }, { status: 403 });
+      }
+    }
+    // Note: If no orderId is provided, we still allow generation for backwards compatibility
+    // with the existing flow where payment state is managed client-side.
+    // The full auth system (task deferred) will enforce this strictly.
+
     const tipo = String(caseData.tipo_documento ?? 'documento legal');
 
     // Buscar legislación vigente en paralelo mientras preparamos datos

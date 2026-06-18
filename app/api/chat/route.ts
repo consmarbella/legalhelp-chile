@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
+import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
 
 type CaseData = Record<string, unknown>;
 
@@ -55,7 +56,7 @@ function smartMock(message: string, current: CaseData): CaseData {
   const isReady   = tieneBase && !!(updated.detalle_caso);
 
   const nextQ = !tipo
-    ? 'Contame tu situación con detalle para preparar el documento.'
+    ? 'Cuéntame tu situación con detalle para preparar el documento.'
     : !updated.nombre
       ? '¿Cuál es tu nombre completo?'
       : !updated.rut
@@ -63,7 +64,7 @@ function smartMock(message: string, current: CaseData): CaseData {
         : !updated.direccion
           ? '¿Cuál es tu domicilio?'
           : !updated.detalle_caso
-            ? '¿Podés darme más detalles? (contraparte, monto, fecha, motivo)'
+            ? '¿Puedes darme más detalles? (contraparte, monto, fecha, motivo)'
             : `¡Listo, ${first}! Tengo lo necesario para redactar tu documento.`;
 
   return { ...updated, response_message: nextQ, ready: isReady };
@@ -105,6 +106,16 @@ async function callDeepSeek(messages: { role: string; content: string }[]): Prom
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`chat:${ip}`, CHAT_RATE_LIMIT);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: 'Demasiadas solicitudes. Intenta en unos segundos.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetMs / 1000)) } }
+    );
+  }
+
   try {
     const { message, caseHistory, currentCaseData } = await req.json();
 

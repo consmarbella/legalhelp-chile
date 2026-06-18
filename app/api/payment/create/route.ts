@@ -3,6 +3,7 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { randomUUID } from 'crypto';
 import { saveOrder } from '@/lib/orderStore';
 import { validateEnv } from '@/lib/validateEnv';
+import { checkRateLimit, getClientIp, PAYMENT_RATE_LIMIT } from '@/lib/rateLimit';
 
 const accessToken = process.env.MP_ACCESS_TOKEN ?? '';
 const isSandbox   = accessToken.startsWith('TEST-');
@@ -15,6 +16,16 @@ const PLANS = {
 } as const;
 
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`payment:${ip}`, PAYMENT_RATE_LIMIT);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: 'Demasiadas solicitudes. Intenta en unos segundos.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetMs / 1000)) } }
+    );
+  }
+
   validateEnv();
   try {
     const body = await req.json();
@@ -70,7 +81,7 @@ export async function POST(req: NextRequest) {
     });
 
     // Guardar orden pendiente
-    saveOrder({
+    await saveOrder({
       orderId,
       preferenceId: preference.id!,
       status: 'pending',

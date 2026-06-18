@@ -177,55 +177,55 @@ TRIBUNALES = {
 LEY_TEMPLATES = {
     "Prescripción de deuda TAG": [
         "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-        "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+        "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
         "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
     ],
     "Prescripción de deuda bancaria": [
         "El Código Civil chileno, en su artículo 2515, fija un plazo de 3 años para que prescriban las deudas bancarias ejecutivas y de 5 años para las ordinarias. Esto incluye tarjetas de crédito, créditos de consumo y líneas de crédito.",
-        "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+        "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     ],
     "Demanda de alimentos": [
         "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
         "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
     ],
     "Denuncia por despido injustificado": [
-        "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-        "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tenés 60 días hábiles para reclamar.",
+        "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+        "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tienes 60 días hábiles para reclamar.",
     ],
     "Demanda de desalojo por no pago": [
         "La Ley 18.101 sobre arrendamiento de predios urbanos permite al arrendador solicitar el desalojo cuando el arrendatario deja de pagar. Con la reforma de la Ley 21.461 ('Devuélveme Mi Casa'), el proceso es más rápido.",
         "Si tu arrendatario no paga, la Ley 18.101 más la reforma de la Ley 21.461 te permiten iniciar un juicio de desalojo acelerado. El procedimiento está pensado para resolverse en meses, no en años.",
     ],
     "Alzamiento de embargo sobre vehículo": [
-        "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
-        "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+        "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
+        "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     ],
     "Prescripción de multas de tránsito": [
         "Las multas de tránsito prescriben en 3 años desde que la sentencia queda ejecutoriada, según el Art. 2521 del Código Civil. Esto aplica a multas cursadas por Carabineros e impuestas por el Juzgado de Policía Local.",
-        "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+        "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     ],
     "Recurso de protección": [
-        "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tenés solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
+        "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tienes solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
         "La Constitución chilena te da una herramienta poderosa: el recurso de protección (Art. 20). Sirve para frenar actos ilegales que vulneren tus derechos fundamentales. Se presenta ante la Corte de Apelaciones de tu región.",
     ],
     "Denuncia por no pago de cotizaciones": [
-        "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Podés denunciarlo en la Inspección del Trabajo.",
+        "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Puedes denunciarlo en la Inspección del Trabajo.",
         "Que tu empleador no pague tus cotizaciones es ilegal. La Ley 17.322 y el DL 3.500 (Art. 19) sancionan al empleador que descuenta y no entera las cotizaciones. La denuncia ante la Inspección del Trabajo no requiere abogado.",
     ],
 }
 
 PLAZO_TEMPLATES = {
     "Prescripción de deuda TAG": [
-        "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+        "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
         "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
-        "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+        "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     ],
     "Demanda de alimentos": [
-        "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
-        "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+        "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+        "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     ],
     "Denuncia por despido injustificado": [
-        "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+        "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
         "El plazo corre: 60 días hábiles desde la fecha de despido. Marcá el calendario porque si se vence, ya no podrás demandar.",
     ],
 }
@@ -256,7 +256,7 @@ ENTIDAD_TEMPLATES = {
         "default": "la Corte de Apelaciones de tu región. El recurso se presenta directamente en la secretaría de la Corte, no en un juzgado de primera instancia.",
     },
     "Denuncia por no pago de cotizaciones": {
-        "default": "la Inspección del Trabajo más cercana a tu lugar de trabajo. También podés consultar directamente en tu AFP.",
+        "default": "la Inspección del Trabajo más cercana a tu lugar de trabajo. También puedes consultar directamente en tu AFP.",
     },
 }
 
@@ -345,38 +345,38 @@ def humanizar_intro(categoria: str, comuna: str) -> str:
     elif "alimentos" in categoria.lower():
         return (f"En {comuna}, las demandas de alimentos se presentan ante el {tribunal['familia']}. "
                 f"El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica "
-                f"del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda "
+                f"del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda "
                 f"asesoría legal para calcular correctamente el monto de la pensión.")
     
     elif "despido" in categoria.lower():
-        return (f"Si trabajabas en {comuna} y te despidieron sin causa justificada, tenés 60 días "
+        return (f"Si trabajabas en {comuna} y te despidieron sin causa justificada, tienes 60 días "
                 f"hábiles para presentar tu denuncia ante la {tribunal['inspeccion']}. "
                 f"La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no "
-                f"comparece a la mediación, podés escalar al Juzgado del Trabajo.")
+                f"comparece a la mediación, puedes escalar al Juzgado del Trabajo.")
     
     elif "desalojo" in categoria.lower():
-        return (f"Si tu inmueble está en {comuna} y el arrendatario no paga, debés presentar la demanda "
+        return (f"Si tu inmueble está en {comuna} y el arrendatario no paga, debes presentar la demanda "
                 f"ante el {tribunal['civil']}. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso "
-                f"de desalojo es más rápido: podés obtener sentencia en meses, no años.")
+                f"de desalojo es más rápido: puedes obtener sentencia en meses, no años.")
     
     elif "embargo" in categoria.lower():
-        return (f"Si tu vehículo fue embargado en {comuna}, una vez pagada la deuda debés solicitar "
+        return (f"Si tu vehículo fue embargado en {comuna}, una vez pagada la deuda debes solicitar "
                 f"el alzamiento ante el {tribunal['civil']}. El tribunal verifica el pago y ordena "
                 f"levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles.")
     
     elif "cotizaciones" in categoria.lower():
-        return (f"Si trabajás o trabajaste en {comuna}, podés verificar tus cotizaciones en tu AFP "
+        return (f"Si trabajás o trabajaste en {comuna}, puedes verificar tus cotizaciones en tu AFP "
                 f"y denunciar al empleador ante la {tribunal['inspeccion']}. La denuncia es gratuita "
                 f"y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM.")
     
     elif "tránsito" in categoria.lower() or "transito" in categoria.lower():
         return (f"En {comuna}, las multas de tránsito se tramitan en el {tribunal['jpl']}. "
                 f"Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo "
-                f"y no te cobraron, podés solicitar la prescripción.")
+                f"y no te cobraron, puedes solicitar la prescripción.")
     
     elif "protección" in categoria.lower():
         return (f"Para los residentes de {comuna}, el recurso de protección se presenta ante la "
-                f"Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que "
+                f"Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que "
                 f"vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas.")
     
     # Default

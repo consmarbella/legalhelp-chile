@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { findTemplate } from '@/lib/templates';
+import { checkRateLimit, getClientIp, GENERATE_RATE_LIMIT } from '@/lib/rateLimit';
 
 interface CaseData {
   materia: string | null;
@@ -148,6 +149,16 @@ async function callDeepSeek(system: string, user: string): Promise<string | null
 
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`generate:${ip}`, GENERATE_RATE_LIMIT);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: 'Demasiadas solicitudes. Intenta en unos segundos.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetMs / 1000)) } }
+    );
+  }
+
   try {
     const caseData: CaseData = await req.json();
 

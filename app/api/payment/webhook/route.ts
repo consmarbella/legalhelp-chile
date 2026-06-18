@@ -39,8 +39,8 @@ export async function POST(req: NextRequest) {
     console.log('[webhook] status:', status, '| ref:', externalRef);
 
     // Buscar la orden: primero por external_reference (nuestro orderId), luego por preferenceId
-    let order = externalRef ? (getOrderByOrderId(externalRef) ?? null) : null;
-    if (!order && preferenceId) order = getOrderByPreferenceId(preferenceId) ?? null;
+    let order = externalRef ? (await getOrderByOrderId(externalRef) ?? null) : null;
+    if (!order && preferenceId) order = await getOrderByPreferenceId(preferenceId) ?? null;
 
     if (!order) {
       console.warn('[webhook] orden no encontrada para ref:', externalRef, 'prefId:', preferenceId);
@@ -48,14 +48,14 @@ export async function POST(req: NextRequest) {
     }
 
     if (status === 'approved') {
-      updateOrder(order.orderId, {
+      await updateOrder(order.orderId, {
         status: 'approved',
         mpPaymentId: paymentId,
         paidAt: Date.now(),
       });
       console.log('[webhook] orden aprobada:', order.orderId);
     } else if (status === 'rejected' || status === 'cancelled') {
-      updateOrder(order.orderId, { status: 'failed' });
+      await updateOrder(order.orderId, { status: 'failed' });
     }
 
     return NextResponse.json({ ok: true });

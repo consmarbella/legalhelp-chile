@@ -14,7 +14,7 @@ function PagoErrorInner() {
         <div className="text-5xl mb-4">😔</div>
         <h1 className="text-xl font-bold text-[#0b1f3a] mb-2">Pago no completado</h1>
         <p className="text-sm text-[#8a7f72] mb-4">
-          Tu pago no fue procesado. Podés intentarlo nuevamente — tus datos del caso siguen guardados.
+          Tu pago no fue procesado. Puedes intentarlo nuevamente — tus datos del caso siguen guardados.
         </p>
         {orderId && (
           <p className="text-xs text-[#bbb0a4] mb-4">Referencia: {orderId}</p>

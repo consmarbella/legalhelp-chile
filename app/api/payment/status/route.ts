@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'orderId requerido' }, { status: 400 });
   }
 
-  const order = getOrderByOrderId(orderId);
+  const order = await getOrderByOrderId(orderId);
 
   if (!order) {
     return NextResponse.json({ error: 'Orden no encontrada' }, { status: 404 });

@@ -45,12 +45,12 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
   'Prescripción de deuda TAG': [
     { q: '¿Qué es la prescripción de deuda TAG?', a: 'La prescripción extingue la obligación de pago cuando ha transcurrido un plazo sin que se haya iniciado un cobro judicial. Para deuda civil con autopistas: 5 años (acción ordinaria, Art. 2515 CC). Para multas por circular sin TAG: 3 años (Juzgado de Policía Local). Son dos procedimientos distintos.' },
     { q: '¿Cuánto tarda en prescribir una deuda TAG?', a: 'Deuda civil ordinaria: 5 años desde el cobro (Art. 2515 CC). Acción ejecutiva: 3 años. Multa de tránsito por circular sin TAG: 3 años ante Juzgado de Policía Local. El plazo aplica desde la fecha de cada cobro sin interrupción judicial.' },
-    { q: '¿Puedo presentar la solicitud de prescripción sin abogado?', a: 'En Chile, para alegar prescripción ante tribunal se requiere patrocinio de abogado. LegalHelp genera el documento base que luego podés presentar con asistencia legal o a través de las Corporaciones de Asistencia Judicial.' },
-    { q: '¿Qué información necesito para generar el documento?', a: 'Necesitás tu RUT, el número de infracción o documento de cobro TAG, la fecha de la multa y el nombre del juzgado civil de tu comuna.' },
+    { q: '¿Puedo presentar la solicitud de prescripción sin abogado?', a: 'En Chile, para alegar prescripción ante tribunal se requiere patrocinio de abogado. LegalHelp genera el documento base que luego puedes presentar con asistencia legal o a través de las Corporaciones de Asistencia Judicial.' },
+    { q: '¿Qué información necesito para generar el documento?', a: 'Necesitas tu RUT, el número de infracción o documento de cobro TAG, la fecha de la multa y el nombre del juzgado civil de tu comuna.' },
   ],
   'Prescripción de deuda bancaria': [
     { q: '¿Cuándo prescribe una deuda bancaria en Chile?', a: 'La acción ejecutiva para cobrar una deuda bancaria prescribe a los 3 años (Art. 2515 CC) y la acción ordinaria a los 5 años desde que la deuda se hizo exigible.' },
-    { q: '¿Qué pasa si el banco no ha demandado en 3 años?', a: 'Si transcurrieron 3 años sin acción judicial del banco, podés alegar la prescripción extintiva como excepción ante el tribunal o mediante demanda declarativa.' },
+    { q: '¿Qué pasa si el banco no ha demandado en 3 años?', a: 'Si transcurrieron 3 años sin acción judicial del banco, puedes alegar la prescripción extintiva como excepción ante el tribunal o mediante demanda declarativa.' },
     { q: '¿La prescripción bancaria se aplica a todas las deudas?', a: 'Sí, aplica a deudas de tarjetas de crédito, créditos de consumo, líneas de crédito y otros productos bancarios, salvo hipotecas que tienen plazos distintos.' },
     { q: '¿Qué documento genera LegalHelp para prescripción bancaria?', a: 'LegalHelp genera el escrito de excepción de prescripción o la demanda declarativa de prescripción, personalizado con tus datos, el monto, banco y juzgado correspondiente.' },
   ],
@@ -79,14 +79,14 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
     { q: '¿Qué información debe contener la carta reclamo SERNAC?', a: 'La carta debe incluir tus datos, la empresa reclamada, descripción del hecho, fecha, número de transacción o contrato, y la solución que solicitas (reembolso, reposición, indemnización, etc.).' },
   ],
   'Demanda de desalojo por no pago': [
-    { q: '¿Cuándo puedo demandar el desalojo por no pago de arriendo?', a: 'Podés demandar cuando el arrendatario tiene dos o más meses de arriendo impago, según la Ley 18.101 sobre arrendamiento de predios urbanos.' },
+    { q: '¿Cuándo puedo demandar el desalojo por no pago de arriendo?', a: 'Puedes demandar cuando el arrendatario tiene dos o más meses de arriendo impago, según la Ley 18.101 sobre arrendamiento de predios urbanos.' },
     { q: '¿Qué tribunal conoce la demanda de desalojo en Chile?', a: 'El Juzgado de Letras en lo Civil del lugar donde está ubicado el inmueble arrendado.' },
     { q: '¿Cuánto tarda un proceso de desalojo en Chile?', a: 'Con la reforma de la Ley 21.461 (Devuélveme Mi Casa), el proceso puede durar entre 2 y 6 meses, con audiencias concentradas para acelerarlo.' },
-    { q: '¿Puedo pedir lanzamiento inmediato al demandar?', a: 'Podés solicitar una medida prejudicial de restitución anticipada si acreditás el no pago. El tribunal evaluará la solicitud antes de la audiencia principal.' },
+    { q: '¿Puedo pedir lanzamiento inmediato al demandar?', a: 'Puedes solicitar una medida prejudicial de restitución anticipada si acreditas el no pago. El tribunal evaluará la solicitud antes de la audiencia principal.' },
   ],
   'Denuncia por no pago de cotizaciones': [
     { q: '¿Qué es el no pago de cotizaciones previsionales?', a: 'Ocurre cuando el empleador descuenta las cotizaciones del sueldo del trabajador pero no las entera (paga) en la AFP, Isapre o Fonasa dentro de los plazos legales.' },
-    { q: '¿Dónde denuncio el no pago de cotizaciones?', a: 'Ante la Inspección del Trabajo correspondiente a tu lugar de trabajo o domicilio del empleador. También podés consultar en la AFP o Isapre afectada.' },
+    { q: '¿Dónde denuncio el no pago de cotizaciones?', a: 'Ante la Inspección del Trabajo correspondiente a tu lugar de trabajo o domicilio del empleador. También puedes consultar en la AFP o Isapre afectada.' },
     { q: '¿Qué sanciones enfrenta el empleador que no paga cotizaciones?', a: 'El empleador puede recibir multas, reajustes e intereses sobre las sumas no pagadas. En casos graves puede ser sancionado penalmente por el delito de apropiación indebida.' },
     { q: '¿Puedo despedirme y reclamar indemnización por no pago de cotizaciones?', a: 'Sí. El Art. 162 del Código del Trabajo establece que si el empleador no ha pagado las cotizaciones al momento del despido, ese despido es nulo y el trabajador mantiene su derecho a indemnizaciones.' },
   ],
@@ -400,9 +400,9 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
   ],
   'Prescripción de deuda CAE': [
     { q: '¿Qué es el CAE y cuándo prescribe la deuda?', a: 'El Crédito con Aval del Estado (CAE) es un crédito estudiantil administrado por la Comisión Ingresa. La deuda prescribe a los 5 años desde que se hizo exigible (Art. 2515 CC, acción ordinaria). Si la TGR inició cobro ejecutivo, el plazo ejecutivo es de 3 años.' },
-    { q: '¿Puedo liberarme del CAE por prescripción?', a: 'Sí, si han pasado más de 5 años desde que la cuota se hizo exigible sin que la Tesorería haya iniciado acción judicial. Sin embargo, si la TGR ya inició cobro judicial, debés alegar la prescripción como excepción dentro del juicio.' },
-    { q: '¿Cómo sé si mi deuda CAE prescribe?', a: 'Revisá la fecha de exigibilidad de cada cuota en tu cuenta de Comisión Ingresa o en la TGR. Contá 5 años desde esa fecha. Si no hay notificación judicial en ese período, la cuota está prescrita.' },
-    { q: '¿Qué pasa si no pago el CAE a la TGR?', a: 'La TGR puede iniciar un procedimiento ejecutivo de cobro. Si no alegás prescripción a tiempo, el tribunal puede ordenar embargo de bienes o retención de devolución de impuestos.' },
+    { q: '¿Puedo liberarme del CAE por prescripción?', a: 'Sí, si han pasado más de 5 años desde que la cuota se hizo exigible sin que la Tesorería haya iniciado acción judicial. Sin embargo, si la TGR ya inició cobro judicial, debes alegar la prescripción como excepción dentro del juicio.' },
+    { q: '¿Cómo sé si mi deuda CAE prescribe?', a: 'Revisa la fecha de exigibilidad de cada cuota en tu cuenta de Comisión Ingresa o en la TGR. Cuenta 5 años desde esa fecha. Si no hay notificación judicial en ese período, la cuota está prescrita.' },
+    { q: '¿Qué pasa si no pago el CAE a la TGR?', a: 'La TGR puede iniciar un procedimiento ejecutivo de cobro. Si no alegas prescripción a tiempo, el tribunal puede ordenar embargo de bienes o retención de devolución de impuestos.' },
   ],
   'Solicitud de posesión efectiva': [
     { q: '¿Qué es la posesión efectiva y para qué sirve?', a: 'La posesión efectiva es el trámite legal que declara quiénes son los herederos de una persona fallecida y les permite disponer de sus bienes. Se regula en los Art. 877 y siguientes del Código Civil.' },
@@ -411,7 +411,7 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
     { q: '¿Qué documentos necesito para la posesión efectiva?', a: 'Certificado de defunción, certificado de nacimiento del causante, certificados de nacimiento de todos los herederos, y certificado de matrimonio si corresponde. Todos se obtienen en el Registro Civil.' },
   ],
   'Solicitud de cambio de apellido': [
-    { q: '¿Cuánto cuesta cambiarse el apellido en Chile?', a: 'El trámite judicial no tiene costo de ingreso, pero necesitás patrocinio de abogado. Los honorarios varían entre $200.000 y $600.000 CLP. También hay Corporaciones de Asistencia Judicial gratuitas para quienes no pueden pagar.' },
+    { q: '¿Cuánto cuesta cambiarse el apellido en Chile?', a: 'El trámite judicial no tiene costo de ingreso, pero necesitas patrocinio de abogado. Los honorarios varían entre $200.000 y $600.000 CLP. También hay Corporaciones de Asistencia Judicial gratuitas para quienes no pueden pagar.' },
     { q: '¿Qué razones justifican un cambio de apellido en Chile?', a: 'La Ley 17.344 exige justa causa: nombres o apellidos ridículos, lesivos, extranjeros de difícil pronunciación, que generen confusión filiativa, o que hayan sido conocidos públicamente por otro nombre durante 5+ años.' },
     { q: '¿Cuánto demora el cambio de apellido?', a: 'El proceso judicial completo demora entre 2 y 6 meses. Incluye publicación en el Diario Oficial y en un diario regional, más la resolución del juez.' },
     { q: '¿Puedo cambiarme el apellido paterno?', a: 'Sí, se puede cambiar el apellido paterno, materno o ambos si existe justa causa. También se puede solicitar el cambio de orden de los apellidos o eliminar uno de ellos por razones fundadas.' },
@@ -420,7 +420,7 @@ const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
     { q: '¿Cuándo prescribe una deuda con la Tesorería General de la República?', a: 'Las acciones del Fisco para cobrar deudas tributarias prescriben en 3 años (Art. 200 Código Tributario). Las deudas no tributarias (multas municipales, TAG) prescriben en 5 años según el Art. 2515 CC.' },
     { q: '¿Qué deudas de la TGR prescriben?', a: 'Prescriben deudas de impuestos (IVA, renta), multas fiscales, derechos de aduana, contribuciones de bienes raíces, y deudas de crédito universitario (CAE, Fondo Solidario) que se cobran por la TGR.' },
     { q: '¿Cómo solicito la prescripción de una deuda de Tesorería?', a: 'Presentando un escrito de excepción de prescripción ante el Tribunal Tributario Aduanero (TTA) o ante el juzgado civil que conoce del cobro, según corresponda.' },
-    { q: '¿La TGR puede embargarme por una deuda prescrita?', a: 'No. Si la deuda está prescrita, la TGR no puede embargar ni retener fondos. Sin embargo, debés alegar la prescripción formalmente; el tribunal no la declara de oficio.' },
+    { q: '¿La TGR puede embargarme por una deuda prescrita?', a: 'No. Si la deuda está prescrita, la TGR no puede embargar ni retener fondos. Sin embargo, debes alegar la prescripción formalmente; el tribunal no la declara de oficio.' },
   ],
   'Prescripción de deuda de alimentos': [
     { q: '¿Prescribe la deuda de pensión alimenticia en Chile?', a: 'Sí. Cada cuota de alimentos impaga prescribe individualmente a los 5 años desde que se hizo exigible (Art. 2515 CC). La prescripción debe alegarse ante el tribunal.' },
@@ -647,19 +647,19 @@ const HUB_GUIDE: Record<string, { sections: { heading: string; body: string }[] 
       },
       {
         heading: 'Paso a paso: cómo alegar la prescripción de deuda TAG',
-        body: '1. Verificá la fecha de cada cobro TAG: buscá el detalle en tu cuenta TAG o en la notificación de la concesionaria.\n2. Calculá si han pasado más de 3 años desde esa fecha sin notificación judicial: si es así, esa deuda está prescrita.\n3. Generá el escrito de excepción de prescripción con LegalHelp: el sistema redacta el documento con tus datos, el tribunal competente y la base legal.\n4. Presentá el escrito ante el Juzgado de Letras en lo Civil de tu comuna: podés hacerlo en persona en el tribunal, de lunes a viernes.\n5. El tribunal notifica a la concesionaria y resuelve: en causas de menor cuantía, el proceso puede resolverse sin necesidad de audiencia.',
+        body: '1. Verifica la fecha de cada cobro TAG: busca el detalle en tu cuenta TAG o en la notificación de la concesionaria.\n2. Calcula si han pasado más de 3 años desde esa fecha sin notificación judicial: si es así, esa deuda está prescrita.\n3. Genera el escrito de excepción de prescripción con LegalHelp: el sistema redacta el documento con tus datos, el tribunal competente y la base legal.\n4. Presenta el escrito ante el Juzgado de Letras en lo Civil de tu comuna: puedes hacerlo en persona en el tribunal, de lunes a viernes.\n5. El tribunal notifica a la concesionaria y resuelve: en causas de menor cuantía, el proceso puede resolverse sin necesidad de audiencia.',
       },
       {
-        heading: '¿Qué documentos necesitás para presentar la prescripción?',
-        body: 'Para presentar la solicitud de prescripción de deuda TAG necesitás: (1) tu cédula de identidad vigente, (2) el número o detalle del cobro TAG (aparece en la notificación de la concesionaria o en tu cuenta TAG), (3) la fecha exacta del cobro (para acreditar que han pasado más de 3 años), y (4) el escrito de excepción de prescripción firmado. LegalHelp genera el escrito completo con todos estos datos una vez que describís tu caso.',
+        heading: '¿Qué documentos necesitas para presentar la prescripción?',
+        body: 'Para presentar la solicitud de prescripción de deuda TAG necesitas: (1) tu cédula de identidad vigente, (2) el número o detalle del cobro TAG (aparece en la notificación de la concesionaria o en tu cuenta TAG), (3) la fecha exacta del cobro (para acreditar que han pasado más de 3 años), y (4) el escrito de excepción de prescripción firmado. LegalHelp genera el escrito completo con todos estos datos una vez que describes tu caso.',
       },
       {
         heading: '¿Cuánto cuesta presentar la prescripción?',
-        body: 'La presentación ante el tribunal civil no tiene costo en causas de menor cuantía (deudas bajo aproximadamente $700.000). Si necesitás patrocinio de abogado por la cuantía de la deuda, podés acudir a las Corporaciones de Asistencia Judicial (CAJ) gratuitamente si tu ingreso es bajo. LegalHelp cobra solo por la generación del documento base, no por el trámite judicial.',
+        body: 'La presentación ante el tribunal civil no tiene costo en causas de menor cuantía (deudas bajo aproximadamente $700.000). Si necesitas patrocinio de abogado por la cuantía de la deuda, puedes acudir a las Corporaciones de Asistencia Judicial (CAJ) gratuitamente si tu ingreso es bajo. LegalHelp cobra solo por la generación del documento base, no por el trámite judicial.',
       },
       {
         heading: '¿Qué pasa si la deuda ya fue demandada judicialmente?',
-        body: 'Si la concesionaria ya inició juicio ejecutivo antes de que pasaran los 3 años, la prescripción no opera automáticamente: debés alegarla como excepción dentro del juicio. En ese caso es importante actuar rápido porque los plazos procesales son estrictos. Si ya recibiste notificación judicial, generá el escrito de excepción de prescripción y preséntalo dentro del plazo que indica la resolución del tribunal (generalmente 4 días hábiles para oponer excepciones en juicio ejecutivo).',
+        body: 'Si la concesionaria ya inició juicio ejecutivo antes de que pasaran los 3 años, la prescripción no opera automáticamente: debes alegarla como excepción dentro del juicio. En ese caso es importante actuar rápido porque los plazos procesales son estrictos. Si ya recibiste notificación judicial, genera el escrito de excepción de prescripción y preséntalo dentro del plazo que indica la resolución del tribunal (generalmente 4 días hábiles para oponer excepciones en juicio ejecutivo).',
       },
       {
         heading: 'Tabla: plazos de prescripción según tipo de deuda TAG',
@@ -774,10 +774,10 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         </p>
         <p className="text-[#a8bdd4] text-sm max-w-xl mx-auto">
           {data.variable
-            ? `Si necesitás ${data.categoria.toLowerCase()} en ${data.variable}, presentá tu solicitud ante ${data.entidad} ubicado en ${data.direccion}.`
-            : `${data.categoria}: presentá tu solicitud ante ${data.entidad} (${data.direccion}).`}
-          {' '}Tenés un plazo de {data.plazo.toLowerCase()} según la {data.ley}.
-          {' '}Describí tu caso y en minutos tenés tu documento listo para presentar.
+            ? `Si necesitas ${data.categoria.toLowerCase()} en ${data.variable}, presenta tu solicitud ante ${data.entidad} ubicado en ${data.direccion}.`
+            : `${data.categoria}: presenta tu solicitud ante ${data.entidad} (${data.direccion}).`}
+          {' '}Tienes un plazo de {data.plazo.toLowerCase()} según la {data.ley}.
+          {' '}Describe tu caso y en minutos tienes tu documento listo para presentar.
         </p>
 
         {/* PILLS */}

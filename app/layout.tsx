@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,12 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "LegalHelp Chile – Documentos legales con IA",
     template: "%s | LegalHelp Chile",
   },
-  viewport: "width=device-width, initial-scale=1.0",
   icons: { icon: "/favicon.ico" },
   verification: {
     google: "JipDFGc1s1C9-2_55zczlp36vdlW3-VuDweJWJMgGmo",
@@ -26,12 +30,12 @@ export const metadata: Metadata = {
     },
   },
   description:
-    "Generá documentos legales válidos en Chile con IA. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más. Listo en minutos.",
+    "Genera documentos legales válidos en Chile con IA. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más. Listo en minutos.",
   metadataBase: new URL("https://legalhelp.cl"),
   openGraph: {
     title: "LegalHelp Chile – Documentos legales al instante",
     description:
-      "Generá documentos legales válidos en Chile con inteligencia artificial. Sin abogados caros, sin burocracia.",
+      "Genera documentos legales válidos en Chile con inteligencia artificial. Sin abogados caros, sin burocracia.",
     url: "https://legalhelp.cl",
     siteName: "LegalHelp Chile",
     locale: "es_CL",
@@ -49,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LegalHelp Chile – Documentos legales con IA",
     description:
-      "Generá documentos legales válidos en Chile con IA. Listo en minutos.",
+      "Genera documentos legales válidos en Chile con IA. Listo en minutos.",
     images: ["https://legalhelp.cl/og-image.png"],
   },
   robots: {
@@ -103,7 +107,7 @@ export default function RootLayout({
               name: "LegalHelp Chile",
               url: "https://legalhelp.cl",
               description:
-                "Generá documentos legales válidos en Chile con inteligencia artificial. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más.",
+                "Genera documentos legales válidos en Chile con inteligencia artificial. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más.",
               inLanguage: "es-CL",
               potentialAction: {
                 "@type": "SearchAction",

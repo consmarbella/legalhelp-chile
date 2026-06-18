@@ -3,7 +3,7 @@
     "slug": "alzamiento-de-embargo-sobre-vehiculo",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": null,
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado de Letras en lo Civil competente de tu domicilio",
     "direccion": "Varía según domicilio"
@@ -31,7 +31,7 @@
     "categoria": "Demanda de alimentos",
     "variable": null,
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "el Juzgado de Familia competente de tu domicilio",
     "direccion": "Varía según domicilio"
   },
@@ -48,8 +48,8 @@
     "slug": "denuncia-por-despido-injustificado",
     "categoria": "Denuncia por despido injustificado",
     "variable": null,
-    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-    "plazo": "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+    "plazo": "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
     "entidad": "la Inspección del Trabajo o el Juzgado de Letras del Trabajo",
     "direccion": "Varía según domicilio"
   },
@@ -57,7 +57,7 @@
     "slug": "denuncia-por-no-pago-de-cotizaciones",
     "categoria": "Denuncia por no pago de cotizaciones",
     "variable": null,
-    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Podés denunciarlo en la Inspección del Trabajo.",
+    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Puedes denunciarlo en la Inspección del Trabajo.",
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo o el Juzgado de Letras del Trabajo",
     "direccion": "Varía según domicilio"
@@ -103,7 +103,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": null,
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de la comuna correspondiente",
     "direccion": "Varía según domicilio"
   },
@@ -129,7 +129,7 @@
     "slug": "recurso-de-proteccion",
     "categoria": "Recurso de protección",
     "variable": null,
-    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tenés solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
+    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tienes solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones del domicilio del afectado o del lugar donde ocurrió el acto",
     "direccion": "Varía según domicilio"
@@ -156,7 +156,7 @@
     "slug": "prescripcion-deuda-tag-santiago",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Santiago",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Santiago (Juzgado de Policía Local de Santiago, Av. Matta 1141)",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
@@ -167,7 +167,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Providencia",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Providencia (Juzgado de Policía Local de Providencia, Pedro de Valdivia 963)",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "intro": "Providencia comparte jurisdicción con Santiago para la mayoría de los tribunales civiles y de familia, pero cuenta con su propio Juzgado de Policía Local en Pedro de Valdivia 963. La comuna está en el corazón de la red de autopistas urbanas, cruzada por Costanera Norte y cercana a Vespucio Sur. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Providencia son Costanera Norte, Vespucio Sur."
@@ -177,7 +177,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Las Condes",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Las Condes (Juzgado de Policía Local de Las Condes, Av. Apoquindo 3400)",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "intro": "Las Condes alberga uno de los centros financieros más importantes del país (Sanhattan), con sedes de casi todos los bancos chilenos. Su Juzgado de Policía Local está en Av. Apoquindo 3400. Las autopistas Costanera Norte y Vespucio Sur cruzan la comuna. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Las Condes son Costanera Norte, Américo Vespucio."
@@ -186,7 +186,7 @@
     "slug": "prescripcion-deuda-tag-maipu",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Maipú",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Maipú (Juzgado de Policía Local de Maipú, Av. 5 de Abril 0260)",
     "direccion": "Juzgado Civil de Maipú, Av. 5 de Abril 1825, Maipú",
@@ -197,7 +197,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Pudahuel",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Pudahuel (Juzgado de Policía Local de Pudahuel)",
     "direccion": "Juzgado Civil de Pudahuel, Av. Pudahuel 9260, Pudahuel",
     "intro": "Pudahuel cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Pudahuel son autopistas de la zona."
@@ -207,7 +207,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "La Florida",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de La Florida (Juzgado de Policía Local de La Florida, Av. Vicuña Mackenna 9700)",
     "direccion": "Juzgado Civil de San Miguel, Av. Departamental 4132, San Miguel",
     "intro": "La Florida depende del centro de justicia de San Miguel para causas civiles y de familia, pero tiene Juzgado de Policía Local propio en Av. Vicuña Mackenna 9700. La comuna está conectada por Vespucio Sur y Acceso Sur. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en La Florida son Vespucio Sur, Acceso Sur."
@@ -216,7 +216,7 @@
     "slug": "prescripcion-deuda-tag-puente-alto",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Puente Alto",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Puente Alto (Juzgado de Policía Local de Puente Alto, Av. Concha y Toro 1400)",
     "direccion": "Juzgado Civil de Puente Alto, Manuel Rodríguez 280, Puente Alto",
@@ -227,7 +227,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Concepción",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Concepción (Juzgado de Policía Local de Concepción, Tucapel 450)",
     "direccion": "Palacio de Justicia de Concepción, O'Higgins 660, Concepción",
     "intro": "Concepción es la capital judicial de la Región del Biobío. Sus tribunales están concentrados en el centro: Juzgado Civil en Tucapel 450, Juzgado de Familia en Prat 395. Para TAG, la autopista Concepción-Talcahuano es la principal fuente de cobros. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Concepción son Autopista Concepción-Talcahuano."
@@ -237,7 +237,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Valparaíso",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Valparaíso (Juzgado de Policía Local de Valparaíso, Condell 1490)",
     "direccion": "Palacio de Justicia de Valparaíso, Av. Brasil 2960, Valparaíso",
     "intro": "Valparaíso, con su geografía de cerros, tiene tribunales en el plan: Juzgado Civil en Blanco 1151. La Corte de Apelaciones de Valparaíso (Plaza de la Justicia) conoce los recursos de protección de toda la Quinta Región. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Valparaíso son Ruta 68."
@@ -246,7 +246,7 @@
     "slug": "prescripcion-deuda-bancaria-santiago",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Santiago",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
@@ -266,7 +266,7 @@
     "slug": "prescripcion-deuda-bancaria-las-condes",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Las Condes",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
@@ -286,7 +286,7 @@
     "slug": "prescripcion-deuda-bancaria-concepcion",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Concepción",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Concepción, Tucapel 450",
     "direccion": "Palacio de Justicia de Concepción, O'Higgins 660, Concepción",
@@ -307,140 +307,140 @@
     "categoria": "Demanda de alimentos",
     "variable": "Santiago",
     "ley": "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
-    "plazo": "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+    "plazo": "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     "entidad": "el Juzgado de Familia de Santiago (Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379)",
     "direccion": "Juzgado de Familia de Santiago, Huérfanos 1409, Santiago Centro",
-    "intro": "En Santiago, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Santiago, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-providencia",
     "categoria": "Demanda de alimentos",
     "variable": "Providencia",
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "el Juzgado de Familia de Providencia (Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379)",
     "direccion": "Juzgado de Familia de Santiago, Huérfanos 1409, Santiago Centro",
-    "intro": "En Providencia, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Providencia, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-las-condes",
     "categoria": "Demanda de alimentos",
     "variable": "Las Condes",
     "ley": "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
-    "plazo": "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+    "plazo": "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     "entidad": "el Juzgado de Familia de Las Condes (Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379)",
     "direccion": "Juzgado de Familia de Las Condes, Av. Apoquindo 4499, Las Condes",
-    "intro": "En Las Condes, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Las Condes, las demandas de alimentos se presentan ante el Juzgado de Familia de Santiago, Av. Presidente Salvador Allende 2379. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-maipu",
     "categoria": "Demanda de alimentos",
     "variable": "Maipú",
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "el Juzgado de Familia de Maipú (Juzgado de Familia de San Miguel, Gran Avenida 5250)",
     "direccion": "Juzgado de Familia de Maipú, Av. 5 de Abril 1825, Maipú",
-    "intro": "En Maipú, las demandas de alimentos se presentan ante el Juzgado de Familia de San Miguel, Gran Avenida 5250. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Maipú, las demandas de alimentos se presentan ante el Juzgado de Familia de San Miguel, Gran Avenida 5250. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-puente-alto",
     "categoria": "Demanda de alimentos",
     "variable": "Puente Alto",
     "ley": "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
-    "plazo": "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+    "plazo": "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     "entidad": "el Juzgado de Familia de Puente Alto (Juzgado de Familia de Puente Alto, Concha y Toro 1400)",
     "direccion": "Juzgado de Familia de Puente Alto, Manuel Rodríguez 280, Puente Alto",
-    "intro": "En Puente Alto, las demandas de alimentos se presentan ante el Juzgado de Familia de Puente Alto, Concha y Toro 1400. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Puente Alto, las demandas de alimentos se presentan ante el Juzgado de Familia de Puente Alto, Concha y Toro 1400. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-concepcion",
     "categoria": "Demanda de alimentos",
     "variable": "Concepción",
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "el Juzgado de Familia de Concepción (Juzgado de Familia de Concepción, Prat 395)",
     "direccion": "Juzgado de Familia de Concepción, O'Higgins 660, Concepción",
-    "intro": "En Concepción, las demandas de alimentos se presentan ante el Juzgado de Familia de Concepción, Prat 395. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Concepción, las demandas de alimentos se presentan ante el Juzgado de Familia de Concepción, Prat 395. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-valparaiso",
     "categoria": "Demanda de alimentos",
     "variable": "Valparaíso",
     "ley": "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
-    "plazo": "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+    "plazo": "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     "entidad": "el Juzgado de Familia de Valparaíso (Juzgado de Familia de Valparaíso, Av. Argentina 324)",
     "direccion": "Juzgado de Familia de Valparaíso, Av. Brasil 2960, Valparaíso",
-    "intro": "En Valparaíso, las demandas de alimentos se presentan ante el Juzgado de Familia de Valparaíso, Av. Argentina 324. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Valparaíso, las demandas de alimentos se presentan ante el Juzgado de Familia de Valparaíso, Av. Argentina 324. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "demanda-alimentos-temuco",
     "categoria": "Demanda de alimentos",
     "variable": "Temuco",
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "el Juzgado de Familia de Temuco (Juzgado de Familia de Temuco, Arturo Prat 880)",
     "direccion": "Juzgado de Familia de Temuco, Manuel Montt 660, Temuco",
-    "intro": "En Temuco, las demandas de alimentos se presentan ante el Juzgado de Familia de Temuco, Arturo Prat 880. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitás abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
+    "intro": "En Temuco, las demandas de alimentos se presentan ante el Juzgado de Familia de Temuco, Arturo Prat 880. El tribunal evalúa tanto la necesidad del alimentario como la capacidad económica del alimentante. No necesitas abogado para iniciar el trámite, aunque se recomienda asesoría legal para calcular correctamente el monto de la pensión."
   },
   {
     "slug": "denuncia-despido-injustificado-santiago",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Santiago",
-    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tenés 60 días hábiles para reclamar.",
+    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tienes 60 días hábiles para reclamar.",
     "plazo": "El plazo corre: 60 días hábiles desde la fecha de despido. Marcá el calendario porque si se vence, ya no podrás demandar.",
     "entidad": "la Inspección del Trabajo de Santiago (Inspección del Trabajo Santiago Centro, Moneda 723)",
     "direccion": "Inspección del Trabajo, Agustinas 1253, Santiago Centro",
-    "intro": "Si trabajabas en Santiago y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Santiago Centro, Moneda 723. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Santiago y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Santiago Centro, Moneda 723. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "denuncia-despido-injustificado-providencia",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Providencia",
-    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-    "plazo": "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+    "plazo": "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
     "entidad": "la Inspección del Trabajo de Providencia (Inspección del Trabajo Providencia, Av. Providencia 929)",
     "direccion": "Inspección del Trabajo, Av. Providencia 1765, Providencia",
-    "intro": "Si trabajabas en Providencia y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Providencia, Av. Providencia 929. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Providencia y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Providencia, Av. Providencia 929. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "denuncia-despido-injustificado-las-condes",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Las Condes",
-    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tenés 60 días hábiles para reclamar.",
+    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tienes 60 días hábiles para reclamar.",
     "plazo": "El plazo corre: 60 días hábiles desde la fecha de despido. Marcá el calendario porque si se vence, ya no podrás demandar.",
     "entidad": "la Inspección del Trabajo de Las Condes (Inspección del Trabajo Las Condes, Av. Manquehue Norte 679)",
     "direccion": "Inspección del Trabajo, Av. Apoquindo 4499, Las Condes",
-    "intro": "Si trabajabas en Las Condes y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Las Condes, Av. Manquehue Norte 679. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Las Condes y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Las Condes, Av. Manquehue Norte 679. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "denuncia-despido-injustificado-maipu",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Maipú",
-    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-    "plazo": "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+    "plazo": "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
     "entidad": "la Inspección del Trabajo de Maipú (Inspección del Trabajo Maipú, Av. Pajaritos 2220)",
     "direccion": "Inspección del Trabajo, Av. 5 de Abril 1825, Maipú",
-    "intro": "Si trabajabas en Maipú y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Maipú, Av. Pajaritos 2220. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Maipú y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Maipú, Av. Pajaritos 2220. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "denuncia-despido-injustificado-concepcion",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Concepción",
-    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tenés 60 días hábiles para reclamar.",
+    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tienes 60 días hábiles para reclamar.",
     "plazo": "El plazo corre: 60 días hábiles desde la fecha de despido. Marcá el calendario porque si se vence, ya no podrás demandar.",
     "entidad": "la Inspección del Trabajo de Concepción (Inspección del Trabajo Concepción, San Martín 870)",
     "direccion": "Inspección del Trabajo, Colo Colo 330, Concepción",
-    "intro": "Si trabajabas en Concepción y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Concepción, San Martín 870. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Concepción y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Concepción, San Martín 870. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "denuncia-despido-injustificado-valparaiso",
     "categoria": "Denuncia por despido injustificado",
     "variable": "Valparaíso",
-    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-    "plazo": "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+    "plazo": "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
     "entidad": "la Inspección del Trabajo de Valparaíso (Inspección del Trabajo Valparaíso, Blanco 1163)",
     "direccion": "Inspección del Trabajo, Blanco 790, Valparaíso",
-    "intro": "Si trabajabas en Valparaíso y te despidieron sin causa justificada, tenés 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Valparaíso, Blanco 1163. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, podés escalar al Juzgado del Trabajo."
+    "intro": "Si trabajabas en Valparaíso y te despidieron sin causa justificada, tienes 60 días hábiles para presentar tu denuncia ante la Inspección del Trabajo Valparaíso, Blanco 1163. La denuncia administrativa es gratuita y no requiere abogado. Si el empleador no comparece a la mediación, puedes escalar al Juzgado del Trabajo."
   },
   {
     "slug": "recurso-proteccion-santiago",
@@ -450,17 +450,17 @@
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones correspondiente a Santiago",
     "direccion": "Corte de Apelaciones de Santiago, Compañía 1140, Santiago Centro",
-    "intro": "Para los residentes de Santiago, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
+    "intro": "Para los residentes de Santiago, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
   },
   {
     "slug": "recurso-proteccion-providencia",
     "categoria": "Recurso de protección",
     "variable": "Providencia",
-    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tenés solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
+    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tienes solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones correspondiente a Providencia",
     "direccion": "Corte de Apelaciones de Santiago, Compañía 1140, Santiago Centro",
-    "intro": "Para los residentes de Providencia, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
+    "intro": "Para los residentes de Providencia, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
   },
   {
     "slug": "recurso-proteccion-las-condes",
@@ -470,17 +470,17 @@
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones correspondiente a Las Condes",
     "direccion": "Corte de Apelaciones de Santiago, Compañía 1140, Santiago Centro",
-    "intro": "Para los residentes de Las Condes, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
+    "intro": "Para los residentes de Las Condes, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
   },
   {
     "slug": "recurso-proteccion-concepcion",
     "categoria": "Recurso de protección",
     "variable": "Concepción",
-    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tenés solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
+    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tienes solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones correspondiente a Concepción",
     "direccion": "Corte de Apelaciones de Concepción, O'Higgins 660, Concepción",
-    "intro": "Para los residentes de Concepción, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
+    "intro": "Para los residentes de Concepción, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
   },
   {
     "slug": "recurso-proteccion-valparaiso",
@@ -490,7 +490,7 @@
     "plazo": "30 días desde el acto u omisión",
     "entidad": "la Corte de Apelaciones correspondiente a Valparaíso",
     "direccion": "Corte de Apelaciones de Valparaíso, Av. Brasil 2960, Valparaíso",
-    "intro": "Para los residentes de Valparaíso, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tenés 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
+    "intro": "Para los residentes de Valparaíso, el recurso de protección se presenta ante la Corte de Apelaciones correspondiente. Tienes 30 días corridos desde el acto que vulnera tus derechos. Es un recurso rápido: la Corte debe resolver en días, no semanas."
   },
   {
     "slug": "demanda-desalojo-santiago",
@@ -500,7 +500,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
-    "intro": "Si tu inmueble está en Santiago y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Santiago y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "demanda-desalojo-providencia",
@@ -510,7 +510,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
-    "intro": "Si tu inmueble está en Providencia y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Providencia y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "demanda-desalojo-las-condes",
@@ -520,7 +520,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Huérfanos 1409, Santiago Centro",
-    "intro": "Si tu inmueble está en Las Condes y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Las Condes y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "demanda-desalojo-maipu",
@@ -530,7 +530,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de San Miguel, Gran Avenida 5250",
     "direccion": "Juzgado Civil de Maipú, Av. 5 de Abril 1825, Maipú",
-    "intro": "Si tu inmueble está en Maipú y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de San Miguel, Gran Avenida 5250. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Maipú y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de San Miguel, Gran Avenida 5250. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "demanda-desalojo-puente-alto",
@@ -540,7 +540,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de Puente Alto, Concha y Toro 1400",
     "direccion": "Juzgado Civil de Puente Alto, Manuel Rodríguez 280, Puente Alto",
-    "intro": "Si tu inmueble está en Puente Alto y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de Puente Alto, Concha y Toro 1400. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Puente Alto y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de Puente Alto, Concha y Toro 1400. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "demanda-desalojo-concepcion",
@@ -550,7 +550,7 @@
     "plazo": "Acción desde el primer mes impago",
     "entidad": "el Juzgado Civil de Concepción, Tucapel 450",
     "direccion": "Palacio de Justicia de Concepción, O'Higgins 660, Concepción",
-    "intro": "Si tu inmueble está en Concepción y el arrendatario no paga, debés presentar la demanda ante el Juzgado Civil de Concepción, Tucapel 450. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: podés obtener sentencia en meses, no años."
+    "intro": "Si tu inmueble está en Concepción y el arrendatario no paga, debes presentar la demanda ante el Juzgado Civil de Concepción, Tucapel 450. Con la Ley 21.461 (Devuélveme Mi Casa), el proceso de desalojo es más rápido: puedes obtener sentencia en meses, no años."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-santiago",
@@ -560,17 +560,17 @@
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de Santiago (Inspección del Trabajo Santiago Centro, Moneda 723)",
     "direccion": "Inspección del Trabajo, Agustinas 1253, Santiago Centro",
-    "intro": "Si trabajás o trabajaste en Santiago, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Santiago Centro, Moneda 723. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en Santiago, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Santiago Centro, Moneda 723. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-maipu",
     "categoria": "Denuncia por no pago de cotizaciones",
     "variable": "Maipú",
-    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Podés denunciarlo en la Inspección del Trabajo.",
+    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Puedes denunciarlo en la Inspección del Trabajo.",
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de Maipú (Inspección del Trabajo Maipú, Av. Pajaritos 2220)",
     "direccion": "Inspección del Trabajo, Av. 5 de Abril 1825, Maipú",
-    "intro": "Si trabajás o trabajaste en Maipú, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Maipú, Av. Pajaritos 2220. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en Maipú, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Maipú, Av. Pajaritos 2220. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-concepcion",
@@ -580,17 +580,17 @@
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de Concepción (Inspección del Trabajo Concepción, San Martín 870)",
     "direccion": "Inspección del Trabajo, Colo Colo 330, Concepción",
-    "intro": "Si trabajás o trabajaste en Concepción, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Concepción, San Martín 870. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en Concepción, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Concepción, San Martín 870. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-valparaiso",
     "categoria": "Denuncia por no pago de cotizaciones",
     "variable": "Valparaíso",
-    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Podés denunciarlo en la Inspección del Trabajo.",
+    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Puedes denunciarlo en la Inspección del Trabajo.",
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de Valparaíso (Inspección del Trabajo Valparaíso, Blanco 1163)",
     "direccion": "Inspección del Trabajo, Blanco 790, Valparaíso",
-    "intro": "Si trabajás o trabajaste en Valparaíso, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Valparaíso, Blanco 1163. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en Valparaíso, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Valparaíso, Blanco 1163. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-puente-alto",
@@ -600,23 +600,23 @@
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de Puente Alto (Inspección del Trabajo Puente Alto, Av. Concha y Toro 2690)",
     "direccion": "Inspección del Trabajo, Av. Concha y Toro 3032, Puente Alto",
-    "intro": "Si trabajás o trabajaste en Puente Alto, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Puente Alto, Av. Concha y Toro 2690. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en Puente Alto, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo Puente Alto, Av. Concha y Toro 2690. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "denuncia-no-pago-cotizaciones-la-florida",
     "categoria": "Denuncia por no pago de cotizaciones",
     "variable": "La Florida",
-    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Podés denunciarlo en la Inspección del Trabajo.",
+    "ley": "El artículo 19 del DL 3.500 y la Ley 17.322 protegen tus cotizaciones previsionales. Si tu empleador te descuenta de tu sueldo pero no paga a la AFP, está cometiendo una infracción grave. Puedes denunciarlo en la Inspección del Trabajo.",
     "plazo": "Se puede denunciar en cualquier momento",
     "entidad": "la Inspección del Trabajo de La Florida (Inspección del Trabajo La Florida, Av. Vicuña Mackenna 7650)",
     "direccion": "Inspección del Trabajo, Av. Vicuña Mackenna 7110, La Florida",
-    "intro": "Si trabajás o trabajaste en La Florida, podés verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo La Florida, Av. Vicuña Mackenna 7650. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
+    "intro": "Si trabajás o trabajaste en La Florida, puedes verificar tus cotizaciones en tu AFP y denunciar al empleador ante la Inspección del Trabajo La Florida, Av. Vicuña Mackenna 7650. La denuncia es gratuita y no requiere abogado. Tu empleador arriesga multas de hasta 150 UTM."
   },
   {
     "slug": "prescripcion-deuda-tag-san-bernardo",
     "categoria": "Prescripción de deuda TAG",
     "variable": "San Bernardo",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de San Bernardo (Juzgado de Policía Local de San Bernardo, Arturo Prat 450)",
     "direccion": "Freire 210, San Bernardo",
@@ -627,7 +627,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Peñalolén",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Peñalolén (Juzgado de Policía Local de Peñalolén)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Peñalolén cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Peñalolén son autopistas de la zona."
@@ -637,7 +637,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "El Bosque",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de El Bosque (Juzgado de Policía Local de El Bosque)",
     "direccion": "Av. Pedro Aguirre Cerda 5960, San Miguel",
     "intro": "El Bosque cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en El Bosque son autopistas de la zona."
@@ -646,7 +646,7 @@
     "slug": "prescripcion-deuda-tag-quilicura",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Quilicura",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Quilicura (Juzgado de Policía Local de Quilicura)",
     "direccion": "Av. Matta 1285, Quilicura",
@@ -657,7 +657,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Ñuñoa",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Ñuñoa (Juzgado de Policía Local de Ñuñoa, Av. José Pedro Alessandri 1510)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Ñuñoa, comuna eminentemente residencial, tiene su Juzgado de Policía Local en Av. José Pedro Alessandri 1510. Para tribunales civiles y de familia, depende del centro de justicia de Santiago. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Ñuñoa son Vespucio Sur."
@@ -667,7 +667,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Recoleta",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Recoleta (Juzgado de Policía Local de Recoleta)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Recoleta cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Recoleta son autopistas de la zona."
@@ -676,7 +676,7 @@
     "slug": "prescripcion-deuda-tag-estacion-central",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Estación Central",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Estación Central (Juzgado de Policía Local de Estación Central)",
     "direccion": "Huérfanos 1409, Santiago Centro",
@@ -687,7 +687,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Vitacura",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Vitacura (Juzgado de Policía Local de Vitacura)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Vitacura cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Vitacura son autopistas de la zona."
@@ -697,7 +697,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Lo Barnechea",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Lo Barnechea (Juzgado de Policía Local de Lo Barnechea)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Lo Barnechea cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Lo Barnechea son autopistas de la zona."
@@ -706,7 +706,7 @@
     "slug": "prescripcion-deuda-tag-colina",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Colina",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Colina (Juzgado de Policía Local de Colina)",
     "direccion": "Av. Colina 1100, Colina",
@@ -717,7 +717,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Lampa",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Lampa (Juzgado de Policía Local de Lampa)",
     "direccion": "Av. Colina 1100, Colina",
     "intro": "Lampa cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Lampa son autopistas de la zona."
@@ -727,7 +727,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Independencia",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Independencia (Juzgado de Policía Local de Independencia)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Independencia cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Independencia son autopistas de la zona."
@@ -736,7 +736,7 @@
     "slug": "prescripcion-deuda-tag-san-miguel",
     "categoria": "Prescripción de deuda TAG",
     "variable": "San Miguel",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de San Miguel (Juzgado de Policía Local de San Miguel)",
     "direccion": "Av. Pedro Aguirre Cerda 5960, San Miguel",
@@ -747,7 +747,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Cerro Navia",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Cerro Navia (Juzgado de Policía Local de Cerro Navia)",
     "direccion": "Av. Pudahuel 9260, Pudahuel",
     "intro": "Cerro Navia cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Cerro Navia son autopistas de la zona."
@@ -757,7 +757,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Renca",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Renca (Juzgado de Policía Local de Renca)",
     "direccion": "Huérfanos 1409, Santiago Centro",
     "intro": "Renca cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Renca son autopistas de la zona."
@@ -766,7 +766,7 @@
     "slug": "prescripcion-deuda-tag-quinta-normal",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Quinta Normal",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Quinta Normal (Juzgado de Policía Local de Quinta Normal)",
     "direccion": "Huérfanos 1409, Santiago Centro",
@@ -777,7 +777,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Viña del Mar",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Viña del Mar (Juzgado de Policía Local de Viña del Mar, Arlegui 523)",
     "direccion": "Av. Arlegui 555, Viña del Mar",
     "intro": "Viña del Mar tiene sus propios tribunales: Juzgado Civil en Arlegui 523, Juzgado de Familia en 14 Norte 968. Para multas TAG, las autopistas Troncal Sur y la Ruta 68 son las que más cobros generan en la comuna. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Viña del Mar son Troncal Sur, Ruta 68."
@@ -787,7 +787,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Quilpué",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Quilpué (Juzgado de Policía Local de Quilpué)",
     "direccion": "Av. O'Higgins 540, Quilpué",
     "intro": "Quilpué cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Quilpué son autopistas de la zona."
@@ -796,7 +796,7 @@
     "slug": "prescripcion-deuda-tag-san-antonio",
     "categoria": "Prescripción de deuda TAG",
     "variable": "San Antonio",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de San Antonio (Juzgado de Policía Local de San Antonio)",
     "direccion": "Av. Centenario 290, San Antonio",
@@ -807,7 +807,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Talcahuano",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Talcahuano (Juzgado de Policía Local de Talcahuano)",
     "direccion": "Colón 601, Talcahuano",
     "intro": "Talcahuano cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Talcahuano son autopistas de la zona."
@@ -817,7 +817,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Los Ángeles",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Los Ángeles (Juzgado de Policía Local de Los Ángeles)",
     "direccion": "Ercilla 368, Los Ángeles",
     "intro": "Los Ángeles cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Los Ángeles son autopistas de la zona."
@@ -826,7 +826,7 @@
     "slug": "prescripcion-deuda-tag-chillan",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Chillán",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Chillán (Juzgado de Policía Local de Chillán, Constitución 500)",
     "direccion": "Constitución 550, Chillán",
@@ -837,7 +837,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Temuco",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Temuco (Juzgado de Policía Local de Temuco, Manuel Bulnes 350)",
     "direccion": "Manuel Montt 660, Temuco",
     "intro": "Temuco es el centro judicial de La Araucanía. Sus tribunales están en el casco central: Juzgado Civil en Manuel Bulnes 350, Juzgado de Familia en Arturo Prat 880. La Corte de Apelaciones de Temuco atiende toda la región. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Temuco son Autopista de La Araucanía."
@@ -847,7 +847,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Padre Las Casas",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Padre Las Casas (Juzgado de Policía Local de Padre Las Casas)",
     "direccion": "Manuel Montt 660, Temuco",
     "intro": "Padre Las Casas cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Padre Las Casas son autopistas de la zona."
@@ -856,7 +856,7 @@
     "slug": "prescripcion-deuda-tag-puerto-montt",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Puerto Montt",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Puerto Montt (Juzgado de Policía Local de Puerto Montt, O'Higgins 370)",
     "direccion": "Av. O'Higgins 222, Puerto Montt",
@@ -867,7 +867,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Osorno",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Osorno (Juzgado de Policía Local de Osorno)",
     "direccion": "Manuel Rodríguez 855, Osorno",
     "intro": "Osorno cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Osorno son autopistas de la zona."
@@ -877,7 +877,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "La Serena",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de La Serena (Juzgado de Policía Local de La Serena, Los Carrera 250)",
     "direccion": "Balmaceda 986, La Serena",
     "intro": "La Serena comparte jurisdicción de Corte de Apelaciones con Coquimbo (ubicada en La Serena, Los Carrera 250). Los tribunales civiles y de familia operan en el mismo edificio del centro. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en La Serena son Ruta 5 Norte."
@@ -886,7 +886,7 @@
     "slug": "prescripcion-deuda-tag-coquimbo",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Coquimbo",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Coquimbo (Juzgado de Policía Local de Coquimbo)",
     "direccion": "Av. Costanera 1000, Coquimbo",
@@ -897,7 +897,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Antofagasta",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Antofagasta (Juzgado de Policía Local de Antofagasta, Latorre 2470)",
     "direccion": "Av. Prat 256, Antofagasta",
     "intro": "Antofagasta, capital de la Segunda Región, tiene sus tribunales principales en el centro: Juzgado Civil en Latorre 2470. La Corte de Apelaciones de Antofagasta ve los recursos de protección de toda la región. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Antofagasta son Ruta 1, Ruta 5 Norte."
@@ -907,7 +907,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Iquique",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Iquique (Juzgado de Policía Local de Iquique, Luis Uribe 620)",
     "direccion": "Vivar 491, Iquique",
     "intro": "Iquique cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Iquique son Ruta 1, Ruta 16."
@@ -916,7 +916,7 @@
     "slug": "prescripcion-deuda-tag-arica",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Arica",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Arica (Juzgado de Policía Local de Arica, 18 de Septiembre 365)",
     "direccion": "Sotomayor 415, Arica",
@@ -927,7 +927,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Rancagua",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Rancagua (Juzgado de Policía Local de Rancagua, Cuevas 399)",
     "direccion": "Av. Brasil 685, Rancagua",
     "intro": "Rancagua es la capital judicial de O'Higgins. Sus tribunales están en el centro: Juzgado Civil en Cuevas 399. La Corte de Apelaciones de Rancagua atiende toda la Sexta Región. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Rancagua son Ruta 5 Sur, Carretera del Cobre."
@@ -937,7 +937,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Talca",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Talca (Juzgado de Policía Local de Talca, 1 Sur 1150)",
     "direccion": "2 Norte 1259, Talca",
     "intro": "Talca cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Talca son Ruta 5 Sur."
@@ -946,7 +946,7 @@
     "slug": "prescripcion-deuda-tag-curico",
     "categoria": "Prescripción de deuda TAG",
     "variable": "Curicó",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "el Juzgado de Policía Local de Curicó (Juzgado de Policía Local de Curicó)",
     "direccion": "Prat 427, Curicó",
@@ -957,7 +957,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Copiapó",
     "ley": "La prescripción de deuda TAG está amparada por el Art. 2515 del Código Civil (plazo de 3 años para la acción ejecutiva). Esto significa que si pasaron 3 años desde el cobro sin que te hayan notificado una demanda, tu deuda de autopista se puede declarar extinguida.",
-    "plazo": "Desde la fecha de la multa tenés 3 años. Si durante ese período no te llegó una demanda formal del tribunal, podés iniciar el trámite de prescripción.",
+    "plazo": "Desde la fecha de la multa tienes 3 años. Si durante ese período no te llegó una demanda formal del tribunal, puedes iniciar el trámite de prescripción.",
     "entidad": "el Juzgado de Policía Local de Copiapó (Juzgado de Policía Local de Copiapó, Chacabuco 551)",
     "direccion": "Los Carrera 201, Copiapó",
     "intro": "Copiapó cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Copiapó son Ruta 5 Norte."
@@ -967,7 +967,7 @@
     "categoria": "Prescripción de deuda TAG",
     "variable": "Punta Arenas",
     "ley": "El Código Civil chileno (Art. 2515) permite eliminar deudas civiles después de 5 años sin cobro judicial. Para multas TAG por infracciones de tránsito, la Ley 18.287 reduce el plazo a 3 años desde que la multa aparece en el Registro de Multas No Pagadas.",
-    "plazo": "Tenés 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
+    "plazo": "Tienes 3 años desde que la multa fue publicada en el Registro de Multas de Tránsito No Pagadas. Pasado ese tiempo sin demanda judicial, la deuda prescribe.",
     "entidad": "el Juzgado de Policía Local de Punta Arenas (Juzgado de Policía Local de Punta Arenas, Waldo Seguel 430)",
     "direccion": "Av. Errázuriz 928, Punta Arenas",
     "intro": "Punta Arenas cuenta con su propio Juzgado de Policía Local que recibe causas de tránsito y multas TAG. Si tu multa de autopista tiene más de 3 años sin cobro judicial, la prescripción puede extinguir la deuda. Las autopistas que generan más cobros en Punta Arenas son Ruta 9, Ruta 255."
@@ -976,7 +976,7 @@
     "slug": "prescripcion-deuda-bancaria-puente-alto",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Puente Alto",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Puente Alto, Concha y Toro 1400",
     "direccion": "Manuel Rodríguez 280, Puente Alto",
@@ -996,7 +996,7 @@
     "slug": "prescripcion-deuda-bancaria-pudahuel",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Pudahuel",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Pudahuel",
     "direccion": "Av. Pudahuel 9260, Pudahuel",
@@ -1016,7 +1016,7 @@
     "slug": "prescripcion-deuda-bancaria-penalolen",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Peñalolén",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Peñalolén",
     "direccion": "Huérfanos 1409, Santiago Centro",
@@ -1036,7 +1036,7 @@
     "slug": "prescripcion-deuda-bancaria-quilicura",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Quilicura",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Quilicura",
     "direccion": "Av. Matta 1285, Quilicura",
@@ -1056,7 +1056,7 @@
     "slug": "prescripcion-deuda-bancaria-recoleta",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Recoleta",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Recoleta",
     "direccion": "Huérfanos 1409, Santiago Centro",
@@ -1076,7 +1076,7 @@
     "slug": "prescripcion-deuda-bancaria-vitacura",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Vitacura",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Vitacura",
     "direccion": "Huérfanos 1409, Santiago Centro",
@@ -1096,7 +1096,7 @@
     "slug": "prescripcion-deuda-bancaria-colina",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "Colina",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "el Juzgado Civil de Colina",
     "direccion": "Av. Colina 1100, Colina",
@@ -1116,11 +1116,11 @@
     "slug": "prescripcion-de-multas-de-transito-santiago",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Santiago",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Santiago (Juzgado de Policía Local de Santiago, Av. Matta 1141)",
     "direccion": "Juzgado de Policía Local de Santiago, Chile",
-    "intro": "En Santiago, las multas de tránsito se tramitan en el Juzgado de Policía Local de Santiago, Av. Matta 1141. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Santiago, las multas de tránsito se tramitan en el Juzgado de Policía Local de Santiago, Av. Matta 1141. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-concepcion",
@@ -1130,17 +1130,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Concepción (Juzgado de Policía Local de Concepción, Tucapel 450)",
     "direccion": "Juzgado de Policía Local de Concepción, Chile",
-    "intro": "En Concepción, las multas de tránsito se tramitan en el Juzgado de Policía Local de Concepción, Tucapel 450. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Concepción, las multas de tránsito se tramitan en el Juzgado de Policía Local de Concepción, Tucapel 450. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-valparaiso",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Valparaíso",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Valparaíso (Juzgado de Policía Local de Valparaíso, Condell 1490)",
     "direccion": "Juzgado de Policía Local de Valparaíso, Chile",
-    "intro": "En Valparaíso, las multas de tránsito se tramitan en el Juzgado de Policía Local de Valparaíso, Condell 1490. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Valparaíso, las multas de tránsito se tramitan en el Juzgado de Policía Local de Valparaíso, Condell 1490. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-vina-del-mar",
@@ -1150,17 +1150,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Viña del Mar (Juzgado de Policía Local de Viña del Mar, Arlegui 523)",
     "direccion": "Juzgado de Policía Local de Viña del Mar, Chile",
-    "intro": "En Viña del Mar, las multas de tránsito se tramitan en el Juzgado de Policía Local de Viña del Mar, Arlegui 523. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Viña del Mar, las multas de tránsito se tramitan en el Juzgado de Policía Local de Viña del Mar, Arlegui 523. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-temuco",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Temuco",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Temuco (Juzgado de Policía Local de Temuco, Manuel Bulnes 350)",
     "direccion": "Juzgado de Policía Local de Temuco, Chile",
-    "intro": "En Temuco, las multas de tránsito se tramitan en el Juzgado de Policía Local de Temuco, Manuel Bulnes 350. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Temuco, las multas de tránsito se tramitan en el Juzgado de Policía Local de Temuco, Manuel Bulnes 350. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-rancagua",
@@ -1170,17 +1170,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Rancagua (Juzgado de Policía Local de Rancagua, Cuevas 399)",
     "direccion": "Juzgado de Policía Local de Rancagua, Chile",
-    "intro": "En Rancagua, las multas de tránsito se tramitan en el Juzgado de Policía Local de Rancagua, Cuevas 399. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Rancagua, las multas de tránsito se tramitan en el Juzgado de Policía Local de Rancagua, Cuevas 399. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-antofagasta",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Antofagasta",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Antofagasta (Juzgado de Policía Local de Antofagasta, Latorre 2470)",
     "direccion": "Juzgado de Policía Local de Antofagasta, Chile",
-    "intro": "En Antofagasta, las multas de tránsito se tramitan en el Juzgado de Policía Local de Antofagasta, Latorre 2470. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Antofagasta, las multas de tránsito se tramitan en el Juzgado de Policía Local de Antofagasta, Latorre 2470. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-la-serena",
@@ -1190,17 +1190,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de La Serena (Juzgado de Policía Local de La Serena, Los Carrera 250)",
     "direccion": "Juzgado de Policía Local de La Serena, Chile",
-    "intro": "En La Serena, las multas de tránsito se tramitan en el Juzgado de Policía Local de La Serena, Los Carrera 250. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En La Serena, las multas de tránsito se tramitan en el Juzgado de Policía Local de La Serena, Los Carrera 250. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-puerto-montt",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Puerto Montt",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Puerto Montt (Juzgado de Policía Local de Puerto Montt, O'Higgins 370)",
     "direccion": "Juzgado de Policía Local de Puerto Montt, Chile",
-    "intro": "En Puerto Montt, las multas de tránsito se tramitan en el Juzgado de Policía Local de Puerto Montt, O'Higgins 370. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Puerto Montt, las multas de tránsito se tramitan en el Juzgado de Policía Local de Puerto Montt, O'Higgins 370. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-iquique",
@@ -1210,17 +1210,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Iquique (Juzgado de Policía Local de Iquique, Luis Uribe 620)",
     "direccion": "Juzgado de Policía Local de Iquique, Chile",
-    "intro": "En Iquique, las multas de tránsito se tramitan en el Juzgado de Policía Local de Iquique, Luis Uribe 620. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Iquique, las multas de tránsito se tramitan en el Juzgado de Policía Local de Iquique, Luis Uribe 620. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-arica",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Arica",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Arica (Juzgado de Policía Local de Arica, 18 de Septiembre 365)",
     "direccion": "Juzgado de Policía Local de Arica, Chile",
-    "intro": "En Arica, las multas de tránsito se tramitan en el Juzgado de Policía Local de Arica, 18 de Septiembre 365. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Arica, las multas de tránsito se tramitan en el Juzgado de Policía Local de Arica, 18 de Septiembre 365. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-talca",
@@ -1230,17 +1230,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Talca (Juzgado de Policía Local de Talca, 1 Sur 1150)",
     "direccion": "Juzgado de Policía Local de Talca, Chile",
-    "intro": "En Talca, las multas de tránsito se tramitan en el Juzgado de Policía Local de Talca, 1 Sur 1150. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Talca, las multas de tránsito se tramitan en el Juzgado de Policía Local de Talca, 1 Sur 1150. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-chillan",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Chillán",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Chillán (Juzgado de Policía Local de Chillán, Constitución 500)",
     "direccion": "Juzgado de Policía Local de Chillán, Chile",
-    "intro": "En Chillán, las multas de tránsito se tramitan en el Juzgado de Policía Local de Chillán, Constitución 500. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Chillán, las multas de tránsito se tramitan en el Juzgado de Policía Local de Chillán, Constitución 500. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-copiapo",
@@ -1250,17 +1250,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Copiapó (Juzgado de Policía Local de Copiapó, Chacabuco 551)",
     "direccion": "Juzgado de Policía Local de Copiapó, Chile",
-    "intro": "En Copiapó, las multas de tránsito se tramitan en el Juzgado de Policía Local de Copiapó, Chacabuco 551. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Copiapó, las multas de tránsito se tramitan en el Juzgado de Policía Local de Copiapó, Chacabuco 551. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-punta-arenas",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Punta Arenas",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Punta Arenas (Juzgado de Policía Local de Punta Arenas, Waldo Seguel 430)",
     "direccion": "Juzgado de Policía Local de Punta Arenas, Chile",
-    "intro": "En Punta Arenas, las multas de tránsito se tramitan en el Juzgado de Policía Local de Punta Arenas, Waldo Seguel 430. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Punta Arenas, las multas de tránsito se tramitan en el Juzgado de Policía Local de Punta Arenas, Waldo Seguel 430. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-los-angeles",
@@ -1270,17 +1270,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Los Ángeles (Juzgado de Policía Local de Los Ángeles)",
     "direccion": "Juzgado de Policía Local de Los Ángeles, Chile",
-    "intro": "En Los Ángeles, las multas de tránsito se tramitan en el Juzgado de Policía Local de Los Ángeles. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Los Ángeles, las multas de tránsito se tramitan en el Juzgado de Policía Local de Los Ángeles. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-osorno",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Osorno",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Osorno (Juzgado de Policía Local de Osorno)",
     "direccion": "Juzgado de Policía Local de Osorno, Chile",
-    "intro": "En Osorno, las multas de tránsito se tramitan en el Juzgado de Policía Local de Osorno. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Osorno, las multas de tránsito se tramitan en el Juzgado de Policía Local de Osorno. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-valdivia",
@@ -1290,17 +1290,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Valdivia (Juzgado de Policía Local de Valdivia)",
     "direccion": "Juzgado de Policía Local de Valdivia, Chile",
-    "intro": "En Valdivia, las multas de tránsito se tramitan en el Juzgado de Policía Local de Valdivia. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Valdivia, las multas de tránsito se tramitan en el Juzgado de Policía Local de Valdivia. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-coquimbo",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Coquimbo",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Coquimbo (Juzgado de Policía Local de Coquimbo)",
     "direccion": "Juzgado de Policía Local de Coquimbo, Chile",
-    "intro": "En Coquimbo, las multas de tránsito se tramitan en el Juzgado de Policía Local de Coquimbo. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Coquimbo, las multas de tránsito se tramitan en el Juzgado de Policía Local de Coquimbo. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-calama",
@@ -1310,17 +1310,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Calama (Juzgado de Policía Local de Calama)",
     "direccion": "Juzgado de Policía Local de Calama, Chile",
-    "intro": "En Calama, las multas de tránsito se tramitan en el Juzgado de Policía Local de Calama. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Calama, las multas de tránsito se tramitan en el Juzgado de Policía Local de Calama. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-las-condes",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Las Condes",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Las Condes (Juzgado de Policía Local de Las Condes, Av. Apoquindo 3400)",
     "direccion": "Juzgado de Policía Local de Las Condes, Chile",
-    "intro": "En Las Condes, las multas de tránsito se tramitan en el Juzgado de Policía Local de Las Condes, Av. Apoquindo 3400. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Las Condes, las multas de tránsito se tramitan en el Juzgado de Policía Local de Las Condes, Av. Apoquindo 3400. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-providencia",
@@ -1330,17 +1330,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Providencia (Juzgado de Policía Local de Providencia, Pedro de Valdivia 963)",
     "direccion": "Juzgado de Policía Local de Providencia, Chile",
-    "intro": "En Providencia, las multas de tránsito se tramitan en el Juzgado de Policía Local de Providencia, Pedro de Valdivia 963. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Providencia, las multas de tránsito se tramitan en el Juzgado de Policía Local de Providencia, Pedro de Valdivia 963. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-maipu",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Maipú",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Maipú (Juzgado de Policía Local de Maipú, Av. 5 de Abril 0260)",
     "direccion": "Juzgado de Policía Local de Maipú, Chile",
-    "intro": "En Maipú, las multas de tránsito se tramitan en el Juzgado de Policía Local de Maipú, Av. 5 de Abril 0260. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Maipú, las multas de tránsito se tramitan en el Juzgado de Policía Local de Maipú, Av. 5 de Abril 0260. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-puente-alto",
@@ -1350,17 +1350,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Puente Alto (Juzgado de Policía Local de Puente Alto, Av. Concha y Toro 1400)",
     "direccion": "Juzgado de Policía Local de Puente Alto, Chile",
-    "intro": "En Puente Alto, las multas de tránsito se tramitan en el Juzgado de Policía Local de Puente Alto, Av. Concha y Toro 1400. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Puente Alto, las multas de tránsito se tramitan en el Juzgado de Policía Local de Puente Alto, Av. Concha y Toro 1400. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-la-florida",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "La Florida",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de La Florida (Juzgado de Policía Local de La Florida, Av. Vicuña Mackenna 9700)",
     "direccion": "Juzgado de Policía Local de La Florida, Chile",
-    "intro": "En La Florida, las multas de tránsito se tramitan en el Juzgado de Policía Local de La Florida, Av. Vicuña Mackenna 9700. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En La Florida, las multas de tránsito se tramitan en el Juzgado de Policía Local de La Florida, Av. Vicuña Mackenna 9700. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-san-bernardo",
@@ -1370,17 +1370,17 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de San Bernardo (Juzgado de Policía Local de San Bernardo, Arturo Prat 450)",
     "direccion": "Juzgado de Policía Local de San Bernardo, Chile",
-    "intro": "En San Bernardo, las multas de tránsito se tramitan en el Juzgado de Policía Local de San Bernardo, Arturo Prat 450. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En San Bernardo, las multas de tránsito se tramitan en el Juzgado de Policía Local de San Bernardo, Arturo Prat 450. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-nunoa",
     "categoria": "Prescripción de multas de tránsito",
     "variable": "Ñuñoa",
-    "ley": "¿Tenés multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, podés alegar la prescripción.",
+    "ley": "¿Tienes multas de tránsito de años atrás? El artículo 2521 del Código Civil chileno establece que las multas prescriben a los 3 años desde que fueron dictadas por el tribunal. Si ya pasó ese tiempo, puedes alegar la prescripción.",
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Ñuñoa (Juzgado de Policía Local de Ñuñoa, Av. José Pedro Alessandri 1510)",
     "direccion": "Juzgado de Policía Local de Ñuñoa, Chile",
-    "intro": "En Ñuñoa, las multas de tránsito se tramitan en el Juzgado de Policía Local de Ñuñoa, Av. José Pedro Alessandri 1510. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Ñuñoa, las multas de tránsito se tramitan en el Juzgado de Policía Local de Ñuñoa, Av. José Pedro Alessandri 1510. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "prescripcion-de-multas-de-transito-santiago-centro",
@@ -1390,293 +1390,293 @@
     "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
     "entidad": "el Juzgado de Policía Local de Santiago Centro (Juzgado de Policía Local de Santiago Centro)",
     "direccion": "Juzgado de Policía Local de Santiago Centro, Chile",
-    "intro": "En Santiago Centro, las multas de tránsito se tramitan en el Juzgado de Policía Local de Santiago Centro. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, podés solicitar la prescripción."
+    "intro": "En Santiago Centro, las multas de tránsito se tramitan en el Juzgado de Policía Local de Santiago Centro. Las multas prescriben a los 3 años desde la sentencia. Si ya pasó ese plazo y no te cobraron, puedes solicitar la prescripción."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Santiago",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Santiago, Chile",
-    "intro": "Si tu vehículo fue embargado en Santiago, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Santiago, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-concepcion",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Concepción",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Concepción, Tucapel 450",
     "direccion": "Tribunal Civil de Concepción, Chile",
-    "intro": "Si tu vehículo fue embargado en Concepción, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Concepción, Tucapel 450. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Concepción, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Concepción, Tucapel 450. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-valparaiso",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Valparaíso",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Valparaíso, Blanco 1151",
     "direccion": "Tribunal Civil de Valparaíso, Chile",
-    "intro": "Si tu vehículo fue embargado en Valparaíso, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Valparaíso, Blanco 1151. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Valparaíso, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Valparaíso, Blanco 1151. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-vina-del-mar",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Viña del Mar",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Viña del Mar, Arlegui 523",
     "direccion": "Tribunal Civil de Viña del Mar, Chile",
-    "intro": "Si tu vehículo fue embargado en Viña del Mar, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Viña del Mar, Arlegui 523. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Viña del Mar, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Viña del Mar, Arlegui 523. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-temuco",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Temuco",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Temuco, Manuel Bulnes 350",
     "direccion": "Tribunal Civil de Temuco, Chile",
-    "intro": "Si tu vehículo fue embargado en Temuco, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Temuco, Manuel Bulnes 350. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Temuco, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Temuco, Manuel Bulnes 350. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-rancagua",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Rancagua",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Rancagua, Cuevas 399",
     "direccion": "Tribunal Civil de Rancagua, Chile",
-    "intro": "Si tu vehículo fue embargado en Rancagua, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Rancagua, Cuevas 399. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Rancagua, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Rancagua, Cuevas 399. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-antofagasta",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Antofagasta",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Antofagasta, Latorre 2470",
     "direccion": "Tribunal Civil de Antofagasta, Chile",
-    "intro": "Si tu vehículo fue embargado en Antofagasta, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Antofagasta, Latorre 2470. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Antofagasta, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Antofagasta, Latorre 2470. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-la-serena",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "La Serena",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de La Serena, Los Carrera 250",
     "direccion": "Tribunal Civil de La Serena, Chile",
-    "intro": "Si tu vehículo fue embargado en La Serena, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de La Serena, Los Carrera 250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en La Serena, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de La Serena, Los Carrera 250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-puerto-montt",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Puerto Montt",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Puerto Montt, O'Higgins 370",
     "direccion": "Tribunal Civil de Puerto Montt, Chile",
-    "intro": "Si tu vehículo fue embargado en Puerto Montt, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Puerto Montt, O'Higgins 370. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Puerto Montt, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Puerto Montt, O'Higgins 370. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-iquique",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Iquique",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Iquique, Luis Uribe 620",
     "direccion": "Tribunal Civil de Iquique, Chile",
-    "intro": "Si tu vehículo fue embargado en Iquique, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Iquique, Luis Uribe 620. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Iquique, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Iquique, Luis Uribe 620. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-arica",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Arica",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Arica, 18 de Septiembre 365",
     "direccion": "Tribunal Civil de Arica, Chile",
-    "intro": "Si tu vehículo fue embargado en Arica, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Arica, 18 de Septiembre 365. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Arica, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Arica, 18 de Septiembre 365. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-talca",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Talca",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Talca, 1 Sur 1150",
     "direccion": "Tribunal Civil de Talca, Chile",
-    "intro": "Si tu vehículo fue embargado en Talca, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Talca, 1 Sur 1150. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Talca, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Talca, 1 Sur 1150. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-chillan",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Chillán",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Chillán, Constitución 500",
     "direccion": "Tribunal Civil de Chillán, Chile",
-    "intro": "Si tu vehículo fue embargado en Chillán, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Chillán, Constitución 500. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Chillán, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Chillán, Constitución 500. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-copiapo",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Copiapó",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Copiapó, Chacabuco 551",
     "direccion": "Tribunal Civil de Copiapó, Chile",
-    "intro": "Si tu vehículo fue embargado en Copiapó, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Copiapó, Chacabuco 551. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Copiapó, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Copiapó, Chacabuco 551. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-punta-arenas",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Punta Arenas",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Punta Arenas, Waldo Seguel 430",
     "direccion": "Tribunal Civil de Punta Arenas, Chile",
-    "intro": "Si tu vehículo fue embargado en Punta Arenas, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Punta Arenas, Waldo Seguel 430. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Punta Arenas, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Punta Arenas, Waldo Seguel 430. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-los-angeles",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Los Ángeles",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Los Ángeles",
     "direccion": "Tribunal Civil de Los Ángeles, Chile",
-    "intro": "Si tu vehículo fue embargado en Los Ángeles, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Los Ángeles. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Los Ángeles, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Los Ángeles. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-osorno",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Osorno",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Osorno",
     "direccion": "Tribunal Civil de Osorno, Chile",
-    "intro": "Si tu vehículo fue embargado en Osorno, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Osorno. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Osorno, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Osorno. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-valdivia",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Valdivia",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Valdivia",
     "direccion": "Tribunal Civil de Valdivia, Chile",
-    "intro": "Si tu vehículo fue embargado en Valdivia, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Valdivia. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Valdivia, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Valdivia. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-coquimbo",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Coquimbo",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Coquimbo",
     "direccion": "Tribunal Civil de Coquimbo, Chile",
-    "intro": "Si tu vehículo fue embargado en Coquimbo, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Coquimbo. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Coquimbo, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Coquimbo. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-calama",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Calama",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Calama",
     "direccion": "Tribunal Civil de Calama, Chile",
-    "intro": "Si tu vehículo fue embargado en Calama, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Calama. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Calama, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Calama. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-las-condes",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Las Condes",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Las Condes, Chile",
-    "intro": "Si tu vehículo fue embargado en Las Condes, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Las Condes, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-providencia",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Providencia",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro",
     "direccion": "Tribunal Civil de Providencia, Chile",
-    "intro": "Si tu vehículo fue embargado en Providencia, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Providencia, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409, Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-maipu",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Maipú",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de San Miguel, Gran Avenida 5250",
     "direccion": "Tribunal Civil de Maipú, Chile",
-    "intro": "Si tu vehículo fue embargado en Maipú, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Maipú, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-puente-alto",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Puente Alto",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Puente Alto, Concha y Toro 1400",
     "direccion": "Tribunal Civil de Puente Alto, Chile",
-    "intro": "Si tu vehículo fue embargado en Puente Alto, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Puente Alto, Concha y Toro 1400. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Puente Alto, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Puente Alto, Concha y Toro 1400. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-la-florida",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "La Florida",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de San Miguel, Gran Avenida 5250",
     "direccion": "Tribunal Civil de La Florida, Chile",
-    "intro": "Si tu vehículo fue embargado en La Florida, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en La Florida, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-san-bernardo",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "San Bernardo",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de San Miguel, Gran Avenida 5250",
     "direccion": "Tribunal Civil de San Bernardo, Chile",
-    "intro": "Si tu vehículo fue embargado en San Bernardo, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en San Bernardo, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de San Miguel, Gran Avenida 5250. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-nunoa",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Ñuñoa",
-    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tenés derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
+    "ley": "El Código de Procedimiento Civil (Arts. 446+) establece el procedimiento para levantar un embargo. Si ya pagaste tu deuda, tienes derecho a que el tribunal ordene el alzamiento del embargo y tu vehículo quede libre de cargas.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Santiago, Huérfanos 1409",
     "direccion": "Tribunal Civil de Ñuñoa, Chile",
-    "intro": "Si tu vehículo fue embargado en Ñuñoa, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Ñuñoa, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Santiago, Huérfanos 1409. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago-centro",
     "categoria": "Alzamiento de embargo sobre vehículo",
     "variable": "Santiago Centro",
-    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, podés solicitar que se levante la restricción sobre tu vehículo.",
+    "ley": "Los artículos 446 y siguientes del Código de Procedimiento Civil regulan el alzamiento de embargo. Una vez pagada la deuda que lo originó, puedes solicitar que se levante la restricción sobre tu vehículo.",
     "plazo": "Una vez pagada la deuda o fenecido el embargo",
     "entidad": "el Juzgado Civil de Santiago Centro",
     "direccion": "Tribunal Civil de Santiago Centro, Chile",
-    "intro": "Si tu vehículo fue embargado en Santiago Centro, una vez pagada la deuda debés solicitar el alzamiento ante el Juzgado Civil de Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
+    "intro": "Si tu vehículo fue embargado en Santiago Centro, una vez pagada la deuda debes solicitar el alzamiento ante el Juzgado Civil de Santiago Centro. El tribunal verifica el pago y ordena levantar la restricción. El trámite es relativamente rápido: 1 a 2 semanas hábiles."
   },
   {
     "slug": "prescripcion-deuda-tag",
     "categoria": "Prescripción de deuda TAG",
     "variable": "",
-    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y podés solicitar su eliminación.",
+    "ley": "¿Sabías que las multas de TAG prescriben? El artículo 2515 del Código Civil establece un plazo de 3 años para la acción ejecutiva. Si la autopista no te demandó en ese tiempo, la deuda se extingue y puedes solicitar su eliminación.",
     "plazo": "El plazo es de 3 años contados desde que el cobro apareció en el sistema. Si en esos 3 años no recibiste notificación judicial, tu deuda está prescrita.",
     "entidad": "Juzgado de Letras en lo Civil de tu comuna",
     "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
@@ -1685,7 +1685,7 @@
     "slug": "prescripcion-deuda-bancaria",
     "categoria": "Prescripción de deuda bancaria",
     "variable": "",
-    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, podés alegar la prescripción.",
+    "ley": "Tu deuda bancaria puede extinguirse legalmente. El Art. 2515 del Código Civil establece que las deudas civiles prescriben en 5 años y las ejecutivas en 3. Si el banco no inició acciones judiciales en ese plazo, puedes alegar la prescripción.",
     "plazo": "5 años sin notificación judicial",
     "entidad": "Juzgado de Letras en lo Civil de tu comuna",
     "direccion": "Tribunal Civil correspondiente a tu domicilio, Chile"
@@ -1695,7 +1695,7 @@
     "categoria": "Demanda de alimentos",
     "variable": "",
     "ley": "En Chile, la demanda de alimentos se fundamenta en la Ley 14.908 y el Código Civil. El tribunal evalúa tanto las necesidades del niño como la capacidad económica del padre para fijar un monto justo de pensión.",
-    "plazo": "No tiene plazo: podés demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
+    "plazo": "No tiene plazo: puedes demandar alimentos cuando los necesités, incluso si pasaron años desde la separación.",
     "entidad": "Juzgado de Familia de tu comuna",
     "direccion": "Tribunal de Familia correspondiente a tu domicilio, Chile"
   },
@@ -1704,7 +1704,7 @@
     "categoria": "Demanda de alimentos",
     "variable": "",
     "ley": "La Ley 14.908 regula el derecho de alimentos en Chile junto con el artículo 321 del Código Civil. Todo niño, niña o adolescente tiene derecho a que sus padres le proporcionen sustento, vestimenta, salud y educación.",
-    "plazo": "Podés presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
+    "plazo": "Puedes presentar la demanda en cualquier momento. No hay plazo de vencimiento para reclamar alimentos para tus hijos.",
     "entidad": "Juzgado de Familia de tu comuna",
     "direccion": "Tribunal de Familia correspondiente a tu domicilio, Chile"
   },
@@ -1712,7 +1712,7 @@
     "slug": "recurso-proteccion",
     "categoria": "Recurso de protección",
     "variable": "",
-    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tenés solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
+    "ley": "El artículo 20 de la Constitución chilena consagra el recurso de protección, una acción rápida para defender tus derechos fundamentales frente a actos ilegales o arbitrarios. Tienes solo 30 días corridos para presentarlo desde que ocurrió el hecho.",
     "plazo": "30 días desde el acto u omisión",
     "entidad": "Corte de Apelaciones de tu región",
     "direccion": "Corte de Apelaciones correspondiente a tu domicilio, Chile"
@@ -1721,7 +1721,7 @@
     "slug": "denuncia-despido-injustificado",
     "categoria": "Denuncia por despido injustificado",
     "variable": "",
-    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tenés 60 días hábiles para reclamar.",
+    "ley": "¿Te despidieron sin motivo? El Código del Trabajo te respalda. Los artículos 161, 163 y 168 establecen que el despido solo procede por causales específicas. Si no se cumple ninguna, tienes 60 días hábiles para reclamar.",
     "plazo": "El plazo corre: 60 días hábiles desde la fecha de despido. Marcá el calendario porque si se vence, ya no podrás demandar.",
     "entidad": "Inspección del Trabajo de tu comuna",
     "direccion": "Inspección del Trabajo correspondiente a tu domicilio, Chile"
@@ -1730,8 +1730,8 @@
     "slug": "finiquito-laboral",
     "categoria": "Denuncia por despido injustificado",
     "variable": "",
-    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tenés derecho a indemnización por años de servicio más un recargo del 30%.",
-    "plazo": "Tenés 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después perdés el derecho a reclamar.",
+    "ley": "El Código del Trabajo chileno (Arts. 161, 163 y 168) protege al trabajador frente a despidos sin causa legal. Si te despidieron sin justificación, tienes derecho a indemnización por años de servicio más un recargo del 30%.",
+    "plazo": "Tienes 60 días hábiles desde que te despidieron. Es importante no dejar pasar este plazo porque después pierdes el derecho a reclamar.",
     "entidad": "Inspección del Trabajo de tu comuna",
     "direccion": "Inspección del Trabajo correspondiente a tu domicilio, Chile"
   },
