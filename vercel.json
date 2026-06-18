@@ -18,12 +18,12 @@
   ],
   "routes": [
     {
-      "src": "^/p/finiquito-laboral(-[^/]+)?/?$",
+      "src": "^/p/finiquito-laboral-[^/]+/?$",
       "headers": { "Location": "/p/servicios-legales" },
       "status": 301
     },
     {
-      "src": "^/p/poder-simple(-[^/]+)?/?$",
+      "src": "^/p/poder-simple-(?!notarial)[^/]+/?$",
       "headers": { "Location": "/p/servicios-legales" },
       "status": 301
     },
