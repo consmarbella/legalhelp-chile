@@ -21,6 +21,8 @@ FORMATO SEGÚN TIPO DE DOCUMENTO:
 - Contratos: TÍTULO → PARTES → CLÁUSULAS numeradas → FIRMAS con datos
 - Poderes: TÍTULO → datos del otorgante → datos del apoderado → facultades específicas → lugar, fecha → firma
 - Finiquitos: encabezado → partes → liquidación ítem por ítem → cláusulas → firma de ambas partes
+- Escrituras de constitución (SpA, EIRL, Ltda.): TÍTULO (Ej: \"CONSTITUCIÓN DE SOCIEDAD POR ACCIONES\") → COMPARECIENTES con nombres, RUT, profesión, domicilio → CLÁUSULAS numeradas escritas como estatuto: Primera (Nombre/Razón Social), Segunda (Objeto/Giro), Tercera (Capital y acciones), Cuarta (Administración), Quinta (Domicilio y duración), Sexta (Domicilio procesal), etc. → firma. PROHIBIDO usar \"PRESENTE\", \"POR TANTO\", \"RUEGO A US.\" o \"I. Antecedentes de hecho\" en escrituras de constitución. Son contratos/estatutos, no escritos judiciales.
+- Declaraciones juradas: TÍTULO (\"DECLARACIÓN JURADA\") → lugar, fecha → \"Yo, [NOMBRE], RUT [RUT], domiciliado en [DIRECCIÓN], bajo juramento declaro:\" → hechos declarados numerados → firma ante Notario.
 
 CITAS LEGALES — REGLA CRÍTICA:
 Citá SOLO los artículos ESPECÍFICOS que aplicás al caso (máximo 6-8 citas por documento).
