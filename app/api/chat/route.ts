@@ -139,11 +139,35 @@ export async function POST(req: NextRequest) {
     if (!jsonData) {
       console.error('[chat] DeepSeek no devolvió JSON válido después de reintentos — usando mock');
     }
+
+    // ─── Normalize alias to canonical keys ────────────────────────────────
+    function normalizeKeys(d: Record<string, unknown>) {
+      if (!d.nombre && d.nombre_completo) d.nombre = d.nombre_completo;
+      if (!d.direccion && d.domicilio)    d.direccion = d.domicilio;
+      if (!d.detalle_caso && d.hechos)    d.detalle_caso = d.hechos;
+      if (!d.detalle_caso && d.contexto)  d.detalle_caso = d.contexto;
+      if (!d.detalle_caso && d.situacion) d.detalle_caso = d.situacion;
+      if (!d.detalle_caso && d.motivo)    d.detalle_caso = d.motivo;
+      // También tomar alias desde datos_recopilados si existe
+      const r = d.datos_recopilados as Record<string, unknown> | undefined;
+      if (r && typeof r === 'object') {
+        if (!d.nombre && r.nombre)               d.nombre = r.nombre;
+        if (!d.nombre && r.nombre_completo)       d.nombre = r.nombre_completo;
+        if (!d.rut && r.rut)                       d.rut = r.rut;
+        if (!d.direccion && r.direccion)           d.direccion = r.direccion;
+        if (!d.direccion && r.domicilio)           d.direccion = r.domicilio;
+        if (!d.detalle_caso && r.detalle_caso)     d.detalle_caso = r.detalle_caso;
+        if (!d.detalle_caso && r.hechos)           d.detalle_caso = r.hechos;
+        if (!d.detalle_caso && r.contexto)         d.detalle_caso = r.contexto;
+      }
+      return d;
+    }
+
     // Merge: previous accumulated data + new output from DeepSeek
     // This ensures fields collected in earlier turns are never lost even if
     // DeepSeek omits them while still asking follow-up questions.
     const merged = jsonData
-      ? { ...(currentCaseData ?? {}), ...jsonData }
+      ? normalizeKeys({ ...(currentCaseData ?? {}), ...jsonData })
       : smartMock(message, currentCaseData ?? {});
     return NextResponse.json(merged);
 

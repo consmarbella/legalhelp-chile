@@ -45,7 +45,7 @@ Campos recomendados:
 - datos_recopilados: objeto con los antecedentes ya reunidos
 
 Campos dinámicos:
-- agrega además todos los datos concretos del caso que vayas acumulando, por ejemplo nombre_completo, rut, domicilio, comuna, fecha_hecho, monto, patente, empleador, tribunal, hijos, inmueble, contrato, según corresponda.
+- agrega además todos los datos concretos del caso que vayas acumulando, por ejemplo nombre, rut, direccion, comuna, fecha_hecho, monto, patente, empleador, tribunal, hijos, inmueble, contrato, según corresponda.
 
 REGLAS FINALES:
 - Si falta información crítica, ready debe ser false.
