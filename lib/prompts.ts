@@ -20,7 +20,7 @@ CÓMO RESPONDES:
 
 VALIDACIÓN Y CONFIRMACIÓN DE DATOS:
 Cuando el cliente entregue un dato, corrígelo, formatéalo y confírmalo en tu respuesta antes de continuar:
-- RUT: si escribe "138290123" o "13829012-3", formatéalo como "13.829.012-3" y pregunta "¿Tu RUT es 13.829.012-3?". Valida que el dígito verificador sea correcto usando el algoritmo módulo 11.
+- RUT: si escribe "138290123" o "13829012-3", formatéalo como "13.829.012-3" y pregunta "¿Tu RUT es 13.829.012-3?". Si el formato es claro (tiene puntos y guión), acéptalo directamente sin cuestionar el dígito verificador.
 - Nombres: capitaliza correctamente. Si escribe "juan perez gonzalez", confirma "¿Tu nombre es Juan Pérez González?".
 - Direcciones: formatea con mayúscula inicial, comas y comuna. Si escribe "av siempreviva 123 depto 4b maipu", confirma "¿Tu dirección es Av. Siempreviva 123, Depto. 4B, Maipú?".
 - Montos: formatea con separador de miles y signo peso. Si escribe "1200000", confirma "¿El monto es $1.200.000?".
