@@ -14,6 +14,7 @@ export default function Home() {
   const [loading, setLoading]           = useState(false);
   const [selectedDoc, setSelectedDoc]   = useState<string | null>(null);
   const [generatedDoc, setGeneratedDoc] = useState<string | null>(null);
+  const [previewDoc, setPreviewDoc]     = useState<string | null>(null);
   const [generating, setGenerating]     = useState(false);
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
@@ -26,12 +27,16 @@ export default function Home() {
 
   // When ready: show paywall (not generate directly)
   useEffect(() => {
-    if (caseData.ready && !paid && !showPaywall && !generatedDoc) {
-      setShowPaywall(true);
+  // When ready: generate preview automatically — DO NOT auto-open paywall
+  // User sees the blurred document first and clicks "Desbloquear" to pay
+  useEffect(() => {
+    if (caseData.ready && !paid && !previewDoc && !generating) {
+      handleGeneratePreview();
     }
-  }, [caseData.ready, paid, showPaywall, generatedDoc]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [caseData.ready]);
 
-  // After payment confirmed: generate
+  // After payment confirmed: generate full doc
   useEffect(() => {
     if (paid && caseData.ready && !generatedDoc && !generating) {
       handleGenerate();
@@ -62,6 +67,23 @@ export default function Home() {
       setMessages(prev => [...prev, { role: 'assistant', content: 'Problema al conectar. Intenta de nuevo.' }]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGeneratePreview = async () => {
+    setGenerating(true);
+    try {
+      const res = await fetch('/api/generate-final', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(caseData),
+      });
+      const data = await res.json();
+      if (data.document) setPreviewDoc(data.document);
+    } catch {
+      console.error('Error generando preview');
+    } finally {
+      setGenerating(false);
     }
   };
 
@@ -319,7 +341,7 @@ export default function Home() {
               <div>
                 <span className="text-white font-semibold text-sm" style={{ fontFamily: 'sans-serif' }}>Vista previa del documento</span>
                 <div className="text-[#a8b8cc] text-xs mt-0.5" style={{ fontFamily: 'sans-serif' }}>
-                  {generatedDoc ? 'Documento generado con IA' : 'Formato profesional · Redacción en tiempo real'}
+                  {generatedDoc ? 'Documento generado con IA' : previewDoc ? 'Tu escrito está listo — revísalo abajo' : generating ? 'Redactando tu escrito...' : 'Redactando en tiempo real…'}
                 </div>
               </div>
               {!!caseData.ready && (
@@ -328,6 +350,7 @@ export default function Home() {
             </div>
 
             <div className="flex-1 overflow-y-auto bg-white px-7 py-6">
+              {/* Generating spinner */}
               {generating && (
                 <div className="h-full flex flex-col items-center justify-center gap-3">
                   <div className="flex gap-1.5">
@@ -335,10 +358,13 @@ export default function Home() {
                       <span key={d} className="w-2 h-2 rounded-full bg-[#c9a84c] animate-bounce" style={{ animationDelay: `${d}ms` }} />
                     ))}
                   </div>
-                  <p className="text-[#8a7f72] text-sm" style={{ fontFamily: 'sans-serif' }}>Redactando tu documento...</p>
+                  <p className="text-[#8a7f72] text-sm" style={{ fontFamily: 'sans-serif' }}>
+                    {paid ? 'Preparando tu PDF...' : 'Redactando tu escrito legal...'}
+                  </p>
                 </div>
               )}
 
+              {/* Full document after payment */}
               {generatedDoc && !generating && (
                 <div>
                   <CourtDocument text={generatedDoc} />
@@ -357,7 +383,66 @@ export default function Home() {
                 </div>
               )}
 
-              {!generatedDoc && !generating && <DocumentPreview caseData={caseData} />}
+              {/* Blurred preview before payment */}
+              {previewDoc && !generatedDoc && !generating && (
+                <div style={{ position: 'relative' }}>
+                  <CourtDocument text={previewDoc} />
+                  {/* Blur overlay at 40% */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '38%',
+                    left: '-28px',
+                    right: '-28px',
+                    bottom: '-24px',
+                    background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 15%, rgba(255,255,255,0.95) 40%)',
+                    backdropFilter: 'blur(4px)',
+                    WebkitBackdropFilter: 'blur(4px)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '40px 20px 24px',
+                  }}>
+                    <div style={{
+                      background: '#0b1f3a',
+                      borderRadius: '14px',
+                      padding: '18px 24px',
+                      textAlign: 'center',
+                      boxShadow: '0 8px 32px rgba(11,31,58,0.25)',
+                      maxWidth: '280px',
+                      width: '100%',
+                    }}>
+                      <div style={{ fontSize: '22px', marginBottom: '8px' }}>🔒</div>
+                      <p style={{ fontFamily: 'sans-serif', fontSize: '14px', fontWeight: '700', color: '#fff', margin: '0 0 6px 0' }}>
+                        Tu escrito está redactado
+                      </p>
+                      <p style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#a8b8cc', margin: '0 0 14px 0', lineHeight: '1.5' }}>
+                        Revisa el inicio — el documento completo<br />
+                        está listo para descargar en PDF.
+                      </p>
+                      <button
+                        onClick={() => setShowPaywall(true)}
+                        style={{
+                          background: '#c9a84c',
+                          border: 'none',
+                          borderRadius: '8px',
+                          padding: '10px 20px',
+                          fontFamily: 'sans-serif',
+                          fontSize: '13px',
+                          fontWeight: '700',
+                          color: '#0b1f3a',
+                          cursor: 'pointer',
+                          width: '100%',
+                        }}>
+                        ↓ Desbloquear documento
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Progressive placeholder while chat is ongoing */}
+              {!previewDoc && !generatedDoc && !generating && <DocumentPreview caseData={caseData} />}
             </div>
           </div>
 
