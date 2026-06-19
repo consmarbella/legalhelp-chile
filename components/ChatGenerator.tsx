@@ -38,29 +38,27 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialContext]);
 
-  // When ready AND legally useful: show paywall
+  // When ready: show paywall — trust DeepSeek's ready:true decision
   useEffect(() => {
     const shouldOpenPaywall =
       Boolean(caseData.ready) &&
-      isLegallyUsefulCaseData(caseData) &&
       !paid &&
       !showPaywall &&
       !generatedDoc;
 
     if (shouldOpenPaywall) setShowPaywall(true);
-  }, [caseData, paid, showPaywall, generatedDoc]);
+  }, [caseData.ready, paid, showPaywall, generatedDoc]);
 
-  // After payment: generate (only if legally useful)
+  // After payment: generate — trust DeepSeek's ready:true decision
   useEffect(() => {
     if (
       paid &&
       caseData.ready &&
-      isLegallyUsefulCaseData(caseData) &&
       !generatedDoc &&
       !generating
     ) handleGenerate();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paid, caseData.ready, caseData, generatedDoc, generating]);
+  }, [paid, caseData.ready, generatedDoc, generating]);
 
   // Restore session after MercadoPago return
   useEffect(() => {
