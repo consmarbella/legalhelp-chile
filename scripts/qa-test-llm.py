@@ -203,10 +203,13 @@ if success:
 if failed:
     print(f"\n--- CATEGORÍAS CON PROBLEMAS ---")
     for r in failed:
-        print(f"  ❌ {r['category']}: {r['status']} ({r['error'] or f'{r[\"turns\"]} turnos'})")
+        turns_str = f"{r['turns']} turnos"
+        error_msg = r['error'] or turns_str
+        print(f"  ❌ {r['category']}: {r['status']} ({error_msg})")
         if r["conversation"]:
             last = r["conversation"][-1]
-            print(f"     Último msg del chat: {last['assistant'][:100]}...")
+            last_msg = last['assistant'][:100]
+            print(f"     Último msg del chat: {last_msg}...")
 
 print(f"\n--- CATEGORÍAS EXITOSAS ---")
 for r in success:
