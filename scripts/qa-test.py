@@ -285,7 +285,7 @@ def test_category(category: str, index: int, total: int) -> dict:
 
 def main():
     # Load categories
-    with open("data/paginas.json") as f:
+    with open("data/paginas.json", encoding="utf-8") as f:
         paginas = json.load(f)
     
     # Get unique non-geo categories
