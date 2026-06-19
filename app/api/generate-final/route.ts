@@ -46,10 +46,12 @@ Ejemplos CORRECTOS (artículos elegidos por su pertinencia, no por orden):
 HECHOS DEL CASO — REGLA CRÍTICA:
 Usá SOLO los hechos que figuran en los datos proporcionados. Nunca inventés, ni infierás ni "completés" lo que falta.
 PROHIBIDO inventar: fechas concretas no dadas, síntomas/defectos específicos no mencionados, montos no confirmados, declaraciones de la contraparte, resultado de trámites no informados.
+PROHIBIDO ASUMIR ESTADOS: Si el cliente dijo "necesito renovar mi licencia" no escribas "próxima a vencer" ni "vencida" — no sabes cuál es el estado. Si dijo "tengo una deuda" no escribas el monto. Si dijo "tengo hijos" no escribas cuántos. Usá exactamente lo que dijo: "mi licencia de conducir", "la deuda de pensión alimenticia", "mis hijos". Sin calificar ni especificar lo que no fue confirmado.
 Si un hecho falta y es esencial: escribí [DATO PENDIENTE].
 Si un hecho falta y no es esencial (ej.: dirección de la contraparte): omití el campo directamente sin avisar.
 Ejemplo de error: el cliente dijo "TV llegó rota" → NO escribas "el televisor presentó líneas verticales en la pantalla y apagados repentinos" — esos son hechos inventados.
 Ejemplo correcto: "el producto adquirido presentó fallas al momento de su entrega, lo que el suscrito constató al recibirlo."
+Ejemplo de error: el cliente dijo "necesito renovar mi licencia" → NO escribas "próxima a vencer" — escribe "renovar mi licencia de conducir".
 Si un dato numérico fue dado (sueldo, monto, años), hacé los cálculos que correspondan (indemnizaciones, plazos, etc.).
 
 TEXTO PLANO: prohibido markdown, asteriscos, negritas, HTML, almohadillas.`;
