@@ -40,23 +40,14 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
   }, [initialContext]);
 
   // When ready: generate preview doc automatically (before payment)
+  // DO NOT auto-open paywall — let the user see the blurred preview first
+  // and decide to pay by clicking "Desbloquear documento" in the preview
   useEffect(() => {
     if (caseData.ready && !paid && !previewDoc && !generating) {
       handleGeneratePreview();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [caseData.ready]);
-
-  // When ready: show paywall — trust DeepSeek's ready:true decision
-  useEffect(() => {
-    const shouldOpenPaywall =
-      Boolean(caseData.ready) &&
-      !paid &&
-      !showPaywall &&
-      !generatedDoc;
-
-    if (shouldOpenPaywall) setShowPaywall(true);
-  }, [caseData.ready, paid, showPaywall, generatedDoc]);
 
   // After payment: generate full doc for download
   useEffect(() => {
