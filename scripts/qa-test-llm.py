@@ -69,7 +69,7 @@ No saludes, no des las gracias innecesariamente, solo responde lo que te pregunt
                 "Authorization": f"Bearer {DEEPSEEK_KEY}",
             },
             json={
-                "model": "deepseek-chat",
+                "model": "deepseek-v4-flash",
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.7,
                 "max_tokens": 150,
