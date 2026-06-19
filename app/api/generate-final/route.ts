@@ -205,26 +205,14 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Pago no verificado' }, { status: 403 });
       }
     }
-    // Note: If no orderId is provided, we still allow generation for backwards compatibility
-    // with the existing flow where payment state is managed client-side.
-    // The full auth system (task deferred) will enforce this strictly.
 
     const tipo = String(caseData.tipo_documento ?? 'documento legal');
 
-    // Buscar legislación vigente en paralelo mientras preparamos datos
-    const [marcoLegal] = await Promise.all([
-      searchLeyVigente(tipo),
-    ]);
+    // DeepSeek already knows Chilean law deeply — no external search needed
+    console.log(`[generate-final] Generating "${tipo}" with DeepSeek`);
+    const document = await callDeepSeek(tipo, caseData, null) ?? buildMock(tipo, caseData);
 
-    if (marcoLegal) {
-      console.log(`[perplexity] marco legal obtenido para "${tipo}" (${marcoLegal.length} chars)`);
-    } else {
-      console.log(`[perplexity] sin clave o error — generando sin marco legal verificado`);
-    }
-
-    const document = await callDeepSeek(tipo, caseData, marcoLegal) ?? buildMock(tipo, caseData);
-
-    return NextResponse.json({ document, marcoLegalUsado: !!marcoLegal });
+    return NextResponse.json({ document, marcoLegalUsado: false });
   } catch (err) {
     console.error('[generate-final] error:', err);
     return NextResponse.json({ error: 'Error generando el documento' }, { status: 500 });
