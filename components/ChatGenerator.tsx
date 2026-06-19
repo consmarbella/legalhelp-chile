@@ -245,7 +245,7 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
             <div>
               <span className="text-white font-semibold text-sm" style={{ fontFamily: 'sans-serif' }}>Vista previa del documento</span>
               <div className="text-[#a8b8cc] text-xs mt-0.5" style={{ fontFamily: 'sans-serif' }}>
-                {generatedDoc ? 'Documento generado con IA' : previewDoc ? 'Escrito redactado · Desbloquea para descargarlo' : 'Redactando en tiempo real…'}
+                {generatedDoc ? 'Documento generado con IA' : previewDoc ? '✅ Tu escrito está listo — revísalo abajo' : generating ? '✍️ Redactando tu escrito...' : 'Redactando en tiempo real…'}
               </div>
             </div>
             {!!caseData.ready && (
@@ -321,11 +321,11 @@ export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
                   }}>
                     <div style={{ fontSize: '22px', marginBottom: '8px' }}>🔒</div>
                     <p style={{ fontFamily: 'sans-serif', fontSize: '14px', fontWeight: '700', color: '#fff', margin: '0 0 6px 0' }}>
-                      Tu escrito está listo
+                      Tu escrito está redactado
                     </p>
                     <p style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#a8b8cc', margin: '0 0 14px 0', lineHeight: '1.5' }}>
-                      Documento redactado con tus datos.<br />
-                      Págalo para descargarlo en PDF.
+                      Revisa el inicio — el documento completo<br />
+                      está listo para descargar en PDF.
                     </p>
                     <button
                       onClick={() => setShowPaywall(true)}
