@@ -25,8 +25,6 @@ export default function Home() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // When ready: show paywall (not generate directly)
-  useEffect(() => {
   // When ready: generate preview automatically — DO NOT auto-open paywall
   // User sees the blurred document first and clicks "Desbloquear" to pay
   useEffect(() => {
