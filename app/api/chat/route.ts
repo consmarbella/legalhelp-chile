@@ -82,7 +82,7 @@ async function callDeepSeek(messages: { role: string; content: string }[]): Prom
         model: 'deepseek-chat',
         messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
         temperature: 0.2,
-        max_tokens: 1024,  // aumentado: el JSON acumulado puede tener muchos campos
+        max_tokens: 2048,  // aumentado para evitar truncamiento en respuestas largas
       }),
     });
     if (!res.ok) {
