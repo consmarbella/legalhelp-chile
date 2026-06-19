@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       { source: '/nosotros', destination: '/', permanent: true },
       { source: '/servicios', destination: '/', permanent: true },
       { source: '/contacto', destination: '/', permanent: true },
+      { source: '/p/eliminar-antecedentes-penales', destination: '/p/eliminacion-de-antecedentes-penales', permanent: true },
       { source: '/p/prescripcion-tag-:ciudad', destination: '/p/prescripcion-de-deuda-tag', permanent: true },
       { source: '/p/prescripcion-bancaria-:ciudad', destination: '/p/prescripcion-de-deuda-bancaria', permanent: true },
       { source: '/p/alimentos-:ciudad', destination: '/p/demanda-de-alimentos', permanent: true },
