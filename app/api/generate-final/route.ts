@@ -15,7 +15,7 @@ async function callDeepSeek(
   // Flatten the case data into readable lines.
   // datos_recopilados is a nested object — expand it instead of printing [object Object].
   // datos_faltantes is an array — skip it (it's about what's missing, not case content).
-  const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId', 'analisis_legal'];
+  const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId', 'analisis_legal', 'ley_referencia', 'entidad_referencia'];
 
   function flatten(obj: Record<string, unknown>, lines: string[] = []): string[] {
     for (const [k, v] of Object.entries(obj)) {
@@ -47,6 +47,16 @@ async function callDeepSeek(
       `INSTRUCCIÓN ESPECÍFICA: ${template.instruccion_llm}`
     : '';
 
+  // Red de seguridad: si NO hay plantilla, usa el marco legal y la autoridad
+  // curados de la ficha de la página del sitemap como grounding. Asi todas las
+  // paginas del sitemap generan un documento con base legal pertinente.
+  const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
+  const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
+  const groundingBlock = !template && (leyRef || entidadRef)
+    ? `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre. NUNCA escribas "y siguientes" ni artículos consecutivos inventados):\n${leyRef}` +
+      (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '')
+    : '';
+
   try {
     const res = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
@@ -57,7 +67,7 @@ async function callDeepSeek(
           { role: 'system', content: SYSTEM },
           {
             role: 'user',
-            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : ''} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`,
+            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha. NO confundas la fecha de hoy con las fechas del caso entregadas en los datos.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}${groundingBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : 'Usa el formato chileno que corresponda al tipo de documento.'} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`,
           },
         ],
         temperature: 0.3,
