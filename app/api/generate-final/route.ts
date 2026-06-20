@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, GENERATE_RATE_LIMIT } from '@/lib/rateLimit';
 import { getOrderByOrderId } from '@/lib/orderStore';
+import { findTemplate } from '@/lib/templates';
 
 // ─── System prompt ────────────────────────────────────────────────────────────
 const SYSTEM = `Sos un redactor legal chileno con 20 años de experiencia. Recibís los datos de un caso y redactás el documento legal correspondiente.
@@ -88,6 +89,17 @@ async function callDeepSeek(
   // Dedupe lines (a field may appear both at root and inside datos_recopilados)
   const datosStr = [...new Set(flatten(datos))].join('\n');
 
+  // ─── Plantilla verificada (artículos correctos + esqueleto) ──────────────
+  // Si el caso matchea una de las 84 plantillas, se le da al modelo el
+  // FRAMEWORK LEGAL VERIFICADO para que no invente leyes ni se equivoque de via.
+  const template = findTemplate(tipo, datosStr);
+  const frameworkBlock = template
+    ? `\n\nFRAMEWORK LEGAL VERIFICADO PARA ESTE CASO (${template.titulo} — tipo ${template.tipo}):\n` +
+      `Artículos correctos a citar (USA EXCLUSIVAMENTE estos; NO cites ni inventes otros):\n${template.articulos.map(a => '- ' + a).join('\n')}\n\n` +
+      `ESTRUCTURA BASE DEL DOCUMENTO (respeta este esqueleto; rellena los [[...]] con los hechos del caso y deja [DATO] como espacio para completar si falta):\n${template.esqueleto}\n\n` +
+      `INSTRUCCIÓN ESPECÍFICA: ${template.instruccion_llm}`
+    : '';
+
   try {
     const res = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
@@ -98,7 +110,7 @@ async function callDeepSeek(
           { role: 'system', content: SYSTEM },
           {
             role: 'user',
-            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha.\n\nTIPO DE DOCUMENTO: ${tipo}\n\nDATOS DEL CASO:\n${datosStr}\n\nRedacta el documento completo, profesional y listo para usar. Si falta la dirección de la contraparte, omití ese campo en lugar de poner [DATO PENDIENTE].`,
+            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : ''} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`,
           },
         ],
         temperature: 0.3,

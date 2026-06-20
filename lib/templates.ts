@@ -2664,7 +2664,9 @@ RUT: [RUT]`,
 // MATCHING: encuentra el template más apropiado según materia y hechos
 // ─────────────────────────────────────────────────────────────────────────────
 export function findTemplate(materia: string | null, hechos: string | null): LegalTemplate | null {
-  const text = `${materia ?? ''} ${hechos ?? ''}`.toLowerCase();
+  // Normaliza a minusculas y SIN tildes, para que "pagaré" matchee "pagare", etc.
+  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const text = norm(`${materia ?? ''} ${hechos ?? ''}`);
   if (!text.trim()) return null;
 
   let bestMatch: LegalTemplate | null = null;
@@ -2673,7 +2675,7 @@ export function findTemplate(materia: string | null, hechos: string | null): Leg
   for (const template of TEMPLATES) {
     let score = 0;
     for (const keyword of template.keywords) {
-      const kw = keyword.toLowerCase();
+      const kw = norm(keyword);
       // Word-boundary check: keyword must be surrounded by spaces or string edges
       // Prevents "IST" from matching "prestacion", "laboral" from matching "laborales", etc.
       // Word-boundary: keyword must not be buried inside another word

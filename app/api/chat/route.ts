@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
+import { findTemplate } from '@/lib/templates';
 
 type CaseData = Record<string, unknown>;
 
@@ -142,13 +143,24 @@ export async function POST(req: NextRequest) {
       ? `ESTADO DEL CASO HASTA AHORA:\n${JSON.stringify(stateForPrompt)}\n\nEL CLIENTE ACABA DE DECIR:\n${message}\n\nActualiza el caso y responde con el JSON.`
       : message;
 
-    let responseText = await callLLM([{ role: 'user', content: userContent }]);
+    // ─── Plantilla verificada: ancla el documento y QUE pedir ───────────────
+    // Si el caso matchea una de las 84 plantillas, le decimos al modelo cual es
+    // el documento correcto y exactamente que datos necesita. Asi deja de
+    // improvisar preguntas (basura) y de equivocarse de via.
+    const matchHechos = `${message} ${Object.values(prevDatos).map(v => String(v)).join(' ')}`;
+    const matched = findTemplate((prev.tipo_documento as string) ?? null, matchHechos);
+    const tmplContext = matched
+      ? `\n\nPLANTILLA VERIFICADA DETECTADA: "${matched.titulo}" (tipo ${matched.tipo}). Es el documento correcto para este caso y su fundamento legal YA esta verificado, no lo cuestiones. Usa exactamente "${matched.titulo}" como tipo_documento. Para completar el escrito necesitas la identidad del cliente (nombre, RUT, domicilio) y los hechos que pide: ${matched.instruccion_llm}. Pide SOLO eso, de a poco, y no preguntes datos tecnicos fuera de eso.`
+      : '';
+    const finalUser = userContent + tmplContext;
+
+    let responseText = await callLLM([{ role: 'user', content: finalUser }]);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
     // Hasta 2 reintentos si no devuelve JSON
     for (let i = 0; i < 2 && !jsonData; i++) {
       responseText = await callLLM([
-        { role: 'user', content: userContent },
+        { role: 'user', content: finalUser },
         { role: 'assistant', content: responseText ?? '' },
         { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
       ]);
