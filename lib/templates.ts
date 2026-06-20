@@ -98,7 +98,7 @@ RUT: [RUT]`,
   // ── 3. RECLAMO SERNAC ───────────────────────────────────────────────────
   {
     id: 'reclamo-sernac',
-    keywords: ['sernac', 'consumidor', 'garantía', 'garantia', 'producto', 'defecto', 'cobro indebido', 'publicidad engañosa', 'derecho del consumidor'],
+    keywords: ['sernac', 'consumidor', 'cobro indebido', 'publicidad engañosa', 'derecho del consumidor', 'reclamo a empresa'],
     titulo: 'Reclamo ante SERNAC / empresa',
     tipo: 'carta',
     articulos: ['Art. 3 Ley 19.496 (derechos del consumidor)', 'Art. 19 Ley 19.496 (garantía legal 3 meses)', 'Art. 23 Ley 19.496 (infracciones del proveedor)'],
@@ -386,7 +386,7 @@ Teléfono de contacto: [[TELÉFONO]]`,
   // ── 10. DESAHUCIO / TÉRMINO DE ARRIENDO ─────────────────────────────────
   {
     id: 'desahucio-arrendamiento',
-    keywords: ['desahucio', 'termino de arriendo', 'terminar arriendo', 'arrendador', 'arrendatario', 'restituir', 'restitución', 'devolver propiedad'],
+    keywords: ['desahucio', 'termino de arriendo', 'terminar arriendo', 'terminar contrato de arriendo', 'arriendo', 'arrendamiento', 'contrato de arriendo', 'arrendador', 'arrendatario', 'restituir', 'restitución', 'devolver propiedad'],
     titulo: 'Carta de desahucio / término de contrato de arrendamiento',
     tipo: 'carta',
     articulos: ['Art. 3 Ley 18.101 (desahucio con aviso previo de 2 meses)', 'Art. 10 Ley 18.101 (término por no pago)', 'Art. 1977 Código Civil (mora del arrendatario)'],
@@ -743,7 +743,7 @@ RUT: [RUT]`,
   // ── Autorización de salida del país de menor (SCRAPEADO) ──
   {
     id: 'autorizaci-n-de-salida-del-pa-s-de-menor',
-    keywords: ["autorización salida país", "salida país menor", "viaje menor", "permiso notarial"],
+    keywords: ["salida del pais de menor", "autorizacion de salida del pais", "salida del pais", "autorizacion salida pais", "salida pais menor", "autorizacion de viaje de menor", "viaje menor", "permiso notarial de viaje"],
     titulo: "Autorización de salida del país de menor",
     tipo: 'judicial',
     articulos: ["Art. 49 Ley 16.618 (autorización para salida de menores)", "Art. 225 Código Civil (cuidado personal del menor)", "Ley 20.680 (autorización de viaje al extranjero de menores)"],
@@ -1239,7 +1239,7 @@ RUT: [RUT]`,
   // ── Demanda de divorcio de mutuo acuerdo (SCRAPEADO) ──
   {
     id: 'demanda-de-divorcio-de-mutuo-acuerdo',
-    keywords: ["divoro mutuo acuerdo", "divoro acuerdo", "separación acuerdo", "divoro amistoso"],
+    keywords: ["divorcio mutuo acuerdo", "divorcio de mutuo acuerdo", "divorcio de comun acuerdo", "divorcio amistoso", "divorcio de comun consentimiento"],
     titulo: "Demanda de divorcio de mutuo acuerdo",
     tipo: 'judicial',
     articulos: ["Art. 55 inc. 1 Ley 19.947 LMC (divorcio de mutuo acuerdo: 1 año cese convivencia)", "Art. 63 Ley 19.947 LMC (acuerdo completo y suficiente)", "Art. 21 Ley 19.947 LMC (acuerdo regulador de relaciones mutuas)"],
@@ -1487,7 +1487,7 @@ RUT: [RUT]`,
   // ── Solicitud de renegociación de deudas (SUPERIR / Ley 20.720) (SCRAPEADO) ──
   {
     id: 'solicitud-de-renegociaci-n-de-deudas-sup',
-    keywords: ["renegociación deuda", "quiebra personal", "SUPERIR", "insolvencia", "deudas impagables", "concursal personal"],
+    keywords: ["renegociacion de deudas", "renegociacion deuda", "renegociacion", "quiebra personal", "SUPERIR", "insolvencia", "deudas impagables", "no puedo pagar mis deudas", "sobreendeudamiento", "concursal personal"],
     titulo: "Solicitud de renegociación de deudas (SUPERIR / Ley 20.720)",
     tipo: 'administrativo',
     articulos: ["Art. 260 Ley 20.720 (procedimiento de renegociación de persona natural)", "Art. 261 Ley 20.720 (requisitos para acceder a renegociación)", "Art. 264 Ley 20.720 (efectos del acuerdo de renegociación)"],
@@ -1611,7 +1611,7 @@ RUT: [RUT]`,
   // ── Demanda de devolución de garantía de arriendo (SCRAPEADO) ──
   {
     id: 'demanda-de-devoluci-n-de-garant-a-de-arr',
-    keywords: ["garantía arriendo", "mes garantía", "depósito arriendo", "no devolvieron garantía"],
+    keywords: ["devolucion de garantia de arriendo", "garantia de arriendo", "garantia del arriendo", "mes de garantia", "deposito de arriendo", "no devolvieron garantia", "no me devuelven la garantia"],
     titulo: "Demanda de devolución de garantía de arriendo",
     tipo: 'judicial',
     articulos: ["Art. 46 Ley 18.101 (devolución de garantía al término del arriendo)", "Art. 1942 Código Civil (obligaciones del arrendatario al restituir)", "Art. 548 CPC (procedimiento sumario para cobros menores)"],
@@ -1735,7 +1735,7 @@ RUT: [RUT]`,
   // ── Reclamo por garantía legal de producto defectuoso (SCRAPEADO) ──
   {
     id: 'reclamo-por-garant-a-legal-de-producto-d',
-    keywords: ["garantía", "producto defectuoso", "falla producto", "garantía legal", "reparación gratuita", "cambio producto"],
+    keywords: ["garantia legal", "garantia del producto", "producto defectuoso", "falla producto", "producto fallado", "reparación gratuita", "cambio producto", "producto con falla"],
     titulo: "Reclamo por garantía legal de producto defectuoso",
     tipo: 'carta',
     articulos: ["Art. 20 Ley 19.496 (garantía legal: reparación, cambio o devolución de dinero)", "Art. 21 Ley 19.496 (plazo de 3 meses para ejercer garantía)", "Art. 19 Ley 19.496 (obligación de entrega conforme a contrato)"],
@@ -2355,7 +2355,7 @@ RUT: [RUT]`,
   // ── Arrendamiento Urbano (SCRAPEADO) ──
   {
     id: 'arrendamiento-urbano',
-    keywords: ["arrendamiento", "urbano", "ley 18.101", "contrato", "renta", "desahucio", "terminación"],
+    keywords: ["arrendamiento urbano", "ley 18.101", "renta", "juicio de arrendamiento"],
     titulo: "Arrendamiento Urbano",
     tipo: 'judicial',
     articulos: ["Art. 1 Ley 18.101 (Definición de arrendamiento urbano)", "Art. 2 Ley 18.101 (Plazo mínimo de arrendamiento)", "Art. 3 Ley 18.101 (Desahucio y terminación del contrato)"],
@@ -2759,6 +2759,36 @@ RUT: [RUT]
 
 (Firma ante Notario Público)`,
     instruccion_llm: 'Documento de declaración jurada simple. NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena el hecho declarado exactamente con lo que indicó el cliente, sin inventar montos, fechas ni datos no entregados.',
+  },
+
+  // ── CARTA DE RENUNCIA VOLUNTARIA ─────────────────────────────────────────
+  {
+    id: 'carta-renuncia',
+    keywords: ['carta de renuncia', 'renuncia voluntaria', 'renunciar al trabajo', 'renuncia laboral', 'presento mi renuncia', 'quiero renunciar'],
+    titulo: 'Carta de renuncia voluntaria',
+    tipo: 'carta',
+    articulos: ['Art. 159 N°2 del Código del Trabajo (terminación del contrato por renuncia del trabajador, con aviso de 30 días)'],
+    esqueleto: `[CIUDAD], [FECHA]
+
+SEÑORES
+[DESTINATARIO]
+PRESENTE
+
+De mi consideración:
+
+Por medio de la presente, yo, [NOMBRE EN MAYÚSCULAS], cédula de identidad N° [RUT], quien se desempeña como [[CARGO]], vengo en comunicar mi renuncia voluntaria al cargo que ocupo, a contar del [[FECHA DE TÉRMINO / último día de trabajo]], conforme al artículo 159 N°2 del Código del Trabajo.
+
+[[SI CORRESPONDE: indicar si se otorga el aviso de 30 días o si la renuncia es de efecto inmediato]]
+
+Agradezco la oportunidad de haber formado parte de la empresa y quedo a disposición para coordinar la entrega del cargo y la suscripción del finiquito correspondiente.
+
+Saluda atentamente,
+
+
+_____________________________
+[NOMBRE]
+RUT: [RUT]`,
+    instruccion_llm: 'Carta de renuncia voluntaria en formato carta (NO judicial: sin "EN LO PRINCIPAL" ni "RUEGO A US."). Rellena cargo y fecha de término con los datos del caso. No inventes motivos de renuncia si el cliente no los entregó.',
   },
 ];
 
