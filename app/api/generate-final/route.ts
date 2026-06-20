@@ -67,7 +67,7 @@ async function callDeepSeek(
   // Flatten the case data into readable lines.
   // datos_recopilados is a nested object — expand it instead of printing [object Object].
   // datos_faltantes is an array — skip it (it's about what's missing, not case content).
-  const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId'];
+  const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId', 'analisis_legal'];
 
   function flatten(obj: Record<string, unknown>, lines: string[] = []): string[] {
     for (const [k, v] of Object.entries(obj)) {

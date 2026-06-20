@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { message, caseHistory, currentCaseData } = await req.json();
+    const { message, currentCaseData } = await req.json();
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
@@ -123,18 +123,32 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(smartMock(message, currentCaseData ?? {}));
     }
 
-    // Contar intercambios (ya no se etiqueta el mensaje)
-    const userTurns = (caseHistory ?? []).filter((m: { role: string }) => m.role === 'user').length + 1;
-    const taggedMessage = message;
+    // ─── Turnos basados en ESTADO (no se reenvia toda la conversacion) ──────
+    // El estado acumulado va compacto en el prompt; asi el modelo no se ancla
+    // en sus preguntas previas y la salida JSON se mantiene chica (sin truncar).
+    const prev = (currentCaseData ?? {}) as CaseData;
+    const prevDatos: CaseData =
+      prev.datos && typeof prev.datos === 'object' && !Array.isArray(prev.datos)
+        ? (prev.datos as CaseData)
+        : {};
+    const hasState = !!prev.tipo_documento || Object.keys(prevDatos).length > 0;
 
-    const messages = [...(caseHistory ?? []), { role: 'user', content: taggedMessage }];
-    let responseText = await callLLM(messages);
+    const stateForPrompt = {
+      tipo_documento: prev.tipo_documento ?? null,
+      destinatario_inferido: prev.destinatario_inferido ?? null,
+      datos: prevDatos,
+    };
+    const userContent = hasState
+      ? `ESTADO DEL CASO HASTA AHORA:\n${JSON.stringify(stateForPrompt)}\n\nEL CLIENTE ACABA DE DECIR:\n${message}\n\nActualiza el caso y responde con el JSON.`
+      : message;
+
+    let responseText = await callLLM([{ role: 'user', content: userContent }]);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
     // Hasta 2 reintentos si no devuelve JSON
     for (let i = 0; i < 2 && !jsonData; i++) {
       responseText = await callLLM([
-        ...messages,
+        { role: 'user', content: userContent },
         { role: 'assistant', content: responseText ?? '' },
         { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
       ]);
@@ -142,38 +156,27 @@ export async function POST(req: NextRequest) {
     }
 
     if (!jsonData) {
-      console.error('[chat] DeepSeek no devolvió JSON válido después de reintentos — usando mock');
+      console.error('[chat] DeepSeek no devolvió JSON válido — usando mock');
+      return NextResponse.json(smartMock(message, prev));
     }
 
-    // ─── Normalize alias to canonical keys ────────────────────────────────
-    function normalizeKeys(d: Record<string, unknown>) {
-      if (!d.nombre && d.nombre_completo) d.nombre = d.nombre_completo;
-      if (!d.direccion && d.domicilio)    d.direccion = d.domicilio;
-      if (!d.detalle_caso && d.hechos)    d.detalle_caso = d.hechos;
-      if (!d.detalle_caso && d.contexto)  d.detalle_caso = d.contexto;
-      if (!d.detalle_caso && d.situacion) d.detalle_caso = d.situacion;
-      if (!d.detalle_caso && d.motivo)    d.detalle_caso = d.motivo;
-      // También tomar alias desde datos_recopilados si existe
-      const r = d.datos_recopilados as Record<string, unknown> | undefined;
-      if (r && typeof r === 'object') {
-        if (!d.nombre && r.nombre)               d.nombre = r.nombre;
-        if (!d.nombre && r.nombre_completo)       d.nombre = r.nombre_completo;
-        if (!d.rut && r.rut)                       d.rut = r.rut;
-        if (!d.direccion && r.direccion)           d.direccion = r.direccion;
-        if (!d.direccion && r.domicilio)           d.direccion = r.domicilio;
-        if (!d.detalle_caso && r.detalle_caso)     d.detalle_caso = r.detalle_caso;
-        if (!d.detalle_caso && r.hechos)           d.detalle_caso = r.hechos;
-        if (!d.detalle_caso && r.contexto)         d.detalle_caso = r.contexto;
-      }
-      return d;
-    }
+    // ─── Merge del estado ───────────────────────────────────────────────────
+    const newDatos: CaseData =
+      jsonData.datos && typeof jsonData.datos === 'object' && !Array.isArray(jsonData.datos)
+        ? (jsonData.datos as CaseData)
+        : {};
+    const mergedDatos = { ...prevDatos, ...newDatos };
 
-    // Merge: previous accumulated data + new output from DeepSeek
-    // This ensures fields collected in earlier turns are never lost even if
-    // DeepSeek omits them while still asking follow-up questions.
-    const merged = jsonData
-      ? normalizeKeys({ ...(currentCaseData ?? {}), ...jsonData })
-      : smartMock(message, currentCaseData ?? {});
+    const merged: CaseData = {
+      ...prev,
+      ...mergedDatos, // tambien plano, para compatibilidad con los componentes de preview
+      datos: mergedDatos,
+      tipo_documento: jsonData.tipo_documento ?? prev.tipo_documento ?? null,
+      destinatario_inferido: jsonData.destinatario_inferido ?? prev.destinatario_inferido ?? null,
+      analisis_legal: jsonData.analisis_legal ?? null,
+      response_message: jsonData.response_message ?? '',
+      ready: !!prev.ready || !!jsonData.ready, // una vez listo, sigue listo
+    };
     return NextResponse.json(merged);
 
   } catch (err) {
