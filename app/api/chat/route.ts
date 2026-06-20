@@ -70,36 +70,73 @@ function smartMock(message: string, current: CaseData): CaseData {
   return { ...updated, response_message: nextQ, ready: isReady };
 }
 
-// ─── DeepSeek ─────────────────────────────────────────────────────────────────
-async function callDeepSeek(messages: { role: string; content: string }[]): Promise<string | null> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey || apiKey === 'mock') return null;
+// ─── Gemini 2.5 Flash ─────────────────────────────────────────────────────────
+async function callLLM(messages: { role: string; content: string }[]): Promise<string | null> {
+  const geminiKey = process.env.GEMINI_API_KEY;
+  const deepseekKey = process.env.DEEPSEEK_API_KEY;
+
+  // Prefer Gemini 2.5 Flash (faster + better instruction following)
+  if (geminiKey && geminiKey !== 'mock') {
+    try {
+      // Convert messages to Gemini format
+      const contents = messages.map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }],
+      }));
+
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: DEEPSEEK_SYSTEM_PROMPT }] },
+            contents,
+            generationConfig: {
+              temperature: 0.2,
+              maxOutputTokens: 2048,
+            },
+          }),
+        }
+      );
+
+      if (!res.ok) {
+        console.error(`[chat] Gemini HTTP ${res.status}:`, await res.text().catch(() => ''));
+        // Fall through to DeepSeek
+      } else {
+        const data = await res.json();
+        const content = data.candidates?.[0]?.content?.parts?.[0]?.text ?? null;
+        if (content) {
+          console.log(`[chat] Gemini OK tokens=${data.usageMetadata?.candidatesTokenCount ?? '?'}`);
+          return content;
+        }
+      }
+    } catch (err) {
+      console.error('[chat] Gemini error:', err);
+    }
+  }
+
+  // Fallback to DeepSeek
+  if (!deepseekKey || deepseekKey === 'mock') return null;
   try {
     const res = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${deepseekKey}` },
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
         temperature: 0.2,
-        max_tokens: 2048,  // aumentado para evitar truncamiento en respuestas largas
+        max_tokens: 2048,
       }),
     });
     if (!res.ok) {
-      const errBody = await res.text().catch(() => '');
-      console.error(`[chat] DeepSeek HTTP ${res.status}:`, errBody.slice(0, 200));
+      console.error(`[chat] DeepSeek HTTP ${res.status}`);
       return null;
     }
     const data = await res.json();
-    const content: string | null = data.choices?.[0]?.message?.content ?? null;
-    const finishReason: string = data.choices?.[0]?.finish_reason ?? 'unknown';
-    if (finishReason === 'length') {
-      console.warn('[chat] DeepSeek finish_reason=length — JSON truncado, aumentar max_tokens');
-    }
-    console.log(`[chat] DeepSeek OK finish=${finishReason} tokens=${data.usage?.completion_tokens ?? '?'}`);
-    return content;
+    return data.choices?.[0]?.message?.content ?? null;
   } catch (err) {
-    console.error('[chat] DeepSeek fetch error:', err);
+    console.error('[chat] DeepSeek error:', err);
     return null;
   }
 }
@@ -134,12 +171,12 @@ export async function POST(req: NextRequest) {
     const taggedMessage = message;
 
     const messages = [...(caseHistory ?? []), { role: 'user', content: taggedMessage }];
-    let responseText = await callDeepSeek(messages);
+    let responseText = await callLLM(messages);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
     // Hasta 2 reintentos si no devuelve JSON
     for (let i = 0; i < 2 && !jsonData; i++) {
-      responseText = await callDeepSeek([
+      responseText = await callLLM([
         ...messages,
         { role: 'assistant', content: responseText ?? '' },
         { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
