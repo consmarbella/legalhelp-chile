@@ -3240,9 +3240,11 @@ export function getTemplateRequirements(t: LegalTemplate): string[] {
   const blocks = t.esqueleto.match(/\[\[([^\]]+)\]\]/g) ?? [];
   for (const raw of blocks) {
     let inner = raw.slice(2, -2).trim();
-    // Quita directivas iniciales (DESCRIBIR:, LISTAR ...:, SI CORRESPONDE:, etc.)
+    // Filtra items condicionales (SI CORRESPONDE): son opcionales, no se deben pedir
+    if (/^SI\s+CORRESPONDE/i.test(inner)) continue;
+    // Quita directivas iniciales (DESCRIBIR:, LISTAR ...:, etc.)
     inner = inner
-      .replace(/^(DESCRIBIR|LISTAR[^:]*|DETALLAR|INDICAR|EXPLICAR|SE\s+SOLICITA|SI\s+CORRESPONDE)\s*[:\-]?\s*/i, '')
+      .replace(/^(DESCRIBIR|LISTAR[^:]*|DETALLAR|INDICAR|EXPLICAR|SE\s+SOLICITA)\s*[:\-]?\s*/i, '')
       .trim();
     // Ignora bloques que son texto de relleno largo (frases completas redactadas),
     // nos quedamos con descripciones de datos (hasta ~140 chars).

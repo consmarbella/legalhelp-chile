@@ -85,9 +85,14 @@ function buildTemplateGuidance(t: LegalTemplate): string {
   return `
 
 PLANTILLA IDENTIFICADA PARA ESTE CASO: "${t.titulo}".
-Para este documento DEBES reunir, además de la identificación del solicitante (nombre completo, RUT y domicilio), los siguientes antecedentes ANTES de marcar ready:true:
+Los datos clave que este documento necesita son (como GUÍA, no como script rígido):
 ${lista}
-Pide estos datos uno por uno, en lenguaje sencillo. NO marques ready:true mientras falte alguno de estos antecedentes. No le menciones al cliente leyes, artículos ni el nombre de la plantilla; ese análisis es solo interno.`;
+Indicaciones para recopilar estos datos:
+- Si el cliente ya respondió algo implícitamente (ej: "ya estoy saldado" = no se le debe dinero, montos = $0), dalo por resuelto y avanza.
+- No preguntes cada sub-ítem de un desglose por separado. Una sola pregunta resumen basta (ej: "¿cuánto te deben en total?" cubre todos los sub-montos).
+- Si el cliente dice que algo no aplica a su caso, acéptalo y sigue con lo siguiente.
+- Cuando tengas los datos suficientes para generar un documento competente, marca ready:true. No necesitas completar cada ítem si el contexto ya los cubre.
+No le menciones al cliente leyes, artículos ni el nombre de la plantilla; ese análisis es solo interno.`;
 }
 
 // ─── Modelo configurable (Anthropic/Haiku si hay key, si no DeepSeek) ─────────
