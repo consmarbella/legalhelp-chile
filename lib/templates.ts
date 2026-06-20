@@ -638,9 +638,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[inicio de proceso de mediación familiar]]
+[[inicio de proceso de mediación familiar]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -669,9 +671,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[notificación formal de término de la relación laboral]]
+[[notificación formal de término de la relación laboral]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -700,9 +704,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[fiscalización del empleador y sanción de infracciones laborales]]
+[[fiscalización del empleador y sanción de infracciones laborales]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -793,9 +799,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[rectificación de la publicidad y/o anulación de cláusula abusiva]]
+[[rectificación de la publicidad y/o anulación de cláusula abusiva]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -824,9 +832,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[tramitación de posesión efectiva y regularización de bienes hereditarios]]
+[[tramitación de posesión efectiva y regularización de bienes hereditarios]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -855,9 +865,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[pago de la deuda en plazo perentorio antes de acciones judiciales]]
+[[pago de la deuda en plazo perentorio antes de acciones judiciales]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -886,9 +898,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[declaración de prescripción y archivo de la deuda TAG]]
+[[declaración de prescripción y archivo de la deuda TAG]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1072,9 +1086,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[reconocimiento de accidente laboral y prestaciones médicas y pecuniarias]]
+[[reconocimiento de accidente laboral y prestaciones médicas y pecuniarias]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1506,9 +1522,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[inicio de procedimiento de renegociación ante SUPERIR]]
+[[inicio de procedimiento de renegociación ante SUPERIR]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1661,9 +1679,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[devolución de cobros indebidos y corrección de la cuenta]]
+[[devolución de cobros indebidos y corrección de la cuenta]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1692,9 +1712,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[reconsideración del rechazo y cobertura de la prestación médica]]
+[[reconsideración del rechazo y cobertura de la prestación médica]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1723,9 +1745,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[reparación del servicio, cobro indebido devuelto y/o indemnización]]
+[[reparación del servicio, cobro indebido devuelto y/o indemnización]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1754,9 +1778,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[reparación gratuita, reemplazo del producto o devolución del precio]]
+[[reparación gratuita, reemplazo del producto o devolución del precio]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1785,9 +1811,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[término inmediato de la suscripción y devolución de cargos prepagados]]
+[[término inmediato de la suscripción y devolución de cargos prepagados]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1878,9 +1906,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[investigación de las irregularidades denunciadas y sanción de los responsables]]
+[[investigación de las irregularidades denunciadas y sanción de los responsables]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -1940,9 +1970,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[otorgamiento de pensión básica solidaria por cumplir los requisitos legales]]
+[[otorgamiento de pensión básica solidaria por cumplir los requisitos legales]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -2011,37 +2043,6 @@ RUT: [RUT]`,
     instruccion_llm: `Redacta el escrito para querella criminal por amenazas, acoso o delitos menores. Petición: investigación penal, medidas cautelares y condena del imputado. Razona el caso con los hechos específicos del cliente.`,
   },
 
-  // ── Carta de cobro de honorarios profesionales (SCRAPEADO) ──
-  {
-    id: 'carta-de-cobro-de-honorarios-profesional',
-    keywords: ["honorarios", "cobrar honorarios", "servicios profesionales no pagados", "contrato servicios"],
-    titulo: "Carta de cobro de honorarios profesionales",
-    tipo: 'carta',
-    articulos: ["Art. 1437 Código Civil (obligaciones de cuasicontrato de servicios)", "Art. 1456 Código Civil (consentimiento y objeto del contrato)", "Art. 2116 Código Civil (mandato / contrato de prestación de servicios)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[pago de honorarios dentro de plazo perentorio bajo apercibimiento de demanda]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para cobro extrajudicial de honorarios por servicios prestados. Petición: pago de honorarios dentro de plazo perentorio bajo apercibimiento de demanda. Razona el caso con los hechos específicos del cliente.`,
-  },
-
   // ── Reclamo por seguro no pagado o rechazado (SCRAPEADO) ──
   {
     id: 'reclamo-por-seguro-no-pagado-o-rechazado',
@@ -2064,9 +2065,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[pago de la indemnización del siniestro conforme a la póliza contratada]]
+[[pago de la indemnización del siniestro conforme a la póliza contratada]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -2157,9 +2160,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[reconexión del servicio y/o corrección de cobros indebidos]]
+[[reconexión del servicio y/o corrección de cobros indebidos]]
+
+Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -2188,9 +2193,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[otorgamiento de pensión de sobrevivencia por fallecimiento del causante]]
+[[otorgamiento de pensión de sobrevivencia por fallecimiento del causante]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -2281,9 +2288,11 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. PETICION
 
-RUEGO A US.: [[Se solicita al SERNAC que investigue el incumplimiento de plazos por parte de la institución financiera de origen y que adopte las medidas sancionatorias correspondientes.]]
+[[Se solicita al SERNAC que investigue el incumplimiento de plazos por parte de la institución financiera de origen y que adopte las medidas sancionatorias correspondientes.]]
+
+Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
@@ -2414,37 +2423,6 @@ RUT: [RUT]`,
     instruccion_llm: `Personalizar con los datos del reclamante o denunciante, identificación de la infracción (parte, citación), tribunal competente y fundamentos de hecho y derecho específicos del caso.`,
   },
 
-  // ── Solicitud de Acceso a Información Pública (SCRAPEADO) ──
-  {
-    id: 'solicitud-acceso-informacion-publica',
-    keywords: ["acceso", "información pública", "transparencia", "ley 20.285", "solicitud", "información"],
-    titulo: "Solicitud de Acceso a Información Pública",
-    tipo: 'administrativo',
-    articulos: ["Art. 10 Ley 20.285 (Derecho de acceso a información pública)", "Art. 11 Ley 20.285 (Principios de transparencia)", "Art. 12 Ley 20.285 (Procedimiento de solicitud)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[Se solicita la entrega de información pública específica, detallando los antecedentes requeridos y el formato de entrega.]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Personaliza la solicitud con los datos del solicitante (nombre, RUT, domicilio), el órgano público al que se dirige, la descripción clara y precisa de la información solicitada, y el medio de notificación preferido. Incluye la referencia al artículo 10 y siguientes de la Ley 20.285.`,
-  },
-
   // ── Solicitud de Medidas de Protección para Menores (SCRAPEADO) ──
   {
     id: 'solicitud-medidas-proteccion-menores',
@@ -2474,37 +2452,6 @@ RUEGO A US.: [[Solicitud de medidas de protección para un menor de edad]]
 [NOMBRE]
 RUT: [RUT]`,
     instruccion_llm: `Personaliza el escrito con los datos del menor (nombre, edad, domicilio), los hechos que constituyen la vulneración de derechos, y las medidas de protección específicas solicitadas (ej. acogimiento familiar, intervención psicosocial, etc.). Incluye los artículos de la Ley 19.968 que fundamentan la petición.`,
-  },
-
-  // ── Denuncia por Violencia Intrafamiliar (SCRAPEADO) ──
-  {
-    id: 'denuncia-violencia-intrafamiliar',
-    keywords: ["violencia intrafamiliar", "denuncia", "ley 20.066", "maltrato", "familia"],
-    titulo: "Denuncia por Violencia Intrafamiliar",
-    tipo: 'judicial',
-    articulos: ["Art. 1 Ley 20.066 (Definición de violencia intrafamiliar)", "Art. 5 Ley 20.066 (Medidas cautelares)", "Art. 6 Ley 20.066 (Denuncia)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[Se solicita acoger la denuncia y decretar medidas cautelares de protección a favor de la víctima.]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Personalizar con datos de la víctima, agresor, relación familiar, hechos concretos de violencia y medidas cautelares solicitadas.`,
   },
 
   // ── Solicitud de Procedimiento de Reorganización o Liquidación (Quiebra Personal) (SCRAPEADO) ──
@@ -2538,37 +2485,6 @@ RUT: [RUT]`,
     instruccion_llm: `Personaliza la solicitud con los datos del deudor (nombre, RUT, domicilio), la opción elegida (reorganización o liquidación), la relación de deudas y bienes, y la documentación que se adjunta (certificados, balances, nómina de acreedores, etc.). Incluye los fundamentos de hecho y derecho basados en los artículos de la Ley 20.720.`,
   },
 
-  // ── Denuncia por Acto de Discriminación Arbitraria (Ley Zamudio) (SCRAPEADO) ──
-  {
-    id: 'denuncia-ley-zamudio',
-    keywords: ["discriminación", "ley zamudio", "ley 20.609", "acto arbitrario", "derechos fundamentales", "juzgado de letras", "acción judicial"],
-    titulo: "Denuncia por Acto de Discriminación Arbitraria (Ley Zamudio)",
-    tipo: 'judicial',
-    articulos: ["Art. 1 Ley 20.609 (definición de discriminación arbitraria)", "Art. 2 Ley 20.609 (actos de discriminación prohibidos)", "Art. 3 Ley 20.609 (acción de no discriminación arbitraria)", "Art. 4 Ley 20.609 (procedimiento judicial)", "Art. 5 Ley 20.609 (medidas cautelares)", "Art. 6 Ley 20.609 (indemnización de perjuicios)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[Que se declare la existencia de un acto de discriminación arbitraria, se ordene su cese, se adopten medidas cautelares y se condene al responsable a indemnizar los perjuicios causados.]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Personaliza el escrito con los datos del denunciante (nombre, RUT, domicilio), del denunciado (si se conoce), la descripción detallada del acto discriminatorio (fecha, lugar, hechos), los motivos de discriminación invocados (art. 2 Ley 20.609), las pruebas que se ofrecerán y la petición concreta de medidas cautelares y reparación.`,
-  },
-
   // ── Acuerdo de Unión Civil (SCRAPEADO) ──
   {
     id: 'acuerdo-de-union-civil',
@@ -2591,44 +2507,15 @@ II. FUNDAMENTO LEGAL
 
 [[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
 
-POR TANTO,
+III. SOLICITUD
 
-RUEGO A US.: [[Solicitud de celebración de acuerdo de unión civil ante el Registro Civil]]
+[[Solicitud de celebración de acuerdo de unión civil ante el Registro Civil]]
 
-[NOMBRE]
-RUT: [RUT]`,
+
+_____________________________            _____________________________
+[NOMBRE]                                  [DESTINATARIO]
+Solicitante                               Solicitante`,
     instruccion_llm: `Personaliza el acuerdo de unión civil con los nombres completos, cédulas de identidad, estado civil, nacionalidad, profesión y domicilio de los comparecientes, así como la fecha y lugar de celebración. Incluye las cláusulas sobre régimen de bienes, alimentos, compensación económica y disolución, según lo acordado por las partes.`,
-  },
-
-  // ── Solicitud de Acceso a Información Pública (SCRAPEADO) ──
-  {
-    id: 'solicitud-de-acceso-a-informacion-publica',
-    keywords: ["acceso a información pública", "transparencia", "ley 19880", "procedimiento administrativo", "solicitud"],
-    titulo: "Solicitud de Acceso a Información Pública",
-    tipo: 'administrativo',
-    articulos: ["Art. 10 Ley 19.880 (Principios del procedimiento administrativo)", "Art. 17 Ley 19.880 (Derecho de acceso a la información)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[Se solicita la entrega de información pública específica, indicando el órgano requerido y los datos solicitados.]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Personalizar con el nombre del solicitante, órgano al que se dirige, descripción detallada de la información requerida y fundamentos legales (Ley 19.880).`,
   },
 
   // ── Letra de Cambio y Pagaré (SCRAPEADO) ──
@@ -2660,37 +2547,6 @@ RUEGO A US.: [[Se solicita al tribunal que ordene el pago de la deuda más inter
 [NOMBRE]
 RUT: [RUT]`,
     instruccion_llm: `Personalizar con los datos del acreedor, deudor, monto adeudado, fecha de vencimiento, y detalles del título de crédito (letra de cambio o pagaré). Incluir los artículos citados de la Ley 18.092.`,
-  },
-
-  // ── Denuncia ante la Contraloría General de la República (SCRAPEADO) ──
-  {
-    id: 'denuncia-contraloria',
-    keywords: ["denuncia", "contraloría", "irregularidades", "administrativo", "municipal", "auditoría", "ciudadano"],
-    titulo: "Denuncia ante la Contraloría General de la República",
-    tipo: 'administrativo',
-    articulos: ["Art. 1 Ley 10.336 (Organización y atribuciones de la Contraloría General de la República)", "Art. 6 Ley 18.695 (Ley Orgánica Constitucional de Municipalidades, control de legalidad)", "Art. 8 Ley 19.880 (Bases de los Procedimientos Administrativos, derecho a denunciar)"],
-    esqueleto: `[CIUDAD], [FECHA]
-
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
-
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
-
-I. ANTECEDENTES DE HECHO
-
-[[DESCRIBIR LOS HECHOS DEL CASO]]
-
-II. FUNDAMENTO LEGAL
-
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
-
-POR TANTO,
-
-RUEGO A US.: [[Se solicita a la Contraloría que investigue los hechos denunciados, adopte las medidas correctivas y sancione a los responsables si corresponde.]]
-
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Personaliza la denuncia con los datos del denunciante (nombre, RUT, domicilio), la descripción detallada de los hechos irregulares, la identificación del órgano o funcionario involucrado, y las pruebas o antecedentes que respalden la denuncia. Incluye referencias a la normativa aplicable según el caso.`,
   },
 
   // ── ALZAMIENTO DE EMBARGO SOBRE VEHÍCULO ─────────────────────────────────

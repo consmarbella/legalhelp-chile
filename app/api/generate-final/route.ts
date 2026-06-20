@@ -3,15 +3,13 @@ import { checkRateLimit, getClientIp, GENERATE_RATE_LIMIT } from '@/lib/rateLimi
 import { getOrderByOrderId } from '@/lib/orderStore';
 import { findTemplate } from '@/lib/templates';
 import { GENERATE_SYSTEM_PROMPT as SYSTEM } from '@/lib/prompts';
+import { llmComplete } from '@/lib/llm';
 
-// ─── DeepSeek: genera el documento ────────────────────────────────────────────
-async function callDeepSeek(
+// ─── Genera el documento usando llmComplete ───────────────────────────────────
+async function generateDocument(
   tipo: string,
   datos: Record<string, unknown>
 ): Promise<string | null> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey || apiKey === 'mock') return null;
-
   // Flatten the case data into readable lines.
   // datos_recopilados is a nested object — expand it instead of printing [object Object].
   // datos_faltantes is an array — skip it (it's about what's missing, not case content).
@@ -37,7 +35,7 @@ async function callDeepSeek(
   const datosStr = [...new Set(flatten(datos))].join('\n');
 
   // ─── Plantilla verificada (artículos correctos + esqueleto) ──────────────
-  // Si el caso matchea una de las 84 plantillas, se le da al modelo el
+  // Si el caso matchea una de las plantillas, se le da al modelo el
   // FRAMEWORK LEGAL VERIFICADO para que no invente leyes ni se equivoque de via.
   const template = findTemplate(tipo, datosStr);
   const frameworkBlock = template
@@ -57,30 +55,14 @@ async function callDeepSeek(
       (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '')
     : '';
 
-  try {
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          { role: 'system', content: SYSTEM },
-          {
-            role: 'user',
-            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha. NO confundas la fecha de hoy con las fechas del caso entregadas en los datos.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}${groundingBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : 'Usa el formato chileno que corresponda al tipo de documento.'} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`,
-          },
-        ],
-        temperature: 0.3,
-        max_tokens: 8192,
-      }),
-    });
-    if (!res.ok) { console.error('[deepseek] generate-final error:', res.status); return null; }
-    const json = await res.json();
-    return json.choices?.[0]?.message?.content ?? null;
-  } catch (err) {
-    console.error('[deepseek] generate-final error:', err);
-    return null;
-  }
+  const userMessage = `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha. NO confundas la fecha de hoy con las fechas del caso entregadas en los datos.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}${groundingBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : 'Usa el formato chileno que corresponda al tipo de documento.'} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`;
+
+  return llmComplete({
+    system: SYSTEM,
+    messages: [{ role: 'user', content: userMessage }],
+    maxTokens: 8192,
+    temperature: 0.3,
+  });
 }
 
 // ─── Mock fallback ────────────────────────────────────────────────────────────
@@ -155,9 +137,9 @@ export async function POST(req: NextRequest) {
 
     const tipo = String(caseData.tipo_documento ?? 'documento legal');
 
-    // DeepSeek already knows Chilean law deeply — no external search needed
-    console.log(`[generate-final] Generating "${tipo}" with DeepSeek`);
-    const document = await callDeepSeek(tipo, caseData) ?? buildMock(tipo, caseData);
+    // LLM generates the document — no external search needed
+    console.log(`[generate-final] Generating "${tipo}" with LLM`);
+    const document = await generateDocument(tipo, caseData) ?? buildMock(tipo, caseData);
 
     return NextResponse.json({ document: stripMarkdown(document) });
   } catch (err) {
