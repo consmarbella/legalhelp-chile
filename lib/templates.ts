@@ -551,29 +551,55 @@ Correo: [[EMAIL]]`,
     keywords: ["no pago de cotizaciones", "no pago cotizaciones", "cotizaciones impagas", "cotizaciones previsionales", "cotizaciones", "previsión", "AFP", "imposiciones"],
     titulo: "Demanda laboral por no pago de cotizaciones previsionales",
     tipo: 'judicial',
-    articulos: ["Art. 162 Código del Trabajo (despido ineficaz por cotizaciones impagas)", "Art. 19 Ley 17.322 (acción judicial para cobro de cotizaciones)", "Art. 58 Código del Trabajo (descuento obligatorio de cotizaciones)"],
+    articulos: ["Art. 162 inc. 5 Código del Trabajo (Ley Bustos: nulidad del despido por cotizaciones impagas)", "Art. 162 inc. 7 Código del Trabajo (obligación de pagar remuneraciones hasta convalidar despido)", "Art. 19 Ley 17.322 (acción judicial para cobro de cotizaciones)", "Art. 58 Código del Trabajo (descuento obligatorio de cotizaciones)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de nulidad del despido por cotizaciones impagas (Ley Bustos). PRIMER OTROSI: Cobro de cotizaciones previsionales. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS DEL TRABAJO DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado (empleador): [[RAZON SOCIAL O NOMBRE DEL EMPLEADOR, RUT, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. RELACION LABORAL
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Cargo: [[CARGO DESEMPENADO]].
+Fecha de inicio: [[FECHA DE INICIO DE LA RELACION LABORAL]].
+Fecha de despido: [[FECHA DEL DESPIDO]].
+Remuneracion mensual: [[MONTO DE LA ULTIMA REMUNERACION BRUTA]].
+AFP del trabajador: [[NOMBRE DE LA AFP]].
+Isapre o Fonasa: [[ISAPRE (indicar cual) O FONASA]].
+
+III. PERIODO DE COTIZACIONES IMPAGAS
+
+Periodo impago: desde [[MES/ANO INICIO]] hasta [[MES/ANO TERMINO]].
+Certificado de lagunas previsionales: [[INDICAR SI SE ACOMPANA CERTIFICADO DE LA AFP O AFC QUE ACREDITE LAS LAGUNAS]].
+Monto estimado de cotizaciones adeudadas: [[MONTO APROXIMADO O INDICAR "segun certificado adjunto"]].
+
+IV. NULIDAD DEL DESPIDO (LEY BUSTOS - Art. 162 inc. 5 CT)
+
+El despido comunicado con fecha [[FECHA]] es NULO por cuanto el empleador no se encontraba al dia en el pago de cotizaciones previsionales al momento de despedir, conforme al Art. 162 inc. 5 del Codigo del Trabajo.
+
+Efecto: el empleador debe seguir pagando las remuneraciones y demas prestaciones desde la fecha del despido hasta la convalidacion (pago integro de cotizaciones adeudadas).
+
+V. DERECHO
+
+Art. 162 inc. 5 CT: el despido no produce efecto si el empleador adeuda cotizaciones previsionales.
+Art. 162 inc. 7 CT: obligacion de pagar remuneraciones hasta convalidar.
+Art. 19 Ley 17.322: accion de cobro de cotizaciones previsionales.
 
 POR TANTO,
 
-RUEGO A US.: [[cobro de cotizaciones y declaración de despido ineficaz]]
+RUEGO A US.: (1) declarar la nulidad del despido; (2) condenar al demandado al pago de todas las remuneraciones y prestaciones desde la fecha del despido hasta la convalidacion; (3) condenar al pago integro de las cotizaciones previsionales adeudadas con los reajustes e intereses legales.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para cobro de cotizaciones previsionales impagas. Petición: cobro de cotizaciones y declaración de despido ineficaz. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de nulidad del despido por cotizaciones impagas (Ley Bustos). IMPORTANTE: (1) individualizar AFP/Isapre del trabajador; (2) detallar el periodo de cotizaciones impagas con meses exactos; (3) mencionar si se acompana certificado de lagunas previsionales de la AFP/AFC; (4) invocar Art. 162 inc. 5 CT para la nulidad; (5) solicitar remuneraciones desde el despido hasta la convalidacion. Si el trabajador NO fue despedido, la accion correcta es solo cobro de cotizaciones (Art. 19 Ley 17.322), no nulidad del despido.`,
   },
 
   // ── Oposición a cobro ejecutivo / demanda ejecutiva (SCRAPEADO) ──
@@ -731,31 +757,63 @@ Representante del empleador`,
     keywords: ["inspección del trabajo", "inspección laboral", "denuncia laboral", "DT", "dirección del trabajo"],
     titulo: "Denuncia ante la Inspección del Trabajo",
     tipo: 'administrativo',
-    articulos: ["Art. 474 Código del Trabajo (fiscalización e infracciones)", "Art. 505 Código del Trabajo (facultades de fiscalización)", "Art. 420 Código del Trabajo (competencia juzgados del trabajo)"],
+    articulos: ["Art. 474 Código del Trabajo (fiscalización e infracciones)", "Art. 505 Código del Trabajo (facultades de fiscalización)", "Art. 506 Código del Trabajo (multas por infracción laboral)", "Art. 420 Código del Trabajo (competencia juzgados del trabajo)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+SEÑOR(A) INSPECTOR(A) DEL TRABAJO
+INSPECCION DEL TRABAJO DE [[COMUNA / REGION]]
 PRESENTE
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], vengo en interponer denuncia laboral en contra del empleador que individualizo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DEL EMPLEADOR DENUNCIADO
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Razon social: [[RAZON SOCIAL O NOMBRE DEL EMPLEADOR]].
+RUT empresa: [[RUT DE LA EMPRESA]].
+Direccion del establecimiento: [[DIRECCION DEL LUGAR DE TRABAJO]].
+Representante legal (si se conoce): [[NOMBRE DEL REPRESENTANTE LEGAL]].
 
-II. FUNDAMENTO LEGAL
+II. INDIVIDUALIZACION DEL DENUNCIANTE
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Nombre: [NOMBRE EN MAYUSCULAS].
+RUT: [RUT].
+Cargo: [[CARGO DESEMPENADO]].
+Fecha de ingreso: [[FECHA DE INICIO DE LA RELACION LABORAL]].
+Remuneracion: [[MONTO DE LA REMUNERACION PACTADA]].
 
-III. PETICION
+III. TIPO DE INFRACCION DENUNCIADA
 
-[[fiscalización del empleador y sanción de infracciones laborales]]
+[[INDICAR TIPO DE INFRACCION: no pago de horas extraordinarias, no pago de cotizaciones previsionales, despido irregular, condiciones inseguras de trabajo, no entrega de liquidaciones de sueldo, jornada laboral excesiva, acoso laboral, no otorgamiento de vacaciones, etc.]]
+
+IV. PERIODO DE LA INFRACCION
+
+Desde: [[FECHA INICIO DE LA INFRACCION]].
+Hasta: [[FECHA TERMINO O "a la fecha" SI CONTINUA]].
+
+V. DESCRIPCION DE LOS HECHOS
+
+[[DESCRIBIR DETALLADAMENTE LOS HECHOS: que ocurrio, cuando, como afecta al trabajador o trabajadores]]
+
+VI. TRABAJADORES AFECTADOS
+
+[[INDICAR SI AFECTA SOLO AL DENUNCIANTE O A MAS TRABAJADORES. SI SON VARIOS, INDICAR CUANTOS APROXIMADAMENTE]]
+
+VII. MEDIOS DE PRUEBA DISPONIBLES
+
+[[LISTAR PRUEBAS: liquidaciones de sueldo, contrato de trabajo, correos electronicos, mensajes, fotografias, testigos (nombres), registros de asistencia, etc.]]
+
+VIII. PETICION
+
+Solicito a la Inspeccion del Trabajo:
+(a) Citar al empleador a comparendo de conciliacion;
+(b) Fiscalizar el establecimiento para verificar las infracciones denunciadas;
+(c) Aplicar las multas que correspondan conforme al Art. 506 del Codigo del Trabajo.
 
 Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para denuncia laboral ante inspección del trabajo. Petición: fiscalización del empleador y sanción de infracciones laborales. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la denuncia ante la Inspeccion del Trabajo. IMPORTANTE: (1) individualizar al empleador con razon social, RUT y direccion; (2) especificar el tipo de infraccion laboral (horas extra impagas, cotizaciones, despido irregular, condiciones inseguras, etc.); (3) indicar periodo de la infraccion; (4) listar medios de prueba disponibles; (5) la denuncia se puede hacer de forma ANONIMA si el trabajador teme represalias. La Inspeccion del Trabajo fiscaliza y aplica multas (Art. 506 CT). Razona con los hechos especificos del cliente.`,
   },
 
   // ── Solicitud de nulidad de despido (SCRAPEADO) ──
@@ -764,29 +822,56 @@ RUT: [RUT]`,
     keywords: ["nulidad despido", "tutela laboral", "derechos fundamentales laborales", "acoso laboral", "discriminación laboral"],
     titulo: "Solicitud de nulidad de despido",
     tipo: 'judicial',
-    articulos: ["Art. 485 Código del Trabajo (procedimiento de tutela laboral)", "Art. 489 Código del Trabajo (nulidad del despido y reincorporación)", "Art. 19 N°16 CPR (libertad de trabajo sin discriminación)"],
+    articulos: ["Art. 485 Código del Trabajo (procedimiento de tutela laboral)", "Art. 489 Código del Trabajo (nulidad del despido y reincorporación o indemnización 6-11 meses)", "Art. 493 Código del Trabajo (regla de indicios: inversión de carga probatoria)", "Art. 19 N°16 CPR (libertad de trabajo sin discriminación)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Denuncia de tutela laboral por vulneracion de derechos fundamentales con ocasion del despido. PRIMER OTROSI: Solicita indemnizacion adicional. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS DEL TRABAJO DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Denunciante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Denunciado (empleador): [[RAZON SOCIAL O NOMBRE DEL EMPLEADOR, RUT, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. RELACION LABORAL
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Cargo: [[CARGO DESEMPENADO]].
+Fecha de inicio: [[FECHA DE INICIO DE LA RELACION LABORAL]].
+Fecha de despido: [[FECHA DEL DESPIDO]].
+Causal invocada por el empleador: [[CAUSAL DE DESPIDO COMUNICADA: necesidades de la empresa, Art. 160 N°X, etc.]].
+Remuneracion mensual: [[MONTO DE LA ULTIMA REMUNERACION]].
+
+III. DERECHO FUNDAMENTAL VULNERADO
+
+[[INDICAR EL DERECHO FUNDAMENTAL AFECTADO: dignidad (Art. 19 N°4 CPR), no discriminacion (Art. 19 N°2 y 16 CPR), intimidad (Art. 19 N°4 CPR), honra (Art. 19 N°4 CPR), libertad de expresion (Art. 19 N°12 CPR), libertad sindical (Art. 19 N°19 CPR), indemnidad (represalia por reclamar derechos)]].
+
+IV. HECHOS CONSTITUTIVOS DE LA VULNERACION
+
+[[DESCRIBIR DETALLADAMENTE LOS HECHOS: acoso laboral, discriminacion, represalia por denuncia, cambio unilateral de funciones, hostigamiento, etc.]]
+
+V. INDICIOS DE LA VULNERACION (Art. 493 CT)
+
+[[LISTAR LOS INDICIOS QUE PERMITEN PRESUMIR LA VULNERACION: correos electronicos, mensajes, testigos, coincidencia temporal entre reclamo y despido, cambios injustificados de condiciones laborales, etc.]]
+
+Conforme al Art. 493 CT, presentados indicios suficientes, corresponde al empleador acreditar que su conducta obedecio a motivos razonables y proporcionados.
+
+VI. PETICION ALTERNATIVA (Art. 489 CT)
+
+Solicito a US. declare la nulidad del despido y ordene:
+- Alternativa 1: REINCORPORACION al puesto de trabajo en las mismas condiciones, mas el pago de remuneraciones desde el despido hasta la reincorporacion; O
+- Alternativa 2: INDEMNIZACION ADICIONAL de [[6 A 11]] meses de remuneracion (Art. 489 inc. 3 CT), ademas de las indemnizaciones por termino de contrato (anos de servicio y sustitutiva del aviso previo).
 
 POR TANTO,
 
-RUEGO A US.: [[declaración de nulidad del despido y reincorporación o indemnización especial]]
+RUEGO A US.: (1) acoger la denuncia de tutela laboral; (2) declarar la vulneracion del derecho fundamental indicado; (3) ordenar la reincorporacion o, en subsidio, condenar al pago de indemnizacion adicional de [[NUMERO]] meses de remuneracion; (4) condenar en costas al demandado.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para nulidad del despido (tutela laboral). Petición: declaración de nulidad del despido y reincorporación o indemnización especial. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la denuncia de tutela laboral (Art. 485-489 CT). IMPORTANTE: (1) identificar con precision el derecho fundamental vulnerado; (2) detallar los INDICIOS de la vulneracion (Art. 493 CT invierte la carga de la prueba: basta que el trabajador presente indicios suficientes); (3) ofrecer peticion ALTERNATIVA: reincorporacion O indemnizacion adicional de 6 a 11 meses segun gravedad (Art. 489 CT); (4) la indemnizacion adicional es COMPATIBLE con la indemnizacion por anos de servicio. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Autorización de salida del país de menor (SCRAPEADO) ──
@@ -798,26 +883,42 @@ RUT: [RUT]`,
     articulos: ["Art. 49 Ley 16.618 (autorización para salida de menores)", "Art. 225 Código Civil (cuidado personal del menor)", "Ley 20.680 (autorización de viaje al extranjero de menores)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Solicita autorizacion judicial de salida del pais de menor. OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DEL MENOR Y SOLICITANTE
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Solicitante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Relacion con el menor: [[PADRE / MADRE / ABUELO(A) / TUTOR]].
+Menor: [[NOMBRE COMPLETO DEL MENOR, RUT, FECHA DE NACIMIENTO, EDAD]].
+Padre/madre que no autoriza: [[NOMBRE COMPLETO, RUT, DOMICILIO PARA NOTIFICAR]].
 
-II. FUNDAMENTO LEGAL
+II. ANTECEDENTES DEL VIAJE
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Pais de destino: [[PAIS DE DESTINO]].
+Fechas del viaje: desde [[FECHA DE SALIDA]] hasta [[FECHA DE REGRESO]].
+Motivo del viaje: [[VACACIONES / TRATAMIENTO MEDICO / VISITA FAMILIAR / ESTUDIOS / OTRO (detallar)]].
+
+III. HECHOS
+
+[[EXPLICAR POR QUE EL OTRO PADRE/MADRE NO OTORGA LA AUTORIZACION: no se ubica, se niega sin motivo justificado, no tiene contacto con el menor, etc.]]
+
+IV. DERECHO
+
+Art. 49 Ley 16.618: para que un menor salga del pais se requiere autorizacion de ambos padres. Si uno de ellos se niega o no es habido, se puede solicitar autorizacion judicial.
+Art. 225 CC: cuidado personal y facultades del padre/madre que tiene el cuidado.
 
 POR TANTO,
 
-RUEGO A US.: [[autorización judicial para salida del país del menor]]
+RUEGO A US.: se sirva autorizar la salida del pais del menor [[NOMBRE DEL MENOR]] con destino a [[PAIS]], desde [[FECHA SALIDA]] hasta [[FECHA REGRESO]], en compania del solicitante.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para autorización judicial de salida del país para menor. Petición: autorización judicial para salida del país del menor. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la solicitud de autorizacion judicial de salida del pais para menor. IMPORTANTE: Si ambos padres estan de acuerdo, basta autorizacion notarial ante notario publico y NO se necesita escrito judicial. Solo usar este template si un padre se niega o no es habido. Debes: (1) individualizar al menor con nombre, RUT y edad; (2) indicar pais de destino, fechas y motivo del viaje; (3) explicar por que el otro padre/madre no autoriza. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Reclamo por publicidad engañosa (SCRAPEADO) ──
@@ -859,31 +960,52 @@ RUT: [RUT]`,
     keywords: ["herencia", "posesión efectiva", "sucesión", "bienes hereditarios", "legatario"],
     titulo: "Solicitud de regularización de título / herencia",
     tipo: 'administrativo',
-    articulos: ["Art. 951 Código Civil (sucesión por causa de muerte)", "Art. 688 Código Civil (inscripción de herencia en CBR)", "Ley 20.659 (simplificación trámites posesión efectiva)"],
+    articulos: ["Art. 951 Código Civil (sucesión por causa de muerte)", "Art. 955 Código Civil (sucesión testamentaria e intestada)", "Art. 688 Código Civil (inscripción de herencia en CBR)", "Ley 19.903 (posesión efectiva ante Registro Civil para sucesiones intestadas)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+SEÑOR(A) DIRECTOR(A)
+SERVICIO DE REGISTRO CIVIL E IDENTIFICACION
+[[OFICINA / REGION]]
 PRESENTE
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], vengo en solicitar la tramitacion de posesion efectiva de la herencia quedada al fallecimiento de:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DEL CAUSANTE
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Nombre completo: [[NOMBRE COMPLETO DEL FALLECIDO]].
+RUT: [[RUT DEL CAUSANTE]].
+Fecha de fallecimiento: [[FECHA DE DEFUNCION]].
+Ultimo domicilio: [[DOMICILIO DEL CAUSANTE AL MOMENTO DEL FALLECIMIENTO]].
+Certificado de defuncion: [[INDICAR SI SE ACOMPANA]].
 
-II. FUNDAMENTO LEGAL
+II. INDIVIDUALIZACION DE LOS HEREDEROS
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+[[LISTAR TODOS LOS HEREDEROS CON: nombre completo, RUT, parentesco con el causante, domicilio]]
 
-III. PETICION
+1. [[NOMBRE]], RUT [[RUT]], [[PARENTESCO]] (conyuge/hijo(a)/padre/madre/hermano(a)).
+2. [[NOMBRE]], RUT [[RUT]], [[PARENTESCO]].
+3. [[AGREGAR MAS SEGUN CORRESPONDA]].
 
-[[tramitación de posesión efectiva y regularización de bienes hereditarios]]
+III. INVENTARIO DE BIENES DEL CAUSANTE
+
+Bienes inmuebles:
+- [[DIRECCION DEL INMUEBLE, COMUNA, INSCRIPCION EN CBR (foja, numero, ano), ROL DE AVALUO]].
+
+Bienes muebles:
+- [[VEHICULOS (patente, marca, modelo), CUENTAS BANCARIAS, ACCIONES, FONDOS MUTUOS, OTROS]].
+
+Deudas del causante (si las hay):
+- [[INDICAR DEUDAS CONOCIDAS: creditos hipotecarios, deudas bancarias, etc.]].
+
+IV. PETICION
+
+Solicito se conceda la posesion efectiva de la herencia intestada quedada al fallecimiento de [[NOMBRE DEL CAUSANTE]], a favor de los herederos individualizados precedentemente.
 
 Es cuanto puedo informar.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para posesión efectiva / herencia / regularización de propiedad. Petición: tramitación de posesión efectiva y regularización de bienes hereditarios. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la solicitud de posesion efectiva / regularizacion de herencia. IMPORTANTE: (1) La posesion efectiva INTESTADA (sin testamento) se tramita GRATIS ante el Registro Civil desde 2004 (Ley 19.903), NO ante tribunal. (2) Solo se usa escrito JUDICIAL si la sucesion es TESTAMENTARIA (Art. 955 CC). (3) Incluir: certificado de defuncion, lista completa de herederos con RUT y parentesco, inventario de bienes del causante (inmuebles con inscripcion CBR, vehiculos, cuentas). (4) Si hay inmuebles, recordar que DESPUES de obtener la posesion efectiva se debe inscribir en el Conservador de Bienes Raices (Art. 688 CC). Razona con los hechos especificos del cliente.`,
   },
 
   // ── Carta de cobro prejudicial a deudor (SCRAPEADO) ──
@@ -1084,29 +1206,59 @@ RUT: [RUT]`,
     keywords: ["sueldo impago", "remuneración impaga", "salario no pagado", "no me pagaron", "retención sueldo"],
     titulo: "Demanda cobro de remuneraciones impagas",
     tipo: 'judicial',
-    articulos: ["Art. 54 Código del Trabajo (forma y oportunidad de pago de remuneraciones)", "Art. 55 Código del Trabajo (plazo de pago: mensual o quincenal)", "Art. 173 Código del Trabajo (mora en el pago)"],
+    articulos: ["Art. 54 Código del Trabajo (forma y oportunidad de pago de remuneraciones)", "Art. 55 Código del Trabajo (plazo de pago: mensual o quincenal)", "Art. 63 Código del Trabajo (reajuste IPC e intereses máximos convencionales)", "Art. 173 Código del Trabajo (mora en el pago)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de cobro de remuneraciones impagas. PRIMER OTROSI: Reajustes e intereses. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS DEL TRABAJO DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado (empleador): [[RAZON SOCIAL O NOMBRE DEL EMPLEADOR, RUT, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. RELACION LABORAL
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Cargo: [[CARGO DESEMPENADO]].
+Fecha de inicio: [[FECHA DE INICIO DE LA RELACION LABORAL]].
+Remuneracion mensual pactada: [[MONTO DE LA REMUNERACION BRUTA PACTADA EN EL CONTRATO]].
+Tipo de contrato: [[INDEFINIDO / PLAZO FIJO / POR OBRA]].
+
+III. PERIODO IMPAGO
+
+Meses impagas: desde [[MES/ANO INICIO DEL IMPAGO]] hasta [[MES/ANO TERMINO DEL IMPAGO]].
+Total de meses adeudados: [[NUMERO DE MESES]].
+
+IV. CALCULO DEL MONTO ADEUDADO
+
+Remuneracion mensual: $[[MONTO]]
+Meses adeudados: [[NUMERO]]
+Subtotal: $[[MONTO TOTAL]]
+Reajuste IPC (Art. 63 CT): [[PORCENTAJE ESTIMADO O "segun calculo al momento del pago"]]
+Intereses maximos convencionales (Art. 63 CT): [[PORCENTAJE O "segun tasa vigente"]]
+TOTAL DEMANDADO: $[[MONTO TOTAL CON REAJUSTE E INTERESES, o "lo que se determine en juicio"]]
+
+V. MEDIOS DE PRUEBA
+
+[[INDICAR: liquidaciones de sueldo, contrato de trabajo, correos de reclamo, transferencias bancarias parciales, cartolas bancarias que muestren ausencia de depositos, etc.]]
+
+VI. DERECHO
+
+Art. 54 CT: la remuneracion se paga en dinero, en periodos iguales.
+Art. 55 CT: el pago debe ser mensual o quincenal.
+Art. 63 CT: las remuneraciones adeudadas se pagan reajustadas conforme al IPC, mas el interes maximo convencional.
 
 POR TANTO,
 
-RUEGO A US.: [[cobro de remuneraciones impagas con reajuste e intereses]]
+RUEGO A US.: condenar al demandado al pago de las remuneraciones impagas por un total de $[[MONTO]], mas reajustes conforme al IPC e intereses maximos convencionales (Art. 63 CT), con costas.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para cobro de sueldos, salarios o remuneraciones no pagadas. Petición: cobro de remuneraciones impagas con reajuste e intereses. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de cobro de remuneraciones impagas. IMPORTANTE: (1) indicar el cargo y la remuneracion pactada; (2) especificar el periodo exacto de impago (desde-hasta); (3) realizar el calculo del monto adeudado; (4) mencionar si hay boletas, liquidaciones u otra prueba documental; (5) siempre pedir reajuste IPC e intereses maximos convencionales conforme al Art. 63 CT. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Demanda cobro horas extraordinarias impagas (SCRAPEADO) ──
@@ -1179,29 +1331,43 @@ RUT: [RUT]`,
     keywords: ["licencia médica", "COMPIN", "licencia rechazada", "licencia reducida", "impugnar licencia"],
     titulo: "Solicitud licencia médica rechazada o reducida (COMPIN)",
     tipo: 'recurso',
-    articulos: ["Art. 12 DFL 3/1984 (FONASA, tramitación licencias médicas)", "Art. 77 bis DL 3.500 (licencias médicas en sistema AFP)", "DL 2.763 Art. 8 (funciones COMPIN)"],
+    articulos: ["Art. 12 DFL 3/1984 (FONASA, tramitación licencias médicas)", "Art. 77 bis DL 3.500 (licencias médicas en sistema AFP)", "DL 2.763 Art. 8 (funciones COMPIN)", "DS 3/1984 Art. 42 (recurso de reposición ante COMPIN)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+SEÑOR(A) DIRECTOR(A)
+COMISION DE MEDICINA PREVENTIVA E INVALIDEZ (COMPIN)
+[[REGION / COMUNA]]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. IDENTIFICACION DE LA LICENCIA MEDICA
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Numero de licencia medica: [[NUMERO DE LA LICENCIA MEDICA]].
+Fecha de emision: [[FECHA DE EMISION DE LA LICENCIA]].
+Periodo de reposo: desde [[FECHA INICIO]] hasta [[FECHA TERMINO]] ([[NUMERO]] dias).
+Medico tratante: [[NOMBRE DEL MEDICO QUE OTORGO LA LICENCIA]].
+Diagnostico: [[DIAGNOSTICO MEDICO (CIE-10 si se conoce)]].
 
-II. FUNDAMENTO LEGAL
+II. RESOLUCION IMPUGNADA
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Fecha de notificacion del rechazo/reduccion: [[FECHA EN QUE FUE NOTIFICADO]].
+Tipo de resolucion: [[RECHAZO TOTAL / REDUCCION DE DIAS (de X a Y dias)]].
+Motivo del rechazo segun COMPIN: [[MOTIVO INDICADO: reposo injustificado, diagnostico inconsistente, incapacidad no acreditada, etc.]].
 
-POR TANTO,
+III. FUNDAMENTOS DEL RECURSO
 
-RUEGO A US.: [[reconsideración del rechazo/reducción de la licencia médica y pago del subsidio]]
+[[EXPLICAR POR QUE EL RECHAZO ES INJUSTIFICADO: gravedad del diagnostico, opinion del medico tratante, examenes medicos que respaldan la incapacidad, antecedentes clinicos previos, etc.]]
+
+IV. PETICION
+
+Solicito a US. reconsiderar la resolucion y:
+(a) Aprobar la licencia medica N° [[NUMERO]] por el total de dias prescritos; y
+(b) Ordenar el pago del subsidio por incapacidad laboral correspondiente al periodo de reposo.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para impugnación de rechazo o reducción de licencia médica. Petición: reconsideración del rechazo/reducción de la licencia médica y pago del subsidio. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta el recurso de reposicion ante COMPIN por rechazo o reduccion de licencia medica. IMPORTANTE: (1) el plazo para interponer este recurso es de 15 DIAS HABILES desde la notificacion del rechazo; (2) si paso ese plazo, se debe recurrir a la Superintendencia de Seguridad Social (SUSESO), no ante COMPIN; (3) indicar numero y fecha de la licencia, motivo del rechazo, y diagnostico del medico tratante; (4) argumentar por que el rechazo es injustificado con base en antecedentes medicos. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Reclamo por fuero maternal / paternal (reintegro) (SCRAPEADO) ──
@@ -1210,29 +1376,56 @@ RUT: [RUT]`,
     keywords: ["fuero maternal", "fuero paternal", "embarazo", "desafuero", "despido embarazada", "permiso postnatal", "postnatal"],
     titulo: "Reclamo por fuero maternal / paternal (reintegro)",
     tipo: 'judicial',
-    articulos: ["Art. 174 Código del Trabajo (desafuero judicial requerido para despedir con fuero)", "Art. 201 Código del Trabajo (fuero maternal durante embarazo y un año post)", "Art. 194 Código del Trabajo (protección a la maternidad)"],
+    articulos: ["Art. 174 Código del Trabajo (desafuero judicial requerido para despedir con fuero)", "Art. 201 Código del Trabajo (fuero maternal: desde embarazo hasta 1 año después del postnatal)", "Art. 194 Código del Trabajo (protección a la maternidad)", "Art. 163 bis Código del Trabajo (fuero en caso de adopción)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de reintegro por despido con fuero maternal/paternal. PRIMER OTROSI: Cobro de remuneraciones. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS DEL TRABAJO DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado (empleador): [[RAZON SOCIAL O NOMBRE DEL EMPLEADOR, RUT, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. RELACION LABORAL
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Cargo: [[CARGO DESEMPENADO]].
+Fecha de inicio: [[FECHA DE INICIO DE LA RELACION LABORAL]].
+Fecha de despido: [[FECHA DEL DESPIDO]].
+Remuneracion mensual: [[MONTO DE LA ULTIMA REMUNERACION]].
+
+III. FUERO MATERNAL/PATERNAL
+
+Fecha de inicio del embarazo: [[FECHA APROXIMADA DE INICIO DEL EMBARAZO O FECHA DEL CERTIFICADO MEDICO]].
+Fecha de nacimiento del hijo(a): [[FECHA DE NACIMIENTO, O "aun no nacido" SI ESTA EN GESTACION]].
+Periodo de fuero (Art. 201 CT): desde [[FECHA INICIO DEL EMBARAZO]] hasta [[1 ANO DESPUES DEL TERMINO DEL POSTNATAL]].
+El despido ocurrio DENTRO del periodo de fuero: SI.
+
+IV. AUSENCIA DE DESAFUERO JUDICIAL
+
+El empleador NO obtuvo autorizacion judicial previa de desafuero (Art. 174 CT) antes de proceder al despido. Por tanto, el despido es NULO y no produce efecto alguno.
+
+V. HECHOS
+
+[[DESCRIBIR COMO SE PRODUJO EL DESPIDO: si el empleador conocia el estado de embarazo, si se comunico formalmente, si se invoco alguna causal]]
+
+VI. DERECHO
+
+Art. 201 CT: la trabajadora goza de fuero desde el inicio del embarazo hasta un ano despues de expirado el descanso postnatal (o postnatal parental).
+Art. 174 CT: el empleador NO puede despedir a un trabajador con fuero sin autorizacion judicial previa.
+Efecto del despido sin desafuero: separacion NULA, derecho a reincorporacion inmediata y pago de todas las remuneraciones del periodo intermedio.
 
 POR TANTO,
 
-RUEGO A US.: [[reintegro inmediato y pago de remuneraciones durante período de fuero]]
+RUEGO A US.: (1) declarar NULO el despido por haberse efectuado sin autorizacion judicial de desafuero; (2) ordenar la reincorporacion inmediata de la demandante a sus funciones habituales; (3) condenar al demandado al pago de todas las remuneraciones y cotizaciones previsionales desde la fecha del despido hasta la efectiva reincorporacion.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para fuero maternal o paternal: protección del despido durante permiso parental. Petición: reintegro inmediato y pago de remuneraciones durante período de fuero. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de reintegro por despido con fuero maternal o paternal. IMPORTANTE: (1) indicar fecha de embarazo o nacimiento del hijo para acreditar el periodo de fuero; (2) el fuero dura desde el inicio del embarazo hasta 1 ano despues del termino del postnatal (Art. 201 CT); (3) el empleador DEBE obtener desafuero judicial PREVIO (Art. 174 CT) para despedir legalmente; (4) si no obtuvo desafuero, el despido es nulo y procede reincorporacion + pago de remuneraciones del periodo intermedio + cotizaciones. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Demanda de alimentos para hijos mayores de edad (SCRAPEADO) ──
@@ -1303,29 +1496,54 @@ RUT: [RUT]`,
     keywords: ["tuición", "cuidado personal", "custodia", "hijo", "menor", "separación padres"],
     titulo: "Demanda de cuidado personal / tuición de menores",
     tipo: 'judicial',
-    articulos: ["Art. 225 Código Civil (cuidado personal de los hijos)", "Art. 226 Código Civil (criterios para otorgar cuidado personal)", "Art. 16 Ley 19.968 (interés superior del niño en familia)"],
+    articulos: ["Art. 225 Código Civil (cuidado personal de los hijos)", "Art. 225-2 Código Civil (corresponsabilidad parental)", "Art. 225 bis Código Civil (inhabilitación del padre/madre)", "Art. 226 Código Civil (criterios para otorgar cuidado personal)", "Art. 16 Ley 19.968 (interés superior del niño en familia)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de cuidado personal. PRIMER OTROSI: Medida cautelar de cuidado provisorio. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES Y DEL MENOR
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado(a): [[NOMBRE COMPLETO DEL OTRO PADRE/MADRE, RUT, DOMICILIO PARA NOTIFICAR]].
+Menor: [[NOMBRE COMPLETO DEL MENOR, RUT, FECHA DE NACIMIENTO, EDAD]].
+Relacion con el menor: [[PADRE / MADRE / ABUELO(A) / OTRO FAMILIAR (indicar)]].
 
-II. FUNDAMENTO LEGAL
+II. SITUACION ACTUAL DEL MENOR
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+[[DESCRIBIR CON QUIEN VIVE ACTUALMENTE EL MENOR, DESDE CUANDO, Y BAJO QUE CONDICIONES. SI HAY ACUERDO O RESOLUCION PREVIA SOBRE CUIDADO PERSONAL, INDICAR]].
+
+III. HECHOS QUE FUNDAN LA DEMANDA
+
+[[DESCRIBIR LAS RAZONES POR LAS QUE SE SOLICITA EL CAMBIO DE CUIDADO PERSONAL: inhabilidad del padre/madre actual (Art. 225 bis CC), maltrato, negligencia, abandono, consumo de drogas/alcohol, entorno perjudicial para el menor, etc.]]
+
+IV. INTERES SUPERIOR DEL NINO
+
+[[EXPLICAR POR QUE EL CAMBIO DE CUIDADO PERSONAL BENEFICIA AL MENOR: estabilidad emocional, vinculo afectivo, condiciones de vivienda, entorno educativo, red de apoyo familiar]]
+
+V. PROPUESTA DE REGIMEN DE RELACION DIRECTA Y REGULAR
+
+[[PROPONER REGIMEN DE VISITAS PARA EL PADRE/MADRE QUE NO TENDRA EL CUIDADO: dias, horarios, vacaciones, feriados]]
+
+VI. DERECHO
+
+Art. 225 CC: el cuidado personal corresponde a ambos padres o al que determine el juez en caso de vida separada.
+Art. 225-2 CC: principio de corresponsabilidad parental.
+Art. 225 bis CC: causales de inhabilitacion del padre/madre.
+Art. 226 CC: criterios para otorgar cuidado personal.
+Art. 16 Ley 19.968: interes superior del nino como principio rector.
 
 POR TANTO,
 
-RUEGO A US.: [[otorgamiento del cuidado personal exclusivo o compartido del menor]]
+RUEGO A US.: se sirva declarar que el cuidado personal del menor [[NOMBRE DEL MENOR]] corresponde al demandante, fijando un regimen de relacion directa y regular para el demandado(a).
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para cuidado personal de hijos / tuición. Petición: otorgamiento del cuidado personal exclusivo o compartido del menor. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de cuidado personal (tuicion). El principio rector es el INTERES SUPERIOR DEL NINO (Art. 16 Ley 19.968). Debes: (1) individualizar al menor con nombre, RUT y edad; (2) describir la situacion actual y con quien vive; (3) fundamentar la inhabilitacion del otro padre/madre segun Art. 225 bis CC si corresponde; (4) explicar por que el cambio favorece al menor; (5) proponer regimen de visitas para el padre que no tendra el cuidado. Siempre razona conforme a los hechos especificos del cliente.`,
   },
 
   // ── Demanda de divorcio por cese de convivencia (SCRAPEADO) ──
@@ -1693,29 +1911,47 @@ RUT: [RUT]`,
     keywords: ["rescisión contrato", "resolución contrato", "incumplimiento", "terminar contrato", "nulidad contrato"],
     titulo: "Rescisión de contrato por incumplimiento",
     tipo: 'judicial',
-    articulos: ["Art. 1489 Código Civil (condición resolutoria tácita por incumplimiento)", "Art. 1873 Código Civil (resolución compraventa por no pago del precio)", "Art. 1552 Código Civil (mora purga la mora)"],
+    articulos: ["Art. 1489 Código Civil (condición resolutoria tácita por incumplimiento)", "Art. 1826 Código Civil (obligación de entrega del vendedor)", "Art. 1873 Código Civil (resolución compraventa por no pago del precio)", "Art. 1552 Código Civil (mora purga la mora)", "Art. 1681 Código Civil (nulidad por vicio del consentimiento)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de resolucion de contrato por incumplimiento. PRIMER OTROSI: Indemnizacion de perjuicios. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS EN LO CIVIL DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado: [[NOMBRE COMPLETO O RAZON SOCIAL DEL DEMANDADO, RUT, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. EL CONTRATO
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Tipo de contrato: [[COMPRAVENTA / ARRENDAMIENTO / PRESTACION DE SERVICIOS / OBRA / OTRO]].
+Fecha de celebracion: [[FECHA DEL CONTRATO]].
+Objeto: [[DESCRIBIR EL OBJETO DEL CONTRATO: que se obligo a hacer o entregar cada parte]].
+Precio o contraprestacion: [[MONTO PACTADO Y FORMA DE PAGO]].
+
+III. INCUMPLIMIENTO DEL DEMANDADO
+
+[[DESCRIBIR DETALLADAMENTE EL INCUMPLIMIENTO: que obligacion no se cumplio, desde cuando, si hubo requerimiento previo de cumplimiento]]
+
+IV. PERJUICIOS SUFRIDOS
+
+[[DESCRIBIR LOS PERJUICIOS: dano emergente (gastos incurridos), lucro cesante (ganancias perdidas), dano moral si procede]]
+
+V. DERECHO
+
+Art. 1489 CC: en todo contrato bilateral va envuelta la condicion resolutoria tacita de no cumplirse por una de las partes lo pactado. El contratante diligente puede pedir la resolucion o el cumplimiento forzado, con indemnizacion de perjuicios.
 
 POR TANTO,
 
-RUEGO A US.: [[resolución del contrato, restitución de lo pagado e indemnización de perjuicios]]
+RUEGO A US.: (1) declarar resuelto el contrato por incumplimiento del demandado; (2) condenar al demandado a la restitucion de [[LO PAGADO / LO ENTREGADO]]; (3) condenar al demandado al pago de indemnizacion de perjuicios por $[[MONTO]], con costas.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para resolución o rescisión de contrato por incumplimiento de contraparte. Petición: resolución del contrato, restitución de lo pagado e indemnización de perjuicios. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de resolucion o rescision de contrato por incumplimiento. IMPORTANTE - Distinguir correctamente: (1) RESOLUCION (Art. 1489 CC): procede por incumplimiento de obligaciones contractuales, con derecho a indemnizacion. Es la accion mas comun. (2) RESCISION o nulidad relativa (Art. 1681 CC): procede por vicio del consentimiento (error, fuerza, dolo), devuelve a las partes al estado anterior al contrato. Usar el termino correcto segun los hechos del cliente. Si es compraventa, considerar Art. 1826 CC (obligacion de entrega) o Art. 1873 CC (resolucion por no pago del precio). Razona con los hechos especificos del cliente.`,
   },
 
   // ── Solicitud de renegociación de deudas (SUPERIR / Ley 20.720) (SCRAPEADO) ──
@@ -2459,29 +2695,56 @@ RUT: [RUT]`,
     keywords: ["precario", "ocupación sin título", "recuperar propiedad", "intruso propiedad", "ocupante sin contrato"],
     titulo: "Demanda de precario (recuperación de inmueble)",
     tipo: 'judicial',
-    articulos: ["Art. 2195 Código Civil (precario: uso sin título ni contraprestación)", "Art. 680 N°6 CPC (juicio sumario para acciones de precario)", "Art. 700 Código Civil (posesión y propiedad)"],
+    articulos: ["Art. 2195 Código Civil (precario: uso sin título ni contraprestación)", "Art. 680 N°6 CPC (juicio sumario para acciones de precario)", "Art. 700 Código Civil (posesión y propiedad)", "Art. 889 Código Civil (acción reivindicatoria)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de precario (Art. 2195 inc. 2 CC). OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS EN LO CIVIL DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante (propietario): [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado (ocupante): [[NOMBRE COMPLETO DEL OCUPANTE, RUT SI SE CONOCE, DOMICILIO (el mismo inmueble ocupado)]].
 
-II. FUNDAMENTO LEGAL
+II. ACREDITACION DEL DOMINIO
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+El demandante es dueno del inmueble segun consta en:
+- Inscripcion de dominio: [[FOJA, NUMERO, ANO, CONSERVADOR DE BIENES RAICES DE (COMUNA)]].
+- Rol de avaluo fiscal: [[ROL DE AVALUO DEL SII]].
+- Titulo de adquisicion: [[COMPRAVENTA / HERENCIA / DONACION / ADJUDICACION - fecha y notaria]].
+
+III. INDIVIDUALIZACION DEL INMUEBLE
+
+Direccion: [[DIRECCION COMPLETA DEL INMUEBLE]].
+Comuna: [[COMUNA]].
+Superficie: [[METROS CUADRADOS APROXIMADOS]].
+Deslindes: [[NORTE, SUR, ORIENTE, PONIENTE - si se conocen]].
+
+IV. OCUPACION EN PRECARIO
+
+El demandado ocupa el inmueble individualizado:
+- Sin titulo alguno: [[NO EXISTE CONTRATO DE ARRIENDO, COMODATO NI NINGUN OTRO TITULO QUE JUSTIFIQUE LA OCUPACION]].
+- Sin pago de contraprestacion: [[EL OCUPANTE NO PAGA RENTA NI CANON ALGUNO]].
+- Desde aproximadamente: [[FECHA APROXIMADA DE INICIO DE LA OCUPACION]].
+
+V. DERECHO
+
+Art. 2195 inc. 2 CC: constituye precario la tenencia de una cosa ajena, sin previo contrato y por ignorancia o mera tolerancia del dueno.
+Art. 680 N°6 CPC: la accion de precario se tramita en procedimiento sumario.
+
+Requisitos de la accion: (1) dominio del demandante; (2) ocupacion del demandado; (3) ausencia de titulo que justifique la tenencia; (4) ausencia de contraprestacion.
 
 POR TANTO,
 
-RUEGO A US.: [[restitución inmediata del inmueble ocupado en precario]]
+RUEGO A US.: acoger la demanda de precario y ordenar la restitucion inmediata del inmueble ubicado en [[DIRECCION]], dentro del plazo de [[10 / 15 / 30]] dias, bajo apercibimiento de lanzamiento con auxilio de la fuerza publica, con costas.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para demanda de precario para recuperar inmueble ocupado sin título. Petición: restitución inmediata del inmueble ocupado en precario. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de precario para recuperar un inmueble ocupado sin titulo. IMPORTANTE: (1) acreditar el dominio del demandante con inscripcion en el Conservador de Bienes Raices; (2) individualizar el inmueble (direccion, rol de avaluo); (3) individualizar al ocupante; (4) acreditar que la ocupacion es SIN titulo y SIN pago (Art. 2195 inc. 2 CC); (5) si el ocupante tiene CUALQUIER contrato (arriendo, comodato, promesa), la accion correcta NO es precario sino terminacion de arrendamiento o reivindicacion. Solicitar restitucion con plazo y apercibimiento de lanzamiento. Razona con los hechos especificos del cliente.`,
   },
 
   // ── Reclamo por Incumplimiento de Plazos en Portabilidad Financiera (SCRAPEADO) ──
@@ -2734,31 +2997,49 @@ RUT: [RUT]`,
     keywords: ["acuerdo de union civil", "ley 20830", "union civil", "convivencia civil", "registro civil", "acuerdo"],
     titulo: "Acuerdo de Unión Civil",
     tipo: 'acuerdo',
-    articulos: ["Art. 1 Ley 20.830 (define el acuerdo de unión civil)", "Art. 2 Ley 20.830 (requisitos para celebrar el acuerdo)", "Art. 3 Ley 20.830 (formalidades del acuerdo)", "Art. 4 Ley 20.830 (efectos del acuerdo)", "Art. 5 Ley 20.830 (causales de término del acuerdo)"],
-    esqueleto: `[CIUDAD], [FECHA]
+    articulos: ["Art. 1 Ley 20.830 (define el acuerdo de unión civil)", "Art. 2 Ley 20.830 (requisitos para celebrar el acuerdo)", "Art. 3 Ley 20.830 (formalidades del acuerdo)", "Art. 4 Ley 20.830 (efectos del acuerdo)", "Art. 5 Ley 20.830 (causales de término del acuerdo)", "Art. 15 Ley 20.830 (régimen patrimonial: comunidad de bienes o separación total)"],
+    esqueleto: `ACUERDO DE UNION CIVIL
+(Ley 20.830)
 
-[DESTINATARIO EN MAYUSCULAS]
-PRESENTE
+DATOS DE LOS CONVIVIENTES CIVILES
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+Primer conviviente civil:
+- Nombre completo: [[NOMBRE COMPLETO]].
+- RUT: [[RUT]].
+- Nacionalidad: [[NACIONALIDAD]].
+- Estado civil: [[SOLTERO(A) / DIVORCIADO(A) / VIUDO(A)]].
+- Profesion u ocupacion: [[PROFESION]].
+- Domicilio: [[DOMICILIO COMPLETO]].
 
-I. ANTECEDENTES DE HECHO
+Segundo conviviente civil:
+- Nombre completo: [[NOMBRE COMPLETO]].
+- RUT: [[RUT]].
+- Nacionalidad: [[NACIONALIDAD]].
+- Estado civil: [[SOLTERO(A) / DIVORCIADO(A) / VIUDO(A)]].
+- Profesion u ocupacion: [[PROFESION]].
+- Domicilio: [[DOMICILIO COMPLETO]].
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+REGIMEN PATRIMONIAL (Art. 15 Ley 20.830)
 
-II. FUNDAMENTO LEGAL
+Los convivientes civiles optan por el siguiente regimen patrimonial:
+[[COMUNIDAD DE BIENES (por defecto si no se elige) / SEPARACION TOTAL DE BIENES (debe pactarse expresamente al momento de celebrar el acuerdo)]].
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+INFORMACION PARA LA CELEBRACION
 
-III. SOLICITUD
+Oficina del Registro Civil: [[OFICINA DEL REGISTRO CIVIL DONDE SE CELEBRARA]].
+Fecha programada: [[FECHA DE LA CEREMONIA]].
 
-[[Solicitud de celebración de acuerdo de unión civil ante el Registro Civil]]
+NOTA INFORMATIVA:
+- El Acuerdo de Union Civil se celebra ante un Oficial del Registro Civil (Art. 3 Ley 20.830).
+- NO se celebra ante notario ni ante tribunal.
+- Se requiere la presencia de dos testigos habiles y mayores de 18 anos.
+- Los contrayentes deben ser mayores de edad, no tener vinculo matrimonial ni AUC vigente, y no ser parientes en los grados prohibidos (Art. 2 Ley 20.830).
 
 
 _____________________________            _____________________________
-[NOMBRE]                                  [DESTINATARIO]
-Solicitante                               Solicitante`,
-    instruccion_llm: `Personaliza el acuerdo de unión civil con los nombres completos, cédulas de identidad, estado civil, nacionalidad, profesión y domicilio de los comparecientes, así como la fecha y lugar de celebración. Incluye las cláusulas sobre régimen de bienes, alimentos, compensación económica y disolución, según lo acordado por las partes.`,
+[[NOMBRE PRIMER CONVIVIENTE]]           [[NOMBRE SEGUNDO CONVIVIENTE]]
+Conviviente Civil                        Conviviente Civil`,
+    instruccion_llm: `Personaliza el documento informativo para el Acuerdo de Union Civil con los datos de ambos convivientes civiles (nombre, RUT, nacionalidad, estado civil, profesion, domicilio). IMPORTANTE: (1) El AUC se celebra SOLO ante Oficial del Registro Civil, NO ante notario ni tribunal (Art. 3 Ley 20.830). (2) El regimen patrimonial es comunidad de bienes por defecto; si quieren separacion total de bienes, deben pactarlo EXPRESAMENTE al momento de la celebracion (Art. 15 Ley 20.830). (3) Se requieren 2 testigos habiles mayores de 18 anos. (4) Los contrayentes deben ser mayores de edad, sin matrimonio ni AUC vigente. Este documento es informativo para que los convivientes lleven sus datos completos al Registro Civil.`,
   },
 
   // ── Letra de Cambio y Pagaré (SCRAPEADO) ──
