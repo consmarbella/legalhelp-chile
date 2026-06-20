@@ -16,6 +16,8 @@ export interface LegalTemplate {
   esqueleto: string;
   /** Instrucción al LLM sobre qué rellenar */
   instruccion_llm: string;
+  /** Destinatario/tribunal correcto (autoridad). Opcional: si está, manda sobre el modelo. */
+  entidad?: string;
 }
 
 export const TEMPLATES: LegalTemplate[] = [
@@ -172,6 +174,7 @@ RUT: [RUT]`,
     keywords: ['licencia', 'conducir', 'alimentos', 'pensión', 'pension', 'uber', 'taxi', 'deuda alimenticia'],
     titulo: 'Solicitud judicial de autorización para obtener licencia de conducir',
     tipo: 'judicial',
+    entidad: 'Juzgado de Familia donde se tramita la causa de alimentos',
     articulos: ['Art. 14 Ley 14.908 (autorización judicial de licencia a deudor alimentario)', 'Art. 19 N°16 CPR (libertad de trabajo)', 'Art. 3 Ley 14.908 (medidas de apremio proporcionales)'],
     esqueleto: `[CIUDAD], [FECHA]
 

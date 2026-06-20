@@ -12,7 +12,10 @@ Uso: DEEPSEEK_API_KEY=xxx python3 scripts/verify-chat.py
 import os, re, sys, json, unicodedata, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-KEY = os.environ["DEEPSEEK_API_KEY"]
+DKEY = os.environ.get("DEEPSEEK_API_KEY")
+AKEY = os.environ.get("ANTHROPIC_API_KEY")
+AMODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
+PROVIDER = "anthropic" if AKEY else "deepseek"
 
 SYSTEM = re.search(r"DEEPSEEK_SYSTEM_PROMPT\s*=\s*`(.*?)`",
                    open(os.path.join(ROOT, "lib", "prompts.ts"), encoding="utf-8").read(), re.DOTALL).group(1)
@@ -52,10 +55,21 @@ def find_template(materia, hechos):
 
 
 def call(messages):
+    if PROVIDER == "anthropic":
+        system = "\n".join(m["content"] for m in messages if m["role"] == "system")
+        msgs = [{"role": m["role"], "content": m["content"]} for m in messages if m["role"] != "system"]
+        body = json.dumps({"model": AMODEL, "max_tokens": 2048, "temperature": 0.2,
+                           "system": system, "messages": msgs}).encode()
+        req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
+            headers={"content-type": "application/json", "x-api-key": AKEY,
+                     "anthropic-version": "2023-06-01"}, method="POST")
+        with urllib.request.urlopen(req, timeout=120) as r:
+            data = json.loads(r.read())
+        return "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
     body = json.dumps({"model": "deepseek-chat", "messages": messages,
                        "temperature": 0.2, "max_tokens": 2048}).encode()
     req = urllib.request.Request("https://api.deepseek.com/chat/completions", data=body,
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {KEY}"}, method="POST")
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {DKEY}"}, method="POST")
     with urllib.request.urlopen(req, timeout=120) as r:
         return json.loads(r.read())["choices"][0]["message"]["content"]
 

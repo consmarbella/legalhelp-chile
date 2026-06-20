@@ -3,6 +3,7 @@ import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
 import { findTemplate } from '@/lib/templates';
 import { llmComplete, activeProvider, type LLMMessage } from '@/lib/llm';
+import { matchGrounding } from '@/lib/grounding';
 
 type CaseData = Record<string, unknown>;
 
@@ -172,6 +173,15 @@ export async function POST(req: NextRequest) {
       response_message: jsonData.response_message ?? '',
       ready: !!prev.ready || !!jsonData.ready, // una vez listo, sigue listo
     };
+
+    // ─── Destinatario AUTORITATIVO desde datos curados (no del modelo) ───────
+    // Si la plantilla trae entidad, o si la categoria matchea paginas.json,
+    // el codigo fija el tribunal correcto. Asi no se equivoca de via aunque
+    // el modelo dude.
+    const entidadCurada =
+      matched?.entidad ?? matchGrounding(merged.tipo_documento as string)?.entidad;
+    if (entidadCurada) merged.destinatario_inferido = entidadCurada;
+
     return NextResponse.json(merged);
 
   } catch (err) {
