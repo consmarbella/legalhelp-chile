@@ -9,7 +9,7 @@ export async function GET() {
     provider,
     model:
       provider === 'anthropic'
-        ? process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5'
+        ? process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5'
         : provider === 'deepseek'
           ? 'deepseek-chat'
           : 'mock',
