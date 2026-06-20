@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { downloadLegalPdf } from '@/lib/generatePdf';
-import { CaseData, Message, DOC_TYPES, EMPTY_CASE, isLegallyUsefulCaseData } from '@/lib/constants';
+import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
 import PaywallModal from '@/components/PaywallModal';
@@ -11,14 +11,17 @@ import PaywallModal from '@/components/PaywallModal';
 interface ChatGeneratorProps {
   /** Pre-populated context sent as first user message (e.g. "Prescripción de deuda TAG en Pudahuel") */
   initialContext?: string;
+  /** Document type id selected externally (e.g. homepage selector) for pricing */
+  selectedDoc?: string | null;
 }
 
-export default function ChatGenerator({ initialContext }: ChatGeneratorProps) {
+export default function ChatGenerator({ initialContext, selectedDoc: externalSelectedDoc }: ChatGeneratorProps) {
   const [caseData, setCaseData]       = useState<CaseData>(EMPTY_CASE);
   const [messages, setMessages]       = useState<Message[]>([]);
   const [input, setInput]             = useState('');
   const [loading, setLoading]         = useState(false);
-  const [selectedDoc, setSelectedDoc] = useState<string | null>(null);
+  const [internalSelectedDoc, setSelectedDoc] = useState<string | null>(null);
+  const selectedDoc = externalSelectedDoc ?? internalSelectedDoc;
   const [generatedDoc, setGeneratedDoc] = useState<string | null>(null);   // full doc (after payment)
   const [previewDoc, setPreviewDoc]     = useState<string | null>(null);   // partial preview (before payment)
   const [generating, setGenerating]     = useState(false);

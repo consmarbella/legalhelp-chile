@@ -1,0 +1,42 @@
+[
+  {
+    "approach": "v3",
+    "category": "Contrato de trabajo indefinido",
+    "ready_turn": 2,
+    "json_fails": 0,
+    "basura": false,
+    "tipo": "Anexo de contrato de trabajo"
+  },
+  {
+    "approach": "v3",
+    "category": "Contrato de trabajo a plazo fijo",
+    "ready_turn": 3,
+    "json_fails": 0,
+    "basura": false,
+    "tipo": "Carta de solicitud de reconocimiento de contrato indefinido"
+  },
+  {
+    "approach": "v3",
+    "category": "Contrato de trabajo part-time",
+    "ready_turn": 3,
+    "json_fails": 0,
+    "basura": false,
+    "tipo": "Contrato de trabajo part-time"
+  },
+  {
+    "approach": "v3",
+    "category": "Contrato de trabajo teletrabajo",
+    "ready_turn": 3,
+    "json_fails": 0,
+    "basura": false,
+    "tipo": "Minuta de modificación de contrato de teletrabajo"
+  },
+  {
+    "approach": "v3",
+    "category": "Contrato de trabajo por obra o faena",
+    "ready_turn": 2,
+    "json_fails": 0,
+    "basura": false,
+    "tipo": "Contrato de trabajo por obra o faena"
+  }
+]
