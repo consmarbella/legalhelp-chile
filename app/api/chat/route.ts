@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
-import { findTemplate } from '@/lib/templates';
-import { llmComplete, activeProvider, type LLMMessage } from '@/lib/llm';
-import { matchGrounding } from '@/lib/grounding';
+import { llmComplete, activeProvider } from '@/lib/llm';
 
 type CaseData = Record<string, unknown>;
 
@@ -73,11 +71,11 @@ function smartMock(message: string, current: CaseData): CaseData {
   return { ...updated, response_message: nextQ, ready: isReady };
 }
 
-// ─── Modelo (configurable: Anthropic si hay key, si no DeepSeek) ──────────────
-async function callLLM(messages: LLMMessage[]): Promise<string | null> {
+// ─── Modelo configurable (Anthropic/Haiku si hay key, si no DeepSeek) ─────────
+async function callLLM(messages: { role: string; content: string }[]): Promise<string | null> {
   return llmComplete({
     system: DEEPSEEK_SYSTEM_PROMPT,
-    messages,
+    messages: messages as { role: 'user' | 'assistant'; content: string }[],
     temperature: 0.2,
     maxTokens: 2048,
   });
@@ -96,7 +94,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { message, currentCaseData } = await req.json();
+    const { message, caseHistory, currentCaseData } = await req.json();
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
@@ -108,43 +106,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(smartMock(message, currentCaseData ?? {}));
     }
 
-    // ─── Turnos basados en ESTADO (no se reenvia toda la conversacion) ──────
-    // El estado acumulado va compacto en el prompt; asi el modelo no se ancla
-    // en sus preguntas previas y la salida JSON se mantiene chica (sin truncar).
-    const prev = (currentCaseData ?? {}) as CaseData;
-    const prevDatos: CaseData =
-      prev.datos && typeof prev.datos === 'object' && !Array.isArray(prev.datos)
-        ? (prev.datos as CaseData)
-        : {};
-    const hasState = !!prev.tipo_documento || Object.keys(prevDatos).length > 0;
+    // Contar intercambios (ya no se etiqueta el mensaje)
+    const userTurns = (caseHistory ?? []).filter((m: { role: string }) => m.role === 'user').length + 1;
+    const taggedMessage = message;
 
-    const stateForPrompt = {
-      tipo_documento: prev.tipo_documento ?? null,
-      destinatario_inferido: prev.destinatario_inferido ?? null,
-      datos: prevDatos,
-    };
-    const userContent = hasState
-      ? `ESTADO DEL CASO HASTA AHORA:\n${JSON.stringify(stateForPrompt)}\n\nEL CLIENTE ACABA DE DECIR:\n${message}\n\nActualiza el caso y responde con el JSON.`
-      : message;
-
-    // ─── Plantilla verificada: ancla el documento y QUE pedir ───────────────
-    // Si el caso matchea una de las 84 plantillas, le decimos al modelo cual es
-    // el documento correcto y exactamente que datos necesita. Asi deja de
-    // improvisar preguntas (basura) y de equivocarse de via.
-    const matchHechos = `${message} ${Object.values(prevDatos).map(v => String(v)).join(' ')}`;
-    const matched = findTemplate((prev.tipo_documento as string) ?? null, matchHechos);
-    const tmplContext = matched
-      ? `\n\nDOCUMENTO IDENTIFICADO (plantilla verificada): "${matched.titulo}". Es el documento correcto y su fundamento legal YA esta verificado: NO cuestiones ni preguntes por leyes, vias ni tribunales. Usa exactamente "${matched.titulo}" como tipo_documento.\nEN ESTE CHAT solo necesitas reunir: (1) identidad del cliente (nombre, RUT, domicilio) y (2) que el cliente cuente su situacion en sus palabras. NO preguntes datos tecnicos, clases, categorias, porcentajes, folios ni numeros: TODO eso va como espacio para rellenar en el documento, no se pregunta. Apenas tengas identidad + la situacion basica, marca ready:true y NO sigas preguntando.`
-      : '';
-    const finalUser = userContent + tmplContext;
-
-    let responseText = await callLLM([{ role: 'user', content: finalUser }]);
+    const messages = [...(caseHistory ?? []), { role: 'user', content: taggedMessage }];
+    let responseText = await callLLM(messages);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
     // Hasta 2 reintentos si no devuelve JSON
     for (let i = 0; i < 2 && !jsonData; i++) {
       responseText = await callLLM([
-        { role: 'user', content: finalUser },
+        ...messages,
         { role: 'assistant', content: responseText ?? '' },
         { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
       ]);
@@ -152,36 +125,38 @@ export async function POST(req: NextRequest) {
     }
 
     if (!jsonData) {
-      console.error('[chat] DeepSeek no devolvió JSON válido — usando mock');
-      return NextResponse.json(smartMock(message, prev));
+      console.error('[chat] DeepSeek no devolvió JSON válido después de reintentos — usando mock');
     }
 
-    // ─── Merge del estado ───────────────────────────────────────────────────
-    const newDatos: CaseData =
-      jsonData.datos && typeof jsonData.datos === 'object' && !Array.isArray(jsonData.datos)
-        ? (jsonData.datos as CaseData)
-        : {};
-    const mergedDatos = { ...prevDatos, ...newDatos };
+    // ─── Normalize alias to canonical keys ────────────────────────────────
+    function normalizeKeys(d: Record<string, unknown>) {
+      if (!d.nombre && d.nombre_completo) d.nombre = d.nombre_completo;
+      if (!d.direccion && d.domicilio)    d.direccion = d.domicilio;
+      if (!d.detalle_caso && d.hechos)    d.detalle_caso = d.hechos;
+      if (!d.detalle_caso && d.contexto)  d.detalle_caso = d.contexto;
+      if (!d.detalle_caso && d.situacion) d.detalle_caso = d.situacion;
+      if (!d.detalle_caso && d.motivo)    d.detalle_caso = d.motivo;
+      // También tomar alias desde datos_recopilados si existe
+      const r = d.datos_recopilados as Record<string, unknown> | undefined;
+      if (r && typeof r === 'object') {
+        if (!d.nombre && r.nombre)               d.nombre = r.nombre;
+        if (!d.nombre && r.nombre_completo)       d.nombre = r.nombre_completo;
+        if (!d.rut && r.rut)                       d.rut = r.rut;
+        if (!d.direccion && r.direccion)           d.direccion = r.direccion;
+        if (!d.direccion && r.domicilio)           d.direccion = r.domicilio;
+        if (!d.detalle_caso && r.detalle_caso)     d.detalle_caso = r.detalle_caso;
+        if (!d.detalle_caso && r.hechos)           d.detalle_caso = r.hechos;
+        if (!d.detalle_caso && r.contexto)         d.detalle_caso = r.contexto;
+      }
+      return d;
+    }
 
-    const merged: CaseData = {
-      ...prev,
-      ...mergedDatos, // tambien plano, para compatibilidad con los componentes de preview
-      datos: mergedDatos,
-      tipo_documento: jsonData.tipo_documento ?? prev.tipo_documento ?? null,
-      destinatario_inferido: jsonData.destinatario_inferido ?? prev.destinatario_inferido ?? null,
-      analisis_legal: jsonData.analisis_legal ?? null,
-      response_message: jsonData.response_message ?? '',
-      ready: !!prev.ready || !!jsonData.ready, // una vez listo, sigue listo
-    };
-
-    // ─── Destinatario AUTORITATIVO desde datos curados (no del modelo) ───────
-    // Si la plantilla trae entidad, o si la categoria matchea paginas.json,
-    // el codigo fija el tribunal correcto. Asi no se equivoca de via aunque
-    // el modelo dude.
-    const entidadCurada =
-      matched?.entidad ?? matchGrounding(merged.tipo_documento as string)?.entidad;
-    if (entidadCurada) merged.destinatario_inferido = entidadCurada;
-
+    // Merge: previous accumulated data + new output from DeepSeek
+    // This ensures fields collected in earlier turns are never lost even if
+    // DeepSeek omits them while still asking follow-up questions.
+    const merged = jsonData
+      ? normalizeKeys({ ...(currentCaseData ?? {}), ...jsonData })
+      : smartMock(message, currentCaseData ?? {});
     return NextResponse.json(merged);
 
   } catch (err) {
