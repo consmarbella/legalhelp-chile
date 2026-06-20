@@ -132,9 +132,40 @@ Correo de contacto: [[CORREO SI LO TIENE]]`,
   },
 
   // ── 4. FINIQUITO LABORAL ────────────────────────────────────────────────
+  // 4a. Finiquito laboral ESTÁNDAR (bilateral: lo firman trabajador y empleador).
+  //     Es el match por defecto para "necesito un finiquito".
+  {
+    id: 'finiquito-estandar',
+    keywords: ['finiquito', 'finiquito laboral', 'finiquito de trabajo', 'fin de obra', 'termino de relacion laboral', 'finiquito de mutuo acuerdo'],
+    titulo: 'Finiquito laboral',
+    tipo: 'acuerdo',
+    articulos: [
+      'Art. 177 del Código del Trabajo (ratificación del finiquito ante ministro de fe)',
+      'Art. 163 del Código del Trabajo (indemnización por años de servicio)',
+      'Art. 73 del Código del Trabajo (feriado proporcional)',
+    ],
+    esqueleto: `FINIQUITO
+
+En [CIUDAD], a [FECHA], comparecen: por una parte [DESTINATARIO], en adelante "el empleador"; y por la otra, [NOMBRE EN MAYÚSCULAS], cédula de identidad N° [RUT], domiciliado en [DIRECCIÓN], en adelante "el trabajador". Ambas partes dejan constancia del término de la relación laboral y se otorgan el más amplio finiquito en los siguientes términos:
+
+PRIMERO: El trabajador se desempeñó como [[CARGO]] para el empleador desde el [[FECHA DE INICIO]] hasta el [[FECHA DE TÉRMINO]], fecha en que la relación laboral terminó por la causal de [[CAUSAL DE TÉRMINO]].
+
+SEGUNDO: El empleador paga en este acto al trabajador la suma total de [[MONTO TOTAL, si se conoce]], correspondiente a los siguientes conceptos: [[DETALLAR CONCEPTOS: remuneración pendiente, indemnización por años de servicio, indemnización sustitutiva del aviso previo y feriado proporcional, según corresponda]].
+
+TERCERO: El trabajador declara recibir conforme las sumas señaladas y otorga al empleador el más amplio, completo y total finiquito, declarando que nada se le adeuda por concepto alguno derivado de la relación laboral ni de su término.
+
+CUARTO: El presente finiquito se firma en señal de conformidad y deberá ratificarse ante Ministro de Fe (Notario Público o Inspección del Trabajo), conforme al artículo 177 del Código del Trabajo.
+
+
+_____________________________            _____________________________
+[NOMBRE]                                  [DESTINATARIO]
+Trabajador — RUT [RUT]                    Empleador`,
+    instruccion_llm: 'Documento BILATERAL de finiquito laboral (lo firman trabajador y empleador). NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena cargo, fechas, causal y los conceptos pagados con los datos del caso; si no hay montos, deja espacios para completar. NO asumas que al trabajador se le adeuda algo: este es el finiquito de término normal, no una demanda ni un reclamo.',
+  },
+  // 4b. Cobro de finiquito: carta para RECLAMAR prestaciones NO pagadas.
   {
     id: 'finiquito-cobro',
-    keywords: ['finiquito', 'despido', 'laboral', 'empleador', 'trabajo', 'indemnización', 'remuneración'],
+    keywords: ['cobro de finiquito', 'reclamar finiquito', 'reclamo de finiquito', 'finiquito impago', 'no me pagaron el finiquito', 'no me han pagado el finiquito', 'me deben el finiquito', 'cobrar finiquito', 'finiquito no pagado'],
     titulo: 'Cobro de finiquito y prestaciones laborales',
     tipo: 'carta',
     articulos: ['Art. 162 Código del Trabajo (finiquito y cotizaciones previas)', 'Art. 163 Código del Trabajo (indemnización por años de servicio)', 'Art. 171 Código del Trabajo (despido indirecto)'],
