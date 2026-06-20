@@ -56,74 +56,37 @@ Si un dato numérico fue dado (sueldo, monto, años), hacé los cálculos que co
 
 TEXTO PLANO: prohibido markdown, asteriscos, negritas, HTML, almohadillas.`;
 
-// ─── Perplexity: busca legislación chilena vigente ────────────────────────────
-async function searchLeyVigente(tipoDoc: string): Promise<string | null> {
-  const apiKey = process.env.PERPLEXITY_API_KEY;
-  if (!apiKey) return null;
-
-  const query = `Legislación chilena vigente 2025-2026 para redactar "${tipoDoc}": artículos exactos aplicables, procedimiento, requisitos formales. Solo derecho chileno.`;
-
-  try {
-    const res = await fetch('https://api.perplexity.ai/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'sonar',
-        messages: [
-          {
-            role: 'system',
-            content: 'Eres un asistente jurídico especializado en derecho chileno. Responde con los artículos y leyes exactas y vigentes. Sé conciso y preciso.',
-          },
-          { role: 'user', content: query },
-        ],
-        max_tokens: 600,
-        temperature: 0.1,
-        search_recency_filter: 'year',
-        return_citations: true,
-      }),
-    });
-
-    if (!res.ok) {
-      console.error('[perplexity] error:', res.status, await res.text());
-      return null;
-    }
-
-    const data = await res.json();
-    const content: string = data.choices?.[0]?.message?.content ?? '';
-    if (!content) return null;
-
-    // Adjuntar fuentes si las hay
-    const citations: string[] = (data.citations ?? []).slice(0, 3);
-    const sources = citations.length > 0 ? `\nFuentes: ${citations.join(' | ')}` : '';
-
-    return content + sources;
-  } catch (err) {
-    console.error('[perplexity] fetch error:', err);
-    return null;
-  }
-}
-
-// ─── DeepSeek: genera el documento con contexto legal verificado ──────────────
+// ─── DeepSeek: genera el documento ────────────────────────────────────────────
 async function callDeepSeek(
   tipo: string,
-  datos: Record<string, unknown>,
-  marcoLegal: string | null
+  datos: Record<string, unknown>
 ): Promise<string | null> {
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey || apiKey === 'mock') return null;
 
-  const datosStr = Object.entries(datos)
-    .filter(([k]) => !['tipo_documento', 'response_message', 'ready'].includes(k))
-    .filter(([, v]) => v !== null && v !== undefined && v !== '')
-    .map(([k, v]) => `- ${k}: ${v}`)
-    .join('\n');
+  // Flatten the case data into readable lines.
+  // datos_recopilados is a nested object — expand it instead of printing [object Object].
+  // datos_faltantes is an array — skip it (it's about what's missing, not case content).
+  const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId'];
 
-  const marcoSection = marcoLegal
-    ? `\n\nMARCO LEGAL VIGENTE (verificado con búsqueda web actualizada):\n${marcoLegal}\n\nUSA ESTOS ARTÍCULOS como base — están confirmados como vigentes.`
-    : '';
+  function flatten(obj: Record<string, unknown>, lines: string[] = []): string[] {
+    for (const [k, v] of Object.entries(obj)) {
+      if (SKIP_KEYS.includes(k)) continue;
+      if (v === null || v === undefined || v === '') continue;
+      if (typeof v === 'object' && !Array.isArray(v)) {
+        // Nested object (like datos_recopilados) — expand its entries
+        flatten(v as Record<string, unknown>, lines);
+      } else if (Array.isArray(v)) {
+        lines.push(`- ${k}: ${v.join(', ')}`);
+      } else {
+        lines.push(`- ${k}: ${v}`);
+      }
+    }
+    return lines;
+  }
+
+  // Dedupe lines (a field may appear both at root and inside datos_recopilados)
+  const datosStr = [...new Set(flatten(datos))].join('\n');
 
   try {
     const res = await fetch('https://api.deepseek.com/chat/completions', {
@@ -135,7 +98,7 @@ async function callDeepSeek(
           { role: 'system', content: SYSTEM },
           {
             role: 'user',
-            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha.\n\nTIPO DE DOCUMENTO: ${tipo}\n\nDATOS DEL CASO:\n${datosStr}${marcoSection}\n\nRedacta el documento completo, profesional y listo para usar. Si falta la dirección de la contraparte, omití ese campo en lugar de poner [DATO PENDIENTE].`,
+            content: `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha.\n\nTIPO DE DOCUMENTO: ${tipo}\n\nDATOS DEL CASO:\n${datosStr}\n\nRedacta el documento completo, profesional y listo para usar. Si falta la dirección de la contraparte, omití ese campo en lugar de poner [DATO PENDIENTE].`,
           },
         ],
         temperature: 0.3,
@@ -159,7 +122,7 @@ function buildMock(tipo: string, datos: Record<string, unknown>): string {
   const nombre    = String(datos.nombre ?? datos.arrendatario ?? datos.trabajador ?? '[NOMBRE]');
   const rut       = String(datos.rut ?? '[RUT]');
   const domicilio = String(datos.direccion ?? datos.domicilio ?? '[DOMICILIO]');
-  const dest      = String(datos.destinatario ?? datos.tribunal ?? '[DESTINATARIO]');
+  const dest      = String(datos.destinatario_inferido ?? datos.destinatario ?? datos.tribunal ?? '[DESTINATARIO]');
 
   return `Santiago, ${today}
 
@@ -212,9 +175,9 @@ export async function POST(req: NextRequest) {
 
     // DeepSeek already knows Chilean law deeply — no external search needed
     console.log(`[generate-final] Generating "${tipo}" with DeepSeek`);
-    const document = await callDeepSeek(tipo, caseData, null) ?? buildMock(tipo, caseData);
+    const document = await callDeepSeek(tipo, caseData) ?? buildMock(tipo, caseData);
 
-    return NextResponse.json({ document, marcoLegalUsado: false });
+    return NextResponse.json({ document });
   } catch (err) {
     console.error('[generate-final] error:', err);
     return NextResponse.json({ error: 'Error generando el documento' }, { status: 500 });

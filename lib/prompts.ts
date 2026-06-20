@@ -51,6 +51,7 @@ Campos recomendados:
 - datos_recopilados: objeto con los antecedentes ya reunidos
 
 Campos dinámicos:
+- detalle_caso: un texto narrativo con los hechos del caso tal como los relató el cliente (qué pasó, cuándo, con quién). Este campo es importante: acumúlalo siempre que el cliente describa su situación.
 - agrega además todos los datos concretos del caso que vayas acumulando, por ejemplo nombre, rut, direccion, comuna, fecha_hecho, monto, patente, empleador, tribunal, hijos, inmueble, contrato, según corresponda.
 
 REGLAS FINALES:
