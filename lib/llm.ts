@@ -1,13 +1,13 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Capa de modelo configurable.
-// - Si ANTHROPIC_API_KEY esta seteada  -> usa Claude (Sonnet por defecto) con
+// - Si ANTHROPIC_API_KEY esta seteada  -> usa Claude (Haiku por defecto) con
 //   prompt caching en el system prompt (90% mas barato en los tokens repetidos).
 // - Si no, cae a DEEPSEEK_API_KEY (comportamiento actual).
 // Cambiar de modelo = setear/quitar la env var. No requiere tocar codigo.
 //
 // Env vars:
 //   ANTHROPIC_API_KEY   -> activa Claude
-//   ANTHROPIC_MODEL     -> id del modelo (default 'claude-sonnet-4-5')
+//   ANTHROPIC_MODEL     -> id del modelo (default 'claude-haiku-4-5')
 //   DEEPSEEK_API_KEY    -> fallback
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -47,7 +47,7 @@ export function activeProvider(): 'anthropic' | 'deepseek' | 'mock' {
 
 // ─── Anthropic (Claude) con prompt caching ──────────────────────────────────
 async function callAnthropic(apiKey: string, { system, messages, maxTokens = 2048, temperature = 0.2 }: LLMOptions): Promise<string | null> {
-  const model = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5';
+  const model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5';
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
