@@ -25,7 +25,7 @@ export const TEMPLATES: LegalTemplate[] = [
   // ── 1. PRESCRIPCIÓN DE DEUDA / MULTA TAG ────────────────────────────────
   {
     id: 'prescripcion-tag',
-    keywords: ['tag', 'multa', 'autopista', 'prescripción', 'prescripcion', 'telepeaje'],
+    keywords: ['tag', 'autopista', 'telepeaje', 'peaje', 'deuda tag', 'prescripcion tag', 'prescripcion'],
     titulo: 'Solicitud de prescripción de deuda TAG',
     tipo: 'carta',
     articulos: ['Art. 2514 Código Civil (prescripción extintiva ordinaria: 5 años)',
@@ -63,7 +63,7 @@ Domicilio: [DIRECCIÓN]`,
   // ── 2. PRESCRIPCIÓN DE DEUDA GENERAL (Banco, retail, etc.) ──────────────
   {
     id: 'prescripcion-deuda',
-    keywords: ['deuda', 'cobro', 'prescripción', 'banco', 'retail', 'tienda', 'crédito', 'morosidad', 'dicom'],
+    keywords: ['prescripcion', 'prescripción', 'deuda', 'deuda prescrita', 'banco', 'retail', 'tienda', 'credito', 'morosidad', 'dicom'],
     titulo: 'Carta de prescripción de deuda general',
     tipo: 'carta',
     articulos: ['Art. 2514 Código Civil', 'Art. 2515 Código Civil', 'Ley 19.628 sobre Protección de la Vida Privada (datos morosos)'],
@@ -98,7 +98,7 @@ RUT: [RUT]`,
   // ── 3. RECLAMO SERNAC ───────────────────────────────────────────────────
   {
     id: 'reclamo-sernac',
-    keywords: ['sernac', 'consumidor', 'reclamo', 'empresa', 'servicio', 'garantía', 'garantia', 'producto', 'defecto', 'cobro indebido'],
+    keywords: ['sernac', 'consumidor', 'garantía', 'garantia', 'producto', 'defecto', 'cobro indebido', 'publicidad engañosa', 'derecho del consumidor'],
     titulo: 'Reclamo ante SERNAC / empresa',
     tipo: 'carta',
     articulos: ['Art. 3 Ley 19.496 (derechos del consumidor)', 'Art. 19 Ley 19.496 (garantía legal 3 meses)', 'Art. 23 Ley 19.496 (infracciones del proveedor)'],
@@ -134,7 +134,7 @@ Correo de contacto: [[CORREO SI LO TIENE]]`,
   // ── 4. FINIQUITO LABORAL ────────────────────────────────────────────────
   {
     id: 'finiquito-cobro',
-    keywords: ['finiquito', 'despido', 'laboral', 'empleador', 'trabajo', 'cotizaciones', 'indemnización', 'remuneración'],
+    keywords: ['finiquito', 'despido', 'laboral', 'empleador', 'trabajo', 'indemnización', 'remuneración'],
     titulo: 'Cobro de finiquito y prestaciones laborales',
     tipo: 'carta',
     articulos: ['Art. 162 Código del Trabajo (finiquito y cotizaciones previas)', 'Art. 163 Código del Trabajo (indemnización por años de servicio)', 'Art. 171 Código del Trabajo (despido indirecto)'],
@@ -171,7 +171,7 @@ RUT: [RUT]`,
   // ── 5. AUTORIZACIÓN LICENCIA CONDUCIR (DEUDA ALIMENTOS) ─────────────────
   {
     id: 'licencia-alimentos',
-    keywords: ['licencia', 'conducir', 'alimentos', 'pensión', 'pension', 'uber', 'taxi', 'deuda alimenticia'],
+    keywords: ['licencia de conducir', 'licencia', 'conducir', 'uber', 'taxi', 'deuda alimenticia', 'suspension licencia', 'retencion licencia'],
     titulo: 'Solicitud judicial de autorización para obtener licencia de conducir',
     tipo: 'judicial',
     entidad: 'Juzgado de Familia donde se tramita la causa de alimentos',
@@ -355,7 +355,7 @@ Teléfono de contacto: [[TELÉFONO]]`,
   // ── 10. DESAHUCIO / TÉRMINO DE ARRIENDO ─────────────────────────────────
   {
     id: 'desahucio-arrendamiento',
-    keywords: ['arriendo', 'arrendamiento', 'arrendador', 'arrendatario', 'desahucio', 'desalojo', 'contrato arriendo', 'restituir', 'restitución'],
+    keywords: ['desahucio', 'termino de arriendo', 'terminar arriendo', 'arrendador', 'arrendatario', 'restituir', 'restitución', 'devolver propiedad'],
     titulo: 'Carta de desahucio / término de contrato de arrendamiento',
     tipo: 'carta',
     articulos: ['Art. 3 Ley 18.101 (desahucio con aviso previo de 2 meses)', 'Art. 10 Ley 18.101 (término por no pago)', 'Art. 1977 Código Civil (mora del arrendatario)'],
@@ -495,7 +495,7 @@ Correo: [[EMAIL]]`,
   // ── Demanda laboral por no pago de cotizaciones previsionales (SCRAPEADO) ──
   {
     id: 'demanda-laboral-por-no-pago-de-cotizacio',
-    keywords: ["cotizaciones", "previsión", "AFP", "cotizaciones previsionales", "imposiciones", "remuneraciones impagas"],
+    keywords: ["no pago de cotizaciones", "no pago cotizaciones", "cotizaciones impagas", "cotizaciones previsionales", "cotizaciones", "previsión", "AFP", "imposiciones"],
     titulo: "Demanda laboral por no pago de cotizaciones previsionales",
     tipo: 'judicial',
     articulos: ["Art. 162 Código del Trabajo (despido ineficaz por cotizaciones impagas)", "Art. 19 Ley 17.322 (acción judicial para cobro de cotizaciones)", "Art. 58 Código del Trabajo (descuento obligatorio de cotizaciones)"],
@@ -1332,7 +1332,7 @@ RUT: [RUT]`,
   // ── Demanda de cobro de dinero (SCRAPEADO) ──
   {
     id: 'demanda-de-cobro-de-dinero',
-    keywords: ["cobrar deuda", "cobro dinero", "préstamo no pagado", "me deben dinero", "cobro judicial"],
+    keywords: ["cobro de dinero", "cobrar dinero", "cobro de pesos", "cobrar deuda", "me deben dinero", "me deben plata", "préstamo no pagado", "cobro judicial"],
     titulo: "Demanda de cobro de dinero",
     tipo: 'judicial',
     articulos: ["Art. 1437 Código Civil (fuentes de las obligaciones)", "Art. 1546 Código Civil (contratos deben ejecutarse de buena fe)", "Art. 548 CPC (procedimiento sumario para cobros)"],
@@ -1518,7 +1518,7 @@ RUT: [RUT]`,
   // ── Demanda terminación arriendo por no pago de renta (SCRAPEADO) ──
   {
     id: 'demanda-terminaci-n-arriendo-por-no-pago',
-    keywords: ["no pago arriendo", "arrendatario moroso", "arriendo impago", "terminar arriendo", "desahucio no pago"],
+    keywords: ["desalojo", "desalojo por no pago", "demanda desalojo", "no pago arriendo", "no paga arriendo", "arrendatario moroso", "arriendo impago", "desahucio no pago"],
     titulo: "Demanda terminación arriendo por no pago de renta",
     tipo: 'judicial',
     articulos: ["Art. 10 Ley 18.101 (término anticipado por no pago de renta)", "Art. 1977 Código Civil (resolución arrendamiento por mora)", "Art. 611 CPC (procedimiento de arrendamiento en JPL)"],
@@ -2231,7 +2231,7 @@ RUT: [RUT]`,
   // ── Reclamo por Incumplimiento de Plazos en Portabilidad Financiera (SCRAPEADO) ──
   {
     id: 'reclamo-portabilidad-financiera',
-    keywords: ["portabilidad financiera", "incumplimiento de plazos", "sernac", "reclamo", "banco", "institución financiera", "demora", "certificados", "antecedentes"],
+    keywords: ["portabilidad financiera", "portabilidad", "traspaso bancario", "cierre de cuenta bancaria", "incumplimiento plazos portabilidad"],
     titulo: "Reclamo por Incumplimiento de Plazos en Portabilidad Financiera",
     tipo: 'administrativo',
     articulos: ["Ley de Portabilidad Financiera (Ley N° 21.236)"],
@@ -2262,7 +2262,7 @@ RUT: [RUT]`,
   // ── Reclamo por Incumplimiento de la Ley de Protección al Consumidor (SCRAPEADO) ──
   {
     id: 'reclamo-por-incumplimiento-ley-19496',
-    keywords: ["protección al consumidor", "ley 19496", "reclamo", "incumplimiento", "derechos del consumidor", "sernac"],
+    keywords: ["ley 19496", "ley del consumidor", "ley de proteccion al consumidor"],
     titulo: "Reclamo por Incumplimiento de la Ley de Protección al Consumidor",
     tipo: 'judicial',
     articulos: ["Art. 1 Ley 19.496 (Ámbito de aplicación)", "Art. 3 Ley 19.496 (Derechos del consumidor)", "Art. 12 Ley 19.496 (Incumplimiento de oferta)", "Art. 23 Ley 19.496 (Infracciones)"],
@@ -2669,22 +2669,36 @@ RUT: [RUT]`,
 export function findTemplate(materia: string | null, hechos: string | null): LegalTemplate | null {
   // Normaliza a minusculas y SIN tildes, para que "pagaré" matchee "pagare", etc.
   const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  const text = norm(`${materia ?? ''} ${hechos ?? ''}`);
-  if (!text.trim()) return null;
+  const matText = norm(materia ?? '');           // tipo de documento = señal mas fuerte
+  const hechosText = norm(hechos ?? '');
+  const fullText = `${matText} ${hechosText}`.trim();
+  if (!fullText) return null;
 
   let bestMatch: LegalTemplate | null = null;
   let bestScore = 0;
 
   for (const template of TEMPLATES) {
     let score = 0;
+    const seenKw = new Set<string>();
     for (const keyword of template.keywords) {
       const kw = norm(keyword);
-      // Word-boundary check: keyword must be surrounded by spaces or string edges
-      // Prevents "IST" from matching "prestacion", "laboral" from matching "laborales", etc.
-      // Word-boundary: keyword must not be buried inside another word
+      // Evita contar dos veces una keyword que normaliza igual (ej. "prescripción"
+      // y "prescripcion" colapsan a lo mismo y antes inflaban el score.)
+      if (seenKw.has(kw)) continue;
+      seenKw.add(kw);
+      // Word-boundary: la keyword no debe estar enterrada dentro de otra palabra
+      // (evita que "IST" matchee "prestacion", "laboral" matchee "laborales", etc.)
       const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const regex = new RegExp('(?:^|\\s)' + escaped + '(?:\\s|$)');
-      if (regex.test(text)) score++;
+      if (!regex.test(fullText)) continue;
+      // Peso por ESPECIFICIDAD: una keyword mas larga es mas especifica y pesa
+      // mas. Asi "finiquito" (9) le gana a una generica como "cobro" (5) o
+      // "deuda" (5), que antes empataban y elegian la plantilla equivocada.
+      let weight = kw.length;
+      // Si la keyword aparece en el TIPO de documento (materia), pesa el triple:
+      // el tipo es la señal mas confiable de que documento quiere el cliente.
+      if (regex.test(matText)) weight *= 3;
+      score += weight;
     }
     if (score > bestScore) {
       bestScore = score;
@@ -2692,8 +2706,8 @@ export function findTemplate(materia: string | null, hechos: string | null): Leg
     }
   }
 
-  // Requiere al menos 1 keyword match para usar template
-  return bestScore >= 1 ? bestMatch : null;
+  // Umbral minimo: al menos una keyword de 3+ caracteres.
+  return bestScore >= 3 ? bestMatch : null;
 }
 
 
