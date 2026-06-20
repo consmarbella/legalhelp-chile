@@ -2,169 +2,165 @@
 
 import React from 'react';
 import { CaseData, todayChile } from '@/lib/constants';
+import { findTemplate, type LegalTemplate } from '@/lib/templates';
 
 interface DocumentPreviewProps {
   caseData: CaseData;
 }
 
-// Build a convincing document preview from collected data
+// ─── Helpers de datos ────────────────────────────────────────────────────────
+function pick(cd: CaseData, dr: Record<string, unknown>, keys: string[]): string | null {
+  for (const k of keys) {
+    const v = (cd as Record<string, unknown>)[k] ?? dr[k];
+    if (v && typeof v === 'string' && v.trim().length > 1) return v.trim();
+  }
+  return null;
+}
+
+function getHechos(cd: CaseData, dr: Record<string, unknown>): string | null {
+  return pick(cd, dr, ['hechos', 'detalle_caso', 'contexto', 'situacion', 'motivo', 'descripcion']);
+}
+
+// Busca la plantilla que corresponde al caso (la misma lógica que usa la generación).
+function matchTemplate(cd: CaseData, dr: Record<string, unknown>): LegalTemplate | null {
+  const tipo = cd.tipo_documento ? String(cd.tipo_documento) : null;
+  const hechos = getHechos(cd, dr) ?? '';
+  return findTemplate(tipo, `${tipo ?? ''} ${hechos}`);
+}
+
+// ─── Rellena el esqueleto de la plantilla con los datos recopilados ──────────
+// Los datos faltantes quedan como marcadores [entre corchetes] para que se vean
+// "pendientes" (en gris) en el render. Así la vista previa coincide con el tipo
+// de documento real y con lo que el cliente va entregando.
+function fillSkeleton(cd: CaseData, dr: Record<string, unknown>, t: LegalTemplate): string {
+  const nombre = pick(cd, dr, ['nombre', 'nombre_completo', 'nombre_trabajador', 'trabajador', 'arrendatario', 'solicitante', 'compareciente']);
+  const rut = pick(cd, dr, ['rut', 'rut_trabajador', 'rut_solicitante']);
+  const direccion = pick(cd, dr, ['direccion', 'domicilio', 'domicilio_trabajador']);
+  const destinatario = pick(cd, dr, ['destinatario_inferido', 'destinatario', 'empleador', 'tribunal', 'institucion']) ?? t.entidad ?? null;
+  const hechos = getHechos(cd, dr);
+
+  const NOMBRE = nombre ? nombre.toUpperCase() : '[tu nombre]';
+  const nombreSig = nombre ?? '[tu nombre]';
+  const RUT = rut ?? '[tu RUT]';
+  const DIR = direccion ?? '[tu domicilio]';
+  const DEST = destinatario ? destinatario.toUpperCase() : '[destinatario]';
+
+  let firstBlock = true;
+  let text = t.esqueleto
+    // Bloques [[...]] = lo que el redactor completa con los hechos del caso.
+    .replace(/\[\[[^\]]*\]\]/g, () => {
+      if (firstBlock && hechos) { firstBlock = false; return hechos; }
+      firstBlock = false;
+      return '[se completará con tus antecedentes]';
+    })
+    // Marcadores simples [...] = datos de identificación.
+    .replace(/\[CIUDAD[^\]]*\]/gi, 'Santiago')
+    .replace(/\[FECHA[^\]]*\]/gi, todayChile())
+    .replace(/\[DESTINATARIO[^\]]*\]/gi, DEST)
+    .replace(/\[NOMBRE EN MAY[ÚU]SCULAS\]/gi, NOMBRE)
+    .replace(/\[NOMBRE\]/gi, nombreSig)
+    .replace(/\[RUT\]/gi, RUT)
+    .replace(/\[DIRECCI[ÓO]N\]/gi, DIR)
+    .replace(/\[DOMICILIO\]/gi, DIR);
+
+  return text;
+}
+
+// ─── Fallback neutral cuando NO hay plantilla ────────────────────────────────
+// No inventa formato judicial ni texto legal: solo muestra los datos reunidos.
+function buildNeutralPreview(cd: CaseData, dr: Record<string, unknown>): string {
+  const tipo = cd.tipo_documento ? String(cd.tipo_documento) : 'Documento legal';
+  const nombre = pick(cd, dr, ['nombre', 'nombre_completo', 'solicitante']) ?? '[tu nombre]';
+  const rut = pick(cd, dr, ['rut']) ?? '[tu RUT]';
+  const direccion = pick(cd, dr, ['direccion', 'domicilio']) ?? '[tu domicilio]';
+  const destinatario = pick(cd, dr, ['destinatario_inferido', 'destinatario', 'tribunal', 'institucion']) ?? '[destinatario]';
+  const hechos = getHechos(cd, dr) ?? '[se completará con tus antecedentes]';
+
+  return `Santiago, ${todayChile()}
+
+${tipo.toUpperCase()}
+
+Compareciente: ${nombre}, RUT ${rut}, domiciliado en ${direccion}.
+Dirigido a: ${destinatario}.
+
+Antecedentes del caso:
+${hechos}
+
+[El documento completo, con la estructura y los fundamentos legales que correspondan, se redactará al finalizar.]`;
+}
+
 function buildPreviewText(caseData: CaseData): string {
   const cd = caseData;
   const dr = (cd.datos_recopilados ?? {}) as Record<string, unknown>;
-
-  const nombre = String(cd.nombre ?? dr.nombre ?? dr.nombre_completo ?? '[NOMBRE]').toUpperCase();
-  const rut = String(cd.rut ?? dr.rut ?? '[RUT]');
-  const direccion = String(cd.direccion ?? dr.direccion ?? dr.domicilio ?? '[DOMICILIO]');
-  const destinatario = String(cd.destinatario_inferido ?? cd.destinatario ?? dr.tribunal ?? 'SEÑOR(A) JUEZ(A)');
-  const tipoDoc = String(cd.tipo_documento ?? '');
-  const today = todayChile();
-
-  // Collect all case-specific data from datos_recopilados
-  const extras = Object.entries(dr)
-    .filter(([k, v]) => v && typeof v === 'string' && v.length > 2)
-    .map(([, v]) => String(v))
-    .join('. ');
-
-  const hechos = String(
-    cd.hechos ?? cd.detalle_caso ?? cd.contexto ?? cd.situacion ?? cd.motivo ??
-    dr.hechos ?? dr.detalle_caso ?? dr.contexto ?? dr.situacion ?? dr.motivo ??
-    extras ?? ''
-  );
-
-  return `Santiago, ${today}
-
-EN LO PRINCIPAL: ${tipoDoc}.
-
-${destinatario.toUpperCase()}
-PRESENTE
-
-${nombre}, RUT ${rut}, domiciliado en ${direccion}, ante US. respetuosamente expongo:
-
-I. ANTECEDENTES DE HECHO
-
-Que, el suscrito viene en solicitar ${tipoDoc.toLowerCase()}, en mérito de los siguientes antecedentes: ${hechos || 'los hechos descritos en el presente escrito, los cuales se detallan a continuación en forma pormenorizada'}. En virtud de lo anterior, y considerando que los hechos descritos revisten mérito suficiente para la acción que se impetra, solicito respetuosamente a US. que tenga por presentado el presente escrito.
-
-II. DERECHO
-
-La presente solicitud se funda en la legislación chilena vigente aplicable al caso de autos, específicamente en las disposiciones legales y reglamentarias que regulan la materia, las cuales han sido debidamente analizadas por el suscrito a fin de fundamentar el presente escrito de manera sólida y conforme a derecho.
-
-III. PETICIÓN CONCRETA
-
-POR TANTO, y en mérito de lo expuesto:
-
-RUEGO A US.: Tener por presentado el presente escrito, por acompañados los documentos que en su caso se señalan, y resolver conforme a lo solicitado, disponiendo lo que en derecho corresponda.
-
-${nombre}
-RUT: ${rut}`;
+  const t = matchTemplate(cd, dr);
+  return t ? fillSkeleton(cd, dr, t) : buildNeutralPreview(cd, dr);
 }
 
+// ─── Render ──────────────────────────────────────────────────────────────────
 export default function DocumentPreview({ caseData }: DocumentPreviewProps) {
   const cd = caseData;
   const dr = (cd.datos_recopilados ?? {}) as Record<string, unknown>;
+  const ready = !!caseData.ready;
 
-  const nombre = (cd.nombre ?? dr.nombre ?? dr.nombre_completo)
-    ? String(cd.nombre ?? dr.nombre ?? dr.nombre_completo) : null;
-  const rut = (cd.rut ?? dr.rut)
-    ? String(cd.rut ?? dr.rut) : null;
-  const direccion = (cd.direccion ?? dr.direccion ?? dr.domicilio)
-    ? String(cd.direccion ?? dr.direccion ?? dr.domicilio) : null;
-  const destinatario = (cd.destinatario_inferido ?? cd.destinatario ?? dr.tribunal)
-    ? String(cd.destinatario_inferido ?? cd.destinatario ?? dr.tribunal) : null;
-  const tipoDoc = cd.tipo_documento ? String(cd.tipo_documento) : null;
-  const hechos = (
-    cd.hechos ?? cd.detalle_caso ?? cd.contexto ?? cd.situacion ?? cd.motivo ??
-    dr.hechos ?? dr.detalle_caso ?? dr.contexto ?? dr.situacion ?? dr.motivo
-  ) ? String(
-    cd.hechos ?? cd.detalle_caso ?? cd.contexto ?? cd.situacion ?? cd.motivo ??
-    dr.hechos ?? dr.detalle_caso ?? dr.contexto ?? dr.situacion ?? dr.motivo
-  ) : null;
+  const previewText = buildPreviewText(caseData);
+  const lines = previewText.split('\n');
 
-  // When ready: show full document with blur overlay
-  if (caseData.ready) {
-    const previewText = buildPreviewText(caseData);
-    const lines = previewText.split('\n');
+  // Datos básicos que aún faltan (para la cajita "Completando información…")
+  const faltan = [
+    !pick(cd, dr, ['nombre', 'nombre_completo', 'nombre_trabajador', 'solicitante']) && 'nombre',
+    !pick(cd, dr, ['rut', 'rut_trabajador']) && 'RUT',
+    !pick(cd, dr, ['direccion', 'domicilio']) && 'domicilio',
+    !cd.tipo_documento && 'tipo de documento',
+  ].filter(Boolean) as string[];
 
+  function renderLines() {
+    return lines.map((line, i) => {
+      const trimmed = line.trim();
+      if (!trimmed) return <div key={i} style={{ minHeight: '1.1em' }} />;
+
+      const isPending = /\[[^\]]+\]/.test(trimmed); // contiene un marcador sin completar
+      const isSectionHeader =
+        /^(I{1,3}V?|IV|VI{0,3})\.\s/i.test(trimmed) ||
+        /^(POR TANTO|RUEGO A|EN LO PRINCIPAL|SOLICITO|PRIMERO|SEGUNDO|TERCERO|CUARTO)/i.test(trimmed);
+      const isRecipient = /^(SE[ÑN]OR|JUZGADO|INSPECTOR|TRIBUNAL|ILUSTR|EXCELENT)/i.test(trimmed) || /^[A-ZÁÉÍÓÚÑ.\s]{6,}$/.test(trimmed) && trimmed === trimmed.toUpperCase() && i < 5;
+      const isDate = /^Santiago,/i.test(trimmed);
+      const isPresente = /^PRESENTE$/i.test(trimmed);
+
+      return (
+        <p key={i} style={{
+          margin: '0 0 3px 0',
+          textAlign: (isDate || isPresente) ? 'right' : isRecipient ? 'center' : 'justify',
+          fontWeight: (isSectionHeader || isRecipient) ? 'bold' : 'normal',
+          fontStyle: isPending ? 'italic' : 'normal',
+          color: isPending ? '#b8b8b8' : '#111',
+          letterSpacing: isRecipient ? '0.03em' : 'normal',
+        }}>
+          {line}
+        </p>
+      );
+    });
+  }
+
+  // ─── Estado LISTO: documento completo con overlay de pago ──────────────────
+  if (ready) {
     return (
       <div style={{ position: 'relative', fontFamily: '"Times New Roman", Times, serif', fontSize: '12px', lineHeight: '1.9', color: '#111' }}>
+        <div>{renderLines()}</div>
 
-        {/* Document content */}
-        <div>
-          {lines.map((line, i) => {
-            const trimmed = line.trim();
-            if (!trimmed) return <div key={i} style={{ minHeight: '1.2em' }} />;
-
-            const isSectionHeader = /^(I{1,3}V?|IV|V?I{1,3})\.\s/i.test(trimmed) ||
-              /^(POR TANTO|RUEGO A|EN LO PRINCIPAL)/i.test(trimmed);
-            const isRecipient = /^SE[ÑN]OR|^JUZGADO|^INSPECTOR|^TRIBUNAL/i.test(trimmed);
-            const isDate = /^Santiago,/i.test(trimmed);
-            const isPresente = /^PRESENTE$/i.test(trimmed);
-
-            return (
-              <p key={i} style={{
-                margin: '0 0 2px 0',
-                textAlign: (isDate || isPresente) ? 'right' : isRecipient ? 'center' : 'justify',
-                fontWeight: (isSectionHeader || isRecipient) ? 'bold' : 'normal',
-                textTransform: isRecipient ? 'uppercase' : 'none',
-                letterSpacing: isRecipient ? '0.03em' : 'normal',
-              }}>
-                {line}
-              </p>
-            );
-          })}
-        </div>
-
-        {/* Blur overlay — starts at 50% */}
+        {/* Overlay de desenfoque — desde 50% */}
         <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          right: 0,
-          bottom: 0,
+          position: 'absolute', top: '50%', left: 0, right: 0, bottom: 0,
           background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.85) 25%, rgba(255,255,255,0.98) 55%)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '12px',
-          paddingTop: '40px',
+          backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          gap: '12px', paddingTop: '40px',
         }}>
-          <div style={{
-            background: '#0b1f3a',
-            borderRadius: '12px',
-            padding: '16px 24px',
-            textAlign: 'center',
-            boxShadow: '0 4px 20px rgba(11,31,58,0.3)',
-            maxWidth: '260px',
-          }}>
-            <p style={{
-              fontFamily: 'sans-serif',
-              fontSize: '13px',
-              fontWeight: 'bold',
-              color: '#fff',
-              margin: '0 0 6px 0',
-            }}>
-              🔒 Documento listo
+          <div style={{ background: '#0b1f3a', borderRadius: '12px', padding: '16px 24px', textAlign: 'center', boxShadow: '0 4px 20px rgba(11,31,58,0.3)', maxWidth: '260px' }}>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '13px', fontWeight: 'bold', color: '#fff', margin: '0 0 6px 0' }}>🔒 Documento listo</p>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#a8b8cc', margin: '0 0 12px 0' }}>
+              Tu escrito está redactado con tus datos.<br />Descárgalo en PDF para presentarlo.
             </p>
-            <p style={{
-              fontFamily: 'sans-serif',
-              fontSize: '11px',
-              color: '#a8b8cc',
-              margin: '0 0 12px 0',
-            }}>
-              Tu escrito está redactado con tus datos.<br />
-              Descárgalo en PDF para presentarlo.
-            </p>
-            <div style={{
-              background: '#c9a84c',
-              borderRadius: '8px',
-              padding: '8px 16px',
-              fontFamily: 'sans-serif',
-              fontSize: '12px',
-              fontWeight: 'bold',
-              color: '#0b1f3a',
-            }}>
+            <div style={{ background: '#c9a84c', borderRadius: '8px', padding: '8px 16px', fontFamily: 'sans-serif', fontSize: '12px', fontWeight: 'bold', color: '#0b1f3a' }}>
               ↓ Desbloquear documento
             </div>
           </div>
@@ -173,61 +169,15 @@ export default function DocumentPreview({ caseData }: DocumentPreviewProps) {
     );
   }
 
-  // When not ready: show filling template
+  // ─── Estado EN PROGRESO: mismo esqueleto, con datos parciales ──────────────
   return (
-    <div style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '13px', lineHeight: '2', color: '#111' }}>
+    <div style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '13px', lineHeight: '1.95', color: '#111' }}>
+      {renderLines()}
 
-      {/* Fecha */}
-      <p style={{ textAlign: 'right', marginBottom: '16px', color: '#4a4030' }}>
-        Santiago, {todayChile()}
-      </p>
-
-      {/* Sumilla */}
-      {tipoDoc && (
-        <p style={{ marginBottom: '12px', fontSize: '12px', color: '#555' }}>
-          <span style={{ fontWeight: 'bold' }}>EN LO PRINCIPAL:</span> {tipoDoc}.
-        </p>
-      )}
-
-      {/* Destinatario */}
-      <p style={{ textAlign: 'center', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px', color: destinatario ? '#111' : '#ccc' }}>
-        {destinatario ?? 'SEÑOR(A) JUEZ(A) / INSTITUCIÓN'}
-      </p>
-      <p style={{ textAlign: 'center', marginBottom: '20px', color: '#555', fontSize: '12px' }}>PRESENTE</p>
-
-      {/* Compareciente */}
-      <p style={{ textAlign: 'justify', marginBottom: '16px' }}>
-        <span style={{ color: nombre ? '#111' : '#ccc' }}>{nombre?.toUpperCase() ?? '[NOMBRE DEL SOLICITANTE]'}</span>
-        {', RUT '}
-        <span style={{ color: rut ? '#111' : '#ccc' }}>{rut ?? '[RUT]'}</span>
-        {', domiciliado en '}
-        <span style={{ color: direccion ? '#111' : '#ccc' }}>{direccion ?? '[domicilio]'}</span>
-        {', a US. respetuosamente digo:'}
-      </p>
-
-      <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-      <p style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', marginBottom: '8px' }}>I. Antecedentes de hecho</p>
-      <p style={{ textAlign: 'justify', color: hechos ? '#111' : '#ccc', fontStyle: hechos ? 'normal' : 'italic', marginBottom: '16px' }}>
-        {hechos ?? 'Que… [se completará con los hechos que indique el solicitante]'}
-      </p>
-
-      <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-      <p style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.05em', marginBottom: '8px' }}>II. Fundamento legal</p>
-      <p style={{ textAlign: 'justify', color: '#ccc', fontStyle: 'italic', marginBottom: '16px' }}>[La ley aplicable será determinada por el asistente]</p>
-
-      <hr style={{ border: 'none', borderTop: '1px solid #e8e2d8', margin: '12px 0' }} />
-
-      <p style={{ marginBottom: '6px' }}><span style={{ fontWeight: 'bold' }}>POR TANTO,</span></p>
-      <p style={{ textAlign: 'justify', color: '#aaa', fontStyle: 'italic' }}>RUEGO A US.: [petición concreta — se generará al finalizar]</p>
-
-      {/* Campos pendientes */}
       <div style={{ marginTop: '20px', padding: '10px 12px', border: '1px dashed #c9a84c', borderRadius: '8px', background: '#fdf9f0' }}>
         <p style={{ fontSize: '11px', fontWeight: 'bold', color: '#9a8054', fontFamily: 'sans-serif', marginBottom: '4px' }}>Completando información…</p>
         <p style={{ fontSize: '11px', color: '#b09a6e', fontFamily: 'sans-serif' }}>
-          {[!nombre && 'nombre', !rut && 'RUT', !direccion && 'domicilio', !tipoDoc && 'tipo de documento']
-            .filter(Boolean).join(' · ') || 'Faltan algunos datos específicos del caso'}
+          {faltan.length ? faltan.join(' · ') : 'Reuniendo los antecedentes específicos del caso'}
         </p>
       </div>
     </div>
