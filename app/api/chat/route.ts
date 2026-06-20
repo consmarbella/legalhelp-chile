@@ -70,58 +70,14 @@ function smartMock(message: string, current: CaseData): CaseData {
   return { ...updated, response_message: nextQ, ready: isReady };
 }
 
-// ─── Gemini 2.5 Flash ─────────────────────────────────────────────────────────
+// ─── DeepSeek (modelo que pasó 78/78) ─────────────────────────────────────────
 async function callLLM(messages: { role: string; content: string }[]): Promise<string | null> {
-  const geminiKey = process.env.GEMINI_API_KEY;
-  const deepseekKey = process.env.DEEPSEEK_API_KEY;
-
-  // Prefer Gemini 2.5 Flash (faster + better instruction following)
-  if (geminiKey && geminiKey !== 'mock') {
-    try {
-      // Convert messages to Gemini format
-      const contents = messages.map(m => ({
-        role: m.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: m.content }],
-      }));
-
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            systemInstruction: { parts: [{ text: DEEPSEEK_SYSTEM_PROMPT }] },
-            contents,
-            generationConfig: {
-              temperature: 0.2,
-              maxOutputTokens: 2048,
-            },
-          }),
-        }
-      );
-
-      if (!res.ok) {
-        console.error(`[chat] Gemini HTTP ${res.status}:`, await res.text().catch(() => ''));
-        // Fall through to DeepSeek
-      } else {
-        const data = await res.json();
-        const content = data.candidates?.[0]?.content?.parts?.[0]?.text ?? null;
-        if (content) {
-          console.log(`[chat] Gemini OK tokens=${data.usageMetadata?.candidatesTokenCount ?? '?'}`);
-          return content;
-        }
-      }
-    } catch (err) {
-      console.error('[chat] Gemini error:', err);
-    }
-  }
-
-  // Fallback to DeepSeek
-  if (!deepseekKey || deepseekKey === 'mock') return null;
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey || apiKey === 'mock') return null;
   try {
     const res = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${deepseekKey}` },
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
@@ -130,7 +86,8 @@ async function callLLM(messages: { role: string; content: string }[]): Promise<s
       }),
     });
     if (!res.ok) {
-      console.error(`[chat] DeepSeek HTTP ${res.status}`);
+      const errBody = await res.text().catch(() => '');
+      console.error(`[chat] DeepSeek HTTP ${res.status}:`, errBody.slice(0, 200));
       return null;
     }
     const data = await res.json();
