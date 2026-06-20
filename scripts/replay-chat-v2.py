@@ -67,9 +67,8 @@ def call_deepseek(messages):
 
 USER_TURNS = [
     "necesito un escrito para renobar mi licencia de conducir para trajar en uber y poder pagar mi pension alimenticia",
-    "alejandro matteucci 138290123, vivo en vitacura 7181 vitacura",
-    "si debo pension, 150 lucas al mes pero debo varios meses atrasados",
-    "RIT Z-4207-2021, 4 Juzgado de Familia de Santiago, le pago a ignacio matteucci",
+    "no estoy al dia",
+    "alejandro matteucci 138290123 vitacura 7181 vitacura",
 ]
 
 

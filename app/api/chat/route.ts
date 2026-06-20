@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
 import { findTemplate } from '@/lib/templates';
+import { llmComplete, activeProvider, type LLMMessage } from '@/lib/llm';
 
 type CaseData = Record<string, unknown>;
 
@@ -71,32 +72,14 @@ function smartMock(message: string, current: CaseData): CaseData {
   return { ...updated, response_message: nextQ, ready: isReady };
 }
 
-// ─── DeepSeek (modelo que pasó 78/78) ─────────────────────────────────────────
-async function callLLM(messages: { role: string; content: string }[]): Promise<string | null> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey || apiKey === 'mock') return null;
-  try {
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [{ role: 'system', content: DEEPSEEK_SYSTEM_PROMPT }, ...messages],
-        temperature: 0.2,
-        max_tokens: 2048,
-      }),
-    });
-    if (!res.ok) {
-      const errBody = await res.text().catch(() => '');
-      console.error(`[chat] DeepSeek HTTP ${res.status}:`, errBody.slice(0, 200));
-      return null;
-    }
-    const data = await res.json();
-    return data.choices?.[0]?.message?.content ?? null;
-  } catch (err) {
-    console.error('[chat] DeepSeek error:', err);
-    return null;
-  }
+// ─── Modelo (configurable: Anthropic si hay key, si no DeepSeek) ──────────────
+async function callLLM(messages: LLMMessage[]): Promise<string | null> {
+  return llmComplete({
+    system: DEEPSEEK_SYSTEM_PROMPT,
+    messages,
+    temperature: 0.2,
+    maxTokens: 2048,
+  });
 }
 
 // ─── Route ────────────────────────────────────────────────────────────────────
@@ -118,9 +101,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
     }
 
-    const useMock = !process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_API_KEY === 'mock';
+    const useMock = activeProvider() === 'mock';
     if (useMock) {
-      console.warn('[chat] USANDO MOCK — DEEPSEEK_API_KEY no configurada o es "mock"');
+      console.warn('[chat] USANDO MOCK — sin ANTHROPIC_API_KEY ni DEEPSEEK_API_KEY');
       return NextResponse.json(smartMock(message, currentCaseData ?? {}));
     }
 
@@ -150,7 +133,7 @@ export async function POST(req: NextRequest) {
     const matchHechos = `${message} ${Object.values(prevDatos).map(v => String(v)).join(' ')}`;
     const matched = findTemplate((prev.tipo_documento as string) ?? null, matchHechos);
     const tmplContext = matched
-      ? `\n\nPLANTILLA VERIFICADA DETECTADA: "${matched.titulo}" (tipo ${matched.tipo}). Es el documento correcto para este caso y su fundamento legal YA esta verificado, no lo cuestiones. Usa exactamente "${matched.titulo}" como tipo_documento. Para completar el escrito necesitas la identidad del cliente (nombre, RUT, domicilio) y los hechos que pide: ${matched.instruccion_llm}. Pide SOLO eso, de a poco, y no preguntes datos tecnicos fuera de eso.`
+      ? `\n\nDOCUMENTO IDENTIFICADO (plantilla verificada): "${matched.titulo}". Es el documento correcto y su fundamento legal YA esta verificado: NO cuestiones ni preguntes por leyes, vias ni tribunales. Usa exactamente "${matched.titulo}" como tipo_documento.\nEN ESTE CHAT solo necesitas reunir: (1) identidad del cliente (nombre, RUT, domicilio) y (2) que el cliente cuente su situacion en sus palabras. NO preguntes datos tecnicos, clases, categorias, porcentajes, folios ni numeros: TODO eso va como espacio para rellenar en el documento, no se pregunta. Apenas tengas identidad + la situacion basica, marca ready:true y NO sigas preguntando.`
       : '';
     const finalUser = userContent + tmplContext;
 
