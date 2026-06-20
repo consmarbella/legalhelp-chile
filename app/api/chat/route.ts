@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
 import { llmComplete, activeProvider } from '@/lib/llm';
+import { findTemplate, getTemplateRequirements, type LegalTemplate } from '@/lib/templates';
 
 type CaseData = Record<string, unknown>;
 
@@ -71,10 +72,31 @@ function smartMock(message: string, current: CaseData): CaseData {
   return { ...updated, response_message: nextQ, ready: isReady };
 }
 
+// ─── Guía de plantilla: si hay plantilla, MANDA la plantilla ─────────────────
+// Construye una instrucción extra para el system prompt con los datos exactos
+// que la plantilla necesita, para que el chat los pida uno por uno y solo marque
+// ready:true cuando los tenga todos. Si no hay plantilla, devuelve '' (el chat
+// sigue generando libre, como antes).
+function buildTemplateGuidance(t: LegalTemplate): string {
+  const reqs = getTemplateRequirements(t);
+  const lista = reqs.length
+    ? reqs.map((r, i) => `   ${i + 1}. ${r}`).join('\n')
+    : '   (los antecedentes propios del caso)';
+  return `
+
+PLANTILLA IDENTIFICADA PARA ESTE CASO: "${t.titulo}".
+Para este documento DEBES reunir, además de la identificación del solicitante (nombre completo, RUT y domicilio), los siguientes antecedentes ANTES de marcar ready:true:
+${lista}
+Pide estos datos uno por uno, en lenguaje sencillo. NO marques ready:true mientras falte alguno de estos antecedentes. No le menciones al cliente leyes, artículos ni el nombre de la plantilla; ese análisis es solo interno.`;
+}
+
 // ─── Modelo configurable (Anthropic/Haiku si hay key, si no DeepSeek) ─────────
-async function callLLM(messages: { role: string; content: string }[]): Promise<string | null> {
+async function callLLM(
+  messages: { role: string; content: string }[],
+  extraSystem = ''
+): Promise<string | null> {
   return llmComplete({
-    system: DEEPSEEK_SYSTEM_PROMPT,
+    system: DEEPSEEK_SYSTEM_PROMPT + extraSystem,
     messages: messages as { role: 'user' | 'assistant'; content: string }[],
     temperature: 0.2,
     maxTokens: 2048,
@@ -110,8 +132,17 @@ export async function POST(req: NextRequest) {
     const userTurns = (caseHistory ?? []).filter((m: { role: string }) => m.role === 'user').length + 1;
     const taggedMessage = message;
 
+    // ─── Si hay plantilla, la plantilla MANDA: se inyecta su checklist ──────
+    // Se busca con el tipo de documento ya detectado (persiste entre turnos) y
+    // el mensaje/detalle actual. Si no matchea ninguna, guidance = '' (libre).
+    const prior = (currentCaseData ?? {}) as CaseData;
+    const priorTipo = typeof prior.tipo_documento === 'string' ? prior.tipo_documento : null;
+    const priorDetalle = typeof prior.detalle_caso === 'string' ? prior.detalle_caso : '';
+    const template = findTemplate(priorTipo, `${message} ${priorDetalle}`);
+    const guidance = template ? buildTemplateGuidance(template) : '';
+
     const messages = [...(caseHistory ?? []), { role: 'user', content: taggedMessage }];
-    let responseText = await callLLM(messages);
+    let responseText = await callLLM(messages, guidance);
     let jsonData = responseText ? extractJSON(responseText) : null;
 
     // Hasta 2 reintentos si no devuelve JSON
@@ -120,7 +151,7 @@ export async function POST(req: NextRequest) {
         ...messages,
         { role: 'assistant', content: responseText ?? '' },
         { role: 'user', content: 'Responde SOLO con JSON válido, sin texto adicional.' },
-      ]);
+      ], guidance);
       jsonData = responseText ? extractJSON(responseText) : null;
     }
 
