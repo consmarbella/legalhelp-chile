@@ -821,7 +821,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
               Asistente Legal — {data.categoria}
             </span>
           </div>
-          <ChatGenerator initialContext={initialContext} />
+          <ChatGenerator initialContext={initialContext} legalContext={data.ley} entidad={data.entidad} />
         </div>
       </div>
 

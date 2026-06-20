@@ -13,9 +13,13 @@ interface ChatGeneratorProps {
   initialContext?: string;
   /** Document type id selected externally (e.g. homepage selector) for pricing */
   selectedDoc?: string | null;
+  /** Marco legal curado de la página (data.ley) — grounding para la generación */
+  legalContext?: string;
+  /** Autoridad/destinatario curado de la página (data.entidad) */
+  entidad?: string;
 }
 
-export default function ChatGenerator({ initialContext, selectedDoc: externalSelectedDoc }: ChatGeneratorProps) {
+export default function ChatGenerator({ initialContext, selectedDoc: externalSelectedDoc, legalContext, entidad }: ChatGeneratorProps) {
   const [caseData, setCaseData]       = useState<CaseData>(EMPTY_CASE);
   const [messages, setMessages]       = useState<Message[]>([]);
   const [input, setInput]             = useState('');
@@ -121,7 +125,7 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
       const res = await fetch('/api/generate-final', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(caseData),
+        body: JSON.stringify({ ...caseData, ley_referencia: legalContext, entidad_referencia: entidad }),
       });
       const data = await res.json();
       if (data.document) setPreviewDoc(data.document);
@@ -139,7 +143,7 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
       const res = await fetch('/api/generate-final', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...caseData, ...(orderId ? { orderId } : {}) }),
+        body: JSON.stringify({ ...caseData, ley_referencia: legalContext, entidad_referencia: entidad, ...(orderId ? { orderId } : {}) }),
       });
       const data = await res.json();
       if (data.document) setGeneratedDoc(data.document);

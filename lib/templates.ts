@@ -1673,7 +1673,7 @@ RUT: [RUT]`,
   // ── Reclamo ante SUBTEL por empresa de telecomunicaciones (SCRAPEADO) ──
   {
     id: 'reclamo-ante-subtel-por-empresa-de-telec',
-    keywords: ["internet", "telefonía", "SUBTEL", "movistar", "entel", "vtr", "claro", "empresa telefonía", "corte servicio"],
+    keywords: ["internet", "telefonía", "telecomunicaciones", "telecom", "empresa de telecomunicaciones", "SUBTEL", "movistar", "entel", "vtr", "claro", "empresa telefonía", "corte servicio"],
     titulo: "Reclamo ante SUBTEL por empresa de telecomunicaciones",
     tipo: 'carta',
     articulos: ["Art. 28 Ley 18.168 (obligación de calidad de servicios de telecomunicaciones)", "Art. 36 Ley 18.168 (sanciones por infracción a normas de telecomunicaciones)", "Art. 12 Ley 19.496 (derecho a información y servicio conforme a contrato)"],
@@ -2660,6 +2660,74 @@ RUEGO A US.: [[Se solicita a la Contraloría que investigue los hechos denunciad
 [NOMBRE]
 RUT: [RUT]`,
     instruccion_llm: `Personaliza la denuncia con los datos del denunciante (nombre, RUT, domicilio), la descripción detallada de los hechos irregulares, la identificación del órgano o funcionario involucrado, y las pruebas o antecedentes que respalden la denuncia. Incluye referencias a la normativa aplicable según el caso.`,
+  },
+
+  // ── ALZAMIENTO DE EMBARGO SOBRE VEHÍCULO ─────────────────────────────────
+  {
+    id: 'alzamiento-embargo-vehiculo',
+    keywords: ['alzamiento de embargo', 'alzar embargo', 'levantar embargo', 'alzamiento embargo', 'embargo vehiculo', 'embargo sobre vehiculo', 'embargo auto', 'cancelar embargo', 'embargo automovil'],
+    titulo: 'Solicitud de alzamiento de embargo sobre vehículo',
+    tipo: 'judicial',
+    articulos: [
+      'Art. 1567 N°1 del Código Civil (el pago efectivo extingue la obligación)',
+      'Normas del juicio ejecutivo del Libro III del Código de Procedimiento Civil',
+      'Ley 18.290 de Tránsito y Registro de Vehículos Motorizados (cancelación de la anotación de embargo)',
+    ],
+    entidad: 'el Juzgado de Letras en lo Civil competente',
+    esqueleto: `[CIUDAD], [FECHA]
+
+EN LO PRINCIPAL: Solicita alzamiento de embargo. OTROSÍ: Oficio al Registro de Vehículos Motorizados.
+
+[DESTINATARIO EN MAYÚSCULAS]
+PRESENTE
+
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], en los autos sobre juicio ejecutivo [[CARÁTULA Y/O ROL DE LA CAUSA, si se conoce]], a US. respetuosamente digo:
+
+I. ANTECEDENTES
+
+Que sobre el vehículo de mi propiedad, [[INDIVIDUALIZAR VEHÍCULO: marca, modelo, año y placa patente]], se trabó embargo en la causa indicada. Que la obligación que originó dicho embargo se encuentra íntegramente extinguida mediante su pago, según [[ACREDITAR: comprobante de pago, fecha y monto]].
+
+II. FUNDAMENTO LEGAL
+
+Conforme al artículo 1567 N°1 del Código Civil, el pago efectivo extingue la obligación. Habiéndose extinguido la deuda que motivó la medida, no subsiste causa que justifique mantener el embargo sobre el vehículo, correspondiendo en derecho su alzamiento.
+
+POR TANTO,
+
+RUEGO A US.: Tener por solicitado el alzamiento del embargo trabado sobre el vehículo individualizado y disponer su efectividad.
+
+OTROSÍ: Solicito a US. oficiar al Registro de Vehículos Motorizados del Servicio de Registro Civil e Identificación a fin de que cancele la anotación de embargo y/o prohibición que pesa sobre el vehículo señalado.
+
+[NOMBRE]
+RUT: [RUT]`,
+    instruccion_llm: 'Documento judicial dirigido al Juzgado de Letras en lo Civil. Rellena la individualización del vehículo y la forma en que se extinguió la deuda con los datos del caso. Si falta el rol o la carátula de la causa, deja un espacio para completar. No inventes montos ni fechas no entregados.',
+  },
+
+  // ── DECLARACIÓN JURADA (simple / domicilio / ingresos / cargas) ──────────
+  {
+    id: 'declaracion-jurada',
+    keywords: ['declaracion jurada', 'declaracion jurada simple', 'declaro bajo juramento', 'jurada de domicilio', 'jurada de ingresos', 'jurada de residencia', 'jurada de cargas familiares', 'declaracion simple'],
+    titulo: 'Declaración jurada',
+    tipo: 'administrativo',
+    articulos: [
+      'Declaración jurada otorgada ante Notario Público conforme al Código Orgánico de Tribunales',
+    ],
+    esqueleto: `DECLARACIÓN JURADA
+
+[CIUDAD], [FECHA]
+
+Yo, [NOMBRE EN MAYÚSCULAS], cédula nacional de identidad N° [RUT], domiciliado en [DIRECCIÓN], bajo juramento declaro lo siguiente:
+
+[[DECLARAR: el o los hechos que se declaran bajo juramento — por ejemplo domicilio, ingresos mensuales, residencia, cargas familiares u otro hecho según el caso]]
+
+Declaro que lo anterior es fiel expresión de la verdad y asumo la responsabilidad legal que corresponda en caso de falsedad.
+
+
+_______________________________
+[NOMBRE]
+RUT: [RUT]
+
+(Firma ante Notario Público)`,
+    instruccion_llm: 'Documento de declaración jurada simple. NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena el hecho declarado exactamente con lo que indicó el cliente, sin inventar montos, fechas ni datos no entregados.',
   },
 ];
 
