@@ -2695,3 +2695,33 @@ export function findTemplate(materia: string | null, hechos: string | null): Leg
   // Requiere al menos 1 keyword match para usar template
   return bestScore >= 1 ? bestMatch : null;
 }
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// REQUISITOS: extrae del esqueleto la lista de antecedentes que el chat debe
+// reunir para esta plantilla. Lee los marcadores [[...]] (datos que el redactor
+// completa con los hechos del caso) y los limpia de directivas tipo "DESCRIBIR:".
+// Sirve para que el chat pregunte EXACTAMENTE lo que la plantilla necesita.
+// ─────────────────────────────────────────────────────────────────────────────
+export function getTemplateRequirements(t: LegalTemplate): string[] {
+  const reqs: string[] = [];
+  const seen = new Set<string>();
+  const blocks = t.esqueleto.match(/\[\[([^\]]+)\]\]/g) ?? [];
+  for (const raw of blocks) {
+    let inner = raw.slice(2, -2).trim();
+    // Quita directivas iniciales (DESCRIBIR:, LISTAR ...:, SI CORRESPONDE:, etc.)
+    inner = inner
+      .replace(/^(DESCRIBIR|LISTAR[^:]*|DETALLAR|INDICAR|EXPLICAR|SE\s+SOLICITA|SI\s+CORRESPONDE)\s*[:\-]?\s*/i, '')
+      .trim();
+    // Ignora bloques que son texto de relleno largo (frases completas redactadas),
+    // nos quedamos con descripciones de datos (hasta ~140 chars).
+    if (!inner || inner.length > 140) continue;
+    // Ignora bloques que son referencias legales (no son datos a pedir al cliente).
+    if (/^(art[íi]culo|art\.\s|ley\s|inciso)/i.test(inner)) continue;
+    const key = inner.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    reqs.push(inner);
+  }
+  return reqs;
+}
