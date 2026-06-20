@@ -52,6 +52,7 @@ const CASOS = [
 ];
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 async function gen(data) {
   const res = await fetch(`${BASE}/api/generate-final`, {
@@ -66,10 +67,12 @@ async function main() {
   let fails = 0;
   for (const c of CASOS) {
     const doc = await gen(c.data);
+    const ndoc = norm(doc);
     const problemas = [];
     if (!doc) problemas.push('NO se genero documento');
-    for (const s of c.debe.incluye)   if (doc && !doc.includes(s)) problemas.push(`falta "${s}"`);
-    for (const s of c.debe.noIncluye) if (doc && doc.includes(s))  problemas.push(`NO deberia contener "${s}"`);
+    for (const s of c.debe.incluye)   if (doc && !ndoc.includes(norm(s))) problemas.push(`falta "${s}"`);
+    for (const s of c.debe.noIncluye) if (doc && ndoc.includes(norm(s)))  problemas.push(`NO deberia contener "${s}"`);
+    if (doc && doc.includes('**')) problemas.push('contiene markdown "**"');
     const ok = problemas.length === 0;
     if (!ok) fails++;
     console.log(`${ok ? '✅' : '❌'} ${c.nombre}`);

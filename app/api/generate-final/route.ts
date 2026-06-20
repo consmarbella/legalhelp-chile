@@ -116,6 +116,19 @@ ${nombre}
 RUT: ${rut}`;
 }
 
+// ─── Sanitiza el documento: elimina markdown que el modelo pueda colar ───────
+// Garantiza texto plano (sin **negritas**, # titulos, `code`) independiente de
+// si el modelo respeta o no la instruccion del prompt. Fix determinista.
+function stripMarkdown(s: string): string {
+  return s
+    .replace(/\*\*(.*?)\*\*/g, '$1')   // **negrita**
+    .replace(/__(.*?)__/g, '$1')        // __negrita__
+    .replace(/(^|\n)\s*#{1,6}\s+/g, '$1') // # titulos
+    .replace(/\*\*/g, '')               // ** sueltos
+    .replace(/`{1,3}/g, '')             // `code`
+    .replace(/[ \t]+\n/g, '\n');        // espacios al final de linea
+}
+
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   // Rate limiting
@@ -146,7 +159,7 @@ export async function POST(req: NextRequest) {
     console.log(`[generate-final] Generating "${tipo}" with DeepSeek`);
     const document = await callDeepSeek(tipo, caseData) ?? buildMock(tipo, caseData);
 
-    return NextResponse.json({ document });
+    return NextResponse.json({ document: stripMarkdown(document) });
   } catch (err) {
     console.error('[generate-final] error:', err);
     return NextResponse.json({ error: 'Error generando el documento' }, { status: 500 });
