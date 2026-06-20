@@ -148,19 +148,33 @@ Correo de contacto: [[CORREO SI LO TIENE]]`,
 
 En [CIUDAD], a [FECHA], comparecen: por una parte [DESTINATARIO], en adelante "el empleador"; y por la otra, [NOMBRE EN MAYÚSCULAS], cédula de identidad N° [RUT], domiciliado en [DIRECCIÓN], en adelante "el trabajador". Ambas partes dejan constancia del término de la relación laboral y se otorgan el más amplio finiquito en los siguientes términos:
 
-PRIMERO: El trabajador se desempeñó como [[CARGO]] para el empleador desde el [[FECHA DE INICIO]] hasta el [[FECHA DE TÉRMINO]], fecha en que la relación laboral terminó por la causal de [[CAUSAL DE TÉRMINO]].
+PRIMERO: El trabajador se desempeñó como [[CARGO]] para el empleador desde el [[FECHA DE INICIO]] hasta el [[FECHA DE TÉRMINO]], fecha en que la relación laboral terminó por la causal de [[CAUSAL DE TÉRMINO (indicar numeral del Art. 159, 160 o 161 del Codigo del Trabajo)]].
 
-SEGUNDO: El empleador paga en este acto al trabajador la suma total de [[MONTO TOTAL, si se conoce]], correspondiente a los siguientes conceptos: [[DETALLAR CONCEPTOS: remuneración pendiente, indemnización por años de servicio, indemnización sustitutiva del aviso previo y feriado proporcional, según corresponda]].
+SEGUNDO: El empleador paga en este acto al trabajador la suma total de $[[MONTO TOTAL]], correspondiente al siguiente desglose:
+  a) Remuneracion pendiente (dias trabajados en el ultimo mes): $[[MONTO O "_____"]]
+  b) Feriado proporcional (Art. 73 CT): $[[MONTO O "_____"]]
+  c) Gratificacion proporcional: $[[MONTO O "_____"]]
+  d) Indemnizacion por anos de servicio (Art. 163 CT): $[[MONTO O "_____"]]
+  e) Indemnizacion sustitutiva del aviso previo (Art. 161 CT): $[[MONTO O "_____"]]
+  f) Otros conceptos: [[DETALLAR SI CORRESPONDE]]
 
-TERCERO: El trabajador declara recibir conforme las sumas señaladas y otorga al empleador el más amplio, completo y total finiquito, declarando que nada se le adeuda por concepto alguno derivado de la relación laboral ni de su término.
+TERCERO: El trabajador declara recibir conforme las sumas señaladas y otorga al empleador el mas amplio, completo y total finiquito, declarando que nada se le adeuda por concepto alguno derivado de la relacion laboral ni de su termino.
 
-CUARTO: El presente finiquito se firma en señal de conformidad y deberá ratificarse ante Ministro de Fe (Notario Público o Inspección del Trabajo), conforme al artículo 177 del Código del Trabajo.
+CUARTO: El presente finiquito se firma en señal de conformidad y debera ratificarse ante Ministro de Fe (Notario Publico o Inspector del Trabajo), conforme al articulo 177 del Codigo del Trabajo.
+
+QUINTO: El empleador declara que las cotizaciones previsionales se encuentran al dia, acreditando con certificado de la respectiva AFP e Isapre/Fonasa, conforme al articulo 162 inciso 5 del Codigo del Trabajo. Se adjunta certificado de cotizaciones previsionales.
 
 
 _____________________________            _____________________________
 [NOMBRE]                                  [DESTINATARIO]
-Trabajador — RUT [RUT]                    Empleador`,
-    instruccion_llm: 'Documento BILATERAL de finiquito laboral (lo firman trabajador y empleador). NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena cargo, fechas, causal y los conceptos pagados con los datos del caso; si no hay montos, deja espacios para completar. NO asumas que al trabajador se le adeuda algo: este es el finiquito de término normal, no una demanda ni un reclamo.',
+Trabajador — RUT [RUT]                    Empleador
+
+
+_____________________________
+MINISTRO DE FE
+(Notario Publico / Inspector del Trabajo)
+Timbre y firma`,
+    instruccion_llm: 'Documento BILATERAL de finiquito laboral (lo firman trabajador y empleador). NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). OBLIGATORIO: desglosar TODOS los conceptos pagados por separado (remuneracion pendiente, feriado proporcional, gratificacion, indemnizacion anos servicio, indemnizacion aviso previo). Si el empleador no informa montos, dejar $_____ para cada item. Incluir siempre la clausula de cotizaciones al dia (QUINTO). NO asumas que al trabajador se le adeuda algo: este es el finiquito de termino normal, no una demanda ni un reclamo.',
   },
   // 4b. Cobro de finiquito: carta para RECLAMAR prestaciones NO pagadas.
   {
@@ -168,7 +182,7 @@ Trabajador — RUT [RUT]                    Empleador`,
     keywords: ['cobro de finiquito', 'reclamar finiquito', 'reclamo de finiquito', 'finiquito impago', 'no me pagaron el finiquito', 'no me han pagado el finiquito', 'me deben el finiquito', 'cobrar finiquito', 'finiquito no pagado'],
     titulo: 'Cobro de finiquito y prestaciones laborales',
     tipo: 'carta',
-    articulos: ['Art. 162 Código del Trabajo (finiquito y cotizaciones previas)', 'Art. 163 Código del Trabajo (indemnización por años de servicio)', 'Art. 171 Código del Trabajo (despido indirecto)'],
+    articulos: ['Art. 162 Código del Trabajo (finiquito y cotizaciones previas)', 'Art. 163 Código del Trabajo (indemnización por años de servicio)', 'Art. 171 Código del Trabajo (despido indirecto)', 'Art. 168 Código del Trabajo (recargo 30% a 100% por despido injustificado)', 'Art. 169 Código del Trabajo (plazo 60 días hábiles para demandar)'],
     esqueleto: `[CIUDAD], [FECHA]
 
 [DESTINATARIO EN MAYÚSCULAS]
@@ -182,9 +196,13 @@ I. ANTECEDENTES
 
 II. FUNDAMENTO LEGAL
 
-El artículo 162 del Código del Trabajo establece que el empleador solo puede poner término al contrato si acredita el pago de las cotizaciones previsionales. Si existen cotizaciones impagas, el despido es ineficaz y el empleador debe seguir pagando remuneraciones hasta regularizar.
+El artículo 162 del Código del Trabajo establece que el empleador solo puede poner término al contrato si acredita el pago de las cotizaciones previsionales. Si existen cotizaciones impagas, el despido es ineficaz y el empleador debe seguir pagando remuneraciones hasta regularizar (Ley Bustos, Art. 162 incisos 5 a 7 CT: nulidad del despido por cotizaciones impagas, el empleador debe continuar pagando remuneraciones y cotizaciones hasta la convalidacion del despido).
 
 El artículo 163 establece el derecho a indemnización por años de servicio equivalente a 30 días de la última remuneración mensual por cada año trabajado.
+
+El artículo 168 establece que si el despido es declarado injustificado, procede un recargo del 30% (causal Art. 161), 50% (Art. 159 N°4-6) o 100% (Art. 160) sobre la indemnización por años de servicio.
+
+El artículo 169 establece un plazo de 60 días hábiles desde la separación para demandar ante el Juzgado del Trabajo.
 
 [[SI CORRESPONDE: artículo 171 para autodespido/despido indirecto]]
 
@@ -196,7 +214,7 @@ De no recibir respuesta favorable, concurriré a la Inspección del Trabajo y/o 
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: 'Rellena los hechos laborales específicos. Calcula o estima las prestaciones según los datos disponibles. Incluye o excluye el Art. 171 según si el trabajador renunció por incumplimiento del empleador.',
+    instruccion_llm: 'Rellena los hechos laborales especificos. Calcular las prestaciones adeudadas: indemnizacion anos servicio (Art. 163), indemnizacion sustitutiva aviso previo (30 dias, Art. 161 inc. 2), feriado proporcional (Art. 73), cotizaciones impagas si las hay. Si hay cotizaciones impagas, invocar Ley Bustos (Art. 162 inc. 5-7 CT: nulidad del despido). Incluye o excluye el Art. 171 segun si el trabajador renuncio por incumplimiento del empleador. Recordar: plazo para demandar es 60 dias habiles (Art. 169 CT).',
   },
 
   // ── 5. AUTORIZACIÓN LICENCIA CONDUCIR (DEUDA ALIMENTOS) ─────────────────
@@ -248,7 +266,7 @@ RUT: [RUT]`,
     keywords: ['poder', 'mandato', 'autorización', 'representar', 'apoderado', 'poder simple', 'poder especial'],
     titulo: 'Poder simple / mandato especial',
     tipo: 'acuerdo',
-    articulos: ['Art. 2116 Código Civil (contrato de mandato)', 'Art. 2132 Código Civil (mandato especial)', 'Art. 7 CPC (facultades del mandato judicial)'],
+    articulos: ['Art. 2116 Código Civil (contrato de mandato)', 'Art. 2132 Código Civil (mandato especial)', 'Art. 7 CPC (facultades del mandato judicial)', 'Art. 1801 Código Civil (solemnidades en compraventa de inmuebles - requiere escritura pública)'],
     esqueleto: `[CIUDAD], [FECHA]
 
 PODER ESPECIAL
@@ -265,13 +283,15 @@ Este poder [[TIENE / NO TIENE]] facultad de delegar y se otorga [[CON / SIN]] re
 
 El presente poder tendrá vigencia [[PERÍODO O "hasta que sea revocado expresamente"]].
 
+NOTA IMPORTANTE: Si el poder es para celebrar actos solemnes (compraventa de inmuebles, constitucion de hipoteca, cancelacion de hipoteca, constitucion de sociedades, etc.), este documento DEBE otorgarse por escritura publica ante Notario, conforme al Art. 1801 del Codigo Civil. Un poder simple NO es suficiente para dichos actos.
+
 Para constancia, firma el poderdante:
 
 _________________________________
 [NOMBRE]
 RUT: [RUT]
 Domicilio: [DIRECCIÓN]`,
-    instruccion_llm: 'Rellena el acto específico, facultades y período. Si el poder es para cobrar, incluir facultad de recibir y dar recibo. Si es para juicio, incluir facultades del Art. 7 CPC. Ajusta según los hechos del caso.',
+    instruccion_llm: 'Rellena el acto especifico, facultades y periodo. Si el poder es para cobrar, incluir facultad de recibir y dar recibo. Si es para juicio, incluir facultades del Art. 7 CPC. ADVERTENCIA CRITICA: Si el usuario necesita el poder para actos solemnes (compraventa de inmuebles, hipoteca, constitucion de sociedades), informar que REQUIERE escritura publica ante Notario per Art. 1801 CC - un poder simple NO sirve para esos actos. Ajusta segun los hechos del caso.',
   },
 
   // ── 7. RECURSO DE REPOSICIÓN (MULTA TRÁNSITO / MUNICIPALIDAD) ───────────
@@ -411,11 +431,13 @@ III. NOTIFICACIÓN
 
 Por el presente instrumento, notifico formalmente el término del contrato de arrendamiento, fijando como fecha de restitución del inmueble el día [[FECHA DE TÉRMINO]].
 
+AVISO LEGAL: La presente carta debe ser notificada por NOTARIO PUBLICO o JUDICIALMENTE para producir efectos legales conforme al Art. 3 de la Ley 18.101 sobre arrendamiento de predios urbanos. Sin dicha notificacion formal, este desahucio NO surte efectos.
+
 Se solicita la entrega del inmueble en las mismas condiciones en que fue recibido, con todos sus servicios básicos al día.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: 'Determina si es arrendador o arrendatario según los hechos. Calcula la fecha de término (2 meses desde hoy si es desahucio normal). Si hay deuda, incluir monto.',
+    instruccion_llm: 'Determina si es arrendador o arrendatario segun los hechos. Calcula la fecha de termino (2 meses desde hoy si es desahucio normal). Si hay deuda, incluir monto. IMPORTANTE: Para inmuebles urbanos bajo Ley 18.101, el desahucio debe ser notificado judicialmente o por notario para ser valido (Art. 3 inc. 2 Ley 18.101). Una simple carta sin notificacion formal NO produce efectos legales. Instruir al usuario que debe enviar esta carta por notario o solicitar notificacion judicial.',
   },
 
   // ── 11. SOLICITUD VISITAS / RELACIÓN DIRECTA (FAMILIA) ──────────────────
@@ -655,31 +677,52 @@ RUT: [RUT]`,
     keywords: ["carta de despido", "aviso despido", "término contrato trabajo", "causal despido"],
     titulo: "Carta de notificación de término de contrato de trabajo",
     tipo: 'carta',
-    articulos: ["Art. 161 Código del Trabajo (necesidades de la empresa)", "Art. 162 Código del Trabajo (formalidades del despido)", "Art. 163 Código del Trabajo (indemnización por años de servicio)"],
+    articulos: ["Art. 161 Código del Trabajo (necesidades de la empresa)", "Art. 162 Código del Trabajo (formalidades del despido)", "Art. 163 Código del Trabajo (indemnización por años de servicio)", "Art. 169 Código del Trabajo (plazo para impugnar el despido)"],
     esqueleto: `[CIUDAD], [FECHA]
 
+SEÑOR(A)
 [DESTINATARIO EN MAYUSCULAS]
 PRESENTE
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+De conformidad con lo dispuesto en el articulo 162 del Codigo del Trabajo, notifico a usted el termino de su contrato de trabajo en los siguientes terminos:
 
-I. ANTECEDENTES DE HECHO
+I. DATOS DE LA RELACION LABORAL
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Trabajador: [DESTINATARIO EN MAYUSCULAS]
+RUT: [[RUT DEL TRABAJADOR]]
+Cargo: [[CARGO]]
+Fecha de ingreso: [[FECHA DE INICIO DE LA RELACION LABORAL]]
 
-II. FUNDAMENTO LEGAL
+II. CAUSAL DE TERMINO Y HECHOS QUE LA CONFIGURAN
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Se invoca la causal del articulo [[NUMERO DE ARTICULO Y NUMERAL]] del Codigo del Trabajo, esto es: [[DESCRIPCION DE LA CAUSAL LEGAL]].
 
-III. PETICION
+Los hechos que configuran esta causal son los siguientes:
+[[DESCRIBIR DETALLADAMENTE LOS HECHOS CONCRETOS QUE JUSTIFICAN LA CAUSAL]]
 
-[[notificación formal de término de la relación laboral]]
+III. FECHA DE TERMINO
+
+La relacion laboral terminara con fecha [[FECHA EFECTIVA DE TERMINO]].
+
+IV. ESTADO DE COTIZACIONES PREVISIONALES
+
+Se adjunta certificado de la respectiva AFP que acredita que las cotizaciones previsionales se encuentran al dia, conforme lo exige el articulo 162 inciso 5 del Codigo del Trabajo.
+
+V. INDEMNIZACIONES OFRECIDAS
+
+[[INDICAR SI SE OFRECEN INDEMNIZACIONES: indemnizacion por anos de servicio, indemnizacion sustitutiva del aviso previo, feriado proporcional, u otras. Si no corresponden, indicar el motivo.]]
+
+VI. DERECHO A IMPUGNAR
+
+Se informa que, conforme al articulo 169 del Codigo del Trabajo, tiene un plazo de 60 dias habiles contados desde la separacion para recurrir ante el Juzgado del Trabajo competente si estima que el despido es injustificado, indebido o improcedente.
 
 Sin otro particular, saluda atentamente,
 
-[NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para notificación de despido / aviso de término de contrato. Petición: notificación formal de término de la relación laboral. Razona el caso con los hechos específicos del cliente.`,
+_____________________________
+[NOMBRE EN MAYUSCULAS]
+RUT: [RUT]
+Representante del empleador`,
+    instruccion_llm: `Redacta la carta de despido cumpliendo TODOS los requisitos del Art. 162 CT. OBLIGATORIO incluir: (1) causal legal precisa con numero de articulo y numeral; (2) hechos concretos que configuran la causal; (3) fecha efectiva de termino; (4) mencion de certificado de cotizaciones al dia; (5) indemnizaciones ofrecidas; (6) informar plazo de 60 dias habiles para impugnar. NO uses formato judicial (sin "EN LO PRINCIPAL", "RUEGO A US."). Este es un documento UNILATERAL del empleador al trabajador.`,
   },
 
   // ── Denuncia ante la Inspección del Trabajo (SCRAPEADO) ──
@@ -946,29 +989,62 @@ RUT: [RUT]`,
     keywords: ["despido injustificado", "improcedente", "sin causa", "me echaron", "me despidieron", "causal injustificada"],
     titulo: "Demanda por despido injustificado",
     tipo: 'judicial',
-    articulos: ["Art. 168 Código del Trabajo (despido injustificado y recargo indemnización)", "Art. 163 Código del Trabajo (indemnización por años de servicio)", "Art. 161 Código del Trabajo (causal necesidades de la empresa)"],
+    articulos: ["Art. 168 Código del Trabajo (despido injustificado y recargo indemnización)", "Art. 163 Código del Trabajo (indemnización por años de servicio)", "Art. 161 Código del Trabajo (causal necesidades de la empresa)", "Art. 162 Código del Trabajo (formalidades del despido y nulidad por cotizaciones)", "Art. 169 Código del Trabajo (plazo de 60 días hábiles para demandar)", "Art. 172 Código del Trabajo (base de cálculo de indemnizaciones)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda por despido injustificado. PRIMER OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE LETRAS DEL TRABAJO DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. RELACION LABORAL
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Empleador demandado: [DESTINATARIO EN MAYUSCULAS], RUT [[RUT EMPLEADOR]], domiciliado en [[DOMICILIO EMPLEADOR]].
+Cargo desempenado: [[CARGO]]
+Fecha de inicio de la relacion laboral: [[FECHA DE INICIO]]
+Ultima remuneracion mensual bruta: $[[MONTO REMUNERACION]]
+Fecha de despido: [[FECHA DE DESPIDO]]
 
-II. FUNDAMENTO LEGAL
+II. HECHOS DEL DESPIDO
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+[[DESCRIBIR: como fue comunicado el despido, que causal se invoco, circunstancias]]
+
+Causal invocada por el empleador: [[CAUSAL INVOCADA, articulo y numeral]]
+
+III. IMPROCEDENCIA DEL DESPIDO
+
+[[EXPLICAR POR QUE EL DESPIDO ES INJUSTIFICADO: los hechos no configuran la causal, no se cumplen requisitos formales del Art. 162, etc.]]
+
+IV. CALCULO DE INDEMNIZACIONES
+
+Conforme al Art. 168 del Codigo del Trabajo, al declararse injustificado el despido, corresponden las siguientes indemnizaciones:
+
+a) Indemnizacion sustitutiva del aviso previo (30 dias): $[[MONTO O CALCULO]]
+b) Indemnizacion por anos de servicio (Art. 163 CT):
+   [[ANOS TRABAJADOS]] anos x $[[ULTIMA REMUNERACION]] = $[[RESULTADO]]
+c) Recargo legal Art. 168 CT: [[30%, 50% o 100% segun causal]] sobre la indemnizacion por anos de servicio = $[[MONTO RECARGO]]
+d) Feriado proporcional (Art. 73 CT): $[[MONTO]]
+e) Remuneraciones pendientes: $[[MONTO]]
+[[SI HAY COTIZACIONES IMPAGAS]]:
+f) Nulidad del despido Art. 162 inc. 5-7 CT: remuneraciones desde el despido hasta convalidacion.
+
+TOTAL DEMANDADO: $[[SUMA TOTAL]]
+
+V. FUNDAMENTO LEGAL
+
+El articulo 168 del Codigo del Trabajo establece que si el despido es declarado injustificado, el juez ordenara el pago de la indemnizacion por anos de servicio con un recargo del 30% si la causal es del Art. 161, 50% si es del Art. 159 N°4-5-6, y 100% si es del Art. 160.
+
+El articulo 172 establece que la base de calculo es la ultima remuneracion mensual, incluyendo toda cantidad percibida por la prestacion de servicios.
 
 POR TANTO,
 
-RUEGO A US.: [[declaración de despido injustificado, indemnización sustitutiva con recargo del 30%]]
+RUEGO A US.: Declare que el despido de que fui objeto es injustificado y condene al demandado al pago de: indemnizacion sustitutiva del aviso previo, indemnizacion por anos de servicio con el recargo legal del [[PORCENTAJE]]%, feriado proporcional, remuneraciones pendientes, cotizaciones previsionales adeudadas si las hubiere, con reajustes e intereses del Art. 63 CT, y costas de la causa.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para despido injustificado / improcedente. Petición: declaración de despido injustificado, indemnización sustitutiva con recargo del 30%. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda por despido injustificado con TODAS las secciones obligatorias. CRITICO: incluir (1) datos completos de la relacion laboral; (2) causal invocada por el empleador; (3) razon por la que es injustificada; (4) calculo detallado de indemnizaciones (anos x remuneracion + recargo segun Art. 168). Si no hay datos de remuneracion, usar $_____ como marcador. El recargo es: 30% si la causal es Art. 161, 50% si es Art. 159 N4-6, 100% si es Art. 160. Plazo para demandar: 60 dias habiles desde la separacion (Art. 169 CT).`,
   },
 
   // ── Demanda tutela laboral por vulneración de derechos fundamentales (SCRAPEADO) ──
@@ -1168,26 +1244,57 @@ RUT: [RUT]`,
     articulos: ["Art. 332 Código Civil (extensión obligación alimentaria: hasta 28 años si estudia)", "Art. 321 Código Civil (quiénes tienen derecho a alimentos)", "Art. 55 Ley 14.908 (procedimiento cobro alimentos)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de alimentos para hijo mayor de edad. PRIMER OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante (alimentario): [NOMBRE EN MAYUSCULAS], RUT [RUT], [[EDAD]] anos de edad, domiciliado en [DIRECCION].
+Demandado: [[NOMBRE COMPLETO DEL DEMANDADO (padre/madre), RUT, DOMICILIO PARA NOTIFICAR]].
 
-II. FUNDAMENTO LEGAL
+II. ACREDITACION DE ESTUDIOS (Art. 332 CC)
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+El articulo 332 del Codigo Civil establece que los alimentos se deben hasta que los hijos cumplan 21 anos, SALVO que esten estudiando una profesion u oficio, en cuyo caso la obligacion se extiende hasta los 28 anos.
+
+El demandante actualmente cursa [[CARRERA O ESTUDIOS]] en [[INSTITUCION EDUCACIONAL]], en [[ANO/SEMESTRE]] de la carrera.
+
+Se acompana como prueba:
+- Certificado de matricula vigente ano [[ANO]]
+- Certificado de alumno regular
+- [[SI CORRESPONDE: concentracion de notas que acredita rendimiento academico]]
+
+III. NECESIDADES ECONOMICAS VINCULADAS A ESTUDIOS
+
+[[DESGLOSAR:
+  - Arancel/matricula: $______
+  - Materiales de estudio: $______
+  - Transporte a la institucion: $______
+  - Alimentacion: $______
+  - Vivienda (si estudia fuera de su ciudad): $______
+  - Salud: $______
+  - TOTAL NECESIDADES MENSUALES: $______]]
+
+IV. CAPACIDAD ECONOMICA DEL DEMANDADO
+
+[[DESCRIBIR: ocupacion, ingresos conocidos o estimados, bienes]]
+
+V. FUNDAMENTO LEGAL
+
+El articulo 332 del Codigo Civil dispone que los alimentos que se deben por ley se entienden concedidos por toda la vida del alimentario siempre que se mantengan las circunstancias que legitimaron la demanda. Respecto de los hijos, esta obligacion subsiste hasta los 28 anos si estan estudiando una profesion u oficio.
+
+El articulo 321 del Codigo Civil establece que se deben alimentos a los hijos.
 
 POR TANTO,
 
-RUEGO A US.: [[fijación o aumento de pensión de alimentos para mayor de edad estudiante]]
+RUEGO A US.: Fije pension de alimentos a favor del demandante por un monto de $[[MONTO SOLICITADO]] mensuales, atendido que se encuentra estudiando [[CARRERA]] y se cumplen los requisitos del Art. 332 del Codigo Civil.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para alimentos mayores de edad / hijos estudiando. Petición: fijación o aumento de pensión de alimentos para mayor de edad estudiante. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de alimentos para hijo mayor de edad. CRITICO: Si el hijo mayor de 18 NO esta estudiando una profesion u oficio, NO tiene derecho a alimentos salvo incapacidad (Art. 332 CC). Verificar este requisito con el cliente. OBLIGATORIO incluir: (1) acreditacion de que el hijo esta estudiando (certificado de matricula o alumno regular); (2) institucion y carrera; (3) necesidades economicas vinculadas a los estudios. Sin prueba de estudios vigentes, la demanda sera rechazada.`,
   },
 
   // ── Demanda de cuidado personal / tuición de menores (SCRAPEADO) ──
@@ -1227,29 +1334,53 @@ RUT: [RUT]`,
     keywords: ["divorcio", "cese convivencia", "separada", "separado", "separación", "matrimonio", "terminar matrimonio", "años separados"],
     titulo: "Demanda de divorcio por cese de convivencia",
     tipo: 'judicial',
-    articulos: ["Art. 55 Ley 19.947 LMC (divorcio por cese de convivencia: 3 años)", "Art. 56 Ley 19.947 LMC (efectos del divorcio)", "Art. 60 Ley 19.947 LMC (compensación económica en divorcio)"],
+    articulos: ["Art. 55 Ley 19.947 LMC (divorcio por cese de convivencia: 3 años)", "Art. 56 Ley 19.947 LMC (efectos del divorcio)", "Art. 60 Ley 19.947 LMC (compensación económica en divorcio)", "Art. 2 Ley 19.947 LMC (principios: protección del cónyuge más débil)", "Art. 61 Ley 19.947 LMC (procedencia compensación económica)", "Art. 62 Ley 19.947 LMC (criterios para fijar compensación)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de divorcio por cese de convivencia. PRIMER OTROSI: Compensacion economica. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LOS CONYUGES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Demandado(a): [[NOMBRE COMPLETO DEL CONYUGE, RUT, DOMICILIO PARA NOTIFICAR]].
+Fecha de matrimonio: [[FECHA DE CELEBRACION DEL MATRIMONIO]].
+Regimen patrimonial: [[SOCIEDAD CONYUGAL / SEPARACION DE BIENES / PARTICIPACION EN LOS GANANCIALES]].
 
-II. FUNDAMENTO LEGAL
+II. CESE DE CONVIVENCIA
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Las partes cesaron su convivencia con fecha [[FECHA DE CESE DE CONVIVENCIA]], esto es, hace mas de 3 anos.
+
+Medio de prueba del cese de convivencia (Art. 55 inc. 3 LMC):
+[[INDICAR: escritura publica de cese de convivencia / acta ante Oficial de Registro Civil / transaccion aprobada judicialmente / otros medios de prueba: testigos, certificados, etc.]]
+
+III. SITUACION DE HIJOS COMUNES
+
+[[SI HAY HIJOS: indicar nombre, RUT y edad de cada hijo. Indicar con quien viven, regimen de alimentos y visitas vigente. SI NO HAY HIJOS: declarar que no existen hijos comunes.]]
+
+IV. COMPENSACION ECONOMICA
+
+[[SI CORRESPONDE: El conyuge demandante solicita compensacion economica conforme a los Arts. 61 y 62 LMC, por haberse dedicado al cuidado de los hijos o del hogar comun, no habiendo podido desarrollar actividad remunerada o habiendolo hecho en menor medida. SI NO SE SOLICITA: declarar que no se solicita o se reserva para la audiencia.]]
+
+V. LIQUIDACION DE REGIMEN PATRIMONIAL
+
+[[SI CORRESPONDE: solicitar liquidacion de sociedad conyugal o comunidad de bienes. SI ES SEPARACION DE BIENES: declarar que no existe regimen que liquidar.]]
+
+VI. FUNDAMENTO LEGAL
+
+El articulo 55 inciso 3 de la Ley 19.947 establece que el divorcio sera decretado por el juez si ambos conyuges lo solicitan de comun acuerdo acreditando cese de convivencia de al menos un ano, o si lo solicita uno de ellos acreditando cese de convivencia de al menos tres anos.
 
 POR TANTO,
 
-RUEGO A US.: [[declaración judicial de divorcio por cese de convivencia superior a 3 años]]
+RUEGO A US.: Declare el divorcio por cese de convivencia superior a tres anos, ordene la subinscripcion de la sentencia al margen de la inscripcion matrimonial, y resuelva sobre compensacion economica y liquidacion del regimen patrimonial si correspondiere.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para divorcio unilateral por cese de convivencia de 3 años. Petición: declaración judicial de divorcio por cese de convivencia superior a 3 años. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la demanda de divorcio unilateral por cese de convivencia de 3 anos. OBLIGATORIO incluir: (1) individualizacion completa de ambos conyuges con fecha de matrimonio y regimen patrimonial; (2) fecha de cese de convivencia y MEDIO DE PRUEBA (Art. 55 inc. 3 LMC: escritura publica, acta Registro Civil, o transaccion aprobada judicialmente); (3) situacion de hijos comunes; (4) mencion de compensacion economica (Arts. 61-62 LMC); (5) liquidacion de sociedad conyugal si corresponde.`,
   },
 
   // ── Demanda de divorcio de mutuo acuerdo (SCRAPEADO) ──
@@ -1258,29 +1389,65 @@ RUT: [RUT]`,
     keywords: ["divorcio mutuo acuerdo", "divorcio de mutuo acuerdo", "divorcio de comun acuerdo", "divorcio amistoso", "divorcio de comun consentimiento"],
     titulo: "Demanda de divorcio de mutuo acuerdo",
     tipo: 'judicial',
-    articulos: ["Art. 55 inc. 1 Ley 19.947 LMC (divorcio de mutuo acuerdo: 1 año cese convivencia)", "Art. 63 Ley 19.947 LMC (acuerdo completo y suficiente)", "Art. 21 Ley 19.947 LMC (acuerdo regulador de relaciones mutuas)"],
+    articulos: ["Art. 55 inc. 1 Ley 19.947 LMC (divorcio de mutuo acuerdo: 1 año cese convivencia)", "Art. 63 Ley 19.947 LMC (acuerdo completo y suficiente)", "Art. 21 Ley 19.947 LMC (acuerdo regulador de relaciones mutuas)", "Art. 27 Ley 19.947 LMC (contenido del acuerdo completo y suficiente)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda conjunta de divorcio de mutuo acuerdo. PRIMER OTROSI: Acompana acuerdo completo y suficiente. SEGUNDO OTROSI: Acompana documentos.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], y [[NOMBRE COMPLETO DEL OTRO CONYUGE]], RUT [[RUT]], domiciliado en [[DIRECCION]], a US. respetuosamente decimos:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LOS CONYUGES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Conyuge 1: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Conyuge 2: [[NOMBRE COMPLETO, RUT, DOMICILIO]].
+Fecha de matrimonio: [[FECHA DE CELEBRACION DEL MATRIMONIO]].
+Regimen patrimonial: [[SOCIEDAD CONYUGAL / SEPARACION DE BIENES / PARTICIPACION EN LOS GANANCIALES]].
 
-II. FUNDAMENTO LEGAL
+II. CESE DE CONVIVENCIA
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Las partes cesaron su convivencia con fecha [[FECHA DE CESE DE CONVIVENCIA]], esto es, hace mas de 1 ano.
+
+Medio de prueba del cese de convivencia:
+[[INDICAR: escritura publica de cese de convivencia / acta ante Oficial de Registro Civil / transaccion aprobada judicialmente / otros medios]]
+
+III. ACUERDO COMPLETO Y SUFICIENTE (Art. 27 LMC)
+
+Conforme al articulo 27 de la Ley 19.947, ambos conyuges presentan acuerdo completo y suficiente que regula las siguientes materias:
+
+a) ALIMENTOS entre los conyuges y respecto de los hijos:
+[[INDICAR: monto, forma y periodicidad de los alimentos, o declarar que se renuncia mutuamente a ellos. Respecto de hijos: monto de pension alimenticia.]]
+
+b) REGIMEN DE BIENES / LIQUIDACION:
+[[INDICAR: como se liquida la sociedad conyugal o comunidad, o declarar que ya fue liquidada, o que el regimen es separacion de bienes.]]
+
+c) CUIDADO PERSONAL DE LOS HIJOS:
+[[SI HAY HIJOS MENORES: indicar con quien quedaran, o si sera cuidado compartido. SI NO HAY: declarar que no existen hijos menores.]]
+
+d) RELACION DIRECTA Y REGULAR (visitas):
+[[SI HAY HIJOS: indicar regimen propuesto (dias, horarios, vacaciones). SI NO HAY: no aplica.]]
+
+e) COMPENSACION ECONOMICA:
+[[INDICAR: monto acordado, forma de pago, o declarar que ambos renuncian.]]
+
+IV. FUNDAMENTO LEGAL
+
+El articulo 55 inciso 1 de la Ley 19.947 permite el divorcio de mutuo acuerdo cuando ambos conyuges lo solicitan conjuntamente, acreditando cese de convivencia durante un lapso mayor de un ano, y acompanando un acuerdo completo y suficiente que regule sus relaciones mutuas y las concernientes a sus hijos.
+
+Sin el acuerdo completo y suficiente del Art. 27 LMC, el tribunal no puede decretar el divorcio de mutuo acuerdo.
 
 POR TANTO,
 
-RUEGO A US.: [[declaración de divorcio de mutuo acuerdo con acuerdo regulador homologado]]
+RUEGO A US.: Declare el divorcio de mutuo acuerdo, apruebe el acuerdo completo y suficiente acompanado, y ordene la subinscripcion de la sentencia al margen de la inscripcion matrimonial.
 
 [NOMBRE]
-RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para divorcio por mutuo acuerdo de los cónyuges. Petición: declaración de divorcio de mutuo acuerdo con acuerdo regulador homologado. Razona el caso con los hechos específicos del cliente.`,
+RUT: [RUT]
+
+[[NOMBRE CONYUGE 2]]
+RUT: [[RUT CONYUGE 2]]`,
+    instruccion_llm: `Redacta la demanda conjunta de divorcio de mutuo acuerdo. CRITICO: Sin acuerdo completo y suficiente (Art. 27 LMC) el tribunal RECHAZA la demanda de plano. El acuerdo DEBE regular: (1) alimentos entre conyuges y para hijos; (2) regimen de bienes/liquidacion; (3) cuidado personal de hijos; (4) relacion directa y regular (visitas); (5) compensacion economica. Tambien debe acreditarse cese de convivencia de al menos 1 ano. Si el cliente no entrega todos los datos del acuerdo, dejar marcadores pero advertir que son OBLIGATORIOS.`,
   },
 
   // ── Denuncia por violencia intrafamiliar (SCRAPEADO) ──
@@ -1289,29 +1456,62 @@ RUT: [RUT]`,
     keywords: ["violencia intrafamiliar", "VIF", "maltrato", "agresión pareja", "violencia doméstica", "golpes pareja"],
     titulo: "Denuncia por violencia intrafamiliar",
     tipo: 'judicial',
-    articulos: ["Art. 3 Ley 20.066 (violencia intrafamiliar: concepto y sanciones)", "Art. 7 Ley 20.066 (medidas cautelares en VIF)", "Art. 92 Ley 19.968 (competencia tribunal de familia en VIF)"],
+    articulos: ["Art. 3 Ley 20.066 (violencia intrafamiliar: concepto y sanciones)", "Art. 7 Ley 20.066 (medidas cautelares en VIF)", "Art. 92 Ley 19.968 (competencia tribunal de familia en VIF)", "Art. 5 Ley 20.066 (definición de violencia intrafamiliar y sujetos protegidos)", "Art. 9 Ley 20.066 (medidas cautelares especiales)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Denuncia por violencia intrafamiliar. PRIMER OTROSI: Solicita medidas cautelares urgentes.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DEL DENUNCIANTE Y DEL AGRESOR
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Denunciante: [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Denunciado(a) (agresor): [[NOMBRE COMPLETO DEL AGRESOR, RUT SI SE CONOCE, DOMICILIO]].
 
-II. FUNDAMENTO LEGAL
+II. RELACION CON EL AGRESOR (Art. 5 Ley 20.066)
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+[[INDICAR VINCULO: conyuge, ex conyuge, conviviente, ex conviviente, padre/madre de hijo en comun, ascendiente, descendiente, etc. Este vinculo es REQUISITO para que proceda la VIF.]]
+
+III. HECHOS CONSTITUTIVOS DE VIOLENCIA
+
+[[DESCRIBIR CON PRECISION:
+  - Fecha y hora de los hechos
+  - Lugar donde ocurrieron
+  - Descripcion detallada de la agresion (fisica, psicologica, economica, sexual)
+  - Si hubo testigos: indicar nombres
+  - Si hay lesiones: describir y senalar si existe constancia medica (constancia de Carabineros, urgencia hospital, SAPU)
+  - Si es un patron reiterativo: describir episodios anteriores]]
+
+IV. MEDIDAS CAUTELARES SOLICITADAS (Arts. 7 y 9 Ley 20.066)
+
+Solicito a US. se sirva decretar las siguientes medidas cautelares de proteccion:
+[[MARCAR LAS QUE CORRESPONDAN:
+  a) Prohibicion de acercarse a la victima, su domicilio, lugar de trabajo o estudio
+  b) Prohibicion de porte y tenencia de armas de fuego
+  c) Abandono del hogar comun por parte del agresor
+  d) Fijacion de alimentos provisorios
+  e) Determinar regimen provisorio de cuidado personal y visitas de hijos
+  f) Prohibicion de celebrar actos o contratos sobre bienes comunes
+  g) Rondas periodicas de Carabineros al domicilio de la victima]]
+
+V. PRUEBA QUE SE ACOMPANA
+
+[[INDICAR: constancia de Carabineros, informe medico de lesiones, fotografias, mensajes de texto/WhatsApp, declaracion de testigos, denuncias anteriores, etc.]]
+
+VI. FUNDAMENTO LEGAL
+
+El articulo 5 de la Ley 20.066 define violencia intrafamiliar como todo maltrato que afecte la vida o la integridad fisica o psiquica de quien tenga la calidad de pariente en los terminos de dicha norma. El articulo 9 faculta al juez para decretar medidas cautelares de proteccion inmediata.
 
 POR TANTO,
 
-RUEGO A US.: [[medidas cautelares de protección y sanción del agresor]]
+RUEGO A US.: Tenga por interpuesta denuncia por violencia intrafamiliar en contra de [[NOMBRE DEL AGRESOR]], decrete las medidas cautelares solicitadas, y en definitiva sancione al agresor conforme a la ley.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para denuncia violencia intrafamiliar ante juzgado de familia. Petición: medidas cautelares de protección y sanción del agresor. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la denuncia por VIF. OBLIGATORIO incluir: (1) relacion con el agresor (Art. 5 Ley 20.066 - sin vinculo no procede VIF); (2) descripcion detallada de hechos con FECHA y LUGAR; (3) solicitud de medidas cautelares ESPECIFICAS del Art. 9 Ley 20.066 (prohibicion de acercarse, abandono del hogar, etc.); (4) mencion de pruebas si existen (constancias medicas, testigos). Si la victima menciona lesiones, recomendar que se haga constancia de lesiones en hospital o SAPU.`,
   },
 
   // ── Solicitud de régimen de relación directa y regular (visitas) (SCRAPEADO) ──
@@ -1351,29 +1551,47 @@ RUT: [RUT]`,
     keywords: ["alimentos provisorios", "pensión provisional", "urgente alimentos", "medida cautelar alimentos"],
     titulo: "Solicitud de alimentos provisorios urgentes",
     tipo: 'judicial',
-    articulos: ["Art. 4 Ley 14.908 (alimentos provisorios desde primera presentación)", "Art. 5 Ley 14.908 (monto mínimo alimentos provisorios)", "Art. 327 Código Civil (obligación alimentaria y su extensión)"],
+    articulos: ["Art. 4 Ley 14.908 (alimentos provisorios desde primera presentación)", "Art. 5 Ley 14.908 (monto mínimo alimentos provisorios: 40% ingreso mínimo)", "Art. 327 Código Civil (obligación alimentaria y su extensión)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Solicita alimentos provisorios urgentes.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. URGENCIA Y NECESIDADES INMEDIATAS
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+[[DESCRIBIR LA SITUACION DE URGENCIA: necesidades basicas insatisfechas del alimentario, falta de recursos para alimentacion, salud, educacion. Indicar por que se requiere fijacion inmediata sin esperar sentencia definitiva.]]
 
-II. FUNDAMENTO LEGAL
+II. INDIVIDUALIZACION
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+Alimentario(s): [[NOMBRE COMPLETO DEL HIJO/A, RUT, FECHA DE NACIMIENTO Y EDAD]]
+Demandado: [[NOMBRE COMPLETO DEL DEMANDADO, RUT, DOMICILIO PARA NOTIFICAR]]
+Vinculo: [[RELACION DE PARENTESCO - adjuntar certificado de nacimiento como acreditacion sumaria]]
+
+III. ACREDITACION SUMARIA DE LA OBLIGACION
+
+Se acompana certificado de nacimiento que acredita la relacion de filiacion y por tanto la obligacion alimentaria del demandado conforme al Art. 321 del Codigo Civil.
+
+IV. MONTO PROVISORIO SOLICITADO
+
+Solicito se fijen alimentos provisorios por un monto de $[[MONTO SOLICITADO]], equivalente a [[PORCENTAJE]]% del ingreso minimo remuneracional.
+
+Fundamento: El Art. 5 de la Ley 14.908 establece que el monto minimo de la pension alimenticia no podra ser inferior al 40% del ingreso minimo remuneracional por cada hijo, esto es, actualmente no inferior a $[[MONTO MINIMO LEGAL APROXIMADO]].
+
+V. FUNDAMENTO LEGAL
+
+El articulo 4 de la Ley 14.908 faculta al juez para fijar alimentos provisorios con el solo merito de la demanda, sin necesidad de audiencia previa. El articulo 5 establece el piso minimo del 40% del ingreso minimo remuneracional.
 
 POR TANTO,
 
-RUEGO A US.: [[fijación de pensión de alimentos provisorios con carácter urgente]]
+RUEGO A US.: Fije alimentos provisorios a favor de [[NOMBRE DEL ALIMENTARIO]] por un monto de $[[MONTO]], con el solo merito de la presente solicitud y los antecedentes acompanados, conforme al Art. 4 de la Ley 14.908.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para alimentos provisorios / medida cautelar pensión alimenticia. Petición: fijación de pensión de alimentos provisorios con carácter urgente. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: `Redacta la solicitud de alimentos provisorios urgentes. CRITICO: Los alimentos provisorios se decretan de plano con la sola presentacion (Art. 4 Ley 14.908) - incluir siempre el monto minimo legal (40% ingreso minimo remuneracional = aprox $180.000) como piso. Incluir: (1) urgencia y necesidades inmediatas; (2) acreditacion sumaria (certificado de nacimiento); (3) monto solicitado con referencia al minimo legal. Si el demandante no indica monto, usar el minimo legal como referencia.`,
   },
 
   // ── Demanda de cobro de dinero (SCRAPEADO) ──
@@ -2336,29 +2554,54 @@ RUT: [RUT]`,
     keywords: ["pensión alimenticia", "abandono de familia", "ley 14908", "alimentos", "hijos", "cónyuge"],
     titulo: "Solicitud de Pensión Alimenticia",
     tipo: 'judicial',
-    articulos: ["Art. 1 Ley 14.908 (obligación de prestar alimentos)", "Art. 3 Ley 14.908 (procedimiento judicial)"],
+    articulos: ["Art. 1 Ley 14.908 (obligación de prestar alimentos)", "Art. 3 Ley 14.908 (procedimiento judicial)", "Art. 7 Ley 14.908 (monto mínimo: 40% ingreso mínimo remuneracional por hijo)", "Art. 329 Código Civil (tasación de alimentos)", "Art. 330 Código Civil (alimentos congruos y necesarios)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Demanda de alimentos. PRIMER OTROSI: Alimentos provisorios.
+
+SEÑOR JUEZ DEL JUZGADO DE FAMILIA DE [CIUDAD]
 PRESENTE
 
 [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACION DE LAS PARTES
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Demandante (representante del alimentario): [NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION].
+Alimentario(s): [[NOMBRE COMPLETO DEL HIJO/A, RUT, FECHA DE NACIMIENTO Y EDAD]]
+Demandado: [[NOMBRE COMPLETO DEL DEMANDADO, RUT, DOMICILIO PARA NOTIFICAR]]
 
-II. FUNDAMENTO LEGAL
+II. RELACION DE PARENTESCO
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+[[INDICAR VINCULO: padre/madre del menor. ACREDITAR CON: certificado de nacimiento que se acompana]]
+
+III. NECESIDADES DEL ALIMENTARIO
+
+[[DESGLOSAR NECESIDADES:
+  - Alimentacion: $______
+  - Educacion (colegio, utiles, uniforme): $______
+  - Salud (Isapre/Fonasa, medicamentos): $______
+  - Vestuario: $______
+  - Vivienda (proporcion): $______
+  - Recreacion y transporte: $______
+  - TOTAL NECESIDADES MENSUALES: $______]]
+
+IV. CAPACIDAD ECONOMICA DEL DEMANDADO
+
+[[DESCRIBIR: ocupacion, lugar de trabajo, ingresos conocidos o estimados, bienes, nivel de vida. Si no se conocen ingresos exactos, solicitar oficios a SII, AFP, bancos.]]
+
+V. FUNDAMENTO LEGAL
+
+El articulo 321 del Codigo Civil establece la obligacion de prestar alimentos a los hijos. El articulo 329 del Codigo Civil dispone que los alimentos se tasan en proporcion a las necesidades del alimentario y las facultades del alimentante. El articulo 7 de la Ley 14.908 fija como minimo legal el 40% del ingreso minimo remuneracional por hijo.
 
 POR TANTO,
 
-RUEGO A US.: [[Se solicita al tribunal que fije una pensión alimenticia provisoria o definitiva a favor del alimentario.]]
+RUEGO A US.: Se sirva fijar una pension de alimentos definitiva a favor de [[NOMBRE DEL ALIMENTARIO]] por un monto de $[[MONTO SOLICITADO]] mensuales, o en subsidio, no inferior al minimo legal del Art. 7 Ley 14.908.
+
+PRIMER OTROSI: Solicito a US. se sirva fijar alimentos provisorios por el monto de $[[MONTO PROVISORIO]] desde la notificacion de la demanda, con el solo merito de los antecedentes acompanados.
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Personaliza el escrito con los nombres del solicitante y del demandado, monto solicitado, relación familiar (hijos, cónyuge), y antecedentes de ingresos del demandado.`,
+    instruccion_llm: `Personaliza el escrito con los nombres del solicitante y del demandado, monto solicitado, relacion familiar (hijos, conyuge), y antecedentes de ingresos del demandado. OBLIGATORIO: incluir individualizacion del alimentario (nombre, RUT, edad), relacion de parentesco, desglose de necesidades, y capacidad economica del demandado. El minimo legal es 40% del ingreso minimo remuneracional por hijo (Art. 7 Ley 14.908). Si no se conocen montos exactos, usar $_____ como marcador.`,
   },
 
   // ── Arrendamiento Urbano (SCRAPEADO) ──
@@ -2613,8 +2856,16 @@ _______________________________
 [NOMBRE]
 RUT: [RUT]
 
+_______________________________
+Testigo 1: _____________________
+RUT: _____________________
+
+_______________________________
+Testigo 2: _____________________
+RUT: _____________________
+
 (Firma ante Notario Público)`,
-    instruccion_llm: 'Documento de declaración jurada simple. NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena el hecho declarado exactamente con lo que indicó el cliente, sin inventar montos, fechas ni datos no entregados.',
+    instruccion_llm: 'Documento de declaracion jurada simple. NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). Rellena el hecho declarado exactamente con lo que indico el cliente, sin inventar montos, fechas ni datos no entregados. Si la declaracion es para un tramite ante servicio publico, banco o tribunal, verificar si requiere 2 testigos o solo firma ante notario. Por defecto incluir espacio para firma notarial. Si el usuario menciona que es para el Registro Civil, agregar testigos. Si es solo para tramite bancario simple, los testigos son opcionales.',
   },
 
   // ── CARTA DE RENUNCIA VOLUNTARIA ─────────────────────────────────────────
