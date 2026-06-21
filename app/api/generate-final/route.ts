@@ -111,6 +111,17 @@ function stripMarkdown(s: string): string {
     .replace(/[ \t]+\n/g, '\n');        // espacios al final de linea
 }
 
+// ─── Trunca el documento para la VISTA PREVIA (sin pago) ─────────────────────
+// Solo se envía al cliente ~40% del documento (coincide con el overlay de blur
+// del front). Asi el texto completo NUNCA sale del servidor sin pago verificado.
+function truncateForPreview(doc: string): string {
+  const lines = doc.split('\n');
+  const keep = Math.max(6, Math.ceil(lines.length * 0.4));
+  const slice = lines.slice(0, keep);
+  while (slice.length && slice[slice.length - 1].trim() === '') slice.pop();
+  return slice.join('\n');
+}
+
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   // Rate limiting
@@ -127,21 +138,30 @@ export async function POST(req: NextRequest) {
     const caseData: Record<string, unknown> = await req.json();
 
     // ─── Payment verification ───────────────────────────────────────────────
+    // Sin orderId => es una VISTA PREVIA (se devuelve truncada).
+    // Con orderId => debe estar 'approved' para devolver el documento completo.
     const orderId = typeof caseData.orderId === 'string' ? caseData.orderId : null;
+    let isPaid = false;
     if (orderId) {
       const order = await getOrderByOrderId(orderId);
       if (!order || order.status !== 'approved') {
         return NextResponse.json({ error: 'Pago no verificado' }, { status: 403 });
       }
+      isPaid = true;
     }
 
     const tipo = String(caseData.tipo_documento ?? 'documento legal');
 
     // LLM generates the document — no external search needed
-    console.log(`[generate-final] Generating "${tipo}" with LLM`);
+    console.log(`[generate-final] Generating "${tipo}" with LLM (paid=${isPaid})`);
     const document = await generateDocument(tipo, caseData) ?? buildMock(tipo, caseData);
+    const clean = stripMarkdown(document);
 
-    return NextResponse.json({ document: stripMarkdown(document) });
+    // El documento completo SOLO se entrega con pago verificado.
+    return NextResponse.json({
+      document: isPaid ? clean : truncateForPreview(clean),
+      preview: !isPaid,
+    });
   } catch (err) {
     console.error('[generate-final] error:', err);
     return NextResponse.json({ error: 'Error generando el documento' }, { status: 500 });

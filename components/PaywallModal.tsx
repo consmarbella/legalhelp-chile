@@ -66,7 +66,7 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
               <div className="flex justify-between items-start">
                 <div>
                   <p className="font-bold text-[#0b1f3a] text-base">Documento único</p>
-                  <p className="text-xs text-[#8a7f72] mt-0.5">Genera y descarga este documento en PDF</p>
+                  <p className="text-xs text-[#8a7f72] mt-0.5">Genera y descarga este documento en PDF y Word</p>
                 </div>
                 <div className="text-right">
                   <p className="text-[#c9a84c] font-bold text-xl">
@@ -76,9 +76,7 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
                 </div>
               </div>
               <div className="mt-2 pt-2 border-t border-[#e8e2d8] flex items-center gap-2">
-                <img src="https://www.webpay.cl/img/logo-webpay.png" alt="WebPay"
-                  className="h-5 opacity-70" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
-                <span className="text-xs text-[#8a7f72]">Pago seguro con WebPay / Tarjeta</span>
+                <span className="text-xs text-[#8a7f72]">🔒 Pago seguro con MercadoPago / Tarjeta</span>
               </div>
             </button>
           </div>

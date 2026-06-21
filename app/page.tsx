@@ -139,15 +139,11 @@ export default function Home() {
   const handlePayment = async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
     try {
-      const selectedDocData = DOC_TYPES.find(d => d.id === selectedDoc);
-      const docPrice = selectedDocData?.price
-        ? parseInt(selectedDocData.price.replace(/\D/g, ''), 10) || undefined
-        : undefined;
-
       const res = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, caseData, docPrice }),
+        // El precio se resuelve en el servidor a partir de docId (no se envía el monto)
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
       });
       const data = await res.json();
 
