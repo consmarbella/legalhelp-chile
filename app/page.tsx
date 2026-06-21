@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { downloadLegalPdf } from '@/lib/generatePdf';
+import { downloadLegalDocx } from '@/lib/generateDocx';
 import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
@@ -138,15 +139,11 @@ export default function Home() {
   const handlePayment = async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
     try {
-      const selectedDocData = DOC_TYPES.find(d => d.id === selectedDoc);
-      const docPrice = selectedDocData?.price
-        ? parseInt(selectedDocData.price.replace(/\D/g, ''), 10) || undefined
-        : undefined;
-
       const res = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, caseData, docPrice }),
+        // El precio se resuelve en el servidor a partir de docId (no se envía el monto)
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
       });
       const data = await res.json();
 
@@ -165,11 +162,45 @@ export default function Home() {
     }
   };
 
+  // Pago de PRUEBA (sin cobro) — solo visible si NEXT_PUBLIC_ALLOW_TEST_PAYMENT === 'true'.
+  // El servidor además lo bloquea en producción (VERCEL_ENV === 'production').
+  const handleTestPayment = async (plan: 'single' | 'monthly') => {
+    setPaymentLoading(true);
+    try {
+      const res = await fetch('/api/payment/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+      });
+      const data = await res.json();
+
+      if (data.checkoutUrl) {
+        sessionStorage.setItem('lh_case_data', JSON.stringify(caseData));
+        sessionStorage.setItem('lh_messages',  JSON.stringify(messages));
+        sessionStorage.setItem('lh_pending_order', data.orderId);
+        window.location.href = data.checkoutUrl;
+      } else {
+        console.error('Modo prueba no disponible:', data);
+      }
+    } catch (err) {
+      console.error('Error en pago de prueba:', err);
+    } finally {
+      setPaymentLoading(false);
+    }
+  };
+
   const handleDownload = () => {
     if (!generatedDoc) return;
     const nombreStr = String(caseData.nombre ?? 'documento');
     const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
     downloadLegalPdf(generatedDoc, fileName);
+  };
+
+  const handleDownloadWord = async () => {
+    if (!generatedDoc) return;
+    const nombreStr = String(caseData.nombre ?? 'documento');
+    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
+    await downloadLegalDocx(generatedDoc, fileName);
   };
 
   return (
@@ -372,6 +403,11 @@ export default function Home() {
                       style={{ fontFamily: 'sans-serif' }}>
                       ↓ Descargar PDF
                     </button>
+                    <button onClick={handleDownloadWord}
+                      className="flex-1 bg-white border border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#f0f4fa] py-2.5 rounded-xl text-sm font-medium transition text-center"
+                      style={{ fontFamily: 'sans-serif' }}>
+                      ↓ Descargar Word
+                    </button>
                     <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
                       className="px-4 py-2.5 border border-[#ddd8cc] hover:border-[#c9a84c] rounded-xl text-sm text-[#6b6355] transition"
                       style={{ fontFamily: 'sans-serif' }}>
@@ -494,6 +530,7 @@ export default function Home() {
           selectedDoc={selectedDoc}
           paymentLoading={paymentLoading}
           onPayment={handlePayment}
+          onTestPayment={process.env.NEXT_PUBLIC_ALLOW_TEST_PAYMENT === 'true' ? handleTestPayment : undefined}
           onClose={() => setShowPaywall(false)}
         />
       )}

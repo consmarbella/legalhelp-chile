@@ -1,10 +1,45 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { MercadoPagoConfig, Payment } from 'mercadopago';
+import crypto from 'crypto';
 import { getOrderByOrderId, getOrderByPreferenceId, updateOrder } from '@/lib/orderStore';
 
 const mp = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN ?? '',
 });
+
+/**
+ * Valida la firma x-signature de MercadoPago.
+ * Solo se aplica si MP_WEBHOOK_SECRET está configurado; si no, se omite
+ * (no rompe instalaciones que aún no tienen el secreto configurado).
+ * Doc: manifest = `id:<data.id>;request-id:<x-request-id>;ts:<ts>;`
+ */
+function isValidSignature(req: NextRequest, dataId: string): boolean {
+  const secret = process.env.MP_WEBHOOK_SECRET;
+  if (!secret) return true; // sin secreto => no validamos (el re-fetch a MP ya mitiga)
+
+  const xSignature = req.headers.get('x-signature') ?? '';
+  const xRequestId = req.headers.get('x-request-id') ?? '';
+
+  // x-signature: "ts=1700000000,v1=abcdef..."
+  const parts: Record<string, string> = {};
+  for (const segment of xSignature.split(',')) {
+    const [k, v] = segment.split('=').map(s => s?.trim());
+    if (k && v) parts[k] = v;
+  }
+  const ts = parts['ts'];
+  const v1 = parts['v1'];
+  if (!ts || !v1) return false;
+
+  // El id alfanumérico debe ir en minúscula (los payment id numéricos no cambian)
+  const manifest = `id:${dataId.toLowerCase()};request-id:${xRequestId};ts:${ts};`;
+  const computed = crypto.createHmac('sha256', secret).update(manifest).digest('hex');
+
+  try {
+    return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(v1));
+  } catch {
+    return false;
+  }
+}
 
 /**
  * MercadoPago envía dos tipos de notificaciones:
@@ -28,6 +63,14 @@ export async function POST(req: NextRequest) {
 
     const paymentId = String(rawId);
     console.log('[webhook] payment id:', paymentId);
+
+    // Validar firma (si MP_WEBHOOK_SECRET está configurado).
+    // MP firma usando el id del query param data.id; usamos ese y, si no, rawId.
+    const signedId = searchParams.get('data.id') ?? paymentId;
+    if (!isValidSignature(req, signedId)) {
+      console.warn('[webhook] firma inválida — notificación rechazada');
+      return NextResponse.json({ error: 'firma inválida' }, { status: 401 });
+    }
 
     // Consultar el estado del pago en MP
     const paymentData = await new Payment(mp).get({ id: paymentId });

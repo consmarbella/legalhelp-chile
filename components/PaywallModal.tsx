@@ -8,10 +8,11 @@ interface PaywallModalProps {
   selectedDoc: string | null;
   paymentLoading: boolean;
   onPayment: (plan: 'single' | 'monthly') => void;
+  onTestPayment?: (plan: 'single' | 'monthly') => void;
   onClose: () => void;
 }
 
-export default function PaywallModal({ caseData, selectedDoc, paymentLoading, onPayment, onClose }: PaywallModalProps) {
+export default function PaywallModal({ caseData, selectedDoc, paymentLoading, onPayment, onTestPayment, onClose }: PaywallModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: 'rgba(11,31,58,0.75)', backdropFilter: 'blur(4px)' }}>
@@ -66,7 +67,7 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
               <div className="flex justify-between items-start">
                 <div>
                   <p className="font-bold text-[#0b1f3a] text-base">Documento único</p>
-                  <p className="text-xs text-[#8a7f72] mt-0.5">Genera y descarga este documento en PDF</p>
+                  <p className="text-xs text-[#8a7f72] mt-0.5">Genera y descarga este documento en PDF y Word</p>
                 </div>
                 <div className="text-right">
                   <p className="text-[#c9a84c] font-bold text-xl">
@@ -76,9 +77,7 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
                 </div>
               </div>
               <div className="mt-2 pt-2 border-t border-[#e8e2d8] flex items-center gap-2">
-                <img src="https://www.webpay.cl/img/logo-webpay.png" alt="WebPay"
-                  className="h-5 opacity-70" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
-                <span className="text-xs text-[#8a7f72]">Pago seguro con WebPay / Tarjeta</span>
+                <span className="text-xs text-[#8a7f72]">🔒 Pago seguro con MercadoPago / Tarjeta</span>
               </div>
             </button>
           </div>
@@ -89,6 +88,16 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
               <span className="w-4 h-4 border-2 border-[#c9a84c] border-t-transparent rounded-full animate-spin" />
               Redirigiendo a MercadoPago...
             </div>
+          )}
+
+          {/* Modo prueba (solo en entornos NO productivos) */}
+          {onTestPayment && (
+            <button
+              onClick={() => onTestPayment('single')}
+              disabled={paymentLoading}
+              className="w-full mb-2 text-center text-xs font-medium text-[#0b1f3a] bg-[#fff7e0] border border-dashed border-[#c9a84c] rounded-lg py-2 hover:bg-[#fdf2cf] transition disabled:opacity-60">
+              🧪 Probar flujo sin cobro (modo prueba)
+            </button>
           )}
 
           {/* Close button */}

@@ -3,6 +3,7 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { randomUUID } from 'crypto';
 import { saveOrder } from '@/lib/orderStore';
 import { validateEnv } from '@/lib/validateEnv';
+import { getDocPriceCLP, MONTHLY_PRICE_CLP } from '@/lib/constants';
 import { checkRateLimit, getClientIp, PAYMENT_RATE_LIMIT } from '@/lib/rateLimit';
 
 const accessToken = process.env.MP_ACCESS_TOKEN ?? '';
@@ -12,7 +13,7 @@ const mp = new MercadoPagoConfig({ accessToken });
 
 const PLANS = {
   single:  { label: 'Documento legal - Legalhelp', amount: 10000 },
-  monthly: { label: 'Plan mensual - Legalhelp', amount: 19990 },
+  monthly: { label: 'Plan mensual - Legalhelp', amount: MONTHLY_PRICE_CLP },
 } as const;
 
 export async function POST(req: NextRequest) {
@@ -29,10 +30,10 @@ export async function POST(req: NextRequest) {
   validateEnv();
   try {
     const body = await req.json();
-    const { plan, caseData, docPrice } = body as {
+    const { plan, caseData, docId } = body as {
       plan: 'single' | 'monthly';
       caseData: Record<string, unknown>;
-      docPrice?: number;
+      docId?: string;
     };
 
     if (!plan || !caseData) {
@@ -42,8 +43,10 @@ export async function POST(req: NextRequest) {
     const orderId = randomUUID();
     const base = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3002';
 
-    // Precio: usa el del documento si es pago único y viene definido
-    const amount = plan === 'single' && docPrice ? docPrice : PLANS[plan].amount;
+    // Precio resuelto EN EL SERVIDOR a partir del tipo de documento (docId).
+    // Nunca se confía en un monto enviado por el cliente (evita manipular el precio).
+    const amount = plan === 'single' ? getDocPriceCLP(docId) : PLANS.monthly.amount;
+    const itemTitle = plan === 'single' ? PLANS.single.label : PLANS.monthly.label;
 
     // Si el usuario proporcionó su e-mail en el chat, pasárselo a MP
     // → el campo llega validado y el botón "Pagar" arranca en azul (no gris)
@@ -57,7 +60,7 @@ export async function POST(req: NextRequest) {
         items: [
           {
             id: plan,
-            title: PLANS[plan].label,
+            title: itemTitle,
             quantity: 1,
             unit_price: amount,
             currency_id: 'CLP',
