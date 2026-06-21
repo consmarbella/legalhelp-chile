@@ -157,6 +157,14 @@ export default function Home() {
     downloadLegalPdf(generatedDoc, fileName);
   };
 
+  const handleDownloadWord = async () => {
+    if (!generatedDoc) return;
+    const { downloadLegalDocx } = await import('@/lib/generateDocx');
+    const nombreStr = String(caseData.nombre ?? 'documento');
+    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
+    await downloadLegalDocx(generatedDoc, fileName);
+  };
+
   const statusText = paid
     ? 'PLAN ACTIVO · DOCUMENTOS ILIMITADOS'
     : 'SISTEMA EN LÍNEA · NÚCLEO IA OPERATIVO';
