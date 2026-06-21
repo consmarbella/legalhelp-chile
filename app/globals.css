@@ -79,6 +79,20 @@ body::after {
 .text-ice  { color: var(--blue); }
 .text-sub  { color: #c8d8e8; }
 
+/* Glow fuerte para elementos que DEBEN brillar */
+.glow-white { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.2); }
+.glow-status { text-shadow: 0 0 12px rgba(0, 212, 255, 0.9), 0 0 30px rgba(0, 212, 255, 0.4); }
+.glow-badge { 
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.25), inset 0 0 8px rgba(0, 212, 255, 0.1);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+.glow-logo-svg { filter: drop-shadow(0 0 14px rgba(0, 212, 255, 0.8)) drop-shadow(0 0 35px rgba(0, 212, 255, 0.4)); }
+.glow-status-pill {
+  border-color: rgba(0, 212, 255, 0.5) !important;
+  box-shadow: 0 0 22px rgba(0, 212, 255, 0.35), inset 0 0 10px rgba(0, 212, 255, 0.12);
+}
+
 .hud-label {
   font-family: var(--font-geist-mono), monospace;
   letter-spacing: 0.22em;
