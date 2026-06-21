@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import paginas from '@/data/paginas.json';
+import { isReleased } from '@/lib/release';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages: MetadataRoute.Sitemap = paginas
     .filter((p) => !seen.has(p.slug) && seen.add(p.slug))
+    // Goteo: solo páginas ya publicadas (release pasada o sin release)
+    .filter((p) => isReleased((p as { release?: string }).release))
     .map((p) => ({
       url: `${BASE_URL}/p/${p.slug}`,
       lastModified: lastMod,

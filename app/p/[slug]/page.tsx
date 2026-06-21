@@ -3,10 +3,11 @@ import ChatGenerator from '@/components/ChatGenerator';
 import paginas from '@/data/paginas.json';
 import hubGuides from '@/data/hub_guides.json';
 import contenidoUnico from '@/data/contenido-unico.json';
+import { isReleased } from '@/lib/release';
 import Link from 'next/link';
 import { LEYES, findLey } from '@/data/leyes';
 
-type Pagina = (typeof paginas)[number] & { intro?: string };
+type Pagina = (typeof paginas)[number] & { intro?: string; release?: string };
 type ContenidoUnico = Record<string, {
   faqs: { q: string; a: string }[];
   paragraph: string;
@@ -605,9 +606,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const description = getRichDescription();
 
-  // Verificar si esta página debe ser noindex (canibalización)
+  // Verificar si esta página debe ser noindex (canibalización o aún no publicada por goteo)
   const cu = (contenidoUnico as ContenidoUnico)[slug];
-  const shouldNoIndex = cu?.noindex === true;
+  const shouldNoIndex = cu?.noindex === true || !isReleased((data as Pagina).release);
 
   return {
     title: isHub
@@ -713,13 +714,13 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
   // Contenido único SSR (FAQ local + párrafo + noindex)
   const cu = (contenidoUnico as ContenidoUnico)[slug];
 
-  // Same-category pages for internal linking
+  // Same-category pages for internal linking (solo las ya publicadas por goteo)
   const relacionadas = paginas.filter(
-    (p) => p.categoria === data.categoria && p.slug !== data.slug
+    (p) => p.categoria === data.categoria && p.slug !== data.slug && isReleased((p as Pagina).release)
   );
 
   // ── Interlinking por clúster temático (cross-categoría) ───────────────────
-  const validSet = new Set(paginas.map((p) => p.slug));
+  const validSet = new Set(paginas.filter((p) => isReleased((p as Pagina).release)).map((p) => p.slug));
   const hubByCat: Record<string, string> = {};
   const catBySlug: Record<string, string> = {};
   for (const p of paginas) {
