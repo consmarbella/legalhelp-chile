@@ -20,6 +20,20 @@ export const DOC_TYPES = [
 
 export const EMPTY_CASE: CaseData = { ready: false };
 
+// Precio fijo del plan mensual (no depende del tipo de documento)
+export const MONTHLY_PRICE_CLP = 19990;
+
+// Precio (CLP, entero) del documento según su id de tipo.
+// SE RESUELVE EN EL SERVIDOR a partir de DOC_TYPES — NUNCA se confía en un
+// precio enviado por el cliente (evita manipular el monto a pagar).
+export function getDocPriceCLP(docId: string | null | undefined): number {
+  const FALLBACK = 10000; // = precio de 'otro'
+  const doc = DOC_TYPES.find(d => d.id === docId);
+  if (!doc) return FALLBACK;
+  const n = parseInt(doc.price.replace(/\D/g, ''), 10);
+  return Number.isFinite(n) && n > 0 ? n : FALLBACK;
+}
+
 export function todayChile() {
   return new Date().toLocaleDateString('es-CL', {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago',

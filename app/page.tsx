@@ -126,15 +126,11 @@ export default function Home() {
   const handlePayment = async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
     try {
-      const selectedDocData = DOC_TYPES.find(d => d.id === selectedDoc);
-      const docPrice = selectedDocData?.price
-        ? parseInt(selectedDocData.price.replace(/\D/g, ''), 10) || undefined
-        : undefined;
-
       const res = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, caseData, docPrice }),
+        // El precio se resuelve en el servidor a partir de docId (no se envía el monto)
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
       });
       const data = await res.json();
 
@@ -370,6 +366,11 @@ export default function Home() {
                     <button onClick={handleDownload}
                       className="flex-1 bg-[#05070f] hover:bg-[#101a30] text-white py-2.5 rounded-xl text-sm font-medium transition text-center">
                       ↓ Descargar PDF
+                    </button>
+                    <button onClick={handleDownloadWord}
+                      className="flex-1 bg-white border border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#f0f4fa] py-2.5 rounded-xl text-sm font-medium transition text-center"
+                      style={{ fontFamily: 'sans-serif' }}>
+                      ↓ Descargar Word
                     </button>
                     <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
                       className="px-4 py-2.5 border border-[#cdd6e4] hover:border-[#00aacc] rounded-xl text-sm text-[#7a90aa] transition">
