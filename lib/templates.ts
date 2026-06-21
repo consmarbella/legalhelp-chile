@@ -25,7 +25,7 @@ export const TEMPLATES: LegalTemplate[] = [
   // ── 1. PRESCRIPCIÓN DE DEUDA / MULTA TAG ────────────────────────────────
   {
     id: 'prescripcion-tag',
-    keywords: ['tag', 'autopista', 'telepeaje', 'peaje', 'deuda tag', 'prescripcion tag', 'deuda autopista', 'costanera', 'vespucio', 'autopista central', 'multa tag', 'multa de transito tag', 'multa autopista', 'infraccion tag', 'circular sin tag', 'parte por tag', 'multa por no tener tag', 'prescripcion multa tag'],
+    keywords: ['tag', 'autopista', 'telepeaje', 'peaje', 'deuda tag', 'prescripcion tag', 'deuda autopista', 'costanera', 'vespucio', 'autopista central', 'multa tag', 'multa de transito tag', 'multa autopista', 'infraccion tag', 'circular sin tag', 'parte por tag', 'multa por no tener tag', 'prescripcion multa tag', 'prescripcion multa', 'prescripcion multa transito', 'multa de transito', 'juzgado policia local', 'prescripcion juzgado policia', 'escrito de prescripcion ante juzgado de policia local', 'prescripcion ante juzgado'],
     titulo: 'Solicitud de prescripción de multa de tránsito por TAG (ante JPL)',
     tipo: 'judicial',
     articulos: ["Art. 24 Ley 18.287 (prescripción de la acción contravencional: 3 años desde la anotación de la multa en el Registro Civil)", "Art. 25 Ley 18.287 (prescripción de la pena: 3 años desde la sentencia ejecutoriada)", "Art. 171 Ley 18.290 Ley de Tránsito (procedimiento por infracciones)"],
