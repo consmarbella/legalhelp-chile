@@ -9,14 +9,11 @@ import { getDocPriceCLP, MONTHLY_PRICE_CLP } from '@/lib/constants';
  * (vista previa → "pago" → generar → descargar) SIN pasar por MercadoPago
  * y SIN cobrar dinero real.
  *
- * Doble protección — solo funciona si:
- *   1. ALLOW_TEST_PAYMENT === 'true'  (env)
- *   2. VERCEL_ENV !== 'production'     (nunca en el deploy de producción)
- *
- * En producción este endpoint responde 404 aunque la flag esté encendida.
+ * Protección: solo funciona si ALLOW_TEST_PAYMENT === 'true' en env vars.
+ * Para activar: agregar la variable en Vercel. Para desactivar: quitarla.
  */
 function testModeEnabled(): boolean {
-  return process.env.ALLOW_TEST_PAYMENT === 'true' && process.env.VERCEL_ENV !== 'production';
+  return process.env.ALLOW_TEST_PAYMENT === 'true';
 }
 
 export async function POST(req: NextRequest) {
