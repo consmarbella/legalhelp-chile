@@ -6,6 +6,7 @@ import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
 import PaywallModal from '@/components/PaywallModal';
+import LegalOSBackground from '@/components/LegalOSBackground';
 
 export default function Home() {
   const [caseData, setCaseData]         = useState<CaseData>(EMPTY_CASE);
@@ -25,8 +26,6 @@ export default function Home() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // When ready: generate preview automatically — DO NOT auto-open paywall
-  // User sees the blurred document first and clicks "Desbloquear" to pay
   useEffect(() => {
     if (caseData.ready && !paid && !previewDoc && !generating) {
       handleGeneratePreview();
@@ -34,7 +33,6 @@ export default function Home() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [caseData.ready]);
 
-  // After payment confirmed: generate full doc
   useEffect(() => {
     if (paid && caseData.ready && !generatedDoc && !generating) {
       handleGenerate();
@@ -88,7 +86,6 @@ export default function Home() {
   const handleGenerate = async () => {
     setGenerating(true);
     try {
-      // Include orderId for server-side payment verification
       const storedOrder = sessionStorage.getItem('lh_paid_order');
       const orderId = storedOrder ? JSON.parse(storedOrder)?.orderId : undefined;
 
@@ -106,7 +103,6 @@ export default function Home() {
     }
   };
 
-  // Detectar retorno exitoso desde MercadoPago (?paid=1&orderId=xxx)
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const urlParams = new URLSearchParams(window.location.search);
@@ -115,18 +111,11 @@ export default function Home() {
       const storedCase = sessionStorage.getItem('lh_case_data');
       const storedMsgs = sessionStorage.getItem('lh_messages');
       try {
-        if (storedCase) {
-          setCaseData(JSON.parse(storedCase));
-        }
-        if (storedMsgs) {
-          setMessages(JSON.parse(storedMsgs));
-        }
-        // Only mark as paid if we have a valid order stored from the verification flow
+        if (storedCase) setCaseData(JSON.parse(storedCase));
+        if (storedMsgs) setMessages(JSON.parse(storedMsgs));
         if (stored) {
           const orderData = JSON.parse(stored);
-          if (orderData?.orderId && orderData?.paidAt) {
-            setPaid(true);
-          }
+          if (orderData?.orderId && orderData?.paidAt) setPaid(true);
         }
         setShowPaywall(false);
         window.history.replaceState({}, '', '/');
@@ -134,7 +123,6 @@ export default function Home() {
     }
   }, []);
 
-  // Iniciar pago real con MercadoPago
   const handlePayment = async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
     try {
@@ -172,8 +160,13 @@ export default function Home() {
     downloadLegalPdf(generatedDoc, fileName);
   };
 
+  const statusText = paid
+    ? 'PLAN ACTIVO · DOCUMENTOS ILIMITADOS'
+    : 'SISTEMA EN LÍNEA · NÚCLEO IA OPERATIVO';
+
   return (
-    <div className="min-h-screen bg-[#f5f3ef]" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+    <div id="app-root" className="min-h-screen text-[#e6f0fa]">
+      <LegalOSBackground />
       <link rel="canonical" href="https://legalhelp.cl" />
       <script
         type="application/ld+json"
@@ -183,135 +176,136 @@ export default function Home() {
             "@type": "WebSite",
             url: "https://legalhelp.cl",
             name: "LegalHelp Chile",
-            description:
-              "Documentos legales con inteligencia artificial para Chile",
+            description: "Documentos legales con inteligencia artificial para Chile",
             inLanguage: "es-CL",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate:
-                  "https://legalhelp.cl/p/{search_term_string}",
-              },
-              "query-input": "required name=search_term_string",
-            },
           }),
         }}
       />
 
-      {/* NAV */}
-      <nav className="bg-[#0b1f3a] border-b border-[#c9a84c]/30">
+      {/* ── TOP HUD BAR ─────────────────────────────────────────────── */}
+      <nav className="border-b border-[#60a5fa]/15">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <svg width="38" height="44" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lgB" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#1a56db"/>
-                  <stop offset="100%" stopColor="#60a5fa"/>
+                <linearGradient id="lgOS" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#00d4ff" />
+                  <stop offset="100%" stopColor="#60a5fa" />
                 </linearGradient>
               </defs>
-              <path d="M2 2 L13 2 L13 26 L36 26 L36 34 Q19 44 2 36 Z" fill="url(#lgB)"/>
-              <rect x="14" y="2" width="5" height="24" fill="white" rx="0.5"/>
-              <rect x="27" y="2" width="5" height="24" fill="white" rx="0.5"/>
-              <rect x="14" y="11" width="18" height="5" fill="white" rx="0.5"/>
+              <path d="M2 2 L13 2 L13 26 L36 26 L36 34 Q19 44 2 36 Z" fill="url(#lgOS)" />
+              <rect x="14" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
+              <rect x="27" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
+              <rect x="14" y="11" width="18" height="5" fill="#05070f" rx="0.5" />
             </svg>
-            <div className="flex items-baseline" style={{ fontFamily: "'Arial Black', 'Arial', sans-serif", fontWeight: 900, letterSpacing: '-0.02em' }}>
-              <span className="text-white text-2xl">LEGAL</span>
-              <span className="text-blue-400 text-2xl">HELP</span>
+            <div className="flex items-baseline tracking-tight font-bold text-xl">
+              <span className="text-white">LEGAL</span>
+              <span className="text-cyan glow-cyan">HELP</span>
             </div>
           </div>
-          <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
-            <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
-            <div className="w-px h-4 bg-[#c9a84c]/20" />
-            <span className="text-[#c9a84c] text-xs font-semibold uppercase tracking-widest">Chile</span>
+          <div className="flex items-center gap-4">
+            <span className="hud-label text-[#60a5fa]/70 hidden sm:inline">v2.4 · 2026</span>
+            <div className="w-px h-4 bg-[#60a5fa]/20" />
+            <span className="hud-label text-cyan">CHILE</span>
           </div>
         </div>
-        <div className="h-px bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent opacity-60" />
       </nav>
 
-      {/* HERO */}
-      <div className="bg-[#0b1f3a] pt-12 pb-10">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-snug mb-3">
-            Tu escrito legal,{' '}
-            <span className="text-[#e05c3a]">redactado en minutos</span>
+      {/* ── HERO ────────────────────────────────────────────────────── */}
+      <header className="pt-16 pb-12">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/25 bg-[#00d4ff]/5 mb-6">
+            <span className="status-dot" />
+            <span className="hud-label text-cyan">{statusText}</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5">
+            Sistema de Redacción<br />
+            <span className="text-cyan glow-cyan">Legal Inteligente</span>
           </h1>
-          <p className="text-[#a8b8cc] text-base leading-relaxed mb-6" style={{ fontFamily: 'sans-serif', fontWeight: 300 }}>
-            Inteligencia artificial especializada en derecho chileno. Sin abogados caros, sin burocracia.
-            Documentos listos para presentar.
+          <p className="text-[#a8c0dc] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+            Documentos judiciales chilenos generados por inteligencia artificial,
+            en tiempo real. Describe tu caso y el núcleo redacta el escrito exacto,
+            con la ley correcta y formato listo para presentar.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 text-xs" style={{ fontFamily: 'sans-serif' }}>
-            {[paid ? '✅ Plan activo' : '🎁 Consulta gratuita',
-              '🔒 Datos cifrados','📋 Formato judicial chileno'].map(b => (
-              <span key={b} className="bg-white/5 border border-white/10 text-[#a8b8cc] px-3 py-1.5 rounded-full">{b}</span>
+          <div className="flex flex-wrap justify-center gap-2.5 mt-7">
+            {['✦ Consulta gratuita', '🔒 Datos cifrados', '⚖ Formato judicial chileno'].map(b => (
+              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#60a5fa]/20 bg-[#0d1426]/50 text-[#a8c0dc]">
+                {b}
+              </span>
             ))}
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* DOC TYPE SELECTOR */}
-      <div className="bg-[#f5f3ef] border-b border-[#ddd8cc] py-5">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="text-center text-[#6b6355] text-xs uppercase tracking-widest mb-4" style={{ fontFamily: 'sans-serif' }}>
-            Selecciona el tipo de documento
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {DOC_TYPES.map(doc => (
-              <button key={doc.id} onClick={() => setSelectedDoc(doc.id)}
-                className={`text-left rounded-xl border p-3 transition-all cursor-pointer ${selectedDoc === doc.id ? 'border-[#c9a84c] bg-[#c9a84c]/10 shadow-sm' : 'border-[#ddd8cc] bg-white hover:border-[#c9a84c]/50 hover:shadow-sm'}`}>
-                <div className="text-2xl mb-1">{doc.icon}</div>
-                <div className="font-semibold text-[#0b1f3a] text-sm leading-tight" style={{ fontFamily: 'sans-serif' }}>{doc.label}</div>
-                <div className="text-[#8a7f72] text-xs mt-0.5" style={{ fontFamily: 'sans-serif' }}>{doc.desc}</div>
-                <div className="text-[#c9a84c] font-bold text-xs mt-2" style={{ fontFamily: 'sans-serif' }}>{doc.price}</div>
-              </button>
-            ))}
-          </div>
+      {/* ── SELECTOR DE MÓDULOS (8 paneles) ─────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 py-4">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="hud-label text-[#60a5fa]/70">Selecciona un módulo</span>
+          <div className="flex-1 h-px bg-gradient-to-r from-[#60a5fa]/25 to-transparent" />
         </div>
-      </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {DOC_TYPES.map(doc => (
+            <button
+              key={doc.id}
+              onClick={() => setSelectedDoc(doc.id)}
+              className={`glass-panel glass-panel-hover ${selectedDoc === doc.id ? 'panel-selected' : ''} text-left rounded-xl p-4 transition-all cursor-pointer relative overflow-hidden`}
+            >
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-lg mb-3 border border-[#60a5fa]/20 bg-[#00d4ff]/5">
+                {doc.icon}
+              </div>
+              <div className="font-semibold text-white text-sm leading-tight">{doc.label}</div>
+              <div className="text-[#7e93b5] text-xs mt-1">{doc.desc}</div>
+              <div className="text-cyan font-mono font-semibold text-xs mt-3">{doc.price}</div>
+            </button>
+          ))}
+        </div>
+      </section>
 
-      {/* MAIN TWO-PANEL */}
-      <div className="max-w-5xl mx-auto px-4 py-6">
+      {/* ── VENTANAS DEL SISTEMA OPERATIVO ──────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-[560px]">
 
-          {/* LEFT: CHAT */}
-          <div className="flex flex-col rounded-2xl overflow-hidden border border-[#ddd8cc] shadow-sm bg-white">
-            <div className="bg-[#0b1f3a] px-5 py-3 flex items-center justify-between">
-              <div>
-                <span className="text-white font-semibold text-sm" style={{ fontFamily: 'sans-serif' }}>Asistente Jurídico</span>
-                <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
-                    {paid
-                      ? 'Plan activo · documentos ilimitados'
-                      : 'En línea · respondiendo tus consultas'}
-                  </span>
-                </div>
+          {/* ASISTENTE JURÍDICO */}
+          <div className="glass-panel rounded-2xl overflow-hidden flex flex-col">
+            <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#60a5fa]/15 bg-[#0d1426]/60">
+              <div className="flex items-center gap-2">
+                <span className="window-dot bg-[#ff5f57]" />
+                <span className="window-dot bg-[#febc2e]" />
+                <span className="window-dot bg-[#28c840]" />
+                <span className="hud-label text-[#7e93b5] ml-2">asistente_juridico.exe</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="status-dot" />
+                <span className="hud-label text-cyan">{paid ? 'ILIMITADO' : 'EN LÍNEA'}</span>
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#faf9f7]">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
               {messages.length === 0 && (
                 <div className="h-full flex items-center justify-center">
-                  <p className="text-[#a09485] text-sm text-center" style={{ fontFamily: 'sans-serif' }}>
+                  <p className="text-[#7e93b5] text-sm text-center">
                     Cuéntanos qué necesitas resolver.<br />
-                    <span className="text-xs text-[#bbb0a4]">Te haré algunas preguntas para redactar tu documento.</span>
+                    <span className="text-xs text-[#5a6c8a]">El núcleo te hará algunas preguntas para redactar tu documento.</span>
                   </p>
                 </div>
               )}
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${m.role === 'user' ? 'bg-[#0b1f3a] text-white rounded-br-sm' : 'bg-white border border-[#e4ddd5] text-[#2c2416] rounded-bl-sm shadow-sm'}`}
-                    style={{ fontFamily: 'sans-serif' }}>
+                  <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    m.role === 'user'
+                      ? 'bg-[#00d4ff]/15 border border-[#00d4ff]/30 text-white rounded-br-sm'
+                      : 'bg-[#0d1426]/80 border border-[#60a5fa]/15 text-[#cfe0f2] rounded-bl-sm'
+                  }`}>
                     {m.content}
                   </div>
                 </div>
               ))}
               {loading && (
                 <div className="flex justify-start">
-                  <div className="bg-white border border-[#e4ddd5] rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
+                  <div className="bg-[#0d1426]/80 border border-[#60a5fa]/15 rounded-2xl rounded-bl-sm px-4 py-3">
                     <span className="flex gap-1">
-                      {[0,150,300].map(d => (
-                        <span key={d} className="w-1.5 h-1.5 rounded-full bg-[#c9a84c] animate-bounce" style={{ animationDelay: `${d}ms` }} />
+                      {[0, 150, 300].map(d => (
+                        <span key={d} className="w-1.5 h-1.5 rounded-full bg-cyan animate-bounce" style={{ animationDelay: `${d}ms` }} />
                       ))}
                     </span>
                   </div>
@@ -320,117 +314,94 @@ export default function Home() {
               <div ref={messagesEndRef} />
             </div>
 
-            <form onSubmit={handleSend} className="border-t border-[#ede8e1] bg-white px-3 py-3 flex gap-2">
-              <input type="text" value={input} onChange={e => setInput(e.target.value)} disabled={loading}
-                placeholder="¿En qué te podemos ayudar?..."
-                className="flex-1 bg-[#f5f3ef] rounded-xl px-4 py-2.5 text-sm text-[#2c2416] placeholder-[#b0a899] border border-transparent focus:outline-none focus:border-[#c9a84c]/60 disabled:opacity-60"
-                style={{ fontFamily: 'sans-serif' }} />
-              <button type="submit" disabled={loading || !input.trim()}
-                className="bg-[#0b1f3a] hover:bg-[#162e55] disabled:bg-[#ccc] text-white px-4 py-2.5 rounded-xl text-sm font-medium transition"
-                style={{ fontFamily: 'sans-serif' }}>
-                ➤ Enviar
+            <form onSubmit={handleSend} className="border-t border-[#60a5fa]/15 bg-[#0d1426]/60 px-3 py-3 flex gap-2">
+              <input
+                type="text" value={input} onChange={e => setInput(e.target.value)} disabled={loading}
+                placeholder="Describe tu caso…"
+                className="flex-1 bg-[#05070f]/70 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5a6c8a] border border-[#60a5fa]/15 focus:outline-none focus:border-[#00d4ff]/60 disabled:opacity-60"
+              />
+              <button
+                type="submit" disabled={loading || !input.trim()}
+                className="bg-[#00d4ff] hover:bg-[#22ddff] disabled:bg-[#2a3550] disabled:text-[#5a6c8a] text-[#05070f] font-semibold px-4 py-2.5 rounded-xl text-sm transition"
+              >
+                Enviar ➤
               </button>
             </form>
           </div>
 
-          {/* RIGHT: DOCUMENT PREVIEW */}
-          <div className="flex flex-col rounded-2xl overflow-hidden border border-[#ddd8cc] shadow-sm">
-            <div className="bg-[#0b1f3a] px-5 py-3 flex items-center justify-between">
-              <div>
-                <span className="text-white font-semibold text-sm" style={{ fontFamily: 'sans-serif' }}>Vista previa del documento</span>
-                <div className="text-[#a8b8cc] text-xs mt-0.5" style={{ fontFamily: 'sans-serif' }}>
-                  {generatedDoc ? 'Documento generado con IA' : previewDoc ? 'Tu escrito está listo — revísalo abajo' : generating ? 'Redactando tu escrito...' : 'Redactando en tiempo real…'}
-                </div>
+          {/* VISTA PREVIA DEL DOCUMENTO */}
+          <div className="glass-panel rounded-2xl overflow-hidden flex flex-col">
+            <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#60a5fa]/15 bg-[#0d1426]/60">
+              <div className="flex items-center gap-2">
+                <span className="window-dot bg-[#ff5f57]" />
+                <span className="window-dot bg-[#febc2e]" />
+                <span className="window-dot bg-[#28c840]" />
+                <span className="hud-label text-[#7e93b5] ml-2">vista_previa.doc</span>
               </div>
               {!!caseData.ready && (
-                <span className="bg-emerald-500 text-white text-xs px-2.5 py-1 rounded-full font-medium" style={{ fontFamily: 'sans-serif' }}>✓ Listo</span>
+                <span className="hud-label text-cyan flex items-center gap-1.5">
+                  <span className="status-dot" /> Listo
+                </span>
               )}
             </div>
 
-            <div className="flex-1 overflow-y-auto bg-white px-7 py-6">
-              {/* Generating spinner */}
+            <div className="flex-1 overflow-y-auto bg-[#f7f8fb] px-7 py-6 text-[#1a2230]">
               {generating && (
                 <div className="h-full flex flex-col items-center justify-center gap-3">
                   <div className="flex gap-1.5">
-                    {[0,150,300].map(d => (
-                      <span key={d} className="w-2 h-2 rounded-full bg-[#c9a84c] animate-bounce" style={{ animationDelay: `${d}ms` }} />
+                    {[0, 150, 300].map(d => (
+                      <span key={d} className="w-2 h-2 rounded-full bg-[#00aacc] animate-bounce" style={{ animationDelay: `${d}ms` }} />
                     ))}
                   </div>
-                  <p className="text-[#8a7f72] text-sm" style={{ fontFamily: 'sans-serif' }}>
-                    {paid ? 'Preparando tu PDF...' : 'Redactando tu escrito legal...'}
+                  <p className="text-[#5a6c8a] text-sm">
+                    {paid ? 'Preparando tu PDF…' : 'Redactando tu escrito legal…'}
                   </p>
                 </div>
               )}
 
-              {/* Full document after payment */}
               {generatedDoc && !generating && (
                 <div>
                   <CourtDocument text={generatedDoc} />
                   <div className="mt-4 pt-4 border-t border-[#e8e2d8] flex gap-3">
                     <button onClick={handleDownload}
-                      className="flex-1 bg-[#0b1f3a] hover:bg-[#162e55] text-white py-2.5 rounded-xl text-sm font-medium transition text-center"
-                      style={{ fontFamily: 'sans-serif' }}>
+                      className="flex-1 bg-[#05070f] hover:bg-[#101a30] text-white py-2.5 rounded-xl text-sm font-medium transition text-center">
                       ↓ Descargar PDF
                     </button>
                     <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
-                      className="px-4 py-2.5 border border-[#ddd8cc] hover:border-[#c9a84c] rounded-xl text-sm text-[#6b6355] transition"
-                      style={{ fontFamily: 'sans-serif' }}>
+                      className="px-4 py-2.5 border border-[#cdd6e4] hover:border-[#00aacc] rounded-xl text-sm text-[#5a6c8a] transition">
                       ↺ Regenerar
                     </button>
                   </div>
                 </div>
               )}
 
-              {/* Blurred preview before payment */}
               {previewDoc && !generatedDoc && !generating && (
                 <div style={{ position: 'relative' }}>
                   <CourtDocument text={previewDoc} />
-                  {/* Blur overlay at 40% */}
                   <div style={{
-                    position: 'absolute',
-                    top: '38%',
-                    left: '-28px',
-                    right: '-28px',
-                    bottom: '-24px',
-                    background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 15%, rgba(255,255,255,0.95) 40%)',
-                    backdropFilter: 'blur(4px)',
-                    WebkitBackdropFilter: 'blur(4px)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    position: 'absolute', top: '38%', left: '-28px', right: '-28px', bottom: '-24px',
+                    background: 'linear-gradient(to bottom, transparent 0%, rgba(247,248,251,0.65) 15%, rgba(247,248,251,0.96) 40%)',
+                    backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                     padding: '40px 20px 24px',
                   }}>
                     <div style={{
-                      background: '#0b1f3a',
-                      borderRadius: '14px',
-                      padding: '18px 24px',
-                      textAlign: 'center',
-                      boxShadow: '0 8px 32px rgba(11,31,58,0.25)',
-                      maxWidth: '280px',
-                      width: '100%',
+                      background: '#05070f', borderRadius: '14px', padding: '18px 24px', textAlign: 'center',
+                      boxShadow: '0 8px 32px rgba(0,212,255,0.25)', maxWidth: '280px', width: '100%',
+                      border: '1px solid rgba(0,212,255,0.4)',
                     }}>
                       <div style={{ fontSize: '22px', marginBottom: '8px' }}>🔒</div>
-                      <p style={{ fontFamily: 'sans-serif', fontSize: '14px', fontWeight: '700', color: '#fff', margin: '0 0 6px 0' }}>
+                      <p style={{ fontSize: '14px', fontWeight: 700, color: '#fff', margin: '0 0 6px 0' }}>
                         Tu escrito está redactado
                       </p>
-                      <p style={{ fontFamily: 'sans-serif', fontSize: '11px', color: '#a8b8cc', margin: '0 0 14px 0', lineHeight: '1.5' }}>
-                        Revisa el inicio — el documento completo<br />
-                        está listo para descargar en PDF.
+                      <p style={{ fontSize: '11px', color: '#a8c0dc', margin: '0 0 14px 0', lineHeight: '1.5' }}>
+                        Revisa el inicio — el documento completo<br />está listo para descargar.
                       </p>
                       <button
                         onClick={() => setShowPaywall(true)}
                         style={{
-                          background: '#c9a84c',
-                          border: 'none',
-                          borderRadius: '8px',
-                          padding: '10px 20px',
-                          fontFamily: 'sans-serif',
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          color: '#0b1f3a',
-                          cursor: 'pointer',
-                          width: '100%',
+                          background: '#00d4ff', border: 'none', borderRadius: '8px', padding: '10px 20px',
+                          fontSize: '13px', fontWeight: 700, color: '#05070f', cursor: 'pointer', width: '100%',
                         }}>
                         ↓ Desbloquear documento
                       </button>
@@ -439,55 +410,49 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Progressive placeholder while chat is ongoing */}
               {!previewDoc && !generatedDoc && !generating && <DocumentPreview caseData={caseData} />}
             </div>
           </div>
 
         </div>
-      </div>
+      </section>
 
-      {/* GUÍAS POPULARES */}
-      <div className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-6" style={{ fontFamily: 'sans-serif' }}>
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">Guías legales populares</p>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { href: '/p/prescripcion-deuda-tag',      label: 'Prescripción de deuda TAG — Guía completa' },
-              { href: '/p/prescripcion-deuda-bancaria',  label: 'Prescripción de deuda bancaria' },
-              { href: '/p/demanda-alimentos',         label: 'Demanda de alimentos' },
-              { href: '/p/carta-reclamo-sernac',         label: 'Carta reclamo SERNAC' },
-              { href: '/p/denuncia-despido-injustificado', label: 'Denuncia por despido injustificado' },
-              { href: '/p/recurso-proteccion',        label: 'Recurso de protección' },
-              { href: '/p/finiquito-laboral',         label: 'Finiquito laboral' },
-              { href: '/p/demanda-desalojo',          label: 'Demanda de desalojo' },
-              { href: '/p/denuncia-no-pago-cotizaciones', label: 'Denuncia por no pago de cotizaciones' },
-              { href: '/p/poder-simple',              label: 'Poder simple notarial' },
-              { href: '/p/escrito-pension-alimenticia', label: 'Escrito pensión alimenticia' },
-            ].map(({ href, label }) => (
-              <a
-                key={href}
-                href={href}
-                className="text-xs text-[#0b1f3a] bg-white hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full border border-[#ddd8cc] transition-colors"
-              >
-                {label}
-              </a>
-            ))}
-          </div>
+      {/* ── GUÍAS POPULARES ─────────────────────────────────────────── */}
+      <section className="max-w-4xl mx-auto px-6 py-10">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="hud-label text-[#60a5fa]/70">Guías legales populares</span>
+          <div className="flex-1 h-px bg-gradient-to-r from-[#60a5fa]/25 to-transparent" />
         </div>
-      </div>
+        <div className="flex flex-wrap gap-2">
+          {[
+            { href: '/p/prescripcion-deuda-tag', label: 'Prescripción de deuda TAG' },
+            { href: '/p/prescripcion-deuda-bancaria', label: 'Prescripción de deuda bancaria' },
+            { href: '/p/demanda-alimentos', label: 'Demanda de alimentos' },
+            { href: '/p/carta-reclamo-sernac', label: 'Carta reclamo SERNAC' },
+            { href: '/p/denuncia-despido-injustificado', label: 'Denuncia por despido injustificado' },
+            { href: '/p/recurso-proteccion', label: 'Recurso de protección' },
+            { href: '/p/finiquito-laboral', label: 'Finiquito laboral' },
+            { href: '/p/demanda-desalojo', label: 'Demanda de desalojo' },
+            { href: '/p/poder-simple', label: 'Poder simple' },
+          ].map(({ href, label }) => (
+            <a key={href} href={href}
+              className="text-xs text-[#a8c0dc] bg-[#0d1426]/50 hover:bg-[#0d1426] hover:text-cyan px-3 py-1.5 rounded-full border border-[#60a5fa]/15 transition-colors">
+              {label}
+            </a>
+          ))}
+        </div>
+      </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-4">
-        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#9a9185]" style={{ fontFamily: 'sans-serif' }}>
-          {['🔒 SSL Certificado','🇨🇱 Válido en todo Chile','⚖ Marco legal actualizado 2026'].map(t => (
+      {/* ── FOOTER ──────────────────────────────────────────────────── */}
+      <footer className="border-t border-[#60a5fa]/15 py-5">
+        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#5a6c8a]">
+          {['🔒 SSL Certificado', '🇨🇱 Válido en todo Chile', '⚖ Marco legal 2026'].map(t => (
             <span key={t}>{t}</span>
           ))}
           <span>📧 contacto@legalhelp.cl</span>
         </div>
       </footer>
 
-      {/* PAYWALL MODAL */}
       {showPaywall && (
         <PaywallModal
           caseData={caseData}
@@ -497,7 +462,6 @@ export default function Home() {
           onClose={() => setShowPaywall(false)}
         />
       )}
-
     </div>
   );
 }
