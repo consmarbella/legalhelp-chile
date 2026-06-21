@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
-import LegalOSBackground from '@/components/LegalOSBackground';
 
 // Lazy load: solo se descarga cuando el usuario abre el paywall o descarga
 const PaywallModal = lazy(() => import('@/components/PaywallModal'));
@@ -167,8 +166,7 @@ export default function Home() {
     : 'SISTEMA EN LÍNEA · NÚCLEO IA OPERATIVO';
 
   return (
-    <div id="app-root" className="min-h-screen text-white">
-      <LegalOSBackground />
+    <div className="min-h-screen text-white">
       {/* Estilos de glow inyectados directamente - NO pasan por Tailwind purge */}
       <style dangerouslySetInnerHTML={{ __html: `
         .lg-glow-logo { filter: drop-shadow(0 0 14px rgba(0,212,255,0.8)) drop-shadow(0 0 35px rgba(0,212,255,0.4)); }
@@ -198,34 +196,7 @@ export default function Home() {
         }}
       />
 
-      {/* ── TOP HUD BAR ─────────────────────────────────────────────── */}
-      <nav className="border-b border-[#60a5fa]/15">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <svg className="lg-glow-logo" width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lgOS" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#00d4ff" />
-                  <stop offset="100%" stopColor="#60a5fa" />
-                </linearGradient>
-              </defs>
-              <path d="M2 2 L13 2 L13 26 L36 26 L36 34 Q19 44 2 36 Z" fill="url(#lgOS)" />
-              <rect x="14" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
-              <rect x="27" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
-              <rect x="14" y="11" width="18" height="5" fill="#05070f" rx="0.5" />
-            </svg>
-            <div className="flex items-baseline tracking-tight font-bold text-xl lg-glow-title">
-              <span className="text-white">LEGAL</span>
-              <span className="text-cyan lg-glow-cyan">HELP</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="hud-label text-[#60a5fa]/70 hidden sm:inline">v2.4 · 2026</span>
-            <div className="w-px h-4 bg-[#60a5fa]/20" />
-            <span className="hud-label text-cyan">CHILE</span>
-          </div>
-        </div>
-      </nav>
+      {/* Nav viene del layout global */}
 
       {/* ── HERO ────────────────────────────────────────────────────── */}
       <header className="pt-16 pb-12">

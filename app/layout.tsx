@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LegalOSNav from "@/components/LegalOSNav";
+import LegalOSBackground from "@/components/LegalOSBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,7 +74,8 @@ export default function RootLayout({
       lang="es-CL"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#05070f] text-white">
+        <LegalOSBackground />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -98,29 +101,10 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "LegalHelp Chile",
-              url: "https://legalhelp.cl",
-              description:
-                "Genera documentos legales válidos en Chile con inteligencia artificial. Prescripción TAG, demanda de alimentos, reclamos SERNAC, finiquito laboral y más.",
-              inLanguage: "es-CL",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://legalhelp.cl/?q={search_term_string}",
-                },
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
-        />
-        {children}
+        <LegalOSNav />
+        <main id="app-root" className="flex-1">
+          {children}
+        </main>
       </body>
     </html>
   );
