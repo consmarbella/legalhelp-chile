@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { downloadLegalPdf } from '@/lib/generatePdf';
+import { downloadLegalDocx } from '@/lib/generateDocx';
 import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
@@ -170,6 +171,13 @@ export default function Home() {
     const nombreStr = String(caseData.nombre ?? 'documento');
     const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
     downloadLegalPdf(generatedDoc, fileName);
+  };
+
+  const handleDownloadWord = async () => {
+    if (!generatedDoc) return;
+    const nombreStr = String(caseData.nombre ?? 'documento');
+    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
+    await downloadLegalDocx(generatedDoc, fileName);
   };
 
   return (
@@ -371,6 +379,11 @@ export default function Home() {
                       className="flex-1 bg-[#0b1f3a] hover:bg-[#162e55] text-white py-2.5 rounded-xl text-sm font-medium transition text-center"
                       style={{ fontFamily: 'sans-serif' }}>
                       ↓ Descargar PDF
+                    </button>
+                    <button onClick={handleDownloadWord}
+                      className="flex-1 bg-white border border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#f0f4fa] py-2.5 rounded-xl text-sm font-medium transition text-center"
+                      style={{ fontFamily: 'sans-serif' }}>
+                      ↓ Descargar Word
                     </button>
                     <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
                       className="px-4 py-2.5 border border-[#ddd8cc] hover:border-[#c9a84c] rounded-xl text-sm text-[#6b6355] transition"
