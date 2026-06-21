@@ -171,10 +171,10 @@ export default function Home() {
       <style dangerouslySetInnerHTML={{ __html: `
         .lg-glow-logo { filter: drop-shadow(0 0 14px rgba(0,212,255,0.8)) drop-shadow(0 0 35px rgba(0,212,255,0.4)); }
         .lg-glow-title { text-shadow: 0 0 25px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.2); }
-        .lg-lg-glow-cyan { text-shadow: 0 0 30px rgba(0,212,255,0.7), 0 0 70px rgba(0,212,255,0.3); color: #00d4ff; }
-        .lg-lg-glow-status { text-shadow: 0 0 14px rgba(0,212,255,0.9), 0 0 35px rgba(0,212,255,0.5); color: #00d4ff; }
+        .lg-glow-cyan { text-shadow: 0 0 30px rgba(0,212,255,0.7), 0 0 70px rgba(0,212,255,0.3); color: #00d4ff; }
+        .lg-glow-status { text-shadow: 0 0 14px rgba(0,212,255,0.9), 0 0 35px rgba(0,212,255,0.5); color: #00d4ff; }
         .lg-glow-pill { border-color: rgba(0,212,255,0.5) !important; box-shadow: 0 0 24px rgba(0,212,255,0.4), inset 0 0 12px rgba(0,212,255,0.12); }
-        .lg-lg-glow-badge { border-color: rgba(0,212,255,0.4) !important; box-shadow: 0 0 16px rgba(0,212,255,0.3); text-shadow: 0 0 8px rgba(0,212,255,0.6); }
+        .lg-glow-badge { border-color: rgba(0,212,255,0.4) !important; box-shadow: 0 0 16px rgba(0,212,255,0.3); text-shadow: 0 0 8px rgba(0,212,255,0.6); }
         .lg-glow-panel { border-color: rgba(96,165,250,0.3) !important; box-shadow: 0 0 0 1px rgba(5,7,15,0.4), 0 20px 60px -20px rgba(0,212,255,0.4), inset 0 1px 0 rgba(96,165,250,0.15); }
         .lg-glow-panel:hover { border-color: rgba(0,212,255,0.7) !important; box-shadow: 0 0 0 1px rgba(0,212,255,0.4), 0 0 45px -6px rgba(0,212,255,0.55), inset 0 1px 0 rgba(0,212,255,0.25); }
         .lg-glow-selected { border-color: rgba(0,212,255,0.9) !important; box-shadow: 0 0 0 1px rgba(0,212,255,0.6), 0 0 50px -4px rgba(0,212,255,0.6), inset 0 1px 0 rgba(0,212,255,0.3) !important; }
