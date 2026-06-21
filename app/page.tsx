@@ -221,6 +221,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
+            <a href="/demandas" className="text-[#e05c3a] text-xs font-semibold uppercase tracking-widest hover:text-[#ff7a5a] transition">
+              Demandas
+            </a>
+            <div className="w-px h-4 bg-[#c9a84c]/20" />
             <span className="text-[#c9a84c]/60 text-xs uppercase tracking-widest">Mi cuenta</span>
             <div className="w-px h-4 bg-[#c9a84c]/20" />
             <span className="text-[#c9a84c] text-xs font-semibold uppercase tracking-widest">Chile</span>
