@@ -167,6 +167,20 @@ export default function Home() {
   return (
     <div id="app-root" className="min-h-screen text-white">
       <LegalOSBackground />
+      {/* Estilos de glow inyectados directamente - NO pasan por Tailwind purge */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .lg-glow-logo { filter: drop-shadow(0 0 14px rgba(0,212,255,0.8)) drop-shadow(0 0 35px rgba(0,212,255,0.4)); }
+        .lg-glow-title { text-shadow: 0 0 25px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.2); }
+        .lg-lg-glow-cyan { text-shadow: 0 0 30px rgba(0,212,255,0.7), 0 0 70px rgba(0,212,255,0.3); color: #00d4ff; }
+        .lg-lg-glow-status { text-shadow: 0 0 14px rgba(0,212,255,0.9), 0 0 35px rgba(0,212,255,0.5); color: #00d4ff; }
+        .lg-glow-pill { border-color: rgba(0,212,255,0.5) !important; box-shadow: 0 0 24px rgba(0,212,255,0.4), inset 0 0 12px rgba(0,212,255,0.12); }
+        .lg-lg-glow-badge { border-color: rgba(0,212,255,0.4) !important; box-shadow: 0 0 16px rgba(0,212,255,0.3); text-shadow: 0 0 8px rgba(0,212,255,0.6); }
+        .lg-glow-panel { border-color: rgba(96,165,250,0.3) !important; box-shadow: 0 0 0 1px rgba(5,7,15,0.4), 0 20px 60px -20px rgba(0,212,255,0.4), inset 0 1px 0 rgba(96,165,250,0.15); }
+        .lg-glow-panel:hover { border-color: rgba(0,212,255,0.7) !important; box-shadow: 0 0 0 1px rgba(0,212,255,0.4), 0 0 45px -6px rgba(0,212,255,0.55), inset 0 1px 0 rgba(0,212,255,0.25); }
+        .lg-glow-selected { border-color: rgba(0,212,255,0.9) !important; box-shadow: 0 0 0 1px rgba(0,212,255,0.6), 0 0 50px -4px rgba(0,212,255,0.6), inset 0 1px 0 rgba(0,212,255,0.3) !important; }
+        .lg-status-dot { width:7px; height:7px; border-radius:9999px; background:#00d4ff; box-shadow: 0 0 14px 3px rgba(0,212,255,0.9), 0 0 30px 6px rgba(0,212,255,0.4); animation: lg-pulse 1.8s ease-in-out infinite; }
+        @keyframes lg-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+      `}} />
       <link rel="canonical" href="https://legalhelp.cl" />
       <script
         type="application/ld+json"
@@ -186,7 +200,7 @@ export default function Home() {
       <nav className="border-b border-[#60a5fa]/15">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <svg className="glow-logo-svg" width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="lg-glow-logo" width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="lgOS" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#00d4ff" />
@@ -198,9 +212,9 @@ export default function Home() {
               <rect x="27" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
               <rect x="14" y="11" width="18" height="5" fill="#05070f" rx="0.5" />
             </svg>
-            <div className="flex items-baseline tracking-tight font-bold text-xl glow-white">
+            <div className="flex items-baseline tracking-tight font-bold text-xl lg-glow-title">
               <span className="text-white">LEGAL</span>
-              <span className="text-cyan glow-cyan">HELP</span>
+              <span className="text-cyan lg-glow-cyan">HELP</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -214,13 +228,13 @@ export default function Home() {
       {/* ── HERO ────────────────────────────────────────────────────── */}
       <header className="pt-16 pb-12">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/40 bg-[#00d4ff]/10 mb-6 glow-status-pill">
-            <span className="status-dot" />
-            <span className="hud-label text-cyan glow-status">{statusText}</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/40 bg-[#00d4ff]/10 mb-6 lg-glow-pill">
+            <span className="lg-status-dot" />
+            <span className="hud-label text-cyan lg-glow-status">{statusText}</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5 glow-white">
+          <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5 lg-glow-title">
             Sistema de Redacción<br />
-            <span className="text-cyan glow-cyan">Legal Inteligente</span>
+            <span className="text-cyan lg-glow-cyan">Legal Inteligente</span>
           </h1>
           <p className="text-white text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Documentos judiciales chilenos generados por inteligencia artificial,
@@ -229,7 +243,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-2.5 mt-7">
             {['✦ Consulta gratuita', '🔒 Datos cifrados', '⚖ Formato judicial chileno'].map(b => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/8 text-white glow-badge">
+              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/8 text-white lg-glow-badge">
                 {b}
               </span>
             ))}
@@ -275,7 +289,7 @@ export default function Home() {
                 <span className="hud-label text-[#9ab0cc] ml-2">asistente_juridico.exe</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="status-dot" />
+                <span className="lg-status-dot" />
                 <span className="hud-label text-cyan">{paid ? 'ILIMITADO' : 'EN LÍNEA'}</span>
               </div>
             </div>
@@ -340,7 +354,7 @@ export default function Home() {
               </div>
               {!!caseData.ready && (
                 <span className="hud-label text-cyan flex items-center gap-1.5">
-                  <span className="status-dot" /> Listo
+                  <span className="lg-status-dot" /> Listo
                 </span>
               )}
             </div>

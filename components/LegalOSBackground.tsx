@@ -41,7 +41,7 @@ export default function LegalOSBackground() {
       // ~14 fps: lento y sutil
       if (now - last > 70) {
         last = now;
-        ctx.fillStyle = 'rgba(5, 7, 15, 0.22)';
+        ctx.fillStyle = 'rgba(5, 7, 15, 0.08)';
         ctx.fillRect(0, 0, cv.width, cv.height);
         ctx.font = `${fontSize}px var(--font-geist-mono), monospace`;
         for (let i = 0; i < drops.length; i++) {
@@ -49,7 +49,7 @@ export default function LegalOSBackground() {
           const x = i * fontSize;
           const y = drops[i] * fontSize;
           // cabeza más brillante, cola visible
-          ctx.fillStyle = Math.random() > 0.96 ? 'rgba(0, 212, 255, 0.55)' : 'rgba(96, 165, 250, 0.18)';
+          ctx.fillStyle = Math.random() > 0.92 ? 'rgba(0, 212, 255, 0.9)' : 'rgba(96, 165, 250, 0.35)';
           ctx.fillText(char, x, y);
           if (y > cv.height && Math.random() > 0.975) drops[i] = 0;
           drops[i]++;
@@ -74,7 +74,6 @@ export default function LegalOSBackground() {
         position: 'fixed',
         inset: 0,
         zIndex: 0,
-        opacity: 0.85,
         pointerEvents: 'none',
       }}
     />
