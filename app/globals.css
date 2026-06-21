@@ -2,11 +2,11 @@
 
 :root {
   --background: #05070f;
-  --foreground: #e6f0fa;
+  --foreground: #ffffff;
   --cyan: #00d4ff;
   --blue: #60a5fa;
   --panel: rgba(13, 20, 38, 0.55);
-  --panel-border: rgba(96, 165, 250, 0.18);
+  --panel-border: rgba(96, 165, 250, 0.25);
 }
 
 @theme inline {
@@ -77,6 +77,7 @@ body::after {
 .glow-cyan { text-shadow: 0 0 28px rgba(0, 212, 255, 0.65), 0 0 60px rgba(0, 212, 255, 0.25); }
 .text-cyan { color: var(--cyan); }
 .text-ice  { color: var(--blue); }
+.text-sub  { color: #c8d8e8; }
 
 .hud-label {
   font-family: var(--font-geist-mono), monospace;

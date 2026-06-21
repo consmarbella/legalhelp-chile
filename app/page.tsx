@@ -165,7 +165,7 @@ export default function Home() {
     : 'SISTEMA EN LÍNEA · NÚCLEO IA OPERATIVO';
 
   return (
-    <div id="app-root" className="min-h-screen text-[#e6f0fa]">
+    <div id="app-root" className="min-h-screen text-white">
       <LegalOSBackground />
       <link rel="canonical" href="https://legalhelp.cl" />
       <script
@@ -222,14 +222,14 @@ export default function Home() {
             Sistema de Redacción<br />
             <span className="text-cyan glow-cyan">Legal Inteligente</span>
           </h1>
-          <p className="text-[#a8c0dc] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#c8ddf0] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Documentos judiciales chilenos generados por inteligencia artificial,
             en tiempo real. Describe tu caso y el núcleo redacta el escrito exacto,
             con la ley correcta y formato listo para presentar.
           </p>
           <div className="flex flex-wrap justify-center gap-2.5 mt-7">
             {['✦ Consulta gratuita', '🔒 Datos cifrados', '⚖ Formato judicial chileno'].map(b => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#60a5fa]/20 bg-[#0d1426]/50 text-[#a8c0dc]">
+              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#60a5fa]/20 bg-[#0d1426]/50 text-[#c8ddf0]">
                 {b}
               </span>
             ))}
@@ -254,7 +254,7 @@ export default function Home() {
                 {doc.icon}
               </div>
               <div className="font-semibold text-white text-sm leading-tight">{doc.label}</div>
-              <div className="text-[#7e93b5] text-xs mt-1">{doc.desc}</div>
+              <div className="text-[#9ab0cc] text-xs mt-1">{doc.desc}</div>
               <div className="text-cyan font-mono font-semibold text-xs mt-3">{doc.price}</div>
             </button>
           ))}
@@ -272,7 +272,7 @@ export default function Home() {
                 <span className="window-dot bg-[#ff5f57]" />
                 <span className="window-dot bg-[#febc2e]" />
                 <span className="window-dot bg-[#28c840]" />
-                <span className="hud-label text-[#7e93b5] ml-2">asistente_juridico.exe</span>
+                <span className="hud-label text-[#9ab0cc] ml-2">asistente_juridico.exe</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="status-dot" />
@@ -283,9 +283,9 @@ export default function Home() {
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
               {messages.length === 0 && (
                 <div className="h-full flex items-center justify-center">
-                  <p className="text-[#7e93b5] text-sm text-center">
+                  <p className="text-[#9ab0cc] text-sm text-center">
                     Cuéntanos qué necesitas resolver.<br />
-                    <span className="text-xs text-[#5a6c8a]">El núcleo te hará algunas preguntas para redactar tu documento.</span>
+                    <span className="text-xs text-[#7a90aa]">El núcleo te hará algunas preguntas para redactar tu documento.</span>
                   </p>
                 </div>
               )}
@@ -294,7 +294,7 @@ export default function Home() {
                   <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === 'user'
                       ? 'bg-[#00d4ff]/15 border border-[#00d4ff]/30 text-white rounded-br-sm'
-                      : 'bg-[#0d1426]/80 border border-[#60a5fa]/15 text-[#cfe0f2] rounded-bl-sm'
+                      : 'bg-[#0d1426]/80 border border-[#60a5fa]/15 text-white rounded-bl-sm'
                   }`}>
                     {m.content}
                   </div>
@@ -322,7 +322,7 @@ export default function Home() {
               />
               <button
                 type="submit" disabled={loading || !input.trim()}
-                className="bg-[#00d4ff] hover:bg-[#22ddff] disabled:bg-[#2a3550] disabled:text-[#5a6c8a] text-[#05070f] font-semibold px-4 py-2.5 rounded-xl text-sm transition"
+                className="bg-[#00d4ff] hover:bg-[#22ddff] disabled:bg-[#2a3550] disabled:text-[#7a90aa] text-[#05070f] font-semibold px-4 py-2.5 rounded-xl text-sm transition"
               >
                 Enviar ➤
               </button>
@@ -336,7 +336,7 @@ export default function Home() {
                 <span className="window-dot bg-[#ff5f57]" />
                 <span className="window-dot bg-[#febc2e]" />
                 <span className="window-dot bg-[#28c840]" />
-                <span className="hud-label text-[#7e93b5] ml-2">vista_previa.doc</span>
+                <span className="hud-label text-[#9ab0cc] ml-2">vista_previa.doc</span>
               </div>
               {!!caseData.ready && (
                 <span className="hud-label text-cyan flex items-center gap-1.5">
@@ -353,7 +353,7 @@ export default function Home() {
                       <span key={d} className="w-2 h-2 rounded-full bg-[#00aacc] animate-bounce" style={{ animationDelay: `${d}ms` }} />
                     ))}
                   </div>
-                  <p className="text-[#5a6c8a] text-sm">
+                  <p className="text-[#7a90aa] text-sm">
                     {paid ? 'Preparando tu PDF…' : 'Redactando tu escrito legal…'}
                   </p>
                 </div>
@@ -368,7 +368,7 @@ export default function Home() {
                       ↓ Descargar PDF
                     </button>
                     <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
-                      className="px-4 py-2.5 border border-[#cdd6e4] hover:border-[#00aacc] rounded-xl text-sm text-[#5a6c8a] transition">
+                      className="px-4 py-2.5 border border-[#cdd6e4] hover:border-[#00aacc] rounded-xl text-sm text-[#7a90aa] transition">
                       ↺ Regenerar
                     </button>
                   </div>
@@ -436,7 +436,7 @@ export default function Home() {
             { href: '/p/poder-simple', label: 'Poder simple' },
           ].map(({ href, label }) => (
             <a key={href} href={href}
-              className="text-xs text-[#a8c0dc] bg-[#0d1426]/50 hover:bg-[#0d1426] hover:text-cyan px-3 py-1.5 rounded-full border border-[#60a5fa]/15 transition-colors">
+              className="text-xs text-[#c8ddf0] bg-[#0d1426]/50 hover:bg-[#0d1426] hover:text-cyan px-3 py-1.5 rounded-full border border-[#60a5fa]/15 transition-colors">
               {label}
             </a>
           ))}
@@ -445,7 +445,7 @@ export default function Home() {
 
       {/* ── FOOTER ──────────────────────────────────────────────────── */}
       <footer className="border-t border-[#60a5fa]/15 py-5">
-        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#5a6c8a]">
+        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#7a90aa]">
           {['🔒 SSL Certificado', '🇨🇱 Válido en todo Chile', '⚖ Marco legal 2026'].map(t => (
             <span key={t}>{t}</span>
           ))}
