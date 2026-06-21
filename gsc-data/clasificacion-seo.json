@@ -1,0 +1,4253 @@
+{
+  "resumen": {
+    "generado": "2026-06-21T03:23:16.392Z",
+    "paginas_actuales_en_json": 240,
+    "urls_en_gsc": 593,
+    "mantener": {
+      "urls": 146,
+      "clics": 15,
+      "impr": 641
+    },
+    "recuperar": {
+      "urls": 72,
+      "clics": 17,
+      "impr": 541
+    },
+    "matar": {
+      "urls": 371,
+      "clics": 0,
+      "impr": 517
+    }
+  },
+  "mantener": [
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-rancagua",
+      "slug": "prescripcion-de-multas-de-transito-rancagua",
+      "clics": 2,
+      "impr": 7,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-santiago",
+      "slug": "prescripcion-deuda-tag-santiago",
+      "clics": 1,
+      "impr": 63,
+      "pos": 15.95
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-quilicura",
+      "slug": "prescripcion-deuda-tag-quilicura",
+      "clics": 1,
+      "impr": 8,
+      "pos": 22.38
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-deuda-tag",
+      "slug": "prescripcion-de-deuda-tag",
+      "clics": 1,
+      "impr": 8,
+      "pos": 38.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-quinta-normal",
+      "slug": "prescripcion-deuda-tag-quinta-normal",
+      "clics": 1,
+      "impr": 6,
+      "pos": 22.17
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-lampa",
+      "slug": "prescripcion-deuda-tag-lampa",
+      "clics": 1,
+      "impr": 6,
+      "pos": 70
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-coquimbo",
+      "slug": "prescripcion-de-multas-de-transito-coquimbo",
+      "clics": 1,
+      "impr": 4,
+      "pos": 10.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-maipu",
+      "slug": "demanda-alimentos-maipu",
+      "clics": 1,
+      "impr": 4,
+      "pos": 14.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-quilpue",
+      "slug": "prescripcion-deuda-tag-quilpue",
+      "clics": 1,
+      "impr": 4,
+      "pos": 66.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-tuicion-compartida",
+      "slug": "acuerdo-tuicion-compartida",
+      "clics": 1,
+      "impr": 3,
+      "pos": 28
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-no-pago-cotizaciones-puente-alto",
+      "slug": "denuncia-no-pago-cotizaciones-puente-alto",
+      "clics": 1,
+      "impr": 2,
+      "pos": 10.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-pudahuel",
+      "slug": "prescripcion-deuda-tag-pudahuel",
+      "clics": 1,
+      "impr": 2,
+      "pos": 49.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo-santiago-centro",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago-centro",
+      "clics": 1,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-iquique",
+      "slug": "prescripcion-deuda-tag-iquique",
+      "clics": 1,
+      "impr": 1,
+      "pos": 121
+    },
+    {
+      "url": "https://legalhelp.cl/p/servicios-legales",
+      "slug": "servicios-legales",
+      "clics": 0,
+      "impr": 22,
+      "pos": 31.23
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-recoleta",
+      "slug": "prescripcion-deuda-bancaria-recoleta",
+      "clics": 0,
+      "impr": 21,
+      "pos": 19.48
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-santiago",
+      "slug": "prescripcion-deuda-bancaria-santiago",
+      "clics": 0,
+      "impr": 20,
+      "pos": 11.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion-santiago",
+      "slug": "recurso-proteccion-santiago",
+      "clics": 0,
+      "impr": 16,
+      "pos": 5.44
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-san-bernardo",
+      "slug": "prescripcion-de-multas-de-transito-san-bernardo",
+      "clics": 0,
+      "impr": 16,
+      "pos": 8.19
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-vitacura",
+      "slug": "prescripcion-deuda-tag-vitacura",
+      "clics": 0,
+      "impr": 15,
+      "pos": 47.53
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion-valparaiso",
+      "slug": "recurso-proteccion-valparaiso",
+      "clics": 0,
+      "impr": 14,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-maipu",
+      "slug": "prescripcion-de-multas-de-transito-maipu",
+      "clics": 0,
+      "impr": 12,
+      "pos": 5.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion-concepcion",
+      "slug": "recurso-proteccion-concepcion",
+      "clics": 0,
+      "impr": 11,
+      "pos": 6.91
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-de-proteccion",
+      "slug": "recurso-de-proteccion",
+      "clics": 0,
+      "impr": 9,
+      "pos": 9.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-las-condes",
+      "slug": "prescripcion-deuda-tag-las-condes",
+      "clics": 0,
+      "impr": 9,
+      "pos": 79.22
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-providencia",
+      "slug": "prescripcion-de-multas-de-transito-providencia",
+      "clics": 0,
+      "impr": 8,
+      "pos": 9.12
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales",
+      "slug": "certificado-de-antecedentes-para-fines-especiales",
+      "clics": 0,
+      "impr": 8,
+      "pos": 23.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-santiago",
+      "slug": "prescripcion-de-multas-de-transito-santiago",
+      "clics": 0,
+      "impr": 8,
+      "pos": 25.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-recoleta",
+      "slug": "prescripcion-deuda-tag-recoleta",
+      "clics": 0,
+      "impr": 8,
+      "pos": 28.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-penalolen",
+      "slug": "prescripcion-deuda-tag-penalolen",
+      "clics": 0,
+      "impr": 8,
+      "pos": 48.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble",
+      "slug": "promesa-compraventa-inmueble",
+      "clics": 0,
+      "impr": 8,
+      "pos": 82.62
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion-providencia",
+      "slug": "recurso-proteccion-providencia",
+      "clics": 0,
+      "impr": 7,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-providencia",
+      "slug": "demanda-alimentos-providencia",
+      "clics": 0,
+      "impr": 6,
+      "pos": 4.83
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral",
+      "slug": "carta-amonestacion-laboral",
+      "clics": 0,
+      "impr": 6,
+      "pos": 20
+    },
+    {
+      "url": "https://legalhelp.cl/p/anexo-contrato-trabajo-sueldo",
+      "slug": "anexo-contrato-trabajo-sueldo",
+      "clics": 0,
+      "impr": 6,
+      "pos": 25.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-despido-injustificado",
+      "slug": "denuncia-despido-injustificado",
+      "clics": 0,
+      "impr": 6,
+      "pos": 66.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-divorcio-mutuo-acuerdo",
+      "slug": "acuerdo-divorcio-mutuo-acuerdo",
+      "clics": 0,
+      "impr": 6,
+      "pos": 72
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-valdivia",
+      "slug": "prescripcion-de-multas-de-transito-valdivia",
+      "clics": 0,
+      "impr": 5,
+      "pos": 7.2
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-la-serena",
+      "slug": "prescripcion-de-multas-de-transito-la-serena",
+      "clics": 0,
+      "impr": 5,
+      "pos": 7.8
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion",
+      "slug": "recurso-proteccion",
+      "clics": 0,
+      "impr": 5,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-providencia",
+      "slug": "demanda-desalojo-providencia",
+      "clics": 0,
+      "impr": 5,
+      "pos": 8.2
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-arica",
+      "slug": "prescripcion-de-multas-de-transito-arica",
+      "clics": 0,
+      "impr": 5,
+      "pos": 8.2
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-temuco",
+      "slug": "prescripcion-de-multas-de-transito-temuco",
+      "clics": 0,
+      "impr": 5,
+      "pos": 11.2
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-santiago",
+      "slug": "demanda-desalojo-santiago",
+      "clics": 0,
+      "impr": 5,
+      "pos": 32
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-temuco",
+      "slug": "prescripcion-deuda-tag-temuco",
+      "clics": 0,
+      "impr": 5,
+      "pos": 59.4
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral",
+      "slug": "carta-renuncia-laboral",
+      "clics": 0,
+      "impr": 5,
+      "pos": 64.4
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-copiapo",
+      "slug": "prescripcion-deuda-tag-copiapo",
+      "clics": 0,
+      "impr": 5,
+      "pos": 78.4
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-plazo-fijo",
+      "slug": "contrato-trabajo-plazo-fijo",
+      "clics": 0,
+      "impr": 5,
+      "pos": 87
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-maipu",
+      "slug": "demanda-desalojo-maipu",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare",
+      "slug": "pagare",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-subarriendo",
+      "slug": "contrato-subarriendo",
+      "clics": 0,
+      "impr": 4,
+      "pos": 11.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-maipu",
+      "slug": "prescripcion-deuda-bancaria-maipu",
+      "clics": 0,
+      "impr": 4,
+      "pos": 12.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag",
+      "slug": "prescripcion-deuda-tag",
+      "clics": 0,
+      "impr": 4,
+      "pos": 13.25
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-puente-alto",
+      "slug": "prescripcion-deuda-bancaria-puente-alto",
+      "clics": 0,
+      "impr": 4,
+      "pos": 33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-estacion-central",
+      "slug": "prescripcion-deuda-tag-estacion-central",
+      "clics": 0,
+      "impr": 4,
+      "pos": 48.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-maipu",
+      "slug": "prescripcion-deuda-tag-maipu",
+      "clics": 0,
+      "impr": 4,
+      "pos": 52.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales",
+      "slug": "eliminacion-de-antecedentes-penales",
+      "clics": 0,
+      "impr": 4,
+      "pos": 52.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-notarial",
+      "slug": "poder-simple-notarial",
+      "clics": 0,
+      "impr": 4,
+      "pos": 56.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-sernac",
+      "slug": "carta-reclamo-sernac",
+      "clics": 0,
+      "impr": 4,
+      "pos": 69.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-prestacion-servicios-honorarios",
+      "slug": "contrato-prestacion-servicios-honorarios",
+      "clics": 0,
+      "impr": 4,
+      "pos": 79.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-curico",
+      "slug": "prescripcion-deuda-tag-curico",
+      "clics": 0,
+      "impr": 4,
+      "pos": 82
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo",
+      "slug": "poder-para-vender-vehiculo",
+      "clics": 0,
+      "impr": 4,
+      "pos": 87.75
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-freelance",
+      "slug": "contrato-freelance",
+      "clics": 0,
+      "impr": 3,
+      "pos": 2.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local",
+      "slug": "recurso-apelacion-juzgado-policia-local",
+      "clics": 0,
+      "impr": 3,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-proteccion-las-condes",
+      "slug": "recurso-proteccion-las-condes",
+      "clics": 0,
+      "impr": 3,
+      "pos": 4.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-santiago",
+      "slug": "demanda-alimentos-santiago",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-concepcion",
+      "slug": "demanda-desalojo-concepcion",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-renca",
+      "slug": "prescripcion-deuda-tag-renca",
+      "clics": 0,
+      "impr": 3,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-puerto-montt",
+      "slug": "prescripcion-de-multas-de-transito-puerto-montt",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-concepcion",
+      "slug": "demanda-alimentos-concepcion",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-nunoa",
+      "slug": "prescripcion-de-multas-de-transito-nunoa",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo",
+      "clics": 0,
+      "impr": 3,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito",
+      "slug": "escrito-prescripcion-multa-transito",
+      "clics": 0,
+      "impr": 3,
+      "pos": 18.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-colina",
+      "slug": "prescripcion-deuda-tag-colina",
+      "clics": 0,
+      "impr": 3,
+      "pos": 34.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal",
+      "slug": "denuncia-maltrato-animal",
+      "clics": 0,
+      "impr": 3,
+      "pos": 46
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos",
+      "slug": "declaracion-jurada-ingresos",
+      "clics": 0,
+      "impr": 3,
+      "pos": 49
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-independencia",
+      "slug": "prescripcion-deuda-tag-independencia",
+      "clics": 0,
+      "impr": 3,
+      "pos": 50.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-san-antonio",
+      "slug": "prescripcion-deuda-tag-san-antonio",
+      "clics": 0,
+      "impr": 3,
+      "pos": 55.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-chillan",
+      "slug": "prescripcion-deuda-tag-chillan",
+      "clics": 0,
+      "impr": 3,
+      "pos": 60.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-arica",
+      "slug": "prescripcion-deuda-tag-arica",
+      "clics": 0,
+      "impr": 3,
+      "pos": 66.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos",
+      "slug": "denuncia-ruidos-molestos-vecinos",
+      "clics": 0,
+      "impr": 3,
+      "pos": 85.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-despido-injustificado-santiago",
+      "slug": "denuncia-despido-injustificado-santiago",
+      "clics": 0,
+      "impr": 3,
+      "pos": 87.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-talcahuano",
+      "slug": "prescripcion-deuda-tag-talcahuano",
+      "clics": 0,
+      "impr": 3,
+      "pos": 109.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-la-serena",
+      "slug": "prescripcion-deuda-tag-la-serena",
+      "clics": 0,
+      "impr": 3,
+      "pos": 110.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-puente-alto",
+      "slug": "demanda-alimentos-puente-alto",
+      "clics": 0,
+      "impr": 2,
+      "pos": 3.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-lo-barnechea",
+      "slug": "prescripcion-deuda-tag-lo-barnechea",
+      "clics": 0,
+      "impr": 2,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-vina-del-mar",
+      "slug": "prescripcion-de-multas-de-transito-vina-del-mar",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo-temuco",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo-temuco",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-los-angeles",
+      "slug": "prescripcion-deuda-tag-los-angeles",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-no-pago-cotizaciones-santiago",
+      "slug": "denuncia-no-pago-cotizaciones-santiago",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-copiapo",
+      "slug": "prescripcion-de-multas-de-transito-copiapo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-la-florida",
+      "slug": "prescripcion-de-multas-de-transito-la-florida",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-talca",
+      "slug": "prescripcion-de-multas-de-transito-talca",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-puente-alto",
+      "slug": "prescripcion-de-multas-de-transito-puente-alto",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-temuco",
+      "slug": "demanda-alimentos-temuco",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-tramites-bancarios",
+      "slug": "poder-para-tramites-bancarios",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-bien-mueble",
+      "slug": "contrato-compraventa-bien-mueble",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-puente-alto",
+      "slug": "demanda-desalojo-puente-alto",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo",
+      "slug": "demanda-desalojo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-desalojo-las-condes",
+      "slug": "demanda-desalojo-las-condes",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos-las-condes",
+      "slug": "demanda-alimentos-las-condes",
+      "clics": 0,
+      "impr": 2,
+      "pos": 16
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito",
+      "slug": "prescripcion-de-multas-de-transito",
+      "clics": 0,
+      "impr": 2,
+      "pos": 26
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-el-bosque",
+      "slug": "prescripcion-deuda-tag-el-bosque",
+      "clics": 0,
+      "impr": 2,
+      "pos": 27.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-providencia",
+      "slug": "prescripcion-deuda-tag-providencia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 48.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial",
+      "slug": "mandato-especial",
+      "clics": 0,
+      "impr": 2,
+      "pos": 51
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-termino-contrato-arriendo",
+      "slug": "carta-termino-contrato-arriendo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 52
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-vina-del-mar",
+      "slug": "prescripcion-deuda-tag-vina-del-mar",
+      "clics": 0,
+      "impr": 2,
+      "pos": 61
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-obra-faena",
+      "slug": "contrato-trabajo-obra-faena",
+      "clics": 0,
+      "impr": 2,
+      "pos": 63.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple",
+      "slug": "declaracion-jurada-simple",
+      "clics": 0,
+      "impr": 2,
+      "pos": 71
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-concepcion",
+      "slug": "prescripcion-deuda-tag-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 71
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-despido-injustificado-concepcion",
+      "slug": "denuncia-despido-injustificado-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 76
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-rancagua",
+      "slug": "prescripcion-deuda-tag-rancagua",
+      "clics": 0,
+      "impr": 2,
+      "pos": 76
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa",
+      "slug": "contrato-arriendo-casa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 86
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-departamento",
+      "slug": "contrato-arriendo-departamento",
+      "clics": 0,
+      "impr": 2,
+      "pos": 86.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-de-alimentos",
+      "slug": "demanda-de-alimentos",
+      "clics": 0,
+      "impr": 2,
+      "pos": 90.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/demanda-alimentos",
+      "slug": "demanda-alimentos",
+      "clics": 0,
+      "impr": 2,
+      "pos": 91
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-nunoa",
+      "slug": "prescripcion-deuda-tag-nunoa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 114
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-osorno",
+      "slug": "prescripcion-deuda-tag-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-iquique",
+      "slug": "prescripcion-de-multas-de-transito-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-estacion-central",
+      "slug": "prescripcion-deuda-bancaria-estacion-central",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial",
+      "slug": "poder-notarial",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo-iquique",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo-santiago",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobranza-deuda",
+      "slug": "carta-cobranza-deuda",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-cerro-navia",
+      "slug": "prescripcion-deuda-tag-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-no-pago-cotizaciones-valparaiso",
+      "slug": "denuncia-no-pago-cotizaciones-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-puente-alto",
+      "slug": "prescripcion-deuda-tag-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-san-bernardo",
+      "slug": "prescripcion-deuda-tag-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/alzamiento-de-embargo-sobre-vehiculo-providencia",
+      "slug": "alzamiento-de-embargo-sobre-vehiculo-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-teletrabajo",
+      "slug": "contrato-trabajo-teletrabajo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio",
+      "slug": "declaracion-jurada-domicilio",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-chillan",
+      "slug": "prescripcion-de-multas-de-transito-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-multas-de-transito-concepcion",
+      "slug": "prescripcion-de-multas-de-transito-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-puerto-montt",
+      "slug": "prescripcion-deuda-tag-puerto-montt",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas",
+      "slug": "solicitud-visitas-reguladas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-pudahuel",
+      "slug": "prescripcion-deuda-bancaria-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-no-pago-cotizaciones",
+      "slug": "denuncia-no-pago-cotizaciones",
+      "clics": 0,
+      "impr": 1,
+      "pos": 26
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria-penalolen",
+      "slug": "prescripcion-deuda-bancaria-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 29
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-cobrar-finiquito",
+      "slug": "poder-para-cobrar-finiquito",
+      "clics": 0,
+      "impr": 1,
+      "pos": 39
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones",
+      "slug": "carta-reclamo-telecomunicaciones",
+      "clics": 0,
+      "impr": 1,
+      "pos": 54
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-de-deuda-bancaria",
+      "slug": "prescripcion-de-deuda-bancaria",
+      "clics": 0,
+      "impr": 1,
+      "pos": 70
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-talca",
+      "slug": "prescripcion-deuda-tag-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 80
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-por-despido-injustificado",
+      "slug": "denuncia-por-despido-injustificado",
+      "clics": 0,
+      "impr": 1,
+      "pos": 91
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-bancaria",
+      "slug": "prescripcion-deuda-bancaria",
+      "clics": 0,
+      "impr": 1,
+      "pos": 93
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo",
+      "slug": "contrato-compraventa-vehiculo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 96
+    },
+    {
+      "url": "https://legalhelp.cl/p/prescripcion-deuda-tag-san-miguel",
+      "slug": "prescripcion-deuda-tag-san-miguel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 98
+    }
+  ],
+  "recuperar": [
+    {
+      "url": "https://legalhelp.cl/p/carta-prescripcion-deuda-general-quilicura",
+      "slug": "carta-prescripcion-deuda-general-quilicura",
+      "clics": 3,
+      "impr": 6,
+      "pos": 3.5,
+      "hubSugerido": "carta-prescripcion-deuda-general"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-san-bernardo",
+      "slug": "denuncia-ruidos-molestos-vecinos-san-bernardo",
+      "clics": 2,
+      "impr": 7,
+      "pos": 7.71,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-quilpue",
+      "slug": "denuncia-ruidos-molestos-vecinos-quilpue",
+      "clics": 1,
+      "impr": 5,
+      "pos": 8,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-quilicura",
+      "slug": "denuncia-ruidos-molestos-vecinos-quilicura",
+      "clics": 1,
+      "impr": 4,
+      "pos": 5.75,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones-colina",
+      "slug": "carta-reclamo-telecomunicaciones-colina",
+      "clics": 1,
+      "impr": 3,
+      "pos": 7,
+      "hubSugerido": "carta-reclamo-telecomunicaciones"
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-los-angeles",
+      "slug": "recurso-apelacion-juzgado-policia-local-los-angeles",
+      "clics": 1,
+      "impr": 3,
+      "pos": 29.33,
+      "hubSugerido": "recurso-apelacion-juzgado-policia-local"
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-quilicura",
+      "slug": "declaracion-jurada-ingresos-quilicura",
+      "clics": 1,
+      "impr": 2,
+      "pos": 3,
+      "hubSugerido": "declaracion-jurada-ingresos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-maipu",
+      "slug": "escrito-prescripcion-multa-transito-maipu",
+      "clics": 1,
+      "impr": 2,
+      "pos": 4,
+      "hubSugerido": "escrito-prescripcion-multa-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-penalolen",
+      "slug": "denuncia-ruidos-molestos-vecinos-penalolen",
+      "clics": 1,
+      "impr": 2,
+      "pos": 9.5,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-san-miguel",
+      "slug": "escrito-prescripcion-multa-transito-san-miguel",
+      "clics": 1,
+      "impr": 2,
+      "pos": 9.5,
+      "hubSugerido": "escrito-prescripcion-multa-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-aerolinea-antofagasta",
+      "slug": "carta-reclamo-aerolinea-antofagasta",
+      "clics": 1,
+      "impr": 2,
+      "pos": 11,
+      "hubSugerido": "carta-reclamo-aerolinea"
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-talcahuano",
+      "slug": "recurso-apelacion-juzgado-policia-local-talcahuano",
+      "clics": 1,
+      "impr": 1,
+      "pos": 3,
+      "hubSugerido": "recurso-apelacion-juzgado-policia-local"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-quinta-normal",
+      "slug": "denuncia-maltrato-animal-quinta-normal",
+      "clics": 1,
+      "impr": 1,
+      "pos": 6,
+      "hubSugerido": "denuncia-maltrato-animal"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-quilpue",
+      "slug": "escrito-defensa-infraccion-transito-quilpue",
+      "clics": 1,
+      "impr": 1,
+      "pos": 7,
+      "hubSugerido": "escrito-defensa-infraccion-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-providencia",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-providencia",
+      "clics": 0,
+      "impr": 31,
+      "pos": 36.58,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-santiago",
+      "slug": "poder-simple-santiago",
+      "clics": 0,
+      "impr": 25,
+      "pos": 60,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-providencia",
+      "slug": "poder-simple-providencia",
+      "clics": 0,
+      "impr": 23,
+      "pos": 53.7,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-chillan",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-chillan",
+      "clics": 0,
+      "impr": 22,
+      "pos": 49.27,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple",
+      "slug": "poder-simple",
+      "clics": 0,
+      "impr": 21,
+      "pos": 65.62,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-concepcion",
+      "slug": "poder-simple-concepcion",
+      "clics": 0,
+      "impr": 19,
+      "pos": 59.58,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/crear-escrito-legal",
+      "slug": "crear-escrito-legal",
+      "clics": 0,
+      "impr": 17,
+      "pos": 38.29,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-vina-del-mar",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-vina-del-mar",
+      "clics": 0,
+      "impr": 16,
+      "pos": 50.62,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/ley-karin",
+      "slug": "ley-karin",
+      "clics": 0,
+      "impr": 15,
+      "pos": 77.27,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago-centro",
+      "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago-centro",
+      "clics": 0,
+      "impr": 15,
+      "pos": 79.13,
+      "hubSugerido": "registro-nacional-de-deudores-de-pensiones-de-alimentos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-las-condes",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-las-condes",
+      "clics": 0,
+      "impr": 13,
+      "pos": 54.15,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-temuco",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-temuco",
+      "clics": 0,
+      "impr": 13,
+      "pos": 59.77,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-las-condes",
+      "slug": "poder-simple-las-condes",
+      "clics": 0,
+      "impr": 12,
+      "pos": 64.25,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-antofagasta",
+      "slug": "denuncia-ruidos-molestos-vecinos-antofagasta",
+      "clics": 0,
+      "impr": 11,
+      "pos": 9.18,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-valparaiso",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-valparaiso",
+      "clics": 0,
+      "impr": 11,
+      "pos": 53.09,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-pudahuel",
+      "slug": "escrito-prescripcion-multa-transito-pudahuel",
+      "clics": 0,
+      "impr": 10,
+      "pos": 8.5,
+      "hubSugerido": "escrito-prescripcion-multa-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-punta-arenas",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-punta-arenas",
+      "clics": 0,
+      "impr": 10,
+      "pos": 43.2,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-vina-del-mar",
+      "slug": "denuncia-ruidos-molestos-vecinos-vina-del-mar",
+      "clics": 0,
+      "impr": 9,
+      "pos": 8.89,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-nunoa",
+      "slug": "poder-notarial-nunoa",
+      "clics": 0,
+      "impr": 9,
+      "pos": 66.11,
+      "hubSugerido": "poder-notarial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-estacion-central",
+      "slug": "escrito-prescripcion-multa-transito-estacion-central",
+      "clics": 0,
+      "impr": 8,
+      "pos": 8.88,
+      "hubSugerido": "escrito-prescripcion-multa-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-talca",
+      "slug": "carta-renuncia-laboral-talca",
+      "clics": 0,
+      "impr": 8,
+      "pos": 18.5,
+      "hubSugerido": "carta-renuncia-laboral"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-antofagasta",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-antofagasta",
+      "clics": 0,
+      "impr": 8,
+      "pos": 19.38,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-la-florida",
+      "slug": "denuncia-ruidos-molestos-vecinos-la-florida",
+      "clics": 0,
+      "impr": 7,
+      "pos": 8.86,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-maipu",
+      "slug": "denuncia-ruidos-molestos-vecinos-maipu",
+      "clics": 0,
+      "impr": 7,
+      "pos": 10.29,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-las-condes",
+      "slug": "denuncia-ruidos-molestos-vecinos-las-condes",
+      "clics": 0,
+      "impr": 7,
+      "pos": 10.43,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-nunoa",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-nunoa",
+      "clics": 0,
+      "impr": 7,
+      "pos": 56.14,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-rancagua",
+      "slug": "poder-notarial-rancagua",
+      "clics": 0,
+      "impr": 7,
+      "pos": 64.86,
+      "hubSugerido": "poder-notarial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-temuco",
+      "slug": "denuncia-ruidos-molestos-vecinos-temuco",
+      "clics": 0,
+      "impr": 6,
+      "pos": 5.83,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-las-condes",
+      "slug": "escrito-prescripcion-multa-transito-las-condes",
+      "clics": 0,
+      "impr": 6,
+      "pos": 9.5,
+      "hubSugerido": "escrito-prescripcion-multa-transito"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-sernac-maipu",
+      "slug": "carta-reclamo-sernac-maipu",
+      "clics": 0,
+      "impr": 6,
+      "pos": 11.5,
+      "hubSugerido": "carta-reclamo-sernac"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-arica",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-arica",
+      "clics": 0,
+      "impr": 6,
+      "pos": 21.5,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-temuco",
+      "slug": "poder-simple-temuco",
+      "clics": 0,
+      "impr": 6,
+      "pos": 46.83,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-arica",
+      "slug": "eliminacion-de-antecedentes-penales-arica",
+      "clics": 0,
+      "impr": 5,
+      "pos": 8,
+      "hubSugerido": "eliminacion-de-antecedentes-penales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-calama",
+      "slug": "carta-renuncia-laboral-calama",
+      "clics": 0,
+      "impr": 5,
+      "pos": 10,
+      "hubSugerido": "carta-renuncia-laboral"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-los-angeles",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-los-angeles",
+      "clics": 0,
+      "impr": 5,
+      "pos": 33.4,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-coquimbo",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-coquimbo",
+      "clics": 0,
+      "impr": 5,
+      "pos": 54.2,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-providencia",
+      "slug": "poder-notarial-providencia",
+      "clics": 0,
+      "impr": 5,
+      "pos": 87.8,
+      "hubSugerido": "poder-notarial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/como-hacer-una-demanda",
+      "slug": "como-hacer-una-demanda",
+      "clics": 0,
+      "impr": 4,
+      "pos": 2.75,
+      "hubSugerido": null
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-freelance-santiago-centro",
+      "slug": "contrato-freelance-santiago-centro",
+      "clics": 0,
+      "impr": 4,
+      "pos": 5,
+      "hubSugerido": "contrato-freelance"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-punta-arenas",
+      "slug": "poder-notarial-punta-arenas",
+      "clics": 0,
+      "impr": 4,
+      "pos": 6,
+      "hubSugerido": "poder-notarial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-puerto-montt",
+      "slug": "carta-renuncia-laboral-puerto-montt",
+      "clics": 0,
+      "impr": 4,
+      "pos": 6.5,
+      "hubSugerido": "carta-renuncia-laboral"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-quinta-normal",
+      "slug": "denuncia-ruidos-molestos-vecinos-quinta-normal",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.25,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-coquimbo",
+      "slug": "denuncia-ruidos-molestos-vecinos-coquimbo",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.5,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-temuco",
+      "slug": "poder-notarial-temuco",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.5,
+      "hubSugerido": "poder-notarial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-puerto-montt",
+      "slug": "denuncia-ruidos-molestos-vecinos-puerto-montt",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.75,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-san-miguel",
+      "slug": "denuncia-ruidos-molestos-vecinos-san-miguel",
+      "clics": 0,
+      "impr": 4,
+      "pos": 7.75,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-iquique",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-iquique",
+      "clics": 0,
+      "impr": 4,
+      "pos": 8.25,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-lo-barnechea",
+      "slug": "denuncia-ruidos-molestos-vecinos-lo-barnechea",
+      "clics": 0,
+      "impr": 4,
+      "pos": 8.5,
+      "hubSugerido": "denuncia-ruidos-molestos-vecinos"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-puerto-montt",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-puerto-montt",
+      "clics": 0,
+      "impr": 4,
+      "pos": 8.75,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-valparaiso",
+      "slug": "declaracion-jurada-domicilio-valparaiso",
+      "clics": 0,
+      "impr": 4,
+      "pos": 8.75,
+      "hubSugerido": "declaracion-jurada-domicilio"
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-los-angeles",
+      "slug": "eliminacion-de-antecedentes-penales-los-angeles",
+      "clics": 0,
+      "impr": 4,
+      "pos": 9.25,
+      "hubSugerido": "eliminacion-de-antecedentes-penales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-san-bernardo",
+      "slug": "declaracion-jurada-domicilio-san-bernardo",
+      "clics": 0,
+      "impr": 4,
+      "pos": 11.25,
+      "hubSugerido": "declaracion-jurada-domicilio"
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-santiago-centro",
+      "slug": "mandato-especial-santiago-centro",
+      "clics": 0,
+      "impr": 4,
+      "pos": 21.75,
+      "hubSugerido": "mandato-especial"
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-la-serena",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-la-serena",
+      "clics": 0,
+      "impr": 4,
+      "pos": 22,
+      "hubSugerido": "certificado-de-antecedentes-para-fines-especiales"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-penalolen",
+      "slug": "carta-amonestacion-laboral-penalolen",
+      "clics": 0,
+      "impr": 4,
+      "pos": 39.75,
+      "hubSugerido": "carta-amonestacion-laboral"
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-temuco",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-temuco",
+      "clics": 0,
+      "impr": 4,
+      "pos": 50,
+      "hubSugerido": "limpieza-de-hoja-de-vida-del-conductor"
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-temuco",
+      "slug": "carta-renuncia-laboral-temuco",
+      "clics": 0,
+      "impr": 4,
+      "pos": 61.5,
+      "hubSugerido": "carta-renuncia-laboral"
+    },
+    {
+      "url": "https://legalhelp.cl/p/posesion-efectiva",
+      "slug": "posesion-efectiva",
+      "clics": 0,
+      "impr": 4,
+      "pos": 66.75,
+      "hubSugerido": null
+    }
+  ],
+  "matar": [
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-part-time-temuco",
+      "slug": "contrato-trabajo-part-time-temuco",
+      "clics": 0,
+      "impr": 3,
+      "pos": 2.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-plazo-fijo-valdivia",
+      "slug": "contrato-trabajo-plazo-fijo-valdivia",
+      "clics": 0,
+      "impr": 3,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-curico",
+      "slug": "denuncia-ruidos-molestos-vecinos-curico",
+      "clics": 0,
+      "impr": 3,
+      "pos": 4.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-santiago-centro",
+      "slug": "pagare-santiago-centro",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-colina",
+      "slug": "escrito-prescripcion-multa-transito-colina",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-quilicura",
+      "slug": "escrito-prescripcion-multa-transito-quilicura",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-valparaiso",
+      "slug": "mandato-especial-valparaiso",
+      "clics": 0,
+      "impr": 3,
+      "pos": 5.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa-arica",
+      "slug": "contrato-arriendo-casa-arica",
+      "clics": 0,
+      "impr": 3,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-calama",
+      "slug": "denuncia-maltrato-animal-calama",
+      "clics": 0,
+      "impr": 3,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-vitacura",
+      "slug": "declaracion-jurada-ingresos-vitacura",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-el-bosque",
+      "slug": "denuncia-ruidos-molestos-vecinos-el-bosque",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-lo-barnechea",
+      "slug": "denuncia-maltrato-animal-lo-barnechea",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-recoleta",
+      "slug": "denuncia-ruidos-molestos-vecinos-recoleta",
+      "clics": 0,
+      "impr": 3,
+      "pos": 7.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-san-bernardo",
+      "slug": "escrito-prescripcion-multa-transito-san-bernardo",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-vina-del-mar",
+      "slug": "poder-notarial-vina-del-mar",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-colina",
+      "slug": "denuncia-ruidos-molestos-vecinos-colina",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-sernac-providencia",
+      "slug": "carta-reclamo-sernac-providencia",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-iquique",
+      "slug": "denuncia-maltrato-animal-iquique",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-rancagua",
+      "slug": "eliminacion-de-antecedentes-penales-rancagua",
+      "clics": 0,
+      "impr": 3,
+      "pos": 8.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-puerto-montt",
+      "slug": "denuncia-maltrato-animal-puerto-montt",
+      "clics": 0,
+      "impr": 3,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-impugnacion-multa-municipalidad-estacion-central",
+      "slug": "escrito-impugnacion-multa-municipalidad-estacion-central",
+      "clics": 0,
+      "impr": 3,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-calama",
+      "slug": "finiquito-laboral-calama",
+      "clics": 0,
+      "impr": 3,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-san-bernardo",
+      "slug": "poder-notarial-san-bernardo",
+      "clics": 0,
+      "impr": 3,
+      "pos": 9.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-renca",
+      "slug": "contrato-compraventa-vehiculo-renca",
+      "clics": 0,
+      "impr": 3,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-la-florida",
+      "slug": "finiquito-laboral-la-florida",
+      "clics": 0,
+      "impr": 3,
+      "pos": 10.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-temuco",
+      "slug": "denuncia-maltrato-animal-temuco",
+      "clics": 0,
+      "impr": 3,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones-copiapo",
+      "slug": "carta-reclamo-telecomunicaciones-copiapo",
+      "clics": 0,
+      "impr": 3,
+      "pos": 11.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-quilicura",
+      "slug": "declaracion-jurada-domicilio-quilicura",
+      "clics": 0,
+      "impr": 3,
+      "pos": 13
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-vitacura",
+      "slug": "contrato-compraventa-vehiculo-vitacura",
+      "clics": 0,
+      "impr": 3,
+      "pos": 21.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-puente-alto",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-puente-alto",
+      "clics": 0,
+      "impr": 3,
+      "pos": 24.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-valparaiso",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-valparaiso",
+      "clics": 0,
+      "impr": 3,
+      "pos": 26.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-valdivia",
+      "slug": "poder-notarial-valdivia",
+      "clics": 0,
+      "impr": 3,
+      "pos": 29.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-concepcion",
+      "slug": "carta-renuncia-laboral-concepcion",
+      "clics": 0,
+      "impr": 3,
+      "pos": 30
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-rancagua",
+      "slug": "poder-simple-rancagua",
+      "clics": 0,
+      "impr": 3,
+      "pos": 34.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-la-florida",
+      "slug": "poder-notarial-la-florida",
+      "clics": 0,
+      "impr": 3,
+      "pos": 40.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-calama",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-calama",
+      "clics": 0,
+      "impr": 3,
+      "pos": 50.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-rancagua",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-rancagua",
+      "clics": 0,
+      "impr": 3,
+      "pos": 52.33
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-santiago-centro",
+      "slug": "solicitud-visitas-reguladas-santiago-centro",
+      "clics": 0,
+      "impr": 3,
+      "pos": 55
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-iquique",
+      "slug": "poder-notarial-iquique",
+      "clics": 0,
+      "impr": 3,
+      "pos": 83.67
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-calama",
+      "slug": "pagare-calama",
+      "clics": 0,
+      "impr": 2,
+      "pos": 3.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-freelance-los-angeles",
+      "slug": "contrato-freelance-los-angeles",
+      "clics": 0,
+      "impr": 2,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-los-angeles",
+      "slug": "escrito-prescripcion-multa-transito-los-angeles",
+      "clics": 0,
+      "impr": 2,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-penalolen",
+      "slug": "escrito-prescripcion-multa-transito-penalolen",
+      "clics": 0,
+      "impr": 2,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-los-angeles",
+      "slug": "convenio-regulacion-divorcio-los-angeles",
+      "clics": 0,
+      "impr": 2,
+      "pos": 4.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-la-florida",
+      "slug": "denuncia-maltrato-animal-la-florida",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-departamento-temuco",
+      "slug": "contrato-arriendo-departamento-temuco",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-quilpue",
+      "slug": "declaracion-jurada-ingresos-quilpue",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-quinta-normal",
+      "slug": "escrito-prescripcion-multa-transito-quinta-normal",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-nunoa",
+      "slug": "pagare-nunoa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-arica",
+      "slug": "poder-para-vender-vehiculo-arica",
+      "clics": 0,
+      "impr": 2,
+      "pos": 5.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-arica",
+      "slug": "declaracion-jurada-simple-arica",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-providencia",
+      "slug": "escrito-prescripcion-multa-transito-providencia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-puerto-montt",
+      "slug": "recurso-apelacion-juzgado-policia-local-puerto-montt",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-puente-alto",
+      "slug": "escrito-prescripcion-multa-transito-puente-alto",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-chillan",
+      "slug": "pagare-chillan",
+      "clics": 0,
+      "impr": 2,
+      "pos": 6.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-quilicura",
+      "slug": "contrato-compraventa-vehiculo-quilicura",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-freelance-penalolen",
+      "slug": "contrato-freelance-penalolen",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-impugnacion-multa-municipalidad-vitacura",
+      "slug": "escrito-impugnacion-multa-municipalidad-vitacura",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-las-condes",
+      "slug": "recurso-apelacion-juzgado-policia-local-las-condes",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-pudahuel",
+      "slug": "convenio-regulacion-divorcio-pudahuel",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-puerto-montt",
+      "slug": "declaracion-jurada-domicilio-puerto-montt",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-talca",
+      "slug": "denuncia-maltrato-animal-talca",
+      "clics": 0,
+      "impr": 2,
+      "pos": 7.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobranza-deuda-santiago-centro",
+      "slug": "carta-cobranza-deuda-santiago-centro",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-antofagasta",
+      "slug": "declaracion-jurada-ingresos-antofagasta",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-concepcion",
+      "slug": "declaracion-jurada-simple-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-santiago",
+      "slug": "recurso-apelacion-juzgado-policia-local-santiago",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-tuicion-compartida-santiago",
+      "slug": "acuerdo-tuicion-compartida-santiago",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-providencia",
+      "slug": "declaracion-jurada-simple-providencia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble-punta-arenas",
+      "slug": "promesa-compraventa-inmueble-punta-arenas",
+      "clics": 0,
+      "impr": 2,
+      "pos": 8.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-las-condes",
+      "slug": "declaracion-jurada-ingresos-las-condes",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-lampa",
+      "slug": "pagare-lampa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-rancagua",
+      "slug": "denuncia-maltrato-animal-rancagua",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-concepcion",
+      "slug": "finiquito-laboral-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-valdivia",
+      "slug": "finiquito-laboral-valdivia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 9.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-quilpue",
+      "slug": "declaracion-jurada-domicilio-quilpue",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-punta-arenas",
+      "slug": "eliminacion-de-antecedentes-penales-punta-arenas",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-la-serena",
+      "slug": "escrito-prescripcion-multa-transito-la-serena",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-antofagasta",
+      "slug": "finiquito-laboral-antofagasta",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-curico",
+      "slug": "denuncia-maltrato-animal-curico",
+      "clics": 0,
+      "impr": 2,
+      "pos": 10.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-san-bernardo",
+      "slug": "convenio-regulacion-divorcio-san-bernardo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-copiapo",
+      "slug": "denuncia-maltrato-animal-copiapo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-iquique",
+      "slug": "denuncia-ruidos-molestos-vecinos-iquique",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-valparaiso",
+      "slug": "denuncia-ruidos-molestos-vecinos-valparaiso",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-lo-barnechea",
+      "slug": "escrito-prescripcion-multa-transito-lo-barnechea",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-vina-del-mar",
+      "slug": "solicitud-visitas-reguladas-vina-del-mar",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-providencia",
+      "slug": "declaracion-jurada-domicilio-providencia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 11.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-obra-faena-vitacura",
+      "slug": "contrato-trabajo-obra-faena-vitacura",
+      "clics": 0,
+      "impr": 2,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-estacion-central",
+      "slug": "poder-notarial-estacion-central",
+      "clics": 0,
+      "impr": 2,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-colina",
+      "slug": "recurso-apelacion-juzgado-policia-local-colina",
+      "clics": 0,
+      "impr": 2,
+      "pos": 12.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-curico",
+      "slug": "contrato-compraventa-vehiculo-curico",
+      "clics": 0,
+      "impr": 2,
+      "pos": 13
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-concepcion",
+      "slug": "mandato-especial-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 39
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-concepcion",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 41
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-quilpue",
+      "slug": "convenio-regulacion-divorcio-quilpue",
+      "clics": 0,
+      "impr": 2,
+      "pos": 41.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-coquimbo",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-coquimbo",
+      "clics": 0,
+      "impr": 2,
+      "pos": 41.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-puerto-montt",
+      "slug": "poder-notarial-puerto-montt",
+      "clics": 0,
+      "impr": 2,
+      "pos": 43.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-curico",
+      "slug": "poder-simple-curico",
+      "clics": 0,
+      "impr": 2,
+      "pos": 49.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-santiago",
+      "slug": "solicitud-visitas-reguladas-santiago",
+      "clics": 0,
+      "impr": 2,
+      "pos": 50
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-las-condes",
+      "slug": "carta-reclamo-banco-las-condes",
+      "clics": 0,
+      "impr": 2,
+      "pos": 50.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-osorno",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-osorno",
+      "clics": 0,
+      "impr": 2,
+      "pos": 50.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-nunoa",
+      "slug": "poder-simple-nunoa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 50.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-independencia",
+      "slug": "mandato-especial-independencia",
+      "clics": 0,
+      "impr": 2,
+      "pos": 57
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-santiago-centro",
+      "slug": "carta-renuncia-laboral-santiago-centro",
+      "clics": 0,
+      "impr": 2,
+      "pos": 74
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-los-angeles",
+      "slug": "poder-notarial-los-angeles",
+      "clics": 0,
+      "impr": 2,
+      "pos": 76
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-nunoa",
+      "slug": "carta-renuncia-laboral-nunoa",
+      "clics": 0,
+      "impr": 2,
+      "pos": 80
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-concepcion",
+      "slug": "convenio-regulacion-divorcio-concepcion",
+      "clics": 0,
+      "impr": 2,
+      "pos": 87.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-santiago-centro",
+      "slug": "poder-simple-santiago-centro",
+      "clics": 0,
+      "impr": 2,
+      "pos": 87.5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-valparaiso",
+      "slug": "poder-simple-valparaiso",
+      "clics": 0,
+      "impr": 2,
+      "pos": 91
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-termino-contrato-arriendo-penalolen",
+      "slug": "carta-termino-contrato-arriendo-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-part-time-las-condes",
+      "slug": "contrato-trabajo-part-time-las-condes",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-part-time-recoleta",
+      "slug": "contrato-trabajo-part-time-recoleta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-teletrabajo-quilicura",
+      "slug": "contrato-trabajo-teletrabajo-quilicura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-alzamiento-protesto-copiapo",
+      "slug": "solicitud-alzamiento-protesto-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 1
+    },
+    {
+      "url": "https://legalhelp.cl/p/anexo-contrato-trabajo-sueldo-colina",
+      "slug": "anexo-contrato-trabajo-sueldo-colina",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-prescripcion-deuda-general-osorno",
+      "slug": "carta-prescripcion-deuda-general-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-sernac-valparaiso",
+      "slug": "carta-reclamo-sernac-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa-penalolen",
+      "slug": "contrato-arriendo-casa-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-de-mutuo-valparaiso",
+      "slug": "contrato-de-mutuo-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-subarriendo-puente-alto",
+      "slug": "contrato-subarriendo-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-indefinido-quilpue",
+      "slug": "contrato-trabajo-indefinido-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-rancagua",
+      "slug": "declaracion-jurada-ingresos-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-renca",
+      "slug": "declaracion-jurada-simple-renca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-concepcion",
+      "slug": "denuncia-ruidos-molestos-vecinos-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-impugnacion-multa-municipalidad-quilpue",
+      "slug": "escrito-impugnacion-multa-municipalidad-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-quinta-normal",
+      "slug": "recurso-apelacion-juzgado-policia-local-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 2
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-prescripcion-deuda-general-san-bernardo",
+      "slug": "carta-prescripcion-deuda-general-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/como-redactar-contrato",
+      "slug": "como-redactar-contrato",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa-lo-barnechea",
+      "slug": "contrato-arriendo-casa-lo-barnechea",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-antofagasta",
+      "slug": "contrato-compraventa-vehiculo-antofagasta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-indefinido-maipu",
+      "slug": "contrato-trabajo-indefinido-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-plazo-fijo-concepcion",
+      "slug": "contrato-trabajo-plazo-fijo-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-cerro-navia",
+      "slug": "denuncia-ruidos-molestos-vecinos-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-nunoa",
+      "slug": "denuncia-ruidos-molestos-vecinos-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-impugnacion-multa-municipalidad-quinta-normal",
+      "slug": "escrito-impugnacion-multa-municipalidad-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-copiapo",
+      "slug": "escrito-prescripcion-multa-transito-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-los-angeles",
+      "slug": "pagare-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 3
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-independencia",
+      "slug": "carta-renuncia-laboral-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-iquique",
+      "slug": "carta-renuncia-laboral-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-arica",
+      "slug": "declaracion-jurada-domicilio-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-maipu",
+      "slug": "declaracion-jurada-simple-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-quilpue",
+      "slug": "escrito-prescripcion-multa-transito-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-vitacura",
+      "slug": "escrito-prescripcion-multa-transito-vitacura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-providencia",
+      "slug": "finiquito-laboral-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-quinta-normal",
+      "slug": "finiquito-laboral-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-la-serena",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-calama",
+      "slug": "poder-simple-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble-lampa",
+      "slug": "promesa-compraventa-inmueble-lampa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 4
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-divorcio-mutuo-acuerdo-copiapo",
+      "slug": "acuerdo-divorcio-mutuo-acuerdo-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-pago-deuda-santiago",
+      "slug": "acuerdo-pago-deuda-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-recoleta",
+      "slug": "carta-renuncia-laboral-recoleta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-termino-contrato-arriendo-providencia",
+      "slug": "carta-termino-contrato-arriendo-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa-iquique",
+      "slug": "contrato-arriendo-casa-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-casa-valdivia",
+      "slug": "contrato-arriendo-casa-valdivia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-local-comercial-los-angeles",
+      "slug": "contrato-arriendo-local-comercial-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-quilpue",
+      "slug": "contrato-compraventa-vehiculo-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-prestacion-servicios-honorarios-estacion-central",
+      "slug": "contrato-prestacion-servicios-honorarios-estacion-central",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-obra-faena-puerto-montt",
+      "slug": "contrato-trabajo-obra-faena-puerto-montt",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-arica",
+      "slug": "declaracion-jurada-ingresos-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-talcahuano",
+      "slug": "declaracion-jurada-simple-talcahuano",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-los-angeles",
+      "slug": "denuncia-maltrato-animal-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-vina-del-mar",
+      "slug": "denuncia-maltrato-animal-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-san-antonio",
+      "slug": "denuncia-ruidos-molestos-vecinos-san-antonio",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-talcahuano",
+      "slug": "finiquito-laboral-talcahuano",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-quinta-normal",
+      "slug": "mandato-especial-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-arica",
+      "slug": "poder-notarial-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-quilicura",
+      "slug": "poder-para-vender-vehiculo-quilicura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-osorno",
+      "slug": "poder-simple-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-puente-alto",
+      "slug": "poder-simple-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-los-angeles",
+      "slug": "solicitud-visitas-reguladas-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 5
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-divorcio-mutuo-acuerdo-calama",
+      "slug": "acuerdo-divorcio-mutuo-acuerdo-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-tienda-retail-independencia",
+      "slug": "carta-reclamo-tienda-retail-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-arica",
+      "slug": "carta-renuncia-laboral-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-curico",
+      "slug": "carta-renuncia-laboral-curico",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-departamento-lo-barnechea",
+      "slug": "contrato-arriendo-departamento-lo-barnechea",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-local-comercial-temuco",
+      "slug": "contrato-arriendo-local-comercial-temuco",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-part-time-valparaiso",
+      "slug": "contrato-trabajo-part-time-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-plazo-fijo-osorno",
+      "slug": "contrato-trabajo-plazo-fijo-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-nunoa",
+      "slug": "convenio-regulacion-divorcio-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-pudahuel",
+      "slug": "declaracion-jurada-ingresos-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-renca",
+      "slug": "declaracion-jurada-ingresos-renca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-estacion-central",
+      "slug": "denuncia-ruidos-molestos-vecinos-estacion-central",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-estacion-central",
+      "slug": "escrito-defensa-infraccion-transito-estacion-central",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-independencia",
+      "slug": "escrito-defensa-infraccion-transito-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-pudahuel",
+      "slug": "escrito-defensa-infraccion-transito-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-talca",
+      "slug": "finiquito-laboral-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-curico",
+      "slug": "poder-notarial-curico",
+      "clics": 0,
+      "impr": 1,
+      "pos": 6
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-santiago",
+      "slug": "carta-amonestacion-laboral-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-calama",
+      "slug": "declaracion-jurada-domicilio-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-la-serena",
+      "slug": "declaracion-jurada-domicilio-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-valdivia",
+      "slug": "declaracion-jurada-domicilio-valdivia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-la-serena",
+      "slug": "declaracion-jurada-ingresos-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-las-condes",
+      "slug": "denuncia-maltrato-animal-las-condes",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-pudahuel",
+      "slug": "denuncia-maltrato-animal-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-talcahuano",
+      "slug": "denuncia-maltrato-animal-talcahuano",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-providencia",
+      "slug": "eliminacion-de-antecedentes-penales-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-impugnacion-multa-municipalidad-pudahuel",
+      "slug": "escrito-impugnacion-multa-municipalidad-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-nunoa",
+      "slug": "escrito-prescripcion-multa-transito-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-renca",
+      "slug": "escrito-prescripcion-multa-transito-renca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-copiapo",
+      "slug": "finiquito-laboral-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-lampa",
+      "slug": "finiquito-laboral-lampa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-pudahuel",
+      "slug": "pagare-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-arica",
+      "slug": "poder-simple-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-concepcion",
+      "slug": "solicitud-visitas-reguladas-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 7
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-aerolinea-san-miguel",
+      "slug": "carta-reclamo-aerolinea-san-miguel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-seguro-osorno",
+      "slug": "carta-reclamo-seguro-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-antofagasta",
+      "slug": "carta-renuncia-laboral-antofagasta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-prestacion-servicios-honorarios-penalolen",
+      "slug": "contrato-prestacion-servicios-honorarios-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-la-florida",
+      "slug": "declaracion-jurada-ingresos-la-florida",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-la-serena",
+      "slug": "declaracion-jurada-simple-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-puente-alto",
+      "slug": "declaracion-jurada-simple-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-concepcion",
+      "slug": "denuncia-maltrato-animal-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-punta-arenas",
+      "slug": "denuncia-maltrato-animal-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-arica",
+      "slug": "denuncia-ruidos-molestos-vecinos-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-punta-arenas",
+      "slug": "denuncia-ruidos-molestos-vecinos-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-curico",
+      "slug": "escrito-defensa-infraccion-transito-curico",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-prescripcion-multa-transito-punta-arenas",
+      "slug": "escrito-prescripcion-multa-transito-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-osorno",
+      "slug": "poder-notarial-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-tramites-bancarios-valparaiso",
+      "slug": "poder-para-tramites-bancarios-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-quilicura",
+      "slug": "poder-simple-quilicura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble-san-bernardo",
+      "slug": "promesa-compraventa-inmueble-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 8
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobro-arriendo-impago-nunoa",
+      "slug": "carta-cobro-arriendo-impago-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobro-arriendo-impago-pudahuel",
+      "slug": "carta-cobro-arriendo-impago-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-prescripcion-deuda-general-santiago",
+      "slug": "carta-prescripcion-deuda-general-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-los-angeles",
+      "slug": "carta-reclamo-banco-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones-calama",
+      "slug": "carta-reclamo-telecomunicaciones-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-chillan",
+      "slug": "carta-renuncia-laboral-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-arriendo-departamento-penalolen",
+      "slug": "contrato-arriendo-departamento-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-osorno",
+      "slug": "contrato-compraventa-vehiculo-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-padre-las-casas",
+      "slug": "contrato-compraventa-vehiculo-padre-las-casas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-indefinido-punta-arenas",
+      "slug": "contrato-trabajo-indefinido-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-cerro-navia",
+      "slug": "declaracion-jurada-domicilio-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-puente-alto",
+      "slug": "declaracion-jurada-domicilio-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-san-bernardo",
+      "slug": "declaracion-jurada-ingresos-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-lo-barnechea",
+      "slug": "declaracion-jurada-simple-lo-barnechea",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-penalolen",
+      "slug": "denuncia-maltrato-animal-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-los-angeles",
+      "slug": "denuncia-ruidos-molestos-vecinos-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-rancagua",
+      "slug": "denuncia-ruidos-molestos-vecinos-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-concepcion",
+      "slug": "eliminacion-de-antecedentes-penales-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-nunoa",
+      "slug": "finiquito-laboral-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-providencia",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-rancagua",
+      "slug": "mandato-especial-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-valparaiso",
+      "slug": "recurso-apelacion-juzgado-policia-local-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 9
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-nunoa",
+      "slug": "carta-reclamo-banco-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-isapre-talca",
+      "slug": "carta-reclamo-isapre-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-cerro-navia",
+      "slug": "contrato-compraventa-vehiculo-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-part-time-quinta-normal",
+      "slug": "contrato-trabajo-part-time-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-plazo-fijo-pudahuel",
+      "slug": "contrato-trabajo-plazo-fijo-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-teletrabajo-renca",
+      "slug": "contrato-trabajo-teletrabajo-renca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-maipu",
+      "slug": "declaracion-jurada-domicilio-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-ingresos-independencia",
+      "slug": "declaracion-jurada-ingresos-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-simple-vitacura",
+      "slug": "declaracion-jurada-simple-vitacura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-chillan",
+      "slug": "denuncia-maltrato-animal-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-maipu",
+      "slug": "denuncia-maltrato-animal-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-san-bernardo",
+      "slug": "denuncia-maltrato-animal-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-vitacura",
+      "slug": "denuncia-ruidos-molestos-vecinos-vitacura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-las-condes",
+      "slug": "eliminacion-de-antecedentes-penales-las-condes",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-valparaiso",
+      "slug": "eliminacion-de-antecedentes-penales-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-copiapo",
+      "slug": "escrito-defensa-infraccion-transito-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-lo-barnechea",
+      "slug": "escrito-defensa-infraccion-transito-lo-barnechea",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-punta-arenas",
+      "slug": "finiquito-laboral-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-santiago-centro",
+      "slug": "finiquito-laboral-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-calama",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/omision-de-antecedentes-por-violencia-intrafamiliar-temuco",
+      "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-temuco",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/omision-de-antecedentes-por-violencia-intrafamiliar-valparaiso",
+      "slug": "omision-de-antecedentes-por-violencia-intrafamiliar-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-independencia",
+      "slug": "pagare-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/posesion-efectiva-vina-del-mar",
+      "slug": "posesion-efectiva-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-cerro-navia",
+      "slug": "recurso-apelacion-juzgado-policia-local-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 10
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-quinta-normal",
+      "slug": "carta-amonestacion-laboral-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobranza-deuda-san-bernardo",
+      "slug": "carta-cobranza-deuda-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobro-arriendo-impago-san-miguel",
+      "slug": "carta-cobro-arriendo-impago-san-miguel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-la-serena",
+      "slug": "carta-reclamo-banco-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-seguro-punta-arenas",
+      "slug": "carta-reclamo-seguro-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones-rancagua",
+      "slug": "carta-reclamo-telecomunicaciones-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-santiago",
+      "slug": "carta-renuncia-laboral-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-arica",
+      "slug": "contrato-compraventa-vehiculo-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-indefinido-iquique",
+      "slug": "contrato-trabajo-indefinido-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-indefinido-quinta-normal",
+      "slug": "contrato-trabajo-indefinido-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-teletrabajo-colina",
+      "slug": "contrato-trabajo-teletrabajo-colina",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-lampa",
+      "slug": "denuncia-maltrato-animal-lampa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-talca",
+      "slug": "denuncia-ruidos-molestos-vecinos-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/eliminacion-de-antecedentes-penales-la-serena",
+      "slug": "eliminacion-de-antecedentes-penales-la-serena",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/escrito-defensa-infraccion-transito-iquique",
+      "slug": "escrito-defensa-infraccion-transito-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-chillan",
+      "slug": "finiquito-laboral-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-los-angeles",
+      "slug": "mandato-especial-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-cobrar-finiquito-talca",
+      "slug": "poder-para-cobrar-finiquito-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-tramites-bancarios-puente-alto",
+      "slug": "poder-para-tramites-bancarios-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-padre-las-casas",
+      "slug": "poder-para-vender-vehiculo-padre-las-casas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/registro-nacional-de-deudores-de-pensiones-de-alimentos-calama",
+      "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-calama",
+      "clics": 0,
+      "impr": 1,
+      "pos": 11
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-pago-deuda-independencia",
+      "slug": "acuerdo-pago-deuda-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-vina-del-mar",
+      "slug": "carta-reclamo-banco-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-isapre-santiago",
+      "slug": "carta-reclamo-isapre-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-renuncia-laboral-maipu",
+      "slug": "carta-renuncia-laboral-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-nunoa",
+      "slug": "contrato-compraventa-vehiculo-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-temuco",
+      "slug": "contrato-compraventa-vehiculo-temuco",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-quinta-normal",
+      "slug": "convenio-regulacion-divorcio-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-chillan",
+      "slug": "declaracion-jurada-domicilio-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-lampa",
+      "slug": "declaracion-jurada-domicilio-lampa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-vitacura",
+      "slug": "declaracion-jurada-domicilio-vitacura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-coquimbo",
+      "slug": "denuncia-maltrato-animal-coquimbo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-maltrato-animal-quilpue",
+      "slug": "denuncia-maltrato-animal-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/denuncia-ruidos-molestos-vecinos-puente-alto",
+      "slug": "denuncia-ruidos-molestos-vecinos-puente-alto",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/finiquito-laboral-pudahuel",
+      "slug": "finiquito-laboral-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-osorno",
+      "slug": "poder-para-vender-vehiculo-osorno",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble-cerro-navia",
+      "slug": "promesa-compraventa-inmueble-cerro-navia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/promesa-compraventa-inmueble-valdivia",
+      "slug": "promesa-compraventa-inmueble-valdivia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-padre-las-casas",
+      "slug": "recurso-apelacion-juzgado-policia-local-padre-las-casas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-temuco",
+      "slug": "recurso-apelacion-juzgado-policia-local-temuco",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-puerto-montt",
+      "slug": "solicitud-visitas-reguladas-puerto-montt",
+      "clics": 0,
+      "impr": 1,
+      "pos": 12
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-tuicion-compartida-renca",
+      "slug": "acuerdo-tuicion-compartida-renca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 13
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-penalolen",
+      "slug": "contrato-compraventa-vehiculo-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 13
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-cobranza-deuda-santiago",
+      "slug": "carta-cobranza-deuda-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 19
+    },
+    {
+      "url": "https://legalhelp.cl/p/posesion-efectiva-santiago-centro",
+      "slug": "posesion-efectiva-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 24
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-vitacura",
+      "slug": "poder-para-vender-vehiculo-vitacura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 29
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-divorcio-mutuo-acuerdo-san-miguel",
+      "slug": "acuerdo-divorcio-mutuo-acuerdo-san-miguel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 35
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-concepcion",
+      "slug": "carta-reclamo-banco-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 37
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-padre-las-casas",
+      "slug": "solicitud-visitas-reguladas-padre-las-casas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 39
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-divorcio-mutuo-acuerdo-santiago",
+      "slug": "acuerdo-divorcio-mutuo-acuerdo-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 40
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-nunoa",
+      "slug": "poder-para-vender-vehiculo-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 40
+    },
+    {
+      "url": "https://legalhelp.cl/p/pagare-las-condes",
+      "slug": "pagare-las-condes",
+      "clics": 0,
+      "impr": 1,
+      "pos": 41
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-alzamiento-protesto-independencia",
+      "slug": "solicitud-alzamiento-protesto-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 44
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-seguro-recoleta",
+      "slug": "carta-reclamo-seguro-recoleta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 45
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-obra-faena-santiago-centro",
+      "slug": "contrato-trabajo-obra-faena-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 45
+    },
+    {
+      "url": "https://legalhelp.cl/p/recurso-apelacion-juzgado-policia-local-recoleta",
+      "slug": "recurso-apelacion-juzgado-policia-local-recoleta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 45
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-seguro-los-angeles",
+      "slug": "carta-reclamo-seguro-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 46
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-dependientes-nunoa",
+      "slug": "declaracion-jurada-dependientes-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 46
+    },
+    {
+      "url": "https://legalhelp.cl/p/registro-nacional-de-deudores-de-pensiones-de-alimentos-los-angeles",
+      "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-los-angeles",
+      "clics": 0,
+      "impr": 1,
+      "pos": 46
+    },
+    {
+      "url": "https://legalhelp.cl/p/convenio-regulacion-divorcio-penalolen",
+      "slug": "convenio-regulacion-divorcio-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 47
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-rancagua",
+      "slug": "solicitud-visitas-reguladas-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 48
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-arica",
+      "slug": "carta-amonestacion-laboral-arica",
+      "clics": 0,
+      "impr": 1,
+      "pos": 49
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-independencia",
+      "slug": "declaracion-jurada-domicilio-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 50
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-santiago-centro",
+      "slug": "carta-reclamo-banco-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 52
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-isapre-san-antonio",
+      "slug": "carta-reclamo-isapre-san-antonio",
+      "clics": 0,
+      "impr": 1,
+      "pos": 57
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-maipu",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-maipu",
+      "clics": 0,
+      "impr": 1,
+      "pos": 57
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-quilpue",
+      "slug": "poder-notarial-quilpue",
+      "clics": 0,
+      "impr": 1,
+      "pos": 58
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-banco-valdivia",
+      "slug": "carta-reclamo-banco-valdivia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 59
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-santiago",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 62
+    },
+    {
+      "url": "https://legalhelp.cl/p/certificado-de-antecedentes-para-fines-especiales-san-bernardo",
+      "slug": "certificado-de-antecedentes-para-fines-especiales-san-bernardo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 64
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-penalolen",
+      "slug": "poder-notarial-penalolen",
+      "clics": 0,
+      "impr": 1,
+      "pos": 68
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-chillan",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-chillan",
+      "clics": 0,
+      "impr": 1,
+      "pos": 69
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-aerolinea-talcahuano",
+      "slug": "carta-reclamo-aerolinea-talcahuano",
+      "clics": 0,
+      "impr": 1,
+      "pos": 71
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-vina-del-mar",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 71
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-alzamiento-protesto-curico",
+      "slug": "solicitud-alzamiento-protesto-curico",
+      "clics": 0,
+      "impr": 1,
+      "pos": 72
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-pudahuel",
+      "slug": "carta-amonestacion-laboral-pudahuel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 74
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-punta-arenas",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-punta-arenas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 74
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-trabajo-teletrabajo-nunoa",
+      "slug": "contrato-trabajo-teletrabajo-nunoa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 75
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-iquique",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-iquique",
+      "clics": 0,
+      "impr": 1,
+      "pos": 75
+    },
+    {
+      "url": "https://legalhelp.cl/p/declaracion-jurada-domicilio-santiago",
+      "slug": "declaracion-jurada-domicilio-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 76
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-alzamiento-protesto-santiago",
+      "slug": "solicitud-alzamiento-protesto-santiago",
+      "clics": 0,
+      "impr": 1,
+      "pos": 76
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-telecomunicaciones-concepcion",
+      "slug": "carta-reclamo-telecomunicaciones-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 77
+    },
+    {
+      "url": "https://legalhelp.cl/p/limpieza-de-hoja-de-vida-del-conductor-copiapo",
+      "slug": "limpieza-de-hoja-de-vida-del-conductor-copiapo",
+      "clics": 0,
+      "impr": 1,
+      "pos": 77
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-isapre-talcahuano",
+      "slug": "carta-reclamo-isapre-talcahuano",
+      "clics": 0,
+      "impr": 1,
+      "pos": 78
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-las-condes",
+      "slug": "poder-notarial-las-condes",
+      "clics": 0,
+      "impr": 1,
+      "pos": 78
+    },
+    {
+      "url": "https://legalhelp.cl/p/contrato-compraventa-vehiculo-talca",
+      "slug": "contrato-compraventa-vehiculo-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 79
+    },
+    {
+      "url": "https://legalhelp.cl/p/acuerdo-pago-deuda-rancagua",
+      "slug": "acuerdo-pago-deuda-rancagua",
+      "clics": 0,
+      "impr": 1,
+      "pos": 80
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-para-vender-vehiculo-santiago-centro",
+      "slug": "poder-para-vender-vehiculo-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 80
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-colina",
+      "slug": "carta-amonestacion-laboral-colina",
+      "clics": 0,
+      "impr": 1,
+      "pos": 84
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-talca",
+      "slug": "mandato-especial-talca",
+      "clics": 0,
+      "impr": 1,
+      "pos": 84
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-antofagasta",
+      "slug": "poder-simple-antofagasta",
+      "clics": 0,
+      "impr": 1,
+      "pos": 86
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-padre-las-casas",
+      "slug": "carta-amonestacion-laboral-padre-las-casas",
+      "clics": 0,
+      "impr": 1,
+      "pos": 88
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-reclamo-isapre-independencia",
+      "slug": "carta-reclamo-isapre-independencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 88
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-vina-del-mar",
+      "slug": "poder-simple-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 88
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-lampa",
+      "slug": "poder-simple-lampa",
+      "clics": 0,
+      "impr": 1,
+      "pos": 89
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-santiago-centro",
+      "slug": "carta-amonestacion-laboral-santiago-centro",
+      "clics": 0,
+      "impr": 1,
+      "pos": 90
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-providencia",
+      "slug": "carta-amonestacion-laboral-providencia",
+      "clics": 0,
+      "impr": 1,
+      "pos": 91
+    },
+    {
+      "url": "https://legalhelp.cl/p/mandato-especial-temuco",
+      "slug": "mandato-especial-temuco",
+      "clics": 0,
+      "impr": 1,
+      "pos": 92
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-quinta-normal",
+      "slug": "poder-simple-quinta-normal",
+      "clics": 0,
+      "impr": 1,
+      "pos": 92
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-notarial-valparaiso",
+      "slug": "poder-notarial-valparaiso",
+      "clics": 0,
+      "impr": 1,
+      "pos": 93
+    },
+    {
+      "url": "https://legalhelp.cl/p/poder-simple-san-miguel",
+      "slug": "poder-simple-san-miguel",
+      "clics": 0,
+      "impr": 1,
+      "pos": 93
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-vina-del-mar",
+      "slug": "carta-amonestacion-laboral-vina-del-mar",
+      "clics": 0,
+      "impr": 1,
+      "pos": 94
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-estacion-central",
+      "slug": "carta-amonestacion-laboral-estacion-central",
+      "clics": 0,
+      "impr": 1,
+      "pos": 97
+    },
+    {
+      "url": "https://legalhelp.cl/p/solicitud-visitas-reguladas-quilicura",
+      "slug": "solicitud-visitas-reguladas-quilicura",
+      "clics": 0,
+      "impr": 1,
+      "pos": 97
+    },
+    {
+      "url": "https://legalhelp.cl/p/carta-amonestacion-laboral-concepcion",
+      "slug": "carta-amonestacion-laboral-concepcion",
+      "clics": 0,
+      "impr": 1,
+      "pos": 100
+    }
+  ],
+  "no_p": [
+    {
+      "url": "http://legalhelp.cl/",
+      "slug": null,
+      "clics": 2,
+      "impr": 11,
+      "pos": 1.55
+    },
+    {
+      "url": "https://legalhelp.cl/",
+      "slug": null,
+      "clics": 1,
+      "impr": 17,
+      "pos": 2.59
+    },
+    {
+      "url": "https://www.legalhelp.cl/",
+      "slug": null,
+      "clics": 0,
+      "impr": 7,
+      "pos": 2.57
+    },
+    {
+      "url": "http://www.legalhelp.cl/",
+      "slug": null,
+      "clics": 0,
+      "impr": 2,
+      "pos": 1
+    }
+  ]
+}
