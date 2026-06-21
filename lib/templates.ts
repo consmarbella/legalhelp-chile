@@ -25,45 +25,49 @@ export const TEMPLATES: LegalTemplate[] = [
   // ── 1. PRESCRIPCIÓN DE DEUDA / MULTA TAG ────────────────────────────────
   {
     id: 'prescripcion-tag',
-    keywords: ['tag', 'autopista', 'telepeaje', 'peaje', 'deuda tag', 'prescripcion tag', 'prescripcion'],
-    titulo: 'Solicitud de prescripción de deuda TAG',
+    keywords: ['tag', 'autopista', 'telepeaje', 'peaje', 'deuda tag', 'prescripcion tag', 'deuda autopista', 'costanera', 'vespucio', 'autopista central'],
+    titulo: 'Solicitud de prescripción de deuda TAG (peaje civil)',
     tipo: 'carta',
     articulos: ['Art. 2514 Código Civil (prescripción extintiva ordinaria: 5 años)',
-                'Art. 2515 Código Civil (plazo de prescripción acciones ordinarias)',
-                'Art. 98 Ley 18.290 Ley de Tránsito'],
+                'Art. 2515 Código Civil (acción ordinaria 5 años, acción ejecutiva 3 años)',
+                'Art. 42 DFL 164/1991 MOP (cobro de tarifas por concesionarias de obras públicas)'],
     esqueleto: `[CIUDAD], [FECHA]
 
 [DESTINATARIO EN MAYÚSCULAS]
 PRESENTE
 
-[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], por medio del presente instrumento viene en oponer excepción de prescripción extintiva respecto de la deuda que se me atribuye.
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], propietario del vehículo patente [[PATENTE]], por medio de la presente opongo excepción de prescripción extintiva respecto de las deudas por uso de autopista que se me imputan.
 
-I. ANTECEDENTES
+I. INDIVIDUALIZACIÓN DE LAS DEUDAS
 
-[[DESCRIBIR: qué deuda se prescribe, monto aproximado si lo sabe, período al que corresponde]]
+Se me cobran los siguientes tránsitos o cargos de peaje:
+[[LISTAR CADA DEUDA: fecha del tránsito, monto cobrado, tramo de autopista. Si son varias, listar cada una con su fecha. Si el cliente no tiene los detalles exactos de cada una, indicar el período general y monto total aproximado.]]
 
 II. FUNDAMENTO LEGAL
 
-De conformidad con lo dispuesto en el artículo 2514 del Código Civil, la acción ordinaria prescribe en el plazo de cinco años contados desde que la obligación se hizo exigible. En el presente caso, la deuda reclamada data de [[PERÍODO]] por lo que ha transcurrido en exceso el plazo legal de prescripción.
-
-Asimismo, el artículo 2515 del mismo cuerpo legal establece que la prescripción extintiva puede ser alegada por el deudor como excepción en cualquier estado del juicio.
+Conforme al artículo 2515 del Código Civil, la acción ejecutiva prescribe en 3 años y la acción ordinaria en 5 años, contados desde que cada obligación se hizo exigible. Los cobros individualizados datan de [[FECHAS MÁS ANTIGUAS]], habiendo transcurrido con exceso el plazo de prescripción sin que se haya ejercido acción judicial alguna en mi contra.
 
 III. PETICIÓN
 
-Por lo expuesto, solicito a Ud. declarar la prescripción extintiva de la deuda indicada y proceder a su eliminación del registro de deudas, absteniéndose de efectuar cobros o iniciar acciones judiciales al respecto.
+Solicito a esa concesionaria:
+1. Declarar la prescripción extintiva de cada uno de los cobros señalados.
+2. Proceder a la eliminación de la deuda de sus registros.
+3. Abstenerse de continuar gestiones de cobranza, reportes a registros de morosidad o inicio de acciones judiciales respecto de estas obligaciones prescritas.
+4. Informar el desistimiento a las empresas de cobranza mandatadas (si las hay).
 
 Sin otro particular, saluda atentamente,
 
 [NOMBRE]
 RUT: [RUT]
+Patente: [[PATENTE]]
 Domicilio: [DIRECCIÓN]`,
-    instruccion_llm: 'Rellena [[DESCRIBIR]] con los hechos específicos del caso. Rellena [[PERÍODO]] con el período de la deuda según los hechos. Si no hay fecha exacta, usa "hace más de cinco años". Mantén el resto del template intacto.',
+    instruccion_llm: 'IMPORTANTE: Este template es para DEUDA CIVIL POR PEAJE (uso de autopista sin pago). Va dirigido a la CONCESIONARIA (Costanera Norte, Autopista Central, Vespucio Norte, etc.), no a un tribunal. Pide al cliente: patente, concesionaria que cobra, período de las deudas, número de infracciones/tránsitos y monto total aproximado. Si el cliente menciona MULTAS de tránsito emitidas por un Juzgado de Policía Local (por circular sin TAG habilitado), eso es un procedimiento DISTINTO y debe usar la plantilla de multas de tránsito. NO mezclar ambos regímenes.',
   },
 
   // ── 2. PRESCRIPCIÓN DE DEUDA GENERAL (Banco, retail, etc.) ──────────────
   {
     id: 'prescripcion-deuda',
-    keywords: ['prescripcion', 'prescripción', 'deuda', 'deuda prescrita', 'banco', 'retail', 'tienda', 'credito', 'morosidad', 'dicom'],
+    keywords: ['deuda prescrita', 'deuda', 'banco', 'retail', 'tienda', 'credito', 'morosidad', 'dicom', 'prescripcion bancaria', 'prescripcion deuda bancaria'],
     titulo: 'Carta de prescripción de deuda general',
     tipo: 'carta',
     articulos: ['Art. 2514 Código Civil', 'Art. 2515 Código Civil', 'Ley 19.628 sobre Protección de la Vida Privada (datos morosos)'],
@@ -1043,35 +1047,41 @@ RUT: [RUT]`,
 
   // ── Oposición a cobranza de TAG prescrito (SCRAPEADO) ──
   {
-    id: 'oposici-n-a-cobranza-de-tag-prescrito',
-    keywords: ["tag", "telepase", "prescripción tag", "cobro tag", "peaje"],
-    titulo: "Oposición a cobranza de TAG prescrito",
-    tipo: 'carta',
-    articulos: ["Art. 2514 Código Civil (prescripción extintiva 5 años)", "Art. 98 Ley 18.290 Ley de Tránsito", "Art. 26 Ley 18.696 (operación de autopistas concesionadas)"],
+    id: 'multa-tag-prescrita-jpl',
+    keywords: ["multa tag", "multa de transito tag", "multa autopista", "infraccion tag", "circular sin tag", "parte por tag", "multa por no tener tag", "prescripcion multa tag"],
+    titulo: "Solicitud de prescripción de multa de tránsito por TAG (ante JPL)",
+    tipo: 'judicial',
+    articulos: ["Art. 24 Ley 18.287 (prescripción de la acción para perseguir la responsabilidad contravencional: 3 años)", "Art. 25 Ley 18.287 (prescripción de la pena: 3 años desde la sentencia ejecutoriada)", "Art. 171 Ley 18.290 Ley de Tránsito (procedimiento por infracciones)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-[DESTINATARIO EN MAYUSCULAS]
+EN LO PRINCIPAL: Solicita declaración de prescripción de multa(s) de tránsito.
+
+SEÑOR(A) JUEZ(A) DEL JUZGADO DE POLICÍA LOCAL DE [[COMUNA DEL JPL]]
 PRESENTE
 
-[NOMBRE EN MAYUSCULAS], RUT [RUT], domiciliado en [DIRECCION], a US. respetuosamente digo:
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], propietario del vehículo patente [[PATENTE]], a US. respetuosamente digo:
 
-I. ANTECEDENTES DE HECHO
+I. INDIVIDUALIZACIÓN DE LA(S) INFRACCIÓN(ES)
 
-[[DESCRIBIR LOS HECHOS DEL CASO]]
+Fui sancionado(a) con la(s) siguiente(s) multa(s) de tránsito por circular sin TAG habilitado:
 
-II. FUNDAMENTO LEGAL
+[[LISTAR CADA MULTA: número de parte/infracción, fecha de la infracción, tramo o autopista donde ocurrió, y monto de la multa si se conoce. Si son varias, listar cada una por separado.]]
 
-[[ARGUMENTO LEGAL SEGUN LOS ARTICULOS VERIFICADOS]]
+II. PRESCRIPCIÓN (ART. 24 Y 25 LEY 18.287)
 
-III. PETICION
+El artículo 24 de la Ley 18.287 establece que la acción para perseguir la responsabilidad contravencional prescribe en el plazo de 3 años contados desde la fecha de la infracción. El artículo 25 del mismo cuerpo legal establece que la pena impuesta prescribe en 3 años desde que la sentencia quedó ejecutoriada.
 
-[[declaración de prescripción y archivo de la deuda TAG]]
+En el presente caso, la(s) infracción(es) individualizada(s) data(n) de [[FECHA(S) DE LAS INFRACCIONES]], habiendo transcurrido con exceso el plazo de 3 años sin que se haya notificado sentencia condenatoria o sin que se haya ejecutado el cobro de la multa.
 
-Sin otro particular, saluda atentamente,
+III. PETICIÓN
+
+POR TANTO,
+
+RUEGO A US.: Declarar prescrita(s) la(s) multa(s) de tránsito individualizada(s) en el acápite I, ordenar su eliminación del Registro de Multas de Tránsito No Pagadas y oficiar a la Dirección de Tránsito que corresponda para que proceda a la cancelación de la(s) anotación(es).
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: `Redacta el escrito para prescripción de peaje tag / telepase. Petición: declaración de prescripción y archivo de la deuda TAG. Razona el caso con los hechos específicos del cliente.`,
+    instruccion_llm: 'Este template es para MULTAS DE TRÁNSITO emitidas por Juzgado de Policía Local (circular sin TAG habilitado, infracción a la Ley de Tránsito). NO es para la deuda civil por peaje. Va dirigido al JPL de la comuna donde se cometió la infracción o donde se dictó la sentencia. OBLIGATORIO pedir: patente, comuna del JPL, número(s) de parte o infracción, fecha(s) de cada multa. Si el cliente tiene 8 multas, listarlas TODAS con sus datos. Si no tiene los números de parte exactos, orientar a que los busque en el sitio del Registro Civil (consulta de multas no pagadas) antes de generar el documento.',
   },
 
   // ── Recurso de apelación (Juzgado de Policía Local) (SCRAPEADO) ──

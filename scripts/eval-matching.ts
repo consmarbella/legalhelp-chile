@@ -37,7 +37,7 @@ const CASOS: Caso[] = [
   { q: 'autorizacion salida del pais de menor', hechos: 'viajar con mi hijo', espera: ['salida del país'] },
 
   // Deudas / civil
-  { q: 'prescripcion deuda TAG', hechos: 'autopista', espera: ['TAG'] },
+  { q: 'prescripcion deuda TAG', hechos: 'autopista', espera: ['TAG', 'peaje'] },
   { q: 'prescripcion deuda bancaria', hechos: 'banco me cobra hace 7 años', espera: ['deuda general'] },
   { q: 'demanda cobro de dinero', hechos: 'me deben plata por un prestamo', espera: ['cobro de dinero'] },
   { q: 'cobro de cheque', hechos: 'me dieron un cheque sin fondos', espera: ['cheque'] },
