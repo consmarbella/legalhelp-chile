@@ -8,10 +8,11 @@ interface PaywallModalProps {
   selectedDoc: string | null;
   paymentLoading: boolean;
   onPayment: (plan: 'single' | 'monthly') => void;
+  onTestPayment?: (plan: 'single' | 'monthly') => void;
   onClose: () => void;
 }
 
-export default function PaywallModal({ caseData, selectedDoc, paymentLoading, onPayment, onClose }: PaywallModalProps) {
+export default function PaywallModal({ caseData, selectedDoc, paymentLoading, onPayment, onTestPayment, onClose }: PaywallModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: 'rgba(11,31,58,0.75)', backdropFilter: 'blur(4px)' }}>
@@ -87,6 +88,16 @@ export default function PaywallModal({ caseData, selectedDoc, paymentLoading, on
               <span className="w-4 h-4 border-2 border-[#c9a84c] border-t-transparent rounded-full animate-spin" />
               Redirigiendo a MercadoPago...
             </div>
+          )}
+
+          {/* Modo prueba (solo en entornos NO productivos) */}
+          {onTestPayment && (
+            <button
+              onClick={() => onTestPayment('single')}
+              disabled={paymentLoading}
+              className="w-full mb-2 text-center text-xs font-medium text-[#0b1f3a] bg-[#fff7e0] border border-dashed border-[#c9a84c] rounded-lg py-2 hover:bg-[#fdf2cf] transition disabled:opacity-60">
+              🧪 Probar flujo sin cobro (modo prueba)
+            </button>
           )}
 
           {/* Close button */}

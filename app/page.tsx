@@ -162,6 +162,33 @@ export default function Home() {
     }
   };
 
+  // Pago de PRUEBA (sin cobro) — solo visible si NEXT_PUBLIC_ALLOW_TEST_PAYMENT === 'true'.
+  // El servidor además lo bloquea en producción (VERCEL_ENV === 'production').
+  const handleTestPayment = async (plan: 'single' | 'monthly') => {
+    setPaymentLoading(true);
+    try {
+      const res = await fetch('/api/payment/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+      });
+      const data = await res.json();
+
+      if (data.checkoutUrl) {
+        sessionStorage.setItem('lh_case_data', JSON.stringify(caseData));
+        sessionStorage.setItem('lh_messages',  JSON.stringify(messages));
+        sessionStorage.setItem('lh_pending_order', data.orderId);
+        window.location.href = data.checkoutUrl;
+      } else {
+        console.error('Modo prueba no disponible:', data);
+      }
+    } catch (err) {
+      console.error('Error en pago de prueba:', err);
+    } finally {
+      setPaymentLoading(false);
+    }
+  };
+
   const handleDownload = () => {
     if (!generatedDoc) return;
     const nombreStr = String(caseData.nombre ?? 'documento');
@@ -503,6 +530,7 @@ export default function Home() {
           selectedDoc={selectedDoc}
           paymentLoading={paymentLoading}
           onPayment={handlePayment}
+          onTestPayment={process.env.NEXT_PUBLIC_ALLOW_TEST_PAYMENT === 'true' ? handleTestPayment : undefined}
           onClose={() => setShowPaywall(false)}
         />
       )}
