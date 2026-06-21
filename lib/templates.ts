@@ -1051,37 +1051,39 @@ RUT: [RUT]`,
     keywords: ["multa tag", "multa de transito tag", "multa autopista", "infraccion tag", "circular sin tag", "parte por tag", "multa por no tener tag", "prescripcion multa tag"],
     titulo: "Solicitud de prescripción de multa de tránsito por TAG (ante JPL)",
     tipo: 'judicial',
-    articulos: ["Art. 24 Ley 18.287 (prescripción de la acción para perseguir la responsabilidad contravencional: 3 años)", "Art. 25 Ley 18.287 (prescripción de la pena: 3 años desde la sentencia ejecutoriada)", "Art. 171 Ley 18.290 Ley de Tránsito (procedimiento por infracciones)"],
+    articulos: ["Art. 24 Ley 18.287 (prescripción de la acción contravencional: 3 años desde la anotación de la multa en el Registro Civil)", "Art. 25 Ley 18.287 (prescripción de la pena: 3 años desde la sentencia ejecutoriada)", "Art. 171 Ley 18.290 Ley de Tránsito (procedimiento por infracciones)"],
     esqueleto: `[CIUDAD], [FECHA]
 
-EN LO PRINCIPAL: Solicita declaración de prescripción de multa(s) de tránsito.
+EN LO PRINCIPAL: Solicita declaración de prescripción de multa(s) de tránsito. OTROSÍ: Acompaña Certificado de Multas No Pagadas.
 
 SEÑOR(A) JUEZ(A) DEL JUZGADO DE POLICÍA LOCAL DE [[COMUNA DEL JPL]]
 PRESENTE
 
-[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], propietario del vehículo patente [[PATENTE]], a US. respetuosamente digo:
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], propietario inscrito del vehículo patente [[PATENTE]], a US. respetuosamente digo:
 
 I. INDIVIDUALIZACIÓN DE LA(S) INFRACCIÓN(ES)
 
-Fui sancionado(a) con la(s) siguiente(s) multa(s) de tránsito por circular sin TAG habilitado:
+Según consta en el Certificado de Multas de Tránsito No Pagadas emitido por el Servicio de Registro Civil e Identificación, que se acompaña en el otrosí, registro la(s) siguiente(s) multa(s) de tránsito:
 
-[[LISTAR CADA MULTA: número de parte/infracción, fecha de la infracción, tramo o autopista donde ocurrió, y monto de la multa si se conoce. Si son varias, listar cada una por separado.]]
+[[LISTAR CADA MULTA: número de parte/infracción, fecha de la anotación en el Registro Civil (o fecha de la infracción si no se conoce la de anotación), tramo o autopista donde ocurrió, y monto si se conoce. Si son varias, listar cada una por separado.]]
 
-II. PRESCRIPCIÓN (ART. 24 Y 25 LEY 18.287)
+II. PRESCRIPCIÓN (ART. 24 LEY 18.287)
 
-El artículo 24 de la Ley 18.287 establece que la acción para perseguir la responsabilidad contravencional prescribe en el plazo de 3 años contados desde la fecha de la infracción. El artículo 25 del mismo cuerpo legal establece que la pena impuesta prescribe en 3 años desde que la sentencia quedó ejecutoriada.
+El artículo 24 de la Ley 18.287 establece que la acción para perseguir la responsabilidad contravencional prescribe en el plazo de 3 años contados desde que la multa fue anotada en el Registro de Multas de Tránsito No Pagadas del Registro Civil.
 
-En el presente caso, la(s) infracción(es) individualizada(s) data(n) de [[FECHA(S) DE LAS INFRACCIONES]], habiendo transcurrido con exceso el plazo de 3 años sin que se haya notificado sentencia condenatoria o sin que se haya ejecutado el cobro de la multa.
+En el presente caso, la(s) multa(s) individualizada(s) fue(ron) anotada(s) con fecha [[FECHA(S) DE ANOTACIÓN]], habiendo transcurrido con exceso el plazo de 3 años sin que se haya notificado sentencia condenatoria ni se haya ejecutado cobro alguno.
 
 III. PETICIÓN
 
 POR TANTO,
 
-RUEGO A US.: Declarar prescrita(s) la(s) multa(s) de tránsito individualizada(s) en el acápite I, ordenar su eliminación del Registro de Multas de Tránsito No Pagadas y oficiar a la Dirección de Tránsito que corresponda para que proceda a la cancelación de la(s) anotación(es).
+RUEGO A US.: Declarar prescrita(s) la(s) multa(s) de tránsito individualizada(s) en el acápite I, ordenar su eliminación del Registro de Multas de Tránsito No Pagadas del Registro Civil y oficiar a la Dirección de Tránsito correspondiente para que proceda a la cancelación de la(s) anotación(es), permitiendo la obtención del permiso de circulación.
+
+OTROSÍ: Acompaño Certificado de Multas de Tránsito No Pagadas emitido por el Servicio de Registro Civil e Identificación, que acredita la existencia y antigüedad de la(s) multa(s) referida(s).
 
 [NOMBRE]
 RUT: [RUT]`,
-    instruccion_llm: 'Este template es para MULTAS DE TRÁNSITO emitidas por Juzgado de Policía Local (circular sin TAG habilitado, infracción a la Ley de Tránsito). NO es para la deuda civil por peaje. Va dirigido al JPL de la comuna donde se cometió la infracción o donde se dictó la sentencia. OBLIGATORIO pedir: patente, comuna del JPL, número(s) de parte o infracción, fecha(s) de cada multa. Si el cliente tiene 8 multas, listarlas TODAS con sus datos. Si no tiene los números de parte exactos, orientar a que los busque en el sitio del Registro Civil (consulta de multas no pagadas) antes de generar el documento.',
+    instruccion_llm: 'MULTAS DE TRÁNSITO ante Juzgado de Policía Local. El solicitante debe ser el PROPIETARIO INSCRITO del vehículo (no generar si no lo es). PEDIR al cliente: patente, comuna del JPL donde se cursó la infracción, fechas de cada multa. IMPORTANTE: el plazo de 3 años corre desde la ANOTACIÓN en el Registro Civil, no desde la infracción. Si el cliente no tiene las fechas de anotación, indicarle que saque el Certificado de Multas No Pagadas en www.registrocivil.cl antes de presentar el escrito. Si las multas tienen MENOS de 3 años desde la anotación, NO generar el escrito de prescripción — informar que aún no prescribe y sugerir como alternativa un convenio de pago al 20% en el Departamento de Permisos de Circulación de su municipalidad.',
   },
 
   // ── Recurso de apelación (Juzgado de Policía Local) (SCRAPEADO) ──
