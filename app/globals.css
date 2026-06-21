@@ -51,7 +51,7 @@ body::after {
 }
 
 /* El contenido va por encima de las capas decorativas */
-#app-root { position: relative; z-index: 1; }
+#app-root { position: relative; z-index: 1; isolation: isolate; }
 
 /* ── Utilidades de componentes ─────────────────────────────────────────── */
 .glass-panel {

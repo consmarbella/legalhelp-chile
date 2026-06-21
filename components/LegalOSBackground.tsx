@@ -3,9 +3,10 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Fondo decorativo "Legal OS": lluvia de datos/códigos muy sutil (estilo HUD).
- * Usa glifos legales + alfanuméricos en cian tenue. Fijo, detrás del contenido.
- * Respeta prefers-reduced-motion y limpia el rAF al desmontar.
+ * Fondo decorativo "Legal OS": lluvia de datos/códigos brillante (estilo HUD).
+ * Canvas con z-index:-1 (detrás del contenido), SIN opacity.
+ * El trail usa globalCompositeOperation para no pintar color sólido
+ * que pueda tapar el contenido (el canvas es transparente excepto las letras).
  */
 export default function LegalOSBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,18 +39,20 @@ export default function LegalOSBackground() {
     let last = 0;
 
     function draw(now: number) {
-      // ~14 fps: lento y sutil
       if (now - last > 70) {
         last = now;
-        ctx.fillStyle = 'rgba(5, 7, 15, 0.08)';
+        // Trail: fade out las letras anteriores sin pintar fondo sólido
+        ctx.globalCompositeOperation = 'destination-in';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.88)';
         ctx.fillRect(0, 0, cv.width, cv.height);
-        ctx.font = `${fontSize}px var(--font-geist-mono), monospace`;
+        ctx.globalCompositeOperation = 'source-over';
+
+        ctx.font = `${fontSize}px monospace`;
         for (let i = 0; i < drops.length; i++) {
           const char = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
           const x = i * fontSize;
           const y = drops[i] * fontSize;
-          // cabeza más brillante, cola visible
-          ctx.fillStyle = Math.random() > 0.92 ? 'rgba(0, 212, 255, 0.9)' : 'rgba(96, 165, 250, 0.35)';
+          ctx.fillStyle = Math.random() > 0.92 ? 'rgba(0, 212, 255, 0.95)' : 'rgba(96, 165, 250, 0.4)';
           ctx.fillText(char, x, y);
           if (y > cv.height && Math.random() > 0.975) drops[i] = 0;
           drops[i]++;
@@ -73,7 +76,7 @@ export default function LegalOSBackground() {
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 0,
+        zIndex: -1,
         pointerEvents: 'none',
       }}
     />
