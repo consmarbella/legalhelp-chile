@@ -221,7 +221,13 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-4" style={{ fontFamily: 'sans-serif' }}>
-            <a href="/demandas" className="text-[#e05c3a] text-xs font-semibold uppercase tracking-widest hover:text-[#ff7a5a] transition">
+            <a href="/demandas" className="flex items-center gap-1.5 text-[#e05c3a] text-sm font-bold uppercase tracking-wide hover:text-[#ff7a5a] transition">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <line x1="9" y1="15" x2="15" y2="15" />
+              </svg>
               Demandas
             </a>
             <div className="w-px h-4 bg-[#c9a84c]/20" />
