@@ -2310,5 +2310,625 @@
     "plazo": "Según acuerdo entre las partes",
     "entidad": "No requiere tribunal",
     "direccion": "Domicilio de las partes"
+  },
+  {
+    "slug": "carta-prescripcion-deuda-general-quilicura",
+    "categoria": "Carta de prescripción de deuda general",
+    "variable": "Quilicura",
+    "ley": "Art. 2515 CC — acción ordinaria prescribe en 5 años; ejecutiva en 3 años",
+    "plazo": "5 años (ordinaria) o 3 años (ejecutiva) sin cobro judicial",
+    "entidad": "Juzgado Civil de tu domicilio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quilicura, carta de prescripción de deuda general se tramita ante Juzgado Civil de tu domicilio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2515 CC — acción ordinaria prescribe en 5 años; ejecutiva en 3 años)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-san-bernardo",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "San Bernardo",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En San Bernardo, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-quilpue",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Quilpué",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quilpué, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-quilicura",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Quilicura",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quilicura, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "carta-reclamo-telecomunicaciones-colina",
+    "categoria": "Carta reclamo empresa de telecomunicaciones",
+    "variable": "Colina",
+    "ley": "Ley 18.168 General de Telecomunicaciones + Ley 19.496 — derechos del abonado",
+    "plazo": "Reclamar ante SUBTEL o SERNAC dentro de 6 meses desde la falla",
+    "entidad": "SERNAC / SUBTEL — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Colina, carta reclamo empresa de telecomunicaciones se tramita ante SERNAC / SUBTEL — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 18.168 General de Telecomunicaciones + Ley 19.496 — derechos del abonado)."
+  },
+  {
+    "slug": "recurso-apelacion-juzgado-policia-local-los-angeles",
+    "categoria": "Recurso de apelación ante Juzgado de Policía Local",
+    "variable": "Los Ángeles",
+    "ley": "Ley 15.231 Art. 30 — apelación ante Juzgado de Letras dentro de 5 días",
+    "plazo": "5 días hábiles desde la sentencia del Juzgado de Policía Local",
+    "entidad": "Juzgado de Letras correspondiente — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Los Ángeles, recurso de apelación ante juzgado de policía local se tramita ante Juzgado de Letras correspondiente — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 15.231 Art. 30 — apelación ante Juzgado de Letras dentro de 5 días)."
+  },
+  {
+    "slug": "declaracion-jurada-ingresos-quilicura",
+    "categoria": "Declaración jurada de ingresos",
+    "variable": "Quilicura",
+    "ley": "Art. 207 CP + normativa SII — acreditar ingresos para subsidios y créditos",
+    "plazo": "Debe reflejar ingresos actuales; renovar según lo pida la institución",
+    "entidad": "Notaría Pública — requerida para subsidios habitacionales, créditos, arriendos",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quilicura, declaración jurada de ingresos se tramita ante Notaría Pública — requerida para subsidios habitacionales, créditos, arriendos. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 207 CP + normativa SII — acreditar ingresos para subsidios y créditos)."
+  },
+  {
+    "slug": "escrito-prescripcion-multa-transito-maipu",
+    "categoria": "Escrito de prescripción de multa de tránsito",
+    "variable": "Maipú",
+    "ley": "Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Maipú, escrito de prescripción de multa de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-penalolen",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Peñalolén",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Peñalolén, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "escrito-prescripcion-multa-transito-san-miguel",
+    "categoria": "Escrito de prescripción de multa de tránsito",
+    "variable": "San Miguel",
+    "ley": "Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En San Miguel, escrito de prescripción de multa de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial)."
+  },
+  {
+    "slug": "carta-reclamo-aerolinea-antofagasta",
+    "categoria": "Carta reclamo aerolínea",
+    "variable": "Antofagasta",
+    "ley": "Ley 19.496 Art. 20 + Código Aeronáutico Art. 131 — derechos del pasajero aéreo",
+    "plazo": "Reclamar dentro de 6 meses desde el vuelo ante SERNAC o JAC",
+    "entidad": "SERNAC o Junta Aeronáutica Civil — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Antofagasta, carta reclamo aerolínea se tramita ante SERNAC o Junta Aeronáutica Civil — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.496 Art. 20 + Código Aeronáutico Art. 131 — derechos del pasajero aéreo)."
+  },
+  {
+    "slug": "recurso-apelacion-juzgado-policia-local-talcahuano",
+    "categoria": "Recurso de apelación ante Juzgado de Policía Local",
+    "variable": "Talcahuano",
+    "ley": "Ley 15.231 Art. 30 — apelación ante Juzgado de Letras dentro de 5 días",
+    "plazo": "5 días hábiles desde la sentencia del Juzgado de Policía Local",
+    "entidad": "Juzgado de Letras correspondiente — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Talcahuano, recurso de apelación ante juzgado de policía local se tramita ante Juzgado de Letras correspondiente — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 15.231 Art. 30 — apelación ante Juzgado de Letras dentro de 5 días)."
+  },
+  {
+    "slug": "denuncia-maltrato-animal-quinta-normal",
+    "categoria": "Denuncia por maltrato animal",
+    "variable": "Quinta Normal",
+    "ley": "Ley 21.020 (Tenencia Responsable) — maltrato sancionado con multa y prisión",
+    "plazo": "Denuncia inmediata; prescripción de la acción: 6 meses desde el hecho",
+    "entidad": "Juzgado de Policía Local o Fiscalía — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quinta Normal, denuncia por maltrato animal se tramita ante Juzgado de Policía Local o Fiscalía — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 21.020 (Tenencia Responsable) — maltrato sancionado con multa y prisión)."
+  },
+  {
+    "slug": "escrito-defensa-infraccion-transito-quilpue",
+    "categoria": "Escrito de defensa por infracción de tránsito",
+    "variable": "Quilpué",
+    "ley": "Ley 18.290 Art. 14 — derecho a audiencia ante Juzgado de Policía Local",
+    "plazo": "5 días hábiles desde la notificación de la multa para solicitar audiencia",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quilpué, escrito de defensa por infracción de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 18.290 Art. 14 — derecho a audiencia ante Juzgado de Policía Local)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-providencia",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Providencia",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Providencia, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-chillan",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Chillán",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Chillán, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-vina-del-mar",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Viña del Mar",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Viña del Mar, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "registro-nacional-de-deudores-de-pensiones-de-alimentos-santiago-centro",
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "variable": "Santiago Centro",
+    "ley": "Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos",
+    "plazo": "Hasta el pago total de la deuda o acuerdo homologado",
+    "entidad": "el Juzgado de Familia competente de tu domicilio",
+    "direccion": "Varía según domicilio",
+    "intro": "En Santiago Centro, registro nacional de deudores de pensiones de alimentos se tramita ante el Juzgado de Familia competente de tu domicilio. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 21.389 — Registro Nacional de Deudores de Pensiones de Alimentos)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-las-condes",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Las Condes",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Las Condes, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-temuco",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Temuco",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Temuco, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-antofagasta",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Antofagasta",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Antofagasta, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-valparaiso",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Valparaíso",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Valparaíso, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "escrito-prescripcion-multa-transito-pudahuel",
+    "categoria": "Escrito de prescripción de multa de tránsito",
+    "variable": "Pudahuel",
+    "ley": "Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Pudahuel, escrito de prescripción de multa de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-punta-arenas",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Punta Arenas",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Punta Arenas, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-vina-del-mar",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Viña del Mar",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Viña del Mar, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "poder-notarial-nunoa",
+    "categoria": "Poder notarial",
+    "variable": "Ñuñoa",
+    "ley": "Art. 2116 CC + Ley 18.181 — mandato ante Notario Público",
+    "plazo": "Vigente hasta revocación expresa; algunos bancos exigen antigüedad máxima 1 año",
+    "entidad": "Requiere concurrir a Notaría Pública — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Ñuñoa, poder notarial se tramita ante Requiere concurrir a Notaría Pública — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2116 CC + Ley 18.181 — mandato ante Notario Público)."
+  },
+  {
+    "slug": "escrito-prescripcion-multa-transito-estacion-central",
+    "categoria": "Escrito de prescripción de multa de tránsito",
+    "variable": "Estación Central",
+    "ley": "Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Estación Central, escrito de prescripción de multa de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial)."
+  },
+  {
+    "slug": "carta-renuncia-laboral-talca",
+    "categoria": "Carta de renuncia laboral",
+    "variable": "Talca",
+    "ley": "Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador",
+    "plazo": "Avisar con 30 días de anticipación o sin previo aviso (sin indemnización de aviso)",
+    "entidad": "Aplicable en toda Chile — entregar al empleador directamente",
+    "direccion": "Varía según domicilio",
+    "intro": "En Talca, carta de renuncia laboral se tramita ante Aplicable en toda Chile — entregar al empleador directamente. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-antofagasta",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Antofagasta",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Antofagasta, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-la-florida",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "La Florida",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En La Florida, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-maipu",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Maipú",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Maipú, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-las-condes",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Las Condes",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Las Condes, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-nunoa",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Ñuñoa",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Ñuñoa, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "poder-notarial-rancagua",
+    "categoria": "Poder notarial",
+    "variable": "Rancagua",
+    "ley": "Art. 2116 CC + Ley 18.181 — mandato ante Notario Público",
+    "plazo": "Vigente hasta revocación expresa; algunos bancos exigen antigüedad máxima 1 año",
+    "entidad": "Requiere concurrir a Notaría Pública — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Rancagua, poder notarial se tramita ante Requiere concurrir a Notaría Pública — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2116 CC + Ley 18.181 — mandato ante Notario Público)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-temuco",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Temuco",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Temuco, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "escrito-prescripcion-multa-transito-las-condes",
+    "categoria": "Escrito de prescripción de multa de tránsito",
+    "variable": "Las Condes",
+    "ley": "Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial",
+    "plazo": "3 años desde la fecha de la infracción sin notificación judicial",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Las Condes, escrito de prescripción de multa de tránsito se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2521 CC — prescripción multas de tránsito: 3 años sin cobro judicial)."
+  },
+  {
+    "slug": "carta-reclamo-sernac-maipu",
+    "categoria": "Carta reclamo SERNAC",
+    "variable": "Maipú",
+    "ley": "Ley 19.496 Art. 3° y 20 — protección al consumidor",
+    "plazo": "Dentro de 6 meses desde la compra",
+    "entidad": "el SERNAC (reclamo administrativo ante el Servicio Nacional del Consumidor). Si no se resuelve, puedes demandar ante el Juzgado de Policía Local de tu comuna",
+    "direccion": "Varía según domicilio",
+    "intro": "En Maipú, carta reclamo sernac se tramita ante el SERNAC (reclamo administrativo ante el Servicio Nacional del Consumidor). Si no se resuelve, puedes demandar ante el Juzgado de Policía Local de tu comuna. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.496 Art. 3° y 20 — protección al consumidor)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-arica",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Arica",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Arica, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-arica",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Arica",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Arica, eliminación de antecedentes penales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 — eliminación de antecedentes penales por cumplimiento de condena)."
+  },
+  {
+    "slug": "carta-renuncia-laboral-calama",
+    "categoria": "Carta de renuncia laboral",
+    "variable": "Calama",
+    "ley": "Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador",
+    "plazo": "Avisar con 30 días de anticipación o sin previo aviso (sin indemnización de aviso)",
+    "entidad": "Aplicable en toda Chile — entregar al empleador directamente",
+    "direccion": "Varía según domicilio",
+    "intro": "En Calama, carta de renuncia laboral se tramita ante Aplicable en toda Chile — entregar al empleador directamente. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-los-angeles",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Los Ángeles",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Los Ángeles, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-coquimbo",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Coquimbo",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Coquimbo, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "poder-notarial-providencia",
+    "categoria": "Poder notarial",
+    "variable": "Providencia",
+    "ley": "Art. 2116 CC + Ley 18.181 — mandato ante Notario Público",
+    "plazo": "Vigente hasta revocación expresa; algunos bancos exigen antigüedad máxima 1 año",
+    "entidad": "Requiere concurrir a Notaría Pública — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Providencia, poder notarial se tramita ante Requiere concurrir a Notaría Pública — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2116 CC + Ley 18.181 — mandato ante Notario Público)."
+  },
+  {
+    "slug": "contrato-freelance-santiago-centro",
+    "categoria": "Contrato freelance",
+    "variable": "Santiago Centro",
+    "ley": "Art. 1545 CC — contrato por prestación de servicios específicos vía honorarios",
+    "plazo": "Por proyecto o plazo acordado; renovable por mutuo acuerdo",
+    "entidad": "Aplicable en toda Chile — sin relación laboral",
+    "direccion": "Varía según domicilio",
+    "intro": "En Santiago Centro, contrato freelance se tramita ante Aplicable en toda Chile — sin relación laboral. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 1545 CC — contrato por prestación de servicios específicos vía honorarios)."
+  },
+  {
+    "slug": "poder-notarial-punta-arenas",
+    "categoria": "Poder notarial",
+    "variable": "Punta Arenas",
+    "ley": "Art. 2116 CC + Ley 18.181 — mandato ante Notario Público",
+    "plazo": "Vigente hasta revocación expresa; algunos bancos exigen antigüedad máxima 1 año",
+    "entidad": "Requiere concurrir a Notaría Pública — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Punta Arenas, poder notarial se tramita ante Requiere concurrir a Notaría Pública — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2116 CC + Ley 18.181 — mandato ante Notario Público)."
+  },
+  {
+    "slug": "carta-renuncia-laboral-puerto-montt",
+    "categoria": "Carta de renuncia laboral",
+    "variable": "Puerto Montt",
+    "ley": "Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador",
+    "plazo": "Avisar con 30 días de anticipación o sin previo aviso (sin indemnización de aviso)",
+    "entidad": "Aplicable en toda Chile — entregar al empleador directamente",
+    "direccion": "Varía según domicilio",
+    "intro": "En Puerto Montt, carta de renuncia laboral se tramita ante Aplicable en toda Chile — entregar al empleador directamente. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-quinta-normal",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Quinta Normal",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Quinta Normal, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-coquimbo",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Coquimbo",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Coquimbo, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "poder-notarial-temuco",
+    "categoria": "Poder notarial",
+    "variable": "Temuco",
+    "ley": "Art. 2116 CC + Ley 18.181 — mandato ante Notario Público",
+    "plazo": "Vigente hasta revocación expresa; algunos bancos exigen antigüedad máxima 1 año",
+    "entidad": "Requiere concurrir a Notaría Pública — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Temuco, poder notarial se tramita ante Requiere concurrir a Notaría Pública — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2116 CC + Ley 18.181 — mandato ante Notario Público)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-puerto-montt",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Puerto Montt",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Puerto Montt, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-san-miguel",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "San Miguel",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En San Miguel, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-iquique",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Iquique",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Iquique, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "denuncia-ruidos-molestos-vecinos-lo-barnechea",
+    "categoria": "Denuncia por ruidos molestos de vecinos",
+    "variable": "Lo Barnechea",
+    "ley": "Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL",
+    "plazo": "Se puede denunciar en cualquier momento ante el Juzgado de Policía Local",
+    "entidad": "Juzgado de Policía Local de tu municipio — aplica en toda Chile",
+    "direccion": "Varía según domicilio",
+    "intro": "En Lo Barnechea, denuncia por ruidos molestos de vecinos se tramita ante Juzgado de Policía Local de tu municipio — aplica en toda Chile. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 19.300 Art. 55 + DS 38/2011 — límites de ruido; competencia JPL)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-puerto-montt",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "Puerto Montt",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Puerto Montt, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "declaracion-jurada-domicilio-valparaiso",
+    "categoria": "Declaración jurada de domicilio",
+    "variable": "Valparaíso",
+    "ley": "Art. 59 CC — domicilio es la residencia con ánimo de permanecer; declaración probatoria",
+    "plazo": "Vigente al momento de uso; algunos trámites la exigen con menos de 30 días",
+    "entidad": "Aplicable en toda Chile — requerida por bancos, SII, municipios",
+    "direccion": "Varía según domicilio",
+    "intro": "En Valparaíso, declaración jurada de domicilio se tramita ante Aplicable en toda Chile — requerida por bancos, SII, municipios. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 59 CC — domicilio es la residencia con ánimo de permanecer; declaración probatoria)."
+  },
+  {
+    "slug": "eliminacion-de-antecedentes-penales-los-angeles",
+    "categoria": "Eliminación de antecedentes penales",
+    "variable": "Los Ángeles",
+    "ley": "DS 64 — eliminación de antecedentes penales por cumplimiento de condena",
+    "plazo": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En Los Ángeles, eliminación de antecedentes penales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 — eliminación de antecedentes penales por cumplimiento de condena)."
+  },
+  {
+    "slug": "declaracion-jurada-domicilio-san-bernardo",
+    "categoria": "Declaración jurada de domicilio",
+    "variable": "San Bernardo",
+    "ley": "Art. 59 CC — domicilio es la residencia con ánimo de permanecer; declaración probatoria",
+    "plazo": "Vigente al momento de uso; algunos trámites la exigen con menos de 30 días",
+    "entidad": "Aplicable en toda Chile — requerida por bancos, SII, municipios",
+    "direccion": "Varía según domicilio",
+    "intro": "En San Bernardo, declaración jurada de domicilio se tramita ante Aplicable en toda Chile — requerida por bancos, SII, municipios. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 59 CC — domicilio es la residencia con ánimo de permanecer; declaración probatoria)."
+  },
+  {
+    "slug": "mandato-especial-santiago-centro",
+    "categoria": "Mandato especial",
+    "variable": "Santiago Centro",
+    "ley": "Art. 2130 CC — mandato especial limitado a actos determinados",
+    "plazo": "Vigente hasta cumplir el acto encargado o revocación",
+    "entidad": "Aplicable en toda Chile — según el acto puede requerir notaría",
+    "direccion": "Varía según domicilio",
+    "intro": "En Santiago Centro, mandato especial se tramita ante Aplicable en toda Chile — según el acto puede requerir notaría. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 2130 CC — mandato especial limitado a actos determinados)."
+  },
+  {
+    "slug": "certificado-de-antecedentes-para-fines-especiales-la-serena",
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "variable": "La Serena",
+    "ley": "DS 64 + Ley 19.628 — protección de datos personales",
+    "plazo": "Trámite administrativo en días hábiles",
+    "entidad": "el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda",
+    "direccion": "Varía según domicilio",
+    "intro": "En La Serena, certificado de antecedentes para fines especiales se tramita ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (DS 64 + Ley 19.628 — protección de datos personales)."
+  },
+  {
+    "slug": "carta-amonestacion-laboral-penalolen",
+    "categoria": "Carta de amonestación laboral",
+    "variable": "Peñalolén",
+    "ley": "Art. 154 N°10 Código del Trabajo — sanciones deben constar en Reglamento Interno",
+    "plazo": "Aplicar dentro de los 10 días hábiles de conocida la falta",
+    "entidad": "Aplicable en toda Chile — registro en carpeta del trabajador",
+    "direccion": "Varía según domicilio",
+    "intro": "En Peñalolén, carta de amonestación laboral se tramita ante Aplicable en toda Chile — registro en carpeta del trabajador. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 154 N°10 Código del Trabajo — sanciones deben constar en Reglamento Interno)."
+  },
+  {
+    "slug": "limpieza-de-hoja-de-vida-del-conductor-temuco",
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "variable": "Temuco",
+    "ley": "Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas",
+    "plazo": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación",
+    "entidad": "el Juzgado de Policía Local de la comuna correspondiente",
+    "direccion": "Varía según domicilio",
+    "intro": "En Temuco, limpieza de hoja de vida del conductor se tramita ante el Juzgado de Policía Local de la comuna correspondiente. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Ley 18.290 — Ley de Tránsito, infracciones graves y gravísimas)."
+  },
+  {
+    "slug": "carta-renuncia-laboral-temuco",
+    "categoria": "Carta de renuncia laboral",
+    "variable": "Temuco",
+    "ley": "Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador",
+    "plazo": "Avisar con 30 días de anticipación o sin previo aviso (sin indemnización de aviso)",
+    "entidad": "Aplicable en toda Chile — entregar al empleador directamente",
+    "direccion": "Varía según domicilio",
+    "intro": "En Temuco, carta de renuncia laboral se tramita ante Aplicable en toda Chile — entregar al empleador directamente. Describe tu caso y genera en minutos el documento listo para presentar, con la base legal aplicable (Art. 159 N°2 Código del Trabajo — renuncia voluntaria del trabajador)."
   }
 ]

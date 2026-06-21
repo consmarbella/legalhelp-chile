@@ -15,31 +15,5 @@
     { "source": "/servicios", "destination": "/", "permanent": true },
     { "source": "/contacto", "destination": "/", "permanent": true },
     { "source": "/(.*)", "has": [{ "type": "host", "value": "http://legalhelp.cl" }], "destination": "https://legalhelp.cl/$1", "permanent": true }
-  ],
-  "routes": [
-    {
-      "src": "^/p/finiquito-laboral-[^/]+/?$",
-      "headers": { "Location": "/p/servicios-legales" },
-      "status": 301
-    },
-    {
-      "src": "^/p/poder-simple-(?!notarial)[^/]+/?$",
-      "headers": { "Location": "/p/servicios-legales" },
-      "status": 301
-    },
-    {
-      "src": "^/p/(contrato-trabajo-indefinido|contrato-trabajo-plazo-fijo|contrato-trabajo-part-time|contrato-trabajo-teletrabajo|contrato-trabajo-obra-faena|carta-renuncia-laboral|carta-amonestacion-laboral|anexo-contrato-trabajo-sueldo|contrato-arriendo-casa|contrato-arriendo-departamento|contrato-arriendo-local-comercial|contrato-subarriendo|carta-termino-contrato-arriendo|carta-cobro-arriendo-impago|poder-notarial|poder-para-vender-vehiculo|poder-para-cobrar-finiquito|poder-para-tramites-bancarios|mandato-especial|declaracion-jurada-simple|declaracion-jurada-domicilio|declaracion-jurada-ingresos|declaracion-jurada-dependientes|acuerdo-divorcio-mutuo-acuerdo|convenio-regulacion-divorcio|acuerdo-tuicion-compartida|solicitud-visitas-reguladas|carta-reclamo-sernac|carta-reclamo-banco|carta-reclamo-aerolinea|carta-reclamo-isapre|carta-reclamo-telecomunicaciones|carta-reclamo-seguro|carta-reclamo-tienda-retail|contrato-compraventa-vehiculo|contrato-compraventa-bien-mueble|promesa-compraventa-inmueble|contrato-prestacion-servicios-honorarios|contrato-freelance|carta-cobranza-deuda|acuerdo-pago-deuda|carta-prescripcion-deuda-general|solicitud-alzamiento-protesto|escrito-defensa-infraccion-transito|escrito-impugnacion-multa-municipalidad|escrito-prescripcion-multa-transito|denuncia-ruidos-molestos-vecinos|denuncia-maltrato-animal|recurso-apelacion-juzgado-policia-local|eliminacion-de-antecedentes-penales|limpieza-de-hoja-de-vida-del-conductor|omision-de-antecedentes-por-violencia-intrafamiliar|certificado-de-antecedentes-para-fines-especiales|registro-nacional-de-deudores-de-pensiones-de-alimentos)-[^/]+/?$",
-      "headers": { "Location": "/p/$1" },
-      "status": 301
-    },
-    {
-      "src": "^/p/(carta-despido|demanda-dano-moral|denuncia-acoso-laboral|denuncia-estafa|constitucion-spa|pagare|contrato-mutuo|testamento)-[^/]+/?$",
-      "headers": { "Location": "/p/servicios-legales" },
-      "status": 301
-    },
-    { "src": "^/p/posecion-efectiva/?$", "headers": { "Location": "/p/posecion-efectiva" }, "status": 200 },
-    { "src": "^/p/crear-escrito-legal/?$", "headers": { "Location": "/p/servicios-legales" }, "status": 301 },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/$1" }
   ]
 }

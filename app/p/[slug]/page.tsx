@@ -40,6 +40,27 @@ const HUBS = [
 
 const BASE_URL = 'https://legalhelp.cl';
 
+// Clústeres temáticos para interlinking cruzado (topic clusters).
+// Se enlazan SOLO los slugs que existan como página (se filtran en render).
+const CLUSTERS: string[][] = [
+  // Laboral
+  ['denuncia-por-despido-injustificado', 'denuncia-por-no-pago-de-cotizaciones', 'carta-renuncia-laboral', 'carta-amonestacion-laboral'],
+  // Deudas / prescripción
+  ['prescripcion-de-deuda-tag', 'prescripcion-de-deuda-bancaria', 'carta-prescripcion-deuda-general', 'carta-cobranza-deuda', 'acuerdo-pago-deuda'],
+  // Tránsito
+  ['escrito-prescripcion-multa-transito', 'escrito-defensa-infraccion-transito', 'prescripcion-de-multas-de-transito', 'recurso-apelacion-juzgado-policia-local', 'limpieza-de-hoja-de-vida-del-conductor'],
+  // Familia
+  ['demanda-de-alimentos', 'registro-nacional-de-deudores-de-pensiones-de-alimentos', 'acuerdo-tuicion-compartida', 'solicitud-visitas-reguladas'],
+  // Consumidor
+  ['carta-reclamo-sernac', 'carta-reclamo-banco', 'carta-reclamo-aerolinea', 'carta-reclamo-telecomunicaciones', 'carta-reclamo-isapre'],
+  // Arriendo
+  ['demanda-de-desalojo-por-no-pago', 'contrato-arriendo-casa', 'contrato-arriendo-departamento', 'carta-cobro-arriendo-impago'],
+  // Antecedentes
+  ['certificado-de-antecedentes-para-fines-especiales', 'eliminacion-de-antecedentes-penales', 'omision-de-antecedentes-por-violencia-intrafamiliar'],
+  // Convivencia / vecinos
+  ['denuncia-ruidos-molestos-vecinos', 'denuncia-maltrato-animal'],
+];
+
 // FAQ por categoría legal — para FAQPage JSON-LD (AI Overviews eligibility)
 const FAQ_BY_CATEGORY: Record<string, { q: string; a: string }[]> = {
   'Prescripción de deuda TAG': [
@@ -697,6 +718,22 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
     (p) => p.categoria === data.categoria && p.slug !== data.slug
   );
 
+  // ── Interlinking por clúster temático (cross-categoría) ───────────────────
+  const validSet = new Set(paginas.map((p) => p.slug));
+  const hubByCat: Record<string, string> = {};
+  const catBySlug: Record<string, string> = {};
+  for (const p of paginas) {
+    if (!p.variable) {
+      if (!(p.categoria in hubByCat)) hubByCat[p.categoria] = p.slug;
+      catBySlug[p.slug] = p.categoria;
+    }
+  }
+  const currentHub = hubByCat[data.categoria];
+  const cluster = CLUSTERS.find((c) => c.includes(currentHub)) || [];
+  const guiasRelacionadas = cluster
+    .filter((s) => s !== currentHub && validSet.has(s))
+    .slice(0, 5);
+
   return (
     <div className="min-h-screen bg-[#f5f3ef]" style={{ fontFamily: 'sans-serif' }}>
       {/* JSON-LD */}
@@ -764,6 +801,25 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         <span className="text-[#c9a84c] text-xs font-medium">🇨🇱 Documentos legales al instante</span>
       </nav>
 
+      {/* BREADCRUMBS (visibles + coinciden con el JSON-LD) */}
+      <nav aria-label="Breadcrumb" className="bg-[#0b1f3a]/95 border-t border-white/10 px-6 py-2">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-1 text-xs text-[#a8bdd4]">
+          <li><Link href="/" className="hover:text-white">Inicio</Link></li>
+          <li aria-hidden className="px-1">›</li>
+          <li>
+            {currentHub && currentHub !== slug
+              ? <Link href={`/p/${currentHub}`} className="hover:text-white">{data.categoria}</Link>
+              : <span className="text-white">{data.categoria}</span>}
+          </li>
+          {data.variable && (
+            <>
+              <li aria-hidden className="px-1">›</li>
+              <li className="text-white">{data.variable}</li>
+            </>
+          )}
+        </ol>
+      </nav>
+
       {/* HERO */}
       <div className="bg-[#0b1f3a] px-6 pt-10 pb-12 text-center">
         <h1 className="text-3xl font-bold text-white mb-3 leading-tight">
@@ -773,9 +829,17 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           {data.entidad}
         </p>
         <p className="text-[#a8bdd4] text-sm max-w-xl mx-auto">
-          {data.variable
-            ? `Si necesitas ${data.categoria.toLowerCase()} en ${data.variable}, presenta tu solicitud ante ${data.entidad} ubicado en ${data.direccion}.`
-            : `${data.categoria}: presenta tu solicitud ante ${data.entidad} (${data.direccion}).`}
+          {(() => {
+            const generica = /^var[ií]a/i.test(String(data.direccion));
+            if (data.variable) {
+              return generica
+                ? `Si necesitas ${data.categoria.toLowerCase()} en ${data.variable}, presenta tu solicitud ante ${data.entidad}.`
+                : `Si necesitas ${data.categoria.toLowerCase()} en ${data.variable}, presenta tu solicitud ante ${data.entidad} ubicado en ${data.direccion}.`;
+            }
+            return generica
+              ? `${data.categoria}: presenta tu solicitud ante ${data.entidad}.`
+              : `${data.categoria}: presenta tu solicitud ante ${data.entidad} (${data.direccion}).`;
+          })()}
           {' '}Tienes un plazo de {data.plazo.toLowerCase()} según la {data.ley}.
           {' '}Describe tu caso y en minutos tienes tu documento listo para presentar.
         </p>
@@ -970,6 +1034,28 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
                   className="text-xs text-[#0b1f3a] bg-[#f5f3ef] hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full transition-colors"
                 >
                   {r.variable}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* GUÍAS RELACIONADAS — interlinking por clúster temático (cross-categoría) */}
+      {guiasRelacionadas.length > 0 && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
+            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">
+              Guías relacionadas
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {guiasRelacionadas.map((s) => (
+                <Link
+                  key={s}
+                  href={`/p/${s}`}
+                  className="text-xs text-[#0b1f3a] bg-[#f5f3ef] hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full border border-[#e8e2d8] transition-colors"
+                >
+                  {catBySlug[s] || s}
                 </Link>
               ))}
             </div>
