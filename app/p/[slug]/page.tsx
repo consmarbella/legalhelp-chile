@@ -698,7 +698,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
   );
 
   return (
-    <div className="min-h-screen bg-[#f5f3ef]" style={{ fontFamily: 'sans-serif' }}>
+    <div className="min-h-screen" style={{ fontFamily: 'sans-serif' }}>
       {/* JSON-LD */}
       <script
         type="application/ld+json"
@@ -757,12 +757,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       />
 
       {/* NAV */}
-      <nav className="bg-[#0b1f3a] px-6 py-3 flex items-center justify-between">
-        <Link href="/" className="text-white font-bold text-lg tracking-tight">
-          ⚖️ LegalHelp Chile
-        </Link>
-        <span className="text-[#c9a84c] text-xs font-medium">🇨🇱 Documentos legales al instante</span>
-      </nav>
+      {/* Nav viene del layout global */}
 
       {/* HERO */}
       <div className="bg-[#0b1f3a] px-6 pt-10 pb-12 text-center">
@@ -801,8 +796,8 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* INTRO LOCAL — solo para páginas ciudad (variable no vacío) */}
       {data.variable && (data as Pagina).intro && (
         <div className="max-w-4xl mx-auto px-4 pt-6">
-          <div className="bg-white rounded-2xl shadow-sm px-6 py-4 border-l-4 border-[#c9a84c]">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-2">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm px-6 py-4 border-l-4 border-[#c9a84c]">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-2">
               Información local — {data.variable}
             </p>
             <p className="text-sm text-[#3a3330] leading-relaxed">
@@ -814,10 +809,10 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
       {/* CHAT SECTION */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="bg-[#e8f0e9] px-6 py-3 border-b border-[#d0e0d1] flex items-center gap-2">
+        <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-lg overflow-hidden">
+          <div className="bg-[#0d1426]/60 px-6 py-3 border-b border-[#d0e0d1] flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm text-[#2d6a4f] font-medium">
+            <span className="text-sm text-[#00d4ff] font-medium">
               Asistente Legal — {data.categoria}
             </span>
           </div>
@@ -827,8 +822,8 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
       {/* AUTORÍA Y FECHA */}
       <div className="max-w-4xl mx-auto px-4 pb-4">
-        <div className="bg-white rounded-xl px-5 py-3 border border-[#e8e2d8] text-center">
-          <p className="text-xs text-[#8a7f72] leading-relaxed">
+        <div className="bg-[#0d1426]/60 rounded-xl border border-[#60a5fa]/15 px-5 py-3 border border-[#e8e2d8] text-center">
+          <p className="text-xs text-[#9ab0cc] leading-relaxed">
             Contenido revisado por el equipo jurídico de LegalHelp Chile • Actualizado: mayo 2026
           </p>
         </div>
@@ -836,9 +831,9 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
       {/* DISCLAIMER */}
       <div className="max-w-4xl mx-auto px-4 pb-4">
-        <div className="bg-[#fef9ec] border border-[#f0d87a] rounded-xl px-5 py-3 flex gap-3 items-start">
+        <div className="bg-[#1a1000]/60 border border-[#c9a84c]/30 rounded-xl px-5 py-3 flex gap-3 items-start">
           <span className="text-lg leading-tight mt-0.5">⚠️</span>
-          <p className="text-xs text-[#7a6800] leading-relaxed">
+          <p className="text-xs text-[#c9a84c] leading-relaxed">
             <strong>Aviso legal:</strong> El contenido generado por LegalHelp no constituye asesoría legal profesional ni reemplaza la orientación de un abogado habilitado. Se trata de un documento de apoyo informativo. Para casos complejos, consultá con un profesional jurídico o las Corporaciones de Asistencia Judicial.
           </p>
         </div>
@@ -847,8 +842,8 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* CONTENIDO ÚNICO SSR — párrafo local para páginas ciudad */}
       {data.variable && cu?.paragraph && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-3">
               Información útil — {data.variable}
             </p>
             <p className="text-sm text-[#3a3330] leading-relaxed">
@@ -861,18 +856,18 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* FAQ LOCAL SSR — solo para páginas ciudad con FAQs generadas */}
       {data.variable && cu?.faqs && cu.faqs.length > 0 && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-4">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-4">
               Preguntas frecuentes sobre {data.categoria.toLowerCase()} en {data.variable}
             </p>
             <div className="divide-y divide-[#f0ebe3]">
               {cu.faqs.map(({ q, a }: { q: string; a: string }) => (
                 <details key={q} className="py-3 group">
-                  <summary className="cursor-pointer text-sm font-semibold text-[#0b1f3a] list-none flex justify-between items-start gap-2">
+                  <summary className="cursor-pointer text-sm font-semibold text-white list-none flex justify-between items-start gap-2">
                     <span>{q}</span>
                     <span className="text-[#c9a84c] font-bold text-base mt-0.5 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
                   </summary>
-                  <p className="mt-2 text-xs text-[#5a5245] leading-relaxed">{a}</p>
+                  <p className="mt-2 text-xs text-[#c8ddf0] leading-relaxed">{a}</p>
                 </details>
               ))}
             </div>
@@ -882,15 +877,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
 
       {/* INFO BOX */}
       <div className="max-w-4xl mx-auto px-4 pb-8">
-        <div className="bg-white rounded-2xl shadow-sm p-6 grid gap-4 md:grid-cols-3 text-center">
+        <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6 grid gap-4 md:grid-cols-3 text-center">
           <div>
             <div className="text-2xl mb-1">⚖️</div>
-            <div className="font-semibold text-[#0b1f3a] text-sm mb-1">Base legal</div>
-            <div className="text-xs text-[#8a7f72]">
+            <div className="font-semibold text-white text-sm mb-1">Base legal</div>
+            <div className="text-xs text-[#9ab0cc]">
               {(() => {
                 const leyInfo = findLey(data.ley);
                 return leyInfo ? (
-                  <a href={leyInfo.url} target="_blank" rel="noopener noreferrer" className="text-[#0b1f3a] underline hover:text-[#c9a84c] transition-colors">
+                  <a href={leyInfo.url} target="_blank" rel="noopener noreferrer" className="text-white underline hover:text-[#c9a84c] transition-colors">
                     {data.ley} ↗
                   </a>
                 ) : data.ley;
@@ -899,13 +894,13 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
           </div>
           <div>
             <div className="text-2xl mb-1">🏛</div>
-            <div className="font-semibold text-[#0b1f3a] text-sm mb-1">Dónde presentarlo</div>
-            <div className="text-xs text-[#8a7f72]">{data.direccion}</div>
+            <div className="font-semibold text-white text-sm mb-1">Dónde presentarlo</div>
+            <div className="text-xs text-[#9ab0cc]">{data.direccion}</div>
           </div>
           <div>
             <div className="text-2xl mb-1">⏱</div>
-            <div className="font-semibold text-[#0b1f3a] text-sm mb-1">Plazo</div>
-            <div className="text-xs text-[#8a7f72]">{data.plazo}</div>
+            <div className="font-semibold text-white text-sm mb-1">Plazo</div>
+            <div className="text-xs text-[#9ab0cc]">{data.plazo}</div>
           </div>
         </div>
       </div>
@@ -913,18 +908,18 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* FAQ SECTION */}
       {FAQ_BY_CATEGORY[data.categoria] && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-4">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-4">
               Preguntas frecuentes — {data.categoria}
             </p>
             <div className="divide-y divide-[#f0ebe3]">
               {FAQ_BY_CATEGORY[data.categoria].map(({ q, a }) => (
                 <details key={q} className="py-3 group">
-                  <summary className="cursor-pointer text-sm font-semibold text-[#0b1f3a] list-none flex justify-between items-start gap-2">
+                  <summary className="cursor-pointer text-sm font-semibold text-white list-none flex justify-between items-start gap-2">
                     <span>{q}</span>
                     <span className="text-[#c9a84c] font-bold text-base mt-0.5 flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
                   </summary>
-                  <p className="mt-2 text-xs text-[#5a5245] leading-relaxed">{a}</p>
+                  <p className="mt-2 text-xs text-[#c8ddf0] leading-relaxed">{a}</p>
                 </details>
               ))}
             </div>
@@ -935,15 +930,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* GUÍA COMPLETA — para hub pages y city pages */}
       {(hubGuides as Record<string, { sections: { heading: string; body: string }[] }>)[data.categoria] && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-6">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-6">
               Guía completa — {data.categoria}{data.variable ? ` en ${data.variable}` : ''}
             </p>
             <div className="divide-y divide-[#f0ebe3] space-y-0">
               {(hubGuides as Record<string, { sections: { heading: string; body: string }[] }>)[data.categoria].sections.map(({ heading, body }) => (
                 <div key={heading} className="py-5">
-                  <h2 className="text-base font-bold text-[#0b1f3a] mb-2">{heading}</h2>
-                  <div className="text-sm text-[#5a5245] leading-relaxed space-y-2">
+                  <h2 className="text-base font-bold text-white mb-2">{heading}</h2>
+                  <div className="text-sm text-[#c8ddf0] leading-relaxed space-y-2">
                     {body.split('\n').map((line, i) => (
                       <p key={i}>{line}</p>
                     ))}
@@ -958,8 +953,8 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       {/* RELATED CITIES */}
       {relacionadas.length > 0 && (
         <div className="max-w-4xl mx-auto px-4 pb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <p className="text-xs text-[#8a7f72] uppercase tracking-wider font-semibold mb-3">
+          <div className="bg-[#0d1426]/60 rounded-2xl border border-[#60a5fa]/15 shadow-sm p-6">
+            <p className="text-xs text-[#9ab0cc] uppercase tracking-wider font-semibold mb-3">
               {data.categoria} en otras ciudades
             </p>
             <div className="flex flex-wrap gap-2">
@@ -967,7 +962,7 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
                 <Link
                   key={r.slug}
                   href={`/p/${r.slug}`}
-                  className="text-xs text-[#0b1f3a] bg-[#f5f3ef] hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full transition-colors"
+                  className="text-xs text-white bg-[#f5f3ef] hover:bg-[#e8e2d8] px-3 py-1.5 rounded-full transition-colors"
                 >
                   {r.variable}
                 </Link>
@@ -978,15 +973,15 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
       )}
 
       {/* FOOTER */}
-      <footer className="border-t border-[#ddd8cc] bg-[#f5f3ef] py-6">
-        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#9a9185]">
+      <footer className="border-t border-[#60a5fa]/15 py-6">
+        <div className="max-w-4xl mx-auto px-6 flex flex-wrap justify-center gap-6 text-xs text-[#7a90aa]">
           {['🔒 SSL Certificado', '🇨🇱 Válido en todo Chile', '⚖ Marco legal actualizado 2026'].map((t) => (
             <span key={t}>{t}</span>
           ))}
           <span>📧 contacto@legalhelp.cl</span>
         </div>
         <div className="text-center text-xs text-[#bbb0a4] mt-3">
-          <Link href="/" className="hover:text-[#0b1f3a] transition-colors">
+          <Link href="/" className="hover:text-white transition-colors">
             ← Volver al inicio
           </Link>
         </div>
