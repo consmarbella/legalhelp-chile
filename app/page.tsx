@@ -186,7 +186,7 @@ export default function Home() {
       <nav className="border-b border-[#60a5fa]/15">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <svg width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="30" height="34" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 12px rgba(0, 212, 255, 0.7)) drop-shadow(0 0 30px rgba(0, 212, 255, 0.3))' }}>
               <defs>
                 <linearGradient id="lgOS" x1="0" y1="0" x2="38" y2="44" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#00d4ff" />
@@ -198,7 +198,7 @@ export default function Home() {
               <rect x="27" y="2" width="5" height="24" fill="#05070f" rx="0.5" />
               <rect x="14" y="11" width="18" height="5" fill="#05070f" rx="0.5" />
             </svg>
-            <div className="flex items-baseline tracking-tight font-bold text-xl">
+            <div className="flex items-baseline tracking-tight font-bold text-xl" style={{ textShadow: '0 0 20px rgba(255,255,255,0.5)' }}>
               <span className="text-white">LEGAL</span>
               <span className="text-cyan glow-cyan">HELP</span>
             </div>
@@ -214,22 +214,22 @@ export default function Home() {
       {/* ── HERO ────────────────────────────────────────────────────── */}
       <header className="pt-16 pb-12">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/25 bg-[#00d4ff]/5 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/40 bg-[#00d4ff]/10 mb-6" style={{ boxShadow: '0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 12px rgba(0, 212, 255, 0.1)' }}>
             <span className="status-dot" />
-            <span className="hud-label text-cyan">{statusText}</span>
+            <span className="hud-label text-cyan" style={{ textShadow: '0 0 10px rgba(0, 212, 255, 0.8)' }}>{statusText}</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5">
+          <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5" style={{ textShadow: '0 0 30px rgba(255,255,255,0.15)' }}>
             Sistema de Redacción<br />
             <span className="text-cyan glow-cyan">Legal Inteligente</span>
           </h1>
-          <p className="text-[#c8ddf0] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto" style={{ textShadow: '0 0 8px rgba(255,255,255,0.1)' }}>
             Documentos judiciales chilenos generados por inteligencia artificial,
             en tiempo real. Describe tu caso y el núcleo redacta el escrito exacto,
             con la ley correcta y formato listo para presentar.
           </p>
           <div className="flex flex-wrap justify-center gap-2.5 mt-7">
             {['✦ Consulta gratuita', '🔒 Datos cifrados', '⚖ Formato judicial chileno'].map(b => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#60a5fa]/20 bg-[#0d1426]/50 text-[#c8ddf0]">
+              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/8 text-white/90" style={{ textShadow: '0 0 6px rgba(0, 212, 255, 0.4)', boxShadow: '0 0 12px rgba(0, 212, 255, 0.15)' }}>
                 {b}
               </span>
             ))}
