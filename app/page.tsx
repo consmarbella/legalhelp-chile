@@ -248,6 +248,23 @@ export default function Home() {
               </span>
             ))}
           </div>
+
+          {/* ── SELECTOR: Documentos vs Demandas ──────────────────────── */}
+          <div className="flex justify-center gap-4 mt-10">
+            <div className="flex-1 max-w-[260px] rounded-xl border-2 border-[#00d4ff]/60 bg-[#00d4ff]/10 p-5 text-center lg-glow-pill cursor-default">
+              <div className="text-2xl mb-2">📄</div>
+              <div className="text-white font-bold text-sm">Documentos</div>
+              <div className="text-[#9ab0cc] text-xs mt-1">Cartas, poderes, finiquitos, reclamos</div>
+              <div className="text-[#00d4ff] text-xs font-mono mt-2">Desde $7.990</div>
+            </div>
+            <a href="/demandas" className="flex-1 max-w-[260px] rounded-xl border-2 border-[#60a5fa]/30 bg-[#0d1426]/50 p-5 text-center hover:border-[#00d4ff]/60 hover:bg-[#00d4ff]/5 transition-all group">
+              <div className="text-2xl mb-2">⚖️</div>
+              <div className="text-white font-bold text-sm group-hover:text-[#00d4ff] transition">Demandas</div>
+              <div className="text-[#9ab0cc] text-xs mt-1">Escritos judiciales con jurisprudencia</div>
+              <div className="text-[#60a5fa] text-xs font-mono mt-2 group-hover:text-[#00d4ff] transition">Desde $39.000</div>
+              <div className="text-[10px] text-[#7a90aa] mt-2 uppercase tracking-widest">Sin abogado →</div>
+            </a>
+          </div>
         </div>
       </header>
 
