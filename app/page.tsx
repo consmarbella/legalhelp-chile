@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { downloadLegalPdf } from '@/lib/generatePdf';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
-import PaywallModal from '@/components/PaywallModal';
 import LegalOSBackground from '@/components/LegalOSBackground';
+
+// Lazy load: solo se descarga cuando el usuario abre el paywall o descarga
+const PaywallModal = lazy(() => import('@/components/PaywallModal'));
 
 export default function Home() {
   const [caseData, setCaseData]         = useState<CaseData>(EMPTY_CASE);
@@ -153,8 +154,9 @@ export default function Home() {
     }
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!generatedDoc) return;
+    const { downloadLegalPdf } = await import('@/lib/generatePdf');
     const nombreStr = String(caseData.nombre ?? 'documento');
     const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
     downloadLegalPdf(generatedDoc, fileName);
@@ -485,13 +487,15 @@ export default function Home() {
       </footer>
 
       {showPaywall && (
-        <PaywallModal
-          caseData={caseData}
-          selectedDoc={selectedDoc}
-          paymentLoading={paymentLoading}
-          onPayment={handlePayment}
-          onClose={() => setShowPaywall(false)}
-        />
+        <Suspense fallback={null}>
+          <PaywallModal
+            caseData={caseData}
+            selectedDoc={selectedDoc}
+            paymentLoading={paymentLoading}
+            onPayment={handlePayment}
+            onClose={() => setShowPaywall(false)}
+          />
+        </Suspense>
       )}
     </div>
   );

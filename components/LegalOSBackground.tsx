@@ -63,9 +63,21 @@ export default function LegalOSBackground() {
 
     if (!reduce) raf = requestAnimationFrame(draw);
 
+    // Pausar cuando la pestaña no es visible (ahorra batería)
+    function onVisibility() {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      } else if (!raf) {
+        raf = requestAnimationFrame(draw);
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibility);
+
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibility);
     };
   }, []);
 
