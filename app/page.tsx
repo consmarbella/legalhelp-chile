@@ -263,17 +263,25 @@ export default function Home() {
       {/* HERO */}
       <div className="bg-[#0b1f3a] pt-12 pb-10">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-snug mb-3">
-            Tu escrito legal,{' '}
-            <span className="text-[#e05c3a]">redactado en minutos</span>
+          <p className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ fontFamily: 'sans-serif' }}>
+            La plataforma de documentos legales con IA más completa de Chile
+          </p>
+          <h1 className="text-3xl sm:text-5xl font-bold text-white leading-[1.12] mb-4">
+            Cualquier documento legal que necesites,{' '}
+            <span className="text-[#e05c3a]">listo en minutos</span>
           </h1>
-          <p className="text-[#a8b8cc] text-base leading-relaxed mb-6" style={{ fontFamily: 'sans-serif', fontWeight: 300 }}>
-            Inteligencia artificial especializada en derecho chileno. Sin abogados caros, sin burocracia.
-            Documentos listos para presentar.
+          <p className="text-[#a8b8cc] text-base sm:text-lg leading-relaxed mb-3" style={{ fontFamily: 'sans-serif', fontWeight: 300 }}>
+            Demandas, contratos, finiquitos, poderes, cartas de reclamo, recursos… lo que sea.
+            Describe tu caso en palabras simples y la IA redacta el documento exacto que necesitas,
+            con la ley chilena correcta y formato listo para presentar.
+          </p>
+          <p className="text-[#7e93ad] text-sm leading-relaxed mb-6" style={{ fontFamily: 'sans-serif' }}>
+            No es un generador de plantillas: es IA que entiende tu caso y el derecho chileno.
+            Sin abogados caros. Sin filas en la notaría.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-xs" style={{ fontFamily: 'sans-serif' }}>
-            {[paid ? '✅ Plan activo' : '🎁 Consulta gratuita',
-              '🔒 Datos cifrados','📋 Formato judicial chileno'].map(b => (
+            {[paid ? '✅ Plan activo' : '🎁 Primera consulta gratis',
+              '📄 Cualquier documento', '⚖️ Ley chilena 2026', '📥 Listo para presentar'].map(b => (
               <span key={b} className="bg-white/5 border border-white/10 text-[#a8b8cc] px-3 py-1.5 rounded-full">{b}</span>
             ))}
           </div>
