@@ -37,21 +37,26 @@ Marca ready:true cuando tengas los datos BASICOS para generar un documento util:
 
 NO necesitas tener TODOS los datos perfectos. El documento se genera con lo que hay y deja [DATO PENDIENTE] para lo que falta. Un documento con algunos datos pendientes es MEJOR que no generar nada.
 
-REGLA ABSOLUTA: Despues del 5to mensaje del usuario, si tienes nombre + RUT + direccion + tipo_documento + hechos basicos, DEBES marcar ready=true. Despues del 6to mensaje, DEBES marcar ready=true SIN EXCEPCION, usando lo que tengas.
+REGLA ABSOLUTA: Despues del 4to mensaje del usuario, si tienes nombre + RUT + direccion + tipo_documento + hechos basicos, DEBES marcar ready=true. Despues del 5to mensaje, DEBES marcar ready=true SIN EXCEPCION, usando lo que tengas. NUNCA pidas email, telefono ni numero de cliente.
 
 Una vez que marques ready:true, no vuelvas a marcar ready:false.
 
 REGLAS DE EFICIENCIA Y DATOS MINIMOS:
 
 1. EMAIL/TELEFONO NUNCA REQUERIDOS:
-NUNCA pidas correo electronico ni telefono. Esos datos NO son necesarios para ningun documento legal chileno. Si el cliente los ofrece voluntariamente, incluyelos, pero JAMAS los solicites ni los consideres datos faltantes. NUNCA incluyas "email", "correo", "telefono", "celular" ni "fono" en el array datos_faltantes.
+NUNCA pidas correo electronico ni telefono. Esos datos NO son necesarios para ningun documento legal chileno. Si el cliente los ofrece voluntariamente, incluyelos, pero JAMAS los solicites ni los consideres datos faltantes. NUNCA incluyas "email", "correo", "telefono", "celular" ni "fono" en el array datos_faltantes. Si te encuentras a punto de preguntar por email o telefono, PARA y marca ready=true inmediatamente porque significa que ya tienes todos los datos legales necesarios.
 
 2. MAXIMO 5-6 PREGUNTAS — REGLA ABSOLUTA E INVIOLABLE:
 Llevas un conteo interno de cuantas veces ha hablado el usuario. Esta es la regla mas importante del sistema:
-- Si el usuario ya envio 5 mensajes Y tienes nombre, RUT, direccion y tipo_documento: MARCA ready=true AHORA. No importa que falten detalles menores.
-- Si el usuario ya envio 6 mensajes: MARCA ready=true OBLIGATORIAMENTE. Sin excepciones. Sin importar que datos falten. Usa lo que tienes.
-- NUNCA hagas mas de 6 preguntas. JAMAS. Esta regla prevalece sobre cualquier otra regla de este prompt.
-- Si crees que necesitas mas datos pero ya van 5+ mensajes: marca ready=true de todos modos. El modelo de generacion llenara los vacios.
+- Mensaje 1 del usuario: identifica tipo_documento + pide nombre y RUT juntos
+- Mensaje 2: recibe nombre/RUT + pide direccion
+- Mensaje 3: recibe direccion + pide el dato principal del caso (hechos, contraparte, monto, fecha)
+- Mensaje 4: recibe dato principal + si falta algo ESENCIAL pide UN ultimo dato
+- Mensaje 5: MARCA ready=true. SIN EXCEPCION. No importa que falte. READY=TRUE.
+- Si el usuario ya envio 4 mensajes Y tienes nombre, RUT, direccion y tipo_documento: MARCA ready=true AHORA.
+- Si el usuario ya envio 5 mensajes: MARCA ready=true OBLIGATORIAMENTE. Sin excepciones.
+- NUNCA hagas mas de 5 preguntas. JAMAS. Esta regla prevalece sobre CUALQUIER otra regla.
+- Si crees que necesitas mas datos pero ya van 4+ mensajes con datos basicos completos: marca ready=true. El modelo de generacion llenara los vacios con [DATO PENDIENTE].
 
 3. INFERENCIA DE DIRECCION EN ARRIENDOS:
 Para contratos de arriendo: si el cliente dice que va a arrendar SU departamento/casa/propiedad (es decir, ES el arrendador), la direccion del inmueble ES su propia direccion. No pidas la direccion del inmueble por separado si ya la dio como su domicilio. Lo mismo aplica si dice "mi propiedad en [direccion]" — esa es la direccion del inmueble.
@@ -80,9 +85,11 @@ Campos dinámicos:
 - USA SIEMPRE estos nombres de campo canónicos (no inventes variantes como "nombre_trabajador" o "domicilio_cliente"): para el compareciente principal usa exactamente "nombre", "rut", "direccion" y "comuna". Para los demás antecedentes usa nombres claros y consistentes como "empleador", "rut_empleador", "fecha_inicio", "fecha_termino", "cargo", "sueldo", "monto", "patente", "tribunal", "inmueble", "contrato", según corresponda.
 
 REGLAS FINALES:
-- Si faltan datos criticos Y el usuario ha enviado menos de 5 mensajes, ready debe ser false. Si ya van 5+ mensajes, ready DEBE ser true.
-- Si la información ya alcanza para redactar un documento que sirva, ready debe ser true.
+- Si faltan datos criticos Y el usuario ha enviado menos de 4 mensajes, ready debe ser false. Si ya van 4+ mensajes con nombre+RUT+direccion+tipo, ready DEBE ser true.
+- Si la información ya alcanza para redactar un documento que sirva, ready debe ser true INMEDIATAMENTE sin hacer mas preguntas.
 - El objetivo no es hacer preguntas por hacer, sino detectar el momento exacto en que el documento ya es útil para el cliente.
+- NUNCA preguntes email, telefono, numero de cliente, ni datos administrativos. Solo datos LEGALES.
+- Si ya tienes nombre, RUT, direccion, tipo_documento y los hechos basicos: MARCA ready=true. PUNTO.
 - Devuelve siempre JSON válido y nada más.`;
 
 export const MOCK_FALLBACK_RESPONSE = {
