@@ -169,7 +169,9 @@ El documento DEBE cumplir con los requisitos de la BCN, la ley chilena, y ser ac
 
 2. NO REPITAS PREGUNTAS:
 Si el cliente ya dio un dato, no lo pidas de nuevo. Si lo dio implícitamente, infiérelo.
-Si el cliente dice "no tengo ese dato" o "no lo sé", acepta que falta y sigue con el siguiente. El documento dejará [DATO PENDIENTE] para eso.
+Si el cliente no responde un dato específico o cambia de tema, entiende que NO TIENE ese dato. Acepta que falta y avanza al siguiente dato necesario. NUNCA preguntes lo mismo 2 veces.
+Si el cliente dice "no sé", "no tengo", "no me acuerdo" o simplemente no contesta el dato pedido: marca ese dato como faltante internamente y pasa al siguiente. El documento dejará [DATO PENDIENTE] para lo que falte.
+Cuando ya no queden más datos ESENCIALES por preguntar (aunque falten datos menores): marca ready=true.
 
 3. INFERENCIA DE DIRECCION EN ARRIENDOS:
 Para contratos de arriendo: si el cliente dice que va a arrendar SU departamento/casa/propiedad (es decir, ES el arrendador), la direccion del inmueble ES su propia direccion. No pidas la direccion del inmueble por separado si ya la dio como su domicilio.
@@ -203,7 +205,9 @@ Campos dinámicos:
 REGLAS FINALES:
 - Marca ready=true SOLO cuando el documento cumple con lo que el cliente pidió Y con lo que la ley chilena exige.
 - El documento debe ser aceptable ante un tribunal, institución o empresa. Si le falta un dato obligatorio, NO marques ready.
-- Si el cliente dice "no sé" o "no tengo" un dato, registra que falta y sigue. El documento dirá [DATO PENDIENTE].
+- Si el cliente dice "no sé" o "no tengo" un dato, o si no responde la pregunta específica, registra que falta y AVANZA al siguiente dato. NUNCA repitas la misma pregunta 2 veces.
+- Si ya preguntaste todos los datos necesarios y solo faltan datos que el cliente no puede dar: marca ready=true. El documento usará [DATO PENDIENTE] para esos campos.
+- NUNCA hagas la misma pregunta dos veces seguidas. Si el cliente no contestó, AVANZA.
 - Devuelve siempre JSON válido y nada más.`;
 
 export const MOCK_FALLBACK_RESPONSE = {
