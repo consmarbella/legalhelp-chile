@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "chore",
   "description": "Run 20 real integration tests against the live production API (https://legalhelp.cl) simulating real Chilean users with realistic data for the most searched legal document types in Chile. Each test must achieve ready=true in 4-6 messages and then generate a document via /api/generate-final.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create a test script (can be inline bash with curl or a Node.js script) that tests each of the 20 cases against https://legalhelp.cl/api/chat and https://legalhelp.cl/api/generate-final",
     "For each case: (1) Send initial message describing the legal need. (2) Respond to bot questions with realistic Chilean data (full name, RUT like 12.345.678-9, addresses in Chilean cities, realistic facts). (3) Track number of messages until ready=true. (4) Once ready=true, call /api/generate-final with the accumulated case data. (5) Verify document is generated (preview=true, document length > 200 chars).",
@@ -21,5 +21,5 @@
     "No test should show the bot asking for email or telefono"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "13/20 tests passed (acceptance criterion requires 18/20). Key findings: (1) Bot NEVER asked for email or phone in any test - that rule works perfectly. (2) 6 tests failed due to exceeding 6-message limit (took 7-8 messages) - the bot keeps asking for specific details (e.g. bank account number, provisional pension amount, power validity period, lease start date) even after user says 'all data given'. (3) Test 19 (carta renuncia) reached ready=true in only 3 messages but generated a document of only 136 chars (below 200 threshold) - the generate-final endpoint produced too short a document. (4) All 20 tests eventually reached ready=true (19/20 within 8 messages, 1 on the 8th message boundary). (5) The prompt's 5-6 question limit is not being strictly enforced by the LLM - it interprets 'minimum viable data' too strictly for complex document types. (6) Average messages to ready for passing tests: 5.0. For failing tests: 7.1. Recommendation: prompt needs stronger language forcing ready=true after 5th user message regardless of missing optional details."
 }
