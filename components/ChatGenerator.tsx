@@ -6,6 +6,7 @@ import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
 import CourtDocument from '@/components/CourtDocument';
 import DocumentPreview from '@/components/DocumentPreview';
 import PaywallModal from '@/components/PaywallModal';
+import DevBypassModal from '@/components/DevBypassModal';
 
 // ─────────────────────────────────────────────────────────────────────────────
 interface ChatGeneratorProps {
@@ -32,6 +33,9 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
+  const [showDevBypass, setShowDevBypass] = useState(false);
+  const devClickCount = useRef(0);
+  const devClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [contextSent, setContextSent]   = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -174,10 +178,52 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
     finally { setPaymentLoading(false); }
   };
 
+  const handleTestPayment = async (plan: 'single' | 'monthly') => {
+    setPaymentLoading(true);
+    try {
+      const res = await fetch('/api/payment/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+      });
+      const data = await res.json();
+      if (data.orderId) {
+        sessionStorage.setItem('lh_paid_order', JSON.stringify({ orderId: data.orderId, plan, paidAt: Date.now() }));
+        setPaid(true);
+        setShowPaywall(false);
+      }
+    } catch (err) { console.error('Error en pago de prueba:', err); }
+    finally { setPaymentLoading(false); }
+  };
+
   const handleDownload = () => {
     if (!generatedDoc) return;
     const nombreStr = String(caseData.nombre ?? 'documento');
     downloadLegalPdf(generatedDoc, `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`);
+  };
+
+  const handleDownloadWord = async () => {
+    if (!generatedDoc) return;
+    const { downloadLegalDocx } = await import('@/lib/generateDocx');
+    const nombreStr = String(caseData.nombre ?? 'documento');
+    await downloadLegalDocx(generatedDoc, `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`);
+  };
+
+  const handleDevClick = () => {
+    devClickCount.current += 1;
+    if (devClickTimer.current) clearTimeout(devClickTimer.current);
+    if (devClickCount.current >= 3) {
+      devClickCount.current = 0;
+      setShowDevBypass(true);
+    } else {
+      devClickTimer.current = setTimeout(() => { devClickCount.current = 0; }, 800);
+    }
+  };
+
+  const handleDevBypassed = (orderId: string) => {
+    setShowDevBypass(false);
+    setPaid(true);
+    void orderId;
   };
 
   return (
@@ -190,7 +236,7 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
             <div>
               <span className="text-white font-semibold text-sm" style={{ fontFamily: 'sans-serif' }}>Asistente Jurídico</span>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse cursor-pointer" onClick={handleDevClick} />
                 <span className="text-emerald-300 text-xs" style={{ fontFamily: 'sans-serif' }}>
                   {paid
                     ? 'Plan activo · documentos ilimitados'
@@ -286,6 +332,11 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
                     style={{ fontFamily: 'sans-serif' }}>
                     ↓ Descargar PDF
                   </button>
+                  <button onClick={handleDownloadWord}
+                    className="flex-1 bg-white border border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#f0f4fa] py-2.5 rounded-xl text-sm font-medium transition text-center"
+                    style={{ fontFamily: 'sans-serif' }}>
+                    ↓ Descargar Word
+                  </button>
                   <button onClick={() => { setGeneratedDoc(null); handleGenerate(); }}
                     className="px-4 py-2.5 border border-[#ddd8cc] hover:border-[#c9a84c] rounded-xl text-sm text-[#6b6355] transition"
                     style={{ fontFamily: 'sans-serif' }}>
@@ -368,8 +419,13 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
           selectedDoc={selectedDoc}
           paymentLoading={paymentLoading}
           onPayment={handlePayment}
+          onTestPayment={handleTestPayment}
           onClose={() => setShowPaywall(false)}
         />
+      )}
+
+      {showDevBypass && (
+        <DevBypassModal caseData={caseData} docId={selectedDoc} onBypassed={handleDevBypassed} onClose={() => setShowDevBypass(false)} />
       )}
     </>
   );

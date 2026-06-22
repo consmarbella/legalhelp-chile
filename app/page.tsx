@@ -7,6 +7,7 @@ import DocumentPreview from '@/components/DocumentPreview';
 
 // Lazy load: solo se descarga cuando el usuario abre el paywall o descarga
 const PaywallModal = lazy(() => import('@/components/PaywallModal'));
+const DevBypassModal = lazy(() => import('@/components/DevBypassModal'));
 
 export default function Home() {
   const [caseData, setCaseData]         = useState<CaseData>(EMPTY_CASE);
@@ -20,6 +21,9 @@ export default function Home() {
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
+  const [showDevBypass, setShowDevBypass] = useState(false);
+  const devClickCount = useRef(0);
+  const devClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -149,6 +153,24 @@ export default function Home() {
     }
   };
 
+  const handleTestPayment = async (plan: 'single' | 'monthly') => {
+    setPaymentLoading(true);
+    try {
+      const res = await fetch('/api/payment/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+      });
+      const data = await res.json();
+      if (data.orderId) {
+        sessionStorage.setItem('lh_paid_order', JSON.stringify({ orderId: data.orderId, plan, paidAt: Date.now() }));
+        setPaid(true);
+        setShowPaywall(false);
+      }
+    } catch (err) { console.error('Error en pago de prueba:', err); }
+    finally { setPaymentLoading(false); }
+  };
+
   const handleDownload = async () => {
     if (!generatedDoc) return;
     const { downloadLegalPdf } = await import('@/lib/generatePdf');
@@ -168,6 +190,23 @@ export default function Home() {
   const statusText = paid
     ? 'PLAN ACTIVO · DOCUMENTOS ILIMITADOS'
     : 'SISTEMA EN LÍNEA · NÚCLEO IA OPERATIVO';
+
+  const handleDevClick = () => {
+    devClickCount.current += 1;
+    if (devClickTimer.current) clearTimeout(devClickTimer.current);
+    if (devClickCount.current >= 3) {
+      devClickCount.current = 0;
+      setShowDevBypass(true);
+    } else {
+      devClickTimer.current = setTimeout(() => { devClickCount.current = 0; }, 800);
+    }
+  };
+
+  const handleDevBypassed = (orderId: string) => {
+    setShowDevBypass(false);
+    setPaid(true);
+    void orderId;
+  };
 
   return (
     <div className="min-h-screen text-white">
@@ -206,7 +245,7 @@ export default function Home() {
       <header className="pt-16 pb-12">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#00d4ff]/40 bg-[#00d4ff]/10 mb-6 lg-glow-pill">
-            <span className="lg-status-dot" />
+            <span className="lg-status-dot cursor-pointer" onClick={handleDevClick} />
             <span className="hud-label text-cyan lg-glow-status">{statusText}</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold leading-[1.05] tracking-tight mb-5 lg-glow-title">
@@ -226,21 +265,14 @@ export default function Home() {
             ))}
           </div>
 
-          {/* ── SELECTOR: Documentos vs Demandas ──────────────────────── */}
-          <div className="flex justify-center gap-4 mt-10">
-            <div className="flex-1 max-w-[260px] rounded-xl border-2 border-[#00d4ff]/60 bg-[#00d4ff]/10 p-5 text-center lg-glow-pill cursor-default">
+          {/* CTA único */}
+          <div className="flex justify-center mt-10">
+            <div className="max-w-[300px] rounded-xl border-2 border-[#00d4ff]/60 bg-[#00d4ff]/10 p-5 text-center lg-glow-pill cursor-default">
               <div className="text-2xl mb-2">📄</div>
-              <div className="text-white font-bold text-sm">Documentos</div>
-              <div className="text-[#9ab0cc] text-xs mt-1">Cartas, poderes, finiquitos, reclamos</div>
+              <div className="text-white font-bold text-sm">Documentos Legales con IA</div>
+              <div className="text-[#9ab0cc] text-xs mt-1">Cartas, poderes, finiquitos, reclamos, recursos y más</div>
               <div className="text-[#00d4ff] text-xs font-mono mt-2">Desde $7.990</div>
             </div>
-            <a href="/demandas" className="flex-1 max-w-[260px] rounded-xl border-2 border-[#60a5fa]/30 bg-[#0d1426]/50 p-5 text-center hover:border-[#00d4ff]/60 hover:bg-[#00d4ff]/5 transition-all group">
-              <div className="text-2xl mb-2">⚖️</div>
-              <div className="text-white font-bold text-sm group-hover:text-[#00d4ff] transition">Demandas</div>
-              <div className="text-[#9ab0cc] text-xs mt-1">Escritos judiciales con jurisprudencia</div>
-              <div className="text-[#60a5fa] text-xs font-mono mt-2 group-hover:text-[#00d4ff] transition">Desde $39.000</div>
-              <div className="text-[10px] text-[#7a90aa] mt-2 uppercase tracking-widest">Sin abogado →</div>
-            </a>
           </div>
         </div>
       </header>
@@ -473,7 +505,19 @@ export default function Home() {
             selectedDoc={selectedDoc}
             paymentLoading={paymentLoading}
             onPayment={handlePayment}
+            onTestPayment={handleTestPayment}
             onClose={() => setShowPaywall(false)}
+          />
+        </Suspense>
+      )}
+
+      {showDevBypass && (
+        <Suspense fallback={null}>
+          <DevBypassModal
+            caseData={caseData}
+            docId={selectedDoc}
+            onBypassed={handleDevBypassed}
+            onClose={() => setShowDevBypass(false)}
           />
         </Suspense>
       )}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, GENERATE_RATE_LIMIT } from '@/lib/rateLimit';
-import { getOrderByOrderId } from '@/lib/orderStore';
+import { getOrderByOrderId, updateOrder } from '@/lib/orderStore';
 import { findTemplate } from '@/lib/templates';
 import { GENERATE_SYSTEM_PROMPT as SYSTEM } from '@/lib/prompts';
 import { llmComplete } from '@/lib/llm';
@@ -156,6 +156,12 @@ export async function POST(req: NextRequest) {
     console.log(`[generate-final] Generating "${tipo}" with LLM (paid=${isPaid})`);
     const document = await generateDocument(tipo, caseData) ?? buildMock(tipo, caseData);
     const clean = stripMarkdown(document);
+
+    if (isPaid && orderId) {
+      await updateOrder(orderId, { documentUrl: clean }).catch(err => {
+        console.error('[generate-final] Failed to persist document:', err);
+      });
+    }
 
     // El documento completo SOLO se entrega con pago verificado.
     return NextResponse.json({

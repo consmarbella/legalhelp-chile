@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
  */
 export default function LegalOSNav() {
   const pathname = usePathname();
-  const isDemandas = pathname === '/demandas';
+  void pathname;
 
   return (
     <nav className="border-b border-[#60a5fa]/15 relative z-10">
@@ -40,22 +40,11 @@ export default function LegalOSNav() {
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className={`text-xs font-mono uppercase tracking-widest transition ${
-              !isDemandas ? 'text-[#00d4ff]' : 'text-[#60a5fa]/60 hover:text-white'
-            }`}
+            className="text-xs font-mono uppercase tracking-widest transition text-[#00d4ff]"
           >
             Documentos
           </Link>
           <div className="w-px h-4 bg-[#60a5fa]/20" />
-          <Link
-            href="/demandas"
-            className={`text-xs font-mono uppercase tracking-widest transition ${
-              isDemandas ? 'text-[#00d4ff]' : 'text-[#60a5fa]/60 hover:text-white'
-            }`}
-          >
-            Demandas
-          </Link>
-          <div className="w-px h-4 bg-[#60a5fa]/20 hidden sm:block" />
           <span className="text-[10px] font-mono uppercase tracking-widest text-[#00d4ff] hidden sm:inline">CHILE</span>
         </div>
       </div>
