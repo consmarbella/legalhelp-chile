@@ -318,3 +318,48 @@ export async function buscarTemplate(caso: string): Promise<LegalTemplate | null
   
   return TEMPLATES.find(t => t.id === templateId) ?? null;
 }
+
+
+/**
+ * AGREGAR documento nuevo al RAG (aprendizaje incremental)
+ * 
+ * Cuando el agente encuentra información útil, la guarda aquí.
+ * Esto permite que el agente "aprenda" de cada búsqueda exitosa.
+ */
+export async function agregarDocumentoAlRAG(
+  contenido: string,
+  metadata: {
+    titulo: string;
+    tipo: string;
+    fuente: string;
+    fecha?: string;
+    tags?: string[];
+  }
+): Promise<{ id: string }> {
+  const docs = initDocuments();
+  
+  // Crear nuevo documento con metadata
+  const nuevoDoc = new Document({
+    pageContent: contenido,
+    metadata: {
+      ...metadata,
+      fecha_agregado: new Date().toISOString(),
+      aprendido_por_agente: true,
+      type: 'conocimiento_aprendido'
+    }
+  });
+  
+  // Agregar a la lista en memoria
+  docs.push(nuevoDoc);
+  
+  // Generar ID único
+  const id = `learned_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+  
+  console.log(`[RAG] ✓ Documento agregado al conocimiento: ${metadata.titulo} (ID: ${id})`);
+  console.log(`[RAG] Total documentos en RAG: ${docs.length}`);
+  
+  // TODO: Para producción, persistir en filesystem o base de datos
+  // Por ahora queda en memoria durante la sesión
+  
+  return { id };
+}

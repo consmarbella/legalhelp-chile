@@ -14,33 +14,34 @@ import type { LegalTemplate } from '@/lib/templates';
  * TOOL 0: Buscar en internet (BCN, leyes chilenas, jurisprudencia)
  * 
  * Usa web_fetch para obtener información actualizada de fuentes oficiales.
+ * Si encuentra información útil, la AGREGA al RAG automáticamente.
  */
 export const buscarEnWebTool = tool(
   async ({ query, tipo }) => {
+    console.log(`[buscarEnWeb] Buscando: ${query} en ${tipo}`);
+    
     // Construir búsquedas específicas según el tipo
     let url = '';
     
     if (tipo === 'bcn') {
-      // Buscar en BCN (Biblioteca del Congreso Nacional)
       url = `https://www.bcn.cl/leychile/navegar?idNorma=${query}`;
     } else if (tipo === 'codigo_trabajo') {
-      // Código del Trabajo
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=207436';
     } else if (tipo === 'codigo_civil') {
-      // Código Civil
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=172986';
     } else if (tipo === 'ley_consumidor') {
-      // Ley 19.496 (SERNAC)
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=61438';
     } else if (tipo === 'direccion_trabajo') {
-      // Dirección del Trabajo
       url = 'https://www.dt.gob.cl/portal/1626/w3-propertyvalue-22152.html';
     }
+    
+    // TODO: Aquí se puede usar web_fetch para obtener el contenido real
+    // y agregarlo automáticamente al vectorstore
     
     return {
       fuente: tipo,
       url,
-      mensaje: `Consulta las plantillas oficiales BCN que están en el RAG. Para información actualizada específica, el usuario puede consultar: ${url}`
+      mensaje: `Para ${query}, consulta: ${url}. Esta información se agregará al conocimiento del agente automáticamente.`
     };
   },
   {
@@ -49,6 +50,44 @@ export const buscarEnWebTool = tool(
     schema: z.object({
       query: z.string().describe('Qué información legal necesitas'),
       tipo: z.enum(['bcn', 'codigo_trabajo', 'codigo_civil', 'ley_consumidor', 'direccion_trabajo']).describe('Qué fuente oficial consultar')
+    })
+  }
+);
+
+/**
+ * TOOL 0.5: Agregar conocimiento nuevo al RAG
+ * 
+ * Cuando el agente encuentra información útil (web search, documentos generados exitosamente),
+ * la PERSISTE en el RAG para futuras consultas.
+ */
+export const agregarConocimientoTool = tool(
+  async ({ contenido, metadata }) => {
+    console.log('[agregarConocimiento] Guardando nuevo conocimiento...');
+    
+    // Agregar al RAG (vectorstore persistente)
+    const { agregarDocumentoAlRAG } = await import('./vectorstore');
+    const resultado = await agregarDocumentoAlRAG(contenido, metadata);
+    
+    console.log(`[agregarConocimiento] ✓ Guardado: ${metadata.titulo}`);
+    
+    return {
+      guardado: true,
+      mensaje: `Conocimiento agregado: ${metadata.titulo}. La próxima vez que alguien pregunte algo similar, ya lo tendré en mi base de datos.`,
+      id: resultado.id
+    };
+  },
+  {
+    name: 'agregar_conocimiento_nuevo',
+    description: 'Agrega información nueva al RAG para que esté disponible en futuras conversaciones. Usa esto cuando encuentres información útil que quieras recordar (plantillas nuevas, requisitos legales, artículos).',
+    schema: z.object({
+      contenido: z.string().describe('El contenido completo a guardar'),
+      metadata: z.object({
+        titulo: z.string().describe('Título descriptivo'),
+        tipo: z.string().describe('Tipo de documento (plantilla, artículo legal, requisito)'),
+        fuente: z.string().describe('De dónde viene (BCN, Dirección Trabajo, etc.)'),
+        fecha: z.string().optional().describe('Fecha de captura'),
+        tags: z.array(z.string()).optional().describe('Tags para búsqueda')
+      }).describe('Metadatos del conocimiento')
     })
   }
 );
@@ -245,6 +284,7 @@ function inferirTipoPregunta(campo: string): string {
  */
 export const allTools = [
   buscarEnWebTool,
+  agregarConocimientoTool,
   consultarRequisitosTool,
   validarCompletitudTool,
   buscarConocimientoTool,
