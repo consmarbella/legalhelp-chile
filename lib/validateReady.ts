@@ -50,7 +50,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['sueldo', 'sueldo_bruto', 'remuneracion'],
     ['fecha_ingreso', 'fecha_inicio'],
     ['fecha_despido', 'fecha_termino'],
-    ['detalle_caso', 'hechos', 'motivo'],
+    ['detalle_caso', 'hechos', 'motivo', 'causal', 'causal_despido'],
   ],
   despido_injustificado: [
     ['nombre', 'nombre_completo', 'trabajador'],
@@ -58,8 +58,9 @@ const SCHEMAS: Record<string, string[][]> = {
     ['empleador', 'empresa'],
     ['cargo'],
     ['sueldo', 'sueldo_bruto'],
+    ['fecha_ingreso', 'fecha_inicio'],
     ['fecha_despido', 'fecha_termino'],
-    ['detalle_caso', 'hechos', 'motivo'],
+    ['detalle_caso', 'hechos', 'motivo', 'causal', 'causal_despido'],
   ],
   carta_reclamo: [
     ['nombre', 'nombre_completo'],
@@ -188,8 +189,8 @@ function fieldPresent(aliases: string[], data: CaseData): boolean {
     Object.assign(flatData, nested as Record<string, unknown>);
   }
 
-  // Also consider tipo_documento as context for "facultades"/"tramite"/"detalle_caso"
-  if (aliases.some(a => ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso', 'hechos', 'motivo'].includes(a))) {
+  // Also consider tipo_documento as context for "facultades"/"tramite" (only for poderes)
+  if (aliases.some(a => ['facultades', 'para_que', 'tramite', 'finalidad'].includes(a))) {
     const tipo = flatData.tipo_documento;
     if (typeof tipo === 'string' && tipo.length > 5) return true;
   }
