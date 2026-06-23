@@ -110,9 +110,9 @@ export const CHAT_RATE_LIMIT: RateLimitConfig = {
   windowMs: 60 * 1000,
 };
 
-/** Generate document: 5 requests per minute per IP */
+/** Generate document: 15 requests per minute per IP */
 export const GENERATE_RATE_LIMIT: RateLimitConfig = {
-  maxRequests: 5,
+  maxRequests: 15,
   windowMs: 60 * 1000,
 };
 

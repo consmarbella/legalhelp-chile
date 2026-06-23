@@ -11,10 +11,44 @@ async function generateDocument(
   tipo: string,
   datos: Record<string, unknown>
 ): Promise<string | null> {
-  // Flatten the case data into readable lines.
+  // Flatten the case data into readable lines with semantic labels.
   // datos_recopilados is a nested object — expand it instead of printing [object Object].
   // datos_faltantes is an array — skip it (it's about what's missing, not case content).
   const SKIP_KEYS = ['tipo_documento', 'response_message', 'ready', 'datos_faltantes', 'orderId', 'analisis_legal', 'ley_referencia', 'entidad_referencia'];
+
+  // Semantic label mapping: maps internal field keys to explicit labels
+  // that help the LLM understand what each piece of data represents.
+  const SEMANTIC_LABELS: Record<string, string> = {
+    nombre: 'NOMBRE DEL COMPARECIENTE',
+    rut: 'RUT DEL COMPARECIENTE',
+    direccion: 'DOMICILIO DEL COMPARECIENTE',
+    comuna: 'COMUNA DEL COMPARECIENTE',
+    empleador: 'EMPRESA/EMPLEADOR',
+    rut_empleador: 'RUT DEL EMPLEADOR',
+    direccion_empleador: 'DOMICILIO DEL EMPLEADOR',
+    cargo: 'CARGO DESEMPENADO',
+    sueldo: 'SUELDO BRUTO MENSUAL',
+    fecha_inicio: 'FECHA INICIO RELACION LABORAL',
+    fecha_termino: 'FECHA DE TERMINO',
+    causal: 'CAUSAL DE TERMINO',
+    demandado: 'DEMANDADO/A',
+    rut_demandado: 'RUT DEL DEMANDADO/A',
+    direccion_demandado: 'DOMICILIO DEL DEMANDADO/A',
+    hijos: 'HIJOS/AS',
+    monto: 'MONTO SOLICITADO',
+    tribunal: 'TRIBUNAL COMPETENTE',
+    destinatario_inferido: 'DESTINATARIO/TRIBUNAL',
+    patente: 'PATENTE DEL VEHICULO',
+    inmueble: 'DIRECCION DEL INMUEBLE',
+    arrendador: 'ARRENDADOR',
+    arrendatario: 'ARRENDATARIO',
+    apoderado: 'APODERADO/A',
+    rut_apoderado: 'RUT DEL APODERADO/A',
+    facultades: 'FACULTADES OTORGADAS',
+    hechos: 'HECHOS DEL CASO',
+    motivo: 'MOTIVO/FUNDAMENTO',
+    contraparte: 'CONTRAPARTE',
+  };
 
   function flatten(obj: Record<string, unknown>, lines: string[] = []): string[] {
     for (const [k, v] of Object.entries(obj)) {
@@ -24,9 +58,11 @@ async function generateDocument(
         // Nested object (like datos_recopilados) — expand its entries
         flatten(v as Record<string, unknown>, lines);
       } else if (Array.isArray(v)) {
-        lines.push(`- ${k}: ${v.join(', ')}`);
+        const label = SEMANTIC_LABELS[k] || k.toUpperCase().replace(/_/g, ' ');
+        lines.push(`- ${label}: ${v.join(', ')}`);
       } else {
-        lines.push(`- ${k}: ${v}`);
+        const label = SEMANTIC_LABELS[k] || k.toUpperCase().replace(/_/g, ' ');
+        lines.push(`- ${label}: ${v}`);
       }
     }
     return lines;
@@ -56,13 +92,60 @@ async function generateDocument(
       (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '')
     : '';
 
-  const userMessage = `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha. NO confundas la fecha de hoy con las fechas del caso entregadas en los datos.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}${frameworkBlock}${groundingBlock}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : 'Usa el formato chileno que corresponda al tipo de documento.'} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`;
+  // Build a KEY DATA MAPPING section that explicitly maps common template markers
+  // to actual values from the case data, making it impossible for the LLM to miss
+  function buildKeyDataMapping(datos: Record<string, unknown>): string {
+    const mappings: string[] = [];
+    const allData: Record<string, unknown> = {};
+    
+    // Collect all data from nested and top-level
+    function collectAll(obj: Record<string, unknown>) {
+      for (const [k, v] of Object.entries(obj)) {
+        if (SKIP_KEYS.includes(k)) continue;
+        if (v === null || v === undefined || v === '') continue;
+        if (typeof v === 'object' && !Array.isArray(v)) {
+          collectAll(v as Record<string, unknown>);
+        } else {
+          allData[k] = v;
+        }
+      }
+    }
+    collectAll(datos);
+
+    // Map fields to common template markers
+    if (allData.nombre) mappings.push(`[[NOMBRE]] / [[NOMBRE EN MAYUSCULAS]] / [NOMBRE] = ${allData.nombre}`);
+    if (allData.rut) mappings.push(`[[RUT]] / [RUT] = ${allData.rut}`);
+    if (allData.direccion) mappings.push(`[[DIRECCION]] / [DIRECCION] = ${allData.direccion}`);
+    if (allData.empleador) mappings.push(`[[EMPLEADOR]] / [[RAZON SOCIAL]] / [razon social] = ${allData.empleador}`);
+    if (allData.rut_empleador) mappings.push(`[[RUT EMPLEADOR]] = ${allData.rut_empleador}`);
+    if (allData.direccion_empleador) mappings.push(`[[DIRECCION EMPLEADOR]] = ${allData.direccion_empleador}`);
+    if (allData.cargo) mappings.push(`[[CARGO]] / [cargo] = ${allData.cargo}`);
+    if (allData.sueldo) mappings.push(`[[SUELDO]] / [[REMUNERACION]] = ${allData.sueldo}`);
+    if (allData.fecha_inicio) mappings.push(`[[FECHA DE INICIO]] / [[FECHA INICIO]] = ${allData.fecha_inicio}`);
+    if (allData.fecha_termino) mappings.push(`[[FECHA DE TERMINO]] / [[FECHA TERMINO]] = ${allData.fecha_termino}`);
+    if (allData.causal) mappings.push(`[[CAUSAL DE TERMINO]] / [[CAUSAL]] = ${allData.causal}`);
+    if (allData.demandado) mappings.push(`[[DEMANDADO]] / [[CONTRAPARTE]] = ${allData.demandado}`);
+    if (allData.rut_demandado) mappings.push(`[[RUT DEMANDADO]] = ${allData.rut_demandado}`);
+    if (allData.direccion_demandado) mappings.push(`[[DIRECCION DEMANDADO]] = ${allData.direccion_demandado}`);
+    if (allData.hijos) mappings.push(`[[HIJOS]] / [[NOMBRE DEL MENOR]] = ${allData.hijos}`);
+    if (allData.monto) mappings.push(`[[MONTO]] = ${allData.monto}`);
+    if (allData.tribunal) mappings.push(`[[TRIBUNAL]] = ${allData.tribunal}`);
+    if (allData.patente) mappings.push(`[[PATENTE]] = ${allData.patente}`);
+    if (allData.comuna) mappings.push(`[[COMUNA]] = ${allData.comuna}`);
+
+    if (mappings.length === 0) return '';
+    return `\n\n=== DATOS CLAVE PARA SUSTITUIR (usa estos valores EXACTOS, NO inventes placeholders) ===\n${mappings.join('\n')}\n=== FIN DATOS CLAVE ===`;
+  }
+
+  const keyDataSection = buildKeyDataMapping(datos);
+
+  const userMessage = `Redacta el siguiente documento legal chileno.\n\nFECHA DE HOY: ${new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago' })} — usá esta fecha en el encabezado del documento. NUNCA uses [DIA], [MES] ni placeholders de fecha. NO confundas la fecha de hoy con las fechas del caso entregadas en los datos.\n\nTIPO DE DOCUMENTO: ${template?.titulo ?? tipo}\n\nDATOS DEL CASO:\n${datosStr}\n\n=== INSTRUCCION DE SUSTITUCION OBLIGATORIA ===\nLos DATOS DEL CASO arriba contienen TODA la informacion recopilada del cliente. DEBES usar estos valores TEXTUALMENTE en el documento.\n- Si dice "NOMBRE DEL COMPARECIENTE: Valentina Paz Herrera Saavedra", el documento DEBE decir "Valentina Paz Herrera Saavedra" donde corresponda el nombre.\n- Si dice "RUT DEL COMPARECIENTE: 17.890.123-4", el documento DEBE decir "17.890.123-4" donde corresponda el RUT.\n- Si dice "EMPRESA/EMPLEADOR: Banco de Chile", el documento DEBE decir "Banco de Chile" donde corresponda el empleador.\n- PROHIBIDO producir placeholders genericos como [nombre completo], [razon social], [describir...], [fecha de...], [monto de...], [cargo desempeñado], [nombre del hijo] cuando el dato YA ESTA en los DATOS DEL CASO.\n- Los marcadores [[...]] de la plantilla deben ser reemplazados con los datos reales proporcionados arriba.\n- Solo usa [DATO PENDIENTE] para informacion que genuinamente NO aparece en los DATOS DEL CASO.\n=== FIN INSTRUCCION ===\n${frameworkBlock}${groundingBlock}${keyDataSection}\n\nRedacta el documento completo, profesional y listo para usar. ${template ? 'Sigue la ESTRUCTURA BASE y cita SOLO los artículos verificados entregados.' : 'Usa el formato chileno que corresponda al tipo de documento.'} Si falta un dato de la contraparte, déjalo como espacio para completar en lugar de inventarlo.`;
 
   return llmComplete({
     system: SYSTEM,
     messages: [{ role: 'user', content: userMessage }],
     maxTokens: 8192,
-    temperature: 0.3,
+    temperature: 0.1,
   });
 }
 

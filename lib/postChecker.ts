@@ -98,6 +98,15 @@ export function checkDocument(doc: string, tipo: string): CheckResult {
     warnings.push('Contiene placeholders de fecha — debería usar fecha real');
   }
 
+  // ─── 6. Placeholders genéricos (no son [DATO PENDIENTE] sino instrucciones sin rellenar) ─
+
+  const genericPlaceholders = doc.match(/\[[a-z][^\]]{3,}\]/g) || [];
+  // Filter out [DATO PENDIENTE] which is our valid placeholder
+  const realGeneric = genericPlaceholders.filter(p => !/dato pendiente/i.test(p));
+  if (realGeneric.length > 0) {
+    warnings.push(`Placeholders genéricos detectados (${realGeneric.length}): ${realGeneric.slice(0, 3).join(', ')}${realGeneric.length > 3 ? '...' : ''}`);
+  }
+
   return {
     passed: errors.length === 0,
     errors,

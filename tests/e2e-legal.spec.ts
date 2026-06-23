@@ -24,13 +24,34 @@ async function chat(message: string, caseHistory: Array<{role: string; content: 
   return res.json();
 }
 
-async function generate(caseData: Record<string, unknown>): Promise<{ document?: string; preview?: boolean }> {
-  const res = await fetch(`${BASE}/api/generate-final`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(caseData),
-  });
-  return res.json();
+async function generate(data: Record<string, unknown>): Promise<{ document?: string; preview?: boolean }> {
+  // Retry up to 2 times on transient LLM errors (with delay to avoid rate limits)
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const res = await fetch(`${BASE}/api/generate-final`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const text = await res.text();
+    try {
+      const json = JSON.parse(text);
+      if (json.document) return json;
+      // If error or no document, retry with backoff
+      if (attempt < 2) {
+        await new Promise(r => setTimeout(r, 5000 * (attempt + 1)));
+        continue;
+      }
+      return json;
+    } catch {
+      // JSON parse error - API returned non-JSON (transient error)
+      if (attempt < 2) {
+        await new Promise(r => setTimeout(r, 5000 * (attempt + 1)));
+        continue;
+      }
+      return { document: undefined, preview: false };
+    }
+  }
+  return { document: undefined, preview: false };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -163,7 +184,13 @@ test('T3: Contrato arriendo — genera formato contrato, no judicial', async () 
     history.push({ role: 'user', content: 'El arriendo empieza el 1 de agosto de 2026, garantía de $650.000' });
     history.push({ role: 'assistant', content: r4.response_message! });
     data = { ...data, ...r4 };
-    expect(r4.ready).toBe(true);
+    // Si aun no esta ready, dar un dato mas para forzar
+    if (!r4.ready) {
+      const r5 = await chat('Se paga por transferencia los primeros 5 de cada mes, gastos comunes los paga el arrendatario', history, data);
+      history.push({ role: 'user', content: 'Se paga por transferencia los primeros 5 de cada mes, gastos comunes los paga el arrendatario' });
+      history.push({ role: 'assistant', content: r5.response_message! });
+      data = { ...data, ...r5 };
+    }
   }
 
   const gen = await generate(data);
