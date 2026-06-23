@@ -4,6 +4,7 @@ import { getOrderByOrderId, updateOrder } from '@/lib/orderStore';
 import { findTemplate } from '@/lib/templates';
 import { GENERATE_SYSTEM_PROMPT as SYSTEM } from '@/lib/prompts';
 import { llmComplete } from '@/lib/llm';
+import { checkDocument, buildCorrectionPrompt } from '@/lib/postChecker';
 
 // ─── Genera el documento usando llmComplete ───────────────────────────────────
 async function generateDocument(
@@ -154,8 +155,36 @@ export async function POST(req: NextRequest) {
 
     // LLM generates the document — no external search needed
     console.log(`[generate-final] Generating "${tipo}" with LLM (paid=${isPaid})`);
-    const document = await generateDocument(tipo, caseData) ?? buildMock(tipo, caseData);
-    const clean = stripMarkdown(document);
+    let document = await generateDocument(tipo, caseData) ?? buildMock(tipo, caseData);
+    let clean = stripMarkdown(document);
+
+    // ─── CAPA 4: Verificación post-generación (reglas duras) ──────────────
+    const check = checkDocument(clean, tipo);
+    if (!check.passed) {
+      console.log(`[generate-final] CHECK FAILED: ${check.errors.join('; ')}`);
+      // Reintentar UNA vez con prompt de corrección
+      const correctionPrompt = buildCorrectionPrompt(check.errors);
+      const retry = await llmComplete({
+        system: SYSTEM,
+        messages: [
+          { role: 'user', content: `Redacta el siguiente documento legal chileno.\n\nTIPO: ${tipo}\nDATOS:\n${JSON.stringify(caseData)}` },
+          { role: 'assistant', content: document },
+          { role: 'user', content: correctionPrompt },
+        ],
+        maxTokens: 8192,
+        temperature: 0.2,
+      });
+      if (retry) {
+        clean = stripMarkdown(retry);
+        const recheck = checkDocument(clean, tipo);
+        if (!recheck.passed) {
+          console.warn(`[generate-final] RECHECK FAILED (entregando anyway): ${recheck.errors.join('; ')}`);
+        }
+      }
+    }
+    if (check.warnings.length > 0) {
+      console.log(`[generate-final] WARNINGS: ${check.warnings.join('; ')}`);
+    }
 
     if (isPaid && orderId) {
       await updateOrder(orderId, { documentUrl: clean }).catch(err => {
