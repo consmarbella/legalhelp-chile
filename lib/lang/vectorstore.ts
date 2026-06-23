@@ -3,15 +3,21 @@
  * 
  * Usa tus templates actuales como base de conocimiento.
  * En vez de tener un prompt de 300 líneas, el agente consulta este vectorstore.
+ * 
+ * PERSISTENCIA: Los documentos aprendidos se guardan en lib/lang/knowledge/aprendido/
+ * CACHE: Búsquedas frecuentes se cachean para mejor performance
  */
 
 import { Document } from '@langchain/core/documents';
 import { TEMPLATES, type LegalTemplate } from '@/lib/templates';
 import { PLANTILLAS_BCN } from './knowledge/bcn-plantillas';
+import { cargarDocumentosAprendidos, persistirDocumento } from './persistence';
+import { agentCache, generateCacheKey } from './cache';
 
 // RAG simple en memoria (sin embeddings por ahora, solo búsqueda por keywords)
 // Para producción, usar vectorstore real con embeddings
 let _documents: Document[] | null = null;
+let _docsAprendidosCargados = false;
 
 /**
  * Convierte plantillas BCN oficiales en documentos para el vectorstore
@@ -250,19 +256,38 @@ function extractRequisitos(t: LegalTemplate): string | null {
 /**
  * Inicializa los documentos (solo una vez)
  */
-function initDocuments(): Document[] {
+async function initDocuments(): Promise<Document[]> {
   if (_documents) return _documents;
 
   _documents = templatesToDocuments();
-  console.log(`[RAG] Base de conocimiento inicializada con ${_documents.length} documentos`);
+  
+  // Cargar documentos aprendidos previamente
+  if (!_docsAprendidosCargados) {
+    const docsAprendidos = await cargarDocumentosAprendidos();
+    _documents.push(...docsAprendidos);
+    _docsAprendidosCargados = true;
+    console.log(`[RAG] Base de conocimiento inicializada con ${_documents.length} documentos (${docsAprendidos.length} aprendidos)`);
+  } else {
+    console.log(`[RAG] Base de conocimiento inicializada con ${_documents.length} documentos`);
+  }
+  
   return _documents;
 }
 
 /**
  * Consulta el RAG (búsqueda simple por keywords)
+ * Con cache para mejorar performance
  */
 export async function consultarRAG(query: string, k = 3): Promise<Document[]> {
-  const docs = initDocuments();
+  // Verificar cache
+  const cacheKey = generateCacheKey('rag', query, k);
+  const cached = agentCache.get(cacheKey);
+  if (cached) {
+    console.log(`[RAG] ✓ Cache hit: ${query.slice(0, 50)}`);
+    return cached;
+  }
+  
+  const docs = await initDocuments();
   const queryLower = query.toLowerCase();
   
   // Búsqueda simple: score por keywords que coinciden
@@ -278,15 +303,25 @@ export async function consultarRAG(query: string, k = 3): Promise<Document[]> {
       }
     }
     
+    // Bonus si es documento aprendido y reciente
+    if (doc.metadata.aprendido_por_agente) {
+      score += 0.5;
+    }
+    
     return { doc, score };
   });
   
   // Retornar top k
-  return scored
+  const results = scored
     .filter(s => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, k)
     .map(s => s.doc);
+  
+  // Guardar en cache
+  agentCache.set(cacheKey, results);
+  
+  return results;
 }
 
 /**
@@ -325,6 +360,8 @@ export async function buscarTemplate(caso: string): Promise<LegalTemplate | null
  * 
  * Cuando el agente encuentra información útil, la guarda aquí.
  * Esto permite que el agente "aprenda" de cada búsqueda exitosa.
+ * 
+ * AHORA CON PERSISTENCIA: Se guarda en filesystem.
  */
 export async function agregarDocumentoAlRAG(
   contenido: string,
@@ -336,7 +373,10 @@ export async function agregarDocumentoAlRAG(
     tags?: string[];
   }
 ): Promise<{ id: string }> {
-  const docs = initDocuments();
+  const docs = await initDocuments();
+  
+  // Generar ID único
+  const id = `learned_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
   
   // Crear nuevo documento con metadata
   const nuevoDoc = new Document({
@@ -345,21 +385,24 @@ export async function agregarDocumentoAlRAG(
       ...metadata,
       fecha_agregado: new Date().toISOString(),
       aprendido_por_agente: true,
-      type: 'conocimiento_aprendido'
+      type: 'conocimiento_aprendido',
+      id
     }
   });
   
   // Agregar a la lista en memoria
   docs.push(nuevoDoc);
   
-  // Generar ID único
-  const id = `learned_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
+  // PERSISTIR en filesystem
+  const guardado = await persistirDocumento(nuevoDoc, id);
   
-  console.log(`[RAG] ✓ Documento agregado al conocimiento: ${metadata.titulo} (ID: ${id})`);
+  if (guardado) {
+    console.log(`[RAG] ✓ Documento agregado y PERSISTIDO: ${metadata.titulo} (ID: ${id})`);
+  } else {
+    console.log(`[RAG] ⚠️ Documento agregado en memoria pero falló persistencia: ${id}`);
+  }
+  
   console.log(`[RAG] Total documentos en RAG: ${docs.length}`);
-  
-  // TODO: Para producción, persistir en filesystem o base de datos
-  // Por ahora queda en memoria durante la sesión
   
   return { id };
 }

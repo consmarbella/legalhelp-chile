@@ -66,7 +66,8 @@ El contrato debe firmarse dentro de los 15 días siguientes al inicio de la rela
     tags: ['contrato', 'trabajo', 'laboral', 'codigo del trabajo']
   });
   
-  console.log(`   ✓ Guardado con ID: ${resultado.id}\n`);
+  console.log(`   ✓ Guardado con ID: ${resultado.id}`);
+  console.log(`   ✓ PERSISTIDO en filesystem: lib/lang/knowledge/aprendido/${resultado.id}.json\n`);
   
   // ━━━ PASO 4: Próxima consulta, ya está disponible ━━━
   console.log('━'.repeat(70));
@@ -94,10 +95,16 @@ El contrato debe firmarse dentro de los 15 días siguientes al inicio de la rela
   
   console.log('\n' + '━'.repeat(70));
   console.log('✅ CONCLUSIÓN: El agente aprende y mejora con cada interacción');
-  console.log('   - Primera vez: Busca en BCN → Guarda en RAG');
+  console.log('   - Primera vez: Busca en BCN → Guarda en RAG → PERSISTE en disk');
   console.log('   - Próximas veces: Consulta RAG directamente (más rápido)');
   console.log('   - Beneficio: Se vuelve más eficiente con el tiempo');
+  console.log('   - Persistencia: Sobrevive entre reinicios del servidor');
   console.log('━'.repeat(70) + '\n');
+  
+  console.log('💾 Para ver todos los documentos guardados:');
+  console.log('   $ ls lib/lang/knowledge/aprendido/');
+  console.log('\n📊 Para ver estadísticas:');
+  console.log('   $ npx tsx lib/lang/scripts/stats-conocimiento.ts\n');
 }
 
 demo().catch(console.error);

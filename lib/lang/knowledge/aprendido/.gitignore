@@ -1,0 +1,7 @@
+# Ignorar documentos aprendidos (JSON)
+learned_*.json
+
+# Mantener estructura del directorio
+!.gitkeep
+!README.md
+!.gitignore

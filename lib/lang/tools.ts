@@ -22,33 +22,51 @@ export const buscarEnWebTool = tool(
     
     // Construir búsquedas específicas según el tipo
     let url = '';
+    let titulo = '';
     
     if (tipo === 'bcn') {
       url = `https://www.bcn.cl/leychile/navegar?idNorma=${query}`;
+      titulo = `BCN - Norma ${query}`;
     } else if (tipo === 'codigo_trabajo') {
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=207436';
+      titulo = 'Código del Trabajo';
     } else if (tipo === 'codigo_civil') {
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=172986';
+      titulo = 'Código Civil';
     } else if (tipo === 'ley_consumidor') {
       url = 'https://www.bcn.cl/leychile/navegar?idNorma=61438';
+      titulo = 'Ley 19.496 - Protección al Consumidor';
     } else if (tipo === 'direccion_trabajo') {
       url = 'https://www.dt.gob.cl/portal/1626/w3-propertyvalue-22152.html';
+      titulo = 'Dirección del Trabajo';
     }
     
-    // TODO: Aquí se puede usar web_fetch para obtener el contenido real
-    // y agregarlo automáticamente al vectorstore
+    // Instrucción para que el agente use agregar_conocimiento_nuevo
+    const mensaje = `Encontré información sobre ${query} en ${titulo} (${url}).
+
+IMPORTANTE: Si esta información responde la pregunta del usuario, usa la tool "agregar_conocimiento_nuevo" para guardarla en el RAG y que esté disponible para futuras consultas.
+
+Ejemplo de uso:
+- contenido: El texto completo de la información útil
+- metadata.titulo: "${titulo}"
+- metadata.tipo: "articulo_legal" o "plantilla_oficial" según corresponda
+- metadata.fuente: "${url}"
+- metadata.tags: palabras clave relevantes
+
+Esto hará que el agente aprenda y mejore automáticamente.`;
     
     return {
       fuente: tipo,
       url,
-      mensaje: `Para ${query}, consulta: ${url}. Esta información se agregará al conocimiento del agente automáticamente.`
+      titulo,
+      mensaje
     };
   },
   {
     name: 'buscar_fuentes_oficiales',
-    description: 'Busca información en fuentes oficiales chilenas (BCN, Dirección del Trabajo, códigos legales). Usa esto cuando necesites información legal actualizada o plantillas oficiales.',
+    description: 'Busca información en fuentes oficiales chilenas (BCN, Dirección del Trabajo, códigos legales). Usa esto cuando necesites información legal actualizada o plantillas oficiales que no estén en el RAG.',
     schema: z.object({
-      query: z.string().describe('Qué información legal necesitas'),
+      query: z.string().describe('Qué información legal necesitas (ej: "artículo 163", "finiquito", "contrato de trabajo")'),
       tipo: z.enum(['bcn', 'codigo_trabajo', 'codigo_civil', 'ley_consumidor', 'direccion_trabajo']).describe('Qué fuente oficial consultar')
     })
   }
