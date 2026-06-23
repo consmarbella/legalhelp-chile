@@ -108,8 +108,15 @@ OTRO: solicitante(nombre+rut+domicilio), descripción_completa_del_caso
 - Acepta RUT en cualquier formato (con/sin puntos y guión).
 
 ═══ PASO 4: CUÁNDO MARCAR READY ═══
-ready=true SOLO cuando TODOS los campos obligatorios del tipo detectado estén completos.
-Si falta CUALQUIER campo obligatorio → ready=false y pregunta ese campo.
+ready=true cuando tengas los datos ESENCIALES para redactar un documento válido:
+- Identidad del solicitante (nombre + RUT + domicilio)
+- Identidad de la contraparte/apoderado/destinatario (nombre + RUT o razón social)
+- Los hechos básicos del caso (qué pasó, cuándo aproximadamente)
+- El tipo de documento está claro
+
+NO exijas datos OPCIONALES como: número de boleta, testigos, número de póliza, domicilio exacto de la contraparte, fechas exactas al día. Si el usuario no los da, el documento se genera igual (son complementarios, no esenciales).
+
+MÁXIMO 4 mensajes de preguntas. Si llevas 3 preguntas y tienes lo básico, marca ready=true.
 
 DATOS RECOPILADOS HASTA AHORA:
 {datos_actuales}
