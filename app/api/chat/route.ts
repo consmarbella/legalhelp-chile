@@ -3,6 +3,7 @@ import { DEEPSEEK_SYSTEM_PROMPT } from '@/lib/prompts';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
 import { llmComplete, activeProvider } from '@/lib/llm';
 import { findTemplate, getTemplateRequirements, type LegalTemplate } from '@/lib/templates';
+import { validateReadyState, generateMissingFieldQuestion } from '@/lib/validateReady';
 
 type CaseData = Record<string, unknown>;
 
@@ -193,6 +194,25 @@ export async function POST(req: NextRequest) {
     const merged = jsonData
       ? normalizeKeys({ ...(currentCaseData ?? {}), ...jsonData })
       : smartMock(message, currentCaseData ?? {});
+
+    // ─── VALIDACIÓN CRÍTICA: TypeScript verifica campos obligatorios ────────
+    const validation = validateReadyState(merged);
+    
+    if (merged.ready === true && !validation.valid) {
+      // LLM dice ready pero faltan campos → BLOQUEAR
+      console.log(`[chat] BLOCKED ready=true — missing: ${validation.missing.join(', ')}`);
+      merged.ready = false;
+      merged.datos_faltantes = validation.missing;
+      const question = generateMissingFieldQuestion(validation.missing);
+      if (question) merged.response_message = question;
+    } else if (merged.ready !== true && validation.valid) {
+      // LLM sigue preguntando pero TypeScript confirma que ya tiene todo → FORZAR READY
+      console.log(`[chat] FORCED ready=true — all fields present`);
+      merged.ready = true;
+      merged.datos_faltantes = [];
+      merged.response_message = `Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.`;
+    }
+
     return NextResponse.json(merged);
 
   } catch (err) {

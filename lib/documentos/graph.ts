@@ -1,182 +1,103 @@
 /**
- * graph.ts — Pipeline de 5 nodos para documentos legales chilenos.
- * Usa DeepSeek (barato) con prompts cortos y especializados.
- *
- * PIPELINE:
- *   recopilar → clasificar → validar → redactar → filtrar
- *
- * Cada nodo hace UNA sola cosa. No hay prompt gigante.
+ * graph.ts — Pipeline SIMPLIFICADA de documentos legales chilenos.
+ * 2 nodos útiles: Recopilar (chat) + Redactar (generar documento).
+ * Modelo: DeepSeek V3. Validación: TypeScript (no depende del LLM).
  */
 
 import { llmComplete, LLMMessage } from '@/lib/llm';
-import { geminiComplete } from './llm-gemini';
-import { generarContextoLegal, buscarDocumentos, getConocimiento } from './knowledge';
-
-// Use Claude Opus (best model) for legal documents - accuracy matters more than cost
-async function complete(opts: { system: string; messages: { role: 'user' | 'assistant'; content: string }[]; maxTokens?: number; temperature?: number }): Promise<string | null> {
-  // Use Anthropic Claude Opus (premium model for critical legal work)
-  return llmComplete({ ...opts, messages: opts.messages as LLMMessage[] });
-}
-
-// ─── SCHEMAS DE CAMPOS OBLIGATORIOS ─────────────────────────────────────────
-const REQUIRED_FIELDS: Record<string, string[]> = {
-  'poder': ['mandante_nombre', 'mandante_rut', 'apoderado_nombre', 'apoderado_rut', 'facultades'],
-  'poder_notarial': ['mandante_nombre', 'mandante_rut', 'apoderado_nombre', 'apoderado_rut', 'facultades'],
-  'carta_reclamo': ['reclamante_nombre', 'reclamante_rut', 'empresa', 'hechos', 'peticion'],
-  'demanda_laboral': ['trabajador_nombre', 'trabajador_rut', 'empresa_nombre', 'empresa_rut', 'cargo', 'sueldo', 'fecha_ingreso', 'fecha_despido', 'peticion'],
-  'contrato_trabajo': ['empresa_nombre', 'empresa_rut', 'trabajador_nombre', 'trabajador_rut', 'cargo', 'sueldo', 'jornada'],
-  'finiquito': ['empresa_nombre', 'trabajador_nombre', 'trabajador_rut', 'cargo', 'fecha_ingreso', 'fecha_termino'],
-  'recurso_proteccion': ['recurrente_nombre', 'recurrente_rut', 'recurrido', 'derecho_vulnerado', 'hechos'],
-  'declaracion_jurada': ['declarante_nombre', 'declarante_rut', 'declaracion'],
-  'contrato_arriendo': ['arrendador_nombre', 'arrendador_rut', 'arrendatario_nombre', 'arrendatario_rut', 'inmueble_direccion', 'renta', 'plazo'],
-};
-
-// Campos mínimos universales para cualquier documento
-const UNIVERSAL_MIN_FIELDS = ['nombre_completo', 'rut', 'tipo_situacion'];
-
-function validateRequiredFields(tipo: string | null, datos: Record<string, string>): { valid: boolean; missing: string[] } {
-  // Si no sabemos el tipo aún, verificar mínimos universales
-  if (!tipo) {
-    const missing = UNIVERSAL_MIN_FIELDS.filter(f => !datos[f] && !Object.keys(datos).some(k => k.includes('nombre') || k.includes('rut')));
-    return { valid: missing.length === 0, missing };
-  }
-
-  // Normalizar tipo (sin acentos, minúsculas, guiones bajos)
-  const tipoNorm = tipo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '_');
-  
-  // Buscar schema exacto o parcial
-  let schema = REQUIRED_FIELDS[tipoNorm];
-  if (!schema) {
-    const match = Object.keys(REQUIRED_FIELDS).find(k => tipoNorm.includes(k) || k.includes(tipoNorm));
-    schema = match ? REQUIRED_FIELDS[match] : null;
-  }
-
-  // Si no hay schema específico, usar regla general: al menos 3 campos con datos reales
-  if (!schema) {
-    const filledFields = Object.values(datos).filter(v => v && v.length > 2).length;
-    return { valid: filledFields >= 3, missing: filledFields < 3 ? ['mas_informacion'] : [] };
-  }
-
-  // Validar contra schema
-  const missing: string[] = [];
-  for (const field of schema) {
-    // Buscar el campo exacto o alguna variación en los datos
-    const exists = datos[field] || Object.keys(datos).some(k => k.includes(field.split('_')[0]));
-    if (!exists) missing.push(field);
-  }
-
-  return { valid: missing.length === 0, missing };
-}
+import { generarContextoLegal } from './knowledge';
 
 // ─── Estado ──────────────────────────────────────────────────────────────────
 export interface DocState {
-  // Input
   messages: LLMMessage[];
   currentMessage: string;
-
-  // Nodo 1: Recopilador
   datos: Record<string, string>;
   datosFaltantes: string[];
   ready: boolean;
   responseMessage: string;
-
-  // Nodo 2: Clasificador
   tipoDocumento: string | null;
   leyAplicable: string | null;
   tribunal: string | null;
-
-  // Nodo 3: Validador
   viable: boolean;
   motivoNoViable: string | null;
-
-  // Nodo 4: Redactor
   documento: string | null;
-
-  // Nodo 5: Filtro
   errores: string[];
   documentoFinal: string | null;
 }
 
 export function emptyState(): DocState {
   return {
-    messages: [],
-    currentMessage: '',
-    datos: {},
-    datosFaltantes: [],
-    ready: false,
-    responseMessage: '',
-    tipoDocumento: null,
-    leyAplicable: null,
-    tribunal: null,
-    viable: true,
-    motivoNoViable: null,
-    documento: null,
-    errores: [],
-    documentoFinal: null,
+    messages: [], currentMessage: '', datos: {}, datosFaltantes: [],
+    ready: false, responseMessage: '', tipoDocumento: null,
+    leyAplicable: null, tribunal: null, viable: true,
+    motivoNoViable: null, documento: null, errores: [], documentoFinal: null,
   };
 }
 
+// ─── VALIDACIÓN TYPESCRIPT — Campos obligatorios por tipo ────────────────────
+const REQUIRED: Record<string, string[]> = {
+  poder: ['mandante', 'rut', 'apoderado', 'facultades'],
+  poder_notarial: ['mandante', 'rut', 'apoderado', 'facultades'],
+  poder_simple: ['mandante', 'rut', 'apoderado', 'facultades'],
+  carta_reclamo: ['nombre', 'rut', 'empresa', 'hechos'],
+  demanda_laboral: ['nombre', 'rut', 'empresa', 'cargo', 'sueldo', 'fecha_despido'],
+  finiquito: ['nombre', 'rut', 'empresa', 'cargo', 'sueldo', 'fecha_inicio', 'fecha_termino'],
+  recurso_proteccion: ['nombre', 'rut', 'recurrido', 'hechos'],
+  declaracion_jurada: ['nombre', 'rut', 'declaracion'],
+  contrato_arriendo: ['arrendador', 'arrendatario', 'inmueble', 'renta'],
+  prescripcion: ['nombre', 'rut', 'patente'],
+};
+
+function validateFields(tipo: string | null, datos: Record<string, string>): { valid: boolean; missing: string[] } {
+  if (!tipo) {
+    // Sin tipo: al menos nombre + rut + algo más
+    const keys = Object.keys(datos).join(' ');
+    const hasName = keys.includes('nombre') || keys.includes('mandante');
+    const hasRut = keys.includes('rut');
+    return { valid: hasName && hasRut, missing: !hasName ? ['nombre'] : !hasRut ? ['rut'] : [] };
+  }
+
+  const tipoNorm = tipo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '_');
+  const schema = REQUIRED[tipoNorm] || Object.values(REQUIRED).find((_, i) => tipoNorm.includes(Object.keys(REQUIRED)[i]));
+
+  if (!schema) {
+    // Sin schema: al menos 3 campos con datos reales
+    return { valid: Object.values(datos).filter(v => v && v.length > 1).length >= 3, missing: [] };
+  }
+
+  const allKeys = Object.keys(datos).join(' ').toLowerCase();
+  const allVals = Object.values(datos).join(' ').toLowerCase();
+  const missing = schema.filter(f => !allKeys.includes(f) && !allVals.includes(f));
+  return { valid: missing.length === 0, missing };
+}
+
 // ─── NODO 1: RECOPILADOR ────────────────────────────────────────────────────
-// Extrae datos, identifica tipo de documento, y pregunta lo que falta según el tipo.
-const RECOPILADOR_PROMPT = `Eres un asistente que recopila datos para documentos legales chilenos.
-Tu trabajo: extraer datos, identificar el tipo de documento, y preguntar lo que REALMENTE necesitas para generar un documento que alguien pagaría por tener.
+const RECOPILADOR_PROMPT = `Eres un asistente legal chileno. Recopilas datos para redactar documentos.
 
-═══ IDENTIFICA EL TIPO ═══
-Del mensaje del usuario detecta qué necesita: poder, carta reclamo, demanda, contrato, recurso, finiquito, declaración jurada, testamento, etc.
+REGLAS:
+1. Detecta qué documento necesita el usuario.
+2. Extrae TODOS los datos del mensaje (nombre, RUT, dirección, hechos, etc.)
+3. Pregunta UN solo dato a la vez (el más importante que falte).
+4. Si dice "mi mamá/hermano/contador" → ese es el apoderado/contraparte.
+5. NUNCA preguntes: email, teléfono, domicilio de empresa, testigos, número boleta.
+6. Marca ready=true cuando tengas todo para un documento COMPLETO y ÚTIL.
 
-═══ QUÉ PREGUNTAR SEGÚN EL TIPO ═══
+PARA PODERES: necesitas mandante(nombre+rut+domicilio) + apoderado(nombre+rut) + qué puede hacer.
+PARA DEMANDAS: necesitas demandante(nombre+rut+domicilio) + demandado + hechos + pretensión.
+PARA RECLAMOS: necesitas reclamante(nombre+rut) + empresa + hechos + qué quiere.
 
-DOCUMENTOS SIMPLES (2-3 mensajes):
-- Poder: mandante(nombre+rut+domicilio) + apoderado(nombre+rut) + para qué
-- Declaración jurada: declarante(nombre+rut+domicilio) + qué declara
-- Carta renuncia: trabajador(nombre+rut) + empresa + fecha salida
-- Prescripción deuda/multa: deudor(nombre+rut+domicilio) + acreedor + monto + fecha deuda
-
-DOCUMENTOS MEDIANOS (3-4 mensajes):
-- Carta reclamo: reclamante(nombre+rut+domicilio) + empresa + qué pasó + qué quiere
-- Contrato arriendo: arrendador(nombre+rut) + arrendatario(nombre+rut) + dirección inmueble + renta + plazo
-- Recurso protección: recurrente(nombre+rut+domicilio) + quién vulnera + qué derecho + hechos
-- Acuerdo pago: acreedor(nombre+rut) + deudor(nombre+rut) + monto + cuotas
-
-DOCUMENTOS COMPLEJOS (4-5 mensajes):
-- Demanda laboral: trabajador(nombre+rut+domicilio) + empresa(nombre+rut) + cargo + sueldo + fecha ingreso + fecha despido + causal + qué pide
-- Contrato trabajo: empresa(nombre+rut+rep.legal) + trabajador(nombre+rut) + cargo + sueldo + jornada + plazo
-- Finiquito: empresa(nombre+rut) + trabajador(nombre+rut) + cargo + sueldo + fecha ingreso + fecha término + causal
-
-═══ REGLAS ═══
-- Si dice "MI auto/casa/trabajo" → es SUYO.
-- Si dice "mi hermano/mamá/contador" + nombre → ese es el apoderado/parte.
-- Extrae TODOS los datos que el usuario da en un solo mensaje.
-- NUNCA preguntes: email, teléfono, domicilio de contraparte/empresa, número boleta, testigos.
-- Pregunta UN dato a la vez (el más importante que falte).
-- Si el usuario da mucha info junta, extráela toda de una.
-
-═══ CUÁNDO MARCAR READY ═══
-ready=true cuando tengas suficiente para generar un documento COMPLETO y ÚTIL.
-El documento debe tener todos los nombres, RUTs, hechos y pretensiones necesarios.
-NO marques ready si falta algo que haría el documento inservible.
-Pero tampoco pidas datos decorativos que no cambian la validez legal.
-
-DATOS RECOPILADOS HASTA AHORA:
-{datos_actuales}
+DATOS YA RECOPILADOS: {datos_actuales}
 
 Responde SOLO JSON:
-{
-  "tipo_documento": "tipo detectado",
-  "datos_extraidos": {"campo": "valor", ...},
-  "datos_faltantes": ["lo esencial que falta"],
-  "ready": true/false,
-  "response_message": "pregunta O confirmación"
-}`;
+{"tipo_documento":"...","datos_extraidos":{...},"datos_faltantes":[...],"ready":true/false,"response_message":"..."}`;
 
 export async function nodoRecopilar(state: DocState): Promise<DocState> {
-  const datosCtx = JSON.stringify(state.datos);
-  const prompt = RECOPILADOR_PROMPT.replace('{datos_actuales}', datosCtx);
+  const prompt = RECOPILADOR_PROMPT.replace('{datos_actuales}', JSON.stringify(state.datos));
 
-  const raw = await complete({
+  const raw = await llmComplete({
     system: prompt,
     messages: [...state.messages, { role: 'user', content: state.currentMessage }],
-    maxTokens: 800,
+    maxTokens: 600,
     temperature: 0.1,
   });
 
@@ -185,27 +106,23 @@ export async function nodoRecopilar(state: DocState): Promise<DocState> {
   try {
     const json = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));
     const nuevoDatos = { ...state.datos, ...(json.datos_extraidos || {}) };
-
-    // Persist tipo_documento from first classification
     const tipo = json.tipo_documento || state.tipoDocumento || null;
 
-    // VALIDACIÓN CRÍTICA: Verificar campos obligatorios antes de permitir ready=true
-    const validation = validateRequiredFields(tipo, nuevoDatos);
-    const readyReal = json.ready && validation.valid;
+    // VALIDACIÓN TypeScript — el LLM no decide solo, TypeScript confirma
+    const v = validateFields(tipo, nuevoDatos);
+    const readyReal = json.ready === true && v.valid;
 
-    // Si el LLM dice ready pero faltan campos, forzar pregunta
-    let responseMsg = json.response_message || '';
-    if (json.ready && !validation.valid && validation.missing.length > 0) {
-      const missing = validation.missing[0];
-      responseMsg = `Necesito un dato más importante: ¿cuál es ${missing.replace(/_/g, ' ')}?`;
+    let msg = json.response_message || '';
+    if (json.ready && !v.valid && v.missing.length > 0) {
+      msg = `Necesito un dato más: ¿cuál es ${v.missing[0].replace(/_/g, ' ')}?`;
     }
 
     return {
       ...state,
       datos: nuevoDatos,
-      datosFaltantes: validation.missing,
+      datosFaltantes: v.missing,
       ready: readyReal,
-      responseMessage: responseMsg,
+      responseMessage: msg,
       tipoDocumento: tipo,
     };
   } catch {
@@ -213,121 +130,27 @@ export async function nodoRecopilar(state: DocState): Promise<DocState> {
   }
 }
 
-// ─── NODO 2: CLASIFICADOR ───────────────────────────────────────────────────
-// Determina qué tipo de documento es y qué ley aplica.
-const CLASIFICADOR_PROMPT = `Eres un clasificador legal chileno. Recibes los datos de un caso y determinas:
-1. Tipo exacto de documento (carta reclamo, poder, contrato, demanda, recurso, etc.)
-2. Ley o norma principal aplicable
-3. Tribunal o institución competente (si aplica)
-
-DATOS DEL CASO:
-{datos}
-
-Responde SOLO JSON:
-{
-  "tipo_documento": "nombre del documento",
-  "ley_aplicable": "Ley N° XXXX o Código del Trabajo art. XX",
-  "tribunal": "tribunal competente o null si no aplica"
-}`;
-
-export async function nodoClasificar(state: DocState): Promise<DocState> {
-  // Inyectar conocimiento de la base de datos de documentos chilenos
-  const contextoLegal = generarContextoLegal(JSON.stringify(state.datos));
-  const promptConContexto = CLASIFICADOR_PROMPT.replace('{datos}', JSON.stringify(state.datos))
-    + (contextoLegal ? `\n\nCONOCIMIENTO LEGAL CHILENO DISPONIBLE:\n${contextoLegal}` : '');
-
-  const raw = await complete({
-    system: promptConContexto,
-    messages: [{ role: 'user', content: 'Clasifica este caso.' }],
-    maxTokens: 300,
-    temperature: 0.1,
-  });
-
-  if (!raw) return state;
-
-  try {
-    const json = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));
-    return {
-      ...state,
-      tipoDocumento: json.tipo_documento || null,
-      leyAplicable: json.ley_aplicable || null,
-      tribunal: json.tribunal || null,
-    };
-  } catch {
-    return state;
-  }
-}
-
-// ─── NODO 3: VALIDADOR ──────────────────────────────────────────────────────
-// Verifica requisitos legales (plazos, competencia, etc.)
-const VALIDADOR_PROMPT = `Eres un validador legal chileno. Verificas si el caso cumple los requisitos para el documento solicitado.
-
-CASO:
-- Tipo: {tipo}
-- Ley: {ley}
-- Datos: {datos}
-
-Verifica:
-1. ¿Los plazos legales están vigentes? (prescripción, caducidad)
-2. ¿Hay datos suficientes para un documento válido?
-3. ¿El tribunal/destinatario es correcto?
-
-Responde SOLO JSON:
-{
-  "viable": true/false,
-  "motivo_no_viable": "razón si no es viable, null si sí es viable",
-  "observaciones": "notas para el redactor"
-}`;
-
-export async function nodoValidar(state: DocState): Promise<DocState> {
-  const prompt = VALIDADOR_PROMPT
-    .replace('{tipo}', state.tipoDocumento || 'no clasificado')
-    .replace('{ley}', state.leyAplicable || 'no determinada')
-    .replace('{datos}', JSON.stringify(state.datos));
-
-  const raw = await complete({
-    system: prompt,
-    messages: [{ role: 'user', content: 'Valida este caso.' }],
-    maxTokens: 400,
-    temperature: 0.1,
-  });
-
-  if (!raw) return state;
-
-  try {
-    const json = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));
-    return {
-      ...state,
-      viable: json.viable !== false,
-      motivoNoViable: json.motivo_no_viable || null,
-    };
-  } catch {
-    return state;
-  }
-}
-
-// ─── NODO 4: REDACTOR ───────────────────────────────────────────────────────
-// Redacta el documento legal completo.
+// ─── NODO 2: REDACTAR (único nodo de generación) ────────────────────────────
 const REDACTOR_PROMPT = `Eres un redactor legal chileno con 20 años de experiencia.
-Redacta el documento en PRIMERA PERSONA del compareciente (NO de un abogado).
+Redacta en PRIMERA PERSONA del compareciente. Texto plano, sin markdown.
 
 TIPO: {tipo}
-LEY APLICABLE: {ley}
-TRIBUNAL: {tribunal}
 DATOS: {datos}
 FECHA: {fecha}
 
-FORMATO:
-- Escritos judiciales: ciudad+fecha → destinatario MAYÚSCULAS → PRESENTE → compareciente → secciones (I. II. III.) → POR TANTO → RUEGO A US.
-- Cartas: lugar+fecha → destinatario → cuerpo → firma
-- Contratos: TÍTULO → PARTES → CLÁUSULAS → FIRMAS
-- Poderes: TÍTULO → otorgante → apoderado → facultades → firma
+FORMATO SEGÚN TIPO:
+- Poderes: TÍTULO → otorgante(nombre+rut+domicilio) → apoderado(nombre+rut) → facultades → firma
+- Escritos judiciales: ciudad+fecha → destinatario MAYÚSCULAS → compareciente → hechos → derecho → POR TANTO
+- Cartas: fecha → destinatario → cuerpo → firma
+- Contratos: TÍTULO → partes → cláusulas → firmas
 
 REGLAS:
-- NUNCA inventes datos que no estén en los DATOS proporcionados.
-- Si falta un dato, pon [DATO PENDIENTE].
-- Cita SOLO artículos específicos (máx 6). PROHIBIDO "y siguientes".
-- Texto plano sin markdown.
+- USA SOLO datos proporcionados. NUNCA inventes nombres, RUT, fechas, montos.
+- Si falta dato esencial: [DATO PENDIENTE]
+- Cita máximo 4-5 artículos específicos. PROHIBIDO "y siguientes".
+- Texto plano sin asteriscos, sin markdown, sin negritas.
+
+{contexto_legal}
 
 Redacta el documento completo:`;
 
@@ -336,79 +159,28 @@ export async function nodoRedactar(state: DocState): Promise<DocState> {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago',
   });
 
-  // Inyectar conocimiento específico del tipo de documento
   const contextoLegal = generarContextoLegal(
     `${state.tipoDocumento || ''} ${JSON.stringify(state.datos)}`
   );
 
   const prompt = REDACTOR_PROMPT
     .replace('{tipo}', state.tipoDocumento || 'documento legal')
-    .replace('{ley}', state.leyAplicable || 'legislación chilena vigente')
-    .replace('{tribunal}', state.tribunal || 'no aplica')
     .replace('{datos}', JSON.stringify(state.datos))
     .replace('{fecha}', fecha)
-    + (contextoLegal ? `\n\nCONOCIMIENTO LEGAL CHILENO (usa estos artículos y leyes reales):\n${contextoLegal}` : '');
+    .replace('{contexto_legal}', contextoLegal ? `LEYES APLICABLES:\n${contextoLegal}` : '');
 
-  const raw = await complete({
+  const raw = await llmComplete({
     system: prompt,
     messages: [{ role: 'user', content: 'Redacta el documento completo.' }],
     maxTokens: 4096,
     temperature: 0.3,
   });
 
-  return { ...state, documento: raw || null };
+  return { ...state, documento: raw || null, documentoFinal: raw || null };
 }
 
-// ─── NODO 5: FILTRO DE CALIDAD ──────────────────────────────────────────────
-// Revisa errores, artículos mal citados, datos cambiados.
-const FILTRO_PROMPT = `Eres un juez revisor estricto. Revisas un documento legal chileno.
-
-DOCUMENTO:
-{documento}
-
-DATOS ORIGINALES DEL CLIENTE:
-{datos}
-
-Revisa:
-1. ¿Los nombres y RUT coinciden con los datos originales?
-2. ¿Los artículos citados existen y son correctos para este tipo de caso?
-3. ¿Hay errores ortográficos graves?
-4. ¿Se inventaron hechos que no están en los datos originales?
-5. ¿El formato es correcto para el tipo de documento?
-
-Si hay errores GRAVES (nombre cambiado, ley inventada, formato incorrecto):
-Responde el documento CORREGIDO completo.
-
-Si no hay errores graves:
-Responde exactamente el mismo documento sin cambios.
-
-Responde SOLO el texto del documento (sin comentarios ni explicaciones):`;
-
-export async function nodoFiltrar(state: DocState): Promise<DocState> {
-  if (!state.documento) return state;
-
-  const prompt = FILTRO_PROMPT
-    .replace('{documento}', state.documento)
-    .replace('{datos}', JSON.stringify(state.datos));
-
-  const raw = await complete({
-    system: prompt,
-    messages: [{ role: 'user', content: 'Revisa y corrige si es necesario.' }],
-    maxTokens: 4096,
-    temperature: 0.1,
-  });
-
-  return { ...state, documentoFinal: raw || state.documento };
-}
-
-// ─── PIPELINE COMPLETA ──────────────────────────────────────────────────────
+// ─── PIPELINE: Solo Redactar (la clasificación ya se hizo en Recopilar) ─────
 export async function runGenerationPipeline(state: DocState): Promise<DocState> {
-  let s = await nodoClasificar(state);
-  s = await nodoValidar(s);
-
-  if (!s.viable) return s;
-
-  s = await nodoRedactar(s);
-  s = await nodoFiltrar(s);
+  const s = await nodoRedactar(state);
   return s;
 }

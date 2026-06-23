@@ -3195,6 +3195,11 @@ export function findTemplate(materia: string | null, hechos: string | null): Leg
   }
 
   // Umbral minimo: al menos una keyword de 3+ caracteres.
+  // FIX: Si el tipo_documento empieza con "poder" → forzar template de poder
+  if (bestMatch && /^poder/i.test(matText) && bestMatch.id !== 'poder-simple') {
+    const poderTpl = TEMPLATES.find(t => t.id === 'poder-simple');
+    if (poderTpl) return poderTpl;
+  }
   return bestScore >= 3 ? bestMatch : null;
 }
 
