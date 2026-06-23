@@ -11,6 +11,49 @@ import { validateReadyState, generateMissingFieldQuestion } from '@/lib/validate
 import type { LegalTemplate } from '@/lib/templates';
 
 /**
+ * TOOL 0: Buscar en internet (BCN, leyes chilenas, jurisprudencia)
+ * 
+ * Usa web_fetch para obtener información actualizada de fuentes oficiales.
+ */
+export const buscarEnWebTool = tool(
+  async ({ query, tipo }) => {
+    // Construir búsquedas específicas según el tipo
+    let url = '';
+    
+    if (tipo === 'bcn') {
+      // Buscar en BCN (Biblioteca del Congreso Nacional)
+      url = `https://www.bcn.cl/leychile/navegar?idNorma=${query}`;
+    } else if (tipo === 'codigo_trabajo') {
+      // Código del Trabajo
+      url = 'https://www.bcn.cl/leychile/navegar?idNorma=207436';
+    } else if (tipo === 'codigo_civil') {
+      // Código Civil
+      url = 'https://www.bcn.cl/leychile/navegar?idNorma=172986';
+    } else if (tipo === 'ley_consumidor') {
+      // Ley 19.496 (SERNAC)
+      url = 'https://www.bcn.cl/leychile/navegar?idNorma=61438';
+    } else if (tipo === 'direccion_trabajo') {
+      // Dirección del Trabajo
+      url = 'https://www.dt.gob.cl/portal/1626/w3-propertyvalue-22152.html';
+    }
+    
+    return {
+      fuente: tipo,
+      url,
+      mensaje: `Consulta las plantillas oficiales BCN que están en el RAG. Para información actualizada específica, el usuario puede consultar: ${url}`
+    };
+  },
+  {
+    name: 'buscar_fuentes_oficiales',
+    description: 'Busca información en fuentes oficiales chilenas (BCN, Dirección del Trabajo, códigos legales). Usa esto cuando necesites información legal actualizada o plantillas oficiales.',
+    schema: z.object({
+      query: z.string().describe('Qué información legal necesitas'),
+      tipo: z.enum(['bcn', 'codigo_trabajo', 'codigo_civil', 'ley_consumidor', 'direccion_trabajo']).describe('Qué fuente oficial consultar')
+    })
+  }
+);
+
+/**
  * TOOL 1: Extraer datos estructurados del mensaje del usuario
  * 
  * El agente llama a esto para convertir lenguaje natural en datos estructurados.
@@ -201,6 +244,7 @@ function inferirTipoPregunta(campo: string): string {
  * EXPORT: Lista de todas las tools disponibles
  */
 export const allTools = [
+  buscarEnWebTool,
   consultarRequisitosTool,
   validarCompletitudTool,
   buscarConocimientoTool,

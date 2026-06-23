@@ -7,10 +7,49 @@
 
 import { Document } from '@langchain/core/documents';
 import { TEMPLATES, type LegalTemplate } from '@/lib/templates';
+import { PLANTILLAS_BCN } from './knowledge/bcn-plantillas';
 
 // RAG simple en memoria (sin embeddings por ahora, solo búsqueda por keywords)
 // Para producción, usar vectorstore real con embeddings
 let _documents: Document[] | null = null;
+
+/**
+ * Convierte plantillas BCN oficiales en documentos para el vectorstore
+ */
+function bcnToDocuments(): Document[] {
+  const docs: Document[] = [];
+
+  for (const plantilla of PLANTILLAS_BCN) {
+    // Doc 1: Requisitos oficiales de BCN
+    docs.push(
+      new Document({
+        pageContent: `${plantilla.nombre}
+
+FUENTE OFICIAL: ${plantilla.fuente}
+
+REQUISITOS OBLIGATORIOS:
+${plantilla.requisitos.map((r, i) => `${i + 1}. ${r}`).join('\n')}
+
+ARTÍCULOS LEGALES APLICABLES:
+${plantilla.articulosLegales.join('\n')}
+
+ESTRUCTURA DEL DOCUMENTO:
+${plantilla.estructura.slice(0, 500)}...
+
+EJEMPLO DE LLENADO:
+${plantilla.ejemploLlenado}`,
+        metadata: {
+          type: 'plantilla_bcn',
+          plantillaId: plantilla.id,
+          fuente: plantilla.fuente,
+          oficial: true
+        }
+      })
+    );
+  }
+
+  return docs;
+}
 
 /**
  * Convierte tus templates en documentos para el vectorstore
@@ -18,7 +57,10 @@ let _documents: Document[] | null = null;
 function templatesToDocuments(): Document[] {
   const docs: Document[] = [];
 
-  // Para cada template, creamos varios documentos (para mejorar el retrieval)
+  // PRIMERO: Agregar plantillas oficiales BCN
+  docs.push(...bcnToDocuments());
+
+  // SEGUNDO: Agregar tus templates actuales como backup
   for (const t of TEMPLATES) {
     // Doc 1: Título + keywords
     docs.push(

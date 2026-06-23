@@ -26,20 +26,27 @@ export interface AgentState {
 // ─── SYSTEM PROMPT CORTO ─────────────────────────────────────────────────────
 const AGENT_SYSTEM_PROMPT = `Eres un abogado chileno experto en documentos legales.
 
-Tu trabajo es:
-1. Entender qué documento necesita el cliente
-2. Identificar el tipo de documento usando la tool "identificar_template"
-3. Consultar los requisitos necesarios usando "consultar_requisitos_legales"
-4. Preguntar SOLO los datos que faltan (uno por turno)
-5. Validar completitud con "validar_completitud_datos" antes de marcar ready
-6. Cuando tengas TODO lo necesario, marcar ready=true
+FUENTES DE CONOCIMIENTO:
+- Tienes acceso a plantillas oficiales de BCN (Biblioteca del Congreso Nacional)
+- Código del Trabajo chileno (actualizado)
+- Código Civil chileno
+- Ley 19.496 sobre Protección de Derechos del Consumidor
+- Dirección del Trabajo Chile
+
+TU TRABAJO:
+1. Identificar qué documento necesita el cliente
+2. Consultar requisitos oficiales usando "consultar_requisitos_legales"
+3. Preguntar SOLO los datos que faltan (uno por turno)
+4. Validar completitud con "validar_completitud_datos"
+5. Cuando tengas TODO, marcar ready=true
 
 REGLAS CRÍTICAS:
 - NUNCA inventes datos que el cliente no dio
-- USA las tools ANTES de responder
+- USA las tools para consultar requisitos oficiales
+- NO te bases en "tu conocimiento" - consulta las fuentes oficiales
 - NO preguntes lo mismo dos veces
-- Si el cliente dice "no sé", acepta y avanza al siguiente dato
-- Marca ready=true SOLO después de llamar a "validar_completitud_datos" y confirmar que está completo
+- Si el cliente dice "no sé", acepta y avanza
+- Marca ready=true SOLO después de validar completitud
 
 Habla en español chileno, de forma clara y profesional. Una pregunta por turno.`;
 
@@ -131,11 +138,14 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
       datosActuales.tipo_documento = 'poder simple';
     } else if (contenidoLower.includes('finiquito') || contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) {
       datosActuales.tipo_documento = 'finiquito laboral';
-    } else if (contenidoLower.includes('reclam') || contenidoLower.includes('sernac') || contenidoLower.includes('consum') || contenidoLower.includes('product') || contenidoLower.includes('servicio')) {
+    } else if (contenidoLower.includes('reclam') || contenidoLower.includes('sernac') || 
+               (contenidoLower.includes('consum') || contenidoLower.includes('product') || contenidoLower.includes('servicio') || 
+                contenidoLower.includes('compré') || contenidoLower.includes('contraté') || 
+                contenidoLower.includes('internet') || contenidoLower.includes('fibra') || contenidoLower.includes('megas'))) {
       datosActuales.tipo_documento = 'reclamo SERNAC';
     } else if (contenidoLower.includes('renunc')) {
       datosActuales.tipo_documento = 'carta_renuncia';
-    } else if (contenidoLower.includes('alimento') || contenidoLower.includes('pensión') || contenidoLower.includes('pension')) {
+    } else if (contenidoLower.includes('alimento') || contenidoLower.includes('pensión') || contenidoLower.includes('pension') || contenidoLower.includes('demandar')) {
       datosActuales.tipo_documento = 'demanda_alimentos';
     } else if (contenidoLower.includes('tag') || contenidoLower.includes('autopista') || contenidoLower.includes('peaje') || contenidoLower.includes('telepeaje')) {
       datosActuales.tipo_documento = 'prescripción multa TAG';
@@ -176,23 +186,29 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     // Patrón 1: Palabra clave + nombre
     const empMatch1 = contenido.match(/(?:Constructora|Empresa|Banco|Sociedad|Restaurant|Supermercado|Tienda|Hotel|Clínica|Hospital|Colegio|Universidad|Municipalidad)\s+([A-ZÁÉÍÓÚÑa-záéíóúñ\s]+?)(?:[,\.]|RUT|cargo|sueldo|desde|$)/i);
     if (empMatch1) {
-      datosActuales.empleador = empMatch1[0].replace(/[,\.\s]+$/, '').trim();
+      const empresaNombre = empMatch1[0].replace(/[,\.\s]+$/, '').trim();
+      datosActuales.empleador = empresaNombre;
+      datosActuales.empresa = empresaNombre; // Sync both fields
     } else {
       // Patrón 2: Buscar nombres de empresas conocidas o con sufijos
       const empMatch2 = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){0,3})\s*(?:Ltda|S\.A\.|SpA|SPA|S\.A|SA)\b/);
       if (empMatch2) {
-        datosActuales.empleador = empMatch2[0].trim();
+        const empresaNombre = empMatch2[0].trim();
+        datosActuales.empleador = empresaNombre;
+        datosActuales.empresa = empresaNombre;
       } else {
         // Patrón 3: Buscar después de "en" o "trabajo en"
         const empMatch3 = contenido.match(/(?:en|trabajo en|trabajé en)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?)/i);
         if (empMatch3 && !datosActuales.nombre) {
           datosActuales.empleador = empMatch3[1].trim();
+          datosActuales.empresa = empMatch3[1].trim();
         }
         // Patrón 4: Nombres de empresas reconocidas (Falabella, VTR, Enel, etc.)
         const empresasConocidas = /\b(Falabella|Ripley|Paris|Lider|Jumbo|Santa Isabel|Walmart|Tottus|Unimarc|VTR|Entel|Movistar|Claro|Enel|CGE|Aguas Andinas|Essbio|BancoEstado|Santander|BCI|Itaú|Scotiabank|Cencosud|SMU|Transbank|Sernac|AFP|Isapre|Fonasa|SII|Registro Civil|Previred|Mutual|ACHS|IST)\b/i;
         const empMatch4 = contenido.match(empresasConocidas);
         if (empMatch4) {
           datosActuales.empresa = empMatch4[1];
+          datosActuales.empleador = empMatch4[1];
         }
       }
     }
@@ -238,14 +254,20 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   }
 
   // PASO 9: Extraer APODERADO (segundo nombre después del primero)
-  if ((state.tipoDocumento === 'poder simple' || datosActuales.tipo_documento === 'poder simple') && !datosActuales.apoderado && datosActuales.nombre) {
+  if ((state.tipoDocumento === 'poder simple' || datosActuales.tipo_documento === 'poder simple') && !datosActuales.apoderado) {
+    // Buscar en el mensaje actual todos los nombres propios
     const nombres = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})\b/g);
-    if (nombres && nombres.length >= 2) {
+    if (nombres && nombres.length >= 1) {
       for (const nom of nombres) {
-        const noEsNombre = /necesito|quiero|para|reclamo|empresa|constructora|banco|supermercado|avenida|calle|pasaje/i.test(nom);
-        if (nom !== datosActuales.nombre && !noEsNombre) {
+        const noEsNombre = /necesito|quiero|para|reclamo|empresa|constructora|banco|supermercado|avenida|calle|pasaje|primo|hermano|madre|padre/i.test(nom);
+        // Si ya tenemos un nombre guardado y este es diferente, es el apoderado
+        if (datosActuales.nombre && nom !== datosActuales.nombre && !noEsNombre) {
           datosActuales.apoderado = nom;
           break;
+        }
+        // Si no tenemos nombre aún, este es el primero (el poderdante)
+        if (!datosActuales.nombre && !noEsNombre) {
+          datosActuales.nombre = nom;
         }
       }
     }
@@ -292,6 +314,37 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     }
   }
 
+  // PASO 14: Extraer MONTO (para demanda de alimentos, reclamos)
+  if (!datosActuales.monto) {
+    const montoMatch = contenido.match(/(?:pido|solicito|exijo|monto)\s+\$?([\d\.,]+)|(\$[\d\.,]+)\s+(?:mensual|al mes|por mes)/i);
+    if (montoMatch) {
+      const montoStr = montoMatch[1] || montoMatch[2];
+      datosActuales.monto = montoStr.replace(/[\$\.\,]/g, '');
+    }
+  }
+
+  // PASO 15: Extraer RECURRIDO (para recursos de protección)
+  if ((state.tipoDocumento === 'recurso_proteccion' || datosActuales.tipo_documento === 'recurso_proteccion') && !datosActuales.recurrido) {
+    // Si ya tenemos empresa, esa es el recurrido
+    if (datosActuales.empresa) {
+      datosActuales.recurrido = datosActuales.empresa;
+    }
+  }
+
+  // PASO 16: Extraer DERECHO_VULNERADO (para recursos de protección)
+  if ((state.tipoDocumento === 'recurso_proteccion' || datosActuales.tipo_documento === 'recurso_proteccion') && !datosActuales.derecho_vulnerado) {
+    // Inferir por contexto
+    if (contenidoLower.includes('vida') || contenidoLower.includes('salud') || contenidoLower.includes('oxígeno') || contenidoLower.includes('enfermo')) {
+      datosActuales.derecho_vulnerado = 'Art. 19 N°1 (vida e integridad física) y N°9 (protección salud)';
+    } else if (contenidoLower.includes('propiedad') || contenidoLower.includes('patrimonio')) {
+      datosActuales.derecho_vulnerado = 'Art. 19 N°24 (propiedad)';
+    } else if (contenidoLower.includes('trabajo') || contenidoLower.includes('empleo')) {
+      datosActuales.derecho_vulnerado = 'Art. 19 N°16 (libertad de trabajo)';
+    } else {
+      datosActuales.derecho_vulnerado = 'derechos constitucionales fundamentales';
+    }
+  }
+
   console.log('[extraer] Datos extraídos:', Object.keys(datosActuales).filter(k => datosActuales[k]));
 
   return {
@@ -330,7 +383,18 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     };
   }
 
-  // Llamar a la tool de validación para saber qué falta
+  // PASO 1: Consultar requisitos oficiales del RAG (plantillas BCN)
+  const { obtenerRequisitos } = await import('./vectorstore');
+  
+  let requisitosOficiales = '';
+  try {
+    requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+    console.log('[recopilar] Requisitos BCN:', requisitosOficiales.slice(0, 100));
+  } catch (error) {
+    console.error('[recopilar] Error consultando RAG:', error);
+  }
+
+  // PASO 2: Validar con validateReadyState (tu lógica actual)
   const { validarCompletitudTool } = await import('./tools');
   
   try {
@@ -352,8 +416,19 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
       };
     }
 
+    // Agregar contexto de requisitos oficiales a la pregunta
+    let pregunta = validacion.siguiente_pregunta || '¿Puedes darme más información?';
+    
+    // Si hay requisitos BCN relevantes, mencionarlos
+    if (requisitosOficiales && validacion.datos_faltantes && validacion.datos_faltantes.length > 0) {
+      const campoFaltante = validacion.datos_faltantes[0];
+      if (requisitosOficiales.toLowerCase().includes(campoFaltante.toLowerCase())) {
+        pregunta += ` (Este dato es obligatorio según plantillas oficiales BCN)`;
+      }
+    }
+
     return {
-      responseMessage: validacion.siguiente_pregunta || '¿Puedes darme más información?',
+      responseMessage: pregunta,
       datosFaltantes: validacion.datos_faltantes || [],
       ready: false
     };
