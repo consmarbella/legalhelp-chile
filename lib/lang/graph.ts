@@ -106,6 +106,11 @@ Responde SOLO con la siguiente pregunta para el usuario (una pregunta corta y di
 
 /**
  * NODO 2: Extraer datos estructurados del mensaje
+ * 
+ * ENFOQUE HÍBRIDO:
+ * 1. Primero intenta con LLM (si está disponible)
+ * 2. Fallback a extracción basada en patrones mejorados
+ * 3. Usa reglas semánticas (no casos específicos)
  */
 async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   const ultimoMensaje = state.messages[state.messages.length - 1];
@@ -120,107 +125,170 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
 
   console.log('[extraer] Analizando:', contenido.slice(0, 60));
 
-  // Detectar tipo de documento si aún no está
-  if (!state.tipoDocumento) {
-    if (/poder|autoriza|mandato|cobre|apoder/i.test(contenido)) {
+  // PASO 1: Detectar tipo de documento (semántica, no keywords exactas)
+  if (!state.tipoDocumento && !datosActuales.tipo_documento) {
+    if (contenidoLower.includes('poder') || contenidoLower.includes('autor') || contenidoLower.includes('mandato') || contenidoLower.includes('apoder')) {
       datosActuales.tipo_documento = 'poder simple';
-    } else if (/finiquito|despido|desvincula/.test(contenidoLower)) {
+    } else if (contenidoLower.includes('finiquito') || contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) {
       datosActuales.tipo_documento = 'finiquito laboral';
-    } else if (/reclamo|sernac|consumidor/.test(contenidoLower)) {
+    } else if (contenidoLower.includes('reclam') || contenidoLower.includes('sernac') || contenidoLower.includes('consum') || contenidoLower.includes('product') || contenidoLower.includes('servicio')) {
       datosActuales.tipo_documento = 'reclamo SERNAC';
-    } else if (/licencia.*conducir/.test(contenidoLower)) {
-      datosActuales.tipo_documento = 'solicitud de licencia de conducir';
-    } else if (/tag|autopista|peaje/.test(contenidoLower)) {
+    } else if (contenidoLower.includes('renunc')) {
+      datosActuales.tipo_documento = 'carta_renuncia';
+    } else if (contenidoLower.includes('alimento') || contenidoLower.includes('pensión') || contenidoLower.includes('pension')) {
+      datosActuales.tipo_documento = 'demanda_alimentos';
+    } else if (contenidoLower.includes('tag') || contenidoLower.includes('autopista') || contenidoLower.includes('peaje') || contenidoLower.includes('telepeaje')) {
       datosActuales.tipo_documento = 'prescripción multa TAG';
+    } else if (contenidoLower.includes('protec') || contenidoLower.includes('amparo') || (contenidoLower.includes('corta') && contenidoLower.includes('luz'))) {
+      datosActuales.tipo_documento = 'recurso_proteccion';
+    } else if ((contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) && (contenidoLower.includes('injust') || contenidoLower.includes('cotizac'))) {
+      datosActuales.tipo_documento = 'despido_injustificado';
     }
   }
 
-  // Extraer datos básicos
-  // Nombre (buscar patrón de 2-4 palabras con nombres propios)
+  // PASO 2: Extraer NOMBRES (cualquier nombre propio de 2-4 palabras)
   if (!datosActuales.nombre) {
-    const nombreMatch = contenido.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})/);
-    if (nombreMatch && !/necesito|quiero|para|poder|reclamo|empresa|constructora/i.test(nombreMatch[0])) {
-      datosActuales.nombre = nombreMatch[0];
-      console.log('[extraer] Nombre encontrado:', datosActuales.nombre);
+    const nombreMatch = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})\b/);
+    if (nombreMatch) {
+      const posibleNombre = nombreMatch[1];
+      // Filtrar palabras que NO son nombres
+      const noEsNombre = /necesito|quiero|para|poder|reclamo|empresa|constructora|banco|supermercado|restaurant|ltda|spa|sociedad/i.test(posibleNombre);
+      if (!noEsNombre) {
+        datosActuales.nombre = posibleNombre;
+      }
     }
   }
 
-  // RUT
-  if (!datosActuales.rut && /\d{1,2}[\.\d]{0,8}-?[\dkK]/.test(contenido)) {
-    const match = contenido.match(/(\d{1,2}[\.\d]{0,8}-?[\dkK])/);
-    if (match) {
-      datosActuales.rut = match[1];
-      console.log('[extraer] RUT encontrado:', datosActuales.rut);
+  // PASO 3: Extraer RUT (flexible con formatos)
+  if (!datosActuales.rut) {
+    const rutMatch = contenido.match(/\b(\d{1,2}[\.\d]{3,9}-?[\dkK])\b/);
+    if (rutMatch) {
+      const rut = rutMatch[1];
+      // Validar que parezca RUT (no sea un número random como "2019")
+      if (rut.length >= 9 || rut.includes('.') || rut.includes('-')) {
+        datosActuales.rut = rut;
+      }
     }
   }
 
-  // Empleador / Empresa
+  // PASO 4: Extraer EMPLEADOR/EMPRESA (cualquier entidad mencionada)
   if (!datosActuales.empleador && !datosActuales.empresa) {
-    // Patrón 1: "Constructora ABC" o "Empresa XYZ"
-    let empMatch = contenido.match(/(Constructora|Empresa|Banco|Sociedad|Ltda|S\.A\.|SpA)\s+([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑa-záéíóúñ\s]+?)(?:,|RUT|\.|$)/);
-    if (empMatch) {
-      datosActuales.empleador = empMatch[0].replace(/[,\.\s]+$/, '').trim();
-      console.log('[extraer] Empleador encontrado:', datosActuales.empleador);
+    // Patrón 1: Palabra clave + nombre
+    const empMatch1 = contenido.match(/(?:Constructora|Empresa|Banco|Sociedad|Restaurant|Supermercado|Tienda|Hotel|Clínica|Hospital|Colegio|Universidad|Municipalidad)\s+([A-ZÁÉÍÓÚÑa-záéíóúñ\s]+?)(?:[,\.]|RUT|cargo|sueldo|desde|$)/i);
+    if (empMatch1) {
+      datosActuales.empleador = empMatch1[0].replace(/[,\.\s]+$/, '').trim();
+    } else {
+      // Patrón 2: Buscar nombres de empresas conocidas o con sufijos
+      const empMatch2 = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){0,3})\s*(?:Ltda|S\.A\.|SpA|SPA|S\.A|SA)\b/);
+      if (empMatch2) {
+        datosActuales.empleador = empMatch2[0].trim();
+      } else {
+        // Patrón 3: Buscar después de "en" o "trabajo en"
+        const empMatch3 = contenido.match(/(?:en|trabajo en|trabajé en)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?)/i);
+        if (empMatch3 && !datosActuales.nombre) {
+          datosActuales.empleador = empMatch3[1].trim();
+        }
+        // Patrón 4: Nombres de empresas reconocidas (Falabella, VTR, Enel, etc.)
+        const empresasConocidas = /\b(Falabella|Ripley|Paris|Lider|Jumbo|Santa Isabel|Walmart|Tottus|Unimarc|VTR|Entel|Movistar|Claro|Enel|CGE|Aguas Andinas|Essbio|BancoEstado|Santander|BCI|Itaú|Scotiabank|Cencosud|SMU|Transbank|Sernac|AFP|Isapre|Fonasa|SII|Registro Civil|Previred|Mutual|ACHS|IST)\b/i;
+        const empMatch4 = contenido.match(empresasConocidas);
+        if (empMatch4) {
+          datosActuales.empresa = empMatch4[1];
+        }
+      }
     }
   }
 
-  // Cargo
-  if (!datosActuales.cargo && /cargo[:\s]+([\w\s]+)/i.test(contenido)) {
-    const match = contenido.match(/cargo[:\s]+([\w\s]+?)(?:,|sueldo|desde|$)/i);
-    if (match) {
-      datosActuales.cargo = match[1].trim();
-      console.log('[extraer] Cargo encontrado:', datosActuales.cargo);
+  // PASO 5: Extraer CARGO (después de "cargo:" o "como")
+  if (!datosActuales.cargo) {
+    const cargoMatch = contenido.match(/(?:cargo[:\s]+|como\s+)([a-záéíóúñ\s]+?)(?:[,\.]|sueldo|desde|trabajé|$)/i);
+    if (cargoMatch) {
+      datosActuales.cargo = cargoMatch[1].trim();
     }
   }
 
-  // Sueldo
-  if (!datosActuales.sueldo && /sueldo[:\s]*\$?[\d\.,]+/i.test(contenido)) {
-    const match = contenido.match(/sueldo[:\s]*(\$?[\d\.,]+)/i);
-    if (match) {
-      datosActuales.sueldo = match[1].replace(/\./g, '').replace(',', '');
-      console.log('[extraer] Sueldo encontrado:', datosActuales.sueldo);
+  // PASO 6: Extraer SUELDO (con $, sin $, con puntos)
+  if (!datosActuales.sueldo) {
+    const sueldoMatch = contenido.match(/(?:sueldo|remuneración|renta)[:\s]*\$?([\d\.,]+)/i);
+    if (sueldoMatch) {
+      datosActuales.sueldo = sueldoMatch[1].replace(/\./g, '').replace(',', '');
     }
   }
 
-  // Fechas (inicio y término)
-  if (!datosActuales.fecha_inicio && /desde\s+([\w\s]+?\d{4})/i.test(contenido)) {
-    const match = contenido.match(/desde\s+([\w\s]+?\d{4})/i);
-    if (match) {
-      datosActuales.fecha_inicio = match[1].trim();
-      console.log('[extraer] Fecha inicio:', datosActuales.fecha_inicio);
+  // PASO 7: Extraer FECHAS (inicio y término)
+  if (!datosActuales.fecha_inicio) {
+    const fechaInicioMatch = contenido.match(/(?:desde|ingresé|entré|inicio)[:\s]+([\w\s]+?\d{4})/i);
+    if (fechaInicioMatch) {
+      datosActuales.fecha_inicio = fechaInicioMatch[1].trim();
     }
   }
 
-  if (!datosActuales.fecha_termino && /hasta\s+([\w\s]+?\d{4})/i.test(contenido)) {
-    const match = contenido.match(/hasta\s+([\w\s]+?\d{4})/i);
-    if (match) {
-      datosActuales.fecha_termino = match[1].trim();
-      console.log('[extraer] Fecha término:', datosActuales.fecha_termino);
+  if (!datosActuales.fecha_termino && !datosActuales.fecha_despido) {
+    const fechaTerminoMatch = contenido.match(/(?:hasta|despid|terminó|salí)[:\s]+([\w\s]+?\d{4})/i);
+    if (fechaTerminoMatch) {
+      datosActuales.fecha_termino = fechaTerminoMatch[1].trim();
     }
   }
 
-  // Apoderado (para poderes) - segundo nombre completo en el mensaje
-  if ((state.tipoDocumento === 'poder simple' || /poder/i.test(contenidoLower)) && !datosActuales.apoderado && datosActuales.nombre) {
-    // Si ya tenemos un nombre, buscar OTRO nombre distinto
-    const nombres = contenido.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})/g);
-    if (nombres && nombres.length > 1) {
-      // El primer nombre es el mandante, el segundo es el apoderado
+  // PASO 8: Extraer PATENTE (formato chileno XXXX00)
+  if (!datosActuales.patente) {
+    const patenteMatch = contenido.match(/\b([A-Z]{2,4}\d{2,4}|[A-Z]{4}\d{2})\b/);
+    if (patenteMatch) {
+      datosActuales.patente = patenteMatch[1];
+    }
+  }
+
+  // PASO 9: Extraer APODERADO (segundo nombre después del primero)
+  if ((state.tipoDocumento === 'poder simple' || datosActuales.tipo_documento === 'poder simple') && !datosActuales.apoderado && datosActuales.nombre) {
+    const nombres = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})\b/g);
+    if (nombres && nombres.length >= 2) {
       for (const nom of nombres) {
-        if (nom !== datosActuales.nombre && !/necesito|quiero|para|reclamo|empresa|constructora/i.test(nom)) {
+        const noEsNombre = /necesito|quiero|para|reclamo|empresa|constructora|banco|supermercado|avenida|calle|pasaje/i.test(nom);
+        if (nom !== datosActuales.nombre && !noEsNombre) {
           datosActuales.apoderado = nom;
-          console.log('[extraer] Apoderado encontrado:', datosActuales.apoderado);
           break;
         }
       }
     }
   }
 
-  // Dirección
-  if (!datosActuales.direccion && /\d{1,5}\s*[,]?\s*[A-ZÁÉÍÓÚÑ]/i.test(contenido)) {
-    const dirMatch = contenido.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ\s]+\d{1,5}(?:\s*,?\s*[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?)/);
-    if (dirMatch && !/(cargo|sueldo|empresa)/i.test(dirMatch[0])) {
-      datosActuales.direccion = dirMatch[0].trim();
-      console.log('[extraer] Dirección encontrada:', datosActuales.direccion);
+  // PASO 10: Extraer DEMANDADO (para demandas)
+  if (!datosActuales.demandado && (contenidoLower.includes('demandado') || contenidoLower.includes('padre') || contenidoLower.includes('madre'))) {
+    const demandadoMatch = contenido.match(/(?:demandado es|padre|madre de mi hija?|padre de mis hijos?)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})/i);
+    if (demandadoMatch) {
+      datosActuales.demandado = demandadoMatch[1].trim();
+    }
+  }
+
+  // PASO 11: Extraer HIJO(S) (para alimentos)
+  if (!datosActuales.hijo && !datosActuales.hijos) {
+    const hijoMatch = contenido.match(/(?:hijo|hija|menor)\s+(?:se llama|es|:)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})/i);
+    if (hijoMatch) {
+      datosActuales.hijo = hijoMatch[1].trim();
+    }
+  }
+
+  // PASO 12: Extraer DETALLE_CASO (para reclamos, recursos - texto narrativo largo)
+  if (!datosActuales.detalle_caso && contenido.length > 100) {
+    // Si el mensaje es largo y parece narrativo, guardarlo como detalle
+    if (datosActuales.tipo_documento === 'reclamo SERNAC' || 
+        datosActuales.tipo_documento === 'recurso_proteccion' ||
+        contenidoLower.includes('compré') ||
+        contenidoLower.includes('llamé') ||
+        contenidoLower.includes('problema') ||
+        contenidoLower.includes('reclamo')) {
+      datosActuales.detalle_caso = contenido;
+    }
+  }
+
+  // PASO 13: Extraer DIRECCIÓN (número + calle)
+  if (!datosActuales.direccion) {
+    const dirMatch = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?\s+\d{1,5}(?:\s*,?\s*[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?)\b/);
+    if (dirMatch) {
+      const posibleDir = dirMatch[1];
+      // Validar que no sea otra cosa (cargo, sueldo, etc.)
+      if (!/cargo|sueldo|empresa|rut|desde|hasta/i.test(posibleDir)) {
+        datosActuales.direccion = posibleDir.trim();
+      }
     }
   }
 
