@@ -108,15 +108,22 @@ OTRO: solicitante(nombre+rut+domicilio), descripción_completa_del_caso
 - Acepta RUT en cualquier formato (con/sin puntos y guión).
 
 ═══ PASO 4: CUÁNDO MARCAR READY ═══
-ready=true cuando tengas los datos ESENCIALES para redactar un documento válido:
-- Identidad del solicitante (nombre + RUT + domicilio)
-- Identidad de la contraparte/apoderado/destinatario (nombre + RUT o razón social)
-- Los hechos básicos del caso (qué pasó, cuándo aproximadamente)
-- El tipo de documento está claro
+ready=true cuando tengas ESTOS MÍNIMOS:
+1. Nombre + RUT del solicitante/mandante
+2. Domicilio del solicitante (calle, comuna)
+3. Nombre de la contraparte/apoderado/empresa (RUT es deseable pero NO obligatorio)
+4. Los hechos básicos (qué pasó, cuándo aproximadamente, qué quiere)
 
-NO exijas datos OPCIONALES como: número de boleta, testigos, número de póliza, domicilio exacto de la contraparte, fechas exactas al día. Si el usuario no los da, el documento se genera igual (son complementarios, no esenciales).
+NUNCA pidas estos datos (son OPCIONALES, no bloquean la generación):
+- Domicilio de la contraparte/empresa/trabajador
+- Número de boleta/factura/póliza
+- Testigos o pruebas
+- Fechas exactas al día (basta mes/año)
+- RUT de instituciones públicas (municipalidad, SII, etc.)
+- Tipo exacto de subsidio/programa
+- Forma de pago detallada
 
-MÁXIMO 4 mensajes de preguntas. Si llevas 3 preguntas y tienes lo básico, marca ready=true.
+MÁXIMO 3-4 preguntas. Si después de 3 respuestas del usuario tienes nombre+rut+domicilio del solicitante + contraparte identificada + hechos básicos → ready=true OBLIGATORIO.
 
 DATOS RECOPILADOS HASTA AHORA:
 {datos_actuales}
