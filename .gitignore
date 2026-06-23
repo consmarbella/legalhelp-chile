@@ -50,3 +50,4 @@ social/.env
 scripts/.env
 social/session/
 
+.agents/

@@ -99,8 +99,8 @@ export default function LangPage() {
 
         {/* State debug */}
         <div className="border border-[#60a5fa]/10 rounded-lg p-3 mb-4 text-xs text-[#5a6c8a]">
-          <strong className="text-[#9ab0cc]">Estado:</strong> ready={String(ready)} | datos={Object.keys((state as Record<string, unknown>).datos || state).length} campos
-          {state.tipo_documento && <span> | tipo: {String(state.tipo_documento)}</span>}
+          <strong className="text-[#9ab0cc]">Estado:</strong> ready={String(ready)} | datos={Object.keys(((state as Record<string, unknown>).datos as Record<string, unknown>) || state).length} campos
+          {(state as Record<string, unknown>).tipo_documento ? <span> | tipo: {String((state as Record<string, unknown>).tipo_documento)}</span> : null}
         </div>
 
         {/* Document */}

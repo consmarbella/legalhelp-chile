@@ -9,6 +9,16 @@
  */
 
 import { llmComplete, LLMMessage } from '@/lib/llm';
+import { geminiComplete } from './llm-gemini';
+
+// Use Gemini Flash if available, fallback to Anthropic/DeepSeek
+async function complete(opts: { system: string; messages: { role: 'user' | 'assistant'; content: string }[]; maxTokens?: number; temperature?: number }): Promise<string | null> {
+  // Try Gemini first (fast + cheap)
+  const gemini = await geminiComplete(opts);
+  if (gemini) return gemini;
+  // Fallback to existing LLM (Anthropic/DeepSeek)
+  return llmComplete({ ...opts, messages: opts.messages as LLMMessage[] });
+}
 
 // ─── Estado ──────────────────────────────────────────────────────────────────
 export interface DocState {
@@ -87,7 +97,7 @@ Responde SOLO JSON:
 export async function nodoRecopilar(state: DocState): Promise<DocState> {
   const prompt = RECOPILADOR_PROMPT.replace('{datos_actuales}', JSON.stringify(state.datos));
 
-  const raw = await llmComplete({
+  const raw = await complete({
     system: prompt,
     messages: [...state.messages, { role: 'user', content: state.currentMessage }],
     maxTokens: 800,
@@ -131,7 +141,7 @@ Responde SOLO JSON:
 export async function nodoClasificar(state: DocState): Promise<DocState> {
   const prompt = CLASIFICADOR_PROMPT.replace('{datos}', JSON.stringify(state.datos));
 
-  const raw = await llmComplete({
+  const raw = await complete({
     system: prompt,
     messages: [{ role: 'user', content: 'Clasifica este caso.' }],
     maxTokens: 300,
@@ -180,7 +190,7 @@ export async function nodoValidar(state: DocState): Promise<DocState> {
     .replace('{ley}', state.leyAplicable || 'no determinada')
     .replace('{datos}', JSON.stringify(state.datos));
 
-  const raw = await llmComplete({
+  const raw = await complete({
     system: prompt,
     messages: [{ role: 'user', content: 'Valida este caso.' }],
     maxTokens: 400,
@@ -238,7 +248,7 @@ export async function nodoRedactar(state: DocState): Promise<DocState> {
     .replace('{datos}', JSON.stringify(state.datos))
     .replace('{fecha}', fecha);
 
-  const raw = await llmComplete({
+  const raw = await complete({
     system: prompt,
     messages: [{ role: 'user', content: 'Redacta el documento completo.' }],
     maxTokens: 4096,
@@ -280,7 +290,7 @@ export async function nodoFiltrar(state: DocState): Promise<DocState> {
     .replace('{documento}', state.documento)
     .replace('{datos}', JSON.stringify(state.datos));
 
-  const raw = await llmComplete({
+  const raw = await complete({
     system: prompt,
     messages: [{ role: 'user', content: 'Revisa y corrige si es necesario.' }],
     maxTokens: 4096,
