@@ -54,22 +54,14 @@ export default function LangHome() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/lang/chat', {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, caseHistory: messages, currentState: caseData }),
+        body: JSON.stringify({ message: text, caseHistory: messages, currentCaseData: caseData }),
       });
       if (!res.ok) throw new Error();
       const data = await res.json();
-      // El pipeline /lang devuelve { datos, ready, response_message, tipo_documento }
-      // Mergeamos datos en caseData manteniendo compatibilidad con la UX
-      setCaseData(prev => ({
-        ...prev,
-        ...data,
-        ...(data.datos ?? {}),
-        ready: data.ready ?? prev.ready,
-        tipo_documento: data.tipo_documento ?? prev.tipo_documento,
-      }));
+      setCaseData(prev => ({ ...prev, ...data }));
       setMessages(prev => [...prev, { role: 'assistant', content: String(data.response_message ?? '') }]);
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', content: 'Problema al conectar. Intenta de nuevo.' }]);
@@ -78,19 +70,13 @@ export default function LangHome() {
     }
   };
 
-  const buildDatos = (): Record<string, unknown> => {
-    // El pipeline /lang espera { datos: {...} }
-    const d = (caseData.datos as Record<string, unknown>) ?? {};
-    return { ...d, ...caseData };
-  };
-
   const handleGeneratePreview = async () => {
     setGenerating(true);
     try {
-      const res = await fetch('/api/lang/generate', {
+      const res = await fetch('/api/generate-final', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ datos: buildDatos() }),
+        body: JSON.stringify(caseData),
       });
       const data = await res.json();
       if (data.document) setPreviewDoc(data.document);
@@ -107,10 +93,10 @@ export default function LangHome() {
       const storedOrder = sessionStorage.getItem('lh_paid_order');
       const orderId = storedOrder ? JSON.parse(storedOrder)?.orderId : undefined;
 
-      const res = await fetch('/api/lang/generate', {
+      const res = await fetch('/api/generate-final', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ datos: buildDatos(), ...(orderId ? { orderId } : {}) }),
+        body: JSON.stringify({ ...caseData, ...(orderId ? { orderId } : {}) }),
       });
       const data = await res.json();
       if (data.document) setGeneratedDoc(data.document);
