@@ -12,13 +12,60 @@ import { llmComplete, LLMMessage } from '@/lib/llm';
 import { geminiComplete } from './llm-gemini';
 import { generarContextoLegal, buscarDocumentos, getConocimiento } from './knowledge';
 
-// Use Gemini Flash if available, fallback to Anthropic/DeepSeek
+// Use Claude Opus (best model) for legal documents - accuracy matters more than cost
 async function complete(opts: { system: string; messages: { role: 'user' | 'assistant'; content: string }[]; maxTokens?: number; temperature?: number }): Promise<string | null> {
-  // Try Gemini first (fast + cheap)
-  const gemini = await geminiComplete(opts);
-  if (gemini) return gemini;
-  // Fallback to existing LLM (Anthropic/DeepSeek)
+  // Use Anthropic Claude Opus (premium model for critical legal work)
   return llmComplete({ ...opts, messages: opts.messages as LLMMessage[] });
+}
+
+// ─── SCHEMAS DE CAMPOS OBLIGATORIOS ─────────────────────────────────────────
+const REQUIRED_FIELDS: Record<string, string[]> = {
+  'poder': ['mandante_nombre', 'mandante_rut', 'apoderado_nombre', 'apoderado_rut', 'facultades'],
+  'poder_notarial': ['mandante_nombre', 'mandante_rut', 'apoderado_nombre', 'apoderado_rut', 'facultades'],
+  'carta_reclamo': ['reclamante_nombre', 'reclamante_rut', 'empresa', 'hechos', 'peticion'],
+  'demanda_laboral': ['trabajador_nombre', 'trabajador_rut', 'empresa_nombre', 'empresa_rut', 'cargo', 'sueldo', 'fecha_ingreso', 'fecha_despido', 'peticion'],
+  'contrato_trabajo': ['empresa_nombre', 'empresa_rut', 'trabajador_nombre', 'trabajador_rut', 'cargo', 'sueldo', 'jornada'],
+  'finiquito': ['empresa_nombre', 'trabajador_nombre', 'trabajador_rut', 'cargo', 'fecha_ingreso', 'fecha_termino'],
+  'recurso_proteccion': ['recurrente_nombre', 'recurrente_rut', 'recurrido', 'derecho_vulnerado', 'hechos'],
+  'declaracion_jurada': ['declarante_nombre', 'declarante_rut', 'declaracion'],
+  'contrato_arriendo': ['arrendador_nombre', 'arrendador_rut', 'arrendatario_nombre', 'arrendatario_rut', 'inmueble_direccion', 'renta', 'plazo'],
+};
+
+// Campos mínimos universales para cualquier documento
+const UNIVERSAL_MIN_FIELDS = ['nombre_completo', 'rut', 'tipo_situacion'];
+
+function validateRequiredFields(tipo: string | null, datos: Record<string, string>): { valid: boolean; missing: string[] } {
+  // Si no sabemos el tipo aún, verificar mínimos universales
+  if (!tipo) {
+    const missing = UNIVERSAL_MIN_FIELDS.filter(f => !datos[f] && !Object.keys(datos).some(k => k.includes('nombre') || k.includes('rut')));
+    return { valid: missing.length === 0, missing };
+  }
+
+  // Normalizar tipo (sin acentos, minúsculas, guiones bajos)
+  const tipoNorm = tipo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '_');
+  
+  // Buscar schema exacto o parcial
+  let schema = REQUIRED_FIELDS[tipoNorm];
+  if (!schema) {
+    const match = Object.keys(REQUIRED_FIELDS).find(k => tipoNorm.includes(k) || k.includes(tipoNorm));
+    schema = match ? REQUIRED_FIELDS[match] : null;
+  }
+
+  // Si no hay schema específico, usar regla general: al menos 3 campos con datos reales
+  if (!schema) {
+    const filledFields = Object.values(datos).filter(v => v && v.length > 2).length;
+    return { valid: filledFields >= 3, missing: filledFields < 3 ? ['mas_informacion'] : [] };
+  }
+
+  // Validar contra schema
+  const missing: string[] = [];
+  for (const field of schema) {
+    // Buscar el campo exacto o alguna variación en los datos
+    const exists = datos[field] || Object.keys(datos).some(k => k.includes(field.split('_')[0]));
+    if (!exists) missing.push(field);
+  }
+
+  return { valid: missing.length === 0, missing };
 }
 
 // ─── Estado ──────────────────────────────────────────────────────────────────
@@ -72,51 +119,52 @@ export function emptyState(): DocState {
 // ─── NODO 1: RECOPILADOR ────────────────────────────────────────────────────
 // Extrae datos, identifica tipo de documento, y pregunta lo que falta según el tipo.
 const RECOPILADOR_PROMPT = `Eres un asistente que recopila datos para documentos legales chilenos.
-Tu trabajo: extraer datos del mensaje, identificar el tipo de documento, y preguntar SOLO lo esencial.
+Tu trabajo: extraer datos, identificar el tipo de documento, y preguntar lo que REALMENTE necesitas para generar un documento que alguien pagaría por tener.
 
-═══ REGLA PRINCIPAL ═══
-Con 3 respuestas del usuario debes tener suficiente para generar. MÁXIMO 3-4 preguntas.
+═══ IDENTIFICA EL TIPO ═══
+Del mensaje del usuario detecta qué necesita: poder, carta reclamo, demanda, contrato, recurso, finiquito, declaración jurada, testamento, etc.
 
-═══ DATOS ESENCIALES (los únicos que NECESITAS) ═══
-1. Nombre completo + RUT del solicitante
-2. Domicilio del solicitante (calle, número, comuna)
-3. Nombre de la contraparte/apoderado/empresa (RUT si lo dan, pero NO lo exijas)
-4. Qué quiere hacer / qué le pasó (el "caso" o la "facultad")
+═══ QUÉ PREGUNTAR SEGÚN EL TIPO ═══
 
-═══ DATOS QUE NUNCA DEBES PEDIR ═══
-- Domicilio de la contraparte/empresa/trabajador/apoderado
-- Número de boleta, factura, póliza, contrato
-- Testigos o pruebas
-- RUT de instituciones (municipalidad, isapre, SII)
-- Fechas exactas al día (basta "junio 2026" o "hace 4 meses")
-- Forma de pago detallada
-- Email, teléfono, vigencia de poderes
-- "Confirmación" de nada ("¿confirmas que no tienes bienes?")
-- Tipo específico de subsidio/programa
+DOCUMENTOS SIMPLES (2-3 mensajes):
+- Poder: mandante(nombre+rut+domicilio) + apoderado(nombre+rut) + para qué
+- Declaración jurada: declarante(nombre+rut+domicilio) + qué declara
+- Carta renuncia: trabajador(nombre+rut) + empresa + fecha salida
+- Prescripción deuda/multa: deudor(nombre+rut+domicilio) + acreedor + monto + fecha deuda
 
-═══ REGLAS DE EXTRACCIÓN ═══
-- Si dice "MI auto/casa/trabajo" → es SUYO, no preguntes titularidad.
-- Si dice "mi hermano/contador/mamá" + nombre → ese es el apoderado/parte.
-- Si da varios datos en un mensaje, extráelos TODOS.
-- Acepta RUT en cualquier formato.
-- Infiere lo que puedas del contexto.
+DOCUMENTOS MEDIANOS (3-4 mensajes):
+- Carta reclamo: reclamante(nombre+rut+domicilio) + empresa + qué pasó + qué quiere
+- Contrato arriendo: arrendador(nombre+rut) + arrendatario(nombre+rut) + dirección inmueble + renta + plazo
+- Recurso protección: recurrente(nombre+rut+domicilio) + quién vulnera + qué derecho + hechos
+- Acuerdo pago: acreedor(nombre+rut) + deudor(nombre+rut) + monto + cuotas
+
+DOCUMENTOS COMPLEJOS (4-5 mensajes):
+- Demanda laboral: trabajador(nombre+rut+domicilio) + empresa(nombre+rut) + cargo + sueldo + fecha ingreso + fecha despido + causal + qué pide
+- Contrato trabajo: empresa(nombre+rut+rep.legal) + trabajador(nombre+rut) + cargo + sueldo + jornada + plazo
+- Finiquito: empresa(nombre+rut) + trabajador(nombre+rut) + cargo + sueldo + fecha ingreso + fecha término + causal
+
+═══ REGLAS ═══
+- Si dice "MI auto/casa/trabajo" → es SUYO.
+- Si dice "mi hermano/mamá/contador" + nombre → ese es el apoderado/parte.
+- Extrae TODOS los datos que el usuario da en un solo mensaje.
+- NUNCA preguntes: email, teléfono, domicilio de contraparte/empresa, número boleta, testigos.
+- Pregunta UN dato a la vez (el más importante que falte).
+- Si el usuario da mucha info junta, extráela toda de una.
 
 ═══ CUÁNDO MARCAR READY ═══
-ready=true cuando tengas:
-✓ Nombre + RUT + domicilio del solicitante
-✓ Identificada la contraparte/apoderado (al menos nombre)
-✓ Claro qué documento necesita y para qué
-
-Si ya tienes esos 3 puntos → ready=true. NO sigas preguntando.
+ready=true cuando tengas suficiente para generar un documento COMPLETO y ÚTIL.
+El documento debe tener todos los nombres, RUTs, hechos y pretensiones necesarios.
+NO marques ready si falta algo que haría el documento inservible.
+Pero tampoco pidas datos decorativos que no cambian la validez legal.
 
 DATOS RECOPILADOS HASTA AHORA:
 {datos_actuales}
 
-Responde SOLO JSON válido:
+Responde SOLO JSON:
 {
   "tipo_documento": "tipo detectado",
   "datos_extraidos": {"campo": "valor", ...},
-  "datos_faltantes": ["solo lo ESENCIAL que falta"],
+  "datos_faltantes": ["lo esencial que falta"],
   "ready": true/false,
   "response_message": "pregunta O confirmación"
 }`;
@@ -141,12 +189,23 @@ export async function nodoRecopilar(state: DocState): Promise<DocState> {
     // Persist tipo_documento from first classification
     const tipo = json.tipo_documento || state.tipoDocumento || null;
 
+    // VALIDACIÓN CRÍTICA: Verificar campos obligatorios antes de permitir ready=true
+    const validation = validateRequiredFields(tipo, nuevoDatos);
+    const readyReal = json.ready && validation.valid;
+
+    // Si el LLM dice ready pero faltan campos, forzar pregunta
+    let responseMsg = json.response_message || '';
+    if (json.ready && !validation.valid && validation.missing.length > 0) {
+      const missing = validation.missing[0];
+      responseMsg = `Necesito un dato más importante: ¿cuál es ${missing.replace(/_/g, ' ')}?`;
+    }
+
     return {
       ...state,
       datos: nuevoDatos,
-      datosFaltantes: json.datos_faltantes || [],
-      ready: json.ready || false,
-      responseMessage: json.response_message || '',
+      datosFaltantes: validation.missing,
+      ready: readyReal,
+      responseMessage: responseMsg,
       tipoDocumento: tipo,
     };
   } catch {

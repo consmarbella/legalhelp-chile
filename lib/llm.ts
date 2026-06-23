@@ -47,7 +47,7 @@ export function activeProvider(): 'anthropic' | 'deepseek' | 'mock' {
 
 // ─── Anthropic (Claude) con prompt caching ──────────────────────────────────
 async function callAnthropic(apiKey: string, { system, messages, maxTokens = 2048, temperature = 0.2 }: LLMOptions): Promise<string | null> {
-  const model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5';
+  const model = process.env.ANTHROPIC_MODEL || 'claude-opus-4-20250514';
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
