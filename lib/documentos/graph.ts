@@ -69,33 +69,62 @@ export function emptyState(): DocState {
 }
 
 // ─── NODO 1: RECOPILADOR ────────────────────────────────────────────────────
-// Solo extrae datos y pregunta lo que falta. NO razona legalmente.
+// Extrae datos, identifica tipo de documento, y pregunta lo que falta según el tipo.
 const RECOPILADOR_PROMPT = `Eres un asistente que recopila datos para documentos legales chilenos.
-Tu ÚNICO trabajo es extraer datos del mensaje del usuario y preguntar lo que falta.
+Tu trabajo: extraer datos, identificar qué tipo de documento necesita el usuario, y preguntar SOLO lo que falta para ESE tipo específico.
 
-REGLAS:
-- Extrae: nombre, rut, direccion, hechos, contraparte, montos, fechas, patente, tribunal, etc.
-- Si el usuario dice "MI auto/casa/depto" → el bien está a SU nombre. No preguntes.
-- Si el usuario da su dirección, NO la pidas de nuevo.
-- NUNCA preguntes email ni teléfono.
-- NUNCA preguntes vigencia de poderes para trámites puntuales.
-- NUNCA preguntes "¿a nombre de quién está?" si dijo "mi [cosa]".
-- Pregunta UN dato por mensaje, el más importante que falte.
-- Cuando tengas: nombre + RUT + dirección + hechos del caso → marca ready=true.
+═══ PASO 1: IDENTIFICA EL TIPO ═══
+Del primer mensaje del usuario, determina qué documento necesita:
+- PODER_NOTARIAL: "poder para que alguien haga algo por mí"
+- CARTA_RECLAMO: "reclamo contra empresa/servicio"
+- DEMANDA_LABORAL: "me despidieron / no me pagan / acoso laboral"
+- RECURSO_PROTECCION: "me están vulnerando derechos fundamentales"
+- CONTRATO_ARRIENDO: "quiero arrendar / contrato de arriendo"
+- SOLICITUD_PENSION: "pensión alimenticia / alimentos"
+- FINIQUITO: "no me dieron finiquito / firmar finiquito"
+- CARTA_DESPIDO: "carta de despido / notificación"
+- DECLARACION_JURADA: "declaración jurada / declarar ante notario"
+- OTRO: si no calza con los anteriores
+
+═══ PASO 2: CAMPOS OBLIGATORIOS POR TIPO ═══
+PODER_NOTARIAL: mandante(nombre+rut+domicilio), apoderado(nombre+rut), facultades/trámite_específico
+CARTA_RECLAMO: reclamante(nombre+rut+domicilio), empresa_reclamada(nombre), hechos(qué_pasó, cuándo), pretensión(qué_quiere)
+DEMANDA_LABORAL: demandante(nombre+rut+domicilio), empleador(nombre_empresa+rut+dirección), cargo, fecha_ingreso, fecha_despido, remuneración, causal_invocada, hechos
+RECURSO_PROTECCION: recurrente(nombre+rut+domicilio), recurrido(nombre/institución), derecho_vulnerado, hechos, fecha_acto
+CONTRATO_ARRIENDO: arrendador(nombre+rut), arrendatario(nombre+rut), inmueble(dirección), renta_mensual, plazo
+SOLICITUD_PENSION: solicitante(nombre+rut+domicilio), alimentante(nombre+rut), hijos(nombres+edades), ingresos_alimentante
+FINIQUITO: trabajador(nombre+rut), empleador(nombre+rut), fecha_ingreso, fecha_término, remuneración, causal
+DECLARACION_JURADA: declarante(nombre+rut+domicilio), contenido_declaración
+OTRO: solicitante(nombre+rut+domicilio), descripción_completa_del_caso
+
+═══ PASO 3: REGLAS DE EXTRACCIÓN ═══
+- Si el usuario dice "MI auto/casa/trabajo" → el bien/empleo es SUYO. No preguntes titularidad.
+- Si dice "mi hermano/contador/padre" y da nombre → ese es el apoderado/contraparte.
+- NUNCA preguntes email, teléfono, vigencia de poderes puntuales.
+- NUNCA preguntes lo que ya está en datos_actuales.
+- Pregunta UN dato a la vez, el más crítico que falte.
+- Si puedes inferir algo del contexto (ej: "mi contador" → profesión=contador), infiérelo.
+- Acepta RUT en cualquier formato (con/sin puntos y guión).
+
+═══ PASO 4: CUÁNDO MARCAR READY ═══
+ready=true SOLO cuando TODOS los campos obligatorios del tipo detectado estén completos.
+Si falta CUALQUIER campo obligatorio → ready=false y pregunta ese campo.
 
 DATOS RECOPILADOS HASTA AHORA:
 {datos_actuales}
 
-Responde SOLO JSON:
+Responde SOLO JSON válido:
 {
+  "tipo_documento": "PODER_NOTARIAL|CARTA_RECLAMO|DEMANDA_LABORAL|etc",
   "datos_extraidos": {"campo": "valor", ...},
-  "datos_faltantes": ["dato1", "dato2"],
+  "datos_faltantes": ["campo1_que_falta", "campo2_que_falta"],
   "ready": true/false,
-  "response_message": "pregunta siguiente o confirmación"
+  "response_message": "pregunta siguiente O confirmación de que tienes todo"
 }`;
 
 export async function nodoRecopilar(state: DocState): Promise<DocState> {
-  const prompt = RECOPILADOR_PROMPT.replace('{datos_actuales}', JSON.stringify(state.datos));
+  const datosCtx = JSON.stringify(state.datos);
+  const prompt = RECOPILADOR_PROMPT.replace('{datos_actuales}', datosCtx);
 
   const raw = await complete({
     system: prompt,
@@ -109,15 +138,20 @@ export async function nodoRecopilar(state: DocState): Promise<DocState> {
   try {
     const json = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));
     const nuevoDatos = { ...state.datos, ...(json.datos_extraidos || {}) };
+
+    // Persist tipo_documento from first classification
+    const tipo = json.tipo_documento || state.tipoDocumento || null;
+
     return {
       ...state,
       datos: nuevoDatos,
       datosFaltantes: json.datos_faltantes || [],
       ready: json.ready || false,
       responseMessage: json.response_message || '',
+      tipoDocumento: tipo,
     };
   } catch {
-    return { ...state, responseMessage: 'Dame tu nombre completo y RUT para empezar.' };
+    return { ...state, responseMessage: 'Cuéntame tu situación para poder ayudarte.' };
   }
 }
 

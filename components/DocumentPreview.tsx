@@ -105,13 +105,16 @@ export default function DocumentPreview({ caseData }: DocumentPreviewProps) {
   const previewText = buildPreviewText(caseData);
   const lines = previewText.split('\n');
 
-  // Datos básicos que aún faltan (para la cajita "Completando información…")
-  const faltan = [
-    !pick(cd, dr, ['nombre', 'nombre_completo', 'nombre_trabajador', 'solicitante']) && 'nombre',
-    !pick(cd, dr, ['rut', 'rut_trabajador']) && 'RUT',
-    !pick(cd, dr, ['direccion', 'domicilio']) && 'domicilio',
-    !cd.tipo_documento && 'tipo de documento',
-  ].filter(Boolean) as string[];
+  // Datos faltantes: usar lo que dice el backend (datosFaltantes) o inferir
+  const backendFaltantes = (cd.datosFaltantes ?? []) as string[];
+  const faltan = backendFaltantes.length > 0
+    ? backendFaltantes
+    : [
+        !pick(cd, dr, ['nombre', 'nombre_completo', 'nombre_trabajador', 'solicitante']) && 'nombre',
+        !pick(cd, dr, ['rut', 'rut_trabajador']) && 'RUT',
+        !pick(cd, dr, ['direccion', 'domicilio']) && 'domicilio',
+        !cd.tipo_documento && 'tipo de documento',
+      ].filter(Boolean) as string[];
 
   function renderLines() {
     return lines.map((line, i) => {
