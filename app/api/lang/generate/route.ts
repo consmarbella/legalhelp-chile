@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit';
 import { runGenerationPipeline, emptyState, type DocState } from '@/lib/documentos/graph';
+import { getOrderByOrderId, updateOrder } from '@/lib/orderStore';
 
 const RATE_LIMIT = { maxRequests: 5, windowMs: 60_000 };
 
@@ -21,6 +22,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'datos requeridos' }, { status: 400 });
     }
 
+    // ─── Payment verification (igual que /api/generate-final) ───────────────
+    let isPaid = false;
+    if (orderId && typeof orderId === 'string') {
+      const order = await getOrderByOrderId(orderId);
+      if (!order || order.status !== 'approved') {
+        return NextResponse.json({ error: 'Pago no verificado' }, { status: 403 });
+      }
+      isPaid = true;
+    }
+
     // Build state with collected data
     const state: DocState = {
       ...emptyState(),
@@ -29,7 +40,7 @@ export async function POST(req: NextRequest) {
     };
 
     // Run pipeline: clasificar → validar → redactar → filtrar
-    console.log('[lang/generate] Running 4-node pipeline...');
+    console.log(`[lang/generate] Running pipeline (paid=${isPaid})...`);
     const result = await runGenerationPipeline(state);
 
     if (!result.viable) {
@@ -42,12 +53,15 @@ export async function POST(req: NextRequest) {
 
     const doc = result.documentoFinal || result.documento || '';
 
-    // Truncate for preview if no orderId
-    const isPaid = !!orderId;
-    const output = isPaid ? doc : truncate(doc);
+    // Persistir documento completo en la orden (para recuperación)
+    if (isPaid && orderId) {
+      await updateOrder(orderId, { documentUrl: doc }).catch(err => {
+        console.error('[lang/generate] persist failed:', err);
+      });
+    }
 
     return NextResponse.json({
-      document: output,
+      document: isPaid ? doc : truncate(doc),
       preview: !isPaid,
       tipo_documento: result.tipoDocumento,
       ley_aplicable: result.leyAplicable,
