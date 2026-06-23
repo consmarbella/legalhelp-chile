@@ -10,6 +10,7 @@
 
 import { llmComplete, LLMMessage } from '@/lib/llm';
 import { geminiComplete } from './llm-gemini';
+import { generarContextoLegal, buscarDocumentos, getConocimiento } from './knowledge';
 
 // Use Gemini Flash if available, fallback to Anthropic/DeepSeek
 async function complete(opts: { system: string; messages: { role: 'user' | 'assistant'; content: string }[]; maxTokens?: number; temperature?: number }): Promise<string | null> {
@@ -173,10 +174,13 @@ Responde SOLO JSON:
 }`;
 
 export async function nodoClasificar(state: DocState): Promise<DocState> {
-  const prompt = CLASIFICADOR_PROMPT.replace('{datos}', JSON.stringify(state.datos));
+  // Inyectar conocimiento de la base de datos de documentos chilenos
+  const contextoLegal = generarContextoLegal(JSON.stringify(state.datos));
+  const promptConContexto = CLASIFICADOR_PROMPT.replace('{datos}', JSON.stringify(state.datos))
+    + (contextoLegal ? `\n\nCONOCIMIENTO LEGAL CHILENO DISPONIBLE:\n${contextoLegal}` : '');
 
   const raw = await complete({
-    system: prompt,
+    system: promptConContexto,
     messages: [{ role: 'user', content: 'Clasifica este caso.' }],
     maxTokens: 300,
     temperature: 0.1,
@@ -275,12 +279,18 @@ export async function nodoRedactar(state: DocState): Promise<DocState> {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Santiago',
   });
 
+  // Inyectar conocimiento específico del tipo de documento
+  const contextoLegal = generarContextoLegal(
+    `${state.tipoDocumento || ''} ${JSON.stringify(state.datos)}`
+  );
+
   const prompt = REDACTOR_PROMPT
     .replace('{tipo}', state.tipoDocumento || 'documento legal')
     .replace('{ley}', state.leyAplicable || 'legislación chilena vigente')
     .replace('{tribunal}', state.tribunal || 'no aplica')
     .replace('{datos}', JSON.stringify(state.datos))
-    .replace('{fecha}', fecha);
+    .replace('{fecha}', fecha)
+    + (contextoLegal ? `\n\nCONOCIMIENTO LEGAL CHILENO (usa estos artículos y leyes reales):\n${contextoLegal}` : '');
 
   const raw = await complete({
     system: prompt,
