@@ -1,20 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit';
 import { findMateriaById } from '@/lib/demandas/materias-autorep';
-import { getOrderByOrderId } from '@/lib/orderStore';
+import { getOrderByOrderId, updateOrder } from '@/lib/orderStore';
 import { buildDemandaGraph, DemandaState } from '@/lib/demandas/graph';
 
 const RATE_LIMIT = { maxRequests: 5, windowMs: 60_000 };
+
+/**
+ * Trunca el documento para vista previa (primer ~40%).
+ * Así el texto completo NUNCA sale del servidor sin pago verificado.
+ */
+function truncateForPreview(doc: string): string {
+  const lines = doc.split('\n');
+  const keep = Math.max(6, Math.ceil(lines.length * 0.4));
+  const slice = lines.slice(0, keep);
+  while (slice.length && slice[slice.length - 1].trim() === '') slice.pop();
+  return slice.join('\n');
+}
 
 /**
  * POST /api/demandas/generate
  * Ejecuta el grafo LangGraph completo:
  *   clasificar → viabilidad → recopilar → retrieve_juris → redactar → self_check
  *
+ * SIN orderId → devuelve preview truncado (primer 40%).
+ * CON orderId + approved → devuelve documento completo.
+ *
  * Requiere:
  *   - materia_detectada: id de la materia
  *   - datos_recopilados: datos del caso
- *   - orderId: para verificar pago (obligatorio)
+ *   - orderId: opcional, para verificar pago
  */
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req.headers);
@@ -30,13 +45,15 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { materia_detectada, datos_recopilados, orderId } = body;
 
-    // Verificar pago
-    if (!orderId) {
-      return NextResponse.json({ error: 'Pago requerido para generar demanda.' }, { status: 403 });
-    }
-    const order = await getOrderByOrderId(orderId);
-    if (!order || order.status !== 'approved') {
-      return NextResponse.json({ error: 'Pago no verificado.' }, { status: 403 });
+    // Verificar pago (si hay orderId)
+    let isPaid = false;
+    if (orderId) {
+      const order = await getOrderByOrderId(orderId);
+      if (order && order.status === 'approved') {
+        isPaid = true;
+      } else {
+        return NextResponse.json({ error: 'Pago no verificado.' }, { status: 403 });
+      }
     }
 
     // Verificar materia
@@ -45,7 +62,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Materia no identificada.' }, { status: 400 });
     }
 
-    console.log(`[demandas/generate] Ejecutando grafo LangGraph para "${materia.nombre}"`);
+    console.log(`[demandas/generate] Ejecutando grafo LangGraph para "${materia.nombre}" (paid=${isPaid})`);
 
     // Ejecutar el grafo
     const graph = buildDemandaGraph();
@@ -71,28 +88,27 @@ export async function POST(req: NextRequest) {
 
     const result = await graph.invoke(initialState);
 
-    if (result.documentoFinal) {
+    const docFinal = result.documentoFinal || result.borrador;
+
+    if (docFinal) {
+      // Persistir documento si está pago
+      if (isPaid && orderId) {
+        await updateOrder(orderId, { documentUrl: docFinal }).catch(err => {
+          console.error('[demandas/generate] Failed to persist document:', err);
+        });
+      }
+
       return NextResponse.json({
-        document: result.documentoFinal,
+        document: isPaid ? docFinal : truncateForPreview(docFinal),
+        preview: !isPaid,
         materia: materia.nombre,
         tribunal: materia.tribunal,
         ticket: materia.ticket_sugerido,
         selfCheckPassed: result.selfCheckPassed,
         selfCheckAttempts: result.selfCheckAttempts,
         jurisprudenciaUsada: result.jurisprudencia.length,
-      });
-    }
-
-    // Si el self-check no pasó después de 3 intentos, devolver el borrador con advertencia
-    if (result.borrador) {
-      return NextResponse.json({
-        document: result.borrador,
-        materia: materia.nombre,
-        tribunal: materia.tribunal,
-        ticket: materia.ticket_sugerido,
-        selfCheckPassed: false,
-        selfCheckErrors: result.selfCheckErrors,
-        warning: 'El documento fue generado pero no pasó todas las verificaciones automáticas. Revíselo antes de presentar.',
+        ...(result.selfCheckErrors?.length ? { selfCheckErrors: result.selfCheckErrors } : {}),
+        ...(!result.selfCheckPassed && result.borrador ? { warning: 'El documento fue generado pero no pasó todas las verificaciones automáticas. Revíselo antes de presentar.' } : {}),
       });
     }
 
