@@ -471,6 +471,7 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
   
   const { obtenerRequisitos, consultarRAG, agregarDocumentoAlRAG } = await import('./vectorstore');
   const { validarCompletitudTool } = await import('./tools');
+  const { findTemplate, getTemplateRequirements } = await import('@/lib/templates');
 
   // ═══════════════════════════════════════════════════════════════
   // CASO 1: NO SABEMOS QUE TIPO DE DOCUMENTO ES
@@ -576,6 +577,41 @@ Responde SOLO el tipo (una linea), nada mas.`,
         );
       } catch (e) { /* no falla si no puede persistir */ }
       
+      // ═══════════════════════════════════════════════════════════════
+      // 🔥 SELECCIÓN AUTOMÁTICA DE PLANTILLA (80+ templates chilenos)
+      // ═══════════════════════════════════════════════════════════════
+      const template = findTemplate(tipoDetectado, texto);
+      
+      if (template) {
+        console.log(`[recopilar] ✅ PLANTILLA SELECCIONADA: ${template.titulo} (${template.id})`);
+        
+        // Extraer requisitos OBLIGATORIOS de la plantilla
+        const requisitosPlantilla = getTemplateRequirements(template);
+        console.log(`[recopilar] Requisitos de plantilla: ${requisitosPlantilla.join(', ')}`);
+        
+        // Mensaje personalizado con hint de la plantilla
+        const mensajeConPlantilla = `Perfecto, te ayudare con un "${template.titulo}". 
+
+Esta es una plantilla oficial chilena verificada (${template.articulos.slice(0, 2).join(', ')}).
+
+Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`;
+        
+        return {
+          tipoDocumento: tipoDetectado,
+          datosRecopilados: { 
+            ...state.datosRecopilados, 
+            tipo_documento: tipoDetectado,
+            template_id: template.id, // ← Guardar qué plantilla se usa
+            template_titulo: template.titulo
+          },
+          responseMessage: mensajeConPlantilla,
+          datosFaltantes: ['nombre', 'rut', ...requisitosPlantilla.slice(0, 5)] // Primeros 5 requisitos
+        };
+      }
+      
+      // Sin plantilla → flujo genérico
+      console.log(`[recopilar] ⚠️  SIN PLANTILLA para tipo: ${tipoDetectado} — usando flujo genérico`);
+      
       return {
         tipoDocumento: tipoDetectado,
         datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
@@ -592,16 +628,104 @@ Responde SOLO el tipo (una linea), nada mas.`,
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // CASO 2: YA SABEMOS EL TIPO -> VALIDAR Y PREGUNTAR LO QUE FALTA
+  // CASO 2: YA SABEMOS EL TIPO -> SELECCIONAR PLANTILLA O BUSCAR EN INTERNET
   // ═══════════════════════════════════════════════════════════════
   
-  // Consultar requisitos oficiales del RAG
+  // 🔥 PASO 1: VERIFICAR SI HAY PLANTILLA EN LAS 80 OFICIALES
+  const template = findTemplate(state.tipoDocumento, JSON.stringify(state.datosRecopilados));
   let requisitosOficiales = '';
-  try {
-    requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
-    console.log('[recopilar] Requisitos BCN:', requisitosOficiales.slice(0, 100));
-  } catch (error) {
-    console.error('[recopilar] Error consultando RAG:', error);
+  
+  if (template) {
+    console.log(`[recopilar] ✅ PLANTILLA ENCONTRADA: ${template.titulo} (ID: ${template.id})`);
+    console.log(`[recopilar] Artículos legales: ${template.articulos.join(', ')}`);
+    
+    // Extraer requisitos de la plantilla
+    const requisitosPlantilla = getTemplateRequirements(template);
+    requisitosOficiales = `REQUISITOS DE PLANTILLA "${template.titulo}" (verificada BCN):\n${requisitosPlantilla.map((r, i) => `${i + 1}. ${r}`).join('\n')}`;
+    console.log(`[recopilar] Requisitos plantilla: ${requisitosPlantilla.length} campos`);
+    
+    // Guardar en datos que se usó plantilla oficial
+    state.datosRecopilados.template_id = template.id;
+    state.datosRecopilados.template_titulo = template.titulo;
+  } else {
+    // 🔥 PASO 2: NO HAY PLANTILLA → BUSCAR EN INTERNET (BCN, DT, SERNAC)
+    console.log(`[recopilar] ⚠️  SIN PLANTILLA para "${state.tipoDocumento}" → BUSCANDO EN INTERNET`);
+    
+    try {
+      // Buscar plantilla oficial en BCN
+      const busquedaBCN = await llmComplete({
+        system: 'Eres un asistente legal chileno. Identifica si existe una plantilla oficial en BCN para este tipo de documento.',
+        messages: [{
+          role: 'user',
+          content: `Tipo de documento: "${state.tipoDocumento}"
+          
+¿Existe una plantilla oficial en la Biblioteca del Congreso Nacional (BCN), Dirección del Trabajo, SERNAC u otra institución chilena para este tipo de documento?
+
+Responde en JSON:
+{
+  "existe_plantilla": true/false,
+  "fuente_url": "URL de la plantilla oficial si existe",
+  "fuente_nombre": "BCN / Dirección del Trabajo / SERNAC / etc.",
+  "requisitos_basicos": ["campo1", "campo2", ...] // campos que el documento necesita según la ley chilena
+}`
+        }],
+        temperature: 0,
+        maxTokens: 500
+      });
+      
+      if (busquedaBCN) {
+        const jsonMatch = busquedaBCN.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          const plantillaWeb = JSON.parse(jsonMatch[0]);
+          
+          if (plantillaWeb.existe_plantilla && plantillaWeb.requisitos_basicos) {
+            console.log(`[recopilar] 🌐 PLANTILLA WEB ENCONTRADA: ${plantillaWeb.fuente_nombre}`);
+            console.log(`[recopilar] URL: ${plantillaWeb.fuente_url}`);
+            
+            requisitosOficiales = `PLANTILLA OFICIAL DE ${plantillaWeb.fuente_nombre}:\nFuente: ${plantillaWeb.fuente_url}\n\nREQUISITOS:\n${plantillaWeb.requisitos_basicos.map((r: string, i: number) => `${i + 1}. ${r}`).join('\n')}`;
+            
+            // Guardar en datos que se encontró plantilla web
+            state.datosRecopilados.template_fuente = plantillaWeb.fuente_nombre;
+            state.datosRecopilados.template_url = plantillaWeb.fuente_url;
+            state.datosRecopilados.requisitos_web = plantillaWeb.requisitos_basicos;
+            
+            // Agregar al RAG para futuras consultas
+            await agregarDocumentoAlRAG(
+              `Plantilla oficial para "${state.tipoDocumento}" encontrada en ${plantillaWeb.fuente_nombre}\nURL: ${plantillaWeb.fuente_url}\nRequisitos: ${plantillaWeb.requisitos_basicos.join(', ')}`,
+              {
+                titulo: `Plantilla web: ${state.tipoDocumento}`,
+                tipo: 'plantilla_web',
+                fuente: plantillaWeb.fuente_nombre,
+                tags: [state.tipoDocumento, plantillaWeb.fuente_nombre, 'plantilla', 'oficial']
+              }
+            );
+          } else {
+            console.log(`[recopilar] ⚠️  No existe plantilla oficial web para "${state.tipoDocumento}"`);
+            // Fallback: usar RAG local
+            requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+          }
+        }
+      }
+    } catch (error) {
+      console.error('[recopilar] Error buscando plantilla en internet:', error);
+      // Fallback: consultar RAG local
+      try {
+        requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+        console.log('[recopilar] Requisitos BCN (fallback RAG):', requisitosOficiales.slice(0, 100));
+      } catch (e) {
+        console.error('[recopilar] Error consultando RAG:', e);
+      }
+    }
+  }
+  
+  // Consultar requisitos oficiales del RAG (fallback si no hay plantilla ni web)
+  if (!requisitosOficiales) {
+    try {
+      requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+      console.log('[recopilar] Requisitos BCN (RAG fallback):', requisitosOficiales.slice(0, 100));
+    } catch (error) {
+      console.error('[recopilar] Error consultando RAG:', error);
+    }
   }
 
   // Validar completitud
