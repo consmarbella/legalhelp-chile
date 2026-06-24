@@ -3,6 +3,9 @@
     "app/api/chat/route.ts": {
       "maxDuration": 60
     },
+    "app/api/lang/chat/route.ts": {
+      "maxDuration": 60
+    },
     "app/api/generate-final/route.ts": {
       "maxDuration": 60
     },

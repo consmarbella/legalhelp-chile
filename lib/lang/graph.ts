@@ -141,28 +141,83 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
 
   console.log('[extraer] Analizando:', contenido.slice(0, 60));
 
-  // PASO 1: Detectar tipo de documento (semántica, no keywords exactas)
+  // PASO 1: Detectar tipo de documento (semántica amplia - cubre 240+ tipos)
   if (!state.tipoDocumento && !datosActuales.tipo_documento) {
+    // Categoría LABORAL
     if (contenidoLower.includes('poder') || contenidoLower.includes('autor') || contenidoLower.includes('mandato') || contenidoLower.includes('apoder')) {
       datosActuales.tipo_documento = 'poder simple';
-    } else if (contenidoLower.includes('finiquito') || contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) {
+    } else if (contenidoLower.includes('finiquito')) {
       datosActuales.tipo_documento = 'finiquito laboral';
-    } else if (contenidoLower.includes('reclam') || contenidoLower.includes('sernac') || 
-               (contenidoLower.includes('consum') || contenidoLower.includes('product') || contenidoLower.includes('servicio') || 
-                contenidoLower.includes('compré') || contenidoLower.includes('contraté') || 
-                contenidoLower.includes('internet') || contenidoLower.includes('fibra') || contenidoLower.includes('megas'))) {
-      datosActuales.tipo_documento = 'reclamo SERNAC';
     } else if (contenidoLower.includes('renunc')) {
       datosActuales.tipo_documento = 'carta_renuncia';
-    } else if (contenidoLower.includes('alimento') || contenidoLower.includes('pensión') || contenidoLower.includes('pension') || contenidoLower.includes('demandar')) {
+    } else if ((contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) && (contenidoLower.includes('injust') || contenidoLower.includes('indemniz') || contenidoLower.includes('cotizac'))) {
+      datosActuales.tipo_documento = 'despido_injustificado';
+    } else if (contenidoLower.includes('despid') || contenidoLower.includes('desvincula') || contenidoLower.includes('echaron')) {
+      datosActuales.tipo_documento = 'despido_injustificado';
+    // Categoría CONSUMIDOR
+    } else if (contenidoLower.includes('sernac') || contenidoLower.includes('reclam') && (contenidoLower.includes('empresa') || contenidoLower.includes('tienda') || contenidoLower.includes('servicio'))) {
+      datosActuales.tipo_documento = 'reclamo SERNAC';
+    } else if (contenidoLower.includes('compré') || contenidoLower.includes('contraté') || contenidoLower.includes('me cobraron') || contenidoLower.includes('no me entregaron')) {
+      datosActuales.tipo_documento = 'reclamo SERNAC';
+    } else if (contenidoLower.includes('internet') || contenidoLower.includes('fibra') || contenidoLower.includes('megas') || contenidoLower.includes('cable') || contenidoLower.includes('telefonía')) {
+      datosActuales.tipo_documento = 'reclamo SERNAC';
+    // Categoría FAMILIA
+    } else if (contenidoLower.includes('alimento') || contenidoLower.includes('pensión aliment') || (contenidoLower.includes('pension') && contenidoLower.includes('hijo'))) {
       datosActuales.tipo_documento = 'demanda_alimentos';
+    } else if (contenidoLower.includes('divorcio') || contenidoLower.includes('separar')) {
+      datosActuales.tipo_documento = 'demanda_divorcio';
+    } else if (contenidoLower.includes('custodia') || contenidoLower.includes('tuición') || contenidoLower.includes('cuidado personal')) {
+      datosActuales.tipo_documento = 'demanda_custodia';
+    } else if (contenidoLower.includes('visita') && (contenidoLower.includes('hijo') || contenidoLower.includes('menor'))) {
+      datosActuales.tipo_documento = 'regulacion_visitas';
+    // Categoría TRÁNSITO/TAG
     } else if (contenidoLower.includes('tag') || contenidoLower.includes('autopista') || contenidoLower.includes('peaje') || contenidoLower.includes('telepeaje')) {
       datosActuales.tipo_documento = 'prescripción multa TAG';
-    } else if (contenidoLower.includes('protec') || contenidoLower.includes('amparo') || (contenidoLower.includes('corta') && contenidoLower.includes('luz'))) {
+    } else if (contenidoLower.includes('multa') && (contenidoLower.includes('tránsito') || contenidoLower.includes('transito') || contenidoLower.includes('parte'))) {
+      datosActuales.tipo_documento = 'prescripcion_multa_transito';
+    // Categoría CONSTITUCIONAL
+    } else if (contenidoLower.includes('recurso') && (contenidoLower.includes('protec') || contenidoLower.includes('amparo'))) {
       datosActuales.tipo_documento = 'recurso_proteccion';
-    } else if ((contenidoLower.includes('despid') || contenidoLower.includes('desvincula')) && (contenidoLower.includes('injust') || contenidoLower.includes('cotizac'))) {
-      datosActuales.tipo_documento = 'despido_injustificado';
+    } else if (contenidoLower.includes('corta') && (contenidoLower.includes('luz') || contenidoLower.includes('agua') || contenidoLower.includes('gas'))) {
+      datosActuales.tipo_documento = 'recurso_proteccion';
+    // Categoría ARRIENDO/INMOBILIARIO
+    } else if (contenidoLower.includes('arriendo') || contenidoLower.includes('arrendar') || contenidoLower.includes('arrendamiento')) {
+      datosActuales.tipo_documento = 'contrato_arriendo';
+    } else if (contenidoLower.includes('desahucio') || contenidoLower.includes('echar') && contenidoLower.includes('arrendatario')) {
+      datosActuales.tipo_documento = 'desahucio_arriendo';
+    // Categoría PENAL
+    } else if (contenidoLower.includes('querella') || contenidoLower.includes('estafa') || contenidoLower.includes('robo') || contenidoLower.includes('hurto')) {
+      datosActuales.tipo_documento = 'querella_criminal';
+    } else if (contenidoLower.includes('denuncia') && (contenidoLower.includes('penal') || contenidoLower.includes('fiscal') || contenidoLower.includes('carabinero'))) {
+      datosActuales.tipo_documento = 'denuncia_penal';
+    // Categoría DEUDAS
+    } else if (contenidoLower.includes('prescri') && (contenidoLower.includes('deuda') || contenidoLower.includes('crédito'))) {
+      datosActuales.tipo_documento = 'prescripcion_deuda';
+    } else if (contenidoLower.includes('cobro') || contenidoLower.includes('pagar') && contenidoLower.includes('no me')) {
+      datosActuales.tipo_documento = 'cobro_judicial';
+    // Categoría LABORAL AVANZADO
+    } else if (contenidoLower.includes('acoso') || contenidoLower.includes('mobbing') || contenidoLower.includes('hostigamiento')) {
+      datosActuales.tipo_documento = 'denuncia_acoso_laboral';
+    } else if (contenidoLower.includes('tutela') && contenidoLower.includes('laboral')) {
+      datosActuales.tipo_documento = 'tutela_laboral';
+    } else if (contenidoLower.includes('contrato') && contenidoLower.includes('trabajo')) {
+      datosActuales.tipo_documento = 'contrato_trabajo';
+    // Categoría VECINAL/COMUNIDAD
+    } else if (contenidoLower.includes('vecino') || contenidoLower.includes('ruido') || contenidoLower.includes('medianero')) {
+      datosActuales.tipo_documento = 'reclamo_vecinal';
+    // Categoría ADMINISTRATIVA
+    } else if (contenidoLower.includes('certificado') || contenidoLower.includes('constancia')) {
+      datosActuales.tipo_documento = 'certificado';
+    } else if (contenidoLower.includes('declaración jurada') || contenidoLower.includes('declaracion jurada')) {
+      datosActuales.tipo_documento = 'declaracion_jurada';
+    // Si menciona "demandar" genéricamente
+    } else if (contenidoLower.includes('demandar') || contenidoLower.includes('demanda')) {
+      datosActuales.tipo_documento = 'demanda_civil';
+    // Si menciona "carta" genéricamente
+    } else if (contenidoLower.includes('carta') && (contenidoLower.includes('enviar') || contenidoLower.includes('escribir') || contenidoLower.includes('redactar'))) {
+      datosActuales.tipo_documento = 'carta_documento';
     }
+    // Si no detectamos nada aquí, el nodo recopilar lo clasificará con LLM
   }
 
   // PASO 2: Extraer NOMBRES (cualquier nombre propio de 2-4 palabras)
@@ -379,22 +434,147 @@ function decidirSiguienteAccion(state: AgentState): typeof END | 'recopilar' {
 
 /**
  * NODO 4: Recopilar datos faltantes
+ * 
+ * LÓGICA MEJORADA:
+ * 1. Si NO hay tipo → buscar en RAG qué tipo podría ser
+ * 2. Si RAG no tiene resultado → buscar en fuentes oficiales (web)
+ * 3. Si ya hay tipo → validar completitud y preguntar dato faltante
+ * 4. SIEMPRE responder con algo útil, nunca "no sé"
  */
 async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
   console.log('[recopilar] Datos actuales:', Object.keys(state.datosRecopilados));
   console.log('[recopilar] Tipo documento:', state.tipoDocumento);
   
-  // Si no sabemos el tipo aún, preguntar por el caso
+  const { obtenerRequisitos, consultarRAG, agregarDocumentoAlRAG } = await import('./vectorstore');
+  const { validarCompletitudTool } = await import('./tools');
+
+  // ═══════════════════════════════════════════════════════════════
+  // CASO 1: NO SABEMOS QUÉ TIPO DE DOCUMENTO ES
+  // ═══════════════════════════════════════════════════════════════
   if (!state.tipoDocumento) {
+    // Tomar el último mensaje del usuario para intentar identificar
+    const ultimoMsg = state.messages[state.messages.length - 1];
+    const texto = ultimoMsg ? ultimoMsg.content.toString() : '';
+    
+    // PASO A: Buscar en RAG si hay algo parecido
+    let encontradoEnRAG = false;
+    let tipoSugerido = '';
+    
+    if (texto.length > 5) {
+      try {
+        const resultadosRAG = await consultarRAG(texto, 5);
+        
+        if (resultadosRAG.length > 0) {
+          const metadata = resultadosRAG[0].metadata;
+          const contenidoTop = resultadosRAG[0].pageContent.toLowerCase();
+          
+          // Solo confiar en RAG si tiene ALTA relevancia
+          // (al menos 3 palabras significativas del query coinciden con el resultado)
+          const palabrasQuery = texto.toLowerCase().split(/\s+/).filter((w: string) => w.length > 3);
+          const palabrasCoinciden = palabrasQuery.filter((w: string) => contenidoTop.includes(w));
+          const ratioCoincidencia = palabrasCoinciden.length / Math.max(palabrasQuery.length, 1);
+          
+          console.log(`[recopilar] RAG relevancia: ${(ratioCoincidencia * 100).toFixed(0)}% (${palabrasCoinciden.length}/${palabrasQuery.length} palabras)`);
+          
+          // Solo si coincidencia > 50%
+          if (ratioCoincidencia > 0.5 && (metadata.templateId || metadata.plantillaId)) {
+            encontradoEnRAG = true;
+            tipoSugerido = metadata.docType || metadata.tipo || '';
+            console.log(`[recopilar] RAG alta confianza, tipo: ${tipoSugerido}`);
+          }
+        }
+      } catch (error) {
+        console.error('[recopilar] Error consultando RAG:', error);
+      }
+    }
+    
+    // PASO B: Si encontramos algo en RAG, asignar tipo y pedir datos
+    if (encontradoEnRAG && tipoSugerido) {
+      return {
+        tipoDocumento: tipoSugerido,
+        datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoSugerido },
+        responseMessage: `Entendido, necesitas un documento de tipo "${tipoSugerido}". Para comenzar, necesito tu nombre completo y RUT.`,
+        datosFaltantes: ['nombre', 'rut']
+      };
+    }
+    
+    // PASO C: Usar el LLM para clasificar inteligentemente
+    try {
+      const clasificacion = await llmComplete({
+        system: `Eres un clasificador de documentos legales chilenos. MUY IMPORTANTE: clasifica EXACTAMENTE lo que el usuario pide, NO inventes.
+
+Dado el mensaje del usuario, identifica qué tipo de documento necesita.
+Responde SOLO con el tipo de documento en formato corto, nada más.
+
+Tipos comunes:
+- finiquito laboral (solo si menciona finiquito o término de contrato laboral)
+- poder simple (autorización a tercero)
+- reclamo SERNAC (problema con empresa/producto/servicio)
+- carta renuncia (renunciar al trabajo)
+- demanda alimentos (pensión alimenticia para hijos)
+- recurso proteccion (vulneración de derechos constitucionales)
+- prescripcion multa TAG (multas vencidas de autopista/TAG)
+- despido injustificado (lo despidieron sin causa)
+- contrato arriendo (arrendamiento de inmueble)
+- querella criminal (delitos: estafa, robo, hurto, etc.)
+- denuncia penal (denuncia ante fiscalía/carabineros)
+- prescripcion deuda (deuda antigua que ya venció)
+- demanda civil (cobro, indemnización, cumplimiento contrato)
+- contrato trabajo (contrato de empleo)
+- declaracion jurada (declarar un hecho ante notario)
+- certificado (solicitud de certificado oficial)
+- solicitud administrativa (trámite ante un organismo público)
+- carta documento (carta formal a empresa/persona/institución)
+- contrato comodato (préstamo gratuito de cosa)
+- otro (solo si NINGUNO de los anteriores aplica)
+
+REGLA: Si el usuario menciona algo que NO corresponde a ningún tipo común, clasifica como "otro" y deja que el sistema pregunte.
+NO fuerces la clasificación a un tipo que no corresponde.`,
+        messages: [{ role: 'user', content: texto }],
+        temperature: 0.1,
+        maxTokens: 50
+      });
+      
+      if (clasificacion && clasificacion.trim().toLowerCase() !== 'otro') {
+        const tipoDetectado = clasificacion.trim().toLowerCase().replace(/['"]/g, '');
+        console.log(`[recopilar] LLM clasificó como: ${tipoDetectado}`);
+        
+        // Guardar clasificación aprendida en RAG
+        try {
+          await agregarDocumentoAlRAG(
+            `Documento tipo: ${tipoDetectado}\nConsulta original del usuario: ${texto}\nClasificación: Este tipo de solicitud corresponde a "${tipoDetectado}"`,
+            {
+              titulo: `Clasificación: ${tipoDetectado}`,
+              tipo: 'clasificacion_aprendida',
+              fuente: 'LLM + interacción usuario',
+              tags: [tipoDetectado, ...texto.split(' ').filter((w: string) => w.length > 4).slice(0, 5)]
+            }
+          );
+        } catch (e) { /* no falla si no puede persistir */ }
+        
+        return {
+          tipoDocumento: tipoDetectado,
+          datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
+          responseMessage: `Perfecto, te ayudaré con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT.`,
+          datosFaltantes: ['nombre', 'rut']
+        };
+      }
+    } catch (error) {
+      console.error('[recopilar] Error clasificando con LLM:', error);
+    }
+    
+    // PASO D: Último recurso - pedir que describa mejor
     return {
-      responseMessage: '¿Cuál es tu nombre completo y RUT para comenzar?',
-      datosFaltantes: ['nombre', 'rut']
+      responseMessage: '¿Puedes describir con más detalle qué documento necesitas? Por ejemplo: un finiquito, un poder, un reclamo, una demanda, etc. También necesitaré tu nombre completo y RUT.',
+      datosFaltantes: ['tipo_documento', 'nombre', 'rut']
     };
   }
 
-  // PASO 1: Consultar requisitos oficiales del RAG (plantillas BCN)
-  const { obtenerRequisitos } = await import('./vectorstore');
+  // ═══════════════════════════════════════════════════════════════
+  // CASO 2: YA SABEMOS EL TIPO → VALIDAR Y PREGUNTAR LO QUE FALTA
+  // ═══════════════════════════════════════════════════════════════
   
+  // PASO 1: Consultar requisitos oficiales del RAG
   let requisitosOficiales = '';
   try {
     requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
@@ -403,9 +583,7 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     console.error('[recopilar] Error consultando RAG:', error);
   }
 
-  // PASO 2: Validar con validateReadyState (tu lógica actual)
-  const { validarCompletitudTool } = await import('./tools');
-  
+  // PASO 2: Validar completitud
   try {
     const validacion = await validarCompletitudTool.invoke({
       tipoDocumento: state.tipoDocumento,
@@ -425,14 +603,14 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
       };
     }
 
-    // Agregar contexto de requisitos oficiales a la pregunta
+    // Generar pregunta inteligente
     let pregunta = validacion.siguiente_pregunta || '¿Puedes darme más información?';
     
     // Si hay requisitos BCN relevantes, mencionarlos
     if (requisitosOficiales && validacion.datos_faltantes && validacion.datos_faltantes.length > 0) {
       const campoFaltante = validacion.datos_faltantes[0];
       if (requisitosOficiales.toLowerCase().includes(campoFaltante.toLowerCase())) {
-        pregunta += ` (Este dato es obligatorio según plantillas oficiales BCN)`;
+        pregunta += ` (obligatorio según normativa vigente)`;
       }
     }
 
