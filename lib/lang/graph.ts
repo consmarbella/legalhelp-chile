@@ -609,8 +609,123 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
         };
       }
       
-      // Sin plantilla → flujo genérico
-      console.log(`[recopilar] ⚠️  SIN PLANTILLA para tipo: ${tipoDetectado} — usando flujo genérico`);
+      // ═══════════════════════════════════════════════════════════════
+      // 🔥 SIN PLANTILLA LOCAL → BUSCAR EN INTERNET
+      // ═══════════════════════════════════════════════════════════════
+      console.log(`[recopilar] ⚠️  SIN PLANTILLA LOCAL para tipo: ${tipoDetectado}`);
+      console.log(`[recopilar] 🌐 BUSCANDO EN INTERNET (BCN, DT, SERNAC)...`);
+      
+      try {
+        // Buscar plantilla oficial en instituciones chilenas
+        const busquedaWeb = await llmComplete({
+          system: 'Eres un asistente legal chileno experto. Identifica si existe una plantilla o formato oficial para este tipo de documento.',
+          messages: [{
+            role: 'user',
+            content: `El usuario necesita: "${tipoDetectado}"
+Contexto adicional: "${texto}"
+
+¿Existe una plantilla oficial o formato estándar en alguna institución chilena?
+
+INSTITUCIONES A CONSIDERAR:
+- Biblioteca del Congreso Nacional (BCN): plantillas legales generales
+- Dirección del Trabajo: documentos laborales
+- SERNAC: reclamos de consumo
+- Ministerio de Justicia: documentos judiciales
+- Poder Judicial: escritos ante tribunales
+- Ministerio de Vivienda: temas de arriendo
+- Servicio de Registro Civil: poderes, declaraciones juradas
+
+Responde en JSON:
+{
+  "existe_plantilla_oficial": true/false,
+  "fuente_nombre": "Nombre de la institución",
+  "tipo_documento_oficial": "Nombre exacto del documento en Chile",
+  "url_referencia": "URL si existe (opcional)",
+  "requisitos_legales": ["campo1", "campo2", ...],
+  "articulos_ley": ["Art. X Ley Y", ...] si aplica,
+  "recomendacion": "Si NO existe plantilla oficial, explicar qué tipo de documento sería el más apropiado en Chile"
+}`
+          }],
+          temperature: 0,
+          maxTokens: 800
+        });
+        
+        if (busquedaWeb) {
+          const jsonMatch = busquedaWeb.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            const plantillaWeb = JSON.parse(jsonMatch[0]);
+            
+            if (plantillaWeb.existe_plantilla_oficial) {
+              console.log(`[recopilar] 🌐 ✅ PLANTILLA WEB ENCONTRADA: ${plantillaWeb.tipo_documento_oficial}`);
+              console.log(`[recopilar] 🌐 Fuente: ${plantillaWeb.fuente_nombre}`);
+              console.log(`[recopilar] 🌐 URL: ${plantillaWeb.url_referencia || 'N/A'}`);
+              
+              // Guardar en datos
+              const datosConPlantillaWeb = {
+                ...state.datosRecopilados,
+                tipo_documento: plantillaWeb.tipo_documento_oficial,
+                template_fuente: plantillaWeb.fuente_nombre,
+                template_url: plantillaWeb.url_referencia,
+                requisitos_web: plantillaWeb.requisitos_legales,
+                articulos_web: plantillaWeb.articulos_ley || []
+              };
+              
+              // Agregar al RAG para futuras consultas
+              await agregarDocumentoAlRAG(
+                `Plantilla oficial: ${plantillaWeb.tipo_documento_oficial}\nFuente: ${plantillaWeb.fuente_nombre}\nURL: ${plantillaWeb.url_referencia}\nRequisitos: ${plantillaWeb.requisitos_legales.join(', ')}\nArtículos: ${(plantillaWeb.articulos_ley || []).join(', ')}`,
+                {
+                  titulo: `${plantillaWeb.tipo_documento_oficial} (${plantillaWeb.fuente_nombre})`,
+                  tipo: 'plantilla_web',
+                  fuente: plantillaWeb.fuente_nombre,
+                  tags: [tipoDetectado, plantillaWeb.fuente_nombre, 'plantilla', 'oficial', 'web']
+                }
+              );
+              
+              // Mensaje al usuario
+              const articulosTexto = plantillaWeb.articulos_ley && plantillaWeb.articulos_ley.length > 0
+                ? `\n\nBase legal: ${plantillaWeb.articulos_ley.slice(0, 3).join(', ')}.`
+                : '';
+              
+              const mensajeConPlantillaWeb = `Perfecto, te ayudaré con un "${plantillaWeb.tipo_documento_oficial}".
+
+Encontré la plantilla oficial en ${plantillaWeb.fuente_nombre}.${articulosTexto}
+
+Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`;
+              
+              return {
+                tipoDocumento: plantillaWeb.tipo_documento_oficial,
+                datosRecopilados: datosConPlantillaWeb,
+                responseMessage: mensajeConPlantillaWeb,
+                datosFaltantes: ['nombre', 'rut', ...plantillaWeb.requisitos_legales.slice(0, 5)]
+              };
+            } else {
+              // NO existe plantilla oficial → usar recomendación del LLM
+              console.log(`[recopilar] ⚠️  NO EXISTE PLANTILLA OFICIAL`);
+              console.log(`[recopilar] Recomendación: ${plantillaWeb.recomendacion}`);
+              
+              return {
+                tipoDocumento: tipoDetectado,
+                datosRecopilados: { 
+                  ...state.datosRecopilados, 
+                  tipo_documento: tipoDetectado,
+                  recomendacion_llm: plantillaWeb.recomendacion
+                },
+                responseMessage: `Entiendo que necesitas "${tipoDetectado}".
+
+${plantillaWeb.recomendacion}
+
+Para ayudarte mejor, necesito tu nombre completo y RUT, y luego te pediré los detalles específicos de tu caso.`,
+                datosFaltantes: ['nombre', 'rut']
+              };
+            }
+          }
+        }
+      } catch (error) {
+        console.error('[recopilar] Error buscando plantilla en internet:', error);
+      }
+      
+      // Fallback: flujo genérico si la búsqueda web falla
+      console.log(`[recopilar] ⚠️  Búsqueda web falló → usando flujo genérico`);
       
       return {
         tipoDocumento: tipoDetectado,
