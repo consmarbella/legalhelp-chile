@@ -284,7 +284,7 @@ export function generateMissingFieldQuestion(missing: string[]): string {
     'apoderada': '¿Cuál es el nombre completo y RUT de la persona a quien le das el poder?',
     'facultades': '¿Para qué necesitas este poder? (qué trámite específico va a hacer)',
     'rut': '¿Cuál es tu RUT?',
-    'nombre': '¿Cuál es tu nombre completo?',
+    'nombre': '¿Cuál es tu nombre completo y RUT?',
     'nombre completo': '¿Cuál es tu nombre completo y RUT?',
     'empleador': '¿Cuál es el nombre de la empresa o empleador?',
     'empresa': '¿Cuál es el nombre de la empresa?',

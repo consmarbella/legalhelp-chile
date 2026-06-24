@@ -255,13 +255,30 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     }
   }
 
-  // PASO 3: Extraer RUT (flexible con formatos)
+  // PASO 3: Extraer RUT (muy flexible con formatos)
   if (!datosActuales.rut) {
-    const rutMatch = contenido.match(/\b(\d{1,2}[\.\d]{3,9}-?[\dkK])\b/);
+    // Formato 1: Con puntos y guión (12.345.678-9)
+    let rutMatch = contenido.match(/\b(\d{1,2}\.\d{3}\.\d{3}-[\dkK])\b/);
+    
+    // Formato 2: Con guión sin puntos (12345678-9)
+    if (!rutMatch) {
+      rutMatch = contenido.match(/\b(\d{7,8}-[\dkK])\b/);
+    }
+    
+    // Formato 3: Solo números (123456789 o 12345678k) — 8 o 9 dígitos seguidos
+    if (!rutMatch) {
+      rutMatch = contenido.match(/\b(\d{7,8}[\dkK])\b/);
+    }
+    
+    // Formato 4: Con puntos sin guión (12.345.678-9 variantes)
+    if (!rutMatch) {
+      rutMatch = contenido.match(/\b(\d{1,2}[\.\d]{3,9}-?[\dkK])\b/);
+    }
+    
     if (rutMatch) {
       const rut = rutMatch[1];
-      // Validar que parezca RUT (no sea un número random como "2019")
-      if (rut.length >= 9 || rut.includes('.') || rut.includes('-')) {
+      // Validar longitud mínima para que no sea un número random
+      if (rut.replace(/[\.\-]/g, '').length >= 8) {
         datosActuales.rut = rut;
       }
     }
