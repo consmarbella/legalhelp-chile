@@ -84,14 +84,14 @@ function extraerRequisitos(template: any): string {
   const matches = template.esqueleto.match(/\[([A-Z][A-Z\s]+)\]/g);
   if (matches) {
     const campos = [...new Set(matches.map((m: string) => m.replace(/[\[\]]/g, '')))];
-    requisitos.push(...campos);
+    requisitos.push(...(campos as string[]));
   }
   
   // Buscar [[VARIABLE]] en el esqueleto
   const matches2 = template.esqueleto.match(/\[\[([A-Za-z\s\(\)]+)\]\]/g);
   if (matches2) {
     const campos = [...new Set(matches2.map((m: string) => m.replace(/\[\[|\]\]/g, '')))];
-    requisitos.push(...campos);
+    requisitos.push(...(campos as string[]));
   }
   
   // Si no hay requisitos explícitos, inferir de la instrucción

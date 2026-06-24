@@ -67,12 +67,12 @@ async function ejecutarPrueba(caso: TestCase, index: number) {
   try {
     const resultado = await runAgent(caso.mensaje, [], {});
     
-    console.log(`\n   Respuesta: ${resultado.response_message.slice(0, 150)}...`);
-    console.log(`   Tipo detectado: ${resultado.tipoDocumento || 'No detectado'}`);
-    console.log(`   Datos recopilados: ${Object.keys(resultado.datosRecopilados || {}).length} campos`);
+    console.log(`\n   Respuesta: ${String(resultado.response_message).slice(0, 150)}...`);
+    console.log(`   Tipo detectado: ${resultado.tipo_documento || 'No detectado'}`);
+    console.log(`   Datos recopilados: ${Object.keys(resultado.datos_recopilados || {}).length} campos`);
     
     // Verificar si el agente menciona buscar o no saber
-    const respuesta = resultado.response_message.toLowerCase();
+    const respuesta = String(resultado.response_message).toLowerCase();
     const mencionaBusqueda = respuesta.includes('buscar') || 
                              respuesta.includes('fuentes oficiales') || 
                              respuesta.includes('bcn') ||

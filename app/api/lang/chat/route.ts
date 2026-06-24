@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
       datos_faltantes: result.datos_faltantes,
       ready: result.ready,
       // Flatten datos para compatibilidad
-      ...result.datos_recopilados,
+      ...((result.datos_recopilados || {}) as any),
       // Metadata del agente
       agent: 'langgraph',
       version: '1.0'

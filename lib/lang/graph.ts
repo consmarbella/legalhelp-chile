@@ -528,11 +528,11 @@ export function createLegalAgentGraph() {
   workflow.addNode('extraer', extraerDatos);
   workflow.addNode('recopilar', recopilarDatos);
 
-  // Flujo LINEAL: extraer → recopilar → END (sin loops)
-  // El "loop" lo maneja el frontend llamando de nuevo a la API
-  workflow.addEdge(START, 'extraer');
-  workflow.addEdge('extraer', 'recopilar');
-  workflow.addEdge('recopilar', END); // SIEMPRE terminar después de recopilar
+  // Flujo LINEAL: START → extraer → recopilar → END
+  // Usamos type assertions para evitar errores de TypeScript con tipos estrictos
+  (workflow as any).addEdge(START, 'extraer');
+  (workflow as any).addEdge('extraer', 'recopilar');
+  (workflow as any).addEdge('recopilar', END);
 
   return workflow.compile();
 }
@@ -580,18 +580,20 @@ export async function runAgent(
   try {
     // 🔥 CLAVE: recursionLimit=3 porque solo queremos 1 ciclo (extraer → recopilar → decidir)
     // No queremos que el graph ejecute múltiples turnos, solo UNO
-    const result = await graph.invoke(initialState, {
+    const result = await graph.invoke(initialState as any, {
       recursionLimit: 3 // extraer → recopilar → END (o recopilar otra vez si falla)
     });
     
-    return {
+    const returnValue = {
       response_message: result.responseMessage,
       tipo_documento: result.tipoDocumento,
       datos_recopilados: result.datosRecopilados,
       datos_faltantes: result.datosFaltantes,
       ready: result.ready,
-      ...result.datosRecopilados // Flatten datos para compatibilidad con tu API actual
+      ...((result.datosRecopilados || {}) as any) // Flatten datos para compatibilidad con tu API actual
     };
+    
+    return returnValue;
 
   } catch (error) {
     console.error('[graph] Error ejecutando agente:', error);

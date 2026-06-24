@@ -130,7 +130,7 @@ export const extraerDatosTool = tool(
     description: 'Extrae información estructurada del mensaje del usuario (nombre, RUT, fechas, montos, etc.). Usa esto cuando el usuario responde con datos.',
     schema: z.object({
       mensaje: z.string().describe('El mensaje del usuario'),
-      contexto: z.record(z.unknown()).optional().describe('Datos ya recopilados anteriormente')
+      contexto: z.record(z.string(), z.unknown()).optional().describe('Datos ya recopilados anteriormente')
     })
   }
 );
@@ -194,7 +194,7 @@ export const validarCompletitudTool = tool(
     description: 'Valida si se tienen todos los datos obligatorios para generar el documento. SIEMPRE usa esta tool antes de marcar ready=true.',
     schema: z.object({
       tipoDocumento: z.string().describe('Tipo de documento'),
-      datosRecopilados: z.record(z.unknown()).describe('Todos los datos recopilados hasta ahora')
+      datosRecopilados: z.record(z.string(), z.unknown()).describe('Todos los datos recopilados hasta ahora')
     })
   }
 );
@@ -280,7 +280,7 @@ export const generarPreguntaTool = tool(
     description: 'Genera la siguiente pregunta apropiada para recopilar un dato faltante. Usa esto cuando sepas qué dato necesitas pero quieras asegurarte de hacer la pregunta correctamente.',
     schema: z.object({
       campoFaltante: z.string().describe('El campo que falta (ej: "nombre", "rut", "empleador")'),
-      contexto: z.record(z.unknown()).optional().describe('Contexto del caso para personalizar la pregunta')
+      contexto: z.record(z.string(), z.unknown()).optional().describe('Contexto del caso para personalizar la pregunta')
     })
   }
 );
