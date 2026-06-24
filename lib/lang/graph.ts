@@ -469,6 +469,45 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
   console.log('[recopilar] Datos actuales:', Object.keys(state.datosRecopilados));
   console.log('[recopilar] Tipo documento:', state.tipoDocumento);
   
+  // ═══════════════════════════════════════════════════════════════
+  // CASO ESPECIAL: Usuario respondiendo a pregunta de aclaración
+  // ═══════════════════════════════════════════════════════════════
+  const datosFaltantesActuales = state.datosFaltantes || [];
+  
+  // Si estábamos esperando clarificación de tipo_vendedor
+  if (datosFaltantesActuales.includes('tipo_vendedor')) {
+    const ultimoMsg = state.messages[state.messages.length - 1];
+    const respuesta = ultimoMsg ? ultimoMsg.content.toString().toLowerCase() : '';
+    
+    if (/empresa|automotora|tienda|concesionario|retail|comercio/.test(respuesta)) {
+      console.log(`[recopilar] Usuario confirmó: venta por EMPRESA → Reclamo SERNAC`);
+      // Reclasificar como SERNAC y continuar
+      return await recopilarDatos({
+        ...state,
+        tipoDocumento: 'reclamo SERNAC',
+        datosRecopilados: {
+          ...state.datosRecopilados,
+          tipo_documento: 'reclamo SERNAC',
+          tipo_vendedor: 'empresa'
+        },
+        datosFaltantes: []
+      });
+    } else if (/particular|persona|privado|amigo|conocido/.test(respuesta)) {
+      console.log(`[recopilar] Usuario confirmó: venta por PARTICULAR → Demanda civil`);
+      // Reclasificar como demanda civil y continuar
+      return await recopilarDatos({
+        ...state,
+        tipoDocumento: 'demanda civil engaño',
+        datosRecopilados: {
+          ...state.datosRecopilados,
+          tipo_documento: 'demanda civil engaño',
+          tipo_vendedor: 'particular'
+        },
+        datosFaltantes: []
+      });
+    }
+  }
+  
   const { obtenerRequisitos, consultarRAG, agregarDocumentoAlRAG } = await import('./vectorstore');
   const { validarCompletitudTool } = await import('./tools');
   const { findTemplate, getTemplateRequirements } = await import('@/lib/templates');
@@ -502,19 +541,34 @@ REGLAS CRITICAS:
    - "pension para mi hijo" = demanda alimentos
    - "vecino construyo algo / me tapa la luz" = denuncia obra nueva
    - "me cortaron la luz/agua" = recurso proteccion
-   - "compre algo y no funciona / me bloquearon" = reclamo SERNAC
+   - "compre algo y no funciona / me bloquearon" = reclamo SERNAC (SOLO si es empresa/automotora)
+   - "compre algo a particular y me engañaron" = NO SERNAC → demanda civil
    - "prescribir multas / multas viejas" = prescripcion multa TAG
    - "me echaron / me despidieron / no me pagaron" = despido injustificado
    - "poder para que alguien haga algo por mi" = poder simple
    - "ex pareja no me deja ver a mi hijo" = regulacion visitas
    - "me desalojan pero tengo contrato" = defensa arrendatario
-3. IMPORTANTE: Si realmente no puedes determinar el tipo, responde "necesito_clarificacion"
-4. NO respondas con tipos genericos como "judicial", "otro", "general", "documento", "legal"
+   - "carta de recomendación laboral" = NO ES DOCUMENTO LEGAL → rechazar
+   - "certificado de trabajo" = NO ES DOCUMENTO LEGAL → informar que lo pide al empleador
+   - "currículum vitae" = NO ES DOCUMENTO LEGAL → rechazar
+   
+3. VALIDACIÓN DE CASOS AMBIGUOS:
+   - Si el usuario dice "compré auto y me mintió":
+     * SI es automotora/concesionario → reclamo SERNAC
+     * SI es particular → demanda civil engaño
+     * NO ASUMAS → responde "necesito_clarificacion_vendedor"
+   
+   - Si el usuario pide carta de recomendación, certificado laboral, CV:
+     * Responde "documento_no_legal"
+   
+4. IMPORTANTE: Si realmente no puedes determinar el tipo, responde "necesito_clarificacion"
+5. NO respondas con tipos genericos como "judicial", "otro", "general", "documento", "legal"
 
 Tipos validos:
 - finiquito laboral
 - poder simple
-- reclamo SERNAC
+- reclamo SERNAC (SOLO empresas)
+- demanda civil (particulares)
 - carta renuncia
 - demanda alimentos
 - regulacion visitas
@@ -538,7 +592,10 @@ Tipos validos:
 - carta documento
 - tutela laboral
 - denuncia acoso laboral
+- posesion efectiva
 - necesito_clarificacion
+- necesito_clarificacion_vendedor (caso auto/producto)
+- documento_no_legal (carta recomendación, CV, etc.)
 
 Responde SOLO el tipo (una linea), nada mas.`,
       messages: [{ role: 'user', content: texto }],
@@ -561,6 +618,28 @@ Responde SOLO el tipo (una linea), nada mas.`,
         return {
           responseMessage: 'Necesito entender mejor tu situacion. Puedes describir con mas detalle que documento necesitas? Por ejemplo: un finiquito laboral, un poder para otra persona, un reclamo contra una empresa, una defensa por desalojo, etc.',
           datosFaltantes: ['tipo_documento', 'nombre', 'rut']
+        };
+      }
+      
+      // ═══════════════════════════════════════════════════════════
+      // CASO ESPECIAL 1: Documento NO legal (carta recomendación, CV)
+      // ═══════════════════════════════════════════════════════════
+      if (tipoDetectado === 'documento_no_legal' || tipoDetectado.includes('no legal')) {
+        console.log(`[recopilar] Documento NO legal detectado - informando al usuario`);
+        return {
+          responseMessage: 'Lo que necesitas no es un documento legal que yo pueda ayudarte a redactar. Las cartas de recomendación, certificados laborales y currículums son documentos corporativos que debe emitir tu empleador o tú mismo.\n\nSi necesitas un documento legal relacionado con tu trabajo (finiquito, reclamo por despido, etc.), puedo ayudarte. ¿Hay algún problema legal que necesites resolver?',
+          datosFaltantes: []
+        };
+      }
+      
+      // ═══════════════════════════════════════════════════════════
+      // CASO ESPECIAL 2: Caso ambiguo (auto/producto - empresa vs particular)
+      // ═══════════════════════════════════════════════════════════
+      if (tipoDetectado === 'necesito_clarificacion_vendedor' || tipoDetectado.includes('clarificacion_vendedor')) {
+        console.log(`[recopilar] Caso ambiguo vendedor - pidiendo aclaracion`);
+        return {
+          responseMessage: 'Para ayudarte correctamente, necesito saber: ¿compraste el producto/auto a una empresa/automotora/tienda, o se lo compraste a un particular?\n\n- Si fue en empresa/automotora → Reclamo SERNAC (Ley del Consumidor)\n- Si fue a particular → Demanda civil por engaño',
+          datosFaltantes: ['tipo_vendedor', 'tipo_documento']
         };
       }
       
