@@ -985,7 +985,7 @@ export async function runAgent(
       ...(currentData.datos_recopilados as Record<string, unknown> || {}),
       ...datosRecopilados // Merge flatten + nested
     },
-    datosFaltantes: [],
+    datosFaltantes: (currentData.datos_faltantes as string[]) || [],
     ready: currentData.ready === true,
     responseMessage: '',
     conversationHistory
