@@ -180,8 +180,36 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   // MAPEO INTELIGENTE: Si hay UN dato faltante y el mensaje es corto,
   // asumimos que el usuario está respondiendo ESE dato
   // ═══════════════════════════════════════════════════════════════
-  const mensajeCorto = contenido.length < 80 && !contenido.includes('necesito') && !contenido.includes('quiero');
+  const mensajeCorto = contenido.length < 120 && !contenido.includes('necesito') && !contenido.includes('quiero');
   const unDatoFaltante = (state.datosFaltantes || []).length === 1;
+  const dosDatosFaltantes = (state.datosFaltantes || []).length === 2;
+  
+  // CASO ESPECIAL: Usuario responde "nombre rut" juntos (ej: "juan perez 12345678-9")
+  if (mensajeCorto && dosDatosFaltantes && state.datosFaltantes) {
+    const campos = state.datosFaltantes;
+    const tieneNombre = campos.includes('nombre') || campos.includes('nombre completo');
+    const tieneRut = campos.includes('rut');
+    
+    if (tieneNombre && tieneRut) {
+      // Intentar separar: nombre (palabras) + rut (números)
+      const rutMatch = contenido.match(/(\d[\d.\-kK\s]+)/);
+      if (rutMatch) {
+        const rut = rutMatch[0].trim();
+        const nombre = contenido.replace(rutMatch[0], '').trim();
+        
+        if (nombre.split(' ').length >= 2 && rut.length >= 8) {
+          datosActuales.nombre = capitalizarNombre(nombre);
+          datosActuales.rut = formatearRUT(rut);
+          console.log(`[extraer] Asignado DOBLE: nombre="${datosActuales.nombre}" + rut="${datosActuales.rut}"`);
+          return {
+            datosRecopilados: datosActuales,
+            datosFaltantes: state.datosFaltantes.filter(d => d !== 'nombre' && d !== 'nombre completo' && d !== 'rut'),
+            tipoDocumento: state.tipoDocumento
+          };
+        }
+      }
+    }
+  }
   
   if (mensajeCorto && unDatoFaltante && state.datosFaltantes) {
     const campoEsperado = state.datosFaltantes[0];
