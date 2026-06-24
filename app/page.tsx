@@ -424,7 +424,7 @@ export default function Home() {
                 <div style={{ position: 'relative' }}>
                   <CourtDocument text={previewDoc} />
                   <div style={{
-                    position: 'absolute', top: '38%', left: '-28px', right: '-28px', bottom: '-24px',
+                    position: 'absolute', top: '65%', left: '-28px', right: '-28px', bottom: '-24px',
                     background: 'linear-gradient(to bottom, transparent 0%, rgba(247,248,251,0.65) 15%, rgba(247,248,251,0.96) 40%)',
                     backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',

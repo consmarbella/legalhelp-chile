@@ -7,12 +7,13 @@ import { buildDemandaGraph, DemandaState } from '@/lib/demandas/graph';
 const RATE_LIMIT = { maxRequests: 5, windowMs: 60_000 };
 
 /**
- * Trunca el documento para vista previa (primer ~40%).
- * Así el texto completo NUNCA sale del servidor sin pago verificado.
+ * Trunca el documento para vista previa (primer ~70%).
+ * El cliente ve casi todo el documento pero no el final (firma, montos exactos,
+ * petitorio completo), suficiente para engancharlo a pagar.
  */
 function truncateForPreview(doc: string): string {
   const lines = doc.split('\n');
-  const keep = Math.max(6, Math.ceil(lines.length * 0.4));
+  const keep = Math.max(10, Math.ceil(lines.length * 0.7));
   const slice = lines.slice(0, keep);
   while (slice.length && slice[slice.length - 1].trim() === '') slice.pop();
   return slice.join('\n');

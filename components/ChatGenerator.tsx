@@ -355,7 +355,7 @@ export default function ChatGenerator({ initialContext, selectedDoc: externalSel
                 {/* Blur overlay starting at 40% */}
                 <div style={{
                   position: 'absolute',
-                  top: '38%',
+                  top: '65%',
                   left: '-28px',
                   right: '-28px',
                   bottom: '-24px',

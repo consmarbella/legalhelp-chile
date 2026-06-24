@@ -196,11 +196,13 @@ function stripMarkdown(s: string): string {
 }
 
 // ─── Trunca el documento para la VISTA PREVIA (sin pago) ─────────────────────
-// Solo se envía al cliente ~40% del documento (coincide con el overlay de blur
-// del front). Asi el texto completo NUNCA sale del servidor sin pago verificado.
+// Se envía al cliente ~70% del documento. Suficiente para que el cliente vea
+// el contenido real y se enganche, pero sin revelar el final (firma, montos exactos,
+// petitorio completo). El frontend agrega un overlay de blur a partir del 65%.
 function truncateForPreview(doc: string): string {
   const lines = doc.split('\n');
-  const keep = Math.max(6, Math.ceil(lines.length * 0.4));
+  // Mostrar 70% del documento: ven bastante, falta lo justo para motivar el pago
+  const keep = Math.max(10, Math.ceil(lines.length * 0.7));
   const slice = lines.slice(0, keep);
   while (slice.length && slice[slice.length - 1].trim() === '') slice.pop();
   return slice.join('\n');

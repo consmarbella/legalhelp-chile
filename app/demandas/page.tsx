@@ -447,7 +447,7 @@ export default function DemandasPage() {
                   {/* Blur overlay */}
                   <div style={{
                     position: 'absolute',
-                    top: '38%',
+                    top: '65%',
                     left: '-28px',
                     right: '-28px',
                     bottom: '-24px',
