@@ -816,6 +816,25 @@ export default async function PSELanding({ params }: { params: Promise<{ slug: s
         </ol>
       </nav>
 
+      {/* BREADCRUMBS (visibles + coinciden con el JSON-LD) */}
+      <nav aria-label="Breadcrumb" className="bg-[#0b1f3a]/95 border-t border-white/10 px-6 py-2">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-1 text-xs text-[#a8bdd4]">
+          <li><Link href="/" className="hover:text-white">Inicio</Link></li>
+          <li aria-hidden className="px-1">›</li>
+          <li>
+            {currentHub && currentHub !== slug
+              ? <Link href={`/p/${currentHub}`} className="hover:text-white">{data.categoria}</Link>
+              : <span className="text-white">{data.categoria}</span>}
+          </li>
+          {data.variable && (
+            <>
+              <li aria-hidden className="px-1">›</li>
+              <li className="text-white">{data.variable}</li>
+            </>
+          )}
+        </ol>
+      </nav>
+
       {/* HERO */}
       <div className="bg-[#0b1f3a] px-6 pt-10 pb-12 text-center">
         <h1 className="text-3xl font-bold text-white mb-3 leading-tight">
