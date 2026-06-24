@@ -431,12 +431,101 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     }
   }
 
+  // ═══════════════════════════════════════════════════════════════
+  // NORMALIZACIÓN: Corregir ortografía, capitalización y formato
+  // ═══════════════════════════════════════════════════════════════
+  
+  // Nombres: siempre capitalizados (alejandro matteucci → Alejandro Matteucci)
+  if (datosActuales.nombre && typeof datosActuales.nombre === 'string') {
+    datosActuales.nombre = capitalizarNombre(datosActuales.nombre as string);
+  }
+  if (datosActuales.apoderado && typeof datosActuales.apoderado === 'string') {
+    datosActuales.apoderado = capitalizarNombre(datosActuales.apoderado as string);
+  }
+  if (datosActuales.demandado && typeof datosActuales.demandado === 'string') {
+    datosActuales.demandado = capitalizarNombre(datosActuales.demandado as string);
+  }
+  if (datosActuales.hijo && typeof datosActuales.hijo === 'string') {
+    datosActuales.hijo = capitalizarNombre(datosActuales.hijo as string);
+  }
+  
+  // Empresa: capitalizar (falabella → Falabella)
+  if (datosActuales.empresa && typeof datosActuales.empresa === 'string') {
+    datosActuales.empresa = capitalizarNombre(datosActuales.empresa as string);
+  }
+  if (datosActuales.empleador && typeof datosActuales.empleador === 'string') {
+    datosActuales.empleador = capitalizarNombre(datosActuales.empleador as string);
+  }
+  
+  // RUT: formato estándar (12345678-9 → 12.345.678-9)
+  if (datosActuales.rut && typeof datosActuales.rut === 'string') {
+    datosActuales.rut = formatearRUT(datosActuales.rut as string);
+  }
+  
+  // Cargo: primera letra mayúscula (vendedor → Vendedor)
+  if (datosActuales.cargo && typeof datosActuales.cargo === 'string') {
+    const cargo = (datosActuales.cargo as string).trim().toLowerCase();
+    datosActuales.cargo = cargo.charAt(0).toUpperCase() + cargo.slice(1);
+  }
+  
+  // Dirección: capitalizar
+  if (datosActuales.direccion && typeof datosActuales.direccion === 'string') {
+    datosActuales.direccion = capitalizarNombre(datosActuales.direccion as string);
+  }
+
   console.log('[extraer] Datos extraídos:', Object.keys(datosActuales).filter(k => datosActuales[k]));
 
   return {
     datosRecopilados: datosActuales,
     tipoDocumento: datosActuales.tipo_documento as string || state.tipoDocumento
   };
+}
+
+// ─── HELPERS DE NORMALIZACIÓN ─────────────────────────────────────────────────
+
+/**
+ * Capitaliza un nombre: alejandro matteucci → Alejandro Matteucci
+ * Respeta partículas: de, del, la, las, los, el
+ */
+function capitalizarNombre(texto: string): string {
+  const particulas = ['de', 'del', 'la', 'las', 'los', 'el', 'en', 'y'];
+  return texto
+    .trim()
+    .split(/\s+/)
+    .map((palabra, i) => {
+      const lower = palabra.toLowerCase();
+      // Partículas van en minúscula excepto si es la primera palabra
+      if (i > 0 && particulas.includes(lower)) return lower;
+      // Capitalizar
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    })
+    .join(' ');
+}
+
+/**
+ * Formatea RUT chileno: 12345678-9 → 12.345.678-9
+ */
+function formatearRUT(rut: string): string {
+  // Limpiar: quitar puntos y espacios existentes
+  let limpio = rut.replace(/\s+/g, '').replace(/\./g, '');
+  
+  // Si ya tiene guión, separar cuerpo y dígito verificador
+  if (limpio.includes('-')) {
+    const [cuerpo, dv] = limpio.split('-');
+    // Agregar puntos cada 3 dígitos desde la derecha
+    const conPuntos = cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return `${conPuntos}-${dv}`;
+  }
+  
+  // Si no tiene guión pero parece RUT (último char es dígito o K)
+  if (/^\d{7,8}[\dkK]$/.test(limpio)) {
+    const cuerpo = limpio.slice(0, -1);
+    const dv = limpio.slice(-1);
+    const conPuntos = cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return `${conPuntos}-${dv}`;
+  }
+  
+  return rut; // Devolver tal cual si no reconoce el formato
 }
 
 /**
