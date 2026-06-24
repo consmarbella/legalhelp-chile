@@ -157,15 +157,16 @@ DATOS QUE FALTAN: ${faltantes}
 ÚLTIMO MENSAJE DEL USUARIO: "${contenido}"
 
 INSTRUCCIONES:
-- Extrae TODOS los datos que puedas del mensaje del usuario
-- Si el usuario responde con un dato simple (ej: "gerente operaciones"), ese es el dato que se le preguntó
+- Extrae SOLO datos que el usuario EXPLÍCITAMENTE menciona en su mensaje
+- Si el usuario responde con un dato simple (ej: "gerente operaciones"), ese es el dato que se le preguntó (el primer campo de DATOS QUE FALTAN)
 - Responde SOLO en formato JSON con los campos extraídos
-- NO inventes datos que no estén en el mensaje
-- Detecta también el tipo de documento si se menciona
+- PROHIBIDO inventar datos: NO pongas direcciones, fechas, montos o nombres que el usuario NO dijo
+- Si no hay datos claros en el mensaje, responde {}
 - Normaliza: nombres capitalizados, RUT con formato XX.XXX.XXX-X, cargo capitalizado
+- "850 mil" = 850000, "un palo" = 1000000, "500 lucas" = 500000
 
 CAMPOS POSIBLES:
-- tipo_documento (finiquito laboral, poder simple, reclamo SERNAC, etc.)
+- tipo_documento (finiquito laboral, poder simple, reclamo SERNAC, regulacion visitas, defensa arrendatario, etc.)
 - nombre (nombre completo de la persona)
 - rut (RUT chileno)
 - empleador / empresa (nombre de la empresa)
@@ -173,7 +174,7 @@ CAMPOS POSIBLES:
 - sueldo (monto numérico sin símbolos)
 - fecha_inicio (cuándo empezó a trabajar)
 - fecha_termino / fecha_despido (cuándo terminó)
-- detalle_caso (qué pasó, los hechos)
+- detalle_caso (qué pasó, los hechos - SOLO si el usuario da una narrativa)
 - apoderado (nombre del apoderado, para poderes)
 - demandado (nombre del demandado)
 - monto (monto solicitado)
@@ -181,7 +182,9 @@ CAMPOS POSIBLES:
 - direccion (dirección/domicilio)
 - recurrido (quien vulneró derechos)
 
-Responde SOLO el JSON con los datos extraídos, nada más. Si no hay datos, responde {}`;
+REGLA DE ORO: Si el usuario NO dijo un dato, NO lo pongas. Prefiero {} a inventar.
+
+Responde SOLO el JSON, nada más.`;
 
   try {
     const llmResponse = await llmComplete({
@@ -717,35 +720,48 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     
     // PASO C: Usar el LLM para clasificar inteligentemente (si hay LLM disponible)
     const clasificacionLLM = await llmComplete({
-      system: `Eres un clasificador de documentos legales chilenos. MUY IMPORTANTE: clasifica EXACTAMENTE lo que el usuario pide, NO inventes.
+      system: `Eres un clasificador de documentos legales chilenos. Clasifica EXACTAMENTE lo que el usuario necesita desde SU perspectiva.
 
-Dado el mensaje del usuario, identifica qué tipo de documento necesita.
-Responde SOLO con el tipo de documento en formato corto, nada más.
+REGLAS CRÍTICAS:
+1. NO inventes. Si no estás seguro, responde "otro"
+2. Clasifica desde la perspectiva del USUARIO (no de la contraparte)
+3. Distingue bien:
+   - "no me dejan ver a mi hijo" = regulacion visitas (NO alimentos)
+   - "me desalojan / me quieren echar" = defensa arrendatario (NO desahucio)
+   - "quiero echar al arrendatario" = desahucio arrendador
+   - "pensión para mi hijo" = demanda alimentos
+   - "vecino construyó algo" = denuncia obra nueva o reclamo vecinal (NO reclamo SERNAC)
+   - "me cortaron la luz/agua" = recurso proteccion
+4. Si es ambiguo o no calza bien en ninguna categoría, responde "otro"
 
-Tipos comunes:
-- finiquito laboral (solo si menciona finiquito o término de contrato laboral)
-- poder simple (autorización a tercero)
-- reclamo SERNAC (problema con empresa/producto/servicio)
-- carta renuncia (renunciar al trabajo)
-- demanda alimentos (pensión alimenticia para hijos)
-- recurso proteccion (vulneración de derechos constitucionales)
-- prescripcion multa TAG (multas vencidas de autopista/TAG)
-- despido injustificado (lo despidieron sin causa)
-- contrato arriendo (arrendamiento de inmueble)
-- querella criminal (delitos: estafa, robo, hurto, etc.)
-- denuncia penal (denuncia ante fiscalía/carabineros)
-- prescripcion deuda (deuda antigua que ya venció)
-- demanda civil (cobro, indemnización, cumplimiento contrato)
-- contrato trabajo (contrato de empleo)
-- declaracion jurada (declarar un hecho ante notario)
-- certificado (solicitud de certificado oficial)
-- solicitud administrativa (trámite ante un organismo público)
-- carta documento (carta formal a empresa/persona/institución)
-- contrato comodato (préstamo gratuito de cosa)
-- otro (solo si NINGUNO de los anteriores aplica)
+Tipos:
+- finiquito laboral
+- poder simple
+- reclamo SERNAC (solo consumidor vs empresa comercial)
+- carta renuncia
+- demanda alimentos (pensión alimenticia)
+- regulacion visitas (derecho a ver a los hijos)
+- custodia (cuidado personal del menor)
+- recurso proteccion
+- prescripcion multa TAG
+- despido injustificado
+- defensa arrendatario (me quieren desalojar, me subieron la renta ilegalmente)
+- desahucio arrendador (quiero que se vaya el arrendatario)
+- contrato arriendo (hacer un contrato nuevo)
+- querella criminal
+- denuncia penal
+- prescripcion deuda
+- demanda civil
+- contrato trabajo
+- declaracion jurada
+- certificado
+- solicitud administrativa
+- carta documento
+- denuncia obra nueva (vecino construyó algo ilegal)
+- reclamo vecinal (ruidos, molestias entre vecinos)
+- otro
 
-REGLA: Si el usuario menciona algo que NO corresponde a ningún tipo común, clasifica como "otro" y deja que el sistema pregunte.
-NO fuerces la clasificación a un tipo que no corresponde.`,
+Responde SOLO el tipo, nada más.`,
       messages: [{ role: 'user', content: texto }],
       temperature: 0.1,
       maxTokens: 50
