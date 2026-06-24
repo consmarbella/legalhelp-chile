@@ -18,9 +18,10 @@ export default function LangPage() {
   const [generatedDoc, setGeneratedDoc] = useState<string | null>(null);
   const [previewDoc, setPreviewDoc]     = useState<string | null>(null);
   const [generating, setGenerating]     = useState(false);
-  const [paid, setPaid]                 = useState(false);
-  const [showPaywall, setShowPaywall]   = useState(false);
+  const [paid, setPaid] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
+  const [correctionsLeft, setCorrectionsLeft] = useState(0);
   const [showDevBypass, setShowDevBypass] = useState(false);
   const devClickCount = useRef(0);
   const devClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -52,6 +53,59 @@ export default function LangPage() {
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: text }]);
     setLoading(true);
+
+    // Si ya pagó y tiene correcciones disponibles, procesar como corrección
+    if (paid && generatedDoc && correctionsLeft > 0) {
+      try {
+        const storedOrder = sessionStorage.getItem('lh_paid_order');
+        const orderId = storedOrder ? JSON.parse(storedOrder)?.orderId : undefined;
+
+        // Regenerar con las instrucciones de corrección
+        setGenerating(true);
+        const genRes = await fetch('/api/generate-final', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...caseData,
+            correccion: text,
+            ...(orderId ? { orderId } : {}),
+          }),
+        });
+        const genData = await genRes.json();
+        if (genData.document) {
+          setGeneratedDoc(genData.document);
+          const nuevas = correctionsLeft - 1;
+          setCorrectionsLeft(nuevas);
+          setMessages(prev => [...prev, {
+            role: 'assistant',
+            content: nuevas > 0
+              ? `✅ Documento corregido con: "${text}". Te quedan ${nuevas} corrección${nuevas !== 1 ? 'es' : ''} gratuita${nuevas !== 1 ? 's' : ''}.`
+              : `✅ Documento corregido con: "${text}". Ya no te quedan más correcciones gratuitas. Si necesitas más cambios, puedes empezar un documento nuevo.`
+          }]);
+        } else {
+          setMessages(prev => [...prev, {
+            role: 'assistant',
+            content: 'No pude procesar la corrección. Intenta de nuevo con otra descripción.'
+          }]);
+        }
+      } catch {
+        setMessages(prev => [...prev, { role: 'assistant', content: 'Error al procesar la corrección. Intenta de nuevo.' }]);
+      } finally {
+        setGenerating(false);
+        setLoading(false);
+      }
+      return;
+    }
+
+    // Si pagó pero no tiene más correcciones
+    if (paid && correctionsLeft === 0 && generatedDoc) {
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: 'Ya usaste tus 2 correcciones gratuitas. Si necesitas más cambios, puedes iniciar un nuevo documento desde cero.'
+      }]);
+      setLoading(false);
+      return;
+    }
 
     try {
       // 🔥 CAMBIO: usar /api/lang/chat en vez de /api/chat
@@ -105,7 +159,16 @@ export default function LangPage() {
         body: JSON.stringify({ ...caseData, ...(orderId ? { orderId } : {}) }),
       });
       const data = await res.json();
-      if (data.document) setGeneratedDoc(data.document);
+      if (data.document) {
+        setGeneratedDoc(data.document);
+        setCorrectionsLeft(2);
+        // Mensaje en el chat: el documento está listo, puede pedir cambios
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: `✅ Tu documento ya está listo. Puedes revisarlo en el panel derecho.
+Tienes **2 correcciones gratuitas** — si necesitas cambiar algo, solo escríbelo aquí y lo ajustamos.`
+        }]);
+      }
     } catch {
       console.error('Error generando documento');
     } finally {
@@ -125,7 +188,10 @@ export default function LangPage() {
         if (storedMsgs) setMessages(JSON.parse(storedMsgs));
         if (stored) {
           const orderData = JSON.parse(stored);
-          if (orderData?.orderId && orderData?.paidAt) setPaid(true);
+          if (orderData?.orderId && orderData?.paidAt) {
+            setPaid(true);
+            setCorrectionsLeft(2);
+          }
         }
         setShowPaywall(false);
         window.history.replaceState({}, '', '/lang');
@@ -358,7 +424,7 @@ export default function LangPage() {
               </div>
               {!!caseData.ready && (
                 <span className="hud-label text-cyan flex items-center gap-1.5">
-                  <span className="lg-status-dot" /> Listo
+                  <span className="lg-status-dot" /> {paid ? `Listo · ${correctionsLeft} corrección${correctionsLeft !== 1 ? 'es' : ''} restantes` : 'Listo'}
                 </span>
               )}
             </div>
