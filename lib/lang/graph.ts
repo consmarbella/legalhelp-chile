@@ -222,13 +222,35 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
 
   // PASO 2: Extraer NOMBRES (cualquier nombre propio de 2-4 palabras)
   if (!datosActuales.nombre) {
-    const nombreMatch = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})\b/);
+    // Intentar con mayúscula primero
+    let nombreMatch = contenido.match(/\b([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})\b/);
+    
+    // Si no encuentra, intentar con minúscula (usuario escribe sin mayúsculas)
+    if (!nombreMatch) {
+      nombreMatch = contenido.match(/\b([a-záéíóúñA-ZÁÉÍÓÚÑ]{2,}(?:\s+[a-záéíóúñA-ZÁÉÍÓÚÑ]{2,}){1,3})\b/);
+    }
+    
     if (nombreMatch) {
       const posibleNombre = nombreMatch[1];
       // Filtrar palabras que NO son nombres
-      const noEsNombre = /necesito|quiero|para|poder|reclamo|empresa|constructora|banco|supermercado|restaurant|ltda|spa|sociedad/i.test(posibleNombre);
-      if (!noEsNombre) {
-        datosActuales.nombre = posibleNombre;
+      const noEsNombre = /necesito|quiero|para|poder|reclamo|empresa|constructora|banco|supermercado|restaurant|ltda|spa|sociedad|hola|gracias|buenas|buenos|tengo|estoy|soy|trabajo|trabajé|mi nombre|me llamo/i.test(posibleNombre);
+      if (!noEsNombre && posibleNombre.length > 4) {
+        // Capitalizar el nombre correctamente
+        datosActuales.nombre = posibleNombre
+          .split(' ')
+          .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ');
+      }
+    }
+    
+    // También detectar patrones como "me llamo X" o "soy X"
+    if (!datosActuales.nombre) {
+      const patternNombre = contenido.match(/(?:me llamo|soy|mi nombre es)\s+([a-záéíóúñA-ZÁÉÍÓÚÑ]+(?:\s+[a-záéíóúñA-ZÁÉÍÓÚÑ]+){1,3})/i);
+      if (patternNombre) {
+        datosActuales.nombre = patternNombre[1]
+          .split(' ')
+          .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ');
       }
     }
   }
