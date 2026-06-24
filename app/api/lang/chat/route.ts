@@ -1,16 +1,15 @@
 /**
  * API ROUTE: /api/lang/chat
  * 
- * Reemplazo de /api/chat pero usando LangGraph + RAG
+ * Agente LangGraph + RAG para documentos legales chilenos.
  * Compatible con el mismo frontend (mismo formato de request/response)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
-import { runAgent } from '@/lib/lang/graph';
 
 export async function POST(req: NextRequest) {
-  // Rate limiting (igual que tu API actual)
+  // Rate limiting
   const ip = getClientIp(req.headers);
   const rl = checkRateLimit(`chat:${ip}`, CHAT_RATE_LIMIT);
   
@@ -28,18 +27,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
     }
 
-    // Verificar que tengamos las API keys necesarias
-    if (!process.env.OPENAI_API_KEY) {
-      console.error('[lang/chat] Falta OPENAI_API_KEY');
+    // Verificar que tengamos al menos UNA API key de LLM
+    const hasLLM = process.env.DEEPSEEK_API_KEY || process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY;
+    if (!hasLLM) {
+      console.error('[lang/chat] No hay ninguna API key de LLM configurada (DEEPSEEK_API_KEY, ANTHROPIC_API_KEY, o OPENAI_API_KEY)');
       return NextResponse.json(
         { error: 'Configuración incompleta del servidor' },
         { status: 500 }
       );
     }
 
-    console.log(`[lang/chat] Mensaje recibido: "${message.slice(0, 50)}..."`);
-    console.log(`[lang/chat] Historia: ${(caseHistory || []).length} mensajes`);
-    console.log(`[lang/chat] Datos actuales:`, currentCaseData);
+    console.log(`[lang/chat] Mensaje: "${message.slice(0, 50)}..." | Historia: ${(caseHistory || []).length} msgs`);
+
+    // Importar dinámicamente para evitar errores de carga en cold start
+    const { runAgent } = await import('@/lib/lang/graph');
 
     // Ejecutar el agente LangGraph
     const result = await runAgent(
@@ -48,23 +49,16 @@ export async function POST(req: NextRequest) {
       currentCaseData || {}
     );
 
-    console.log(`[lang/chat] Respuesta del agente:`, {
-      tipo: result.tipo_documento,
-      ready: result.ready,
-      faltantes: result.datos_faltantes
-    });
+    console.log(`[lang/chat] Resultado: tipo=${result.tipo_documento}, ready=${result.ready}`);
 
-    // Formatear respuesta en el mismo formato que tu API actual
-    // para que el frontend funcione sin cambios
+    // Respuesta compatible con el frontend
     const response = {
       response_message: result.response_message,
       tipo_documento: result.tipo_documento,
       datos_recopilados: result.datos_recopilados,
       datos_faltantes: result.datos_faltantes,
       ready: result.ready,
-      // Flatten datos para compatibilidad
       ...((result.datos_recopilados || {}) as any),
-      // Metadata del agente
       agent: 'langgraph',
       version: '1.0'
     };
@@ -72,15 +66,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(response);
 
   } catch (err) {
-    console.error('[lang/chat] Error:', err);
-    
-    // Error más descriptivo
-    const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
+    console.error('[lang/chat] Error:', err instanceof Error ? err.message : err);
+    console.error('[lang/chat] Stack:', err instanceof Error ? err.stack : '');
     
     return NextResponse.json(
       { 
-        error: 'Error procesando tu solicitud',
-        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+        response_message: 'Hubo un error procesando tu mensaje. Por favor intenta de nuevo.',
+        error: process.env.NODE_ENV === 'development' ? String(err) : undefined
       },
       { status: 500 }
     );

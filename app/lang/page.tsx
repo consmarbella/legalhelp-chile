@@ -60,12 +60,17 @@ export default function LangPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, caseHistory: messages, currentCaseData: caseData }),
       });
-      if (!res.ok) throw new Error();
-      const data: CaseData = await res.json();
+      const data = await res.json();
+      if (!res.ok) {
+        // Si el servidor retornó un response_message (error amigable), mostrarlo
+        const errorMsg = data.response_message || data.error || 'Error del servidor. Intenta de nuevo.';
+        setMessages(prev => [...prev, { role: 'assistant', content: errorMsg }]);
+        return;
+      }
       setCaseData(prev => ({ ...prev, ...data }));
       setMessages(prev => [...prev, { role: 'assistant', content: String(data.response_message ?? '') }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Problema al conectar. Intenta de nuevo.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Error de conexión. Verifica tu internet e intenta de nuevo.' }]);
     } finally {
       setLoading(false);
     }
