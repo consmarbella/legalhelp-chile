@@ -123,10 +123,9 @@ Responde SOLO con la siguiente pregunta para el usuario (una pregunta corta y di
 /**
  * NODO 2: Extraer datos estructurados del mensaje
  * 
- * ENFOQUE HÍBRIDO:
- * 1. Primero intenta con LLM (si está disponible)
- * 2. Fallback a extracción basada en patrones mejorados
- * 3. Usa reglas semánticas (no casos específicos)
+ * USA EL LLM para entender la respuesta del usuario.
+ * El LLM ya sabe qué se preguntó y qué datos faltan.
+ * Fallback a regex solo si LLM no responde.
  */
 async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   const ultimoMensaje = state.messages[state.messages.length - 1];
@@ -140,6 +139,96 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   const datosActuales = { ...state.datosRecopilados };
 
   console.log('[extraer] Analizando:', contenido.slice(0, 60));
+
+  // ═══════════════════════════════════════════════════════════════
+  // EXTRACCIÓN CON LLM: DeepSeek entiende cualquier formato
+  // ═══════════════════════════════════════════════════════════════
+  
+  const datosExistentes = JSON.stringify(datosActuales, null, 2);
+  const faltantes = (state.datosFaltantes || []).join(', ') || 'todos los datos del caso';
+  
+  const extractionPrompt = `Eres un extractor de datos de documentos legales chilenos.
+
+DATOS YA RECOPILADOS:
+${datosExistentes}
+
+DATOS QUE FALTAN: ${faltantes}
+
+ÚLTIMO MENSAJE DEL USUARIO: "${contenido}"
+
+INSTRUCCIONES:
+- Extrae TODOS los datos que puedas del mensaje del usuario
+- Si el usuario responde con un dato simple (ej: "gerente operaciones"), ese es el dato que se le preguntó
+- Responde SOLO en formato JSON con los campos extraídos
+- NO inventes datos que no estén en el mensaje
+- Detecta también el tipo de documento si se menciona
+- Normaliza: nombres capitalizados, RUT con formato XX.XXX.XXX-X, cargo capitalizado
+
+CAMPOS POSIBLES:
+- tipo_documento (finiquito laboral, poder simple, reclamo SERNAC, etc.)
+- nombre (nombre completo de la persona)
+- rut (RUT chileno)
+- empleador / empresa (nombre de la empresa)
+- cargo (cargo en la empresa)
+- sueldo (monto numérico sin símbolos)
+- fecha_inicio (cuándo empezó a trabajar)
+- fecha_termino / fecha_despido (cuándo terminó)
+- detalle_caso (qué pasó, los hechos)
+- apoderado (nombre del apoderado, para poderes)
+- demandado (nombre del demandado)
+- monto (monto solicitado)
+- patente (patente vehículo)
+- direccion (dirección/domicilio)
+- recurrido (quien vulneró derechos)
+
+Responde SOLO el JSON con los datos extraídos, nada más. Si no hay datos, responde {}`;
+
+  try {
+    const llmResponse = await llmComplete({
+      system: 'Extrae datos estructurados del mensaje. Responde SOLO JSON válido.',
+      messages: [{ role: 'user', content: extractionPrompt }],
+      temperature: 0.1,
+      maxTokens: 300
+    });
+
+    if (llmResponse) {
+      // Parsear JSON del LLM
+      const jsonMatch = llmResponse.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        try {
+          const datosExtraidos = JSON.parse(jsonMatch[0]);
+          console.log('[extraer] LLM extrajo:', Object.keys(datosExtraidos));
+          
+          // Mergear datos extraídos con los existentes (no sobreescribir existentes)
+          for (const [key, value] of Object.entries(datosExtraidos)) {
+            if (value && !datosActuales[key]) {
+              datosActuales[key] = value;
+            }
+          }
+          
+          // Sincronizar empresa/empleador
+          if (datosActuales.empresa && !datosActuales.empleador) datosActuales.empleador = datosActuales.empresa;
+          if (datosActuales.empleador && !datosActuales.empresa) datosActuales.empresa = datosActuales.empleador;
+          
+          console.log('[extraer] Datos después de LLM:', Object.keys(datosActuales).filter(k => datosActuales[k]));
+          
+          return {
+            datosRecopilados: datosActuales,
+            tipoDocumento: (datosActuales.tipo_documento as string) || state.tipoDocumento
+          };
+        } catch (e) {
+          console.error('[extraer] Error parseando JSON del LLM:', e);
+        }
+      }
+    }
+  } catch (error) {
+    console.error('[extraer] Error LLM:', error);
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // FALLBACK: Extracción por patrones (si LLM no responde)
+  // ═══════════════════════════════════════════════════════════════
+  console.log('[extraer] Fallback a regex...');
 
   // PASO 1: Detectar tipo de documento (semántica amplia - cubre 240+ tipos)
   if (!state.tipoDocumento && !datosActuales.tipo_documento) {
