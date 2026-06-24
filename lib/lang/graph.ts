@@ -174,6 +174,90 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   const datosActuales = { ...state.datosRecopilados };
 
   console.log('[extraer] Analizando:', contenido.slice(0, 60));
+  console.log('[extraer] Datos faltantes esperados:', state.datosFaltantes);
+
+  // ═══════════════════════════════════════════════════════════════
+  // MAPEO INTELIGENTE: Si hay UN dato faltante y el mensaje es corto,
+  // asumimos que el usuario está respondiendo ESE dato
+  // ═══════════════════════════════════════════════════════════════
+  const mensajeCorto = contenido.length < 80 && !contenido.includes('necesito') && !contenido.includes('quiero');
+  const unDatoFaltante = (state.datosFaltantes || []).length === 1;
+  
+  if (mensajeCorto && unDatoFaltante && state.datosFaltantes) {
+    const campoEsperado = state.datosFaltantes[0];
+    console.log(`[extraer] MAPEO DIRECTO: mensaje corto + 1 dato faltante = "${campoEsperado}"`);
+    
+    // Validar que el contenido tiene sentido para ese campo
+    const valorLimpio = contenido.trim();
+    
+    if (campoEsperado === 'nombre' || campoEsperado === 'apoderado' || campoEsperado === 'demandado') {
+      // Si es un nombre y tiene al menos 2 palabras
+      if (valorLimpio.split(' ').length >= 2 || valorLimpio.split(' ').length === 1 && valorLimpio.length > 3) {
+        datosActuales[campoEsperado] = capitalizarNombre(valorLimpio);
+        console.log(`[extraer] Asignado directo: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
+        return {
+          datosRecopilados: datosActuales,
+          datosFaltantes: state.datosFaltantes.slice(1), // Eliminar este campo
+          tipoDocumento: state.tipoDocumento
+        };
+      }
+    }
+    
+    if (campoEsperado === 'rut' && /\d/.test(valorLimpio)) {
+      datosActuales.rut = formatearRUT(valorLimpio);
+      console.log(`[extraer] Asignado directo: rut = "${datosActuales.rut}"`);
+      return {
+        datosRecopilados: datosActuales,
+        datosFaltantes: state.datosFaltantes.slice(1),
+        tipoDocumento: state.tipoDocumento
+      };
+    }
+    
+    if ((campoEsperado === 'empleador' || campoEsperado === 'empresa') && valorLimpio.length > 2) {
+      datosActuales.empleador = capitalizarNombre(valorLimpio);
+      datosActuales.empresa = datosActuales.empleador;
+      console.log(`[extraer] Asignado directo: empleador = "${datosActuales.empleador}"`);
+      return {
+        datosRecopilados: datosActuales,
+        datosFaltantes: state.datosFaltantes.slice(1),
+        tipoDocumento: state.tipoDocumento
+      };
+    }
+    
+    if (campoEsperado === 'cargo' && valorLimpio.length > 2) {
+      const cargo = valorLimpio.trim().toLowerCase();
+      datosActuales.cargo = cargo.charAt(0).toUpperCase() + cargo.slice(1);
+      console.log(`[extraer] Asignado directo: cargo = "${datosActuales.cargo}"`);
+      return {
+        datosRecopilados: datosActuales,
+        datosFaltantes: state.datosFaltantes.slice(1),
+        tipoDocumento: state.tipoDocumento
+      };
+    }
+    
+    if (campoEsperado === 'direccion' || campoEsperado === 'domicilio') {
+      datosActuales.direccion = valorLimpio;
+      console.log(`[extraer] Asignado directo: direccion = "${datosActuales.direccion}"`);
+      return {
+        datosRecopilados: datosActuales,
+        datosFaltantes: state.datosFaltantes.slice(1),
+        tipoDocumento: state.tipoDocumento
+      };
+    }
+    
+    if ((campoEsperado === 'sueldo' || campoEsperado === 'monto') && /\d/.test(valorLimpio)) {
+      const numeros = valorLimpio.replace(/[^\d]/g, '');
+      if (numeros) {
+        datosActuales[campoEsperado] = parseInt(numeros, 10);
+        console.log(`[extraer] Asignado directo: ${campoEsperado} = ${datosActuales[campoEsperado]}`);
+        return {
+          datosRecopilados: datosActuales,
+          datosFaltantes: state.datosFaltantes.slice(1),
+          tipoDocumento: state.tipoDocumento
+        };
+      }
+    }
+  }
 
   // ═══════════════════════════════════════════════════════════════
   // EXTRACCION CON LLM: DeepSeek con temperature=0 (determinista)
@@ -191,7 +275,11 @@ DATOS QUE FALTAN: ${faltantes}
 
 ULTIMO MENSAJE DEL USUARIO: "${contenido}"
 
-INSTRUCCIONES:
+INSTRUCCIONES CRITICAS:
+- Si "nombre" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
+- Si "rut" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
+- Si "empleador" o "empresa" ya estan en DATOS YA RECOPILADOS, NO los extraigas de nuevo
+- Si "cargo" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
 - Extrae SOLO datos que el usuario EXPLICITAMENTE menciona en su mensaje
 - Si el usuario responde con un dato simple (ej: "gerente operaciones"), ese es el dato que se le pregunto (el primer campo de DATOS QUE FALTAN)
 - Responde SOLO en formato JSON con los campos extraidos
@@ -200,7 +288,7 @@ INSTRUCCIONES:
 - Normaliza: nombres capitalizados, RUT con formato XX.XXX.XXX-X, cargo capitalizado
 - "850 mil" = 850000, "un palo" = 1000000, "500 lucas" = 500000
 
-CAMPOS POSIBLES:
+CAMPOS POSIBLES (extrae SOLO si NO estan ya recopilados):
 - nombre (nombre completo de la persona)
 - rut (RUT chileno)
 - empleador / empresa (nombre de la empresa)
@@ -216,7 +304,12 @@ CAMPOS POSIBLES:
 - direccion (direccion/domicilio)
 - recurrido (quien vulnero derechos)
 
-REGLA DE ORO: Si el usuario NO dijo un dato, NO lo pongas. Prefiero {} a inventar.
+EJEMPLO:
+Si DATOS YA RECOPILADOS ya tiene: {"nombre": "Alejandro Matteucci"}
+Y el usuario dice: "alejandro matteucci"
+Tu respuesta debe ser: {}
+
+REGLA DE ORO: Si el usuario NO dijo un dato, NO lo pongas. Si ya esta recopilado, NO lo vuelvas a extraer. Prefiero {} a duplicar.
 
 Responde SOLO el JSON, nada mas.`;
 
@@ -241,10 +334,13 @@ Responde SOLO el JSON, nada mas.`;
           const datosValidados = validarDatosContraMensaje(datosExtraidos, contenido);
           console.log('[extraer] Datos validados:', Object.keys(datosValidados));
           
-          // Mergear datos validados (no sobreescribir existentes)
+          // Mergear datos validados (NUNCA sobreescribir existentes)
           for (const [key, value] of Object.entries(datosValidados)) {
+            // Solo agregar si el valor NO existe y tiene contenido valido
             if (value && !datosActuales[key]) {
               datosActuales[key] = value;
+            } else if (datosActuales[key]) {
+              console.log(`[extraer] IGNORADO ${key} - ya existe: "${datosActuales[key]}"`);
             }
           }
           
