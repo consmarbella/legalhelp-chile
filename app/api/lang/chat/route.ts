@@ -27,12 +27,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
     }
 
-    // Verificar que tengamos al menos UNA API key de LLM
-    const hasLLM = process.env.DEEPSEEK_API_KEY || process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY;
-    if (!hasLLM) {
-      console.error('[lang/chat] No hay ninguna API key de LLM configurada (DEEPSEEK_API_KEY, ANTHROPIC_API_KEY, o OPENAI_API_KEY)');
+    // Verificar DEEPSEEK_API_KEY
+    if (!process.env.DEEPSEEK_API_KEY) {
+      console.error('[lang/chat] Falta DEEPSEEK_API_KEY');
       return NextResponse.json(
-        { error: 'Configuración incompleta del servidor' },
+        { response_message: 'Error de configuración del servidor. Contacta al administrador.' },
         { status: 500 }
       );
     }

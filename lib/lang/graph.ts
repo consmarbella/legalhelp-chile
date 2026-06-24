@@ -498,10 +498,9 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
       };
     }
     
-    // PASO C: Usar el LLM para clasificar inteligentemente
-    try {
-      const clasificacion = await llmComplete({
-        system: `Eres un clasificador de documentos legales chilenos. MUY IMPORTANTE: clasifica EXACTAMENTE lo que el usuario pide, NO inventes.
+    // PASO C: Usar el LLM para clasificar inteligentemente (si hay LLM disponible)
+    const clasificacionLLM = await llmComplete({
+      system: `Eres un clasificador de documentos legales chilenos. MUY IMPORTANTE: clasifica EXACTAMENTE lo que el usuario pide, NO inventes.
 
 Dado el mensaje del usuario, identifica qué tipo de documento necesita.
 Responde SOLO con el tipo de documento en formato corto, nada más.
@@ -530,37 +529,57 @@ Tipos comunes:
 
 REGLA: Si el usuario menciona algo que NO corresponde a ningún tipo común, clasifica como "otro" y deja que el sistema pregunte.
 NO fuerces la clasificación a un tipo que no corresponde.`,
-        messages: [{ role: 'user', content: texto }],
-        temperature: 0.1,
-        maxTokens: 50
-      });
+      messages: [{ role: 'user', content: texto }],
+      temperature: 0.1,
+      maxTokens: 50
+    });
+    
+    if (clasificacionLLM && clasificacionLLM.trim().toLowerCase() !== 'otro') {
+      const tipoDetectado = clasificacionLLM.trim().toLowerCase().replace(/['"]/g, '');
+      console.log(`[recopilar] LLM clasificó como: ${tipoDetectado}`);
       
-      if (clasificacion && clasificacion.trim().toLowerCase() !== 'otro') {
-        const tipoDetectado = clasificacion.trim().toLowerCase().replace(/['"]/g, '');
-        console.log(`[recopilar] LLM clasificó como: ${tipoDetectado}`);
-        
-        // Guardar clasificación aprendida en RAG
-        try {
-          await agregarDocumentoAlRAG(
-            `Documento tipo: ${tipoDetectado}\nConsulta original del usuario: ${texto}\nClasificación: Este tipo de solicitud corresponde a "${tipoDetectado}"`,
-            {
-              titulo: `Clasificación: ${tipoDetectado}`,
-              tipo: 'clasificacion_aprendida',
-              fuente: 'LLM + interacción usuario',
-              tags: [tipoDetectado, ...texto.split(' ').filter((w: string) => w.length > 4).slice(0, 5)]
-            }
-          );
-        } catch (e) { /* no falla si no puede persistir */ }
-        
-        return {
-          tipoDocumento: tipoDetectado,
-          datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
-          responseMessage: `Perfecto, te ayudaré con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT.`,
-          datosFaltantes: ['nombre', 'rut']
-        };
-      }
-    } catch (error) {
-      console.error('[recopilar] Error clasificando con LLM:', error);
+      // Guardar clasificación aprendida en RAG
+      try {
+        await agregarDocumentoAlRAG(
+          `Documento tipo: ${tipoDetectado}\nConsulta original del usuario: ${texto}\nClasificación: Este tipo de solicitud corresponde a "${tipoDetectado}"`,
+          {
+            titulo: `Clasificación: ${tipoDetectado}`,
+            tipo: 'clasificacion_aprendida',
+            fuente: 'LLM + interacción usuario',
+            tags: [tipoDetectado, ...texto.split(' ').filter((w: string) => w.length > 4).slice(0, 5)]
+          }
+        );
+      } catch (e) { /* no falla si no puede persistir */ }
+      
+      return {
+        tipoDocumento: tipoDetectado,
+        datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
+        responseMessage: `Perfecto, te ayudaré con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT.`,
+        datosFaltantes: ['nombre', 'rut']
+      };
+    }
+    
+    // PASO D: Si LLM no está disponible o dice "otro", inferir del texto directamente
+    // Buscar palabras clave genéricas que no se capturaron en extraerDatos
+    const textoLower = texto.toLowerCase();
+    let tipoInferido = '';
+    
+    if (textoLower.includes('contrato') && textoLower.includes('trabajo')) tipoInferido = 'contrato trabajo';
+    else if (textoLower.includes('contrato')) tipoInferido = 'contrato arriendo';
+    else if (textoLower.includes('carta')) tipoInferido = 'carta documento';
+    else if (textoLower.includes('solicitud') || textoLower.includes('solicitar')) tipoInferido = 'solicitud administrativa';
+    else if (textoLower.includes('certificado')) tipoInferido = 'certificado';
+    else if (textoLower.includes('declaraci')) tipoInferido = 'declaracion jurada';
+    else if (textoLower.includes('demand')) tipoInferido = 'demanda civil';
+    else if (textoLower.includes('recurs')) tipoInferido = 'recurso_proteccion';
+    
+    if (tipoInferido) {
+      return {
+        tipoDocumento: tipoInferido,
+        datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoInferido },
+        responseMessage: `Entendido, te ayudaré con un "${tipoInferido}". ¿Cuál es tu nombre completo y RUT?`,
+        datosFaltantes: ['nombre', 'rut']
+      };
     }
     
     // PASO D: Último recurso - pedir que describa mejor
