@@ -50,22 +50,54 @@ export default function DemandasPage() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('paid') === '1') {
+    const orderIdFromUrl = urlParams.get('orderId');
+
+    if (urlParams.get('paid') === '1' && orderIdFromUrl) {
       const stored     = sessionStorage.getItem('lh_paid_order');
       const storedCase = sessionStorage.getItem('lh_case_data');
       const storedMsgs = sessionStorage.getItem('lh_messages');
-      try {
-        if (storedCase) setCaseData(JSON.parse(storedCase));
-        if (storedMsgs) setMessages(JSON.parse(storedMsgs));
-        if (stored) {
+
+      // Si tenemos sessionStorage completo, restaurar inmediatamente
+      if (storedCase) {
+        try {
+          setCaseData(JSON.parse(storedCase));
+          if (storedMsgs) setMessages(JSON.parse(storedMsgs));
+        } catch { /* ignore */ }
+      }
+
+      if (stored) {
+        try {
           const orderData = JSON.parse(stored);
           if (orderData?.orderId && orderData?.paidAt) {
             setPaid(true);
+            setShowPaywall(false);
+            window.history.replaceState({}, '', window.location.pathname);
+            return;
           }
-        }
-        setShowPaywall(false);
-        window.history.replaceState({}, '', window.location.pathname);
-      } catch { /* ignore */ }
+        } catch { /* ignore */ }
+      }
+
+      // Fallback: polling al endpoint de status
+      const poll = async () => {
+        try {
+          const res = await fetch(`/api/demandas/status?orderId=${orderIdFromUrl}`);
+          const data = await res.json();
+          if (data.status === 'approved') {
+            sessionStorage.setItem('lh_paid_order', JSON.stringify({
+              orderId: data.orderId,
+              plan: data.plan || 'single',
+              paidAt: data.paidAt || Date.now(),
+            }));
+            setPaid(true);
+            setShowPaywall(false);
+            window.history.replaceState({}, '', window.location.pathname);
+            return true;
+          }
+          return false;
+        } catch { return false; }
+      };
+
+      poll().catch(() => {});
     }
   }, []);
 
