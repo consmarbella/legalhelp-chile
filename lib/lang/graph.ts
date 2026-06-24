@@ -15,6 +15,7 @@
 import { StateGraph, END, START } from '@langchain/langgraph';
 import { HumanMessage, AIMessage, SystemMessage } from '@langchain/core/messages';
 import { llmComplete } from '@/lib/llm';
+import { validateReadyState, generateMissingFieldQuestion } from '@/lib/validateReady';
 
 // ─── STATE DEL AGENTE ────────────────────────────────────────────────────────
 export interface AgentState {
@@ -294,7 +295,7 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   const datosExistentes = JSON.stringify(datosActuales, null, 2);
   const faltantes = (state.datosFaltantes || []).join(', ') || 'todos los datos del caso';
   
-  const extractionPrompt = `Eres un extractor de datos de documentos legales chilenos.
+  const extractionPrompt = `Eres un extractor de datos de documentos legales chilenos con 20 años de experiencia.
 
 DATOS YA RECOPILADOS:
 ${datosExistentes}
@@ -303,11 +304,25 @@ DATOS QUE FALTAN: ${faltantes}
 
 ULTIMO MENSAJE DEL USUARIO: "${contenido}"
 
+REQUISITOS LEGALES POR TIPO DE DOCUMENTO (para tu referencia interna):
+
+FINIQUITO: nombre, RUT, empleador, RUT empleador, cargo, sueldo, fecha_inicio, fecha_termino, causal_termino
+PODER SIMPLE: nombre, RUT, apoderado, RUT apoderado, facultades (qué puede hacer), para_que (trámite específico)
+DESPIDO INJUSTIFICADO: nombre, RUT, empleador, cargo, sueldo, fecha_inicio, fecha_despido, detalle_caso (por qué es injustificado)
+RECLAMO SERNAC: nombre, RUT, empresa, detalle_caso (qué pasó), que_quiere (solución), telefono/email
+DEMANDA ALIMENTOS: nombre, RUT, demandado, hijos (nombre y fecha nacimiento), monto, necesidades
+CONTRATO ARRIENDO: nombre, RUT, arrendatario, RUT arrendatario, inmueble (dirección), renta, fecha_inicio
+RECURSO PROTECCION: nombre, RUT, recurrido (quién vulneró), detalle_caso (acto arbitrario), derecho_vulnerado
+
 INSTRUCCIONES CRITICAS:
 - Si "nombre" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
 - Si "rut" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
 - Si "empleador" o "empresa" ya estan en DATOS YA RECOPILADOS, NO los extraigas de nuevo
 - Si "cargo" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
+- NUNCA vuelvas a extraer un dato que ya existe en DATOS YA RECOPILADOS
+- Si el usuario dice "MI auto", "MI casa", "MI departamento": el bien está a SU nombre, no preguntes de quién es
+- Si el usuario dice "ya estoy saldado" o "no me deben nada": montos = $0, no preguntes montos
+- Para poderes con trámite puntual (transferencia, retiro documento): NO necesita vigencia/plazo
 - Extrae SOLO datos que el usuario EXPLICITAMENTE menciona en su mensaje
 - Si el usuario responde con un dato simple (ej: "gerente operaciones"), ese es el dato que se le pregunto (el primer campo de DATOS QUE FALTAN)
 - Responde SOLO en formato JSON con los campos extraidos
@@ -363,13 +378,28 @@ Responde SOLO el JSON, nada mas.`;
           console.log('[extraer] Datos validados:', Object.keys(datosValidados));
           
           // Mergear datos validados (NUNCA sobreescribir existentes)
+          // MERGE DEFENSIVO: Prioridad absoluta a datosActuales sobre lo nuevo
           for (const [key, value] of Object.entries(datosValidados)) {
             // Solo agregar si el valor NO existe y tiene contenido valido
             if (value && !datosActuales[key]) {
               datosActuales[key] = value;
-            } else if (datosActuales[key]) {
-              console.log(`[extraer] IGNORADO ${key} - ya existe: "${datosActuales[key]}"`);
+              console.log(`[extraer] AGREGADO: ${key} = "${value}"`);
+            } else if (datosActuales[key] && datosValidados[key]) {
+              console.log(`[extraer] IGNORADO ${key} - ya existe: "${datosActuales[key]}" (nuevo: "${value}")`);
             }
+          }
+          
+          // NORMALIZACIÓN DE ALIASES (como sistema viejo)
+          if (!datosActuales.nombre && datosValidados.nombre_completo) {
+            datosActuales.nombre = datosValidados.nombre_completo;
+          }
+          if (!datosActuales.direccion && datosValidados.domicilio) {
+            datosActuales.direccion = datosValidados.domicilio;
+          }
+          if (!datosActuales.detalle_caso) {
+            if (datosValidados.hechos) datosActuales.detalle_caso = datosValidados.hechos;
+            else if (datosValidados.contexto) datosActuales.detalle_caso = datosValidados.contexto;
+            else if (datosValidados.situacion) datosActuales.detalle_caso = datosValidados.situacion;
           }
           
           // Sincronizar empresa/empleador
@@ -549,7 +579,7 @@ Responde SOLO el tipo (una linea), nada mas.`,
       return {
         tipoDocumento: tipoDetectado,
         datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
-        responseMessage: `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT.`,
+        responseMessage: `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`,
         datosFaltantes: ['nombre', 'rut']
       };
     }
@@ -586,29 +616,62 @@ Responde SOLO el tipo (una linea), nada mas.`,
       faltantes: validacion.datos_faltantes
     });
 
-    if (validacion.completo) {
+    // ═══════════════════════════════════════════════════════════════
+    // RED DE SEGURIDAD TYPESCRIPT (como sistema viejo)
+    // ═══════════════════════════════════════════════════════════════
+    
+    // VALIDACIÓN DOBLE con validateReadyState (TypeScript puro)
+    const validacionTS = validateReadyState({
+      tipo_documento: state.tipoDocumento,
+      ...state.datosRecopilados
+    });
+    
+    // CASO 1: LLM dice "completo" pero TypeScript detecta campos faltantes → BLOQUEAR
+    if (validacion.completo && !validacionTS.valid) {
+      console.log(`[recopilar] 🚨 BLOQUEADO por TypeScript — faltan: ${validacionTS.missing.join(', ')}`);
+      const pregunta = generateMissingFieldQuestion(validacionTS.missing);
+      return {
+        responseMessage: pregunta,
+        datosFaltantes: validacionTS.missing,
+        ready: false
+      };
+    }
+    
+    // CASO 2: TypeScript confirma completitud → FORZAR ready=true
+    if (validacionTS.valid) {
+      console.log(`[recopilar] ✅ FORZADO ready=true por TypeScript — todos los campos presentes`);
       return {
         ready: true,
         datosFaltantes: [],
         responseMessage: 'Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.'
       };
     }
-
-    // Generar pregunta inteligente
-    let pregunta = validacion.siguiente_pregunta || 'Puedes darme mas informacion?';
     
-    // Si hay requisitos BCN relevantes, mencionarlos
-    if (requisitosOficiales && validacion.datos_faltantes && validacion.datos_faltantes.length > 0) {
-      const campoFaltante = validacion.datos_faltantes[0];
-      if (requisitosOficiales.toLowerCase().includes(campoFaltante.toLowerCase())) {
-        pregunta += ` (obligatorio segun normativa vigente)`;
+    // CASO 3: Ambos coinciden en que falta algo → seguir preguntando
+    if (!validacion.completo) {
+      // Generar pregunta inteligente
+      let pregunta = validacion.siguiente_pregunta || 'Puedes darme mas informacion?';
+      
+      // Si hay requisitos BCN relevantes, mencionarlos
+      if (requisitosOficiales && validacion.datos_faltantes && validacion.datos_faltantes.length > 0) {
+        const campoFaltante = validacion.datos_faltantes[0];
+        if (requisitosOficiales.toLowerCase().includes(campoFaltante.toLowerCase())) {
+          pregunta += ` (obligatorio segun normativa vigente)`;
+        }
       }
-    }
 
+      return {
+        responseMessage: pregunta,
+        datosFaltantes: validacion.datos_faltantes || [],
+        ready: false
+      };
+    }
+    
+    // Fallback: marcar como completo si llegamos aquí
     return {
-      responseMessage: pregunta,
-      datosFaltantes: validacion.datos_faltantes || [],
-      ready: false
+      ready: true,
+      datosFaltantes: [],
+      responseMessage: 'Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.'
     };
 
   } catch (error) {
