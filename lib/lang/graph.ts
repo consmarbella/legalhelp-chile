@@ -559,6 +559,8 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     // ═══════════════════════════════════════════════════════════════
     const textoNorm = texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const OVERRIDES: [RegExp, string][] = [
+      [/licencia\s+(de\s+)?conducir|uber|didil?|cabify/, 'solicitud administrativa'],
+      [/pension\s+alimenticia|debo\s+alimentos|deudor\s+alimentos/, 'registro deudores pensiones alimentos'],
       [/elimin(ar|acion)(\s+\S+)?\s+(de\s+)?(antecedentes|prontuario)|borrar\s+(antecedentes|prontuario)/, 'eliminacion antecedentes penales'],
       [/limpi(a|ar)(\s+\S+)?\s+(hoja\s+de\s+)?vida\s+(del\s+)?conductor|limpiar\s+registro/, 'limpieza hoja vida conductor'],
       [/omis(ion|ir)(\s+\S+)?\s+antecedentes|vif|violencia\s+intrafamiliar/, 'omision antecedentes violencia intrafamiliar'],

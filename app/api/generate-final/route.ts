@@ -5,6 +5,7 @@ import { findTemplate } from '@/lib/templates';
 import { GENERATE_SYSTEM_PROMPT as SYSTEM } from '@/lib/prompts';
 import { llmComplete } from '@/lib/llm';
 import { checkDocument, buildCorrectionPrompt } from '@/lib/postChecker';
+import { buscarMarcoLegal } from '@/lib/bcnScraper';
 
 // ─── Genera el documento usando llmComplete ───────────────────────────────────
 async function generateDocument(
@@ -82,15 +83,29 @@ async function generateDocument(
       `INSTRUCCIÓN ESPECÍFICA: ${template.instruccion_llm}`
     : '';
 
-  // Red de seguridad: si NO hay plantilla, usa el marco legal y la autoridad
-  // curados de la ficha de la página del sitemap como grounding. Asi todas las
-  // paginas del sitemap generan un documento con base legal pertinente.
-  const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
-  const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
-  const groundingBlock = !template && (leyRef || entidadRef)
-    ? `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre. NUNCA escribas "y siguientes" ni artículos consecutivos inventados):\n${leyRef}` +
-      (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '')
-    : '';
+  // Red de seguridad: si NO hay plantilla, buscar en BCN en vivo
+  let groundingBlock = '';
+  if (!template) {
+    const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
+    const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
+    
+    if (leyRef || entidadRef) {
+      groundingBlock = `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre):\n${leyRef}` +
+        (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO: ${entidadRef}` : '');
+    } else {
+      // Buscar en BCN en vivo usando el scraper real
+      console.log(`[generate-final] Sin plantilla. Buscando en BCN: ${tipo}`);
+      try {
+        const bcnResult = await buscarMarcoLegal(tipo);
+        if (bcnResult.encontrado && bcnResult.marcoLegal) {
+          console.log(`[generate-final] ✅ BCN: ${bcnResult.fuente}`);
+          groundingBlock = `\n\nMARCO LEGAL OBTENIDO DEL BCN (Biblioteca del Congreso Nacional) para este caso:\n${bcnResult.marcoLegal}\n\nFuente: ${bcnResult.fuente}`;
+        }
+      } catch (bcnError) {
+        console.error('[generate-final] Error BCN:', bcnError);
+      }
+    }
+  }
 
   // Build a KEY DATA MAPPING section that explicitly maps common template markers
   // to actual values from the case data, making it impossible for the LLM to miss
