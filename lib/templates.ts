@@ -3152,6 +3152,204 @@ RUT: [RUT]`,
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PLANTILLAS ADICIONALES (cubren el 100% del sitemap)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Eliminación de antecedentes penales ──
+TEMPLATES.push({
+  id: 'eliminacion-antecedentes-penales',
+  keywords: ['eliminacion antecedentes', 'eliminar antecedentes', 'borrar antecedentes', 'prontuario', 'certificado antecedentes'],
+  titulo: 'Solicitud de eliminación de antecedentes penales',
+  tipo: 'solicitud',
+  articulos: ['Art. 22 de la Ley 18.575 (sobre eliminación de anotaciones prontuariales por cumplimiento de condena)', 'Art. 4° del D.S. N° 64 de 1994 del Ministerio de Justicia (Reglamento de Prontuario)'],
+  esqueleto: `[CIUDAD], [FECHA]
+
+SEÑOR(A) JUEZ(A) DEL JUZGADO DE GARANTÍA DE [TRIBUNAL]
+PRESENTE
+
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], a US. respetuosamente digo:
+
+I. ANTECEDENTES
+
+Que, con fecha [[FECHA DE LA CONDENA]], el suscrito fue condenado por [[DELITO]] ante el Juzgado de Garantía de [[TRIBUNAL]], causa RIT [[RIT]]. Dicha condena fue cumplida en su totalidad con fecha [[FECHA DE CUMPLIMIENTO]].
+
+II. FUNDAMENTO LEGAL
+
+El artículo 22 de la Ley 18.575 establece que una vez cumplida la condena, el condenado tiene derecho a solicitar la eliminación de las anotaciones prontuariales correspondientes.
+
+III. PETICIÓN
+
+POR TANTO,
+RUEGO A US.: Tener por presentada esta solicitud y, en virtud de los antecedentes expuestos, ordenar la eliminación de las anotaciones prontuariales del suscrito, expidiéndose el correspondiente certificado.`,
+  instruccion_llm: 'Solicitud judicial para eliminación de antecedentes penales. Formato escrito judicial: PRESENTE, secciones numeradas, POR TANTO. No inventes delitos ni fechas. Usa [DATO PENDIENTE] para lo que falte.',
+});
+
+// ── Limpieza de hoja de vida del conductor ──
+TEMPLATES.push({
+  id: 'limpieza-hoja-vida-conductor',
+  keywords: ['limpieza hoja vida conductor', 'limpiar hoja vida', 'registro conductor', 'multas conductor', 'licencia conducir'],
+  titulo: 'Solicitud de limpieza de hoja de vida del conductor',
+  tipo: 'solicitud',
+  articulos: ['Art. 20 de la Ley 18.290 (Ley de Tránsito)', 'Art. 10 del D.S. N° 169 de 2002 del Ministerio de Transportes (Registro de Multas de Tránsito)', 'Ley 18.287 (procedimiento ante Juzgados de Policía Local)'],
+  esqueleto: `[CIUDAD], [FECHA]
+
+SEÑOR(A) JUEZ(A) DEL JUZGADO DE POLICÍA LOCAL DE [COMUNA]
+PRESENTE
+
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], conductor de la patente [[PATENTE]], a US. respetuosamente digo:
+
+I. ANTECEDENTES
+
+Que, el suscrito registra las siguientes infracciones de tránsito que se encuentran prescritas o pagadas: [[DETALLAR MULTAS]].
+
+II. DERECHO
+
+Conforme al artículo 20 de la Ley 18.290 y normas concordantes, solicito se ordene la eliminación de dichas anotaciones del Registro de Multas de Tránsito No Pagadas del Registro Civil.
+
+III. PETICIÓN
+
+POR TANTO,
+RUEGO A US.: Ordenar la eliminación de las anotaciones referidas en la hoja de vida del conductor del suscrito.`,
+  instruccion_llm: 'Solicitud judicial ante JPL para limpieza de hoja de vida del conductor. Formato judicial. Usa los datos de multas del caso.',
+});
+
+// ── Omisión de antecedentes por VIF ──
+TEMPLATES.push({
+  id: 'omision-antecedentes-violencia-intrafamiliar',
+  keywords: ['omision antecedentes vif', 'violencia intrafamiliar', 'borrar antecedentes vif', 'eliminar registro vif'],
+  titulo: 'Solicitud de omisión de antecedentes por violencia intrafamiliar',
+  tipo: 'solicitud',
+  articulos: ['Art. 12 de la Ley 20.066 (Ley de Violencia Intrafamiliar)', 'Art. 21 del D.S. N° 64 de 1994 del Ministerio de Justicia (Prontuario)'],
+  esqueleto: `[CIUDAD], [FECHA]
+
+SEÑOR(A) JUEZ(A) DEL JUZGADO DE FAMILIA DE [TRIBUNAL]
+PRESENTE
+
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], a US. respetuosamente digo:
+
+I. ANTECEDENTES
+
+Que, con fecha [[FECHA]], se dictó sentencia en la causa RIT [[RIT]] seguida ante este Juzgado, en la cual se me condenó por violencia intrafamiliar. A la fecha, la condena se encuentra cumplida en su totalidad.
+
+II. FUNDAMENTO LEGAL
+
+El artículo 12 de la Ley 20.066 establece que, una vez cumplida la condena, el condenado puede solicitar la omisión de estos antecedentes.
+
+III. PETICIÓN
+
+POR TANTO,
+RUEGO A US.: Ordenar la omisión de los antecedentes por violencia intrafamiliar del suscrito.`,
+  instruccion_llm: 'Solicitud judicial. Formato escrito. No inventes hechos.',
+});
+
+// ── Registro Nacional de Deudores de Pensiones de Alimentos ──
+TEMPLATES.push({
+  id: 'registro-deudores-pensiones-alimentos',
+  keywords: ['registro deudores pensiones', 'deudor alimentos', 'pension alimenticia', 'registro nacional', 'moroso pension'],
+  titulo: 'Inscripción en Registro Nacional de Deudores de Pensiones de Alimentos',
+  tipo: 'solicitud',
+  articulos: ['Ley 21.389 (Registro Nacional de Deudores de Pensiones de Alimentos)', 'Art. 14 de la Ley 14.908 (Pensión de Alimentos)'],
+  esqueleto: `[CIUDAD], [FECHA]
+
+SEÑOR(A) JUEZ(A) DEL JUZGADO DE FAMILIA DE [TRIBUNAL]
+PRESENTE
+
+[NOMBRE EN MAYÚSCULAS], RUT [RUT], domiciliado en [DIRECCIÓN], a US. respetuosamente digo:
+
+Que, en causa RIT [[RIT]] sobre alimentos, seguida ante este Juzgado, el demandado [[NOMBRE DEMANDADO]] se encuentra en mora del pago de la pensión de alimentos por la suma de [[MONTO ADEUDADO]].
+
+POR TANTO,
+RUEGO A US.: Ordenar la inscripción del demandado en el Registro Nacional de Deudores de Pensiones de Alimentos, conforme a la Ley 21.389.`,
+  instruccion_llm: 'Solicitud judicial. Formato escrito. Datos necesarios: RIT, nombre demandado, monto adeudado.',
+});
+
+// ── Acuerdo de confidencialidad (NDA) ──
+TEMPLATES.push({
+  id: 'acuerdo-confidencialidad',
+  keywords: ['acuerdo confidencialidad', 'nda', 'confidencial', 'secreto', 'no divulgacion'],
+  titulo: 'Acuerdo de Confidencialidad (NDA)',
+  tipo: 'contrato',
+  articulos: ['Art. 1545 del Código Civil (principio de buena fe contractual)', 'Art. 1560 del Código Civil (interpretación contractual)'],
+  esqueleto: `ACUERDO DE CONFIDENCIALIDAD
+
+En [CIUDAD], a [FECHA], comparecen: por una parte [[PARTE_REVELADORA]], RUT [[RUT_REVELADORA]], en adelante "la Parte Reveladora"; y por la otra, [[PARTE_RECEPTORA]], RUT [[RUT_RECEPTORA]], en adelante "la Parte Receptora", quienes acuerdan el presente Acuerdo de Confidencialidad.
+
+PRIMERO: OBJETO. La Parte Reveladora divulgará a la Parte Receptora cierta información confidencial relativa a [[DESCRIBIR INFORMACIÓN]].
+
+SEGUNDO: OBLIGACIONES. La Parte Receptora se obliga a no divulgar, copiar ni usar la información confidencial para fines distintos a los acordados.
+
+TERCERO: PLAZO. La obligación de confidencialidad regirá por [[PLAZO]] años desde la fecha de divulgación.
+
+CUARTO: Las partes firman en señal de conformidad.`,
+  instruccion_llm: 'Acuerdo bilateral (contrato). NO judicial. Clausulas numeradas. Datos: partes, información a proteger, plazo.',
+});
+
+// ── Acuerdo de pago de deuda ──
+TEMPLATES.push({
+  id: 'acuerdo-pago-deuda',
+  keywords: ['acuerdo pago', 'pago deuda', 'reprogramar deuda', 'convenio pago', 'pagar en cuotas'],
+  titulo: 'Acuerdo de pago de deuda',
+  tipo: 'contrato',
+  articulos: ['Art. 1551 del Código Civil (mora)', 'Art. 1567 del Código Civil (modos de extinguir obligaciones)'],
+  esqueleto: `ACUERDO DE PAGO
+
+En [CIUDAD], a [FECHA], comparecen: por una parte [[ACREEDOR]], RUT [[RUT_ACREEDOR]], en adelante "el Acreedor"; y por la otra, [[DEUDOR]], RUT [[RUT_DEUDOR]], en adelante "el Deudor", quienes acuerdan:
+
+PRIMERO: RECONOCIMIENTO. El Deudor reconoce adeudar al Acreedor la suma de [[MONTO TOTAL]].
+
+SEGUNDO: FORMA DE PAGO. El Deudor pagará en [[NÚMERO DE CUOTAS]] cuotas de [[MONTO CUOTA]] cada una, los días [[DÍA DE PAGO]] de cada mes.
+
+TERCERO: MORA. En caso de incumplimiento de [[NÚMERO DE CUOTAS]] cuotas, el Acreedor podrá exigir el total de la deuda.
+
+CUARTO: Las partes firman.`,
+  instruccion_llm: 'Acuerdo de pago bilateral (contrato). NO judicial. Usar datos de deuda, cuotas, montos.',
+});
+
+// ── Acuerdo de divorcio de mutuo acuerdo ──
+TEMPLATES.push({
+  id: 'acuerdo-divorcio-mutuo-acuerdo',
+  keywords: ['divorcio mutuo acuerdo', 'divorcio', 'separacion', 'cese convivencia'],
+  titulo: 'Acuerdo de divorcio de mutuo acuerdo',
+  tipo: 'contrato',
+  articulos: ['Art. 21 de la Ley 19.947 (Ley de Matrimonio Civil, divorcio de mutuo acuerdo)', 'Art. 22 Ley 19.947 (acuerdo regulador)'],
+  esqueleto: `ACUERDO DE DIVORCIO DE MUTUO ACUERDO
+
+En [CIUDAD], a [FECHA], comparecen: [[CÓNYUGE 1]], RUT [[RUT 1]]; y [[CÓNYUGE 2]], RUT [[RUT 2]], ambos domiciliados en [[DOMICILIO]], quienes acuerdan:
+
+PRIMERO: CESACIÓN DE CONVIVENCIA. Ambas partes reconocen haber cesado su convivencia con fecha [[FECHA CESE]].
+
+SEGUNDO: AUSENCIA DE HIJOS MENORES. [[SI CORRESPONDE: detalle de hijos y régimen]].
+
+TERCERO: RÉGIMEN DE BIENES. [[SOCIEDAD CONYUGAL / SEPARACIÓN TOTAL]].
+
+CUARTO: Las partes solicitan al tribunal competente la aprobación del presente acuerdo y la declaración de divorcio.`,
+  instruccion_llm: 'Acuerdo bilateral para divorcio de mutuo acuerdo ante el Juzgado de Familia. NO es un escrito judicial. Formato de acuerdo con clausulas.',
+});
+
+// ── Acuerdo de tuición compartida ──
+TEMPLATES.push({
+  id: 'acuerdo-tuicion-compartida',
+  keywords: ['tuicion compartida', 'cuidado personal', 'hijos', 'tenencia compartida', 'custodia compartida'],
+  titulo: 'Acuerdo de tuición / cuidado personal compartido',
+  tipo: 'contrato',
+  articulos: ['Art. 224 del Código Civil (cuidado personal de los hijos)', 'Art. 225 del Código Civil (acuerdo de cuidado personal)'],
+  esqueleto: `ACUERDO DE CUIDADO PERSONAL COMPARTIDO
+
+En [CIUDAD], a [FECHA], comparecen: [[PADRE/MADRE 1]], RUT [[RUT 1]]; y [[PADRE/MADRE 2]], RUT [[RUT 2]], ambos domiciliados en [[DOMICILIO]], padres de [[NOMBRE HIJOS]], quienes acuerdan:
+
+PRIMERO: Ambos padres ejercerán el cuidado personal compartido del hijo [[NOMBRE HIJO(S)]].
+
+SEGUNDO: RÉGIMEN DE VISITAS Y PERMANENCIA. El hijo permanecerá [[DÍAS CON CADA UNO]].
+
+TERCERO: PENSIÓN DE ALIMENTOS. [[MONTO O EXENCIÓN]].
+
+CUARTO: Las partes firman.`,
+  instruccion_llm: 'Acuerdo bilateral (contrato). NO judicial. Clausulas numeradas.',
+});
+
+// ── Certificado de antecedentes para fines especiales ──
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MATCHING: encuentra el template más apropiado según materia y hechos
 // ─────────────────────────────────────────────────────────────────────────────
 export function findTemplate(materia: string | null, hechos: string | null): LegalTemplate | null {
