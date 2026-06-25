@@ -558,80 +558,43 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     // CLASIFICACION CON LLM (temperature=0 para determinismo)
     // ═══════════════════════════════════════════════════════════════
     const clasificacionLLM = await llmComplete({
-      system: `Eres un clasificador de documentos legales chilenos. Tu método es: PRIMERO determinar QUÉ QUIERE LOGRAR el usuario, SEGUNDO identificar el tipo de documento.
+      system: `Clasifica documentos legales chilenos. Regla de oro: PRIMERO determina QUE QUIERE LOGRAR el usuario.
 
-PASO 1: Identifica la INTENCIÓN del usuario. ¿Qué quiere conseguir?
-- "reclamar", "cobrar", "que me devuelvan", "reclamo" → QUIERE RECLAMAR/COBRAR algo
-- "prescribir", "eliminar multa", "borrar deuda" → QUIERE PRESCRIBIR
-- "demandar", "demanda" → QUIERE DEMANDAR
-- "desalojo", "echar", "desalojar" → QUIERE DESALOJAR
-- "defenderme", "no me dejan", "me quieren echar" → QUIERE DEFENDERSE
-- "poder", "que alguien haga" → QUIERE UN PODER
-- "proteccion", "recurso", "vulneraron mis derechos" → QUIERE RECURSO DE PROTECCION
-- "renunciar", "renuncia" → QUIERE RENUNCIAR
-- "finiquito", "liquidacion final" → QUIERE FINIQUITO
-- "alimentos", "pension alimentos", "mantencion hijo" → QUIERE DEMANDA ALIMENTOS
-- "regular visitas", "ver a mi hijo" → QUIERE REGULACION DE VISITAS
-- "contrato" → QUIERE UN CONTRATO
-- "declaracion jurada" → QUIERE DECLARACION JURADA
+PASO 1 - INTENCION (que quiere lograr):
+- "reclamar", "cobrar", "que me devuelvan", "reclamo", "que me paguen" → RECLAMAR/COBRAR → carta reclamo cobranza
+- "prescribir", "eliminar multa" → PRESCRIBIR → prescripcion multa tag
+- "demandar" → DEMANDAR → demanda civil
+- "desalojo", "echar inquilino" → DESALOJAR → desahucio arrendador
+- "defenderme", "me quieren echar" → DEFENDERSE → defensa arrendatario
+- "poder", "que alguien haga por mi" → PODER → poder simple
+- "recurso proteccion", "vulneraron mis derechos", "me cortaron luz/agua" → RECURSO → recurso proteccion
+- "renunciar" → RENUNCIA → carta renuncia
+- "finiquito" → FINIQUITO → finiquito laboral
+- "alimentos", "pension hijo" → ALIMENTOS → demanda alimentos
+- "ver a mi hijo", "visitas" → VISITAS → regulacion visitas
+- "contrato" → CONTRATO → contrato arriendo o trabajo
 
-PASO 2: NO dejes que el CONTEXTO (dónde ocurre) anule la INTENCIÓN.
-Ejemplos de clasificación CORRECTA:
-- "reclamo porque mi arrendador no me devuelve la garantia" → INTENCION: RECLAMAR/COBRAR → carta reclamo cobranza (NO desahucio, NO defensa arrendatario)
-- "carta de reclamo a mi arrendador por garantia no devuelta" → carta reclamo cobranza
-- "reclamo a la constructora por mala obra" → carta reclamo cobranza
-- "carta para que mi ex empleador me pague lo que me debe" → carta reclamo cobranza
-- "me quieren echar del departamento" → INTENCION: DEFENDERSE → defensa arrendatario
-- "quiero echar al inquilino moroso" → INTENCION: DESALOJAR → desahucio arrendador
-- "no me pagan las cotizaciones" → INTENCION: RECLAMAR → denuncia no pago cotizaciones
+PASO 2 - CONTEXTO NO ANULA INTENCION:
+Ejemplos CORRECTOS:
+- "reclamo porque mi arrendador no devuelve garantia" → INTENCION RECLAMAR → carta reclamo cobranza
+- "reclamo a empresa por mal servicio" → INTENCION RECLAMAR → reclamo sernac
+- "carta para que mi ex empleador me pague" → INTENCION RECLAMAR → carta reclamo cobranza
+- "me quieren echar del depto" → INTENCION DEFENDERSE → defensa arrendatario
+- "quiero echar al inquilino" → INTENCION DESALOJAR → desahucio arrendador
 
-REGLAS CLAVE:
-- Si el usuario menciona "reclamo", "carta", "cobro", "que me paguen", "que me devuelvan": es CARTA RECLAMO / COBRANZA, independientemente del contexto (arriendo, trabajo, compra)
-- "no me dejan ver a mi hijo" = regulacion visitas (NO alimentos)
-- "pension para mi hijo" = demanda alimentos
-- "me despidieron / me echaron del trabajo" = despido injustificado
-- "compre algo que no funciona" → empresa = reclamo SERNAC, particular = demanda civil engaño. Si no sabes → necesito_clarificacion_vendedor
-- "prescribir multas" = prescripcion multa TAG
-- "poder para que alguien haga algo" = poder simple
-- "me cortaron luz/agua" = recurso proteccion
-- "documento_no_legal": carta recomendacion, certificado trabajo, CV
-- NUNCA respondas "desahucio", "defensa arrendatario" ni "contrato arriendo" si la intencion del usuario es RECLAMAR/COBRAR
+CASOS ESPECIALES (debes detectar exactamente):
+- Si pide "carta de recomendacion", "certificado trabajo", "curriculum", "CV" → documento_no_legal
+- Si dice "compre auto/producto" sin decir automotora/particular → necesito_clarificacion_vendedor
+- Si dice "compre auto en automotora" → reclamo sernac
+- Si dice "compre auto a particular" → demanda civil
+- "me echaron del trabajo" → despido injustificado
+- "no me pagan cotizaciones" → denuncia no pago cotizaciones
+- "demanda por divorcio" → necesito_clarificacion (requiere abogado)
 
-Tipos validos:
-- finiquito laboral
-- poder simple
-- reclamo SERNAC
-- demanda civil
-- carta renuncia
-- demanda alimentos
-- regulacion visitas
-- custodia
-- recurso proteccion
-- prescripcion multa TAG
-- despido injustificado
-- defensa arrendatario
-- desahucio arrendador
-- carta reclamo cobranza
-- contrato arriendo
-- querella criminal
-- denuncia penal
-- denuncia obra nueva
-- reclamo vecinal
-- prescripcion deuda
-- contrato trabajo
-- declaracion jurada
-- certificado
-- solicitud administrativa
-- carta documento
-- tutela laboral
-- denuncia acoso laboral
-- denuncia no pago cotizaciones
-- posesion efectiva
-- necesito_clarificacion
-- necesito_clarificacion_vendedor
-- documento_no_legal
+SI NO SABES → necesito_clarificacion
+NO uses tipos genericos: judicial, otro, general, documento, legal
 
-Responde SOLO el tipo (una linea), nada mas.`,
+Responde SOLO el tipo (una linea).`,
       messages: [{ role: 'user', content: texto }],
       temperature: 0,
       maxTokens: 50
@@ -728,6 +691,29 @@ Responde SOLO el tipo (una linea), nada mas.`,
             camposFaltantes = fields;
             break;
           }
+        }
+        
+        // VERIFICAR si los datos extraídos ya cubren todo (primer mensaje con datos completos)
+        const datosRecop = state.datosRecopilados;
+        const faltantesReales = camposFaltantes.filter(campo => {
+          const val = datosRecop[campo];
+          return !val || (typeof val === 'string' && val.trim().length === 0);
+        });
+        
+        if (faltantesReales.length === 0) {
+          console.log(`[recopilar] ✅ Datos completos en primer mensaje para: ${tipoDetectado}`);
+          return {
+            tipoDocumento: tipoDetectado,
+            datosRecopilados: { 
+              ...state.datosRecopilados, 
+              tipo_documento: tipoDetectado,
+              template_id: template.id,
+              template_titulo: template.titulo
+            },
+            ready: true,
+            responseMessage: 'Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.',
+            datosFaltantes: []
+          };
         }
         
         // Mensaje personalizado con hint de la plantilla

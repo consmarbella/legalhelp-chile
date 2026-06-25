@@ -1014,7 +1014,7 @@ RUT: [RUT]`,
   // ── Carta de cobro prejudicial a deudor (SCRAPEADO) ──
   {
     id: 'carta-de-cobro-prejudicial-a-deudor',
-    keywords: ["cobro prejudicial", "deudor", "mora", "pago", "última instancia", "antes de demandar", "carta reclamo cobranza", "reclamo", "cobro deuda", "garantía no devuelta", "reclamar pago", "devolución garantia", "carta reclamo"],
+    keywords: ["cobro prejudicial", "deudor", "mora", "pago", "última instancia", "antes de demandar", "cobro deuda", "garantía no devuelta", "reclamar pago", "devolución garantia", "cobranza"],
     titulo: "Carta de cobro prejudicial a deudor",
     tipo: 'carta',
     articulos: ["Art. 1551 Código Civil (estado de mora del deudor)", "Art. 1552 Código Civil (mora del deudor por plazo vencido)", "Art. 98 Código de Comercio (cobro mercantil)"],
