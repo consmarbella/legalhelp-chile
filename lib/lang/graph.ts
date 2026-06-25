@@ -672,6 +672,32 @@ Responde SOLO el tipo (una linea).`,
       
       if (esGenerico) {
         console.log(`[recopilar] Tipo generico detectado: "${tipoDetectado}" - pidiendo clarificacion`);
+        
+        // CONTADOR DE REINTENTOS: si ya estamos en la segunda vuelta, ofrecer opciones
+        const estadoAnteriorDatos = Object.keys(state.datosRecopilados).length;
+        const mensajesPrevios = state.conversationHistory.filter(m => m.role === 'user').length;
+        
+        if (mensajesPrevios >= 2) {
+          console.log(`[recopilar] El usuario ya intento ${mensajesPrevios} veces - ofreciendo opciones`);
+          return {
+            responseMessage: `Disculpa, no estoy logrando entender exactamente qué documento necesitas. Aquí tienes los documentos que puedo ayudarte a redactar:
+
+📄 **Finiquito laboral** - término de relación laboral
+📄 **Carta de renuncia** - renuncia voluntaria al trabajo
+📄 **Poder simple** - autorización para que alguien haga un trámite por ti
+📄 **Carta reclamo / cobranza** - para cobrar una deuda o reclamar algo
+📄 **Reclamo SERNAC** - queja contra una empresa
+📄 **Demanda de alimentos** - pensión para hijos
+📄 **Recurso de protección** - vulneración de derechos
+📄 **Prescripción multa TAG / deuda** - para eliminar multas viejas
+📄 **Despido injustificado** - si te echaron sin razón
+📄 **Contrato de arriendo** - para arrendar una propiedad
+
+¿Cuál de estos se acerca más a lo que necesitas?`,
+            datosFaltantes: ['tipo_documento']
+          };
+        }
+        
         return {
           responseMessage: 'Necesito entender mejor tu situacion. Puedes describir con mas detalle que documento necesitas? Por ejemplo: un finiquito laboral, un poder para otra persona, un reclamo contra una empresa, una defensa por desalojo, etc.',
           datosFaltantes: ['tipo_documento', 'nombre', 'rut']
