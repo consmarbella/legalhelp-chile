@@ -5,7 +5,6 @@ import { findTemplate } from '@/lib/templates';
 import { GENERATE_SYSTEM_PROMPT as SYSTEM } from '@/lib/prompts';
 import { llmComplete } from '@/lib/llm';
 import { checkDocument, buildCorrectionPrompt } from '@/lib/postChecker';
-import { buscarMarcoLegal } from '@/lib/bcnScraper';
 
 // ─── Genera el documento usando llmComplete ───────────────────────────────────
 async function generateDocument(
@@ -83,32 +82,15 @@ async function generateDocument(
       `INSTRUCCIÓN ESPECÍFICA: ${template.instruccion_llm}`
     : '';
 
-  // Red de seguridad: si NO hay plantilla, buscar en BCN en vivo
-  // para obtener el marco legal real. Si falla, usa el grounding de la ficha.
-  let groundingBlock = '';
-  if (!template) {
-    const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
-    const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
-    
-    if (leyRef || entidadRef) {
-      groundingBlock = `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre. NUNCA escribas "y siguientes" ni artículos consecutivos inventados):\n${leyRef}` +
-        (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '');
-    } else {
-      // Buscar en BCN en vivo
-      console.log(`[generate-final] Sin plantilla ni ficha, buscando en BCN: ${tipo}`);
-      try {
-        const bcnResult = await buscarMarcoLegal(tipo);
-        if (bcnResult.encontrado) {
-          console.log(`[generate-final] ✅ Marco legal encontrado en BCN: ${bcnResult.fuente}`);
-          groundingBlock = `\n\nMARCO LEGAL OBTENIDO DE BCN (Biblioteca del Congreso Nacional) para este tipo de documento:\n${bcnResult.marcoLegal}\nFuente: ${bcnResult.fuente} (${bcnResult.url})`;
-        } else {
-          console.log(`[generate-final] ⚠️ Sin marco legal en BCN para: ${tipo}`);
-        }
-      } catch (bcnError) {
-        console.error('[generate-final] Error consultando BCN:', bcnError);
-      }
-    }
-  }
+  // Red de seguridad: si NO hay plantilla, usa el marco legal y la autoridad
+  // curados de la ficha de la página del sitemap como grounding. Asi todas las
+  // paginas del sitemap generan un documento con base legal pertinente.
+  const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
+  const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
+  const groundingBlock = !template && (leyRef || entidadRef)
+    ? `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre. NUNCA escribas "y siguientes" ni artículos consecutivos inventados):\n${leyRef}` +
+      (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO AL QUE SE DIRIGE: ${entidadRef}` : '')
+    : '';
 
   // Build a KEY DATA MAPPING section that explicitly maps common template markers
   // to actual values from the case data, making it impossible for the LLM to miss
