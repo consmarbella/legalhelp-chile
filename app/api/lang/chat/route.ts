@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
     const { runAgent } = await import('@/lib/lang/graph');
 
     // Ejecutar el agente LangGraph
+    console.log(`[lang/chat] Llamando runAgent...`);
     const result = await runAgent(
       message,
       caseHistory || [],
