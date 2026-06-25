@@ -964,46 +964,13 @@ REGLAS:
 
 Responde SOLO "ok" o "falta: [explicacion breve]".`;
 
-    try {
-      const verifResp = await llmComplete({
-        system: 'Eres un validador legal chileno. Responde SOLO "ok" o "falta: ..."',
-        messages: [{ role: 'user', content: verifPrompt }],
-        temperature: 0,
-        maxTokens: 80
-      });
-      
-      if (verifResp && verifResp.toLowerCase().includes('ok')) {
-        console.log(`[recopilar] ✅ VALIDACION LEGAL SUPERADA - ready=true`);
+          // Validación TypeScript superada → ready=true sin llamada LLM adicional
+        console.log('[recopilar] ✅ DATOS COMPLETOS - ready=true');
         return {
           ready: true,
           datosFaltantes: [],
           responseMessage: 'Perfecto, tengo todos los datos necesarios para redactar tu documento. Procedo a generar el escrito.'
         };
-      } else {
-        const razon = (verifResp || '').replace(/^falta:\s*/i, '').trim();
-        console.log(`[recopilar] ⚠️ VALIDACION LEGAL: falta ${razon}`);
-        
-        // Si el LLM dice que falta algo, preguntar
-        const pregunta = razon 
-          ? `Necesito un dato mas: ${razon}`
-          : '¿Puedes darme mas detalles sobre tu caso?';
-        
-        return {
-          responseMessage: pregunta,
-          datosFaltantes: [razon || 'detalle_caso'],
-          ready: false
-        };
-      }
-    } catch (e) {
-      // Si falla la validacion LLM, aceptar campos (fallback seguro)
-      console.error('[recopilar] Error en validacion legal LLM:', e);
-      return {
-        ready: true,
-        datosFaltantes: [],
-        responseMessage: 'Perfecto, tengo todos los datos necesarios para redactar tu documento. Procedo a generar el escrito.'
-      };
-    }
-
   } catch (error) {
     console.error('[graph] Error en recopilarDatos:', error);
     return {
