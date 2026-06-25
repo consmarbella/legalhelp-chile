@@ -32,14 +32,14 @@ export default function LangPage() {
   }, [messages]);
 
   useEffect(() => {
-    if (caseData.ready && !paid && !previewDoc && !generating) {
+    if (caseData.ready && !paid && !previewDoc && !generating && selectedDoc) {
       handleGeneratePreview();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [caseData.ready]);
 
   useEffect(() => {
-    if (paid && caseData.ready && !generatedDoc && !generating) {
+    if (paid && caseData.ready && !generatedDoc && !generating && selectedDoc) {
       handleGenerate();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -380,7 +380,7 @@ Tienes **2 correcciones gratuitas** — si necesitas cambiar algo, solo escríbe
                       ? 'bg-[#00d4ff]/15 border border-[#00d4ff]/30 text-white rounded-br-sm'
                       : 'bg-[#0d1426]/80 border border-[#60a5fa]/15 text-white rounded-bl-sm'
                   }`}>
-                    {m.content}
+                                  <span style={{ whiteSpace: 'pre-wrap' }}>{m.content.replace(/\*\*(.*?)\*\*/g, (_, t) => t)}</span>
                   </div>
                 </div>
               ))}
