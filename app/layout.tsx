@@ -72,9 +72,9 @@ export default function RootLayout({
   return (
     <html
       lang="es-CL"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#05070f] text-white">
+      <body className="min-h-screen flex flex-col bg-[#05070f] text-white">
         <LegalOSBackground />
         <script
           type="application/ld+json"
