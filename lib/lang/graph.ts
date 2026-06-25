@@ -613,7 +613,31 @@ Responde SOLO el tipo (una linea).`,
       const tipoDetectado = clasificacionLLM.trim().toLowerCase().replace(/['"\.]/g, '').trim();
       console.log(`[recopilar] LLM clasifico como: "${tipoDetectado}"`);
       
-      // ═══════════════════════════════════════════════════════════
+      // OVERRIDE: Forzar clasificacion para tipos nuevos que el LLM no detecta
+      const textoNorm = texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const OVERRIDES = [
+        [/eliminaci[óo]n\s+(de\s+)?(antecedentes|prontuario)|borrar\s+prontuario/, 'eliminacion antecedentes penales'],
+        [/limpi(a|ar)\s+(hoja\s+de\s+)?vida\s+(del\s+)?conductor/, 'limpieza hoja vida conductor'],
+        [/omis[ií]on\s+antecedentes|vif|violencia\s+intrafamiliar/, 'omision antecedentes violencia intrafamiliar'],
+        [/registro\s+(nacional\s+)?deudor(es)?\s+(pension(es)?\s+)?alimentos/, 'registro deudores pensiones alimentos'],
+        [/acuerdo\s+(de\s+)?confidencialidad|nda/, 'acuerdo confidencialidad'],
+        [/acuerdo\s+(de\s+)?pago\s+(de\s+)?(deuda|cuotas)/, 'acuerdo pago deuda'],
+        [/divorcio\s+(de\s+)?mutuo\s+acuerdo/, 'acuerdo divorcio mutuo acuerdo'],
+        [/tuici[óo]n\s+compartida|cuidado\s+personal\s+(compartido\s+)?hijos/, 'acuerdo tuicion compartida'],
+        [/certificado\s+(de\s+)?antecedentes/, 'certificado antecedentes fines especiales'],
+      ];
+      for (const [regex, tipo] of OVERRIDES) {
+        if (regex.test(textoNorm)) {
+          console.log(`[recopilar] OVERRIDE: forzado a "${tipo}"`);
+          return await recopilarDatos({
+            ...state,
+            tipoDocumento: tipo,
+            datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipo },
+            datosFaltantes: []
+          });
+        }
+      }
+      
       // VALIDACION: Rechazar tipos genericos
       // ═══════════════════════════════════════════════════════════
       const tiposGenericos = ['judicial', 'otro', 'general', 'documento', 'legal', 'necesito_clarificacion', 'no se', 'no sé', 'indefinido'];
