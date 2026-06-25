@@ -7,6 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, CHAT_RATE_LIMIT } from '@/lib/rateLimit';
+export const maxDuration = 60; // Vercel max function duration (seconds)
 
 export async function POST(req: NextRequest) {
   // Rate limiting
