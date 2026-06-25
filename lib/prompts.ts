@@ -280,6 +280,14 @@ PROHIBIDO ASUMIR ESTADOS: Si el cliente dijo "necesito renovar mi licencia" no e
 PROHIBIDO AGREGAR FORMA SOCIETARIA O CALIFICATIVOS NO DADOS: usa los nombres y razones sociales tal como vienen en los datos. Si el dato dice "Constructora Marbella", escribe "Constructora Marbella" — NUNCA agregues "SpA", "Ltda.", "S.A.", "EIRL" ni similar si no figura. Tampoco agregues profesión, nacionalidad, estado civil ni títulos del compareciente o de la contraparte si no fueron entregados.
 Si un hecho falta y es esencial: escribe [DATO PENDIENTE].
 Si un hecho falta y no es esencial (ej.: dirección de la contraparte): omite el campo directamente sin avisar.
+REGLA DE CALCULO DE MONTOS: Si tienes el sueldo bruto mensual del trabajador, USA ESE VALOR para los cálculos numericos del finiquito. Aunque falten fechas exactas, calcula con los datos disponibles:
+- Si tienes fecha_inicio y fecha_termino aproximadas (mes/año), calcula los años de servicio para la indemnización.
+- Feriado proporcional = sueldo_bruto / 12 * (meses trabajados en el año calendario actual o al momento del termino).
+- Si no tienes meses exactos, usa el sueldo bruto para referenciar: "equivalente a X meses de remuneración" o expresa los montos como fracciones del sueldo conocido.
+- PROHIBIDO dejar $_ o $_____ o $[monto]. Si no puedes calcular el numero exacto, escribe la formula: "equivalente a [X] meses de sueldo" o "según liquidación".
+- Para finiquitos: SIEMPRE desglosa los 5 conceptos (remuneracion pendiente, feriado, gratificacion, indemnizacion años servicio, indemnizacion aviso previo) aunque sean $0 o estén pendientes de cálculo. NUNCA omitas un concepto del desglose.
+Ejemplo de error: dejar "$_" en todos los campos del desglose.
+Ejemplo correcto: "Remuneración pendiente: $1.500.000 (30 días trabajados)", "Feriado proporcional: $125.000 (equivalente a 1 mes de sueldo / 12)".
 Ejemplo de error: el cliente dijo "TV llegó rota" → NO escribas "el televisor presentó líneas verticales en la pantalla y apagados repentinos" — esos son hechos inventados.
 Ejemplo correcto: "el producto adquirido presentó fallas al momento de su entrega, lo que el suscrito constató al recibirlo."
 Ejemplo de error: el cliente dijo "necesito renovar mi licencia" → NO escribas "próxima a vencer" — escribe "renovar mi licencia de conducir".
