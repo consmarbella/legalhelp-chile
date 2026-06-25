@@ -555,6 +555,33 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     }
 
     // ═══════════════════════════════════════════════════════════════
+    // OVERRIDE PRE-LLM: Forzar clasificacion por regex (mas rapido y preciso)
+    // ═══════════════════════════════════════════════════════════════
+    const textoNorm = texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const OVERRIDES: [RegExp, string][] = [
+      [/elimin(ar|acion)(\s+\S+)?\s+(de\s+)?(antecedentes|prontuario)|borrar\s+(antecedentes|prontuario)/, 'eliminacion antecedentes penales'],
+      [/limpi(a|ar)(\s+\S+)?\s+(hoja\s+de\s+)?vida\s+(del\s+)?conductor|limpiar\s+registro/, 'limpieza hoja vida conductor'],
+      [/omis(ion|ir)(\s+\S+)?\s+antecedentes|vif|violencia\s+intrafamiliar/, 'omision antecedentes violencia intrafamiliar'],
+      [/registro\s+(nacional\s+)?deudor(es)?|deudor\s+(de\s+)?pension(es)?|moroso\s+pension/, 'registro deudores pensiones alimentos'],
+      [/acuerdo\s+(de\s+)?confidencialidad|nda|confidencial/, 'acuerdo confidencialidad'],
+      [/acuerdo\s+(de\s+)?pago|convenio\s+pago|reprogramar\s+deuda/, 'acuerdo pago deuda'],
+      [/divorcio\s+(de\s+)?mutuo\s+acuerdo/, 'acuerdo divorcio mutuo acuerdo'],
+      [/tuici[o]n\s+compartida|cuidado\s+personal\s+(compartido\s+)?hijos|tenencia\s+compartida|custodia\s+compartida/, 'acuerdo tuicion compartida'],
+      [/certificado\s+(de\s+)?antecedentes/, 'certificado antecedentes fines especiales'],
+    ];
+    for (const [regex, tipoForzado] of OVERRIDES) {
+      if (regex.test(textoNorm)) {
+        console.log(`[recopilar] PRE-OVERRIDE: forzado a "${tipoForzado}"`);
+        return await recopilarDatos({
+          ...state,
+          tipoDocumento: tipoForzado,
+          datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoForzado },
+          datosFaltantes: []
+        });
+      }
+    }
+    
+    // ═══════════════════════════════════════════════════════════════
     // CLASIFICACION CON LLM (temperature=0 para determinismo)
     // ═══════════════════════════════════════════════════════════════
     const clasificacionLLM = await llmComplete({
