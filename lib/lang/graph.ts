@@ -590,6 +590,15 @@ CASOS ESPECIALES (debes detectar exactamente):
 - "me echaron del trabajo" → despido injustificado
 - "no me pagan cotizaciones" → denuncia no pago cotizaciones
 - "demanda por divorcio" → necesito_clarificacion (requiere abogado)
+- "eliminar antecedentes penales", "borrar prontuario" → eliminacion antecedentes penales
+- "limpiar hoja vida conductor", "limpiar registro conductor" → limpieza hoja vida conductor
+- "omision antecedentes vif", "borrar antecedentes violencia intrafamiliar" → omision antecedentes vif
+- "inscribir deudor pension alimentos", "registro nacional deudores" → registro deudores pensiones alimentos
+- "acuerdo confidencialidad", "nda" → acuerdo confidencialidad
+- "acuerdo pago deuda", "convenio pago" → acuerdo pago deuda
+- "divorcio mutuo acuerdo" → acuerdo divorcio mutuo acuerdo
+- "tuicion compartida", "cuidado personal hijos" → acuerdo tuicion compartida
+- "certificado antecedentes", "certificado de antecedentes" → certificado antecedentes fines especiales
 
 SI NO SABES → necesito_clarificacion
 NO uses tipos genericos: judicial, otro, general, documento, legal
