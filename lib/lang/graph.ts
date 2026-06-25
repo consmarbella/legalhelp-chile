@@ -313,6 +313,7 @@ RECLAMO SERNAC: nombre, RUT, empresa, detalle_caso (qué pasó), que_quiere (sol
 DEMANDA ALIMENTOS: nombre, RUT, demandado, hijos (nombre y fecha nacimiento), monto, necesidades
 CONTRATO ARRIENDO: nombre, RUT, arrendatario, RUT arrendatario, inmueble (dirección), renta, fecha_inicio
 RECURSO PROTECCION: nombre, RUT, recurrido (quién vulneró), detalle_caso (acto arbitrario), derecho_vulnerado
+CARTA RECLAMO COBRANZA: nombre, RUT, destinatario (a quién reclama), detalle_caso (qué pasó), monto (cuánto reclama), que_quiere (solución), plazo (días para responder)
 
 INSTRUCCIONES CRITICAS:
 - Si "nombre" ya esta en DATOS YA RECOPILADOS, NO lo extraigas de nuevo
@@ -530,45 +531,50 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
     // CLASIFICACION CON LLM (temperature=0 para determinismo)
     // ═══════════════════════════════════════════════════════════════
     const clasificacionLLM = await llmComplete({
-      system: `Eres un clasificador de documentos legales chilenos. Clasifica EXACTAMENTE lo que el usuario necesita desde SU perspectiva.
+      system: `Eres un clasificador de documentos legales chilenos. Tu método es: PRIMERO determinar QUÉ QUIERE LOGRAR el usuario, SEGUNDO identificar el tipo de documento.
 
-REGLAS CRITICAS:
-1. Clasifica desde la perspectiva del USUARIO (no de la contraparte)
-2. Distingue bien:
-   - "no me dejan ver a mi hijo" = regulacion visitas (NO alimentos)
-   - "me desalojan / me quieren echar" = defensa arrendatario (NO desahucio)
-   - "quiero echar al arrendatario" = desahucio arrendador
-   - "pension para mi hijo" = demanda alimentos
-   - "vecino construyo algo / me tapa la luz" = denuncia obra nueva
-   - "me cortaron la luz/agua" = recurso proteccion
-   - "compre algo y no funciona / me bloquearon" = reclamo SERNAC (SOLO si es empresa/automotora)
-   - "compre algo a particular y me engañaron" = NO SERNAC → demanda civil
-   - "prescribir multas / multas viejas" = prescripcion multa TAG
-   - "me echaron / me despidieron / no me pagaron" = despido injustificado
-   - "poder para que alguien haga algo por mi" = poder simple
-   - "ex pareja no me deja ver a mi hijo" = regulacion visitas
-   - "me desalojan pero tengo contrato" = defensa arrendatario
-   - "carta de recomendación laboral" = NO ES DOCUMENTO LEGAL → rechazar
-   - "certificado de trabajo" = NO ES DOCUMENTO LEGAL → informar que lo pide al empleador
-   - "currículum vitae" = NO ES DOCUMENTO LEGAL → rechazar
-   
-3. VALIDACIÓN DE CASOS AMBIGUOS:
-   - Si el usuario dice "compré auto y me mintió":
-     * SI es automotora/concesionario → reclamo SERNAC
-     * SI es particular → demanda civil engaño
-     * NO ASUMAS → responde "necesito_clarificacion_vendedor"
-   
-   - Si el usuario pide carta de recomendación, certificado laboral, CV:
-     * Responde "documento_no_legal"
-   
-4. IMPORTANTE: Si realmente no puedes determinar el tipo, responde "necesito_clarificacion"
-5. NO respondas con tipos genericos como "judicial", "otro", "general", "documento", "legal"
+PASO 1: Identifica la INTENCIÓN del usuario. ¿Qué quiere conseguir?
+- "reclamar", "cobrar", "que me devuelvan", "reclamo" → QUIERE RECLAMAR/COBRAR algo
+- "prescribir", "eliminar multa", "borrar deuda" → QUIERE PRESCRIBIR
+- "demandar", "demanda" → QUIERE DEMANDAR
+- "desalojo", "echar", "desalojar" → QUIERE DESALOJAR
+- "defenderme", "no me dejan", "me quieren echar" → QUIERE DEFENDERSE
+- "poder", "que alguien haga" → QUIERE UN PODER
+- "proteccion", "recurso", "vulneraron mis derechos" → QUIERE RECURSO DE PROTECCION
+- "renunciar", "renuncia" → QUIERE RENUNCIAR
+- "finiquito", "liquidacion final" → QUIERE FINIQUITO
+- "alimentos", "pension alimentos", "mantencion hijo" → QUIERE DEMANDA ALIMENTOS
+- "regular visitas", "ver a mi hijo" → QUIERE REGULACION DE VISITAS
+- "contrato" → QUIERE UN CONTRATO
+- "declaracion jurada" → QUIERE DECLARACION JURADA
+
+PASO 2: NO dejes que el CONTEXTO (dónde ocurre) anule la INTENCIÓN.
+Ejemplos de clasificación CORRECTA:
+- "reclamo porque mi arrendador no me devuelve la garantia" → INTENCION: RECLAMAR/COBRAR → carta reclamo cobranza (NO desahucio, NO defensa arrendatario)
+- "carta de reclamo a mi arrendador por garantia no devuelta" → carta reclamo cobranza
+- "reclamo a la constructora por mala obra" → carta reclamo cobranza
+- "carta para que mi ex empleador me pague lo que me debe" → carta reclamo cobranza
+- "me quieren echar del departamento" → INTENCION: DEFENDERSE → defensa arrendatario
+- "quiero echar al inquilino moroso" → INTENCION: DESALOJAR → desahucio arrendador
+- "no me pagan las cotizaciones" → INTENCION: RECLAMAR → denuncia no pago cotizaciones
+
+REGLAS CLAVE:
+- Si el usuario menciona "reclamo", "carta", "cobro", "que me paguen", "que me devuelvan": es CARTA RECLAMO / COBRANZA, independientemente del contexto (arriendo, trabajo, compra)
+- "no me dejan ver a mi hijo" = regulacion visitas (NO alimentos)
+- "pension para mi hijo" = demanda alimentos
+- "me despidieron / me echaron del trabajo" = despido injustificado
+- "compre algo que no funciona" → empresa = reclamo SERNAC, particular = demanda civil engaño. Si no sabes → necesito_clarificacion_vendedor
+- "prescribir multas" = prescripcion multa TAG
+- "poder para que alguien haga algo" = poder simple
+- "me cortaron luz/agua" = recurso proteccion
+- "documento_no_legal": carta recomendacion, certificado trabajo, CV
+- NUNCA respondas "desahucio", "defensa arrendatario" ni "contrato arriendo" si la intencion del usuario es RECLAMAR/COBRAR
 
 Tipos validos:
 - finiquito laboral
 - poder simple
-- reclamo SERNAC (SOLO empresas)
-- demanda civil (particulares)
+- reclamo SERNAC
+- demanda civil
 - carta renuncia
 - demanda alimentos
 - regulacion visitas
@@ -578,13 +584,13 @@ Tipos validos:
 - despido injustificado
 - defensa arrendatario
 - desahucio arrendador
+- carta reclamo cobranza
 - contrato arriendo
 - querella criminal
 - denuncia penal
 - denuncia obra nueva
 - reclamo vecinal
 - prescripcion deuda
-- demanda civil
 - contrato trabajo
 - declaracion jurada
 - certificado
@@ -592,10 +598,11 @@ Tipos validos:
 - carta documento
 - tutela laboral
 - denuncia acoso laboral
+- denuncia no pago cotizaciones
 - posesion efectiva
 - necesito_clarificacion
-- necesito_clarificacion_vendedor (caso auto/producto)
-- documento_no_legal (carta recomendación, CV, etc.)
+- necesito_clarificacion_vendedor
+- documento_no_legal
 
 Responde SOLO el tipo (una linea), nada mas.`,
       messages: [{ role: 'user', content: texto }],
