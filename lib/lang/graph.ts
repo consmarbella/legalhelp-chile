@@ -910,6 +910,12 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
     }
   }
 
+  // Validar completitud con TypeScript (red de seguridad)
+  const validacionTS = validateReadyState({
+    tipo_documento: state.tipoDocumento,
+    ...state.datosRecopilados
+  });
+  
   // Validar completitud
   try {
     const validacion = await validarCompletitudTool.invoke({
@@ -922,19 +928,9 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
       faltantes: validacion.datos_faltantes
     });
 
-    // ═══════════════════════════════════════════════════════════════
-    // RED DE SEGURIDAD TYPESCRIPT (como sistema viejo)
-    // ═══════════════════════════════════════════════════════════════
-    
-    // VALIDACIÓN DOBLE con validateReadyState (TypeScript puro)
-    const validacionTS = validateReadyState({
-      tipo_documento: state.tipoDocumento,
-      ...state.datosRecopilados
-    });
-    
-    // CASO 1: LLM dice "completo" pero TypeScript detecta campos faltantes → BLOQUEAR
-    if (validacion.completo && !validacionTS.valid) {
-      console.log(`[recopilar] 🚨 BLOQUEADO por TypeScript — faltan: ${validacionTS.missing.join(', ')}`);
+    // CASO 1: TypeScript detecta campos faltantes → BLOQUEAR
+    if (!validacionTS.valid) {
+      console.log(`[recopilar] FALTAN CAMPOS: ${validacionTS.missing.join(', ')}`);
       const pregunta = generateMissingFieldQuestion(validacionTS.missing);
       return {
         responseMessage: pregunta,
@@ -943,42 +939,70 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
       };
     }
     
-    // CASO 2: TypeScript confirma completitud → FORZAR ready=true
-    if (validacionTS.valid) {
-      console.log(`[recopilar] ✅ FORZADO ready=true por TypeScript — todos los campos presentes`);
+    // CASO 2: TypeScript dice que hay campos suficientes
+    // Pero NO marcamos ready=true automaticamente.
+    // Primero verificamos con el LLM si los datos cumplen requisitos legales.
+    console.log(`[recopilar] Campos presentes. Verificando validez legal con LLM...`);
+    
+    const datosParaLLM = JSON.stringify(state.datosRecopilados, null, 2);
+    const tipoDoc = state.tipoDocumento || 'documento legal';
+    
+    const verifPrompt = `Eres un validador de documentos legales chilenos. Revisa si los datos recopilados son SUFICIENTES para redactar un documento valido y util para el cliente.
+
+TIPO DE DOCUMENTO: ${tipoDoc}
+${requisitosOficiales ? 'REQUISITOS LEGALES:\n' + requisitosOficiales : ''}
+
+DATOS RECOPILADOS:
+${datosParaLLM}
+
+REGLAS:
+1. ¿El documento con estos datos seria valido ante un tribunal, institucion o empresa chilena?
+2. Si falta un dato CRITICO sin el cual el documento seria rechazado → responde "falta: [que falta]"
+3. Si todos los datos esenciales estan presentes → responde "ok"
+4. Si el cliente no pudo dar un dato pero el documento igual es util (ej: direccion de la contraparte) → "ok"
+5. Si literalmente no hay datos utiles → "falta: datos del caso"
+
+Responde SOLO "ok" o "falta: [explicacion breve]".`;
+
+    try {
+      const verifResp = await llmComplete({
+        system: 'Eres un validador legal chileno. Responde SOLO "ok" o "falta: ..."',
+        messages: [{ role: 'user', content: verifPrompt }],
+        temperature: 0,
+        maxTokens: 80
+      });
+      
+      if (verifResp && verifResp.toLowerCase().includes('ok')) {
+        console.log(`[recopilar] ✅ VALIDACION LEGAL SUPERADA - ready=true`);
+        return {
+          ready: true,
+          datosFaltantes: [],
+          responseMessage: 'Perfecto, tengo todos los datos necesarios para redactar tu documento. Procedo a generar el escrito.'
+        };
+      } else {
+        const razon = (verifResp || '').replace(/^falta:\s*/i, '').trim();
+        console.log(`[recopilar] ⚠️ VALIDACION LEGAL: falta ${razon}`);
+        
+        // Si el LLM dice que falta algo, preguntar
+        const pregunta = razon 
+          ? `Necesito un dato mas: ${razon}`
+          : '¿Puedes darme mas detalles sobre tu caso?';
+        
+        return {
+          responseMessage: pregunta,
+          datosFaltantes: [razon || 'detalle_caso'],
+          ready: false
+        };
+      }
+    } catch (e) {
+      // Si falla la validacion LLM, aceptar campos (fallback seguro)
+      console.error('[recopilar] Error en validacion legal LLM:', e);
       return {
         ready: true,
         datosFaltantes: [],
-        responseMessage: 'Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.'
+        responseMessage: 'Perfecto, tengo todos los datos necesarios para redactar tu documento. Procedo a generar el escrito.'
       };
     }
-    
-    // CASO 3: Ambos coinciden en que falta algo → seguir preguntando
-    if (!validacion.completo) {
-      // Generar pregunta inteligente
-      let pregunta = validacion.siguiente_pregunta || 'Puedes darme mas informacion?';
-      
-      // Si hay requisitos BCN relevantes, mencionarlos
-      if (requisitosOficiales && validacion.datos_faltantes && validacion.datos_faltantes.length > 0) {
-        const campoFaltante = validacion.datos_faltantes[0];
-        if (requisitosOficiales.toLowerCase().includes(campoFaltante.toLowerCase())) {
-          pregunta += ` (obligatorio segun normativa vigente)`;
-        }
-      }
-
-      return {
-        responseMessage: pregunta,
-        datosFaltantes: validacion.datos_faltantes || [],
-        ready: false
-      };
-    }
-    
-    // Fallback: marcar como completo si llegamos aquí
-    return {
-      ready: true,
-      datosFaltantes: [],
-      responseMessage: 'Tengo todos los datos necesarios para tu documento. Procedo a redactarlo.'
-    };
 
   } catch (error) {
     console.error('[graph] Error en recopilarDatos:', error);
