@@ -372,25 +372,19 @@ Responde SOLO el JSON, nada mas.`;
           const datosExtraidos = JSON.parse(jsonMatch[0]);
           console.log('[extraer] LLM extrajo:', Object.keys(datosExtraidos));
           
-          // ═══════════════════════════════════════════════════════
-          // VALIDACION ANTI-ALUCINACION: verificar contra mensaje
-          // ═══════════════════════════════════════════════════════
+          // Validacion anti-alucinacion
           const datosValidados = validarDatosContraMensaje(datosExtraidos, contenido);
           console.log('[extraer] Datos validados:', Object.keys(datosValidados));
           
-          // Mergear datos validados (NUNCA sobreescribir existentes)
-          // MERGE DEFENSIVO: Prioridad absoluta a datosActuales sobre lo nuevo
+          // Merge defensivo - prioridad a datos existentes
           for (const [key, value] of Object.entries(datosValidados)) {
-            // Solo agregar si el valor NO existe y tiene contenido valido
             if (value && !datosActuales[key]) {
               datosActuales[key] = value;
               console.log(`[extraer] AGREGADO: ${key} = "${value}"`);
-            } else if (datosActuales[key] && datosValidados[key]) {
-              console.log(`[extraer] IGNORADO ${key} - ya existe: "${datosActuales[key]}" (nuevo: "${value}")`);
             }
           }
           
-          // NORMALIZACIÓN DE ALIASES (como sistema viejo)
+          // Normalización de aliases
           if (!datosActuales.nombre && datosValidados.nombre_completo) {
             datosActuales.nombre = datosValidados.nombre_completo;
           }
@@ -402,28 +396,12 @@ Responde SOLO el JSON, nada mas.`;
             else if (datosValidados.contexto) datosActuales.detalle_caso = datosValidados.contexto;
             else if (datosValidados.situacion) datosActuales.detalle_caso = datosValidados.situacion;
           }
-          
-          // Sincronizar empresa/empleador
           if (datosActuales.empresa && !datosActuales.empleador) datosActuales.empleador = datosActuales.empresa;
           if (datosActuales.empleador && !datosActuales.empresa) datosActuales.empresa = datosActuales.empleador;
           
-          // ═══════════════════════════════════════════════════════
-          // NORMALIZACION
-          // ═══════════════════════════════════════════════════════
+          // Normalización de formato
           if (datosActuales.nombre && typeof datosActuales.nombre === 'string') {
             datosActuales.nombre = capitalizarNombre(datosActuales.nombre as string);
-          }
-          if (datosActuales.apoderado && typeof datosActuales.apoderado === 'string') {
-            datosActuales.apoderado = capitalizarNombre(datosActuales.apoderado as string);
-          }
-          if (datosActuales.demandado && typeof datosActuales.demandado === 'string') {
-            datosActuales.demandado = capitalizarNombre(datosActuales.demandado as string);
-          }
-          if (datosActuales.empresa && typeof datosActuales.empresa === 'string') {
-            datosActuales.empresa = capitalizarNombre(datosActuales.empresa as string);
-          }
-          if (datosActuales.empleador && typeof datosActuales.empleador === 'string') {
-            datosActuales.empleador = capitalizarNombre(datosActuales.empleador as string);
           }
           if (datosActuales.rut && typeof datosActuales.rut === 'string') {
             datosActuales.rut = formatearRUT(datosActuales.rut as string);
@@ -435,10 +413,9 @@ Responde SOLO el JSON, nada mas.`;
           
           console.log('[extraer] Datos despues de LLM:', Object.keys(datosActuales).filter(k => datosActuales[k]));
           
-          // NOTE: No se asigna tipo_documento aqui - eso se hace en recopilarDatos
           return {
             datosRecopilados: datosActuales,
-            tipoDocumento: state.tipoDocumento // Mantener el tipo existente sin cambios
+            tipoDocumento: state.tipoDocumento
           };
         } catch (e) {
           console.error('[extraer] Error parseando JSON del LLM:', e);
@@ -449,8 +426,58 @@ Responde SOLO el JSON, nada mas.`;
     console.error('[extraer] Error LLM:', error);
   }
 
-  // Si el LLM falla completamente, devolver estado sin cambios
-  console.log('[extraer] LLM no pudo extraer datos, devolviendo estado actual');
+  // REINTENTO: si el LLM falló, intentar una vez más con prompt simplificado
+  console.log('[extraer] Primer intento falló, reintentando con prompt simplificado...');
+  try {
+    const retryPrompt = `Extrae datos del mensaje del usuario. Responde SOLO JSON valido, nada mas.
+
+MENSAJE: "${contenido}"
+
+CAMPOS POSIBLES (solo si aparecen en el mensaje):
+- nombre
+- rut
+- empleador / empresa
+- cargo
+- sueldo (numero)
+- fecha_inicio
+- fecha_termino / fecha_despido
+- detalle_caso
+- apoderado
+- demandado
+- monto
+- direccion
+- destinatario
+- que_quiere
+
+Si no hay datos claros, responde {}
+
+Responde SOLO el JSON.`;
+
+    const retryResponse = await llmComplete({
+      system: 'Extrae datos estructurados. Responde SOLO JSON.',
+      messages: [{ role: 'user', content: retryPrompt }],
+      temperature: 0,
+      maxTokens: 200
+    });
+
+    if (retryResponse) {
+      const jsonMatch = retryResponse.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        const datosExtraidos = JSON.parse(jsonMatch[0]);
+        console.log('[extraer] Reintento extrajo:', Object.keys(datosExtraidos));
+        for (const [key, value] of Object.entries(datosExtraidos)) {
+          if (value && !datosActuales[key] && typeof value === 'string' && value.length > 0) {
+            datosActuales[key] = value;
+          }
+        }
+      }
+    }
+  } catch (retryError) {
+    console.error('[extraer] Reintento también falló:', retryError);
+  }
+
+  // Si ambos fallan, devolver estado actual sin cambios
+  console.log('[extraer] Devolviendo estado actual sin cambios');
   return {
     datosRecopilados: datosActuales,
     tipoDocumento: state.tipoDocumento
@@ -671,9 +698,37 @@ Responde SOLO el tipo (una linea), nada mas.`,
       if (template) {
         console.log(`[recopilar] ✅ PLANTILLA SELECCIONADA: ${template.titulo} (${template.id})`);
         
-        // Extraer requisitos OBLIGATORIOS de la plantilla
+        // Extraer requisitos de la plantilla para contextualizar al LLM
         const requisitosPlantilla = getTemplateRequirements(template);
         console.log(`[recopilar] Requisitos de plantilla: ${requisitosPlantilla.join(', ')}`);
+        
+        // MAPA: tipo_documento → campos canónicos para datos_faltantes
+        // Estos son nombres que el sistema de extracción (extraerDatos) entiende
+        const CAMPOS_CANONICOS: Record<string, string[]> = {
+          'carta reclamo cobranza': ['nombre', 'rut', 'destinatario', 'detalle_caso', 'monto', 'que_quiere'],
+          'reclamo sernac': ['nombre', 'rut', 'empresa', 'detalle_caso', 'que_quiere'],
+          'finiquito laboral': ['nombre', 'rut', 'empleador', 'cargo', 'sueldo', 'fecha_inicio', 'fecha_termino'],
+          'despido injustificado': ['nombre', 'rut', 'empleador', 'cargo', 'sueldo', 'fecha_inicio', 'fecha_despido', 'detalle_caso'],
+          'poder simple': ['nombre', 'rut', 'apoderado', 'facultades'],
+          'demanda alimentos': ['nombre', 'rut', 'demandado', 'hijos', 'monto'],
+          'recurso proteccion': ['nombre', 'rut', 'recurrido', 'detalle_caso', 'derecho_vulnerado'],
+          'prescripcion multa tag': ['nombre', 'rut', 'patente'],
+          'defensa arrendatario': ['nombre', 'rut', 'direccion', 'detalle_caso'],
+          'desahucio arrendador': ['nombre', 'rut', 'arrendatario', 'inmueble', 'detalle_caso'],
+          'contrato arriendo': ['nombre', 'rut', 'arrendatario', 'inmueble', 'renta'],
+          'carta renuncia': ['nombre', 'rut', 'empleador'],
+          'declaracion jurada': ['nombre', 'rut', 'detalle_caso'],
+        };
+        
+        // Buscar campos canónicos, o fallback a nombre+rut si no hay mapeo
+        const tipoNorm = tipoDetectado.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let camposFaltantes = ['nombre', 'rut'];
+        for (const [key, fields] of Object.entries(CAMPOS_CANONICOS)) {
+          if (tipoNorm.includes(key) || key.includes(tipoNorm)) {
+            camposFaltantes = fields;
+            break;
+          }
+        }
         
         // Mensaje personalizado con hint de la plantilla
         const mensajeConPlantilla = `Perfecto, te ayudare con un "${template.titulo}". 
@@ -681,146 +736,52 @@ Responde SOLO el tipo (una linea), nada mas.`,
 Esta es una plantilla oficial chilena verificada (${template.articulos.slice(0, 2).join(', ')}).
 
 Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`;
-        
+
         return {
           tipoDocumento: tipoDetectado,
           datosRecopilados: { 
             ...state.datosRecopilados, 
             tipo_documento: tipoDetectado,
-            template_id: template.id, // ← Guardar qué plantilla se usa
+            template_id: template.id,
             template_titulo: template.titulo
           },
           responseMessage: mensajeConPlantilla,
-          datosFaltantes: ['nombre', 'rut', ...requisitosPlantilla.slice(0, 5)] // Primeros 5 requisitos
+          datosFaltantes: camposFaltantes
         };
       }
       
       // ═══════════════════════════════════════════════════════════════
-      // 🔥 SIN PLANTILLA LOCAL → BUSCAR EN INTERNET
+      // 🔥 SIN PLANTILLA LOCAL → USAR RAG (sin alucinar webs)
       // ═══════════════════════════════════════════════════════════════
-      console.log(`[recopilar] ⚠️  SIN PLANTILLA LOCAL para tipo: ${tipoDetectado}`);
-      console.log(`[recopilar] 🌐 BUSCANDO EN INTERNET (BCN, DT, SERNAC)...`);
-      
+      console.log(`[recopilar] SIN PLANTILLA LOCAL para tipo: ${tipoDetectado}`);
+      console.log(`[recopilar] Consultando RAG local para requisitos de: ${tipoDetectado}`);
+
+      let requisitosRAG = '';
       try {
-        // Buscar plantilla oficial en instituciones chilenas
-        const busquedaWeb = await llmComplete({
-          system: 'Eres un asistente legal chileno experto. Identifica si existe una plantilla o formato oficial para este tipo de documento.',
-          messages: [{
-            role: 'user',
-            content: `El usuario necesita: "${tipoDetectado}"
-Contexto adicional: "${texto}"
-
-¿Existe una plantilla oficial o formato estándar en alguna institución chilena?
-
-INSTITUCIONES A CONSIDERAR:
-- Biblioteca del Congreso Nacional (BCN): plantillas legales generales
-- Dirección del Trabajo: documentos laborales
-- SERNAC: reclamos de consumo
-- Ministerio de Justicia: documentos judiciales
-- Poder Judicial: escritos ante tribunales
-- Ministerio de Vivienda: temas de arriendo
-- Servicio de Registro Civil: poderes, declaraciones juradas
-
-Responde en JSON:
-{
-  "existe_plantilla_oficial": true/false,
-  "fuente_nombre": "Nombre de la institución",
-  "tipo_documento_oficial": "Nombre exacto del documento en Chile",
-  "url_referencia": "URL si existe (opcional)",
-  "requisitos_legales": ["campo1", "campo2", ...],
-  "articulos_ley": ["Art. X Ley Y", ...] si aplica,
-  "recomendacion": "Si NO existe plantilla oficial, explicar qué tipo de documento sería el más apropiado en Chile"
-}`
-          }],
-          temperature: 0,
-          maxTokens: 800
-        });
-        
-        if (busquedaWeb) {
-          const jsonMatch = busquedaWeb.match(/\{[\s\S]*\}/);
-          if (jsonMatch) {
-            const plantillaWeb = JSON.parse(jsonMatch[0]);
-            
-            if (plantillaWeb.existe_plantilla_oficial) {
-              console.log(`[recopilar] 🌐 ✅ PLANTILLA WEB ENCONTRADA: ${plantillaWeb.tipo_documento_oficial}`);
-              console.log(`[recopilar] 🌐 Fuente: ${plantillaWeb.fuente_nombre}`);
-              console.log(`[recopilar] 🌐 URL: ${plantillaWeb.url_referencia || 'N/A'}`);
-              
-              // Guardar en datos
-              const datosConPlantillaWeb = {
-                ...state.datosRecopilados,
-                tipo_documento: plantillaWeb.tipo_documento_oficial,
-                template_fuente: plantillaWeb.fuente_nombre,
-                template_url: plantillaWeb.url_referencia,
-                requisitos_web: plantillaWeb.requisitos_legales,
-                articulos_web: plantillaWeb.articulos_ley || []
-              };
-              
-              // Agregar al RAG para futuras consultas
-              await agregarDocumentoAlRAG(
-                `Plantilla oficial: ${plantillaWeb.tipo_documento_oficial}\nFuente: ${plantillaWeb.fuente_nombre}\nURL: ${plantillaWeb.url_referencia}\nRequisitos: ${plantillaWeb.requisitos_legales.join(', ')}\nArtículos: ${(plantillaWeb.articulos_ley || []).join(', ')}`,
-                {
-                  titulo: `${plantillaWeb.tipo_documento_oficial} (${plantillaWeb.fuente_nombre})`,
-                  tipo: 'plantilla_web',
-                  fuente: plantillaWeb.fuente_nombre,
-                  tags: [tipoDetectado, plantillaWeb.fuente_nombre, 'plantilla', 'oficial', 'web']
-                }
-              );
-              
-              // Mensaje al usuario
-              const articulosTexto = plantillaWeb.articulos_ley && plantillaWeb.articulos_ley.length > 0
-                ? `\n\nBase legal: ${plantillaWeb.articulos_ley.slice(0, 3).join(', ')}.`
-                : '';
-              
-              const mensajeConPlantillaWeb = `Perfecto, te ayudaré con un "${plantillaWeb.tipo_documento_oficial}".
-
-Encontré la plantilla oficial en ${plantillaWeb.fuente_nombre}.${articulosTexto}
-
-Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`;
-              
-              return {
-                tipoDocumento: plantillaWeb.tipo_documento_oficial,
-                datosRecopilados: datosConPlantillaWeb,
-                responseMessage: mensajeConPlantillaWeb,
-                datosFaltantes: ['nombre', 'rut', ...plantillaWeb.requisitos_legales.slice(0, 5)]
-              };
-            } else {
-              // NO existe plantilla oficial → usar recomendación del LLM
-              console.log(`[recopilar] ⚠️  NO EXISTE PLANTILLA OFICIAL`);
-              console.log(`[recopilar] Recomendación: ${plantillaWeb.recomendacion}`);
-              
-              return {
-                tipoDocumento: tipoDetectado,
-                datosRecopilados: { 
-                  ...state.datosRecopilados, 
-                  tipo_documento: tipoDetectado,
-                  recomendacion_llm: plantillaWeb.recomendacion
-                },
-                responseMessage: `Entiendo que necesitas "${tipoDetectado}".
-
-${plantillaWeb.recomendacion}
-
-Para ayudarte mejor, necesito tu nombre completo y RUT, y luego te pediré los detalles específicos de tu caso.`,
-                datosFaltantes: ['nombre', 'rut']
-              };
-            }
-          }
+        requisitosRAG = await obtenerRequisitos(tipoDetectado);
+        if (requisitosRAG) {
+          console.log(`[recopilar] Requisitos encontrados en RAG para: ${tipoDetectado}`);
+          state.datosRecopilados.template_fuente = 'RAG local';
+          state.datosRecopilados.requisitos_web = [requisitosRAG.slice(0, 200)];
+        } else {
+          console.log(`[recopilar] Sin requisitos en RAG para: ${tipoDetectado}`);
         }
-      } catch (error) {
-        console.error('[recopilar] Error buscando plantilla en internet:', error);
+      } catch (e) {
+        console.error('[recopilar] Error consultando RAG:', e);
       }
-      
-      // Fallback: flujo genérico si la búsqueda web falla
-      console.log(`[recopilar] ⚠️  Búsqueda web falló → usando flujo genérico`);
-      
+
       return {
         tipoDocumento: tipoDetectado,
-        datosRecopilados: { ...state.datosRecopilados, tipo_documento: tipoDetectado },
+        datosRecopilados: { 
+          ...state.datosRecopilados, 
+          tipo_documento: tipoDetectado,
+          ...(requisitosRAG ? { requisitos_rag: requisitosRAG.slice(0, 500) } : {})
+        },
         responseMessage: `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`,
         datosFaltantes: ['nombre', 'rut']
       };
     }
-    
+
     // Si LLM falla completamente, pedir clarificacion
     return {
       responseMessage: 'Puedes describir con mas detalle que documento necesitas? Por ejemplo: un finiquito, un poder, un reclamo, una demanda, etc. Tambien necesitare tu nombre completo y RUT.',
@@ -849,73 +810,19 @@ Para ayudarte mejor, necesito tu nombre completo y RUT, y luego te pediré los d
     state.datosRecopilados.template_id = template.id;
     state.datosRecopilados.template_titulo = template.titulo;
   } else {
-    // 🔥 PASO 2: NO HAY PLANTILLA → BUSCAR EN INTERNET (BCN, DT, SERNAC)
-    console.log(`[recopilar] ⚠️  SIN PLANTILLA para "${state.tipoDocumento}" → BUSCANDO EN INTERNET`);
-    
-    try {
-      // Buscar plantilla oficial en BCN
-      const busquedaBCN = await llmComplete({
-        system: 'Eres un asistente legal chileno. Identifica si existe una plantilla oficial en BCN para este tipo de documento.',
-        messages: [{
-          role: 'user',
-          content: `Tipo de documento: "${state.tipoDocumento}"
-          
-¿Existe una plantilla oficial en la Biblioteca del Congreso Nacional (BCN), Dirección del Trabajo, SERNAC u otra institución chilena para este tipo de documento?
+    // 🔥 PASO 2: NO HAY PLANTILLA → USAR RAG (sin alucinar webs)
+    console.log(`[recopilar] SIN PLANTILLA para "${state.tipoDocumento}" → consultando RAG local`);
 
-Responde en JSON:
-{
-  "existe_plantilla": true/false,
-  "fuente_url": "URL de la plantilla oficial si existe",
-  "fuente_nombre": "BCN / Dirección del Trabajo / SERNAC / etc.",
-  "requisitos_basicos": ["campo1", "campo2", ...] // campos que el documento necesita según la ley chilena
-}`
-        }],
-        temperature: 0,
-        maxTokens: 500
-      });
-      
-      if (busquedaBCN) {
-        const jsonMatch = busquedaBCN.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-          const plantillaWeb = JSON.parse(jsonMatch[0]);
-          
-          if (plantillaWeb.existe_plantilla && plantillaWeb.requisitos_basicos) {
-            console.log(`[recopilar] 🌐 PLANTILLA WEB ENCONTRADA: ${plantillaWeb.fuente_nombre}`);
-            console.log(`[recopilar] URL: ${plantillaWeb.fuente_url}`);
-            
-            requisitosOficiales = `PLANTILLA OFICIAL DE ${plantillaWeb.fuente_nombre}:\nFuente: ${plantillaWeb.fuente_url}\n\nREQUISITOS:\n${plantillaWeb.requisitos_basicos.map((r: string, i: number) => `${i + 1}. ${r}`).join('\n')}`;
-            
-            // Guardar en datos que se encontró plantilla web
-            state.datosRecopilados.template_fuente = plantillaWeb.fuente_nombre;
-            state.datosRecopilados.template_url = plantillaWeb.fuente_url;
-            state.datosRecopilados.requisitos_web = plantillaWeb.requisitos_basicos;
-            
-            // Agregar al RAG para futuras consultas
-            await agregarDocumentoAlRAG(
-              `Plantilla oficial para "${state.tipoDocumento}" encontrada en ${plantillaWeb.fuente_nombre}\nURL: ${plantillaWeb.fuente_url}\nRequisitos: ${plantillaWeb.requisitos_basicos.join(', ')}`,
-              {
-                titulo: `Plantilla web: ${state.tipoDocumento}`,
-                tipo: 'plantilla_web',
-                fuente: plantillaWeb.fuente_nombre,
-                tags: [state.tipoDocumento, plantillaWeb.fuente_nombre, 'plantilla', 'oficial']
-              }
-            );
-          } else {
-            console.log(`[recopilar] ⚠️  No existe plantilla oficial web para "${state.tipoDocumento}"`);
-            // Fallback: usar RAG local
-            requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
-          }
-        }
+    try {
+      requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+      if (requisitosOficiales) {
+        console.log('[recopilar] Requisitos encontrados en RAG:', requisitosOficiales.slice(0, 100));
+        state.datosRecopilados.template_fuente = 'RAG local';
+      } else {
+        console.log(`[recopilar] Sin requisitos en RAG para: ${state.tipoDocumento}`);
       }
-    } catch (error) {
-      console.error('[recopilar] Error buscando plantilla en internet:', error);
-      // Fallback: consultar RAG local
-      try {
-        requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
-        console.log('[recopilar] Requisitos BCN (fallback RAG):', requisitosOficiales.slice(0, 100));
-      } catch (e) {
-        console.error('[recopilar] Error consultando RAG:', e);
-      }
+    } catch (e) {
+      console.error('[recopilar] Error consultando RAG:', e);
     }
   }
   
