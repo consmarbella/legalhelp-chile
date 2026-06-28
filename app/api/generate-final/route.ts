@@ -83,18 +83,22 @@ async function generateDocument(
       `INSTRUCCIÓN ESPECÍFICA: ${template.instruccion_llm}`
     : '';
 
-  // Red de seguridad: si NO hay plantilla, buscar en BCN en vivo
+  // Red de seguridad: si NO hay plantilla, usar guía local o BCN
   let groundingBlock = '';
   if (!template) {
+    // 1. Usar guía de hub_guides si está disponible
+    const guiaContexto = typeof datos.guia_contexto === 'string' ? datos.guia_contexto.trim() : '';
     const leyRef = typeof datos.ley_referencia === 'string' ? datos.ley_referencia.trim() : '';
     const entidadRef = typeof datos.entidad_referencia === 'string' ? datos.entidad_referencia.trim() : '';
-    
-    if (leyRef || entidadRef) {
+
+    if (guiaContexto) {
+      groundingBlock = `\n\nGUÍA DEL DOCUMENTO "${tipo}" (de base de conocimiento LegalHelp):\n${guiaContexto}`;
+    } else if (leyRef || entidadRef) {
       groundingBlock = `\n\nMARCO LEGAL DE REFERENCIA (de la ficha de este documento; úsalo como guía y cita las leyes por su nombre):\n${leyRef}` +
         (entidadRef ? `\n\nAUTORIDAD O DESTINATARIO: ${entidadRef}` : '');
     } else {
       // Buscar en BCN en vivo usando el scraper real
-      console.log(`[generate-final] Sin plantilla. Buscando en BCN: ${tipo}`);
+      console.log(`[generate-final] Sin plantilla ni guía. Buscando en BCN: ${tipo}`);
       try {
         const bcnResult = await buscarMarcoLegal(tipo);
         if (bcnResult.encontrado && bcnResult.marcoLegal) {

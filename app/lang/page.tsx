@@ -32,11 +32,11 @@ export default function LangPage() {
   }, [messages]);
 
   useEffect(() => {
-    if (caseData.ready && !paid && !previewDoc && !generating && selectedDoc) {
+    if (caseData.ready && !paid && !previewDoc && !generating) {
       handleGeneratePreview();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseData.ready]);
+  }, [caseData.ready, selectedDoc]);
 
   useEffect(() => {
     if (paid && caseData.ready && !generatedDoc && !generating && selectedDoc) {

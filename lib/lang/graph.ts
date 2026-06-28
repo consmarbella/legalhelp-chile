@@ -16,6 +16,8 @@ import { StateGraph, END, START } from '@langchain/langgraph';
 import { HumanMessage, AIMessage, SystemMessage } from '@langchain/core/messages';
 import { llmComplete } from '@/lib/llm';
 import { validateReadyState, generateMissingFieldQuestion } from '@/lib/validateReady';
+import { findGuide, buildGuidePrompt } from '@/lib/hubGuides';
+import { buscarMarcoLegal } from '@/lib/bcnScraper';
 
 // ─── STATE DEL AGENTE ────────────────────────────────────────────────────────
 export interface AgentState {
@@ -494,6 +496,14 @@ Responde SOLO el JSON.`;
  * 4. NO usa regex para clasificar
  */
 async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
+  // Si ya está ready, no hacer nada (evitar loop post-ready)
+  if (state.ready) {
+    console.log('[recopilar] Ya ready - saltando');
+    return {
+      responseMessage: 'El documento ya está listo. Puedes revisarlo en la vista previa y desbloquearlo cuando quieras.'
+    };
+  }
+
   console.log('[recopilar] Datos actuales:', Object.keys(state.datosRecopilados));
   console.log('[recopilar] Tipo documento:', state.tipoDocumento);
   
@@ -825,33 +835,57 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
       }
       
       // ═══════════════════════════════════════════════════════════════
-      // 🔥 SIN PLANTILLA LOCAL → USAR RAG (sin alucinar webs)
+      // 🔥 SIN PLANTILLA LOCAL → BUSCAR EN HUB_GUIDES + RAG
       // ═══════════════════════════════════════════════════════════════
       console.log(`[recopilar] SIN PLANTILLA LOCAL para tipo: ${tipoDetectado}`);
-      console.log(`[recopilar] Consultando RAG local para requisitos de: ${tipoDetectado}`);
+      console.log(`[recopilar] Buscando en hub_guides.json...`);
 
-      let requisitosRAG = '';
-      try {
-        requisitosRAG = await obtenerRequisitos(tipoDetectado);
-        if (requisitosRAG) {
-          console.log(`[recopilar] Requisitos encontrados en RAG para: ${tipoDetectado}`);
-          state.datosRecopilados.template_fuente = 'RAG local';
-          state.datosRecopilados.requisitos_web = [requisitosRAG.slice(0, 200)];
-        } else {
-          console.log(`[recopilar] Sin requisitos en RAG para: ${tipoDetectado}`);
+      let guiaPrompt = '';
+      const guide = findGuide(tipoDetectado);
+      if (guide) {
+        guiaPrompt = buildGuidePrompt(tipoDetectado, guide);
+        console.log(`[recopilar] ✅ Guía encontrada en hub_guides para: ${tipoDetectado}`);
+        state.datosRecopilados.template_fuente = 'hub_guides';
+      } else {
+        console.log(`[recopilar] Sin guía en hub_guides, consultando RAG...`);
+        try {
+          const requisitosRAG = await obtenerRequisitos(tipoDetectado);
+          if (requisitosRAG) {
+            guiaPrompt = requisitosRAG.slice(0, 500);
+            state.datosRecopilados.template_fuente = 'RAG local';
+          }
+        } catch (e) {
+          console.error('[recopilar] Error consultando RAG:', e);
         }
-      } catch (e) {
-        console.error('[recopilar] Error consultando RAG:', e);
+
+        // Si tampoco hay RAG, buscar en BCN en vivo
+        if (!guiaPrompt) {
+          try {
+            const bcnResult = await buscarMarcoLegal(tipoDetectado);
+            if (bcnResult.encontrado && bcnResult.marcoLegal) {
+              guiaPrompt = bcnResult.marcoLegal.slice(0, 500);
+              state.datosRecopilados.template_fuente = bcnResult.fuente || 'BCN';
+              console.log(`[recopilar] ✅ Marco legal encontrado en BCN para: ${tipoDetectado}`);
+            }
+          } catch (e) {
+            console.error('[recopilar] Error buscando en BCN:', e);
+          }
+        }
       }
+
+      // Si hay guía de hub_guides, pedir datos más específicos
+      const mensaje = guiaPrompt
+        ? `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`
+        : `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`;
 
       return {
         tipoDocumento: tipoDetectado,
         datosRecopilados: { 
           ...state.datosRecopilados, 
           tipo_documento: tipoDetectado,
-          ...(requisitosRAG ? { requisitos_rag: requisitosRAG.slice(0, 500) } : {})
+          ...(guiaPrompt ? { guia_contexto: guiaPrompt } : {})
         },
-        responseMessage: `Perfecto, te ayudare con un "${tipoDetectado}". Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo mensaje).`,
+        responseMessage: mensaje,
         datosFaltantes: ['nombre', 'rut']
       };
     }
@@ -884,29 +918,41 @@ Para comenzar, necesito tu nombre completo y RUT (puedes darme ambos en el mismo
     state.datosRecopilados.template_id = template.id;
     state.datosRecopilados.template_titulo = template.titulo;
   } else {
-    // 🔥 PASO 2: NO HAY PLANTILLA → USAR RAG (sin alucinar webs)
-    console.log(`[recopilar] SIN PLANTILLA para "${state.tipoDocumento}" → consultando RAG local`);
+    // 🔥 PASO 2: NO HAY PLANTILLA → BUSCAR EN HUB_GUIDES + RAG
+    console.log(`[recopilar] SIN PLANTILLA para "${state.tipoDocumento}" → buscando en hub_guides.json`);
 
-    try {
-      requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
-      if (requisitosOficiales) {
-        console.log('[recopilar] Requisitos encontrados en RAG:', requisitosOficiales.slice(0, 100));
-        state.datosRecopilados.template_fuente = 'RAG local';
-      } else {
-        console.log(`[recopilar] Sin requisitos en RAG para: ${state.tipoDocumento}`);
+    const guide = findGuide(state.tipoDocumento);
+    if (guide) {
+      const guiaPrompt = buildGuidePrompt(state.tipoDocumento!, guide);
+      requisitosOficiales = `MARCO LEGAL (hub_guides):\n${guiaPrompt}`;
+      console.log(`[recopilar] ✅ Guía encontrada en hub_guides: ${state.tipoDocumento}`);
+      state.datosRecopilados.template_fuente = 'hub_guides';
+      state.datosRecopilados.guia_contexto = guiaPrompt;
+    } else {
+      console.log(`[recopilar] Sin guía en hub_guides, consultando RAG...`);
+      try {
+        requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
+        if (requisitosOficiales) {
+          console.log('[recopilar] Requisitos encontrados en RAG');
+          state.datosRecopilados.template_fuente = 'RAG local';
+        }
+      } catch (e) {
+        console.error('[recopilar] Error RAG:', e);
       }
-    } catch (e) {
-      console.error('[recopilar] Error consultando RAG:', e);
-    }
-  }
-  
-  // Consultar requisitos oficiales del RAG (fallback si no hay plantilla ni web)
-  if (!requisitosOficiales) {
-    try {
-      requisitosOficiales = await obtenerRequisitos(state.tipoDocumento);
-      console.log('[recopilar] Requisitos BCN (RAG fallback):', requisitosOficiales.slice(0, 100));
-    } catch (error) {
-      console.error('[recopilar] Error consultando RAG:', error);
+
+      // Búsqueda en BCN en vivo como último recurso
+      if (!requisitosOficiales) {
+        try {
+          const bcnResult = await buscarMarcoLegal(state.tipoDocumento!);
+          if (bcnResult.encontrado && bcnResult.marcoLegal) {
+            requisitosOficiales = bcnResult.marcoLegal.slice(0, 800);
+            state.datosRecopilados.template_fuente = bcnResult.fuente || 'BCN';
+            console.log(`[recopilar] ✅ Marco legal BCN encontrado en vivo`);
+          }
+        } catch (e) {
+          console.error('[recopilar] Error BCN:', e);
+        }
+      }
     }
   }
 

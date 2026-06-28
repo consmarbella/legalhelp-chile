@@ -20,18 +20,21 @@ const SCHEMAS: Record<string, string[][]> = {
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
+    ['direccion', 'domicilio', 'direccion_demandante'],
   ],
   poder_notarial: [
     ['nombre', 'nombre_completo', 'mandante', 'otorgante', 'poderdante'],
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
+    ['direccion', 'domicilio', 'direccion_demandante'],
   ],
   poder_simple: [
     ['nombre', 'nombre_completo', 'mandante', 'otorgante', 'poderdante'],
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
+    ['direccion', 'domicilio', 'direccion_demandante'],
   ],
   finiquito: [
     ['nombre', 'nombre_completo', 'trabajador'],
@@ -41,6 +44,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['sueldo', 'sueldo_bruto', 'remuneracion'],
     ['fecha_inicio'],
     ['fecha_termino', 'fecha_despido'],
+    ['direccion', 'domicilio'],
   ],
   demanda_laboral: [
     ['nombre', 'nombre_completo', 'trabajador'],
@@ -51,6 +55,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['fecha_ingreso', 'fecha_inicio'],
     ['fecha_despido', 'fecha_termino'],
     ['detalle_caso', 'hechos', 'motivo', 'causal', 'causal_despido'],
+    ['direccion', 'domicilio'],
   ],
   despido_injustificado: [
     ['nombre', 'nombre_completo', 'trabajador'],
@@ -61,6 +66,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['fecha_ingreso', 'fecha_inicio'],
     ['fecha_despido', 'fecha_termino'],
     ['detalle_caso', 'hechos', 'motivo', 'causal', 'causal_despido'],
+    ['direccion', 'domicilio'],
   ],
   carta_reclamo: [
     ['nombre', 'nombre_completo'],
@@ -68,12 +74,17 @@ const SCHEMAS: Record<string, string[][]> = {
     ['empresa', 'destinatario', 'destinatario_inferido'],
     ['detalle_caso', 'hechos', 'problema', 'que_paso'],
     ['peticion', 'que_quiere', 'solucion'],
+    ['direccion', 'domicilio'],
+    ['contacto', 'telefono', 'email', 'correo'],
   ],
   reclamo_sernac: [
     ['nombre', 'nombre_completo'],
     ['rut'],
     ['empresa', 'destinatario', 'destinatario_inferido'],
     ['detalle_caso', 'hechos', 'problema'],
+    ['peticion', 'que_quiere', 'solucion'],
+    ['direccion', 'domicilio'],
+    ['contacto', 'telefono', 'email', 'correo'],
   ],
   recurso_proteccion: [
     ['nombre', 'nombre_completo', 'recurrente'],
@@ -81,6 +92,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['recurrido', 'empresa', 'quien_vulnera', 'destinatario_inferido'],
     ['detalle_caso', 'hechos', 'acto_arbitrario'],
     ['derecho_vulnerado', 'derecho'],
+    ['direccion', 'domicilio'],
   ],
   demanda_alimentos: [
     ['nombre', 'nombre_completo', 'demandante'],
@@ -88,6 +100,9 @@ const SCHEMAS: Record<string, string[][]> = {
     ['demandado', 'padre', 'madre', 'obligado'],
     ['hijos', 'hijo', 'nombre_hijo', 'menores'],
     ['monto', 'monto_solicitado', 'pension'],
+    ['direccion', 'domicilio', 'direccion_demandante'],
+    ['direccion_demandado', 'domicilio_demandado'],
+    ['necesidades', 'gastos', 'detalle_caso'],
   ],
   contrato_arriendo: [
     ['nombre', 'nombre_completo', 'arrendador'],
@@ -95,6 +110,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['arrendatario', 'inquilino', 'arrendatario_nombre'],
     ['inmueble', 'direccion_inmueble', 'propiedad'],
     ['renta', 'arriendo', 'monto_arriendo', 'canon'],
+    ['fecha_inicio'],
   ],
   contrato_trabajo: [
     ['empleador', 'empresa', 'empresa_nombre'],
@@ -108,21 +124,26 @@ const SCHEMAS: Record<string, string[][]> = {
     ['nombre', 'nombre_completo', 'declarante'],
     ['rut'],
     ['detalle_caso', 'declaracion', 'que_declara', 'hechos'],
+    ['direccion', 'domicilio'],
   ],
   carta_renuncia: [
     ['nombre', 'nombre_completo', 'trabajador'],
     ['rut'],
     ['empresa', 'empleador'],
+    ['cargo'],
   ],
   prescripcion: [
     ['nombre', 'nombre_completo'],
     ['rut'],
     ['patente', 'deuda', 'monto', 'acreedor', 'tribunal', 'detalle_caso'],
+    ['direccion', 'domicilio'],
   ],
   prescripcion_tag: [
     ['nombre', 'nombre_completo'],
     ['rut'],
     ['patente'],
+    ['direccion', 'domicilio'],
+    ['tribunal', 'jpl', 'jpl_comuna', 'comuna_infraccion'],
   ],
   testamento: [
     ['nombre', 'nombre_completo', 'testador'],
@@ -308,6 +329,21 @@ export function generateMissingFieldQuestion(missing: string[]): string {
     'renta': '¿Cuál es el monto mensual del arriendo?',
     'jornada': '¿Cuál es la jornada laboral? (horario y horas semanales)',
     'patente': '¿Cuál es la patente del vehículo?',
+    'direccion': '¿Cuál es tu dirección o domicilio? (calle, número, comuna)',
+    'domicilio': '¿Cuál es tu dirección o domicilio? (calle, número, comuna)',
+    'contacto': '¿Cuál es tu teléfono o correo electrónico de contacto?',
+    'telefono': '¿Cuál es tu número de teléfono de contacto?',
+    'email': '¿Cuál es tu correo electrónico de contacto?',
+    'correo': '¿Cuál es tu correo electrónico de contacto?',
+    'direccion demandado': '¿Cuál es la dirección del demandado? (para notificación judicial)',
+    'direccion_demandado': '¿Cuál es la dirección del demandado? (para notificación judicial)',
+    'domicilio demandado': '¿Cuál es la dirección del demandado? (para notificación judicial)',
+    'necesidades': '¿Cuáles son los gastos mensuales del niño/niña? (colegio, salud, alimentación, etc.)',
+    'gastos': '¿Cuáles son los gastos mensuales del niño/niña? (colegio, salud, alimentación, etc.)',
+    'tribunal': '¿Ante qué tribunal o juzgado se presenta este documento?',
+    'jpl': '¿En qué comuna está el Juzgado de Policía Local donde debes presentar?',
+    'jpl_comuna': '¿En qué comuna ocurrió la infracción? (define el JPL competente)',
+    'comuna_infraccion': '¿En qué comuna ocurrió la infracción? (define el JPL competente)',
   };
 
   return questions[field] || `Necesito un dato más: ¿cuál es ${field}?`;
