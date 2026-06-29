@@ -654,7 +654,7 @@ Responde SOLO el tipo (una linea).`,
       
       // OVERRIDE: Forzar clasificacion para tipos nuevos que el LLM no detecta
       const textoNorm = texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      const OVERRIDES = [
+      const OVERRIDES: [RegExp, string][] = [
         [/elimin(ar|acion)(\s+\S+)?\s+(de\s+)?(antecedentes|prontuario)|borrar\s+(antecedentes|prontuario)/, 'eliminacion antecedentes penales'],
         [/limpi(a|ar)(\s+\S+)?\s+(hoja\s+de\s+)?vida\s+(del\s+)?conductor|limpiar\s+registro/, 'limpieza hoja vida conductor'],
         [/omis(ion|ir)(\s+\S+)?\s+antecedentes|vif|violencia\s+intrafamiliar/, 'omision antecedentes violencia intrafamiliar'],
