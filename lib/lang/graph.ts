@@ -216,82 +216,25 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   
   if (mensajeCorto && unDatoFaltante && state.datosFaltantes) {
     const campoEsperado = state.datosFaltantes[0];
-    console.log(`[extraer] MAPEO DIRECTO: mensaje corto + 1 dato faltante = "${campoEsperado}"`);
-    
-    // Validar que el contenido tiene sentido para ese campo
     const valorLimpio = contenido.trim();
+    console.log(`[extraer] MAPEO DIRECTO GENÉRICO: "${campoEsperado}" = "${valorLimpio}"`);
     
-    if (campoEsperado === 'nombre' || campoEsperado === 'apoderado' || campoEsperado === 'demandado') {
-      // Si es un nombre y tiene al menos 2 palabras
-      if (valorLimpio.split(' ').length >= 2 || valorLimpio.split(' ').length === 1 && valorLimpio.length > 3) {
+    // MAPEO GENÉRICO: el usuario responde el dato que se le preguntó
+    // Aplica para CUALQUIER campo: nombre, rut, fecha, cargo, sueldo, hijos, contacto, etc.
+    if (valorLimpio.length > 0) {
+      // Normalizar montos
+      if (campoEsperado === 'sueldo' || campoEsperado === 'monto') {
+        const numeros = valorLimpio.replace(/[^\d]/g, '');
+        if (numeros) datosActuales[campoEsperado] = parseInt(numeros, 10);
+        else datosActuales[campoEsperado] = valorLimpio;
+      } else if (campoEsperado === 'rut') {
+        datosActuales.rut = formatearRUT(valorLimpio);
+      } else if (campoEsperado === 'nombre' || campoEsperado === 'apoderado' || campoEsperado === 'demandado' || campoEsperado === 'empleador' || campoEsperado === 'cargo') {
         datosActuales[campoEsperado] = capitalizarNombre(valorLimpio);
-        console.log(`[extraer] Asignado directo: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
-        return {
-          datosRecopilados: datosActuales,
-          datosFaltantes: state.datosFaltantes.slice(1), // Eliminar este campo
-          tipoDocumento: state.tipoDocumento
-        };
+      } else {
+        datosActuales[campoEsperado] = valorLimpio;
       }
-    }
-    
-    if (campoEsperado === 'rut' && /\d/.test(valorLimpio)) {
-      datosActuales.rut = formatearRUT(valorLimpio);
-      console.log(`[extraer] Asignado directo: rut = "${datosActuales.rut}"`);
-      return {
-        datosRecopilados: datosActuales,
-        datosFaltantes: state.datosFaltantes.slice(1),
-        tipoDocumento: state.tipoDocumento
-      };
-    }
-    
-    if ((campoEsperado === 'empleador' || campoEsperado === 'empresa') && valorLimpio.length > 2) {
-      datosActuales.empleador = capitalizarNombre(valorLimpio);
-      datosActuales.empresa = datosActuales.empleador;
-      console.log(`[extraer] Asignado directo: empleador = "${datosActuales.empleador}"`);
-      return {
-        datosRecopilados: datosActuales,
-        datosFaltantes: state.datosFaltantes.slice(1),
-        tipoDocumento: state.tipoDocumento
-      };
-    }
-    
-    if (campoEsperado === 'cargo' && valorLimpio.length > 2) {
-      const cargo = valorLimpio.trim().toLowerCase();
-      datosActuales.cargo = cargo.charAt(0).toUpperCase() + cargo.slice(1);
-      console.log(`[extraer] Asignado directo: cargo = "${datosActuales.cargo}"`);
-      return {
-        datosRecopilados: datosActuales,
-        datosFaltantes: state.datosFaltantes.slice(1),
-        tipoDocumento: state.tipoDocumento
-      };
-    }
-    
-    if (campoEsperado === 'direccion' || campoEsperado === 'domicilio') {
-      datosActuales.direccion = valorLimpio;
-      console.log(`[extraer] Asignado directo: direccion = "${datosActuales.direccion}"`);
-      return {
-        datosRecopilados: datosActuales,
-        datosFaltantes: state.datosFaltantes.slice(1),
-        tipoDocumento: state.tipoDocumento
-      };
-    }
-    
-    if ((campoEsperado === 'sueldo' || campoEsperado === 'monto') && /\d/.test(valorLimpio)) {
-      const numeros = valorLimpio.replace(/[^\d]/g, '');
-      if (numeros) {
-        datosActuales[campoEsperado] = parseInt(numeros, 10);
-        console.log(`[extraer] Asignado directo: ${campoEsperado} = ${datosActuales[campoEsperado]}`);
-        return {
-          datosRecopilados: datosActuales,
-          datosFaltantes: state.datosFaltantes.slice(1),
-          tipoDocumento: state.tipoDocumento
-        };
-      }
-    }
-
-    if ((campoEsperado === 'fecha_inicio' || campoEsperado === 'fecha_ingreso' || campoEsperado === 'fecha_termino' || campoEsperado === 'fecha_despido') && valorLimpio.length > 5) {
-      datosActuales[campoEsperado] = valorLimpio;
-      console.log(`[extraer] Asignado directo: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
+      console.log(`[extraer] ✅ Asignado: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
       return {
         datosRecopilados: datosActuales,
         datosFaltantes: state.datosFaltantes.slice(1),
