@@ -153,12 +153,12 @@ En [CIUDAD], a [FECHA], comparecen: por una parte [DESTINATARIO], en adelante "e
 
 PRIMERO: El trabajador se desempeñó como [[CARGO]] para el empleador desde el [[FECHA DE INICIO]] hasta el [[FECHA DE TÉRMINO]], fecha en que la relación laboral terminó por la causal de [[CAUSAL DE TÉRMINO (indicar numeral del Art. 159, 160 o 161 del Codigo del Trabajo)]].
 
-SEGUNDO: El empleador paga en este acto al trabajador la suma total de $[[MONTO TOTAL]], correspondiente al siguiente desglose:
-  a) Remuneracion pendiente (dias trabajados en el ultimo mes): $[[MONTO O "_____"]]
-  b) Feriado proporcional (Art. 73 CT): $[[MONTO O "_____"]]
-  c) Gratificacion proporcional: $[[MONTO O "_____"]]
-  d) Indemnizacion por anos de servicio (Art. 163 CT): $[[MONTO O "_____"]]
-  e) Indemnizacion sustitutiva del aviso previo (Art. 161 CT): $[[MONTO O "_____"]]
+SEGUNDO: El empleador paga en este acto al trabajador la suma total de $[[CALCULAR según los datos del caso]], correspondiente al siguiente desglose:
+  a) Remuneracion pendiente (dias trabajados en el ultimo mes): $[[CALCULAR con sueldo base ÷ 30 × días trabajados]]
+  b) Feriado proporcional (Art. 73 CT): $[[CALCULAR con sueldo base ÷ 30 × días pendientes]]
+  c) Gratificacion proporcional: $[[CALCULAR 25% del sueldo base mensual si aplica]]
+  d) Indemnizacion por anos de servicio (Art. 163 CT): $[[CALCULAR sueldo base por años trabajados]]
+  e) Indemnizacion sustitutiva del aviso previo (Art. 161 CT): $[[CALCULAR 1 sueldo base mensual si corresponde]]
   f) Otros conceptos: [[DETALLAR SI CORRESPONDE]]
 
 TERCERO: El trabajador declara recibir conforme las sumas señaladas y otorga al empleador el mas amplio, completo y total finiquito, declarando que nada se le adeuda por concepto alguno derivado de la relacion laboral ni de su termino.
@@ -177,7 +177,7 @@ _____________________________
 MINISTRO DE FE
 (Notario Publico / Inspector del Trabajo)
 Timbre y firma`,
-    instruccion_llm: 'Documento BILATERAL de finiquito laboral (lo firman trabajador y empleador). NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). OBLIGATORIO: desglosar TODOS los conceptos pagados por separado (remuneracion pendiente, feriado proporcional, gratificacion, indemnizacion anos servicio, indemnizacion aviso previo). Si el empleador no informa montos, dejar $_____ para cada item. Incluir siempre la clausula de cotizaciones al dia (QUINTO). NO asumas que al trabajador se le adeuda algo: este es el finiquito de termino normal, no una demanda ni un reclamo.',
+    instruccion_llm: 'Documento BILATERAL de finiquito laboral (lo firman trabajador y empleador). NO uses formato de escrito judicial (sin "EN LO PRINCIPAL", "RUEGO A US." ni "PRESENTE"). OBLIGATORIO: desglosar TODOS los conceptos pagados por separado (remuneracion pendiente, feriado proporcional, gratificacion, indemnizacion anos servicio, indemnizacion aviso previo). CALCULAR montos usando el sueldo base y las fechas entregadas. Si no hay datos de sueldo o fechas, estimar y marcar "aproximado". NUNCA dejar $_. Incluir siempre la clausula de cotizaciones al dia (QUINTO). Para renuncia voluntaria, usar Art. 159 N°2 CT. Para despido, Art. 161 CT.',
   },
   // 4b. Cobro de finiquito: carta para RECLAMAR prestaciones NO pagadas.
   {
