@@ -288,6 +288,16 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
         };
       }
     }
+
+    if ((campoEsperado === 'fecha_inicio' || campoEsperado === 'fecha_ingreso' || campoEsperado === 'fecha_termino' || campoEsperado === 'fecha_despido') && valorLimpio.length > 5) {
+      datosActuales[campoEsperado] = valorLimpio;
+      console.log(`[extraer] Asignado directo: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
+      return {
+        datosRecopilados: datosActuales,
+        datosFaltantes: state.datosFaltantes.slice(1),
+        tipoDocumento: state.tipoDocumento
+      };
+    }
   }
 
   // ═══════════════════════════════════════════════════════════════
