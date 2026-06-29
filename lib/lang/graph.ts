@@ -363,11 +363,6 @@ Responde SOLO el JSON, nada mas.`;
           }
           
           console.log('[extraer] Datos despues de LLM:', Object.keys(datosActuales).filter(k => datosActuales[k]));
-          
-          return {
-            datosRecopilados: datosActuales,
-            tipoDocumento: state.tipoDocumento
-          };
         } catch (e) {
           console.error('[extraer] Error parseando JSON del LLM:', e);
         }
@@ -427,9 +422,9 @@ Responde SOLO el JSON.`;
     console.error('[extraer] Reintento también falló:', retryError);
   }
 
-  // Si ambos fallan, intentar extraer lo que podamos del mensaje
-  // para evitar loop infinito. Al menos extraer el primer campo faltante.
-  console.log('[extraer] LLM falló, intentando extracción manual de campos...');
+  // Extracción manual de campos que el LLM pudo haber omitido
+  // Corre SIEMPRE como red de seguridad, incluso si el LLM extrajo algunos campos.
+  console.log('[extraer] Extrayendo campos manualmente (fallback)...');
   const contenidoLower = contenido.toLowerCase();
   
   // Buscar montos ($XXX, XXX mil, XXX lucas, etc)
@@ -476,29 +471,16 @@ Responde SOLO el JSON.`;
     datosActuales.fecha_despido = fechas[fechas.length - 1][0].trim();
   }
   
-  // Si al menos extrajimos algo, devolverlo
-  const nuevasKeys = Object.keys(datosActuales).filter(k => k !== Object.keys(state.datosRecopilados)[0]);
-  if (Object.keys(datosActuales).length > Object.keys(state.datosRecopilados).length) {
-    console.log('[extraer] ✅ Extracción manual encontró datos nuevos');
-    return {
-      datosRecopilados: datosActuales,
-      tipoDocumento: state.tipoDocumento
-    };
-  }
-  
   // ÚLTIMO RECURSO: si hay exactamente 1 campo faltante, asignar el mensaje completo
   if (state.datosFaltantes && state.datosFaltantes.length === 1 && contenido.trim().length > 0) {
     const campo = state.datosFaltantes[0];
-    datosActuales[campo] = contenido.trim();
-    console.log(`[extraer] ⚠️ ÚLTIMO RECURSO: asignando "${campo}" = "${datosActuales[campo]}"`);
-    return {
-      datosRecopilados: datosActuales,
-      datosFaltantes: [],
-      tipoDocumento: state.tipoDocumento
-    };
+    if (!datosActuales[campo]) {
+      datosActuales[campo] = contenido.trim();
+      console.log(`[extraer] ⚠️ ÚLTIMO RECURSO: asignando "${campo}" = "${datosActuales[campo]}"`);
+    }
   }
   
-  console.log('[extraer] Sin cambios - no se pudo extraer nada');
+  console.log('[extraer] Devolviendo datos actualizados');
   return {
     datosRecopilados: datosActuales,
     tipoDocumento: state.tipoDocumento
