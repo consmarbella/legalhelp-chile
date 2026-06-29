@@ -227,5 +227,9 @@ export async function buscarMarcoLegal(tipoDocumento: string): Promise<{
   }
 
   const result = await buscarArticulos(leyEncontrada, articulosBuscar);
-  return result;
+  return {
+    encontrado: result.encontrado,
+    marcoLegal: result.textoLegal,
+    fuente: result.fuente,
+  };
 }
