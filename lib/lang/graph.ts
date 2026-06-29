@@ -180,30 +180,42 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
   console.log('[extraer] Datos faltantes esperados:', state.datosFaltantes);
 
   // ═══════════════════════════════════════════════════════════════
-  // MAPEO INTELIGENTE: Si hay UN dato faltante y el mensaje es corto,
-  // asumimos que el usuario está respondiendo ESE dato
+  // MAPEO INTELIGENTE: Cuando hay 1-2 campos faltantes, asumir que
+  // el usuario responde ESE dato (sin importar largo del mensaje)
   // ═══════════════════════════════════════════════════════════════
-  const mensajeCorto = contenido.length < 120 && !contenido.includes('necesito') && !contenido.includes('quiero');
   const unDatoFaltante = (state.datosFaltantes || []).length === 1;
   const dosDatosFaltantes = (state.datosFaltantes || []).length === 2;
   
-  // CASO ESPECIAL: Usuario responde "nombre rut" juntos (ej: "juan perez 12345678-9")
-  if (mensajeCorto && dosDatosFaltantes && state.datosFaltantes) {
+  // Función auxiliar: asigna el valor al campo esperado (el primer campo faltante)
+  function asignarDirecto(campo: string, valor: string) {
+    const v = valor.trim();
+    if (!v || v.length === 0) return false;
+    if (campo === 'sueldo' || campo === 'monto') {
+      const nums = v.replace(/[^\d]/g, '');
+      datosActuales[campo] = nums ? parseInt(nums, 10) : v;
+    } else if (campo === 'rut') {
+      datosActuales.rut = formatearRUT(v);
+    } else if (['nombre','apoderado','demandado','empleador','cargo'].includes(campo)) {
+      datosActuales[campo] = capitalizarNombre(v);
+    } else {
+      datosActuales[campo] = v;
+    }
+    return true;
+  }
+  
+  // CASO: 2 datos faltantes (nombre + rut juntos)
+  if (dosDatosFaltantes && state.datosFaltantes) {
     const campos = state.datosFaltantes;
     const tieneNombre = campos.includes('nombre') || campos.includes('nombre completo');
     const tieneRut = campos.includes('rut');
-    
-    if (tieneNombre && tieneRut) {
-      // Intentar separar: nombre (palabras) + rut (números)
+    if (tieneNombre && tieneRut && contenido.length < 200) {
       const rutMatch = contenido.match(/(\d[\d.\-kK\s]+)/);
       if (rutMatch) {
         const rut = rutMatch[0].trim();
         const nombre = contenido.replace(rutMatch[0], '').trim();
-        
         if (nombre.split(' ').length >= 2 && rut.length >= 8) {
           datosActuales.nombre = capitalizarNombre(nombre);
           datosActuales.rut = formatearRUT(rut);
-          console.log(`[extraer] Asignado DOBLE: nombre="${datosActuales.nombre}" + rut="${datosActuales.rut}"`);
           return {
             datosRecopilados: datosActuales,
             datosFaltantes: state.datosFaltantes.filter(d => d !== 'nombre' && d !== 'nombre completo' && d !== 'rut'),
@@ -214,27 +226,11 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     }
   }
   
-  if (mensajeCorto && unDatoFaltante && state.datosFaltantes) {
-    const campoEsperado = state.datosFaltantes[0];
-    const valorLimpio = contenido.trim();
-    console.log(`[extraer] MAPEO DIRECTO GENÉRICO: "${campoEsperado}" = "${valorLimpio}"`);
-    
-    // MAPEO GENÉRICO: el usuario responde el dato que se le preguntó
-    // Aplica para CUALQUIER campo: nombre, rut, fecha, cargo, sueldo, hijos, contacto, etc.
-    if (valorLimpio.length > 0) {
-      // Normalizar montos
-      if (campoEsperado === 'sueldo' || campoEsperado === 'monto') {
-        const numeros = valorLimpio.replace(/[^\d]/g, '');
-        if (numeros) datosActuales[campoEsperado] = parseInt(numeros, 10);
-        else datosActuales[campoEsperado] = valorLimpio;
-      } else if (campoEsperado === 'rut') {
-        datosActuales.rut = formatearRUT(valorLimpio);
-      } else if (campoEsperado === 'nombre' || campoEsperado === 'apoderado' || campoEsperado === 'demandado' || campoEsperado === 'empleador' || campoEsperado === 'cargo') {
-        datosActuales[campoEsperado] = capitalizarNombre(valorLimpio);
-      } else {
-        datosActuales[campoEsperado] = valorLimpio;
-      }
-      console.log(`[extraer] ✅ Asignado: ${campoEsperado} = "${datosActuales[campoEsperado]}"`);
+  // CASO: 1 dato faltante → mapeo directo genérico (CUALQUIER campo)
+  if (unDatoFaltante && state.datosFaltantes) {
+    const campo = state.datosFaltantes[0];
+    if (asignarDirecto(campo, contenido)) {
+      console.log(`[extraer] ✅ MAPEO DIRECTO: ${campo} = "${datosActuales[campo]}"`);
       return {
         datosRecopilados: datosActuales,
         datosFaltantes: state.datosFaltantes.slice(1),
@@ -431,8 +427,78 @@ Responde SOLO el JSON.`;
     console.error('[extraer] Reintento también falló:', retryError);
   }
 
-  // Si ambos fallan, devolver estado actual sin cambios
-  console.log('[extraer] Devolviendo estado actual sin cambios');
+  // Si ambos fallan, intentar extraer lo que podamos del mensaje
+  // para evitar loop infinito. Al menos extraer el primer campo faltante.
+  console.log('[extraer] LLM falló, intentando extracción manual de campos...');
+  const contenidoLower = contenido.toLowerCase();
+  
+  // Buscar montos ($XXX, XXX mil, XXX lucas, etc)
+  const montoMatch = contenido.match(/\$?\s*([\d.]+)\s*(mil|lucas|luca|millones|palo)?/i);
+  if (montoMatch) {
+    let val = parseFloat(montoMatch[1].replace(/\./g, ''));
+    if (montoMatch[2] && (montoMatch[1].toLowerCase().includes('mil') || montoMatch[2].toLowerCase() === 'mil')) {
+      val *= 1000;
+    }
+    if (!datosActuales.sueldo && state.datosFaltantes?.includes('sueldo')) {
+      datosActuales.sueldo = val;
+    }
+    if (!datosActuales.monto && state.datosFaltantes?.includes('monto')) {
+      datosActuales.monto = val;
+    }
+  }
+  
+  // Buscar dirección: "vivo en X", "domicilio en X", "calle X", "av. X"
+  const dirMatch = contenido.match(/(?:vivo|domicilio|direcci.n|resido)\s+(?:en\s+)?(.{10,})/i);
+  if (dirMatch && !datosActuales.direccion && state.datosFaltantes?.includes('direccion')) {
+    datosActuales.direccion = dirMatch[1].trim();
+  }
+  if (dirMatch && !datosActuales.domicilio && state.datosFaltantes?.includes('domicilio')) {
+    datosActuales.domicilio = dirMatch[1].trim();
+  }
+  
+  // Buscar cargos: suele empezar el mensaje
+  const cargoStop = contenido.search(/,?\s*(?:sueldo|salario|ganaba|gan.|entr.|renunc|fecha)/i);
+  if (cargoStop > 3 && !datosActuales.cargo && state.datosFaltantes?.includes('cargo')) {
+    datosActuales.cargo = capitalizarNombre(contenido.slice(0, cargoStop).replace(/^[,.\s]+/, '').trim());
+  }
+  
+  // Buscar fechas con meses en español
+  const meses = '(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)';
+  const fechaRegex = new RegExp(`(\\d{1,2})\\s*(?:de\\s+)?${meses}\\s*(?:de\\s+)?(\\d{4})`, 'gi');
+  const fechas = [...contenido.matchAll(fechaRegex)];
+  if (fechas.length >= 1 && !datosActuales.fecha_inicio && state.datosFaltantes?.includes('fecha_inicio')) {
+    datosActuales.fecha_inicio = fechas[0][0].trim();
+  }
+  if (fechas.length >= 2 && !datosActuales.fecha_termino && state.datosFaltantes?.includes('fecha_termino')) {
+    datosActuales.fecha_termino = fechas[1][0].trim();
+  }
+  if (fechas.length >= 1 && !datosActuales.fecha_despido && state.datosFaltantes?.includes('fecha_despido')) {
+    datosActuales.fecha_despido = fechas[fechas.length - 1][0].trim();
+  }
+  
+  // Si al menos extrajimos algo, devolverlo
+  const nuevasKeys = Object.keys(datosActuales).filter(k => k !== Object.keys(state.datosRecopilados)[0]);
+  if (Object.keys(datosActuales).length > Object.keys(state.datosRecopilados).length) {
+    console.log('[extraer] ✅ Extracción manual encontró datos nuevos');
+    return {
+      datosRecopilados: datosActuales,
+      tipoDocumento: state.tipoDocumento
+    };
+  }
+  
+  // ÚLTIMO RECURSO: si hay exactamente 1 campo faltante, asignar el mensaje completo
+  if (state.datosFaltantes && state.datosFaltantes.length === 1 && contenido.trim().length > 0) {
+    const campo = state.datosFaltantes[0];
+    datosActuales[campo] = contenido.trim();
+    console.log(`[extraer] ⚠️ ÚLTIMO RECURSO: asignando "${campo}" = "${datosActuales[campo]}"`);
+    return {
+      datosRecopilados: datosActuales,
+      datosFaltantes: [],
+      tipoDocumento: state.tipoDocumento
+    };
+  }
+  
+  console.log('[extraer] Sin cambios - no se pudo extraer nada');
   return {
     datosRecopilados: datosActuales,
     tipoDocumento: state.tipoDocumento
