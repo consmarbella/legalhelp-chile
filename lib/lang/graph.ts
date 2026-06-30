@@ -245,6 +245,15 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
           };
         }
       }
+      // Si no hay RUT en el mensaje, asignar solo el nombre del apoderado
+      if (contenido.split(' ').length >= 2 && !contenido.match(/\d/)) {
+        datosActuales.apoderado = capitalizarNombre(contenido.trim());
+        return {
+          datosRecopilados: datosActuales,
+          datosFaltantes: state.datosFaltantes.filter(d => d !== 'apoderado' && d !== 'nombre_apoderado'),
+          tipoDocumento: state.tipoDocumento
+        };
+      }
     }
   }
   
