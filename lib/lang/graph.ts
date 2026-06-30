@@ -193,8 +193,8 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     if (campo === 'sueldo' || campo === 'monto') {
       const nums = v.replace(/[^\d]/g, '');
       datosActuales[campo] = nums ? parseInt(nums, 10) : v;
-    } else if (campo === 'rut') {
-      datosActuales.rut = formatearRUT(v);
+    } else     if (campo === 'rut' || campo === 'rut_apoderado' || campo === 'rut_apoderada') {
+      datosActuales[campo] = formatearRUT(v);
     } else if (['nombre','apoderado','demandado','empleador','cargo'].includes(campo)) {
       datosActuales[campo] = capitalizarNombre(v);
     } else {
@@ -203,11 +203,15 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
     return true;
   }
   
-  // CASO: 2 datos faltantes (nombre + rut juntos)
+  // CASO: 2 datos faltantes (nombre + rut juntos, O apoderado + rut_apoderado)
   if (dosDatosFaltantes && state.datosFaltantes) {
     const campos = state.datosFaltantes;
     const tieneNombre = campos.includes('nombre') || campos.includes('nombre completo');
     const tieneRut = campos.includes('rut');
+    const tieneApoderado = campos.includes('apoderado') || campos.includes('nombre_apoderado');
+    const tieneRutApoderado = campos.includes('rut_apoderado');
+    
+    // Caso A: nombre + rut
     if (tieneNombre && tieneRut && contenido.length < 200) {
       const rutMatch = contenido.match(/(\d[\d.\-kK\s]+)/);
       if (rutMatch) {
@@ -219,6 +223,24 @@ async function extraerDatos(state: AgentState): Promise<Partial<AgentState>> {
           return {
             datosRecopilados: datosActuales,
             datosFaltantes: state.datosFaltantes.filter(d => d !== 'nombre' && d !== 'nombre completo' && d !== 'rut'),
+            tipoDocumento: state.tipoDocumento
+          };
+        }
+      }
+    }
+    
+    // Caso B: apoderado + rut_apoderado  
+    if (tieneApoderado && tieneRutApoderado && contenido.length < 200) {
+      const rutMatch = contenido.match(/(\d[\d.\-kK\s]+)/);
+      if (rutMatch) {
+        const rut = rutMatch[0].trim();
+        const nombre = contenido.replace(rutMatch[0], '').trim();
+        if (nombre.split(' ').length >= 2 && rut.length >= 8) {
+          datosActuales.apoderado = capitalizarNombre(nombre);
+          datosActuales.rut_apoderado = formatearRUT(rut);
+          return {
+            datosRecopilados: datosActuales,
+            datosFaltantes: state.datosFaltantes.filter(d => d !== 'apoderado' && d !== 'nombre_apoderado' && d !== 'rut_apoderado'),
             tipoDocumento: state.tipoDocumento
           };
         }
