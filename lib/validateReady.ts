@@ -19,6 +19,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['nombre', 'nombre_completo', 'mandante', 'otorgante', 'poderdante'],
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
+    ['rut_apoderado', 'rut_apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
     ['direccion', 'domicilio', 'direccion_demandante'],
   ],
@@ -26,6 +27,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['nombre', 'nombre_completo', 'mandante', 'otorgante', 'poderdante'],
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
+    ['rut_apoderado', 'rut_apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
     ['direccion', 'domicilio', 'direccion_demandante'],
   ],
@@ -33,6 +35,7 @@ const SCHEMAS: Record<string, string[][]> = {
     ['nombre', 'nombre_completo', 'mandante', 'otorgante', 'poderdante'],
     ['rut'],
     ['apoderado', 'nombre_apoderado', 'apoderada'],
+    ['rut_apoderado', 'rut_apoderada'],
     ['facultades', 'para_que', 'tramite', 'finalidad', 'detalle_caso'],
     ['direccion', 'domicilio', 'direccion_demandante'],
   ],
@@ -221,11 +224,20 @@ function fieldPresent(aliases: string[], data: CaseData): boolean {
     const val = flatData[alias];
     if (val !== null && val !== undefined && val !== '' && val !== false) {
       if (typeof val === 'string' && val.trim().length > 0) {
-        // Para "apoderado": exigir que sea un nombre real (2+ palabras, no "mamá" o "contador")
+        // Para "apoderado": exigir que sea un nombre real (2+ palabras con nombre y apellido)
         if (aliases.includes('apoderado') || aliases.includes('nombre_apoderado')) {
           const words = val.trim().split(/\s+/);
-          if (words.length >= 2 && val.length > 5) return true;
-          // "mamá", "contador", "hermano" no cuentan como nombre real
+          const valLower = val.toLowerCase().trim();
+          // Rechazar relaciones familiares genéricas sin nombre real
+          const relaciones = ['mi hermana','mi hermano','mi mamá','mi mama','mi papá','mi papa','mi tía','mi tia','mi tío','mi tio','mi abuela','mi abuelo','mi esposa','mi esposo','mi prima','mi primo','mi cuñada','mi cuñado','mi nuera','mi yerno','mi sobrina','mi sobrino','mi madre','mi padre','mi hija','mi hijo','mi amiga','mi amigo'];
+          if (relaciones.some(r => valLower.startsWith(r) || valLower === r.replace('mi ','')) ) {
+            continue;
+          }
+          if (words.length >= 2 && val.length > 5) {
+            // Asegurar que al menos una palabra tiene más de 3 letras (nombre real)
+            const palabrasLargas = words.filter(w => w.length > 3);
+            if (palabrasLargas.length >= 2) return true;
+          }
           continue;
         }
         return true;
@@ -304,6 +316,9 @@ export function generateMissingFieldQuestion(missing: string[]): string {
     'apoderado': '¿Cuál es el nombre completo de la persona a quien le das el poder (apoderado)?',
     'nombre apoderado': '¿Cuál es el nombre completo de la persona a quien le das el poder?',
     'apoderada': '¿Cuál es el nombre completo de la persona a quien le das el poder?',
+    'rut apoderado': '¿Cuál es el RUT de la persona que recibirá el poder?',
+    'rut_apoderado': '¿Cuál es el RUT de la persona que recibirá el poder?',
+    'rut apoderada': '¿Cuál es el RUT de la persona que recibirá el poder?',
     'facultades': '¿Para qué necesitas este poder? (qué trámite específico va a hacer)',
     'rut': '¿Cuál es tu RUT?',
     'nombre': '¿Cuál es tu nombre completo?',
