@@ -538,6 +538,11 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
 
   console.log('[recopilar] Datos actuales:', Object.keys(state.datosRecopilados));
   console.log('[recopilar] Tipo documento:', state.tipoDocumento);
+
+  // PRESERVAR tipoDocumento: si ya fue clasificado en un turno anterior, 
+  // no permitir que se pierda o reclasifique
+  const tipoDocumentoOriginal = state.tipoDocumento;
+  const yaTieneHistorial = state.conversationHistory.filter(m => m.role === 'user').length > 0;
   
   // ═══════════════════════════════════════════════════════════════
   // CASO ESPECIAL: Usuario respondiendo a pregunta de aclaración
@@ -585,6 +590,13 @@ async function recopilarDatos(state: AgentState): Promise<Partial<AgentState>> {
   // ═══════════════════════════════════════════════════════════════
   // CASO 1: NO SABEMOS QUE TIPO DE DOCUMENTO ES
   // ═══════════════════════════════════════════════════════════════
+  // Si ya había un tipo determinado en turnos anteriores y el usuario
+  // tiene historial, preservar el tipo y saltar clasificación.
+  if (!state.tipoDocumento && tipoDocumentoOriginal && yaTieneHistorial) {
+    console.log(`[recopilar] Restaurando tipoDocumento de turno anterior: ${tipoDocumentoOriginal}`);
+    return await recopilarDatos({ ...state, tipoDocumento: tipoDocumentoOriginal });
+  }
+  
   if (!state.tipoDocumento) {
     const ultimoMsg = state.messages[state.messages.length - 1];
     const texto = ultimoMsg ? ultimoMsg.content.toString() : '';
