@@ -213,12 +213,6 @@ function fieldPresent(aliases: string[], data: CaseData): boolean {
     Object.assign(flatData, nested as Record<string, unknown>);
   }
 
-  // Also consider tipo_documento as context for "facultades"/"tramite" (only for poderes)
-  if (aliases.some(a => ['facultades', 'para_que', 'tramite', 'finalidad'].includes(a))) {
-    const tipo = flatData.tipo_documento;
-    if (typeof tipo === 'string' && tipo.length > 5) return true;
-  }
-
   for (const alias of aliases) {
     // Exact match
     const val = flatData[alias];
