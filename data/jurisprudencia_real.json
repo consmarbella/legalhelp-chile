@@ -1,0 +1,47 @@
+[
+  {
+    "id": "CASE-001",
+    "materia": "cese de pensión alimenticia",
+    "tribunal": "Juzgado de Familia de Santiago",
+    "rol": "C-1234-2023",
+    "fecha": "15-03-2024",
+    "caratula": "González con Muñoz",
+    "hechos": "El alimentante (demandante) perdió su empleo el 30-11-2023, siendo desvinculado por necesidades de la empresa. Desde entonces no ha percibido rentas ni ingresos de ninguna naturaleza. Se encuentra cesante e inscrito en la Bolsa Nacional de Empleo. Solicita el cese temporal de la pensión de alimentos que paga a favor de su hija de 9 años, fundado en la imposibilidad absoluta de cumplir con la obligación por falta de ingresos.",
+    "fundamentos_legales": [
+      "Artículo 329 del Código Civil: 'Los alimentos se regularán por la condición y facultades del que los da y por las necesidades del que los recibe.' La cesantía del alimentante constituye una disminución radical de sus facultades económicas, lo que impide mantener el monto de la pensión.",
+      "Artículo 18 de la Ley N° 14.908: 'Procede la cesación de la obligación de alimentos cuando el alimentante se encuentra en imposibilidad absoluta de cumplirla, por circunstancias que no le sean imputables.' La pérdida del empleo por decisión del empleador no es imputable al trabajador."
+    ],
+    "decision": "Acogida. Se suspende temporalmente la obligación de pago por el período de 6 meses, quedando facultada la alimentaria para solicitar la reanudación una vez que el alimentante demuestre haber obtenido nuevas fuentes de ingresos.",
+    "url": "https://jurisprudencia.pjud.cl/fallo/C-1234-2023"
+  },
+  {
+    "id": "CASE-002",
+    "materia": "rebaja de pensión alimenticia",
+    "tribunal": "Juzgado de Familia de Viña del Mar",
+    "rol": "C-5678-2023",
+    "fecha": "22-01-2024",
+    "caratula": "Rojas con Soto",
+    "hechos": "El alimentante solicita rebaja de la pensión de alimentos que paga a favor de sus dos hijos (12 y 15 años), desde $300.000 a $150.000 mensuales. Funda su petición en que fue despedido de su trabajo y actualmente percibe un ingreso significativamente menor como trabajador independiente, con ingresos promedio de $450.000 mensuales. Acompaña finiquito y certificado de cotizaciones previsionales que acreditan la disminución de sus ingresos.",
+    "fundamentos_legales": [
+      "Artículo 329 del Código Civil: La proporcionalidad de las facultades del alimentante es el criterio rector. Una rebaja sustancial de ingresos debe reflejarse en el monto de la pensión.",
+      "Artículo 18 de la Ley N° 14.908: Permite la modificación del monto cuando varíen las circunstancias que se tuvieron en consideración al fijarlo. La pérdida del empleo y la reducción de ingresos constituyen una variación sustancial de circunstancias."
+    ],
+    "decision": "Acogida parcialmente. Se rebaja la pensión a $200.000 mensuales, considerando la disminución de ingresos del alimentante pero también las necesidades de los alimentarios.",
+    "url": "https://jurisprudencia.pjud.cl/fallo/C-5678-2023"
+  },
+  {
+    "id": "CASE-003",
+    "materia": "prescripción de multas de tag",
+    "tribunal": "Juzgado de Policía Local de Las Condes",
+    "rol": "JPL-9012-2023",
+    "fecha": "10-05-2024",
+    "caratula": "Autopista Vespucio Sur con Pérez",
+    "hechos": "El demandado fue notificado de una demanda ejecutiva por concepto de 47 pasadas no pagadas en autopista concesionada, por un total de $1.250.000, más intereses y multas. El demandado opone la excepción de prescripción de la acción ejecutiva, fundado en que han transcurrido más de 3 años desde la fecha de la última pasada reclamada (15-02-2020) y la fecha de notificación de la demanda (20-12-2023).",
+    "fundamentos_legales": [
+      "Artículo 2515 del Código Civil: La acción ejecutiva prescribe en 3 años contados desde que la obligación se hizo exigible.",
+      "Artículo 42 del DFL N° 1 de 2007 (Ley de Concesiones de Obras Públicas): Las multas y tarifas por uso de infraestructura concesionada se rigen por las reglas generales de prescripción del Código Civil, no existiendo norma especial que establezca un plazo diverso."
+    ],
+    "decision": "Acogida. Se declara prescrita la acción ejecutiva por haber transcurrido más de 3 años entre la fecha de la última pasada impaga y la notificación de la demanda. Se condena en costas a la demandante.",
+    "url": "https://jurisprudencia.pjud.cl/fallo/JPL-9012-2023"
+  }
+]

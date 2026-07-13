@@ -1,0 +1,702 @@
+[
+  {
+    "id_caso": "O-1234-2022",
+    "materia": "Despido Injustificado",
+    "hechos": "Trabajador con 5 años de servicio fue despedido por 'necesidades de la empresa', pero la empresa contrató a otro trabajador un mes después para el mismo cargo. El trabajador demandó alegando que el despido fue injustificado.",
+    "razonamiento_tribunal": "El tribunal consideró que la causal de necesidades de la empresa no se acreditó, ya que la contratación posterior demostró que las funciones seguían siendo necesarias. Se aplicó el artículo 161 del Código del Trabajo.",
+    "estrategia_ganadora": "Demostrar con pruebas documentales (contratos nuevos) que la causal invocada era falsa. Artículo 161 del Código del Trabajo."
+  },
+  {
+    "id_caso": "O-5678-2023",
+    "materia": "Tutela por Discriminación",
+    "hechos": "Una trabajadora fue despedida días después de informar su embarazo. La empresa alegó bajo rendimiento, pero no presentó evaluaciones previas. La trabajadora demandó por tutela laboral.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 489 del Código del Trabajo, invirtiendo la carga de la prueba. La empresa no logró justificar el despido, por lo que se presumió discriminatorio.",
+    "estrategia_ganadora": "Acreditar indicios de discriminación (fecha del despido cercana a la comunicación del embarazo) y exigir la inversión de la carga probatoria. Artículo 489 CT."
+  },
+  {
+    "id_caso": "O-9012-2021",
+    "materia": "Finiquito y Cobro de Prestaciones",
+    "hechos": "Trabajador firmó finiquito sin reserva de derechos, pero luego descubrió que no se le pagaron horas extras ni feriado proporcional. Demandó el cobro de estas prestaciones.",
+    "razonamiento_tribunal": "El tribunal declaró que el finiquito sin reserva de derechos extingue las obligaciones, salvo que se demuestre vicio del consentimiento. No se acreditó error o dolo, por lo que se rechazó la demanda.",
+    "estrategia_ganadora": "Revisar el finiquito antes de firmar y hacer reserva expresa de derechos para poder reclamar posteriormente. Artículo 177 del Código del Trabajo."
+  },
+  {
+    "id_caso": "O-3456-2022",
+    "materia": "Acoso Laboral",
+    "hechos": "Un jefe realizaba comentarios humillantes y descalificaciones constantes a un subordinado, aislándolo del equipo. El trabajador denunció internamente, pero la empresa no tomó medidas.",
+    "razonamiento_tribunal": "Se acreditó el acoso mediante testimonios y correos electrónicos. La empresa fue condenada por no implementar el protocolo de prevención de acoso, vulnerando el derecho a la integridad psíquica.",
+    "estrategia_ganadora": "Recopilar pruebas de las conductas hostiles (testigos, correos) y demostrar la omisión del empleador en aplicar la Ley 21.643 (Ley Karin)."
+  },
+  {
+    "id_caso": "O-7890-2023",
+    "materia": "Accidente del Trabajo",
+    "hechos": "Trabajador sufrió caída desde una escalera en obra de construcción, sin que la empresa le hubiera proporcionado arnés de seguridad ni capacitación en altura.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 184 del Código del Trabajo, que obliga al empleador a tomar todas las medidas de seguridad. La falta de elementos de protección constituyó negligencia inexcusable.",
+    "estrategia_ganadora": "Demostrar que el empleador incumplió las normas de seguridad (Ley 16.744) y que el accidente fue previsible. Solicitar indemnización por daño moral."
+  },
+  {
+    "id_caso": "O-2345-2021",
+    "materia": "Subcontratación y Responsabilidad Solidaria",
+    "hechos": "Trabajador de una empresa contratista no recibió el pago de sus cotizaciones previsionales. La empresa principal argumentó que no era responsable, ya que el contrato de prestación de servicios era con la contratista.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 183-B del Código del Trabajo, que establece responsabilidad solidaria de la empresa principal por las obligaciones laborales de la contratista. Se condenó a ambas empresas.",
+    "estrategia_ganadora": "Exigir a la empresa principal que acredite el cumplimiento de las obligaciones de la contratista. Artículo 183-B CT."
+  },
+  {
+    "id_caso": "O-6789-2022",
+    "materia": "Despido Indirecto",
+    "hechos": "Trabajador renunció por incumplimiento grave del empleador: no pago de remuneraciones por tres meses consecutivos. Demandó el despido indirecto.",
+    "razonamiento_tribunal": "El tribunal consideró que el no pago reiterado de sueldos constituye un incumplimiento grave de las obligaciones del empleador, autorizando el despido indirecto conforme al artículo 171 del Código del Trabajo.",
+    "estrategia_ganadora": "Acreditar el no pago mediante liquidaciones de sueldo y certificados bancarios. Artículo 171 CT."
+  },
+  {
+    "id_caso": "O-0123-2023",
+    "materia": "Feriado Proporcional",
+    "hechos": "Trabajador renunció voluntariamente y la empresa le pagó el feriado proporcional, pero calculado sobre la base de 15 días hábiles, en vez de 15 días corridos como establece la ley.",
+    "razonamiento_tribunal": "El tribunal aclaró que el feriado proporcional se calcula sobre días corridos, no hábiles, según el artículo 73 del Código del Trabajo. La empresa debió pagar la diferencia.",
+    "estrategia_ganadora": "Exigir el cálculo correcto del feriado proporcional en días corridos. Artículo 73 CT."
+  },
+  {
+    "id_caso": "O-4567-2021",
+    "materia": "Despido por Necesidades de la Empresa",
+    "hechos": "Empresa despidió a varios trabajadores por 'reestructuración' pero no presentó estados financieros que justificaran la medida. Los trabajadores demandaron por despido injustificado.",
+    "razonamiento_tribunal": "El tribunal consideró que la empresa no acreditó fehacientemente la necesidad de la reestructuración. La mera alegación no basta; se requieren pruebas objetivas de la situación económica.",
+    "estrategia_ganadora": "Exigir al empleador que presente balances, informes contables o pruebas de la reestructuración. Artículo 161 CT."
+  },
+  {
+    "id_caso": "O-8901-2022",
+    "materia": "Acoso Sexual",
+    "hechos": "Trabajadora denunció a su jefe directo por tocamientos no consentidos y comentarios de connotación sexual. La empresa realizó una investigación interna superficial y no sancionó al acusado.",
+    "razonamiento_tribunal": "El tribunal aplicó la Ley 21.643 (Ley Karin) y condenó a la empresa por no realizar una investigación seria y por no adoptar medidas de protección para la víctima. Se ordenó el pago de indemnización por daño moral.",
+    "estrategia_ganadora": "Denunciar el acoso y la falta de investigación adecuada. Exigir la aplicación de la Ley Karin y la responsabilidad del empleador."
+  },
+  {
+    "id_caso": "O-1234-2023",
+    "materia": "Tutela por Represalias",
+    "hechos": "Trabajador denunció irregularidades en la empresa ante la Inspección del Trabajo. Poco después, fue despedido bajo la causal de 'falta de probidad'. El trabajador alegó represalia.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 489 del Código del Trabajo, invirtiendo la carga de la prueba. La empresa no pudo demostrar que el despido fue por falta de probidad, por lo que se consideró represalia.",
+    "estrategia_ganadora": "Acreditar la denuncia previa a la Inspección y la cercanía temporal con el despido. Artículo 489 CT."
+  },
+  {
+    "id_caso": "O-5678-2021",
+    "materia": "Indemnización por Año de Servicio",
+    "hechos": "Trabajador con 10 años de servicio fue despedido por necesidades de la empresa. La empresa le pagó la indemnización, pero no consideró las comisiones como parte de la remuneración.",
+    "razonamiento_tribunal": "El tribunal determinó que las comisiones forman parte de la remuneración según el artículo 41 del Código del Trabajo, por lo que debían incluirse en el cálculo de la indemnización.",
+    "estrategia_ganadora": "Demostrar que las comisiones son habituales y forman parte de la remuneración. Artículo 41 y 172 CT."
+  },
+  {
+    "id_caso": "O-9012-2022",
+    "materia": "Accidente en Trayecto",
+    "hechos": "Trabajador sufrió un accidente automovilístico en la ruta habitual de su casa al trabajo. La mutual de seguridad negó la cobertura, argumentando que el accidente no fue en el trayecto directo.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 5 de la Ley 16.744, que define accidente de trayecto. Se acreditó que el trabajador iba por la ruta habitual y dentro del horario, por lo que se otorgó la cobertura.",
+    "estrategia_ganadora": "Demostrar el trayecto habitual y el horario. Artículo 5 Ley 16.744."
+  },
+  {
+    "id_caso": "O-3456-2023",
+    "materia": "Subcontratación y Derecho a Sindicato",
+    "hechos": "Trabajadores de una empresa contratista intentaron formar un sindicato, pero la empresa principal les prohibió el ingreso a las instalaciones para realizar reuniones sindicales.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 183-A del Código del Trabajo, que garantiza el derecho a la libertad sindical. La empresa principal no puede obstaculizar la formación de sindicatos de la contratista.",
+    "estrategia_ganadora": "Denunciar la vulneración de la libertad sindical. Artículo 183-A y 220 CT."
+  },
+  {
+    "id_caso": "O-6789-2021",
+    "materia": "Despido por Incumplimiento Grave",
+    "hechos": "Trabajador fue despedido por 'incumplimiento grave de las obligaciones' por llegar atrasado 3 veces en un mes. La empresa no aplicó el procedimiento de amonestación previa.",
+    "razonamiento_tribunal": "El tribunal consideró que 3 atrasos no constituyen un incumplimiento grave, y que la empresa debió aplicar amonestaciones progresivas. El despido fue declarado injustificado.",
+    "estrategia_ganadora": "Demostrar que el incumplimiento no es grave y que no hubo medidas disciplinarias previas. Artículo 160 N°7 CT."
+  },
+  {
+    "id_caso": "O-0123-2022",
+    "materia": "Feriado Legal y Progresivo",
+    "hechos": "Trabajador con 12 años de servicio solicitó feriado progresivo (15 días hábiles adicionales), pero la empresa se lo negó argumentando que ya había tomado sus vacaciones.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 72 del Código del Trabajo, que otorga feriado progresivo a los trabajadores con más de 10 años de servicio. La empresa debió concederlo.",
+    "estrategia_ganadora": "Acreditar la antigüedad y solicitar el feriado progresivo. Artículo 72 CT."
+  },
+  {
+    "id_caso": "O-4567-2023",
+    "materia": "Tutela por Enfermedad",
+    "hechos": "Trabajador fue despedido mientras estaba con licencia médica por una enfermedad grave. La empresa alegó que el despido fue por necesidades de la empresa, pero no presentó pruebas.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 161 CT y la Ley 21.643, considerando que el despido durante una licencia médica es discriminatorio, salvo que el empleador acredite una causa real. No se acreditó.",
+    "estrategia_ganadora": "Demostrar que el despido ocurrió durante la licencia médica y que no hubo causa real. Artículo 161 CT y Ley 21.643."
+  },
+  {
+    "id_caso": "O-8901-2021",
+    "materia": "Cobro de Cotizaciones Previsionales",
+    "hechos": "Trabajador descubrió que su empleador no pagó las cotizaciones previsionales durante 2 años. Demandó el cobro de estas cotizaciones y la indemnización por daño previsional.",
+    "razonamiento_tribunal": "El tribunal aplicó el artículo 58 del Código del Trabajo y la Ley 17.322, condenando al empleador al pago de las cotizaciones adeudadas más intereses y reajustes.",
+    "estrategia_ganadora": "Solicitar a la AFP un certificado de cotizaciones impagas y demandar el cobro. Artículo 58 CT y Ley 17.322."
+  },
+  {
+    "id_caso": "O-1234-2021",
+    "materia": "Despido por Vías de Hecho",
+    "hechos": "Trabajador fue despedido por 'vías de hecho' tras un altercado verbal con un compañero. No hubo agresión física, solo discusión acalorada.",
+    "razonamiento_tribunal": "El tribunal consideró que las vías de hecho requieren agresión física o violencia. Un altercado verbal no constituye vías de hecho, por lo que el despido fue injustificado.",
+    "estrategia_ganadora": "Demostrar que no hubo agresión física. Artículo 160 N°1 CT."
+  },
+  {
+    "id_caso": "O-5678-2022",
+    "materia": "Indemnización por Daño Moral",
+    "hechos": "Trabajador sufrió acoso laboral constante por parte de su jefe, lo que le provocó depresión y estrés postraumático. Demandó indemnización por daño moral.",
+    "razonamiento_tribunal": "El tribunal aplicó la Ley 21.643 y el artículo 184 CT, considerando que el empleador no protegió la integridad psíquica del trabajador. Se concedió indemnización por daño moral.",
+    "estrategia_ganadora": "Acreditar el acoso con pruebas médicas y testimoniales. Artículo 184 CT y Ley 21.643."
+  },
+  {
+    "id_caso": "RIT-C-1234-2021",
+    "materia": "Divorcio por Causal de Cese de Convivencia",
+    "hechos": "Matrimonio de 15 años con dos hijos. Los cónyuges llevan separados de hecho más de 5 años. El demandante solicita divorcio por cese de convivencia y compensación económica.",
+    "razonamiento_tribunal": "El tribunal acreditó la separación de hecho por más de 3 años, cumpliendo el requisito legal. Se otorgó el divorcio y se fijó una compensación económica por el trabajo doméstico no remunerado de la cónyuge.",
+    "estrategia_ganadora": "Acreditar la separación de hecho con testigos y documentos, y demostrar el desequilibrio económico post divorcio. Artículos 55, 61 y 62 de la Ley de Matrimonio Civil."
+  },
+  {
+    "id_caso": "RIT-O-567-2022",
+    "materia": "Alimentos Mayores",
+    "hechos": "Padre de 70 años demanda alimentos a su hijo mayor de edad, profesional con altos ingresos. El padre alega estado de necesidad por problemas de salud y pensión insuficiente.",
+    "razonamiento_tribunal": "El tribunal consideró que el hijo tiene capacidad económica y el padre demostró necesidad. Se fijó una pensión de alimentos equivalente al 20% de los ingresos del hijo.",
+    "estrategia_ganadora": "Acreditar el estado de necesidad del padre y la capacidad económica del hijo mediante liquidaciones de sueldo y gastos médicos. Artículos 321, 323 y 330 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-890-2023",
+    "materia": "Cuidado Personal de Menor",
+    "hechos": "Madre solicita el cuidado personal de su hijo de 8 años, actualmente bajo tuición del padre. La madre alega que el padre descuida la educación y salud del menor.",
+    "razonamiento_tribunal": "El tribunal ordenó informes psicosociales que revelaron que el padre no cumple con las necesidades básicas del menor. Se otorgó el cuidado personal a la madre, con un régimen de relación directa y regular para el padre.",
+    "estrategia_ganadora": "Presentar pruebas de incumplimiento del padre en educación y salud, como certificados escolares y médicos. Artículos 224, 225 y 228 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-345-2022",
+    "materia": "Relación Directa y Regular",
+    "hechos": "Padre divorciado solicita ampliar el régimen de visitas con su hija de 5 años. Actualmente tiene derecho a verla cada 15 días y alega que la madre obstaculiza la relación.",
+    "razonamiento_tribunal": "El tribunal valoró el interés superior del menor y ordenó un informe psicológico. Se amplió el régimen a fines de semana alternos y mitad de vacaciones, sancionando a la madre con amonestación.",
+    "estrategia_ganadora": "Demostrar la disposición del padre y la obstaculización de la madre mediante correos y testigos. Artículos 229 y 230 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-123-2021",
+    "materia": "Alimentos Provisionales",
+    "hechos": "Madre demanda alimentos provisorios para su hijo de 2 años, mientras se tramita la demanda de alimentos definitiva. El padre se niega a pagar argumentando bajos ingresos.",
+    "razonamiento_tribunal": "El tribunal fijó alimentos provisorios de $150.000 mensuales, considerando las necesidades del menor y la capacidad del padre, acreditada con su boleta de honorarios.",
+    "estrategia_ganadora": "Solicitar medidas cautelares y acreditar ingresos del padre mediante documentos tributarios. Artículo 4 de la Ley 14.908."
+  },
+  {
+    "id_caso": "RIT-O-678-2023",
+    "materia": "Divorcio de Mutuo Acuerdo",
+    "hechos": "Matrimonio de 10 años sin hijos. Ambos cónyuges acuerdan divorciarse y presentan un acuerdo completo sobre liquidación de bienes y compensación económica.",
+    "razonamiento_tribunal": "El tribunal homologó el acuerdo, verificando que no existan vicios del consentimiento. Se decretó el divorcio y se aprobó la liquidación de la sociedad conyugal.",
+    "estrategia_ganadora": "Redactar un acuerdo detallado que cumpla con todos los requisitos legales. Artículos 55 y 58 de la Ley de Matrimonio Civil."
+  },
+  {
+    "id_caso": "RIT-C-234-2022",
+    "materia": "Alimentos en Favor de Hijo Mayor de Edad",
+    "hechos": "Hijo de 22 años, estudiante universitario, demanda alimentos a su padre. El padre se opone argumentando que el hijo puede trabajar y mantenerse.",
+    "razonamiento_tribunal": "El tribunal consideró que el hijo está cursando una carrera universitaria con buen rendimiento y no tiene ingresos. Se fijó alimentos hasta los 28 años o término de la carrera.",
+    "estrategia_ganadora": "Acreditar la calidad de estudiante regular y la falta de ingresos. Artículos 323 y 332 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-901-2023",
+    "materia": "Cuidado Personal Compartido",
+    "hechos": "Padres divorciados solicitan cuidado personal compartido de su hija de 10 años. Ambos tienen ingresos similares y viven en la misma comuna.",
+    "razonamiento_tribunal": "El tribunal ordenó informes psicosociales que indicaron que el cuidado compartido es beneficioso para la menor. Se aprobó el acuerdo, con un calendario detallado de convivencia.",
+    "estrategia_ganadora": "Demostrar la capacidad de ambos padres y la voluntad de cooperar. Artículo 225 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-456-2021",
+    "materia": "Aumento de Pensión de Alimentos",
+    "hechos": "Madre solicita aumento de pensión para su hijo de 6 años, alegando que el padre ha obtenido un nuevo trabajo con mayores ingresos. La pensión actual es de $100.000.",
+    "razonamiento_tribunal": "El tribunal acreditó el aumento de ingresos del padre mediante liquidaciones de sueldo. Se fijó una nueva pensión de $200.000 mensuales.",
+    "estrategia_ganadora": "Presentar pruebas del aumento de ingresos del padre y las mayores necesidades del hijo. Artículo 323 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-789-2022",
+    "materia": "Cese de Pensión de Alimentos",
+    "hechos": "Padre solicita cese de pensión para su hijo de 25 años, quien ya se tituló y trabaja. El hijo se opone alegando que aún necesita apoyo.",
+    "razonamiento_tribunal": "El tribunal consideró que el hijo tiene ingresos suficientes para mantenerse. Se decretó el cese de la pensión de alimentos.",
+    "estrategia_ganadora": "Acreditar la independencia económica del hijo con contratos de trabajo y declaraciones de renta. Artículo 332 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-111-2023",
+    "materia": "Divorcio por Causal de Violencia Intrafamiliar",
+    "hechos": "Mujer demanda divorcio por violencia intrafamiliar reiterada. Presenta denuncias y medidas de protección anteriores. El marido niega los hechos.",
+    "razonamiento_tribunal": "El tribunal valoró las denuncias y testimonios de testigos. Se decretó el divorcio por causal de violencia intrafamiliar y se otorgó compensación económica.",
+    "estrategia_ganadora": "Presentar denuncias, informes psicológicos y medidas de protección. Artículo 54 de la Ley de Matrimonio Civil."
+  },
+  {
+    "id_caso": "RIT-O-222-2022",
+    "materia": "Alimentos en Favor del Cónyuge",
+    "hechos": "Mujer de 60 años demanda alimentos a su exmarido, alegando que no tiene ingresos y que él tiene una pensión alta. Llevan 5 años divorciados.",
+    "razonamiento_tribunal": "El tribunal consideró que la mujer demostró estado de necesidad y que el exmarido tiene capacidad. Se fijó una pensión de alimentos de $300.000 mensuales.",
+    "estrategia_ganadora": "Acreditar la falta de ingresos y la capacidad del exmarido. Artículos 321 y 323 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-333-2021",
+    "materia": "Relación Directa y Regular con Abuelos",
+    "hechos": "Abuelos piden régimen de visitas con su nieto de 4 años, tras la muerte de su hijo (padre del menor). La madre se opone alegando mala relación.",
+    "razonamiento_tribunal": "El tribunal ordenó informes psicosociales que indicaron que la relación con los abuelos es beneficiosa. Se fijó un régimen de visitas cada 15 días.",
+    "estrategia_ganadora": "Demostrar el vínculo afectivo y el interés superior del menor. Artículos 229 y 230 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-444-2023",
+    "materia": "Alimentos Retroactivos",
+    "hechos": "Madre demanda alimentos retroactivos por 2 años, periodo en que el padre no pagó. El padre alega que no tenía ingresos.",
+    "razonamiento_tribunal": "El tribunal consideró que el padre no acreditó su falta de ingresos. Se ordenó el pago retroactivo de $2.400.000.",
+    "estrategia_ganadora": "Demostrar la capacidad económica del padre en el periodo y la falta de pago. Artículo 4 de la Ley 14.908."
+  },
+  {
+    "id_caso": "RIT-C-555-2022",
+    "materia": "Cuidado Personal por Incapacidad del Padre",
+    "hechos": "Madre solicita cuidado personal de su hija de 7 años, actualmente con el padre. Alega que el padre tiene problemas de adicción y descuida a la menor.",
+    "razonamiento_tribunal": "El tribunal ordenó pericias que confirmaron la adicción del padre. Se otorgó el cuidado personal a la madre, con visitas supervisadas para el padre.",
+    "estrategia_ganadora": "Presentar informes médicos y psicológicos que acrediten la incapacidad del padre. Artículos 224 y 225 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-666-2023",
+    "materia": "Divorcio por Causal de Infidelidad",
+    "hechos": "Marido demanda divorcio por infidelidad de su esposa. Presenta pruebas de mensajes y fotos. La esposa niega los hechos.",
+    "razonamiento_tribunal": "El tribunal valoró las pruebas digitales y testimonios. Se decretó el divorcio por causal de infidelidad y se negó compensación económica a la esposa.",
+    "estrategia_ganadora": "Presentar pruebas fehacientes de la infidelidad. Artículo 54 de la Ley de Matrimonio Civil."
+  },
+  {
+    "id_caso": "RIT-C-777-2021",
+    "materia": "Alimentos en Favor de Hijo Discapacitado",
+    "hechos": "Madre demanda alimentos para su hijo de 30 años con discapacidad severa. El padre se niega a pagar alegando que el hijo es mayor de edad.",
+    "razonamiento_tribunal": "El tribunal consideró que el hijo no puede valerse por sí mismo. Se fijó una pensión vitalicia de $400.000 mensuales.",
+    "estrategia_ganadora": "Acreditar la discapacidad del hijo con informes médicos y la necesidad de cuidados permanentes. Artículos 321 y 332 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-888-2022",
+    "materia": "Relación Directa y Regular en Contexto de Violencia",
+    "hechos": "Padre condenado por violencia intrafamiliar solicita régimen de visitas con su hijo de 3 años. La madre se opone por seguridad del menor.",
+    "razonamiento_tribunal": "El tribunal ordenó informes psicológicos que indicaron riesgo para el menor. Se denegó el régimen de visitas y se ordenó terapia para el padre.",
+    "estrategia_ganadora": "Demostrar el riesgo para el menor con informes y antecedentes penales. Artículos 229 y 230 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-C-999-2023",
+    "materia": "Alimentos en Favor de Hijo No Reconocido",
+    "hechos": "Madre demanda alimentos para su hijo de 1 año, cuyo padre no lo reconoce. El padre se niega a realizarse prueba de ADN.",
+    "razonamiento_tribunal": "El tribunal ordenó la prueba de ADN de oficio, que resultó positiva. Se fijó una pensión de alimentos de $200.000 mensuales y se ordenó el reconocimiento.",
+    "estrategia_ganadora": "Solicitar la prueba de ADN como medida para mejor resolver. Artículos 186 y 323 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-O-1000-2022",
+    "materia": "Compensación Económica en Divorcio",
+    "hechos": "Mujer de 55 años solicita compensación económica tras divorcio, alegando que se dedicó al hogar durante 25 años. El marido se opone.",
+    "razonamiento_tribunal": "El tribunal valoró el trabajo doméstico y el desequilibrio económico. Se otorgó una compensación de $50.000.000 pagaderos en cuotas.",
+    "estrategia_ganadora": "Demostrar el trabajo doméstico y la falta de ingresos propios. Artículos 61 y 62 de la Ley de Matrimonio Civil."
+  },
+  {
+    "id_caso": "ROL-C-1234-2022",
+    "materia": "Arrendamiento",
+    "hechos": "Arrendatario no pagó rentas por 6 meses. Arrendador demanda el término del contrato y cobro de rentas impagas. El arrendatario alega que hubo un acuerdo verbal para reducir la renta.",
+    "razonamiento_tribunal": "El tribunal consideró que no se acreditó el acuerdo verbal, ya que el contrato escrito exigía modificaciones por escrito. Se acogió la demanda por incumplimiento grave del arrendatario.",
+    "estrategia_ganadora": "Presentar el contrato original y los comprobantes de pago iniciales para demostrar el incumplimiento. Artículo 7 de la Ley de Arrendamiento (N° 18.101) y 1545 del Código Civil (fuerza obligatoria de los contratos)."
+  },
+  {
+    "id_caso": "ROL-C-5678-2023",
+    "materia": "Cobro de Pesos",
+    "hechos": "Un contratista prestó servicios de construcción a una empresa, emitió facturas, pero la empresa no pagó dentro del plazo. El contratista demanda el cobro de la suma adeudada más intereses.",
+    "razonamiento_tribunal": "El tribunal determinó que las facturas no fueron objetadas dentro del plazo legal, por lo que se presumieron conforme a lo dispuesto en el Código de Comercio. Se condenó al pago total.",
+    "estrategia_ganadora": "Acreditar la recepción de las facturas y la falta de objeción oportuna. Artículos 159 y 160 del Código de Comercio sobre facturas y su fuerza ejecutiva."
+  },
+  {
+    "id_caso": "ROL-C-9012-2021",
+    "materia": "Indemnización por Perjuicios",
+    "hechos": "Un automóvil chocó contra un poste de alumbrado público por un bache no señalizado en la calle. El conductor demandó a la municipalidad por daños materiales y morales.",
+    "razonamiento_tribunal": "La municipalidad fue considerada responsable por falta de mantención y señalización, conforme a la Ley de Concesiones y la obligación de resguardo de la vía pública.",
+    "estrategia_ganadora": "Demostrar la falta de señalización y la causalidad directa con el daño. Artículo 2329 del Código Civil (responsabilidad por daños causados por cosas inanimadas)."
+  },
+  {
+    "id_caso": "ROL-C-3456-2023",
+    "materia": "Compraventas",
+    "hechos": "Un comprador adquirió un vehículo usado, pero a los 3 meses el motor falló. El vendedor no informó defectos previos. El comprador demanda por vicios ocultos.",
+    "razonamiento_tribunal": "Se acreditó que el motor tenía un defecto de fabricación anterior a la venta, no detectable por un comprador medio. Se acogió la acción redhibitoria.",
+    "estrategia_ganadora": "Presentar peritaje técnico que demuestre el vicio preexistente. Artículos 1857 y siguientes del Código Civil sobre vicios redhibitorios."
+  },
+  {
+    "id_caso": "ROL-C-7890-2022",
+    "materia": "Arrendamiento",
+    "hechos": "Arrendador no realizó reparaciones urgentes en un departamento (filtraciones). El arrendatario dejó de pagar rentas y demandó la terminación del contrato y devolución de garantía.",
+    "razonamiento_tribunal": "El tribunal consideró que las filtraciones afectaban la habitabilidad, por lo que el arrendatario podía resolver el contrato. Se ordenó devolver la garantía y pagar indemnización.",
+    "estrategia_ganadora": "Acreditar las notificaciones previas al arrendador para reparar. Artículo 8 de la Ley de Arrendamiento y 1932 del Código Civil sobre obligaciones del arrendador."
+  },
+  {
+    "id_caso": "ROL-C-2345-2023",
+    "materia": "Cobro de Pesos",
+    "hechos": "Un proveedor de insumos médicos demandó a una clínica por el no pago de facturas. La clínica alegó que los insumos tenían fallas de calidad.",
+    "razonamiento_tribunal": "Se determinó que la clínica no objetó las facturas en tiempo y forma, y las fallas no se probaron. Se condenó al pago completo.",
+    "estrategia_ganadora": "Demostrar la entrega conforme y la falta de reclamo oportuno. Artículo 160 del Código de Comercio."
+  },
+  {
+    "id_caso": "ROL-C-6789-2021",
+    "materia": "Indemnización por Perjuicios",
+    "hechos": "Un peatón cayó en una alcantarilla abierta sin protección en una obra municipal. Sufrió fractura de pierna. Demandó a la municipalidad.",
+    "razonamiento_tribunal": "La municipalidad fue declarada responsable por omisión en la seguridad. Se concedió indemnización por daño moral y lucro cesante.",
+    "estrategia_ganadora": "Probar la falta de señalización y la relación causal con el accidente. Artículo 2329 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-1234-2023",
+    "materia": "Compraventas",
+    "hechos": "Un comprador compró una casa y descubrió que tenía una servidumbre no declarada que impedía construir una piscina. Demandó al vendedor.",
+    "razonamiento_tribunal": "El vendedor ocultó la servidumbre, lo que constituye un vicio redhibitorio. Se anuló la venta y se ordenó la restitución del precio.",
+    "estrategia_ganadora": "Presentar el certificado de gravámenes y la escritura. Artículos 1857 y 1860 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-5678-2022",
+    "materia": "Arrendamiento",
+    "hechos": "Arrendatario subarrendó el inmueble sin permiso del arrendador. El arrendador demandó el término del contrato.",
+    "razonamiento_tribunal": "El subarrendamiento no autorizado es causal de término. Se acogió la demanda y se ordenó la restitución del inmueble.",
+    "estrategia_ganadora": "Aportar el contrato que prohíbe el subarrendamiento. Artículo 9 de la Ley de Arrendamiento."
+  },
+  {
+    "id_caso": "ROL-C-9012-2023",
+    "materia": "Cobro de Pesos",
+    "hechos": "Un abogado demandó a un cliente por honorarios impagos. El cliente alegó que el servicio fue deficiente.",
+    "razonamiento_tribunal": "Se acreditó la prestación del servicio y la falta de reclamo oportuno. Se condenó al pago de los honorarios.",
+    "estrategia_ganadora": "Presentar el contrato de prestación de servicios y las comunicaciones. Artículo 1545 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-3456-2022",
+    "materia": "Indemnización por Perjuicios",
+    "hechos": "Un árbol de un vecino cayó sobre el techo de una casa por falta de mantención. El dueño de la casa demandó por daños.",
+    "razonamiento_tribunal": "El vecino fue responsable por negligencia en el cuidado del árbol. Se indemnizó por daños materiales.",
+    "estrategia_ganadora": "Demostrar la falta de poda y la causalidad. Artículo 2329 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-7890-2023",
+    "materia": "Compraventas",
+    "hechos": "Un comprador compró un televisor que se descompuso a los 10 días. La tienda se negó a cambiar. El comprador demandó.",
+    "razonamiento_tribunal": "El televisor presentaba un defecto de fábrica, aplicando la Ley del Consumidor. Se ordenó el cambio o devolución del dinero.",
+    "estrategia_ganadora": "Presentar la boleta y el informe técnico. Ley 19.496 sobre protección al consumidor."
+  },
+  {
+    "id_caso": "ROL-C-2345-2022",
+    "materia": "Arrendamiento",
+    "hechos": "Arrendador vendió el inmueble arrendado sin informar al arrendatario. El nuevo dueño intentó desalojar al inquilino.",
+    "razonamiento_tribunal": "El arrendatario tiene derecho a continuar en el inmueble hasta el término del contrato. Se rechazó el desalojo.",
+    "estrategia_ganadora": "Invocar el derecho de retención del arrendatario. Artículo 13 de la Ley de Arrendamiento."
+  },
+  {
+    "id_caso": "ROL-C-6789-2023",
+    "materia": "Cobro de Pesos",
+    "hechos": "Una empresa demandó a un cliente por el no pago de un servicio de consultoría. El cliente alegó que el servicio no cumplió con lo pactado.",
+    "razonamiento_tribunal": "Se probó que el servicio se entregó según el contrato. Se condenó al pago.",
+    "estrategia_ganadora": "Aportar el contrato y los informes de avance. Artículo 1545 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-1234-2021",
+    "materia": "Indemnización por Perjuicios",
+    "hechos": "Un perro mordió a un niño en un parque. El dueño del perro fue demandado por daños.",
+    "razonamiento_tribunal": "El dueño es responsable por los daños causados por el animal. Se concedió indemnización.",
+    "estrategia_ganadora": "Probar la propiedad del animal y el ataque. Artículo 2327 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-5678-2021",
+    "materia": "Compraventas",
+    "hechos": "Un comprador adquirió un terreno y luego descubrió que estaba en zona de riesgo de inundación no declarada. Demandó al vendedor.",
+    "razonamiento_tribunal": "El vendedor ocultó información relevante, configurando un vicio redhibitorio. Se anuló la venta.",
+    "estrategia_ganadora": "Presentar informes de la municipalidad y peritajes. Artículos 1857 y 1860 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-9012-2022",
+    "materia": "Arrendamiento",
+    "hechos": "Arrendatario realizó mejoras no autorizadas en el inmueble. Al terminar el contrato, pidió reembolso. El arrendador se negó.",
+    "razonamiento_tribunal": "Las mejoras no autorizadas no son reembolsables. Se rechazó la demanda del arrendatario.",
+    "estrategia_ganadora": "Demostrar que las mejoras no fueron consentidas por escrito. Artículo 1934 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-3456-2021",
+    "materia": "Cobro de Pesos",
+    "hechos": "Un profesional independiente demandó a un cliente por el no pago de una factura por servicios de diseño gráfico. El cliente alegó que el trabajo no era de su agrado.",
+    "razonamiento_tribunal": "El trabajo se entregó según lo acordado. Se condenó al pago.",
+    "estrategia_ganadora": "Presentar el contrato y las pruebas de entrega. Artículo 1545 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-7890-2021",
+    "materia": "Indemnización por Perjuicios",
+    "hechos": "Un vecino construyó un muro que bloqueó la luz natural de la casa del demandante. Se demandó por daños.",
+    "razonamiento_tribunal": "La construcción afectó el derecho de servidumbre de luces. Se ordenó la demolición y pago de indemnización.",
+    "estrategia_ganadora": "Acreditar la servidumbre preexistente. Artículos 846 y 2329 del Código Civil."
+  },
+  {
+    "id_caso": "ROL-C-2345-2021",
+    "materia": "Compraventas",
+    "hechos": "Un comprador compró un auto con kilometraje adulterado. Demandó al vendedor por dolo.",
+    "razonamiento_tribunal": "Se acreditó el dolo del vendedor. Se anuló la venta y se ordenó indemnización.",
+    "estrategia_ganadora": "Presentar el informe de un mecánico que detecte la adulteración. Artículos 1451 y 1857 del Código Civil."
+  },
+  {
+    "id_caso": "RIT-123-2023",
+    "materia": "Choques",
+    "hechos": "El demandante alega que el demandado, al estacionar en doble fila, obstruyó la visibilidad, causando una colisión por alcance. El demandado niega responsabilidad, argumentando que el demandante conducía a exceso de velocidad.",
+    "razonamiento_tribunal": "El tribunal consideró que el demandado infringió el artículo 183 de la Ley de Tránsito al estacionar en lugar prohibido, creando un riesgo. Sin embargo, el demandante no acreditó la velocidad excesiva. Se aplicó la teoría del riesgo creado, condenando al demandado al 70% de la responsabilidad.",
+    "estrategia_ganadora": "Acreditar la infracción reglamentaria del demandado (estacionamiento prohibido) y presentar testigos presenciales del hecho. Artículo clave: 183 Ley de Tránsito."
+  },
+  {
+    "id_caso": "RIT-456-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Consumidor compra un teléfono móvil que presenta fallas de fábrica (pantalla se apaga). La empresa se niega a cambiar el equipo, ofreciendo solo reparación, la cual no soluciona el problema tras dos intentos.",
+    "razonamiento_tribunal": "El tribunal aplicó la Ley 19.496, estableciendo que existe una garantía legal de 6 meses para productos nuevos. Al haber fallado la reparación, el consumidor tiene derecho a la sustitución del producto o la devolución del dinero. Se condenó a la empresa a cambiar el equipo.",
+    "estrategia_ganadora": "Presentar comprobante de compra, historial de fallas y las dos órdenes de reparación sin éxito. Artículos clave: 20 y 21 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-789-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Conductor es multado por exceder el límite de velocidad en zona urbana (80 km/h en zona de 50 km/h). El conductor alega que el radar no estaba calibrado correctamente y que la señalética era confusa.",
+    "razonamiento_tribunal": "El tribunal revisó el certificado de calibración del radar, el cual estaba vigente. Además, se verificó que la señalética era clara. Se desestimó la defensa del conductor, confirmando la multa y la suspensión de licencia por 30 días.",
+    "estrategia_ganadora": "La defensa no logró probar la falta de calibración ni la confusión en señalética. La fiscalización municipal presentó el certificado de calibración. Artículo clave: 200 Ley de Tránsito (exceso de velocidad)."
+  },
+  {
+    "id_caso": "RIT-101-2023",
+    "materia": "Choques",
+    "hechos": "Colisión frontal en intersección no semaforizada. El demandante (vehículo A) afirma que el demandado (vehículo B) no respetó el disco 'PARE'. El demandado sostiene que el demandante no cedió el paso al vehículo que venía por la derecha.",
+    "razonamiento_tribunal": "El tribunal determinó que el demandado (vehículo B) debía detenerse completamente en el disco 'PARE', lo que no hizo. Se aplicó la prioridad de paso del vehículo que circula por la vía con señalización vertical. Se condenó al demandado.",
+    "estrategia_ganadora": "Demostrar con testigos y croquis que el demandado no se detuvo. Artículo clave: 156 Ley de Tránsito (obligación de detenerse en disco PARE)."
+  },
+  {
+    "id_caso": "RIT-202-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Cliente contrata un servicio de internet con velocidad contratada de 200 Mbps, pero durante 3 meses recibe un servicio inferior a 50 Mbps, afectando su trabajo remoto. La empresa no responde a los reclamos.",
+    "razonamiento_tribunal": "El tribunal consideró que la empresa no cumplió con el estándar de calidad ofrecido, vulnerando el derecho a la información veraz y al servicio eficiente. Se ordenó la restitución del 50% del valor pagado durante el período de falla.",
+    "estrategia_ganadora": "Presentar registros de velocidad (speedtest) diarios y las comunicaciones con la empresa. Artículos clave: 3 y 12 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-303-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Vehículo estacionado en zona de carga y descarga en horario prohibido (10:00 a 20:00 hrs). El conductor alega que solo estuvo 5 minutos y que no había señalética visible.",
+    "razonamiento_tribunal": "El tribunal inspeccionó el lugar y constató que la señalética estaba en buen estado y visible. Se consideró que el tiempo de estacionamiento no exime la infracción. Se confirmó la multa.",
+    "estrategia_ganadora": "La defensa no pudo acreditar la falta de señalización. La municipalidad presentó fotografías del lugar. Artículo clave: 185 Ley de Tránsito (estacionamiento en zonas prohibidas)."
+  },
+  {
+    "id_caso": "RIT-404-2023",
+    "materia": "Choques",
+    "hechos": "Choque por alcance en autopista. El demandante (vehículo trasero) alega que el demandado (vehículo delantero) frenó bruscamente sin motivo. El demandado sostiene que el demandante no mantuvo la distancia de seguridad.",
+    "razonamiento_tribunal": "El tribunal aplicó el principio de responsabilidad del vehículo que choca por detrás, salvo prueba de frenada injustificada. El demandante no probó que la frenada fuera brusca. Se desestimó la demanda.",
+    "estrategia_ganadora": "El demandado demostró con testigos que frenó por un peatón. La carga de la prueba recae en el demandante. Artículo clave: 148 Ley de Tránsito (distancia de seguridad)."
+  },
+  {
+    "id_caso": "RIT-505-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Compra de un electrodoméstico (refrigerador) que llega con un golpe y no enfría. La tienda se niega al cambio, argumentando que el daño fue por mal manejo del transporte que contrató el consumidor.",
+    "razonamiento_tribunal": "El tribunal consideró que la responsabilidad es solidaria entre el vendedor y el transportista, según el artículo 43 de la Ley 19.496. El consumidor no tiene por qué reclamar al transportista. Se ordenó el cambio del producto.",
+    "estrategia_ganadora": "Demostrar que el daño era visible al momento de la recepción y que se dejó constancia en la guía de despacho. Artículo clave: 43 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-606-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Conductor es multado por no usar cinturón de seguridad. Alega que el cinturón estaba funcionando y que solo se lo quitó por un momento para alcanzar un objeto.",
+    "razonamiento_tribunal": "El tribunal consideró que la obligación de usar el cinturón es permanente mientras el vehículo esté en movimiento. No se aceptó la excusa. Se confirmó la multa.",
+    "estrategia_ganadora": "La fiscalización presentó el parte policial y el conductor no pudo probar su defensa. Artículo clave: 200 Ley de Tránsito (uso de cinturón de seguridad)."
+  },
+  {
+    "id_caso": "RIT-707-2023",
+    "materia": "Choques",
+    "hechos": "Colisión en rotonda. El demandante (ingresando a la rotonda) choca con el demandado (circulando dentro de la rotonda). El demandante alega que el demandado no señalizó su salida.",
+    "razonamiento_tribunal": "El tribunal aplicó la prioridad de quien circula dentro de la rotonda. Además, se consideró que el demandante debía ceder el paso. Se desestimó la demanda contra el demandado.",
+    "estrategia_ganadora": "El demandado demostró que circulaba correctamente y que el demandante no respetó la prioridad. Artículo clave: 158 Ley de Tránsito (prioridad en rotondas)."
+  },
+  {
+    "id_caso": "RIT-808-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Cliente de un gimnasio solicita la cancelación del contrato por cambio de domicilio a otra ciudad. El gimnasio se niega a devolver el dinero del mes pagado por adelantado, alegando que el contrato no contempla esa causal.",
+    "razonamiento_tribunal": "El tribunal aplicó el derecho a retracto en servicios de duración determinada, considerando que el cambio de domicilio es una causa justificada. Se ordenó la devolución proporcional del dinero.",
+    "estrategia_ganadora": "Presentar el contrato y el comprobante del nuevo domicilio. Artículos clave: 3 bis y 12 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-909-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Conductor es multado por conducir con licencia vencida. Alega que había solicitado la renovación y que estaba en trámite, presentando un comprobante.",
+    "razonamiento_tribunal": "El tribunal consideró que el comprobante de trámite no habilita para conducir. La licencia vencida es una infracción. Se mantuvo la multa, pero se redujo la suspensión de licencia por ser la primera vez.",
+    "estrategia_ganadora": "La defensa atenuó la sanción, pero no eximió la infracción. Artículo clave: 205 Ley de Tránsito (conducir con licencia vencida)."
+  },
+  {
+    "id_caso": "RIT-100-2023",
+    "materia": "Choques",
+    "hechos": "Estacionamiento en batería, el demandante (vehículo estacionado) es chocado por el demandado al salir de su estacionamiento. El demandado alega que el demandante se estacionó mal, ocupando dos espacios.",
+    "razonamiento_tribunal": "El tribunal consideró que la responsabilidad es del conductor que sale del estacionamiento, quien debe hacerlo con la máxima precaución. El mal estacionamiento no justifica el choque. Se condenó al demandado.",
+    "estrategia_ganadora": "El demandante acreditó que el impacto fue en la parte trasera de su vehículo, demostrando que ya estaba estacionado. Artículo clave: 164 Ley de Tránsito (maniobra de salida de estacionamiento)."
+  },
+  {
+    "id_caso": "RIT-111-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Compra de un pasaje aéreo internacional que es cancelado unilateralmente por la aerolínea 24 horas antes del vuelo, sin ofrecer alternativa ni reembolso inmediato.",
+    "razonamiento_tribunal": "El tribunal aplicó el Reglamento de Transporte Aéreo y la Ley 19.496, considerando que la cancelación unilateral sin causa justificada es un incumplimiento grave. Se ordenó el reembolso total del pasaje más una indemnización por daño moral.",
+    "estrategia_ganadora": "Presentar el comprobante de compra y la comunicación de cancelación. Artículos clave: 12 y 23 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-121-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Motociclista es multado por no usar casco. Alega que lo llevaba puesto, pero el carabinero no lo vio porque se lo quitó al detenerse.",
+    "razonamiento_tribunal": "El tribunal consideró el testimonio del carabinero como prueba suficiente, ya que es un funcionario público en ejercicio de sus funciones. Se confirmó la multa.",
+    "estrategia_ganadora": "La defensa no presentó testigos ni evidencia. El parte policial tiene presunción de veracidad. Artículo clave: 200 Ley de Tránsito (uso de casco)."
+  },
+  {
+    "id_caso": "RIT-131-2023",
+    "materia": "Choques",
+    "hechos": "Colisión en cruce ferroviario. El demandante (automóvil) es impactado por un tren. El demandante alega que las barreras no funcionaban. La empresa ferroviaria sostiene que el conductor no respetó la señalización.",
+    "razonamiento_tribunal": "El tribunal determinó que la empresa ferroviaria no acreditó el correcto funcionamiento de las barreras. Se aplicó la responsabilidad objetiva por actividad peligrosa. Se condenó a la empresa.",
+    "estrategia_ganadora": "El demandante presentó testigos que afirmaron que las barreras estaban levantadas. Artículo clave: 170 Ley de Tránsito (prioridad de paso del tren) y responsabilidad objetiva."
+  },
+  {
+    "id_caso": "RIT-141-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Cliente de un banco contrata un seguro de desgravamen, pero al momento del siniestro (fallecimiento del titular), el banco se niega a pagar alegando una enfermedad preexistente no declarada.",
+    "razonamiento_tribunal": "El tribunal consideró que el banco no demostró que la enfermedad fuera preexistente al momento de la contratación ni que el cliente hubiera ocultado información de mala fe. Se ordenó el pago del seguro.",
+    "estrategia_ganadora": "Presentar la póliza y el certificado de defunción. El banco no cumplió con la carga de la prueba. Artículos clave: 12 y 23 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-151-2023",
+    "materia": "Multas de Tránsito",
+    "hechos": "Conductor es multado por no respetar un semáforo en rojo. Alega que el semáforo estaba en amarillo y que cruzó antes de que cambiara a rojo.",
+    "razonamiento_tribunal": "El tribunal revisó el registro de la cámara de semáforo, la cual mostraba claramente que el vehículo cruzó con luz roja. Se confirmó la multa.",
+    "estrategia_ganadora": "La fiscalización presentó la grabación de la cámara. El conductor no tenía defensa. Artículo clave: 153 Ley de Tránsito (respeto a la luz roja del semáforo)."
+  },
+  {
+    "id_caso": "RIT-161-2023",
+    "materia": "Choques",
+    "hechos": "Accidente en autopista por objeto caído de un camión (una caja). El demandante (automóvil) choca contra la caja y sufre daños. El demandado (camionero) niega responsabilidad.",
+    "razonamiento_tribunal": "El tribunal aplicó la responsabilidad del dueño de la carga por los objetos que caen del vehículo, según la Ley de Tránsito. Se condenó al camionero y a la empresa transportista.",
+    "estrategia_ganadora": "El demandante presentó testigos y el parte policial que identificó el camión. Artículo clave: 169 Ley de Tránsito (caída de objetos)."
+  },
+  {
+    "id_caso": "RIT-171-2023",
+    "materia": "Ley del Consumidor",
+    "hechos": "Consumidor compra un vehículo usado en una automotora, el cual presenta vicios ocultos (problemas de motor). La automotora se niega a responder, alegando que la venta es 'usado, tal cual se ve'.",
+    "razonamiento_tribunal": "El tribunal consideró que la automotora, como vendedor profesional, responde por los vicios ocultos, aunque el vehículo sea usado. Se ordenó la reparación del motor a costo de la automotora.",
+    "estrategia_ganadora": "Presentar un informe de un mecánico que acredite que el vicio existía antes de la compra. Artículos clave: 20 y 21 Ley 19.496."
+  },
+  {
+    "id_caso": "RIT-1234-2022",
+    "materia": "Estafa (Querella)",
+    "hechos": "El imputado ofreció en venta un vehículo que no era de su propiedad, utilizando documentación falsa. La víctima pagó $15.000.000 y nunca recibió el auto. Se presentó querella por estafa.",
+    "razonamiento_tribunal": "Se acreditó que el imputado actuó con dolo, engañando a la víctima al simular la propiedad del vehículo, configurándose los elementos del artículo 468 del Código Penal.",
+    "estrategia_ganadora": "Presentar la documentación falsa y la transferencia bancaria como prueba del engaño y el perjuicio patrimonial. Artículo 468 CP."
+  },
+  {
+    "id_caso": "RIT-5678-2023",
+    "materia": "Alzamiento de Prendas",
+    "hechos": "El deudor, sabiendo que existía una prenda sin desplazamiento sobre su maquinaria industrial, la vendió a un tercero de buena fe sin informar al acreedor prendario.",
+    "razonamiento_tribunal": "Se configuró el delito del artículo 474 del Código Penal, pues el deudor tenía pleno conocimiento de la garantía real y la enajenó dolosamente, perjudicando al acreedor.",
+    "estrategia_ganadora": "Acreditar la inscripción de la prenda en el Registro correspondiente y la venta posterior. Artículo 474 CP."
+  },
+  {
+    "id_caso": "RIT-9012-2021",
+    "materia": "Apropiación Indebida (Posesión Efectiva)",
+    "hechos": "Tras la muerte del causante, uno de los herederos obtuvo la posesión efectiva indebidamente, ocultando la existencia de otros herederos y apropiándose de los bienes.",
+    "razonamiento_tribunal": "El tribunal consideró que hubo apropiación indebida al disponer de bienes que no eran de su exclusiva propiedad, afectando los derechos de los demás coherederos.",
+    "estrategia_ganadora": "Demostrar la ocultación dolosa y el perjuicio patrimonial a los demás herederos. Artículos 470 y 471 CP."
+  },
+  {
+    "id_caso": "RIT-3456-2023",
+    "materia": "Estafa (Querella por inversión ficticia)",
+    "hechos": "Un asesor financiero convenció a un cliente de invertir $50.000.000 en un fondo inexistente, presentando estados de cuenta falsos. El cliente descubrió el engaño al no recibir retornos.",
+    "razonamiento_tribunal": "Se acreditó el ardid suficiente para inducir a error al inversionista, causándole un perjuicio patrimonial. El acusado fue condenado por estafa reiterada.",
+    "estrategia_ganadora": "Presentar los estados de cuenta falsos y los correos electrónicos como prueba del engaño. Artículo 468 CP."
+  },
+  {
+    "id_caso": "RIT-7890-2022",
+    "materia": "Alzamiento de Prendas (Prenda agraria)",
+    "hechos": "Un agricultor, con una prenda agraria sobre su cosecha de trigo, la cosechó y vendió la totalidad a un molino, sin pagar la deuda garantizada, desapareciendo el producto.",
+    "razonamiento_tribunal": "Se configuró el alzamiento de prenda al distraer la cosa dada en garantía, perjudicando al acreedor prendario. No bastaba la sola venta, sino la intención de defraudar.",
+    "estrategia_ganadora": "Acreditar la existencia de la prenda, la venta y la falta de pago. Artículo 474 CP y Ley 4.097."
+  },
+  {
+    "id_caso": "RIT-1122-2023",
+    "materia": "Posesión Efectiva Indebida (Falsificación)",
+    "hechos": "Un nieto falsificó la firma de su abuela fallecida para obtener la posesión efectiva, excluyendo a su madre (heredera legal) y adjudicándose un inmueble.",
+    "razonamiento_tribunal": "Se configuró el delito de falsificación de instrumento público y apropiación indebida, ya que el nieto utilizó un testamento falso para obtener la posesión efectiva.",
+    "estrategia_ganadora": "Pericia caligráfica que demostró la falsificación y el árbol genealógico que acreditaba la calidad de heredera de la madre. Artículos 193 y 470 CP."
+  },
+  {
+    "id_caso": "RIT-3344-2021",
+    "materia": "Estafa (venta de terreno no edificable)",
+    "hechos": "Una inmobiliaria vendió lotes en un terreno que no contaba con permisos de edificación, presentando planos falsos. Los compradores pagaron y no pudieron construir.",
+    "razonamiento_tribunal": "La inmobiliaria actuó con dolo al ocultar la falta de permisos, configurándose una estafa. Se condenó a los representantes legales.",
+    "estrategia_ganadora": "Demostrar la falsedad de los planos y la imposibilidad de construir. Artículo 468 CP y Ley General de Urbanismo y Construcciones."
+  },
+  {
+    "id_caso": "RIT-5566-2023",
+    "materia": "Alzamiento de Prendas (Vehículo)",
+    "hechos": "El dueño de un camión, con prenda inscrita a favor de un banco, lo vendió a un comprador de buena fe y no pagó el crédito. El banco no pudo recuperar el vehículo.",
+    "razonamiento_tribunal": "Se acreditó que el deudor sabía de la prenda y la vendió dolosamente. La venta a un tercero no extingue la responsabilidad penal del deudor.",
+    "estrategia_ganadora": "Certificado de inscripción de prenda y contrato de compraventa. Artículo 474 CP."
+  },
+  {
+    "id_caso": "RIT-7788-2022",
+    "materia": "Posesión Efectiva (Ocultación de bienes)",
+    "hechos": "Un heredero, al solicitar la posesión efectiva, ocultó la existencia de una cuenta bancaria con $30.000.000, repartiéndose los bienes sin incluir ese activo.",
+    "razonamiento_tribunal": "Se configuró apropiación indebida al ocultar dolosamente un bien de la herencia, perjudicando a los demás coherederos.",
+    "estrategia_ganadora": "Solicitar los estados de cuenta bancarios y demostrar la ocultación en la declaración de bienes. Artículo 470 CP."
+  },
+  {
+    "id_caso": "RIT-9900-2023",
+    "materia": "Estafa (Cobro de servicios no prestados)",
+    "hechos": "Una empresa de seguridad cobró por servicios de monitoreo que nunca instaló, emitiendo facturas falsas a una comunidad agrícola por 18 meses.",
+    "razonamiento_tribunal": "Se acreditó el engaño mediante facturas falsas y la ausencia de prestación del servicio, configurándose estafa reiterada.",
+    "estrategia_ganadora": "Presentar las facturas y peritajes que demostraron que no había equipos instalados. Artículo 468 CP."
+  },
+  {
+    "id_caso": "RIT-1111-2022",
+    "materia": "Alzamiento de Prendas (Bienes muebles)",
+    "hechos": "Un industrial, con prenda sobre su maquinaria, la trasladó a otra bodega y la vendió como chatarra, desapareciendo la garantía del acreedor.",
+    "razonamiento_tribunal": "El traslado y venta dolosa constituyó alzamiento de prenda, pues el deudor actuó con la intención de defraudar al acreedor.",
+    "estrategia_ganadora": "Acreditar la existencia de la prenda y la venta a un tercero. Artículo 474 CP."
+  },
+  {
+    "id_caso": "RIT-2222-2023",
+    "materia": "Posesión Efectiva (Herencia vacante)",
+    "hechos": "Un sujeto se hizo pasar por heredero de una persona fallecida sin testamento, obteniendo la posesión efectiva y vendiendo los bienes a un tercero.",
+    "razonamiento_tribunal": "Se configuró el delito de usurpación de estado civil y estafa, ya que el imputado no tenía vínculo familiar con el causante.",
+    "estrategia_ganadora": "Investigación genealógica que demostró la falta de parentesco. Artículos 214 y 468 CP."
+  },
+  {
+    "id_caso": "RIT-3333-2021",
+    "materia": "Estafa (Contrato de arriendo ficticio)",
+    "hechos": "Un arrendatario simuló ser propietario de un departamento y lo arrendó a tres personas distintas, cobrando el mes de garantía y adelantos a cada una.",
+    "razonamiento_tribunal": "Se acreditó el engaño múltiple, configurándose estafa reiterada. El imputado no tenía título sobre el inmueble.",
+    "estrategia_ganadora": "Presentar los contratos de arriendo y los comprobantes de pago a nombre de distintas víctimas. Artículo 468 CP."
+  },
+  {
+    "id_caso": "RIT-4444-2022",
+    "materia": "Alzamiento de Prendas (Prenda especial de empresa)",
+    "hechos": "Una empresa, con prenda especial sobre sus existencias, vendió todo el inventario sin autorización del acreedor, quedando la deuda impaga.",
+    "razonamiento_tribunal": "Se configuró alzamiento de prenda al distraer las existencias dadas en garantía, afectando los derechos del acreedor prendario.",
+    "estrategia_ganadora": "Demostrar la venta masiva y la falta de pago. Artículo 474 CP y Ley 20.190."
+  },
+  {
+    "id_caso": "RIT-5555-2023",
+    "materia": "Posesión Efectiva (Falsificación de testamento)",
+    "hechos": "Un hijo falsificó un testamento que lo nombraba heredero universal, excluyendo a sus hermanos, y obtuvo la posesión efectiva de los bienes.",
+    "razonamiento_tribunal": "Se configuró falsificación de instrumento privado y apropiación indebida, ya que el testamento era falso y el hijo actuó con dolo.",
+    "estrategia_ganadora": "Pericia documentológica que demostró la falsificación y declaraciones de testigos que acreditaron la voluntad del causante. Artículos 197 y 470 CP."
+  },
+  {
+    "id_caso": "RIT-6666-2022",
+    "materia": "Estafa (Venta de entradas falsas)",
+    "hechos": "Un vendedor ofreció entradas falsas para un concierto masivo a través de redes sociales, estafando a 50 personas por un total de $10.000.000.",
+    "razonamiento_tribunal": "Se acreditó el engaño masivo mediante la venta de entradas falsas, configurándose estafa reiterada y asociación ilícita.",
+    "estrategia_ganadora": "Recopilar capturas de pantalla de las transacciones y denuncias de las víctimas. Artículo 468 CP y Ley 20.000."
+  },
+  {
+    "id_caso": "RIT-7777-2023",
+    "materia": "Alzamiento de Prendas (Prenda sobre derechos de agua)",
+    "hechos": "Un agricultor, con prenda sobre sus derechos de agua, los transfirió a un tercero sin autorización del acreedor, dejando la deuda impaga.",
+    "razonamiento_tribunal": "Se configuró alzamiento de prenda al transferir un bien dado en garantía, perjudicando al acreedor. Los derechos de agua son bienes muebles.",
+    "estrategia_ganadora": "Acreditar la inscripción de la prenda y la transferencia posterior. Artículo 474 CP y Código de Aguas."
+  },
+  {
+    "id_caso": "RIT-8888-2021",
+    "materia": "Posesión Efectiva (Ocultación de testamento)",
+    "hechos": "Un heredero ocultó un testamento que favorecía a otro heredero, obteniendo la posesión efectiva basada en la sucesión intestada y perjudicando al beneficiario.",
+    "razonamiento_tribunal": "Se configuró apropiación indebida al ocultar dolosamente el testamento, impidiendo que el beneficiario ejerciera sus derechos hereditarios.",
+    "estrategia_ganadora": "Presentar el testamento original y demostrar que el imputado tenía conocimiento de su existencia. Artículo 470 CP."
+  },
+  {
+    "id_caso": "RIT-9999-2023",
+    "materia": "Estafa (Préstamo usurario)",
+    "hechos": "Un prestamista otorgó un crédito con intereses del 20% mensual, ocultando la tasa real en el contrato. El deudor pagó $5.000.000 en intereses en un año.",
+    "razonamiento_tribunal": "Se configuró usura y estafa, ya que el prestamista engañó al deudor sobre la tasa de interés real, causándole un perjuicio patrimonial.",
+    "estrategia_ganadora": "Demostrar la tasa de interés real mediante peritajes financieros y el engaño en el contrato. Artículos 468 CP y Ley 18.010."
+  },
+  {
+    "id_caso": "RIT-1010-2022",
+    "materia": "Alzamiento de Prendas (Prenda sobre acciones)",
+    "hechos": "Un accionista, con prenda sobre sus acciones de una sociedad, las transfirió a un tercero sin autorización del acreedor, perdiendo la garantía.",
+    "razonamiento_tribunal": "Se configuró alzamiento de prenda al transferir las acciones dadas en garantía, afectando los derechos del acreedor prendario.",
+    "estrategia_ganadora": "Acreditar la inscripción de la prenda en el registro de accionistas y la transferencia posterior. Artículo 474 CP y Ley 18.046."
+  }
+]

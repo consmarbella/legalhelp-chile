@@ -1,0 +1,31 @@
+{
+  "functions": {
+    "app/api/chat/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/lang/chat/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/generate-final/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/payment/create/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/demandas/chat/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/demandas/generate/route.ts": {
+      "maxDuration": 120
+    },
+    "app/api/demandas/payment/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "redirects": [
+    { "source": "/nosotros", "destination": "/", "permanent": true },
+    { "source": "/servicios", "destination": "/", "permanent": true },
+    { "source": "/contacto", "destination": "/", "permanent": true },
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "http://legalhelp.cl" }], "destination": "https://legalhelp.cl/$1", "permanent": true }
+  ]
+}

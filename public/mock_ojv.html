@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OJV Simulada · LegalHelp Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f0f4f8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    .header { background: #0b1f3a; color: white; width: 100%; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    .header h1 { font-size: 18px; font-weight: 600; }
+    .header .badge { background: #00d4ff; color: #0b1f3a; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+    .container { max-width: 600px; width: 100%; margin: 40px 20px; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); overflow: hidden; }
+    .step { padding: 24px; border-bottom: 1px solid #e8e2d8; }
+    .step:last-child { border-bottom: none; }
+    .step h2 { font-size: 16px; font-weight: 600; color: #0b1f3a; margin-bottom: 12px; }
+    .step p { font-size: 13px; color: #5a6c8a; margin-bottom: 12px; line-height: 1.5; }
+    label { display: block; font-size: 12px; font-weight: 600; color: #3a5070; margin-bottom: 4px; }
+    input[type="text"], input[type="password"], input[type="file"] { width: 100%; padding: 10px 12px; border: 1px solid #cdd6e4; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+    input:focus { outline: none; border-color: #00d4ff; box-shadow: 0 0 0 3px rgba(0,212,255,0.15); }
+    .btn { background: #0b1f3a; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #1a3050; }
+    .btn-success { background: #00a86b; }
+    .btn-success:hover { background: #008c5a; }
+    .status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .status-pending { background: #fff3cd; color: #856404; }
+    .status-done { background: #d4edda; color: #155724; }
+    .status-active { background: #cce5ff; color: #004085; }
+    .log { background: #f8f9fa; border: 1px solid #e8e2d8; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto; margin-top: 12px; }
+    .log div { padding: 2px 0; }
+    .log .ok { color: #00a86b; }
+    .log .warn { color: #cc8800; }
+    .log .info { color: #0055cc; }
+    .hidden { display: none; }
+    .receipt { background: #f0fff4; border: 2px solid #00a86b; border-radius: 12px; padding: 24px; text-align: center; }
+    .receipt h3 { color: #00a86b; font-size: 20px; margin-bottom: 8px; }
+    .receipt p { color: #3a5070; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>⚖️ OJV · Simulador de Prueba</h1>
+    <span class="badge">MOCK</span>
+    <span style="margin-left:auto;font-size:12px;opacity:0.7;">LegalHelp Test Harness</span>
+  </div>
+
+  <div class="container">
+    <!-- STEP 1: Login ClaveÚnica -->
+    <div class="step" id="step-login">
+      <h2>🔐 Paso 1: Inicia sesión con ClaveÚnica</h2>
+      <p>Ingresa tus credenciales para acceder a la OJV de prueba.</p>
+      <label>RUT (sin puntos, con guión)</label>
+      <input type="text" id="rut-input" placeholder="12345678-9" value="11111111-1">
+      <label>Contraseña ClaveÚnica</label>
+      <input type="password" id="password-input" placeholder="••••••••" value="test1234">
+      <button class="btn" id="btn-login">🔑 Ingresar con ClaveÚnica</button>
+      <div id="login-status" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- STEP 2: Dashboard (hidden until login) -->
+    <div class="step hidden" id="step-dashboard">
+      <h2>📋 Paso 2: Dashboard OJV</h2>
+      <p>Sesión iniciada correctamente. Selecciona el tribunal para continuar.</p>
+      <label>Tribunal destino</label>
+      <select id="tribunal-select" style="width:100%;padding:10px 12px;border:1px solid #cdd6e4;border-radius:8px;font-size:14px;margin-bottom:12px;">
+        <option value="JPL-LC">Juzgado de Policía Local de Las Condes</option>
+        <option value="JPL-SCL">Juzgado de Policía Local de Santiago</option>
+        <option value="JPL-VM">Juzgado de Policía Local de Viña del Mar</option>
+        <option value="JPL-PV">Juzgado de Policía Local de Providencia</option>
+      </select>
+      <button class="btn" id="btn-continue">➡️ Continuar al formulario</button>
+    </div>
+
+    <!-- STEP 3: Formulario (hidden until dashboard) -->
+    <div class="step hidden" id="step-form">
+      <h2>📝 Paso 3: Ingreso de demanda</h2>
+      <p>Completa los campos del formulario. El bot inyectará los datos automáticamente.</p>
+      
+      <label>RUT del demandante</label>
+      <input type="text" id="form-rut" placeholder="12.345.678-9">
+      
+      <label>Nombre del demandante</label>
+      <input type="text" id="form-nombre" placeholder="Juan Pérez González">
+      
+      <label>Materia</label>
+      <input type="text" id="form-materia" placeholder="Prescripción de multa de tránsito">
+      
+      <label>Documento principal (escrito legal)</label>
+      <input type="file" id="form-doc-principal" accept=".pdf">
+      
+      <label>Finiquito (evidencia)</label>
+      <input type="file" id="form-finiquito" accept=".pdf">
+      
+      <label>Certificado AFC (evidencia)</label>
+      <input type="file" id="form-afc" accept=".pdf">
+      
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn btn-success" id="btn-submit">📤 Ingresar demanda</button>
+        <button class="btn" id="btn-screenshot" style="background:#6c757d;">📸 Capturar comprobante</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Comprobante (hidden until submit) -->
+    <div class="step hidden" id="step-receipt">
+      <div class="receipt">
+        <h3>✅ Demanda ingresada exitosamente</h3>
+        <p id="receipt-info">Causa creada con número RIT-XXXXX-2026</p>
+        <p style="font-size:11px;color:#8a9ab5;margin-top:12px;">Este es un comprobante de prueba del entorno simulado.</p>
+      </div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="step">
+      <h2>📜 Registro de actividad del bot</h2>
+      <div class="log" id="activity-log">
+        <div class="info">⏳ Esperando interacción del usuario...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const log = document.getElementById('activity-log');
+    const stepLogin = document.getElementById('step-login');
+    const stepDashboard = document.getElementById('step-dashboard');
+    const stepForm = document.getElementById('step-form');
+    const stepReceipt = document.getElementById('step-receipt');
+
+    function addLog(msg, type = 'info') {
+      const div = document.createElement('div');
+      div.className = type;
+      div.textContent = msg;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // Simular cambio de URL para que el bot detecte el login
+    function simulateUrlChange(path) {
+      const url = new URL(window.location);
+      url.pathname = path;
+      window.history.pushState({}, '', url.toString());
+      addLog(`🔗 URL cambiada a: ${url.pathname}`, 'info');
+    }
+
+    // STEP 1: Login
+    document.getElementById('btn-login').addEventListener('click', () => {
+      const rut = document.getElementById('rut-input').value;
+      const pass = document.getElementById('password-input').value;
+      if (!rut || !pass) {
+        document.getElementById('login-status').innerHTML = '<span class="status status-pending">❌ Completa todos los campos</span>';
+        return;
+      }
+      addLog(`🔐 Login exitoso para RUT: ${rut}`, 'ok');
+      document.getElementById('login-status').innerHTML = '<span class="status status-done">✅ Sesión iniciada</span>';
+      
+      // Cambiar URL para que el bot detecte el dashboard
+      simulateUrlChange('/dashboard');
+      
+      stepLogin.classList.add('hidden');
+      stepDashboard.classList.remove('hidden');
+    });
+
+    // STEP 2: Continuar al formulario
+    document.getElementById('btn-continue').addEventListener('click', () => {
+      const tribunal = document.getElementById('tribunal-select').value;
+      addLog(`🏛️ Tribunal seleccionado: ${tribunal}`, 'ok');
+      simulateUrlChange(`/ingreso?tribunal=${tribunal}`);
+      stepDashboard.classList.add('hidden');
+      stepForm.classList.remove('hidden');
+    });
+
+    // STEP 3: Submit
+    document.getElementById('btn-submit').addEventListener('click', () => {
+      const rut = document.getElementById('form-rut').value || '12.345.678-9';
+      const nombre = document.getElementById('form-nombre').value || 'Juan Pérez';
+      const materia = document.getElementById('form-materia').value || 'Prescripción';
+      
+      addLog(`📄 RUT demandante: ${rut}`, 'ok');
+      addLog(`👤 Nombre: ${nombre}`, 'ok');
+      addLog(`⚖️ Materia: ${materia}`, 'ok');
+      addLog(`📎 Documento principal adjuntado`, 'ok');
+      
+      const finiquito = document.getElementById('form-finiquito').files[0];
+      const afc = document.getElementById('form-afc').files[0];
+      if (finiquito) addLog(`✅ Finiquito adjuntado: ${finiquito.name}`, 'ok');
+      if (afc) addLog(`✅ Certificado AFC adjuntado: ${afc.name}`, 'ok');
+      
+      addLog(`📤 Demanda ingresada correctamente`, 'ok');
+      
+      stepForm.classList.add('hidden');
+      stepReceipt.classList.remove('hidden');
+      document.getElementById('receipt-info').textContent = `Causa creada con número RIT-${Math.floor(Math.random()*90000)+10000}-2026`;
+    });
+
+    // Screenshot helper
+    document.getElementById('btn-screenshot').addEventListener('click', () => {
+      addLog(`📸 Captura de pantalla tomada`, 'ok');
+    });
+
+    // Exponer funciones para que el bot de Playwright pueda interactuar
+    window.__mockOJV = {
+      isLoggedIn: () => !stepLogin.classList.contains('hidden'),
+      currentStep: () => {
+        if (!stepLogin.classList.contains('hidden')) return 'login';
+        if (!stepDashboard.classList.contains('hidden')) return 'dashboard';
+        if (!stepForm.classList.contains('hidden')) return 'form';
+        if (!stepReceipt.classList.contains('hidden')) return 'receipt';
+        return 'unknown';
+      }
+    };
+
+    addLog('✅ Página mock OJV cargada. Lista para pruebas.', 'ok');
+  </script>
+</body>
+</html>

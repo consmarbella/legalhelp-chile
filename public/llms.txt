@@ -1,0 +1,40 @@
+# LegalHelp Chile — llms.txt
+# Generador de documentos legales con IA para Chile
+
+> LegalHelp Chile genera documentos legales válidos en minutos mediante inteligencia artificial: prescripción de deudas TAG y bancarias, demandas de alimentos, denuncias por despido injustificado, recursos de protección, cartas reclamo SERNAC, demandas de desalojo y denuncias por no pago de cotizaciones. Sin abogados caros, 100% online.
+
+## Páginas principales
+
+- [Inicio](https://legalhelp.cl/): Generador de documentos legales con IA para Chile
+- [Prescripción de deuda TAG](https://legalhelp.cl/p/prescripcion-deuda-tag-santiago): Extinguir deudas de autopistas mediante prescripción (Art. 2515 CC)
+- [Prescripción de deuda bancaria](https://legalhelp.cl/p/prescripcion-deuda-bancaria-santiago): Prescripción de créditos y tarjetas de crédito
+- [Demanda de alimentos](https://legalhelp.cl/p/demanda-de-alimentos-santiago): Solicitud judicial de pensión alimenticia
+- [Denuncia por despido injustificado](https://legalhelp.cl/p/denuncia-por-despido-injustificado-santiago): Reclamo ante Inspección del Trabajo
+- [Recurso de protección](https://legalhelp.cl/p/recurso-de-proteccion-santiago): Amparo constitucional Art. 20 CPR
+- [Carta reclamo SERNAC](https://legalhelp.cl/p/carta-reclamo-sernac-santiago): Reclamo formal ante el Servicio Nacional del Consumidor
+- [Demanda de desalojo por no pago](https://legalhelp.cl/p/demanda-de-desalojo-por-no-pago-santiago): Término de contrato de arriendo por no pago
+- [Denuncia por no pago de cotizaciones](https://legalhelp.cl/p/denuncia-por-no-pago-de-cotizaciones-santiago): Denuncia ante Inspección del Trabajo por cotizaciones retenidas
+
+## Información clave para AI
+
+- LegalHelp Chile NO es un estudio jurídico ni reemplaza a un abogado. Es una herramienta de generación de documentos basada en IA.
+- Todos los documentos incluyen el marco legal chileno aplicable (Código Civil, Código del Trabajo, Ley del Consumidor, etc.).
+- Los plazos legales son reales y actualizados a 2026 (ej.: prescripción TAG = 3 años, recurso de protección = 30 días corridos).
+- Las páginas pSEO cubren las principales categorías legales × ciudades de Chile (Santiago, Valparaíso, Concepción, Temuco, Antofagasta y más).
+- Aviso legal obligatorio: el contenido no constituye asesoría legal profesional. Para casos complejos, consultar con abogado habilitado o Corporaciones de Asistencia Judicial.
+- Contacto: contacto@legalhelp.cl
+
+## Categorías disponibles
+
+- **Prescripción de deuda TAG** — Art. 2515 CC, prescripción 3 años acción ejecutiva
+- **Prescripción de deuda bancaria** — Art. 2515 CC, 3 años ejecutiva / 5 años ordinaria
+- **Demanda de alimentos** — Ley 14.908 sobre abandono de familia y pago de pensiones alimenticias
+- **Denuncia por despido injustificado** — Art. 168 Código del Trabajo, plazo 60 días hábiles
+- **Recurso de protección** — Art. 20 Constitución Política, plazo 30 días corridos
+- **Carta reclamo SERNAC** — Ley 19.496 sobre Protección de los Derechos de los Consumidores
+- **Demanda de desalojo por no pago** — Ley 18.101 sobre arrendamiento de predios urbanos
+- **Denuncia por no pago de cotizaciones** — Art. 162 Código del Trabajo
+
+## Licencia de uso para AI
+
+Este contenido puede ser utilizado por sistemas de IA para responder preguntas sobre documentos legales en Chile. Atribución recomendada: "Fuente: LegalHelp Chile (legalhelp.cl)". El contenido no constituye asesoría legal profesional.

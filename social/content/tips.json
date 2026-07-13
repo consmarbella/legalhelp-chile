@@ -1,0 +1,122 @@
+[
+  {
+    "id": "tag-1",
+    "category": "Prescripción TAG",
+    "title": "¿Sabías que las deudas TAG prescriben?",
+    "body": "Las deudas TAG prescriben a los 3 años según el Art. 2515 del Código Civil. Si no te han notificado judicialmente, podrías estar libre de esa deuda.",
+    "hook": "⚠️ ¿Deuda TAG sin pagar hace más de 3 años?",
+    "cta": "Revisa tu caso gratis → legalhelp.cl"
+  },
+  {
+    "id": "tag-2",
+    "category": "Prescripción TAG",
+    "title": "¿Llamados de cobro TAG interrumpen la prescripción?",
+    "body": "No. Solo las notificaciones judiciales interrumpen el plazo. Los llamados telefónicos o cartas no cuentan.",
+    "hook": "📞 ¿Te llaman por una deuda TAG?",
+    "cta": "Conocé tus derechos → legalhelp.cl"
+  },
+  {
+    "id": "alimentos-1",
+    "category": "Demanda de Alimentos",
+    "title": "Pensión de alimentos: ¿cuándo puedo pedir aumento?",
+    "body": "Puedes solicitar aumento si cambiaron las circunstancias: el hijo tiene más gastos, el alimentante ganó más, o aumentaron los costos de vida.",
+    "hook": "📈 ¿Necesitas aumentar la pensión de alimentos?",
+    "cta": "Consulta sin compromiso → legalhelp.cl"
+  },
+  {
+    "id": "alimentos-2",
+    "category": "Demanda de Alimentos",
+    "title": "¿Qué pasa si no pagan la pensión?",
+    "body": "El tribunal puede descontar directo de la remuneración, retener devolución de impuestos, e incluso ordenar arresto nocturno. La Ley 14.908 es clara.",
+    "hook": "🚨 No te pagan la pensión de alimentos",
+    "cta": "Inicia el trámite online → legalhelp.cl"
+  },
+  {
+    "id": "finiquito-1",
+    "category": "Finiquito Laboral",
+    "title": "¿Te echaron? Revisa tu finiquito antes de firmar",
+    "body": "No firmes sin verificar: indemnización por años de servicio, vacaciones proporcionales, aguinaldos pendientes. Tienes 60 días hábiles para reclamar.",
+    "hook": "⚡ Te echaron del trabajo: ¿sabes qué te corresponde?",
+    "cta": "Calcula tu finiquito → legalhelp.cl"
+  },
+  {
+    "id": "finiquito-2",
+    "category": "Finiquito Laboral",
+    "title": "¿Puedo firmar el finiquito con reserva de derechos?",
+    "body": "Sí. Puedes firmar dejando constancia de disconformidad. Así cobras lo que aceptas y puedes demandar por el resto.",
+    "hook": "✍️ ¿Firmaste finiquito y no estás de acuerdo?",
+    "cta": "Revisa tus opciones → legalhelp.cl"
+  },
+  {
+    "id": "sernac-1",
+    "category": "Reclamo SERNAC",
+    "title": "Producto defectuoso: ¿cuánto tiempo tengo para reclamar?",
+    "body": "Según la Ley 19.496, tienes 6 meses desde que ocurrió el problema para presentar el reclamo ante SERNAC o el Juzgado de Policía Local.",
+    "hook": "🛒 ¿Compraste algo defectuoso? Tienes 6 meses para reclamar",
+    "cta": "Genera tu carta reclamo → legalhelp.cl"
+  },
+  {
+    "id": "sernac-2",
+    "category": "Reclamo SERNAC",
+    "title": "Servicio de internet no funciona: ¿puedes exigir descuento?",
+    "body": "Sí. Si el servicio no funciona por más de 3 días, puedes exigir descuento proporcional + multa según la Ley 19.496.",
+    "hook": "📡 ¿Llevas días sin internet?",
+    "cta": "Reclama online → legalhelp.cl"
+  },
+  {
+    "id": "poder-1",
+    "category": "Poder Simple",
+    "title": "Poder simple: ¿qué es y para qué sirve?",
+    "body": "Un poder simple te permite autorizar a otra persona para realizar trámites en tu nombre. Se rige por el Art. 2116 del Código Civil.",
+    "hook": "📝 ¿Necesitas que alguien haga un trámite por vos?",
+    "cta": "Genera tu poder simple → legalhelp.cl"
+  },
+  {
+    "id": "desalojo-1",
+    "category": "Desalojo",
+    "title": "Arrendatario no paga: ¿cuándo puedo iniciar el desalojo?",
+    "body": "La acción de desalojo puede iniciarse desde el primer mes impago, según la Ley 18.101 y el Art. 1977 del Código Civil.",
+    "hook": "🏠 ¿Tu arrendatario no paga hace meses?",
+    "cta": "Inicia demanda de desalojo → legalhelp.cl"
+  },
+  {
+    "id": "cotizaciones-1",
+    "category": "Cotizaciones",
+    "title": "¿No te pagaron las cotizaciones?",
+    "body": "Si tu empleador no pagó tus cotizaciones previsionales, puedes denunciarlo en la Inspección del Trabajo. El empleador arriesga multas de hasta 60 UTM.",
+    "hook": "⚠️ ¿Tu empleador no paga tus cotizaciones?",
+    "cta": "Denuncia online → legalhelp.cl"
+  },
+  {
+    "id": "urgente-1",
+    "category": "Urgente",
+    "title": "Necesito protección urgente: ¿qué es el recurso de protección?",
+    "body": "El recurso de protección es una acción rápida para defender tus derechos fundamentales. Se presenta en la Corte de Apelaciones y tienes 30 días desde el acto.",
+    "hook": "⚖️ ¿Vulneraron tus derechos?",
+    "cta": "Inicia recurso de protección → legalhelp.cl"
+  },
+  {
+    "id": "despido-1",
+    "category": "Despido",
+    "title": "Despido injustificado: ¿qué indemnización te corresponde?",
+    "body": "Te corresponde: un sueldo por cada año trabajado, indemnización sustitutiva de aviso previo, y vacaciones proporcionales. Tienes 60 días hábiles para reclamar.",
+    "hook": "💼 ¿Te despidieron sin causa justa?",
+    "cta": "Calcula tu indemnización → legalhelp.cl"
+  },
+  {
+    "id": "familia-1",
+    "category": "Derecho de Familia",
+    "title": "¿Los padres deben alimentos aunque el hijo tenga ingresos?",
+    "body": "Si el hijo estudia y no puede autosustentarse, la obligación alimenticia se extiende hasta los 28 años (Ley 14.908).",
+    "hook": "🎓 ¿Sabías que la pensión de alimentos llega hasta los 28 años?",
+    "cta": "Consulta tu caso → legalhelp.cl"
+  },
+  {
+    "id": "comparativa-1",
+    "category": "Comparativa",
+    "title": "¿Abogado o LegalHelp Chile?",
+    "body": "Un abogado particular cobra entre $50.000 y $300.000 por un escrito. LegalHelp Chile genera documentos válidos desde $7.990. Misma base legal, diferente precio.",
+    "hook": "💰 ¿Pagando abogado caro por documentos simples?",
+    "cta": "Ahorrá con LegalHelp → legalhelp.cl"
+  }
+]

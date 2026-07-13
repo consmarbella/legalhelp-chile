@@ -1,0 +1,1802 @@
+[
+  {
+    "category": "Alzamiento de embargo sobre vehículo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de alzamiento de embargo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a tramitar el alzamiento de un embargo sobre mi vehículo, un Hyundai Tucson año 2016, patente GG·XX·44, por una deuda de $1.200.000 que ya pagué. Tengo el comprobante de pago y los datos de la causa, que es del 1° Juzgado Civil de Santiago, rol C-1234-2023.",
+        "assistant": "Entiendo tu situación: pagaste una deuda de $1.200.000 que motivó un embargo sobre tu vehículo Hyundai Tucson (patente GG·XX·44) en la causa rol C-1234-2023 del 1° Juzgado Civil de Santiago. Ahora nec"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y mi dirección es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tus datos personales. Ahora, para completar la solicitud, necesito que me indiques el nombre completo de tu abogado patrocinante o si actuarás con patrocinio particu"
+      },
+      {
+        "user": "Voy a actuar con patrocinio particular, así que no tengo abogado. El demandante es \"Carlos Muñoz González\", RUT 9.876.543-2.",
+        "assistant": "He recopilado todos los antecedentes necesarios para redactar la solicitud de alzamiento de embargo. Confirma que los datos son correctos para proceder con la redacción del documento."
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo SERNAC",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo al SERNAC",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una carta de reclamo al SERNAC porque compré un refrigerador en la tienda \"ElectroHogar S.A.\" (RUT 76.543.210-8) el 15 de marzo de 2025, pagando $450.000, y llegó con la puerta abollada y no enfría bien; ya fui dos veces a la tienda y no me quieren hacer el cambio ni la devolución.",
+        "assistant": "Entiendo tu situación: compraste un refrigerador nuevo que llegó defectuoso (puerta abollada y no enfría bien), y la tienda se niega a cambiarlo o devolverte el dinero. Esto corresponde a un reclamo p"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras y RUT 15.432.897-6. Ahora necesito tu dirección completa (calle, número, comuna) para incluirla en la carta y que"
+      },
+      {
+        "user": "Sí, mi dirección es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "He preparado la carta de reclamo al SERNAC con los antecedentes que me entregaste. El documento está listo para que lo revises, firmes y presentes. Recuerda que puedes ingresarlo presencialmente en un"
+      }
+    ]
+  },
+  {
+    "category": "Certificado de antecedentes para fines especiales",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Solicitud de Certificado de Antecedentes para Fines Especiales con Apostilla",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito el certificado de antecedentes para fines especiales porque estoy postulando a un trabajo en el extranjero y me lo piden. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas el Certificado de Antecedentes para Fines Especiales, que es el documento oficial que emite el Registro Civil para acreditar tu historial penal (o ausencia de él) ante autoridad"
+      },
+      {
+        "user": "Sí, los datos están correctos. Y sí, necesito que el certificado sea apostillado, porque lo voy a usar para un proceso de visa en el extranjero.",
+        "assistant": "He redactado la solicitud para que puedas obtener tu Certificado de Antecedentes para Fines Especiales con Apostilla. Este documento debe ser presentado en una oficina del Registro Civil (presencial o"
+      }
+    ]
+  },
+  {
+    "category": "Demanda de alimentos",
+    "status": "success",
+    "turns": 5,
+    "ready": true,
+    "tipo_documento": "Demanda de Alimentos",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una demanda de alimentos para mi hija, de 5 años. El papá se llama Ricardo Andrés Muñoz Vega, RUT 12.345.678-9, y vive en calle Los Almendros 456, Ñuñoa. Quiero pedir una pensión de $200.000 mensuales.",
+        "assistant": "Entiendo que necesitas una demanda de alimentos para tu hija de 5 años, solicitando una pensión de $200.000 mensuales al padre, Ricardo Andrés Muñoz Vega. Para redactar el documento, necesito algunos "
+      },
+      {
+        "user": "Mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. Tus datos están claros. Ahora necesito saber tu domicilio completo (calle, número, comuna) para individualizarte en la demanda."
+      },
+      {
+        "user": "Ah, claro. Mi dirección es Avenida O'Higgins 1234, departamento 56, comuna de Santiago Centro.",
+        "assistant": "Gracias, María Fernanda. Tus datos están claros. Ahora necesito el nombre completo y RUT de tu hija para individualizarla en la demanda."
+      },
+      {
+        "user": "Ah, sí, claro. Mi hija se llama Catalina Ignacia Soto Contreras y su RUT es 20.123.456-7.",
+        "assistant": "Excelente, María Fernanda. Ya tengo los datos de tu hija Catalina. Para completar la demanda, necesito saber si actualmente existe algún acuerdo o resolución previa sobre alimentos, o si es la primera"
+      },
+      {
+        "user": "Sí, es la primera vez que solicito pensión para mi hija Catalina. No hay ningún acuerdo ni resolución previa.",
+        "assistant": "Con los antecedentes proporcionados, estoy en condiciones de redactar la demanda de alimentos para tu hija Catalina. A continuación, te presento un resumen de los datos recopilados. ¿Confirmas que son"
+      }
+    ]
+  },
+  {
+    "category": "Demanda de desalojo por no pago",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Demanda de Terminación de Contrato de Arrendamiento por Falta de Pago y Desalojo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una demanda de desalojo contra mi arrendatario, Juan Pablo Muñoz Rojas, RUT 18.765.432-1, porque no paga el arriendo del departamento en Av. OHiggins 1234, Depto 56, Santiago, desde hace tres meses. Me debe tres cuotas de $350.000 cada una, más gastos comunes. ¿Qué documentos tengo que adjuntar?",
+        "assistant": "Entiendo tu situación: llevas tres meses sin recibir el pago del arriendo del departamento de Av. O'Higgins 1234, Depto. 56, Santiago, por parte de Juan Pablo Muñoz Rojas (RUT 18.765.432-1). La deuda "
+      },
+      {
+        "user": "Sí, tengo contrato de arrendamiento escrito. Empezó el 1 de marzo de 2023 y está vigente.",
+        "assistant": "Perfecto, ya tengo el contrato vigente desde el 1 de marzo de 2023. Para completar la demanda necesito saber: ¿cuál es tu nombre completo y RUT como arrendador? Además, ¿tienes algún registro de los g"
+      },
+      {
+        "user": "Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. Sí, tengo registrado un monto aproximado de $120.000 en gastos comunes impagos y le he enviado varios mensajes por WhatsApp al arrendatario, pero no tengo carta certificada.",
+        "assistant": "Excelente, María Fernanda. Ya tengo los datos clave: eres la arrendadora, el contrato empezó el 1 de marzo de 2023, la deuda es de $1.050.000 por rentas (tres cuotas de $350.000) más $120.000 de gasto"
+      },
+      {
+        "user": "Sí, mi domicilio para notificaciones es Av. O'Higgins 1234, Depto 56, Santiago, y el RUT del arrendatario es 18.765.432-1, correcto.",
+        "assistant": "Excelente, María Fernanda. Con los antecedentes que me has proporcionado, ya tengo la información suficiente para redactar tu demanda de desalojo contra Juan Pablo Muñoz Rojas. El documento incluirá: "
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por despido injustificado",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Denuncia por despido injustificado ante la Inspección del Trabajo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito hacer una denuncia porque mi empleador, la empresa \"Comercial Los Olivos SpA\" (RUT 76.123.456-7), me despidió el 15 de enero de 2025 sin darme ninguna razón válida ni pagarme las indemnizaciones que corresponden. Yo trabajaba como vendedora desde el 3 de marzo de 2022 y me echaron por teléfono, sin aviso previo. ¿Qué papeles tengo que presentar para iniciar el trámite?",
+        "assistant": "Entiendo tu situación: fuiste despedida por teléfono el 15 de enero de 2025, sin causa justificada ni pago de indemnizaciones, después de trabajar casi 3 años como vendedora en Comercial Los Olivos Sp"
+      },
+      {
+        "user": "Sí, claro. Mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre completo María Fernanda Soto Contreras y RUT 15.432.897-6. Ahora necesito saber tu domicilio completo (calle, número, comuna) para determinar l"
+      },
+      {
+        "user": "Mi domicilio es Av. O'Higgins 1234, Depto 56, Santiago centro, comuna de Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado tu domicilio en Av. O'Higgins 1234, Depto. 56, Santiago Centro. Para continuar con la denuncia, necesito saber tu renta mensual aproximada (sueldo base más comis"
+      },
+      {
+        "user": "Mi sueldo base era de $650.000 líquidos, más un bono de producción de unos $80.000 mensuales, y sí, siempre me pagaron las cotizaciones al día.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar la denuncia por despido injustificado. El documento incluirá los hechos, tus datos personales, los del empleador y las prestaciones que corresponden"
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por no pago de cotizaciones",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Denuncia por no pago de cotizaciones previsionales",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito hacer una denuncia porque mi empleador, \"Comercial del Sur Ltda.\", no me ha pagado las cotizaciones previsionales de los últimos 4 meses, desde julio hasta octubre de 2024. Mi RUT es 15.432.897-6 y trabajo en Av. O'Higgins 1234, Depto 56, Santiago. ¿Qué documentos necesito para iniciar el trámite?",
+        "assistant": "Entiendo tu situación: tu empleador, Comercial del Sur Ltda., no ha pagado tus cotizaciones previsionales (AFP y salud) desde julio a octubre de 2024, lo que vulnera tus derechos laborales y afecta tu"
+      },
+      {
+        "user": "Claro, mi nombre completo es María Fernanda Soto Contreras, mi AFP es Habitat y estoy en Fonasa.",
+        "assistant": "Gracias, María Fernanda. Con tu nombre completo, RUT 15.432.897-6, AFP Habitat y Fonasa, ya tengo lo principal. Para completar la denuncia, necesito confirmar: ¿tu dirección es Av. O'Higgins 1234, Dep"
+      },
+      {
+        "user": "Sí, correcto, esa es mi dirección. Mi cargo es vendedora.",
+        "assistant": "Con los antecedentes entregados, puedo redactar una denuncia formal ante la Dirección del Trabajo por el no pago de tus cotizaciones previsionales de julio a octubre de 2024. ¿Deseas que proceda a red"
+      }
+    ]
+  },
+  {
+    "category": "Eliminación de antecedentes penales",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de eliminación de antecedentes penales",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito eliminar mis antecedentes penales. Fui condenado hace años y ya cumplí la pena, pero me siguen apareciendo en los certificados. ¿Qué tengo que hacer y qué documentos necesitas de mí?",
+        "assistant": "Entiendo tu situación. En Chile, las condenas cumplidas no se eliminan automáticamente del prontuario penal, pero puedes solicitar que se anoten como cumplidas y, en ciertos casos, pedir la eliminació"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. OHiggins 1234, Depto 56, Santiago. La condena fue por un delito menor, y ya pasaron más de 5 años sin reincidencia.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos personales. Para la solicitud de eliminación de antecedentes, necesito saber la fecha exacta de la condena (o al menos el año) y el tipo de delito (por"
+      },
+      {
+        "user": "Ah, perfecto. La condena fue en 2018, por hurto simple. La fecha exacta fue el 15 de marzo de 2018.",
+        "assistant": "He registrado tus datos. Con la información proporcionada, puedo redactar la solicitud de eliminación de antecedentes. ¿Confirmas que los datos son correctos?"
+      }
+    ]
+  },
+  {
+    "category": "Limpieza de hoja de vida del conductor",
+    "status": "success",
+    "turns": 5,
+    "ready": true,
+    "tipo_documento": "Solicitud de eliminación de anotaciones en hoja de vida del conductor",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito limpiar mi hoja de vida del conductor porque tengo varias infracciones de tránsito y quiero postular a un trabajo como conductor. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. ¿Qué documentos o pasos tengo que seguir para hacer el trámite?",
+        "assistant": "Entiendo tu situación, María Fernanda. Necesitas limpiar tu hoja de vida del conductor para postular a un trabajo, lo que implica eliminar o reducir las anotaciones por infracciones de tránsito. En Ch"
+      },
+      {
+        "user": "Tengo dos infracciones: una de septiembre de 2021 por exceso de velocidad y otra de marzo de 2022 por no usar cinturón, ambas pagadas. ¿Con eso basta para la solicitud?",
+        "assistant": "Excelente, María Fernanda. Con esas dos infracciones pagadas y las fechas que me diste, veo que ambas superan los 2 años desde su comisión (septiembre 2021 y marzo 2022), por lo que cumples con el pla"
+      },
+      {
+        "user": "Ah, sí, las dos infracciones fueron en la comuna de Santiago, cerca de mi casa. Así que correcto, ambas fueron en Santiago.",
+        "assistant": "Con los antecedentes entregados, puedo redactar la solicitud de eliminación de anotaciones. Solo necesito que confirmes que los datos recopilados son correctos para finalizar el documento."
+      },
+      {
+        "user": "Sí, correcto. Mis datos son: María Fernanda Soto Contreras, RUT 15.432.897-6, dirección Av. OHiggins 1234, Depto 56, Santiago. La multa que quiero limpiar es del Juzgado de Policía Local de Santiago, causa R-2345-2022, por un monto de $80.000.",
+        "assistant": "Perfecto, María Fernanda. Con los datos que me entregaste, ya tengo todo lo necesario para redactar la solicitud. El documento irá dirigido al Juzgado de Policía Local de Santiago, solicitando la elim"
+      },
+      {
+        "user": "Sí, correcto, la causa R-2345-2022 corresponde a la infracción por exceso de velocidad de septiembre 2021.",
+        "assistant": "María Fernanda, con todos los antecedentes que me entregaste, ya puedo redactar la solicitud completa. El documento irá dirigido al Juzgado de Policía Local de Santiago, solicitando la eliminación de "
+      }
+    ]
+  },
+  {
+    "category": "Omisión de antecedentes por violencia intrafamiliar",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Solicitud de omisión de antecedentes penales por violencia intrafamiliar",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me ayudes a solicitar la omisión de antecedentes por violencia intrafamiliar. Tengo una causa en el Juzgado de Familia de Santiago, número RIT C-1234-2021, y quiero que esos registros no aparezcan más en mis antecedentes.",
+        "assistant": "Entiendo tu situación. Lo que corresponde legalmente es solicitar al tribunal que ordene la eliminación u omisión de tus antecedentes penales relacionados con una causa por violencia intrafamiliar, co"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre y RUT. Para continuar con la solicitud, necesito saber cuál fue la resolución final de la causa RIT C-1234-2021: ¿fuiste condenada, absuelta, o el caso"
+      },
+      {
+        "user": "En mi caso, fui absuelta. El tribunal determinó que no había suficientes pruebas en mi contra y la causa se cerró con sobreseimiento definitivo.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre, RUT y el sobreseimiento definitivo. Para completar la solicitud, necesito que me confirmes tu dirección actual completa (calle, número, comuna) para n"
+      },
+      {
+        "user": "Sí, claro. Mi dirección actual es Avenida Libertador Bernardo O'Higgins 1234, departamento 56, comuna de Santiago Centro.",
+        "assistant": "María Fernanda, con los datos que me has proporcionado (nombre completo, RUT, RIT de la causa, sobreseimiento definitivo y dirección) ya puedo redactar la solicitud de omisión de antecedentes. El docu"
+      }
+    ]
+  },
+  {
+    "category": "Poder simple notarial",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Poder notarial simple",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un poder simple notarial para que mi hermano, Rodrigo Andrés Soto Contreras, RUT 16.789.123-4, pueda firmar unos documentos del arriendo de mi departamento en Av. OHiggins 1234 mientras estoy fuera del país.",
+        "assistant": "Entiendo que necesitas un poder notarial simple para que tu hermano Rodrigo Andrés Soto Contreras pueda firmar documentos relacionados con el arriendo de tu departamento mientras estás fuera del país."
+      },
+      {
+        "user": "Sí, soy María Fernanda Soto Contreras, RUT 15.432.897-6. Mi dirección actual es Av. O’Higgins 1234, Depto 56, Santiago, que es el departamento que arriendo.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, domicilio Av. O'Higgins 1234, Depto 56, Santiago. El poder será para que tu hermano Rodrigo An"
+      },
+      {
+        "user": "Sí, correcto, el RUT de mi hermano Rodrigo Andrés Soto Contreras es 16.789.123-4. Estaré fuera del país hasta aproximadamente el 15 de marzo de 2025.",
+        "assistant": "He recopilado todos los antecedentes necesarios para redactar el poder notarial simple. A continuación, te presento el resumen de los datos y el documento completo."
+      }
+    ]
+  },
+  {
+    "category": "Prescripción de deuda TAG",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de prescripción de deuda TAG",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una solicitud para pedir la prescripción de una deuda TAG que tengo con la empresa \"Autopistas Metropolitanas S.A.\" por $380.000, que data de marzo de 2019. La última gestión de cobro que recibí fue en octubre de 2020, así que entiendo que ya pasaron más de 3 años. Mi RUT es 15.432.897-6 y mi dirección es Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo tu situación. Efectivamente, en Chile las deudas por peajes TAG prescriben a los 3 años desde que se hicieron exigibles (artículo 2515 del Código Civil, aplicable a obligaciones civiles). Com"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre completo es María Fernanda Soto Contreras.",
+        "assistant": "Gracias, María Fernanda. Con tu nombre completo y los antecedentes que ya me entregaste, puedo comenzar a armar la solicitud. Solo me falta un dato importante para completar el documento: ¿cuál es tu "
+      },
+      {
+        "user": "Ah, claro. Mi correo es mf.soto.contreras@gmail.com.",
+        "assistant": "He preparado la solicitud de prescripción de tu deuda TAG. El documento está dirigido a Autopistas Metropolitanas S.A. y solicita que se declare prescrita la deuda de $380.000, de marzo de 2019, por h"
+      }
+    ]
+  },
+  {
+    "category": "Prescripción de deuda bancaria",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Solicitud de prescripción de deuda",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a solicitar la prescripción de una deuda que tengo con el Banco de Chile, por una tarjeta de crédito que saqué en 2015 y dejé de pagar en 2017. El monto era como de $1.200.000, pero ya pasaron más de 5 años y nunca me notificaron formalmente. ¿Qué tengo que presentar o hacer para que la declaren prescrita?",
+        "assistant": "Entiendo tu situación. Según el derecho chileno, las acciones cambiarias (como las de una tarjeta de crédito) prescriben en 5 años desde que la obligación se hizo exigible, conforme al artículo 98 de "
+      },
+      {
+        "user": "Sí, mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre como María Fernanda Soto Contreras y tu RUT como 15.432.897-6. Ahora, para continuar, necesito saber tu domicilio completo (calle, número, comuna) para"
+      },
+      {
+        "user": "Sí, mi domicilio es Av. O'Higgins 1234, Depto 56, Santiago, comuna de Santiago Centro.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre como María Fernanda Soto Contreras, RUT 15.432.897-6 y domicilio en Av. O'Higgins 1234, Depto. 56, Santiago, comuna de Santiago Centro. Para continuar "
+      },
+      {
+        "user": "Ah, sí, el número de tarjeta es el 4567 8901 2345 6789, pero no tengo el contrato a mano. ¿Con eso basta o necesito buscar el número de contrato?",
+        "assistant": "María Fernanda, con los datos que me has entregado (nombre, RUT, domicilio, número de tarjeta y el hecho de que dejaste de pagar en 2017 sin notificación formal), ya tengo la información mínima necesa"
+      }
+    ]
+  },
+  {
+    "category": "Prescripción de multas de tránsito",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de prescripción de multas de tránsito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me ayudes a solicitar la prescripción de unas multas de tránsito que tengo desde 2019 en la municipalidad de Santiago. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. Las multas son por exceso de velocidad y suman unos $180.000 en total.",
+        "assistant": "Entiendo tu situación, María Fernanda. Las multas de tránsito prescriben a los 2 años desde que se cometió la infracción, según el artículo 24 de la Ley de Tránsito (Ley 18.290). Como las infracciones"
+      },
+      {
+        "user": "Sí, tengo los números de parte: 4567-8 para la multa de enero de 2019 y 8910-1 para la de marzo de 2019, ambas de la Municipalidad de Santiago.",
+        "assistant": "María Fernanda, con los números de parte 4567-8 y 8910-1 ya puedo individualizar las multas. Solo necesito tu correo electrónico o domicilio para notificaciones para completar la solicitud."
+      },
+      {
+        "user": "Mi correo es mfernanda.soto@correo.cl, o si prefieren mi domicilio: Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "María Fernanda, con los datos que me entregaste ya puedo redactar la solicitud de prescripción de tus dos multas de tránsito (partes 4567-8 y 8910-1) ante el Juzgado de Policía Local de Santiago. El f"
+      }
+    ]
+  },
+  {
+    "category": "Recurso de protección",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Recurso de Protección",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito presentar un Recurso de Protección porque mi arrendador, don Juan Carlos Muñoz Silva, RUT 9.876.543-2, entró a mi departamento sin aviso el 15 de enero y me cambió las llaves, dejándome fuera desde entonces.",
+        "assistant": "Entiendo tu situación: tu arrendador ingresó sin autorización a tu departamento y cambió las llaves, impidiéndote el acceso desde el 15 de enero. Esto vulnera tu derecho de propiedad o posesión sobre "
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y la dirección del departamento es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos y la dirección del departamento. Para completar el recurso, necesito que me indiques la fecha exacta en que comenzó el contrato de arrendamiento (si lo"
+      },
+      {
+        "user": "Sí, el contrato comenzó el 1 de marzo de 2023. Tengo un contrato firmado y también los comprobantes de pago de la renta mes a mes.",
+        "assistant": "He reunido todos los antecedentes necesarios para redactar el Recurso de Protección. El documento solicitará que la Corte ordene a don Juan Carlos Muñoz Silva restituirte las llaves y permitirte el ac"
+      }
+    ]
+  },
+  {
+    "category": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de certificado de vigencia en el Registro Nacional de Deudores de Pensiones de Alimentos",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito saber si mi ex pareja, Rodrigo Muñoz, RUT 18.765.432-1, está en el Registro Nacional de Deudores de Pensiones de Alimentos, porque tiene una deuda de aproximadamente $1.200.000 por pensión impaga desde marzo del año pasado.",
+        "assistant": "Entiendo que necesitas saber si tu ex pareja, Rodrigo Muñoz, figura en el Registro Nacional de Deudores de Pensiones de Alimentos por una deuda de $1.200.000 aproximadamente, impaga desde marzo del añ"
+      },
+      {
+        "user": "Sí, claro. El tribunal es el Juzgado de Familia de Santiago, y el número RIT es el C-4567-2023.",
+        "assistant": "Perfecto, ya tengo los datos del tribunal (Juzgado de Familia de Santiago) y el RIT (C-4567-2023). Con eso puedo redactar la solicitud para que el tribunal emita el certificado que acredite si Rodrigo"
+      },
+      {
+        "user": "Sí, claro. Mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Excelente, María Fernanda. Con tu nombre completo (María Fernanda Soto Contreras), RUT (15.432.897-6), el RIT de la causa (C-4567-2023) y el tribunal (Juzgado de Familia de Santiago), ya tengo todos l"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de trabajo indefinido",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Contrato de Trabajo Indefinido",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un contrato de trabajo indefinido para mí como trabajadora. Mis datos son: María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un contrato de trabajo indefinido como trabajadora. Para redactarlo correctamente, necesito los datos del empleador (nombre o razón social, RUT y domicilio), la fecha de inicio "
+      },
+      {
+        "user": "El empleador es \"Distribuidora Los Andes SpA\", RUT 76.123.456-7.",
+        "assistant": "Perfecto, ya tengo los datos del empleador. Ahora necesito que me indiques la fecha de inicio de tu relación laboral (día, mes y año) y el cargo o funciones que vas a desempeñar."
+      },
+      {
+        "user": "La fecha de inicio es el 15 de marzo de 2022, y mi cargo es \"Asistente administrativo\", encargada de apoyo en oficina y atención a clientes.",
+        "assistant": "Excelente, ya tengo los datos principales. Solo faltan dos datos clave para redactar el contrato completo: tu remuneración mensual (sueldo base y si incluye bonos o comisiones) y tu jornada de trabajo"
+      },
+      {
+        "user": "Claro, mi sueldo base es de $850.000 mensuales, sin bonos ni comisiones. Mi jornada es de lunes a viernes, de 9:00 a 18:00, con una hora de colación.",
+        "assistant": "Excelente, ya tengo todos los datos necesarios para redactar tu contrato de trabajo indefinido. A continuación, te presento un resumen de los antecedentes recopilados. Por favor, confírmame si todo es"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de trabajo a plazo fijo",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Contrato de Trabajo a Plazo Fijo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes un contrato de trabajo a plazo fijo para empezar a trabajar el 1 de marzo de 2025, con un sueldo líquido de $800.000 mensuales. Yo soy la trabajadora, María Fernanda Soto Contreras, RUT 15.432.897-6, domiciliada en Av. O'Higgins 1234, Depto 56, Santiago. El empleador es \"Comercializadora del Sur SpA\", RUT 76.543.210-8, y el plazo del contrato sería de 6 meses.",
+        "assistant": "Entiendo que necesitas un contrato de trabajo a plazo fijo por 6 meses, a partir del 1 de marzo de 2025, con un sueldo líquido de $800.000 mensuales. Según el Código del Trabajo chileno, el contrato a"
+      },
+      {
+        "user": "Sí, correcto. El sueldo base bruto acordado es de $1.000.000 mensuales.",
+        "assistant": "He preparado el contrato de trabajo a plazo fijo con los antecedentes proporcionados. Revisa que todos los datos sean correctos y, si estás de acuerdo, puedes firmarlo con tu empleador. Recuerda que e"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de trabajo part-time",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Trabajo a Jornada Parcial",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un contrato de trabajo part-time para un local de comida rápida, con jornada de lunes a viernes de 18:00 a 22:00 horas y un sueldo líquido de $350.000 mensuales. Mis datos son María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un contrato de trabajo part-time para un local de comida rápida, con jornada de lunes a viernes de 18:00 a 22:00 horas (20 horas semanales) y un sueldo líquido de $350.000 mensu"
+      },
+      {
+        "user": "Sí, claro. El empleador es \"Comidas Rápidas del Sur Ltda.\", RUT 76.123.456-7, domicilio en Av. Providencia 2500, Local 3, Santiago.",
+        "assistant": "Perfecto, ya tengo los datos del empleador. Ahora necesito saber la fecha de inicio de la relación laboral y el cargo o función específica que desempeñarás en el local de comida rápida (por ejemplo, c"
+      },
+      {
+        "user": "Ah, perfecto. La fecha de inicio sería el 2 de enero de 2024, y el cargo es cajera en el local de comida rápida.",
+        "assistant": "He recopilado todos los antecedentes necesarios para redactar el contrato de trabajo part-time. A continuación, te presento el documento completo. Por favor, revísalo y confírmame si está todo correct"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de trabajo teletrabajo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Trabajo bajo modalidad de Teletrabajo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes un contrato de trabajo bajo la modalidad de teletrabajo para mí, María Fernanda Soto Contreras, RUT 15.432.897-6, domiciliada en Av. OHiggins 1234, Depto 56, Santiago. Trabajaré desde mi casa para la empresa \"Soluciones Digitales SpA\", representada por don Ricardo Muñoz (RUT 12.345.678-5), con una remuneración de $850.000 líquidos mensuales, partiendo el 1 de marzo de 2025.",
+        "assistant": "Entiendo que necesitas un contrato de trabajo bajo la modalidad de teletrabajo, regulado por el artículo 152 quáter G del Código del Trabajo. Tienes los datos esenciales: partes, remuneración y fecha "
+      },
+      {
+        "user": "Sí, correcto, el domicilio donde trabajaré es Av. O'Higgins 1234, Depto 56, Santiago. La dirección de la empresa Soluciones Digitales SpA es Av. Providencia 2500, Piso 8, Santiago.",
+        "assistant": "Excelente, ya tengo los domicilios. Para completar el contrato, necesito saber la duración del contrato: ¿es por plazo fijo (por cuánto tiempo), por obra o faena, o indefinido? Además, ¿cuál es la fun"
+      },
+      {
+        "user": "El contrato es indefinido. Mi cargo es analista de datos.",
+        "assistant": "He preparado el contrato de teletrabajo con los antecedentes proporcionados. Incluye las cláusulas esenciales según el artículo 152 quáter G del Código del Trabajo: identificación de las partes, funci"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de trabajo por obra o faena",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Contrato de Trabajo por Obra o Faena",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un contrato de trabajo por obra o faena para un proyecto de construcción que voy a hacer en mi casa. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago, y voy a contratar a un maestro para los trabajos.",
+        "assistant": "Entiendo que necesitas un contrato de trabajo por obra o faena para un proyecto de construcción en tu casa. Este tipo de contrato es adecuado cuando la labor tiene un plazo determinado ligado a la fin"
+      },
+      {
+        "user": "Claro, el maestro que voy a contratar es Juan Carlos Muñoz Rojas, RUT 12.345.678-9. Vive en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Perfecto, ya tengo los datos del trabajador. Ahora necesito saber: ¿cuál es la fecha de inicio del contrato y cuál será la remuneración mensual acordada?"
+      },
+      {
+        "user": "La fecha de inicio sería el 1 de marzo de 2025, y la remuneración mensual acordada es de $850.000 líquidos.",
+        "assistant": "Ya tengo los datos principales. Solo necesito confirmar la duración estimada de la obra o faena para definir el plazo del contrato. ¿Cuánto tiempo estimas que durarán los trabajos de construcción?"
+      },
+      {
+        "user": "Mire, calculamos que la obra estará lista en unos 4 meses, aproximadamente hasta fines de marzo del próximo año.",
+        "assistant": "Con los datos proporcionados, he preparado el contrato de trabajo por obra o faena. Este documento establece las condiciones laborales para el proyecto de construcción en tu domicilio, con una duració"
+      }
+    ]
+  },
+  {
+    "category": "Carta de renuncia laboral",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de Renuncia Voluntaria",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito una carta de renuncia voluntaria dirigida a mi empleador, \"Comercial del Sur Ltda.\", con fecha de aviso el 15 de abril de 2025 y fecha de efecto el 30 de abril de 2025.",
+        "assistant": "Entiendo que deseas renunciar voluntariamente a tu trabajo en Comercial del Sur Ltda., con aviso el 15 de abril de 2025 y efecto el 30 de abril de 2025. Esto corresponde a una renuncia voluntaria regu"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tu nombre completo y RUT. Para completar la carta de renuncia, solo necesito confirmar tu dirección particular (calle, número, comuna) para incluirla en el documento"
+      },
+      {
+        "user": "Sí, claro. Mi dirección es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has proporcionado, ya puedo redactar tu carta de renuncia voluntaria. A continuación, te presento el documento listo para que lo firmes y entregues a tu"
+      }
+    ]
+  },
+  {
+    "category": "Carta de amonestación laboral",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de Amonestación por Atrasos",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me redactes una carta de amonestación laboral para un empleado que ha llegado tarde varias veces. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago, y trabajo en \"Distribuidora Los Andes SpA\".",
+        "assistant": "Entiendo que necesitas una carta de amonestación por atrasos reiterados de un empleado de Distribuidora Los Andes SpA. Para redactarla correctamente, necesito los siguientes datos: ¿cuál es el nombre "
+      },
+      {
+        "user": "Claro, el empleado es María Fernanda Soto Contreras, RUT 15.432.897-6. Los atrasos fueron el lunes 5 de junio a las 9:20 a.m., el miércoles 7 a las 9:35 a.m. y el viernes 9 a las 9:45 a.m.",
+        "assistant": "Gracias por los antecedentes. Sin embargo, noto que el nombre y RUT que me diste para el empleado son los mismos que los tuyos (María Fernanda Soto Contreras, RUT 15.432.897-6). Para redactar la carta"
+      },
+      {
+        "user": "Ah, disculpa, me equivoqué. El empleado que llega tarde es mi hermano, **Luis Andrés Soto Contreras**, RUT **18.765.432-1**. Su horario de ingreso según contrato es a las **08:30 hrs**.",
+        "assistant": "He redactado la carta de amonestación por atrasos reiterados. El documento está listo para ser entregado al empleado. Recuerda firmarlo y dejar una copia firmada por él como constancia de recepción."
+      }
+    ]
+  },
+  {
+    "category": "Anexo de contrato de trabajo (actualización de sueldo)",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Anexo de Contrato de Trabajo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un anexo para actualizar mi sueldo en el contrato de trabajo. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, trabajo en \"Distribuidora del Sur Ltda.\", y el nuevo sueldo sería de $1.200.000 brutos a partir del 1 de marzo de 2025.",
+        "assistant": "Entiendo que necesitas un anexo de contrato para modificar tu remuneración, pasando a $1.200.000 brutos desde el 1 de marzo de 2025. Esto es un documento legal que formaliza el cambio y debe ser firma"
+      },
+      {
+        "user": "Sí, correcto, esos son mis datos: María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. La empresa es \"Distribuidora del Sur Ltda.\" y mi empleador se llama Ricardo Muñoz, RUT 9.876.543-2.",
+        "assistant": "Perfecto, María Fernanda. Con estos datos ya puedo redactar el anexo. Solo necesito confirmar un último dato: ¿cuál es tu cargo actual en la empresa?"
+      },
+      {
+        "user": "Soy Analista de Marketing, ese es mi cargo actual.",
+        "assistant": "Excelente, María Fernanda. Con todos los antecedentes que me has proporcionado, ya puedo redactar el anexo de contrato para actualizar tu sueldo a $1.200.000 brutos a partir del 1 de marzo de 2025. El"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de arriendo de casa",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Contrato de Arrendamiento",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me redactes un contrato de arriendo de una casa que tengo en la comuna de Ñuñoa. La dirección es Los Olivos 789, y lo quiero arrendar por 12 meses a un señor que se llama Juan Pablo Muñoz Rojas, RUT 18.456.321-0, con un canon mensual de $550.000.",
+        "assistant": "Entiendo que necesitas un contrato de arrendamiento por 12 meses para tu casa en Los Olivos 789, Ñuñoa, con un canon mensual de $550.000. El arrendatario es Juan Pablo Muñoz Rojas, RUT 18.456.321-0. P"
+      },
+      {
+        "user": "Sí, soy María Fernanda Soto Contreras, RUT 15.432.897-6, y la propiedad es de mi dominio exclusivo. La garantía sería de un mes, $550.000, y no incluye gastos comunes ni servicios. No hay restricciones de mascotas ni uso especial.",
+        "assistant": "Perfecto, María Fernanda. Con los datos que me has entregado, ya tengo la información mínima necesaria para redactar un contrato de arrendamiento completo y útil para tu caso. A continuación, te prese"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de arriendo de departamento",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Contrato de Arrendamiento de Departamento",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un contrato de arriendo para un departamento que voy a arrendar. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un contrato de arriendo para un departamento que vas a arrendar como arrendataria. Para redactarlo correctamente, necesito algunos datos clave. ¿Podrías indicarme el nombre comp"
+      },
+      {
+        "user": "Ah, sí. El nombre del arrendador es \"Carlos Andrés Muñoz Riquelme\" y su RUT es \"12.345.678-9\".",
+        "assistant": "Perfecto, ya tengo los datos del arrendador. Ahora necesito saber la dirección exacta del departamento que vas a arrendar (si es distinta a tu domicilio actual), el monto de la renta mensual y la dura"
+      },
+      {
+        "user": "Claro, la dirección es Av. O'Higgins 1234, Depto 56, Santiago. La renta mensual será de $450.000 y el contrato por 12 meses, partiendo el 1 de marzo de 2025.",
+        "assistant": "Excelente, ya tengo los datos principales. Solo me falta confirmar: ¿el departamento se arrienda amoblado o sin muebles? ¿Y se pagará una garantía (mes de garantía) además del mes de renta?"
+      },
+      {
+        "user": "Sí, el departamento se arrienda sin muebles. Y sí, voy a pagar un mes de garantía además del mes de renta, serían $450.000 de arriendo más $450.000 de garantía.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar un contrato de arrendamiento completo. El documento incluirá: identificación de las partes (arrendataria: María Fernanda Soto Contreras, RUT 15.432."
+      }
+    ]
+  },
+  {
+    "category": "Contrato de arriendo de local comercial",
+    "status": "success",
+    "turns": 5,
+    "ready": true,
+    "tipo_documento": "Contrato de arriendo de local comercial",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito un contrato de arriendo para un local comercial que voy a arrendar en la comuna de Providencia. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un contrato de arriendo para un local comercial en Providencia. Te comento que en Chile, el arriendo de locales comerciales se rige por el Código Civil y la Ley de Arrendamiento"
+      },
+      {
+        "user": "Sí, claro. El arrendador es María Fernanda Soto Contreras, RUT 15.432.897-6, y su dirección es Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un contrato de arriendo para un local comercial en Providencia. En Chile, el arriendo de locales comerciales se rige por el Código Civil y la Ley N° 18.101, con libertad para pa"
+      },
+      {
+        "user": "Claro, el arrendador es Ricardo Andrés Muñoz Vega, RUT 11.234.567-8, domicilio en calle Los Leones 456, Depto. 301, Providencia.",
+        "assistant": "Perfecto, ya tengo los datos de ambas partes. Confirmo:\n\n- **Arrendataria**: María Fernanda Soto Contreras, RUT 15.432.897-6, domicilio en Av. O'Higgins 1234, Depto. 56, Santiago.\n- **Arrendador**: Ri"
+      },
+      {
+        "user": "Sí, claro. La dirección del local es Av. Providencia 2345, Local 7, Providencia. Acordamos una renta mensual de $680.000.",
+        "assistant": "Gracias, María Fernanda. Ya tengo los datos principales. Para terminar el contrato, necesito saber el plazo del arriendo (ej: 1 año, 2 años, etc.) y si se acordó algún reajuste de renta (como por IPC)"
+      },
+      {
+        "user": "El plazo sería de 2 años, partiendo el 1 de marzo de 2025. Y sí, acordamos reajustar la renta cada año según el IPC.",
+        "assistant": "Con los datos proporcionados, estoy en condiciones de redactar el contrato de arriendo de local comercial. A continuación, te presento el resumen de la información recopilada para tu confirmación."
+      }
+    ]
+  },
+  {
+    "category": "Contrato de subarriendo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Subarriendo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito un contrato de subarriendo porque voy a arrendar mi departamento en Av. OHiggins 1234, Depto 56, Santiago, a un amigo, mientras yo viajo unos meses. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y el arrendatario original se llama Pedro Andrés Muñoz Rojas, RUT 12.345.678-9. El monto del subarriendo sería de $350.000 mensuales, desde el 1 de marzo de 2025.",
+        "assistant": "Entiendo tu situación, María Fernanda. Necesitas un contrato de subarriendo para que tu amigo ocupe el departamento que tú arriendas, mientras viajas. Esto es válido bajo el derecho chileno, pero debe"
+      },
+      {
+        "user": "Sí, el subarriendo sería desde el 1 de marzo de 2025 hasta el 31 de agosto de 2025. Pedro ya me dio autorización por escrito, tengo un correo de él donde lo confirma.",
+        "assistant": "Perfecto, María Fernanda. Con los datos que me has entregado ya puedo redactar el contrato de subarriendo. Solo me falta el nombre completo y RUT de tu amigo (el subarrendatario) para completarlo. ¿Me"
+      },
+      {
+        "user": "Sí, claro. Mi amigo se llama **Carlos Andrés Muñoz Rivas**, RUT **18.765.432-1**.",
+        "assistant": "He preparado el contrato de subarriendo con los datos proporcionados. Incluye la autorización del arrendador original (Pedro Andrés Muñoz Rojas) según tu correo. Revisa el documento y confírmame si es"
+      }
+    ]
+  },
+  {
+    "category": "Carta de término de contrato de arriendo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de término de contrato de arriendo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes una carta formal para dar término al contrato de arriendo del departamento en Av. OHiggins 1234, Depto 56, Santiago, con fecha de término el 30 de abril de 2025. Soy María Fernanda Soto Contreras, RUT 15.432.897-6, y la arrendadora es la señora Ana María González Pérez, RUT 9.876.543-2.",
+        "assistant": "Entiendo que necesitas una carta formal para poner término al contrato de arriendo del departamento en Av. O'Higgins 1234, Depto 56, Santiago, con fecha de término el 30 de abril de 2025. Según el der"
+      },
+      {
+        "user": "Es de plazo fijo, termina el 30 de abril de 2025.",
+        "assistant": "Perfecto, con contrato de plazo fijo que vence el 30 de abril de 2025, la carta es para comunicar formalmente que no renovarás el arriendo y que entregarás el departamento en esa fecha. Solo necesito "
+      },
+      {
+        "user": "Ah, sí, mira, la dirección de la arrendadora es Calle Los Olivos 456, Depto 3, Providencia, Santiago. Y sí, tengo el comprobante de pago de la garantía, fueron $450.000, así que me gustaría que me confirmen si me corresponde la devolución.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar una carta formal de término de contrato de arriendo dirigida a la arrendadora, solicitando además la devolución de la garantía de $450.000. El docum"
+      }
+    ]
+  },
+  {
+    "category": "Carta de cobro de arriendo impago",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Carta de cobro de arriendos adeudados",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito una carta formal para cobrarle a mi arrendatario, Roberto Andrés Muñoz López, RUT 18.765.432-1, que lleva dos meses sin pagar el arriendo de la propiedad en Av. OHiggins 1234, Depto 56. El monto adeudado son $600.000 mensuales, o sea $1.200.000 en total, y el contrato venció el 31 de enero de 2025. ¿Me pueden ayudar a redactarla?",
+        "assistant": "Entiendo tu situación: eres el arrendador de un departamento en Av. O'Higgins 1234, Depto. 56, y tu arrendatario, Roberto Andrés Muñoz López, lleva dos meses sin pagar el arriendo, adeudando $1.200.00"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Perfecto, María Fernanda. Con tus datos y los del arrendatario ya tengo lo necesario para redactar la carta de cobro. Te la presento a continuación para que la revises y la envíes por carta certificad"
+      }
+    ]
+  },
+  {
+    "category": "Poder notarial",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Poder especial para compraventa de vehículo motorizado",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un poder notarial para que mi hermano, Andrés Soto Contreras, RUT 14.567.891-2, pueda firmar la compra de un auto usado en mi nombre mientras estoy fuera del país.",
+        "assistant": "Entiendo que necesitas un poder especial para que tu hermano Andrés Soto Contreras pueda comprar un auto usado a tu nombre mientras estás fuera del país. Esto se hace mediante una escritura pública en"
+      },
+      {
+        "user": "Mi RUT es 15.432.897-6. Soy María Fernanda Soto Contreras.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre y RUT. Para continuar con la redacción del poder especial, necesito tu domicilio completo (calle, número, comuna)."
+      },
+      {
+        "user": "Mi domicilio es Avenida O'Higgins 1234, departamento 56, comuna de Santiago.",
+        "assistant": "Excelente, María Fernanda. Ya tengo tu nombre completo (María Fernanda Soto Contreras), RUT (15.432.897-6), domicilio (Av. O'Higgins 1234, Depto. 56, Santiago) y los datos de tu hermano apoderado (And"
+      },
+      {
+        "user": "Claro, el auto es un Suzuki Swift 2019, y el monto total de la compra es de $8.500.000 pesos chilenos.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar el poder especial para que tu hermano Andrés compre el Suzuki Swift 2019 a tu nombre. El documento debe ser firmado ante notario. ¿Deseas que lo red"
+      }
+    ]
+  },
+  {
+    "category": "Poder para vender vehículo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Poder especial para venta de vehículo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito un poder notarial para vender mi auto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. OHiggins 1234, Depto 56, Santiago. ¿Qué datos necesitas que te dé para redactarlo?",
+        "assistant": "Entiendo, María Fernanda. Necesitas un poder notarial para que otra persona pueda vender tu auto en tu nombre. Esto se hace mediante un poder especial, que debe individualizar claramente el vehículo y"
+      },
+      {
+        "user": "Claro, le voy a dar el poder a mi hermano, Rodrigo Andrés Soto Contreras, RUT 18.765.432-1.",
+        "assistant": "Perfecto. Tengo los datos del apoderado: Rodrigo Andrés Soto Contreras, RUT 18.765.432-1. Ahora necesito los datos del vehículo para individualizarlo en el poder. Por favor, indícame la patente del au"
+      },
+      {
+        "user": "Ya, la patente es GG-44-77, es un Suzuki Swift rojo, modelo 2019.",
+        "assistant": "Con los datos que me has entregado, ya puedo redactar el poder notarial para que tu hermano Rodrigo venda tu Suzuki Swift patente GG-44-77. El documento incluirá tu nombre completo, RUT y domicilio, l"
+      }
+    ]
+  },
+  {
+    "category": "Poder para cobrar finiquito",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Poder simple para cobrar finiquito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes un poder simple para que mi hermano, Rodrigo Soto Contreras, RUT 12.345.678-9, pueda ir a mi ex empleador, la empresa \"Distribuidora del Sur Ltda.\", a cobrar el finiquito por mi renuncia voluntaria del 30 de junio de 2024.",
+        "assistant": "Entiendo que necesitas un poder simple para que tu hermano Rodrigo Soto Contreras pueda cobrar tu finiquito por renuncia voluntaria en Distribuidora del Sur Ltda. Esto es correcto: un poder simple es "
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. OHiggins 1234, Depto 56, Santiago. Mi hermano Rodrigo Soto Contreras, RUT 18.765.432-1, va a cobrar el finiquito en Distribuidora del Sur Ltda.",
+        "assistant": "Perfecto, María Fernanda. Tengo tus datos y los de tu hermano. Solo necesito confirmar un último dato: ¿cuál es el RUT de Distribuidora del Sur Ltda.? Esto es importante para individualizar correctame"
+      },
+      {
+        "user": "Sí, el RUT de Distribuidora del Sur Ltda. es el 76.543.210-8.",
+        "assistant": "Excelente, María Fernanda. Con todos estos antecedentes ya puedo redactar el poder simple para que tu hermano Rodrigo cobre tu finiquito en Distribuidora del Sur Ltda. El documento incluirá tus datos,"
+      }
+    ]
+  },
+  {
+    "category": "Poder para trámites bancarios",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Poder especial para trámites bancarios",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un poder para que mi hermano, Ricardo Andrés Soto Contreras, RUT 12.345.678-9, pueda hacer trámites en mi cuenta del Banco Estado, como giros y depósitos, mientras estoy fuera del país.",
+        "assistant": "Entiendo que necesitas un poder especial para que tu hermano, Ricardo Andrés Soto Contreras, pueda realizar giros y depósitos en tu cuenta del Banco Estado mientras estás fuera del país. Esto se regul"
+      },
+      {
+        "user": "Claro, soy María Fernanda Soto Contreras, RUT 15.432.897-6, y mi dirección es Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, dirección Av. O'Higgins 1234, Depto. 56, Santiago. Tu hermano es Ricardo Andrés Soto Contreras"
+      },
+      {
+        "user": "Sí, el número de mi cuenta corriente es 123456-7 del Banco Estado. La vigencia que necesito es desde el 1 de marzo de 2025 hasta el 31 de agosto de 2025, que es el tiempo que voy a estar fuera del país.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar un poder especial para que tu hermano Ricardo Andrés Soto Contreras realice giros y depósitos en tu cuenta corriente del Banco Estado N° 123456-7, v"
+      }
+    ]
+  },
+  {
+    "category": "Mandato especial",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Mandato Especial para Venta de Vehículo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un mandato especial para que mi hermano, Rodrigo Andrés Soto Contreras, RUT 16.789.123-4, pueda vender un auto que tengo a mi nombre, porque yo estoy fuera de Santiago por trabajo.",
+        "assistant": "Entiendo tu situación: necesitas un mandato especial (poder notarial) para que tu hermano Rodrigo pueda vender un vehículo de tu propiedad mientras estás fuera de Santiago. Esto es un documento que se"
+      },
+      {
+        "user": "Claro, mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6. La patente del vehículo es HK-4567.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tus datos y los de tu hermano Rodrigo, más la patente HK-4567. Solo me falta un dato importante para completar el mandato: ¿cuál es el domicilio actual de tu hermano"
+      },
+      {
+        "user": "Ah, claro. Mi hermano Rodrigo vive en Los Carrera 789, Depto 3, Ñuñoa.",
+        "assistant": "He recopilado todos los antecedentes necesarios. El mandato especial faculta a tu hermano Rodrigo para vender el vehículo HK-4567, firmar la factura de transferencia y recibir el pago. Solo falta que "
+      }
+    ]
+  },
+  {
+    "category": "Contrato de prestación de servicios a honorarios",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Prestación de Servicios a Honorarios",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un contrato de prestación de servicios a honorarios para un trabajo que haré como diseñadora gráfica independiente para una empresa llamada \"Creativa SpA\". Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. El monto del honorario será de $800.000 mensuales, partiendo el 1 de marzo de 2025.",
+        "assistant": "Entiendo que necesitas un contrato de prestación de servicios a honorarios para tu trabajo como diseñadora gráfica independiente con Creativa SpA. Según el derecho chileno, este tipo de contrato regul"
+      },
+      {
+        "user": "Ah, perfecto. El RUT de Creativa SpA es el 76.123.456-7.",
+        "assistant": "Perfecto, ya tengo el RUT de Creativa SpA (76.123.456-7). Ahora necesito un dato más para completar el contrato: ¿cuál es la duración del servicio? ¿Es por un plazo fijo (ej. 3 meses, 6 meses, un año)"
+      },
+      {
+        "user": "Ah, mira, sería por un plazo fijo de 6 meses, partiendo el 1 de marzo de 2025.",
+        "assistant": "Con los antecedentes proporcionados, he preparado el contrato de prestación de servicios a honorarios. Revisa el documento y confírmame si está correcto o si necesitas ajustes."
+      }
+    ]
+  },
+  {
+    "category": "Contrato freelance",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Contrato de prestación de servicios a honorarios (freelance)",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un contrato freelance para un proyecto de diseño gráfico que voy a hacer para una empresa llamada \"Creativa SpA\". Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. El monto acordado es de $1.200.000 y el plazo es de 30 días a partir del 1 de marzo de 2025.",
+        "assistant": "Entiendo que necesitas un contrato de prestación de servicios a honorarios (freelance) para un proyecto de diseño gráfico con Creativa SpA. Según el derecho chileno, este tipo de contrato se rige por "
+      },
+      {
+        "user": "Sí, claro. ¿Qué dato necesita?",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tus datos personales, el monto, el plazo y la empresa. Para redactar el contrato completo, necesito saber el objeto específico del servicio: ¿qué diseño gráfico incl"
+      },
+      {
+        "user": "Ah, claro. El proyecto incluye el diseño de un logotipo principal, 5 piezas para redes sociales (Instagram y Facebook) y el diseño de un packaging para un producto de cosmética natural. Todo para la empresa \"Belleza Natural SpA\".",
+        "assistant": "Gracias, María Fernanda. Solo necesito confirmar un detalle: ¿la empresa que te contrata formalmente es Creativa SpA (como mencionaste al inicio) o es directamente Belleza Natural SpA? Esto es clave p"
+      },
+      {
+        "user": "Ah, claro. Es directamente Belleza Natural SpA, ellos son los que me contratan. Creativa SpA solo fue un intermediario para contactarme.",
+        "assistant": "He preparado el contrato de prestación de servicios a honorarios con todos los antecedentes que me entregaste. El documento incluye tus datos personales, los servicios específicos (logotipo, 5 piezas "
+      }
+    ]
+  },
+  {
+    "category": "Contrato de compraventa de vehículo",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Compraventa de Vehículo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un contrato de compraventa para venderle mi auto a un vecino. El vehículo es un Suzuki Swift 2014, patente GH-45-12, y lo estamos vendiendo en $4.500.000.",
+        "assistant": "Entiendo que necesitas un contrato de compraventa para transferir la propiedad de tu Suzuki Swift 2014, patente GH-45-12, a tu vecino por $4.500.000. Esto es un contrato privado que luego se usa para "
+      },
+      {
+        "user": "Sí, claro. Mi nombre completo es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. O'Higgins 1234, Depto 56, Santiago. Los datos de mi vecino son Juan Carlos Muñoz Pérez, RUT 18.765.432-1.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tus datos y los del comprador. Solo necesito confirmar un par de datos adicionales para completar el contrato: ¿la dirección de tu vecino Juan Carlos Muñoz Pérez? Y "
+      },
+      {
+        "user": "Sí, la dirección de mi vecino Juan Carlos Muñoz Pérez es Los Olmos 456, Ñuñoa, Santiago. La venta y entrega del vehículo será el viernes 20 de diciembre de 2024.",
+        "assistant": "Excelente, María Fernanda. Con estos datos ya puedo redactar el contrato de compraventa del Suzuki Swift 2014, patente GH-45-12, por $4.500.000, con entrega el 20 de diciembre de 2024. Te confirmo los"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de compraventa de bien mueble",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Contrato de Compraventa de Vehículo Motorizado",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un contrato de compraventa para vender mi auto, un Suzuki Swift 2018, a un comprador. Mi RUT es 15.432.897-6 y vivo en Av. OHiggins 1234, Depto 56, Santiago. ¿Puedes ayudarme a redactarlo?",
+        "assistant": "Entiendo que necesitas un contrato de compraventa para transferir la propiedad de tu Suzuki Swift 2018 a un comprador. Este documento es esencial para formalizar la venta y respaldar el cambio de domi"
+      },
+      {
+        "user": "Sí, correcto, mi RUT es 15.432.897-6 y mi dirección es Av. O'Higgins 1234, Depto. 56, Santiago. El comprador se llama Juan Pablo Ramírez Muñoz, RUT 18.765.432-1.",
+        "assistant": "Perfecto, gracias por confirmar. Tengo tus datos y los del comprador. Ahora necesito dos datos clave para completar el contrato: el monto de la venta (precio acordado en pesos chilenos) y la fecha de "
+      },
+      {
+        "user": "Sí, el precio acordado es de $8.500.000 pesos chilenos y la fecha de entrega del vehículo será el viernes 15 de marzo de 2024.",
+        "assistant": "Excelente, ya tengo todos los datos necesarios para redactar el contrato de compraventa de tu Suzuki Swift 2018. A continuación, te presento el documento completo. Por favor, revísalo y confirma si es"
+      }
+    ]
+  },
+  {
+    "category": "Promesa de compraventa de inmueble",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Promesa de compraventa",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me ayudes a redactar una promesa de compraventa para un departamento que quiero comprar. La dueña es la señora Carmen Luz Valdivia Rojas, RUT 9.876.543-2, y el precio acordado son 80 millones de pesos, con entrega en 60 días más.",
+        "assistant": "Entiendo que deseas redactar una promesa de compraventa para un departamento que estás comprando a la señora Carmen Luz Valdivia Rojas. Este documento es un contrato preparatorio en el que ambas parte"
+      },
+      {
+        "user": "Claro, mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. Tengo tu nombre completo y RUT, y los de la vendedora. Para continuar con la redacción de la promesa de compraventa, necesito la dirección exacta del departamento (calle, núme"
+      },
+      {
+        "user": "Sí, la dirección es Av. O'Higgins 1234, Depto 56, Santiago, comuna de Santiago. El rol de avalúo es 1234-567 y está inscrito a nombre de la vendedora en el Conservador de Bienes Raíces de Santiago, bajo el número 45.678 del año 2020.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya tengo la información mínima para redactar una promesa de compraventa completa y útil para tu caso. El documento incluirá la identifica"
+      },
+      {
+        "user": "Ah, buena pregunta. Mira, la idea es pagar la mitad al contado ($40.000.000) con un vale vista, y el otro 50% lo pondría el banco con un crédito hipotecario que ya estoy tramitando en el Banco Estado.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar la promesa de compraventa. Confirma si estás de acuerdo con los términos descritos o si necesitas modificar algo."
+      }
+    ]
+  },
+  {
+    "category": "Escrito de defensa por infracción de tránsito",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Escrito de defensa (descargos) por infracción de tránsito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un escrito de defensa por una infracción de tránsito que me llegó, porque choqué por alcance el 15 de marzo en Av. Providencia con patente XP-4567. La causa es en el Juzgado de Policía Local de Santiago, rol 1234-2025.",
+        "assistant": "Entiendo tu situación: recibiste una citación o parte por choque por alcance ocurrido el 15 de marzo de 2025 en Av. Providencia, con patente XP-4567, causa rol 1234-2025 ante el Juzgado de Policía Loc"
+      },
+      {
+        "user": "Sí, soy María Fernanda Soto Contreras, RUT 15.432.897-6, domicilio en Av. O'Higgins 1234, Depto 56, Santiago. Reconozco el choque, pero el vehículo de adelante frenó de golpe sin señalizar, lo que no me dio tiempo para reaccionar. Busco que se considere esa circunstancia para atenuar la multa.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, domicilio Av. O'Higgins 1234, Depto 56, Santiago. Entiendo que reconoces el choque por alcance"
+      },
+      {
+        "user": "Sí, tengo un testigo: mi hermano, Rodrigo Soto Contreras, RUT 18.765.432-1, domicilio en Los Acacios 567, Ñuñoa, Santiago, que iba en el asiento del copiloto y vio todo. También tengo un video de mi dashcam que grabó el momento del frenazo del otro auto.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar un escrito de defensa solicitando atenuación de la multa por choque por alcance, fundado en caso fortuito (frenazo brusco sin señalizar del vehículo"
+      }
+    ]
+  },
+  {
+    "category": "Escrito de prescripción de multa de tránsito",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Solicitud de prescripción de multa de tránsito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que redactes un escrito solicitando la prescripción de una multa de tránsito que me llegó. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. La multa es del 15 de marzo de 2020, patente GG-1234, por $120.000, y ya pasaron más de 3 años sin que me notificaran.",
+        "assistant": "Entiendo tu situación, María Fernanda. Según el artículo 24 de la Ley de Tránsito (Ley 18.290), las multas por infracciones de tránsito prescriben en 3 años desde que se cometió la infracción, si no h"
+      },
+      {
+        "user": "Sí, correcto, la multa fue cursada por Carabineros.",
+        "assistant": "Perfecto, María Fernanda. Con esos antecedentes, el escrito se dirige al Juzgado de Policía Local de Santiago, que es el tribunal competente para conocer la prescripción de multas de tránsito cursadas"
+      }
+    ]
+  },
+  {
+    "category": "Recurso de apelación ante Juzgado de Policía Local",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Recurso de Apelación ante Juzgado de Policía Local de Santiago",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un recurso de apelación para una multa de tránsito que me llegó. Me notificaron del Juzgado de Policía Local de Santiago, con causa RIT N° 1234-2024, por una infracción el 15 de marzo de 2024 en Av. Libertador Bernardo O'Higgins con calle San Diego, monto de 1,5 UTM.",
+        "assistant": "Entiendo que necesitas redactar un recurso de apelación contra una multa de tránsito que te notificó el Juzgado de Policía Local de Santiago, por una infracción ocurrida el 15 de marzo de 2024 en Av. "
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. El fundamento de mi apelación es que la infracción no ocurrió, ya que en ese momento yo no estaba conduciendo; el vehículo lo manejaba mi hermano, Juan Pablo Soto Contreras.",
+        "assistant": "Perfecto, María Fernanda. Entonces el recurso se basará en que no eras la conductora al momento de la infracción, sino tu hermano Juan Pablo Soto Contreras. Para redactarlo, necesito que me confirmes "
+      },
+      {
+        "user": "Sí, mi domicilio es Av. O’Higgins 1234, Depto 56, Santiago. El RUT de mi hermano Juan Pablo Soto Contreras es 16.789.234-5.",
+        "assistant": "Gracias, María Fernanda. Con estos datos ya puedo redactar el recurso de apelación. El fundamento será que no eras la conductora al momento de la infracción, sino tu hermano Juan Pablo Soto Contreras "
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por ruidos molestos de vecinos",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Denuncia por ruidos molestos ante Juzgado de Policía Local",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una denuncia formal por los ruidos molestos que vienen del departamento de arriba desde hace dos meses. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo tu situación, María Fernanda. Los ruidos molestos reiterados desde el departamento superior pueden constituir una infracción a la Ley de Rentas (artículo 11 de la Ley N° 18.101) y a las orden"
+      },
+      {
+        "user": "Sí, claro. La dirección exacta del departamento de arriba es Av. O'Higgins 1234, Depto 62, Santiago. Ya hice reclamos al conserje y al administrador del edificio, pero no ha funcionado.",
+        "assistant": "María Fernanda, con los datos que me has entregado ya puedo redactar una denuncia completa por ruidos molestos. El documento quedará dirigido al Juzgado de Policía Local de Santiago, detallando tu dom"
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por maltrato animal",
+    "status": "success",
+    "turns": 5,
+    "ready": true,
+    "tipo_documento": "Denuncia por maltrato animal",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Bueno, necesito hacer una denuncia porque hace días que en el pasaje donde vivo, un vecino tiene a su perro amarrado en el techo sin agua ni comida, y hoy vi que está muy flaco y con heridas.",
+        "assistant": "Entiendo tu preocupación. Lo que describes corresponde a una situación de maltrato animal, regulada en Chile por la Ley N° 21.020 (Ley de Tenencia Responsable de Mascotas) y el artículo 291 bis del Có"
+      },
+      {
+        "user": "Sí, mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos como denunciante. Para continuar, necesito la dirección exacta del pasaje donde ocurren los hechos, incluyendo la comuna, para determinar el tribunal c"
+      },
+      {
+        "user": "Sí, claro. La dirección exacta es Pasaje Los Arrayanes 4567, comuna de Ñuñoa, Región Metropolitana.",
+        "assistant": "Gracias, María Fernanda. He registrado tu nombre completo y RUT. Para continuar, necesito saber si conoces el nombre del vecino dueño del perro o al menos el número de la casa donde ocurre el maltrato"
+      },
+      {
+        "user": "Sí, conozco al vecino. Se llama Roberto Muñoz López, no sé su RUT, pero vive en la casa número 1240 de la misma avenida, justo al lado del departamento.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos y los del vecino denunciado. Para completar la denuncia, necesito que me describas con más detalle las heridas que viste en el perro y desde cuándo apr"
+      },
+      {
+        "user": "Mire, el perro tiene varias heridas en el lomo y las patas, como costras y zonas sin pelo, y una lastimadura abierta en el cuello que se ve infectada. Esto lo vengo viendo desde hace como tres semanas, más o menos desde principios de febrero.",
+        "assistant": "Con los antecedentes proporcionados, puedo redactar una denuncia formal por maltrato animal contra Roberto Muñoz López, solicitando medidas de protección urgentes para el perro. ¿Confirmas que los dat"
+      }
+    ]
+  },
+  {
+    "category": "Escrito de impugnación de multa municipal",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Escrito de Descargos por Infracción de Tránsito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un escrito para impugnar una multa municipal que me llegó por estacionar mal en la vía pública. Tengo la notificación con el número de infracción 4587-M, del 15 de enero de 2025, por $45.000, y quiero presentar los descargos correspondientes en el Juzgado de Policía Local de Santiago.",
+        "assistant": "Entiendo tu situación: recibiste una multa municipal por estacionar mal en la vía pública y quieres impugnarla presentando descargos ante el Juzgado de Policía Local de Santiago. Esto corresponde a un"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. La multa fue en Av. O'Higgins 1234, Santiago, y la quiero impugnar porque justo ese día había una señalización de \"estacionamiento permitido\" que después cambiaron, y yo estaba bien estacionada.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, infracción N° 4587-M del 15 de enero de 2025 por $45.000, en Av. O'Higgins 1234, Santiago. Tu "
+      },
+      {
+        "user": "Sí, tengo una foto que le saqué ese mismo día con mi celular, donde se ve claramente el letrero de \"estacionamiento permitido\" en ese tramo. También mi hermano, Andrés Soto Contreras, RUT 18.765.432-1, iba conmigo y puede declarar que la señal era esa.",
+        "assistant": "He preparado el escrito de descargos para impugnar la multa por estacionamiento. Incluye tu relato, la foto como prueba documental y la declaración de tu hermano como testigo. Puedes presentarlo direc"
+      }
+    ]
+  },
+  {
+    "category": "Declaración jurada simple",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Declaración Jurada Simple de Domicilio y Convivencia",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito una declaración jurada simple para acreditar que vivo con mi pareja, porque el banco me pide un comprobante de domicilio conjunto para un crédito hipotecario. Mi pareja se llama Carlos Andrés Muñoz Rojas, RUT 18.765.432-1, y vivimos en Av. O'Higgins 1234, Depto 56, Santiago desde enero de 2022.",
+        "assistant": "Entiendo tu situación: el banco te pide acreditar domicilio conjunto con tu pareja para el crédito hipotecario, y necesitas una declaración jurada simple que certifique que viven juntos en la misma di"
+      },
+      {
+        "user": "Sí, mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Perfecto, María Fernanda. Con tus datos y los de Carlos, ya tengo la información necesaria para redactar la declaración jurada. El documento certificará que ambos viven en Av. O'Higgins 1234, Depto 56"
+      }
+    ]
+  },
+  {
+    "category": "Declaración jurada de domicilio",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Declaración Jurada de Domicilio",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que redacten una declaración jurada de domicilio para acreditar que vivo en Av. OHiggins 1234, Depto 56, Santiago. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6.",
+        "assistant": "Entiendo que necesitas una declaración jurada simple para acreditar tu domicilio en Av. O'Higgins 1234, Depto. 56, Santiago. Este documento se presenta ante notario para dar fe de tu residencia actual"
+      },
+      {
+        "user": "Sí, correcto, mi dirección es Av. O'Higgins 1234, Depto. 56, Santiago.",
+        "assistant": "Excelente, María Fernanda. Con tu nombre completo (María Fernanda Soto Contreras), RUT (15.432.897-6) y dirección (Av. O'Higgins 1234, Depto. 56, Santiago) ya tengo toda la información necesaria para "
+      }
+    ]
+  },
+  {
+    "category": "Declaración jurada de ingresos",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Declaración Jurada de Ingresos para Arriendo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una declaración jurada de ingresos para presentarla en una solicitud de arriendo. Mis datos son: María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago, y mis ingresos mensuales son aproximadamente $1.200.000 líquidos.",
+        "assistant": "Entiendo que necesitas una declaración jurada simple de tus ingresos para respaldar tu solicitud de arriendo. Esto es un documento donde tú declaras bajo juramento cuánto ganas mensualmente, y sirve c"
+      },
+      {
+        "user": "Ah, claro. Soy independiente, trabajo con boletas de honorarios haciendo diseño gráfico. Gano aproximadamente $1.200.000 mensuales.",
+        "assistant": "Perfecto, con esos datos ya puedo redactar la declaración jurada. Te confirmo los datos que tengo:\n\n- Nombre: María Fernanda Soto Contreras\n- RUT: 15.432.897-6\n- Dirección: Av. O'Higgins 1234, Depto. "
+      }
+    ]
+  },
+  {
+    "category": "Declaración jurada de cargas familiares",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Declaración Jurada para Acreditar Carga Familiar",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una declaración jurada para acreditar a mi hijo como carga familiar. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago, y mi hijo se llama Benjamín Andrés Muñoz Soto, RUT 23.456.789-0.",
+        "assistant": "Entiendo que necesitas una declaración jurada para acreditar a tu hijo Benjamín Andrés Muñoz Soto como carga familiar, lo que es común para fines de salud o asignación familiar. Te explico brevemente:"
+      },
+      {
+        "user": "Ah, sí, claro. Benjamín nació el 14 de marzo de 2006, así que tiene 18 años y está estudiando en el Instituto Nacional.",
+        "assistant": "Perfecto, con esos datos ya puedo redactar la declaración jurada. Benjamín tiene 18 años y estudia, por lo que corresponde acreditar su condición de estudiante para mantener la carga familiar. Solo ne"
+      },
+      {
+        "user": "Ah, claro. Es para presentarla en la Municipalidad de Santiago, en la oficina de beneficios sociales.",
+        "assistant": "Excelente, con todos los antecedentes ya puedo redactar la declaración jurada. El documento incluirá tus datos como declarante, los de tu hijo Benjamín, su fecha de nacimiento, su condición de estudia"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo aerolínea",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por pérdida de equipaje",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito una carta formal para reclamar a una aerolínea por la pérdida de mi equipaje en un vuelo. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. El vuelo fue el 15 de marzo de 2024, y quiero pedir una compensación de unos $800.000 por los artículos perdidos.",
+        "assistant": "Entiendo tu situación, María Fernanda. Has sufrido la pérdida de tu equipaje en un vuelo, lo que es una experiencia frustrante. Bajo la normativa chilena, específicamente la Ley N° 19.496 sobre Protec"
+      },
+      {
+        "user": "Claro, la aerolínea fue Latam Airlines, vuelo LA-705 desde Santiago a Buenos Aires, el 15 de marzo de 2025.",
+        "assistant": "Gracias, María Fernanda. He registrado los datos: Latam Airlines, vuelo LA-705, ruta Santiago-Buenos Aires, fecha 15 de marzo de 2025. Para completar la carta de reclamo formal, necesito un dato más: "
+      },
+      {
+        "user": "Sí, presenté un reclamo en el aeropuerto de Santiago y me dieron un número de caso: CL-2025-0457.",
+        "assistant": "He reunido todos los antecedentes necesarios para redactar tu carta de reclamo. El documento estará dirigido a Latam Airlines, solicitando una compensación de $800.000 por la pérdida de tu equipaje en"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo banco",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por cobro indebido",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una carta formal de reclamo al Banco Estado por un cobro indebido de $450.000 en mi cuenta vista, ocurrido el 15 de marzo. Mi RUT es 15.432.897-6 y vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo tu situación: el 15 de marzo de 2024 se realizó un cobro indebido de $450.000 en tu cuenta vista del Banco Estado, y necesitas una carta formal de reclamo para exigir la devolución del dinero"
+      },
+      {
+        "user": "Sí, claro. Mi nombre completo es María Fernanda Soto Contreras.",
+        "assistant": "Perfecto, María Fernanda. Con tu nombre completo, RUT 15.432.897-6, dirección Av. O'Higgins 1234, Depto 56, Santiago, el monto de $450.000 y la fecha del 15 de marzo de 2024, ya tengo toda la informac"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo Isapre",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por rechazo de cobertura de cirugía",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una carta de reclamo para mi Isapre, porque me rechazaron una cobertura para una cirugía que necesito con urgencia. Mis datos son: María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo tu situación, María Fernanda. Necesitas presentar un reclamo formal ante tu Isapre por el rechazo de cobertura de una cirugía urgente. Esto corresponde a una carta de reclamo por negativa de "
+      },
+      {
+        "user": "Sí, mi Isapre es Banmédica. Necesito una cirugía de vesícula urgente y la rechazaron porque dicen que no es una urgencia vital, a pesar de que tengo un informe del doctor que indica lo contrario.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos. Para completar la carta de reclamo, necesito que me indiques el número de tu contrato o afiliado con Banmédica (aparece en tu carnet o cartola). Si no"
+      },
+      {
+        "user": "Sí, mi número de afiliado es 1234567, pero si no aparece bien, el rechazo fue el 15 de marzo de este año.",
+        "assistant": "He redactado la carta de reclamo con los antecedentes proporcionados. Incluye los fundamentos legales y la solicitud de revisión. Te sugiero enviarla por carta certificada o correo electrónico con acu"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo empresa de telecomunicaciones",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por cobros indebidos",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes una carta formal para reclamar a Movistar por cobros indebidos en mi cuenta, que suman $45.000 desde octubre de 2024, y que han afectado mi plan de internet y telefonía.",
+        "assistant": "Entiendo tu situación: Movistar te ha estado cobrando montos adicionales no autorizados en tu plan de internet y telefonía desde octubre de 2024, sumando $45.000. Esto corresponde a un reclamo formal "
+      },
+      {
+        "user": "Sí, claro. Mi RUT es 15.432.897-6, vivo en Av. O’Higgins 1234, Depto 56, Santiago, y mi nombre completo es María Fernanda Soto Contreras.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos personales. Ahora necesito que me indiques cuál es tu número de cliente o RUT asociado al contrato con Movistar, y si tienes algún número de reclamo pr"
+      },
+      {
+        "user": "Sí, mi RUT es 15.432.897-6 y el número de cliente con Movistar es 45678901. No tengo número de reclamo previo, pero sí una boleta de julio de 2024 donde aparecen cargos por $45.990 que no corresponden al plan contratado.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya tengo la información suficiente para redactar una carta formal de reclamo dirigida a Movistar por los cobros indebidos de $45.990 desd"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo seguro",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por negativa de cobertura de seguro",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes una carta formal para reclamar a mi aseguradora (Seguros Generales del Sur S.A.) por la negativa a cubrir un siniestro de robo en mi domicilio ocurrido el 15 de enero de 2025, con una pérdida avaluada en $2.800.000. Mi póliza es la número 123456-7.",
+        "assistant": "Entiendo tu situación: sufriste un robo en tu domicilio el 15 de enero de 2025, con pérdidas avaluadas en $2.800.000, y tu aseguradora Seguros Generales del Sur S.A. (póliza N° 123456-7) se negó a cub"
+      },
+      {
+        "user": "Sí, correcto. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos personales y dirección. Para completar la carta de reclamo, necesito saber: ¿cuál fue la fecha exacta en que la aseguradora te notificó la negativa de "
+      },
+      {
+        "user": "Fue el 10 de marzo de 2025. Me llegó la carta certificada ese día.",
+        "assistant": "He preparado la carta de reclamo dirigida a Seguros Generales del Sur S.A. con los antecedentes proporcionados. El documento exige el cumplimiento de la póliza N° 123456-7 por el siniestro de robo ocu"
+      }
+    ]
+  },
+  {
+    "category": "Carta reclamo tienda retail",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo formal por producto defectuoso",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar una carta de reclamo formal porque compré un televisor en Falabella hace dos semanas y llegó con la pantalla quebrada, y en la tienda no me quieren cambiar el producto ni devolverme la plata.",
+        "assistant": "Entiendo tu situación: compraste un televisor en Falabella, llegó con la pantalla quebrada (lo que constituye un producto defectuoso o dañado durante el transporte) y en la tienda se niegan a cambiarl"
+      },
+      {
+        "user": "Sí, tengo la boleta: número 456789, del 15 de enero de 2025. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, boleta N° 456789 del 15 de enero de 2025. Ahora necesito un dato más para completar la carta: "
+      },
+      {
+        "user": "Mi dirección es Av. O'Higgins 1234, Depto 56, Santiago Centro, comuna de Santiago.",
+        "assistant": "He preparado la carta de reclamo formal con tus datos. Puedes presentarla en la tienda o enviarla por carta certificada al Servicio Nacional del Consumidor (SERNAC) si Falabella no responde. ¿Necesita"
+      }
+    ]
+  },
+  {
+    "category": "Acuerdo de divorcio por mutuo acuerdo",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Escritura pública de divorcio por mutuo acuerdo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar un acuerdo de divorcio por mutuo acuerdo. Yo soy María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. Mi ex marido se llama Pablo Andrés Muñoz Rojas, RUT 12.345.678-9, y no tenemos hijos ni bienes en común.",
+        "assistant": "Entiendo que necesitas una escritura pública de divorcio por mutuo acuerdo, dado que no tienen hijos ni bienes en común. Esto corresponde al procedimiento del artículo 21 de la Ley de Matrimonio Civil"
+      },
+      {
+        "user": "Sí, correcto. La fecha exacta de nuestro matrimonio es el 15 de marzo de 2015.",
+        "assistant": "Perfecto, María Fernanda. Con los datos que me has entregado, ya tengo la información necesaria para redactar la escritura pública de divorcio por mutuo acuerdo. El documento incluirá: tu nombre compl"
+      }
+    ]
+  },
+  {
+    "category": "Convenio de regulación de divorcio",
+    "status": "success",
+    "turns": 6,
+    "ready": true,
+    "tipo_documento": "Convenio de Regulación de Divorcio de Mutuo Acuerdo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar un convenio de regulación de divorcio de mutuo acuerdo con mi ex cónyuge. Tengo los datos básicos: mi RUT es 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago, y mi ex se llama Carlos Andrés Muñoz Rojas, RUT 13.987.654-2.",
+        "assistant": "Entiendo que necesitas un convenio de regulación de divorcio de mutuo acuerdo con tu ex cónyuge, Carlos Andrés Muñoz Rojas. Este documento debe presentarse ante el Tribunal de Familia correspondiente "
+      },
+      {
+        "user": "Sí, correcto, soy María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O’Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Gracias, María Fernanda. Ahora necesito saber si tienen hijos en común. ¿Tienen hijos menores de edad o mayores con discapacidad? Si no tienen hijos, dímelo también para seguir con los otros puntos."
+      },
+      {
+        "user": "Sí, tenemos dos hijos: una niña de 8 años y un niño de 5 años, ambos menores de edad.",
+        "assistant": "Gracias, María Fernanda. Ahora necesito los nombres completos y RUT de tus dos hijos (niña de 8 años y niño de 5 años). Por favor, indícamelos."
+      },
+      {
+        "user": "Claro, mis hijos son Sofía Andrea Muñoz Soto, RUT 22.345.678-9, y Mateo Andrés Muñoz Soto, RUT 23.456.789-0.",
+        "assistant": "Excelente, María Fernanda. Ya tengo los datos de tus hijos: Sofía Andrea Muñoz Soto (8 años, RUT 22.345.678-9) y Mateo Andrés Muñoz Soto (5 años, RUT 23.456.789-0). Ahora necesito que me cuentes los a"
+      },
+      {
+        "user": "Ya, mira, con Carlos acordamos que los niños van a quedar a mi cuidado personal, porque siempre han vivido conmigo. En cuanto a las visitas, él puede verlos los fines de semana alternados, desde el sábado a las 10 de la mañana hasta el domingo a las 7 de la tarde, y también un día entre semana después del colegio. Para la pensión, acordamos que me va a pasar $250.000 mensuales, depositados en mi cuenta los días 5 de cada mes.",
+        "assistant": "Excelente, María Fernanda. Ya tengo los acuerdos sobre hijos y pensión. Para finalizar, necesito saber si tienen bienes comunes (casa, auto, ahorros, deudas) adquiridos durante el matrimonio y cómo ac"
+      },
+      {
+        "user": "Sí, tenemos un departamento en Av. OHiggins 1234, Depto 56, Santiago, y un auto Chevrolet Spark 2018, ambos adquiridos durante el matrimonio. Acordamos que el departamento se lo queda mi ex con una compensación a mí de $8.000.000, y el auto me lo quedo yo, asumiendo el saldo del crédito automotriz.",
+        "assistant": "María Fernanda, con los antecedentes entregados ya puedo redactar el convenio de regulación de divorcio de mutuo acuerdo. El documento incluirá todos los acuerdos sobre cuidado personal, visitas, pens"
+      }
+    ]
+  },
+  {
+    "category": "Acuerdo de tuición compartida",
+    "status": "success",
+    "turns": 5,
+    "ready": true,
+    "tipo_documento": "Acuerdo de Tuición Compartida",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito redactar un acuerdo de tuición compartida con mi ex pareja, Rodrigo Andrés Muñoz Rojas, RUT 18.765.432-1, para nuestro hijo de 7 años, y que quede claro cómo nos repartiremos los tiempos y los gastos.",
+        "assistant": "Entiendo que deseas formalizar un acuerdo de tuición compartida con tu ex pareja, Rodrigo Andrés Muñoz Rojas, para su hijo de 7 años, estableciendo claramente la distribución de tiempos y gastos. Esto"
+      },
+      {
+        "user": "Sí, mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras y RUT 15.432.897-6. Ahora, para continuar con el acuerdo, necesito saber la dirección de tu domicilio actual y la"
+      },
+      {
+        "user": "Claro, mi domicilio actual es Av. O'Higgins 1234, Depto 56, Santiago. La dirección de Rodrigo es Calle Los Almendros 789, Casa 3, comuna de Ñuñoa.",
+        "assistant": "Gracias, María Fernanda. He registrado los domicilios. Para continuar, necesito saber cómo proponen distribuir los tiempos con su hijo (ej. semanal, quincenal) y cómo se repartirán los gastos (aliment"
+      },
+      {
+        "user": "Sí, claro. Pensamos en un régimen semanal: una semana conmigo y una semana con su papá, alternado. Los gastos de educación y salud los pagaríamos mitad y mitad, y yo cubriría la alimentación y el arriendo cuando esté conmigo, él haría lo mismo en su semana.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya tengo la información mínima necesaria para redactar un acuerdo de tuición compartida completo y útil. El documento incluirá el régimen"
+      },
+      {
+        "user": "Sí, correcto. El nombre completo del hijo es Mateo Andrés Soto Rojas y su RUT es 21.345.678-9.",
+        "assistant": "He redactado el acuerdo de tuición compartida con los datos proporcionados. El documento incluye el régimen semanal alternado, la distribución de gastos (50% educación y salud, cada padre cubre alimen"
+      }
+    ]
+  },
+  {
+    "category": "Solicitud de régimen de visitas",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de Régimen de Visitas (Relación Directa y Regular)",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una solicitud de régimen de visitas para mi hijo, porque vivo en Santiago y su papá no me deja verlo con regularidad. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y vivo en Av. O'Higgins 1234, Depto 56, Santiago. El papá se llama Carlos Andrés Muñoz Rojas, RUT 12.345.678-9, y no tenemos un acuerdo formal.",
+        "assistant": "Entiendo tu situación, María Fernanda. Necesitas regularizar las visitas con tu hijo porque el papá no te permite verlo con regularidad. En Chile, el régimen de visitas (o relación directa y regular) "
+      },
+      {
+        "user": "Sí, claro. Mi hijo se llama Benjamín Andrés Muñoz Soto y nació el 15 de marzo de 2018.",
+        "assistant": "Gracias, María Fernanda. Con esos datos ya tengo lo principal. Para completar la solicitud, necesito saber si actualmente hay alguna medida de cuidado personal o pensión de alimentos vigente, o si es "
+      },
+      {
+        "user": "Sí, actualmente tengo una pensión de alimentos vigente de $120.000 mensuales, pero no hay nada sobre visitas. Es la primera vez que solicito algo relacionado con el régimen de visitas en el tribunal. No tengo otros antecedentes judiciales con el papá de Benjamín.",
+        "assistant": "María Fernanda, con los antecedentes que me entregaste, ya puedo redactar la solicitud de régimen de visitas para que puedas ver a Benjamín de forma regular. El documento se presentará ante el Juzgado"
+      }
+    ]
+  },
+  {
+    "category": "Carta de cobranza de deuda",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Carta de cobro extrajudicial de renta de arriendo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito una carta formal para cobrarle una deuda de $450.000 a mi arrendatario, Rodrigo Muñoz López, RUT 18.765.432-1, que me debe desde el 15 de marzo de este año por arriendo de un departamento en Av. OHiggins 1234.",
+        "assistant": "Entiendo tu situación: eres el arrendador de un departamento y tu arrendatario, Rodrigo Muñoz López, te debe $450.000 por el arriendo correspondiente al 15 de marzo de este año. Necesitas una carta fo"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, y la dirección del departamento es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Perfecto, María Fernanda. Tengo claro que eres la arrendadora del departamento en Av. O'Higgins 1234, Depto. 56, Santiago, y que Rodrigo Muñoz López te debe $450.000 por la renta del 15 de marzo de es"
+      },
+      {
+        "user": "Sí, usemos la dirección del departamento arrendado: Av. O'Higgins 1234, Depto. 56, Santiago. Esa es la que tengo registrada para él.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya puedo redactar una carta de cobro formal dirigida a Rodrigo Muñoz López, exigiendo el pago de los $450.000 adeudados por la renta de m"
+      },
+      {
+        "user": "Sí, por favor incluye un plazo de 10 días hábiles para el pago.",
+        "assistant": "Perfecto, María Fernanda. Con todos los antecedentes reunidos, estoy en condiciones de redactar la carta de cobro. A continuación te presento el documento listo para que lo revises y firmes. Recuerda "
+      }
+    ]
+  },
+  {
+    "category": "Acuerdo de pago de deuda",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Acuerdo de pago de deuda",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un acuerdo de pago de deuda porque le presté $1.500.000 a mi hermano, pero lleva tres meses sin pagarme. ¿Qué datos necesita de él y míos para redactarlo?",
+        "assistant": "Entiendo tu situación: le prestaste $1.500.000 a tu hermano y no te ha pagado en tres meses. Lo que corresponde es redactar un acuerdo de pago de deuda, que es un contrato privado donde se reconoce la"
+      },
+      {
+        "user": "Sí, mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6. Vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Perfecto, María Fernanda. Tus datos están claros. Ahora necesito los datos de tu hermano: su nombre completo y RUT."
+      },
+      {
+        "user": "Mi hermano se llama Pablo Andrés Soto Contreras, RUT 18.765.432-1.",
+        "assistant": "Gracias, María Fernanda. Tengo tus datos y los de tu hermano. Para continuar, necesito saber la fecha exacta en que le prestaste los $1.500.000 a Pablo."
+      },
+      {
+        "user": "Fue el 15 de marzo del año pasado, como a mediados de mes.",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya tengo la información mínima necesaria para redactar un acuerdo de pago de deuda completo y útil para tu caso. El documento incluirá el"
+      }
+    ]
+  },
+  {
+    "category": "Solicitud de alzamiento de protesto bancario",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Solicitud de levantamiento de protesto",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar la solicitud para levantar un protesto que me pusieron en el banco por un cheque mío de $450.000 que no alcancé a pagar a tiempo, ya que lo pagué todo el 10 de marzo de este año.",
+        "assistant": "Entiendo tu situación: emitiste un cheque por $450.000 que no se pagó a tiempo y fue protestado, pero luego lo pagaste completo el 10 de marzo de este año. Ahora necesitas solicitar al banco que levan"
+      },
+      {
+        "user": "Claro, el banco es BancoEstado y el número del cheque es el 00456789.",
+        "assistant": "Perfecto, ya tengo el banco (BancoEstado) y el número de cheque (00456789). Para completar la solicitud, necesito tu nombre completo y RUT, ya que eres el librador del cheque. ¿Podrías proporcionármel"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "Gracias, María Fernanda. Con tu nombre, RUT, el banco y el número de cheque, ya tengo los datos esenciales. Para redactar la solicitud completa, solo necesito confirmar tu domicilio (calle, número, co"
+      },
+      {
+        "user": "Sí, claro. Mi domicilio es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "He redactado la solicitud para levantar el protesto del cheque N° 00456789, emitido por ti, María Fernanda Soto Contreras, RUT 15.432.897-6, con domicilio en Av. O'Higgins 1234, Depto 56, Santiago. El"
+      }
+    ]
+  },
+  {
+    "category": "Carta de prescripción de deuda general",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Carta de prescripción de deuda",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes una carta de prescripción de deuda general porque tengo una deuda de $2.500.000 con una empresa de retail desde el año 2017, y ya pasaron más de 5 años sin que me cobraran ni yo pagara. Mis datos son María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo tu situación, María Fernanda. Tienes una deuda de $2.500.000 con una empresa de retail desde 2017, y han pasado más de 5 años sin que te cobraran ni tú pagaras. En Chile, las deudas prescribe"
+      },
+      {
+        "user": "Ah, sí, la empresa es Ripley.",
+        "assistant": "He redactado la carta de prescripción de deuda para que la presentes ante Ripley. El documento está completo y listo para usar. Puedes imprimirlo, firmarlo y enviarlo por carta certificada o ingresarl"
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por acoso laboral (Ley Karin)",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Denuncia por acoso laboral (Ley Karin)",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una denuncia por acoso laboral según la Ley Karin. Trabajo en \"Distribuidora del Sur SpA\", RUT 76.123.456-7, y mi jefe directo, Carlos Muñoz Rivas, RUT 9.876.543-2, me ha hecho comentarios humillantes y amenazas de despido desde octubre de 2024.",
+        "assistant": "Entiendo tu situación. La Ley Karin (Ley 21.643) modificó el Código del Trabajo para fortalecer la prevención, investigación y sanción del acoso laboral. Corresponde presentar una denuncia ante la Ins"
+      },
+      {
+        "user": "Claro, mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. Trabajo en la comuna de Santiago, en Av. O'Higgins 1234, Depto 56. Un ejemplo concreto: el 10 de marzo mi jefe me dijo \"eres una inútil, mejor renuncia antes de que te echen\", y el 15 de marzo me gritó \"si no haces lo que te digo, te voy a hacer la vida imposible\".",
+        "assistant": "Gracias, María Fernanda. Con estos antecedentes ya puedo redactar la denuncia. Solo necesito confirmar un último dato: ¿tienes algún testigo de estos hechos o alguna prueba (correo, audio, mensaje) qu"
+      },
+      {
+        "user": "Sí, tengo a un compañero de trabajo, Rodrigo Muñoz Rojas, RUT 18.765.432-1, que vio varias veces cómo mi jefe me gritaba en la oficina. También guardo algunos correos electrónicos donde me asignaban tareas imposibles y un audio de una reunión donde me humillaron frente a todos.",
+        "assistant": "He reunido todos los antecedentes necesarios para redactar tu denuncia por acoso laboral. El documento incluirá tus datos personales, los de tu empleador (Distribuidora del Sur SpA), los de tu jefe (C"
+      }
+    ]
+  },
+  {
+    "category": "Pagaré",
+    "status": "success",
+    "turns": 2,
+    "ready": true,
+    "tipo_documento": "Pagaré",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me redactes un pagaré por $2.500.000 que le presté a mi primo, Rodrigo Andrés Muñoz Rojas, RUT 18.765.432-1, con domicilio en calle Los Olivos 567, Ñuñoa. La fecha de vencimiento sería el 30 de junio de 2025.",
+        "assistant": "Entiendo que necesitas un pagaré por $2.500.000 que le prestaste a tu primo Rodrigo Andrés Muñoz Rojas, con vencimiento el 30 de junio de 2025. Este documento es un título ejecutivo, lo que significa "
+      },
+      {
+        "user": "Sí, claro. Mi nombre completo es María Fernanda Soto Contreras y mi RUT es 15.432.897-6.",
+        "assistant": "He redactado el pagaré con los antecedentes proporcionados. Revisa que todos los datos sean correctos antes de firmarlo. Recuerda que el pagaré debe ser firmado por el deudor (tu primo) para que sea v"
+      }
+    ]
+  },
+  {
+    "category": "Contrato de mutuo (préstamo de dinero)",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Contrato de Mutuo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito un contrato de mutuo, porque le presté $3.500.000 a mi hermano, Rodrigo Andrés Soto Contreras, RUT 16.789.432-5, y quiero dejar todo por escrito con las cuotas y los intereses.",
+        "assistant": "Entiendo perfectamente. Necesitas un contrato de mutuo (préstamo de dinero) para formalizar el préstamo de $3.500.000 que le hiciste a tu hermano Rodrigo Andrés Soto Contreras, con cuotas e intereses."
+      },
+      {
+        "user": "Claro, mi nombre completo es María Fernanda Soto Contreras, RUT 15.432.897-6. El plazo total sería 12 meses con 12 cuotas mensuales.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tus datos como prestamista y el plazo de 12 cuotas mensuales. Ahora necesito un dato clave: ¿cuál es la tasa de interés que acordaron? Por ejemplo, puede ser un inte"
+      },
+      {
+        "user": "Sí, acordamos un interés fijo mensual del 1,5% sobre el capital prestado de $3.000.000.",
+        "assistant": "Gracias, María Fernanda. He notado una discrepancia en el monto del préstamo: inicialmente indicaste $3.500.000, pero luego señalaste que el interés del 1,5% mensual se aplica sobre $3.000.000. Para r"
+      },
+      {
+        "user": "Ah, disculpa, fue un error mío. El capital prestado son $3.500.000, el interés del 1,5% mensual es sobre ese monto completo. Confirmo.",
+        "assistant": "Excelente, María Fernanda. Con los datos confirmados, ya tengo todo lo necesario para redactar el contrato de mutuo. A continuación, te presento el resumen de los antecedentes recopilados. Si todo est"
+      }
+    ]
+  },
+  {
+    "category": "Solicitud de posesión efectiva (herencia)",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Solicitud de posesión efectiva intestada",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una solicitud de posesión efectiva para la herencia de mi papá, que falleció el 15 de marzo del año pasado. Él se llamaba Luis Alberto Soto Muñoz, RUT 6.123.456-7, y vivía en la misma dirección que yo. Mi mamá falleció hace años, así que los únicos herederos somos mi hermano y yo.",
+        "assistant": "Entiendo que necesitas solicitar la posesión efectiva de la herencia de tu papá, Luis Alberto Soto Muñoz, fallecido el 15 de marzo de 2024. Como no hay cónyuge sobreviviente (tu mamá falleció antes) y"
+      },
+      {
+        "user": "Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. Mi papá no dejó testamento, así que es intestada. Mi hermano se llama Pablo Andrés Soto Contreras, RUT 18.765.432-1, y la dirección donde vivía mi papá es Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado los datos de tu papá (Luis Alberto Soto Muñoz, RUT 6.123.456-7, fallecido el 15 de marzo de 2024, sin testamento), los tuyos (María Fernanda Soto Contreras, RUT "
+      },
+      {
+        "user": "Sí, mi papá dejó una casa en la comuna de Ñuñoa, Santiago, y un departamento en Viña del Mar. También tenía una cuenta en el Banco de Chile y un auto.",
+        "assistant": "Gracias, María Fernanda. He registrado los datos de tu papá (Luis Alberto Soto Muñoz, RUT 6.123.456-7, fallecido el 15 de marzo de 2024, sin testamento), los tuyos (María Fernanda Soto Contreras, RUT "
+      },
+      {
+        "user": "La casa en Ñuñoa está en Pasaje Los Arrayanes 456, Ñuñoa, Santiago.",
+        "assistant": "Excelente, María Fernanda. Ya tengo todos los datos necesarios para redactar la solicitud de posesión efectiva intestada de la herencia de tu papá Luis Alberto Soto Muñoz. El documento se presentará a"
+      }
+    ]
+  },
+  {
+    "category": "Denuncia por estafa",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Denuncia por estafa",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito hacer una denuncia por estafa. Me vendieron un producto por internet y nunca llegó, perdí $350.000.",
+        "assistant": "Entiendo tu situación. Compraste un producto por internet, pagaste $350.000 y nunca lo recibiste. Eso corresponde a una posible estafa, tipificada en el artículo 468 del Código Penal chileno. Para red"
+      },
+      {
+        "user": "Claro, mi nombre completo es María Fernanda Soto Contreras, RUT 15.432.897-6. La persona que me vendió el producto se llama \"Carlos Muñoz\", no tengo su RUT, pero la página web era \"ofertasrapidas.cl\" y me contactó por un número de celular.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6. También tengo los datos del vendedor: Carlos Muñoz, página web ofertasrapidas.cl y un número d"
+      },
+      {
+        "user": "Mi domicilio es Avenida O'Higgins 1234, Departamento 56, Santiago. El número de celular de Carlos Muñoz es el +56 9 8765 4321.",
+        "assistant": "María Fernanda, he registrado tus datos y los del vendedor. Para completar la denuncia, necesito saber: 1) ¿Cuándo realizaste la compra y cuándo debía llegar el producto? (fecha aproximada). 2) ¿Cómo "
+      },
+      {
+        "user": "Claro, compré el producto el 5 de enero y debía llegar el 15 de enero de este año. Pagué mediante transferencia electrónica desde mi cuenta del Banco Estado por $350.000.",
+        "assistant": "María Fernanda, con los antecedentes que me entregaste ya puedo redactar tu denuncia por estafa. El documento quedará dirigido al Ministerio Público de Santiago, detallando la compra, el pago de $350."
+      }
+    ]
+  },
+  {
+    "category": "Demanda por accidente de tránsito",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Demanda por indemnización de perjuicios por accidente de tránsito",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito presentar una demanda por un accidente de tránsito que tuve el 15 de marzo del año pasado en la intersección de Av. Providencia con Pedro de Valdivia. El otro conductor se pasó un semáforo en rojo y chocó mi auto, dejándome con lesiones y daños materiales. ¿Qué documentos o datos míos necesitas para empezar?",
+        "assistant": "Entiendo tu situación: sufriste un accidente de tránsito por culpa de otro conductor que se pasó un semáforo en rojo, lo que te causó lesiones y daños materiales. Corresponde presentar una demanda civ"
+      },
+      {
+        "user": "Sí, claro. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. Del otro conductor solo sé que se llama Carlos Muñoz, pero no tengo su RUT.",
+        "assistant": "Gracias, María Fernanda. He registrado tus datos: nombre María Fernanda Soto Contreras, RUT 15.432.897-6, dirección Av. O'Higgins 1234, Depto. 56, Santiago. En cuanto al otro conductor, entiendo que s"
+      },
+      {
+        "user": "Sí, tengo la patente de su auto: es un Hyundai blanco, patente ABC-123. No tengo su dirección exacta, pero sé que trabaja en una ferretería en la comuna de Maipú, cerca de la Plaza de Armas.",
+        "assistant": "Excelente, María Fernanda. Con la patente ABC-123 podemos obtener los datos del otro conductor a través del Registro Civil. Para redactar la demanda necesito saber si tienes el parte policial del acci"
+      },
+      {
+        "user": "Sí, tengo el parte policial del accidente y también el informe médico del SAPU donde me atendieron después del choque. El parte es del 15 de marzo y el informe médico indica latigazo cervical y contusiones.",
+        "assistant": "Excelente, María Fernanda. Con los antecedentes que me has proporcionado, ya cuento con la información mínima necesaria para redactar una demanda sólida. Tengo tus datos personales, los del otro condu"
+      }
+    ]
+  },
+  {
+    "category": "Carta de despido",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de reclamo por despido sin aviso previo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me redactes una carta de despido porque mi empleador me despidió sin aviso previo. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. La empresa se llama Comercial Los Andes Ltda. y mi jefe directo es Ricardo Muñoz.",
+        "assistant": "Entiendo tu situación, María Fernanda. Fuiste despedida sin aviso previo, lo que en Chile corresponde a un despido verbal o de hecho, sin cumplir con las formalidades legales del artículo 162 del Códi"
+      },
+      {
+        "user": "Fue el 15 de marzo de este año, un viernes. Me llamaron por teléfono y me dijeron que no volviera más.",
+        "assistant": "Gracias, María Fernanda. Ya tengo tu nombre completo, RUT, dirección, nombre de la empresa, nombre de tu jefe y la fecha de despido (15 de marzo de 2024). Para redactar la carta de reclamo formal exig"
+      },
+      {
+        "user": "Claro, entré el 5 de marzo de 2019 y mi última remuneración mensual era de $950.000 líquidos, incluyendo el sueldo base y las comisiones regulares.",
+        "assistant": "He redactado la carta de reclamo formal. Puedes descargarla, imprimirla y enviarla por carta certificada o entregarla en la oficina de la empresa. Recuerda guardar una copia firmada como constancia."
+      }
+    ]
+  },
+  {
+    "category": "Constitución de Sociedad SpA",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Escritura de Constitución de Sociedad por Acciones (SpA)",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito constituir una Sociedad por Acciones (SpA) para un emprendimiento de venta de artículos de decoración. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. OHiggins 1234, Depto 56, Santiago. ¿Qué documentos o datos míos necesitas para empezar el trámite?",
+        "assistant": "Entiendo que deseas formalizar tu emprendimiento de decoración constituyendo una SpA. Es una excelente opción por su flexibilidad y porque limita tu responsabilidad al capital aportado. Para redactar "
+      },
+      {
+        "user": "Sí, correcto, esos son mis datos. El nombre que tengo en mente es \"Decoraciones María Fernanda SpA\". El capital social sería de $2.000.000 en dinero efectivo, yo seré la única administradora y la duración será por plazo indefinido.",
+        "assistant": "Perfecto, con esos datos ya tenemos lo esencial para redactar la escritura. Solo necesito un último dato: ¿cuál es tu estado civil? Esto es necesario para la escritura, ya que debe indicarse tu régime"
+      },
+      {
+        "user": "Soy soltera, así que sin régimen patrimonial que declarar.",
+        "assistant": "Excelente, María Fernanda. Con todos los antecedentes reunidos, ya puedo redactar la escritura de constitución de tu SpA. A continuación, te confirmo los datos que usaré:\n\n- Nombre o razón social: Dec"
+      }
+    ]
+  },
+  {
+    "category": "Demanda por daño moral",
+    "status": "success",
+    "turns": 6,
+    "ready": true,
+    "tipo_documento": "Demanda por indemnización de perjuicios por responsabilidad civil (daño moral y daño emergente)",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a redactar una demanda por daño moral porque una clínica privada me realizó mal un procedimiento estético en enero de este año y quedé con cicatrices permanentes en la cara. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O’Higgins 1234, Depto 56, Santiago. ¿Qué otros datos necesitas que te dé para empezar?",
+        "assistant": "Entiendo tu situación, María Fernanda. Has sufrido un daño estético permanente por un procedimiento mal realizado en una clínica privada, lo que corresponde a una responsabilidad civil extracontractua"
+      },
+      {
+        "user": "La clínica se llama \"Clínica Los Andes S.A.\", queda en Av. Providencia 2345, Santiago.",
+        "assistant": "Gracias, María Fernanda. He registrado los datos de la clínica: Clínica Los Andes S.A., ubicada en Av. Providencia 2345, Santiago. Ahora necesito un dato clave para individualizar el procedimiento: ¿q"
+      },
+      {
+        "user": "Fue un procedimiento de relleno facial con ácido hialurónico en los labios y pómulos, realizado por el Dr. Ricardo Muñoz López, el 15 de marzo de 2025.",
+        "assistant": "Gracias, María Fernanda. He registrado los datos del procedimiento y del médico. Para continuar, necesito saber si tienes algún informe médico, certificado o registro de atención de urgencia posterior"
+      },
+      {
+        "user": "Sí, tengo un informe de atención de urgencia del 15 de marzo de 2024 del Hospital Clínico de la Universidad de Chile, y también consulté a un dermatólogo particular, el Dr. Pablo Muñoz, quien me dio un certificado describiendo las cicatrices queloides.",
+        "assistant": "María Fernanda, con los antecedentes que me has entregado ya puedo redactar una demanda sólida. Tengo tu identificación, los datos de la clínica, el procedimiento, el médico tratante, las fechas, los "
+      },
+      {
+        "user": "Sí, pagué $1.200.000 por el procedimiento en la Clínica Santa María.",
+        "assistant": "María Fernanda, con los antecedentes entregados ya puedo redactar la demanda. Solo necesito confirmar si la clínica es 'Clínica Los Andes S.A.' (como indicaste inicialmente) o 'Clínica Santa María' (c"
+      },
+      {
+        "user": "Ah, disculpa, era la Clínica Los Andes S.A., la otra me confundí. Sí, esa es la correcta.",
+        "assistant": "Estimada María Fernanda, he preparado la demanda en base a los antecedentes que me entregaste. El documento está completo y listo para que lo revises con tu abogado o lo presentes directamente. Incluy"
+      }
+    ]
+  },
+  {
+    "category": "Recurso de amparo",
+    "status": "success",
+    "turns": 4,
+    "ready": true,
+    "tipo_documento": "Recurso de Amparo",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito presentar un recurso de amparo porque fui detenido sin una orden judicial clara el 15 de marzo en mi domicilio, en Av. O'Higgins 1234, Depto 56, Santiago. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6. ¿Qué documentos o datos específicos necesitas que te entregue para empezar?",
+        "assistant": "Entiendo tu situación: fuiste detenida en tu domicilio el 15 de marzo de 2024 sin una orden judicial clara, lo que podría vulnerar tu libertad personal y la inviolabilidad del hogar (Art. 19 N°7 y N°5"
+      },
+      {
+        "user": "Sí, me detuvieron Carabineros. El funcionario a cargo era el sargento Andrés Muñoz, de la 4ª Comisaría de Santiago.",
+        "assistant": "Gracias, María Fernanda. Con esos datos ya tenemos lo principal. Ahora necesito un dato clave: ¿te notificaron formalmente el motivo de la detención en el momento o te lo dijeron después? Por ejemplo,"
+      },
+      {
+        "user": "Mire, en el momento de la detención solo me dijeron que era por un \"control preventivo\", pero no me explicaron nada claro. Recién al llegar a la comisaría me informaron que había una orden de detención pendiente por una deuda de pensión de alimentos que yo no sabía que existía.",
+        "assistant": "Gracias, María Fernanda. Con los antecedentes que me has entregado, ya tengo lo suficiente para redactar un recurso de amparo completo y útil. El documento incluirá tu detención ilegal en tu domicilio"
+      },
+      {
+        "user": "Sí, correcto. Me detuvieron a las 8:30 de la mañana del 15 de marzo y me liberaron a las 2 de la tarde del mismo día.",
+        "assistant": "He recopilado todos los antecedentes necesarios para redactar tu recurso de amparo. El documento está listo para ser generado."
+      }
+    ]
+  },
+  {
+    "category": "Solicitud de mediación familiar",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Solicitud de Mediación Familiar",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito que me ayudes a llenar una solicitud de mediación familiar para pedir la regulación de visitas con mi hijo. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago. El papá de mi hijo se llama Carlos Andrés Muñoz Rojas, RUT 14.567.890-3.",
+        "assistant": "Entiendo que necesitas solicitar una mediación familiar para regular las visitas con tu hijo. Esto corresponde al procedimiento de mediación previa obligatoria en materia de relación directa y regular"
+      },
+      {
+        "user": "Mi hijo se llama Mateo Andrés Muñoz Soto, RUT 20.123.456-7, y nació el 15 de marzo de 2018. El domicilio de Carlos es Av. Libertador Bernardo O’Higgins 5678, Depto 102, Santiago.",
+        "assistant": "Gracias, María Fernanda. Ya tengo los datos principales. Solo necesito saber si actualmente existe algún régimen de visitas vigente (judicial o extrajudicial) o si no hay nada establecido."
+      },
+      {
+        "user": "No, no hay nada establecido. No tenemos ningún régimen de visitas vigente, ni judicial ni extrajudicial.",
+        "assistant": "Excelente, María Fernanda. Con los antecedentes que me has entregado, ya puedo redactar la solicitud de mediación familiar para regular las visitas de tu hijo Mateo. El documento irá dirigido al Centr"
+      }
+    ]
+  },
+  {
+    "category": "Testamento simple",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Testamento",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito hacer un testamento simple para dejarle mi departamento en Av. OHiggins 1234, Depto 56, Santiago, a mi hermano, porque no tengo hijos ni cónyuge. Mi RUT es 15.432.897-6 y mi nombre es María Fernanda Soto Contreras.",
+        "assistant": "Entiendo tu situación, María Fernanda. Quieres dejar tu departamento a tu hermano mediante un testamento, ya que no tienes hijos ni cónyuge. Esto es completamente válido en Chile. El testamento es un "
+      },
+      {
+        "user": "Sí, mi hermano se llama Felipe Andrés Soto Contreras, RUT 18.765.432-1.",
+        "assistant": "Gracias, María Fernanda. Para redactar el testamento necesito el número de inscripción y año de tu departamento en el Conservador de Bienes Raíces. ¿Tienes ese dato?"
+      },
+      {
+        "user": "Ah, no tengo ese número a mano ahora. ¿Puedo revisar el papel del Conservador y llamarlo después o se lo mando por correo?",
+        "assistant": "Excelente, María Fernanda. Con los datos que me has entregado, ya tengo la información necesaria para redactar tu testamento simple. El documento dejará tu departamento en Av. O'Higgins 1234, Depto. 5"
+      }
+    ]
+  },
+  {
+    "category": "Carta de recomendación laboral",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Carta de recomendación laboral",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Hola, necesito que me redactes una carta de recomendación laboral dirigida a quien corresponda, certificando que trabajé como analista administrativo en la empresa \"Servicios Integrales Ltda.\" desde el 2 de marzo de 2020 hasta el 30 de noviembre de 2023, con buen desempeño y responsabilidad.",
+        "assistant": "Entiendo que necesitas una carta de recomendación laboral que acredite tu experiencia como analista administrativo en Servicios Integrales Ltda., con fechas precisas y una valoración positiva de tu de"
+      },
+      {
+        "user": "Sí, mi nombre completo es María Fernanda Soto Contreras, RUT 15.432.897-6. La carta debe firmarla el jefe directo, se llama Roberto Andrés Muñoz Lagos, gerente de operaciones.",
+        "assistant": "Perfecto, María Fernanda. Ya tengo tu nombre completo y RUT, y los datos del firmante: Roberto Andrés Muñoz Lagos, gerente de operaciones de Servicios Integrales Ltda. Solo me falta un dato importante"
+      },
+      {
+        "user": "Ah, sí, claro. La dirección de Servicios Integrales Ltda. es Avenida Libertador Bernardo O'Higgins 4580, piso 12, comuna de Santiago Centro.",
+        "assistant": "Excelente, María Fernanda. Con estos datos ya puedo redactar la carta de recomendación laboral. A continuación te presento el documento completo, listo para que lo firmes con tu jefe directo o lo impr"
+      }
+    ]
+  },
+  {
+    "category": "Carta de confidencialidad (NDA)",
+    "status": "success",
+    "turns": 3,
+    "ready": true,
+    "tipo_documento": "Acuerdo de Confidencialidad (NDA) Unidireccional",
+    "error": null,
+    "conversation": [
+      {
+        "user": "Necesito una carta de confidencialidad (NDA) para proteger la información de mi nuevo emprendimiento de repostería artesanal cuando hable con posibles inversionistas. Mi nombre es María Fernanda Soto Contreras, RUT 15.432.897-6, vivo en Av. O'Higgins 1234, Depto 56, Santiago.",
+        "assistant": "Entiendo que necesitas un Acuerdo de Confidencialidad (NDA) para proteger la información de tu emprendimiento de repostería artesanal al hablar con posibles inversionistas. Esto es clave para resguard"
+      },
+      {
+        "user": "Mi emprendimiento se llama \"Repostería Doña María SpA\" y mi RUT es 15.432.897-6, pero es una actividad personal aún sin empresa formal.",
+        "assistant": "Gracias, María Fernanda. Entiendo que operas como persona natural bajo tu RUT 15.432.897-6. Para redactar el NDA, necesito saber el nombre completo y RUT del inversionista (si es persona natural) o la"
+      },
+      {
+        "user": "Sí, el inversionista es una persona natural: se llama Andrés Felipe Muñoz Rojas, RUT 18.764.321-0.",
+        "assistant": "He preparado el NDA con los datos proporcionados. El documento está listo para que lo firmes tú y el inversionista. Recuerda que es recomendable que ambas partes firmen dos copias (una para cada uno) "
+      }
+    ]
+  }
+]

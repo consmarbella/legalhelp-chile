@@ -1,0 +1,45 @@
+{
+  "name": "legalbot-chile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack -p 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "mine:pjud": "tsx tools/pjudMiner.ts",
+    "mine:bcn": "tsx tools/bcnScraper.ts",
+    "test:matrix": "tsx lib/testHarness.ts",
+    "test:mock-ojv": "MOCK_PJUD=true tsx -e \"const { executeMockPJUD } = require('./lib/playwrightExecutor'); executeMockPJUD(Buffer.from('test'), 'test-case').then(console.log).catch(console.error);\"",
+    "test:bypass": "tsx -e \"fetch('http://localhost:3002/api/payment/bypass', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan: 'single', caseData: { test: true }, docId: 'prescripcion-multa-transito', couponCode: '4321' }) }).then(r => r.json()).then(console.log).catch(console.error);\""
+  },
+  "dependencies": {
+    "@langchain/anthropic": "^1.5.0",
+    "@langchain/core": "^1.2.0",
+    "@langchain/langgraph": "^1.4.4",
+    "@langchain/openai": "^1.5.3",
+    "@supabase/supabase-js": "^2.105.3",
+    "docx": "^9.7.1",
+    "jspdf": "^4.2.1",
+    "langchain": "^1.5.2",
+    "mercadopago": "^2.12.0",
+    "next": "16.2.5",
+    "pg": "^8.21.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.5",
+    "playwright": "^1.61.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.22.4",
+    "typescript": "^5"
+  }
+}

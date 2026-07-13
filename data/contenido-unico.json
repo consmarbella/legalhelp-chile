@@ -1,0 +1,410 @@
+{
+  "alzamiento-de-embargo-sobre-vehiculo": {
+    "faqs": [
+      {
+        "q": "¿Qué es alzamiento de embargo sobre vehículo en Chile?",
+        "a": "Es el procedimiento judicial para levantar el embargo que pesa sobre un vehículo una vez pagada la deuda o por haberse extinguido la obligación que lo motivó."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta alzamiento de embargo sobre vehículo?",
+        "a": "Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar alzamiento de embargo sobre vehículo?",
+        "a": "Una vez pagada la deuda o fenecido el embargo, se puede solicitar de inmediato."
+      },
+      {
+        "q": "¿Qué documentación necesito para alzamiento de embargo sobre vehículo?",
+        "a": "Necesitas cédula de identidad vigente, contratos o títulos ejecutivos, comprobantes de pago o mora, escrituras públicas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de alzamiento de embargo sobre vehículo ante el Juzgado de Letras en lo Civil competente de tu domicilio. Plazo: una vez pagada la deuda o fenecido el embargo, se puede solicitar de inmediato..",
+    "ciudad": null,
+    "categoria": "Alzamiento de embargo sobre vehículo",
+    "noindex": false
+  },
+  "prescripcion-de-deuda-tag": {
+    "faqs": [
+      {
+        "q": "¿Qué es prescripción de deuda tag en Chile?",
+        "a": "La prescripción extingue la obligación de pago cuando ha transcurrido un plazo sin que se haya iniciado un cobro judicial. Para deuda civil con autopistas rige la acción ordinaria de 5 años (Art. 2515 CC). Para multas por infracción de tránsito asociadas al TAG, el plazo es de 3 años ante el Juzgado de Policía Local (Ley 18.287)."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta prescripción de deuda tag?",
+        "a": "Se presenta ante el Juzgado de Policía Local de la comuna correspondiente."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar prescripción de deuda tag?",
+        "a": "Las multas TAG prescriben a los 3 años desde su publicación en el Registro de Multas de Tránsito No Pagadas (Art. 24 Ley 18.287)."
+      },
+      {
+        "q": "¿Qué documentación necesito para prescripción de deuda tag?",
+        "a": "Necesitas cédula de identidad vigente, licencia de conducir, padrón del vehículo, parte de infracción, certificados de anotaciones del Registro Civil. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "La prescripción de deuda TAG permite extinguir la obligación de pago cuando han transcurrido los plazos legales sin que el acreedor haya ejercido acción judicial. Se presenta ante el Juzgado de Policía Local de la comuna correspondiente. Las multas TAG asociadas a infracciones de tránsito prescriben en 3 años desde su publicación en el Registro de Multas (Art. 24 Ley 18.287).",
+    "ciudad": null,
+    "categoria": "Prescripción de deuda TAG",
+    "noindex": false
+  },
+  "prescripcion-de-deuda-bancaria": {
+    "faqs": [
+      {
+        "q": "¿Qué es prescripción de deuda bancaria en Chile?",
+        "a": "La acción ejecutiva para cobrar una deuda bancaria prescribe a los 3 años (Art. 2515 CC) y la acción ordinaria a los 5 años desde que la deuda se hizo exigible. Si el banco no ha demandado dentro de esos plazos, la deuda está prescrita."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta prescripción de deuda bancaria?",
+        "a": "Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar prescripción de deuda bancaria?",
+        "a": "La acción ejecutiva prescribe a los 3 años; la acción ordinaria a los 5 años desde que la deuda se hizo exigible (Art. 2515 CC)."
+      },
+      {
+        "q": "¿Qué documentación necesito para prescripción de deuda bancaria?",
+        "a": "Necesitas cédula de identidad vigente, contratos o títulos ejecutivos, comprobantes de pago o mora, escrituras públicas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "La prescripción de deuda bancaria extingue la obligación de pago cuando el banco no ha ejercido acciones judiciales dentro del plazo legal. La acción ejecutiva prescribe en 3 años y la acción ordinaria en 5 años desde que la deuda se hizo exigible (Art. 2515 CC). Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio.",
+    "ciudad": null,
+    "categoria": "Prescripción de deuda bancaria",
+    "noindex": false
+  },
+  "prescripcion-de-multas-de-transito": {
+    "faqs": [
+      {
+        "q": "¿Qué es prescripción de multas de tránsito en Chile?",
+        "a": "Las multas de tránsito prescriben a los 3 años desde la fecha de la infracción si no ha habido notificación judicial. La prescripción debe solicitarse expresamente ante el Juzgado de Policía Local."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta prescripción de multas de tránsito?",
+        "a": "Se presenta ante el Juzgado de Policía Local de la comuna correspondiente."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar prescripción de multas de tránsito?",
+        "a": "3 años desde la fecha de la infracción sin notificación judicial (Ley 18.287)."
+      },
+      {
+        "q": "¿Qué documentación necesito para prescripción de multas de tránsito?",
+        "a": "Necesitas cédula de identidad vigente, licencia de conducir, padrón del vehículo, parte de infracción, certificados de anotaciones del Registro Civil. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Las multas de tránsito prescriben a los 3 años desde la fecha de la infracción si no ha habido notificación judicial. La prescripción debe solicitarse expresamente ante el Juzgado de Policía Local de la comuna correspondiente.",
+    "ciudad": null,
+    "categoria": "Prescripción de multas de tránsito",
+    "noindex": false
+  },
+  "limpieza-de-hoja-de-vida-del-conductor": {
+    "faqs": [
+      {
+        "q": "¿Qué es limpieza de hoja de vida del conductor en Chile?",
+        "a": "Las anotaciones por infracciones graves se eliminan después de 2 años, y las gravísimas después de 5 años desde la última anotación, siempre que no se hayan cometido nuevas infracciones (Ley 18.290)."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta limpieza de hoja de vida del conductor?",
+        "a": "Se presenta ante el Juzgado de Policía Local de la comuna correspondiente."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar limpieza de hoja de vida del conductor?",
+        "a": "2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación."
+      },
+      {
+        "q": "¿Qué documentación necesito para limpieza de hoja de vida del conductor?",
+        "a": "Necesitas cédula de identidad vigente, licencia de conducir, padrón del vehículo, parte de infracción, certificados de anotaciones del Registro Civil. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de limpieza de hoja de vida del conductor ante el Juzgado de Policía Local de la comuna correspondiente. Plazo: 2 años para faltas graves, 5 años para faltas gravísimas desde la última anotación..",
+    "ciudad": null,
+    "categoria": "Limpieza de hoja de vida del conductor",
+    "noindex": false
+  },
+  "denuncia-por-despido-injustificado": {
+    "faqs": [
+      {
+        "q": "¿Qué es denuncia por despido injustificado en Chile?",
+        "a": "Ocurre cuando el empleador termina el contrato de trabajo sin una causa legal válida contemplada en el Art. 159, 160 o 161 del Código del Trabajo."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta denuncia por despido injustificado?",
+        "a": "Se presenta ante la Inspección del Trabajo o el Juzgado de Letras del Trabajo."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar denuncia por despido injustificado?",
+        "a": "60 días hábiles desde el despido."
+      },
+      {
+        "q": "¿Qué documentación necesito para denuncia por despido injustificado?",
+        "a": "Necesitas cédula de identidad vigente, contrato de trabajo, liquidaciones de sueldo, carta de despido, certificados de AFP/Isapre. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu denuncia por despido injustificado ante la Inspección del Trabajo o el Juzgado de Letras del Trabajo. El plazo es de 60 días hábiles desde el despido.. El fundamento legal está en el Código del Trabajo y la Ley 17.322.",
+    "ciudad": null,
+    "categoria": "Denuncia por despido injustificado",
+    "noindex": false
+  },
+  "denuncia-por-no-pago-de-cotizaciones": {
+    "faqs": [
+      {
+        "q": "¿Qué es denuncia por no pago de cotizaciones en Chile?",
+        "a": "Ocurre cuando el empleador descuenta las cotizaciones del sueldo del trabajador pero no las entera en la AFP, Isapre o Fonasa dentro de los plazos legales."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta denuncia por no pago de cotizaciones?",
+        "a": "Se presenta ante la Inspección del Trabajo o el Juzgado de Letras del Trabajo."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar denuncia por no pago de cotizaciones?",
+        "a": "Se puede denunciar en cualquier momento mientras la deuda esté impaga."
+      },
+      {
+        "q": "¿Qué documentación necesito para denuncia por no pago de cotizaciones?",
+        "a": "Necesitas cédula de identidad vigente, contrato de trabajo, liquidaciones de sueldo, carta de despido, certificados de AFP/Isapre. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu denuncia por no pago de cotizaciones ante la Inspección del Trabajo o el Juzgado de Letras del Trabajo. El plazo es de se puede denunciar en cualquier momento mientras la deuda esté impaga.. El fundamento legal está en el Código del Trabajo y la Ley 17.322.",
+    "ciudad": null,
+    "categoria": "Denuncia por no pago de cotizaciones",
+    "noindex": false
+  },
+  "demanda-de-alimentos": {
+    "faqs": [
+      {
+        "q": "¿Qué es demanda de alimentos en Chile?",
+        "a": "Los hijos menores de edad, hijos mayores con necesidades especiales, el cónyuge o conviviente civil que no puede mantenerse por sus propios medios, y ascendientes en situación de necesidad pueden demandar alimentos."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta demanda de alimentos?",
+        "a": "Se presenta ante el Juzgado de Familia competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar demanda de alimentos?",
+        "a": "Se puede demandar en cualquier momento."
+      },
+      {
+        "q": "¿Qué documentación necesito para demanda de alimentos?",
+        "a": "Necesitas cédula de identidad vigente, certificado de nacimiento de los hijos, comprobantes de ingresos, sentencias judiciales previas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de demanda de alimentos ante el Juzgado de Familia competente de tu domicilio. El fundamento legal está en la Ley 14.908 y la Ley 21.389.",
+    "ciudad": null,
+    "categoria": "Demanda de alimentos",
+    "noindex": false
+  },
+  "registro-nacional-de-deudores-de-pensiones-de-alimentos": {
+    "faqs": [
+      {
+        "q": "¿Qué es registro nacional de deudores de pensiones de alimentos en Chile?",
+        "a": "Es un registro público donde se inscribe a quienes mantienen deudas de pensión de alimentos impagas. La inscripción tiene consecuencias legales como la imposibilidad de obtener licencia de conducir o pasaporte."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta registro nacional de deudores de pensiones de alimentos?",
+        "a": "Se presenta ante el Juzgado de Familia competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar registro nacional de deudores de pensiones de alimentos?",
+        "a": "Hasta el pago total de la deuda o acuerdo homologado."
+      },
+      {
+        "q": "¿Qué documentación necesito para registro nacional de deudores de pensiones de alimentos?",
+        "a": "Necesitas cédula de identidad vigente, certificado de nacimiento de los hijos, comprobantes de ingresos, sentencias judiciales previas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de registro nacional de deudores de pensiones de alimentos ante el Juzgado de Familia competente de tu domicilio. El fundamento legal está en la Ley 14.908 y la Ley 21.389.",
+    "ciudad": null,
+    "categoria": "Registro Nacional de Deudores de Pensiones de Alimentos",
+    "noindex": false
+  },
+  "eliminacion-de-antecedentes-penales": {
+    "faqs": [
+      {
+        "q": "¿Qué es eliminación de antecedentes penales en Chile?",
+        "a": "Es el procedimiento ante el Registro Civil para eliminar los antecedentes penales de una persona que ha cumplido su condena y ha transcurrido el plazo legal establecido en el DS 409."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta eliminación de antecedentes penales?",
+        "a": "Se presenta ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar eliminación de antecedentes penales?",
+        "a": "2 a 5 años desde el cumplimiento de la condena, según el tipo de delito."
+      },
+      {
+        "q": "¿Qué documentación necesito para eliminación de antecedentes penales?",
+        "a": "Necesitas cédula de identidad vigente, certificado de antecedentes penales, sentencia condenatoria, certificado de cumplimiento de condena. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Gestioná tu eliminación de antecedentes penales ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. El plazo aplicable es de 2 a 5 años desde el cumplimiento de la condena, según el tipo de delito..",
+    "ciudad": null,
+    "categoria": "Eliminación de antecedentes penales",
+    "noindex": false
+  },
+  "omision-de-antecedentes-por-violencia-intrafamiliar": {
+    "faqs": [
+      {
+        "q": "¿Qué es omisión de antecedentes por violencia intrafamiliar en Chile?",
+        "a": "Es el procedimiento para solicitar la omisión de antecedentes por violencia intrafamiliar en los certificados de antecedentes, cuando se cumplen los requisitos de la Ley 20.066."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta omisión de antecedentes por violencia intrafamiliar?",
+        "a": "Se presenta ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar omisión de antecedentes por violencia intrafamiliar?",
+        "a": "5 años desde la resolución, dependiendo del caso."
+      },
+      {
+        "q": "¿Qué documentación necesito para omisión de antecedentes por violencia intrafamiliar?",
+        "a": "Necesitas cédula de identidad vigente, certificado de antecedentes penales, sentencia condenatoria, certificado de cumplimiento de condena. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Gestioná tu omisión de antecedentes por violencia intrafamiliar ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. El plazo aplicable es de 5 años desde la resolución, dependiendo del caso..",
+    "ciudad": null,
+    "categoria": "Omisión de antecedentes por violencia intrafamiliar",
+    "noindex": false
+  },
+  "certificado-de-antecedentes-para-fines-especiales": {
+    "faqs": [
+      {
+        "q": "¿Qué es certificado de antecedentes para fines especiales en Chile?",
+        "a": "Es un certificado que permite acreditar antecedentes penales para fines especiales (visas, adopciones, etc.), regulado por el DS 64 y la Ley 19.628."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta certificado de antecedentes para fines especiales?",
+        "a": "Se presenta ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar certificado de antecedentes para fines especiales?",
+        "a": "Trámite administrativo; se resuelve en días hábiles."
+      },
+      {
+        "q": "¿Qué documentación necesito para certificado de antecedentes para fines especiales?",
+        "a": "Necesitas cédula de identidad vigente, certificado de antecedentes penales, sentencia condenatoria, certificado de cumplimiento de condena. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Gestioná tu certificado de antecedentes para fines especiales ante el Servicio de Registro Civil e Identificación o Gendarmería de Chile, según corresponda. El plazo aplicable es de trámite administrativo; se resuelve en días hábiles..",
+    "ciudad": null,
+    "categoria": "Certificado de antecedentes para fines especiales",
+    "noindex": false
+  },
+  "carta-reclamo-sernac": {
+    "faqs": [
+      {
+        "q": "¿Qué es carta reclamo sernac en Chile?",
+        "a": "La carta reclamo SERNAC notifica formalmente al proveedor que ha vulnerado tus derechos como consumidor. Sirve como respaldo para escalar el reclamo a mediación o juicio si no hay respuesta."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta carta reclamo sernac?",
+        "a": "Se presenta ante el SERNAC o el Juzgado de Policía Local de tu comuna."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar carta reclamo sernac?",
+        "a": "Dentro de 6 meses desde la compra o desde que se hizo exigible la garantía."
+      },
+      {
+        "q": "¿Qué documentación necesito para carta reclamo sernac?",
+        "a": "Necesitas cédula de identidad vigente, boleta o factura, contrato de compra, comprobante de pago, historial de reclamos. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "La carta reclamo SERNAC notifica formalmente al proveedor que ha vulnerado tus derechos como consumidor. Se presenta ante el SERNAC o el Juzgado de Policía Local de tu comuna. Sirve como respaldo para escalar el reclamo a mediación o juicio.",
+    "ciudad": null,
+    "categoria": "Carta reclamo SERNAC",
+    "noindex": false
+  },
+  "demanda-de-desalojo-por-no-pago": {
+    "faqs": [
+      {
+        "q": "¿Qué es demanda de desalojo por no pago en Chile?",
+        "a": "Puedes demandar cuando el arrendatario tiene uno o más meses de arriendo impago, según la Ley 18.101 sobre arrendamiento de predios urbanos."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta demanda de desalojo por no pago?",
+        "a": "Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar demanda de desalojo por no pago?",
+        "a": "Acción disponible desde el primer mes de impago."
+      },
+      {
+        "q": "¿Qué documentación necesito para demanda de desalojo por no pago?",
+        "a": "Necesitas cédula de identidad vigente, contratos o títulos ejecutivos, comprobantes de pago o mora, escrituras públicas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de demanda de desalojo por no pago ante el Juzgado de Letras en lo Civil competente de tu domicilio. Plazo: acción disponible desde el primer mes de impago..",
+    "ciudad": null,
+    "categoria": "Demanda de desalojo por no pago",
+    "noindex": false
+  },
+  "poder-simple-notarial": {
+    "faqs": [
+      {
+        "q": "¿Qué es poder simple notarial en Chile?",
+        "a": "El poder simple notarial se otorga ante Notario Público y permite a una persona (mandatario) actuar en representación de otra (mandante) para actos específicos señalados en el documento."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta poder simple notarial?",
+        "a": "Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar poder simple notarial?",
+        "a": "Vigencia definida en el documento; se puede otorgar en cualquier momento."
+      },
+      {
+        "q": "¿Qué documentación necesito para poder simple notarial?",
+        "a": "Necesitas cédula de identidad vigente, contratos o títulos ejecutivos, comprobantes de pago o mora, escrituras públicas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de poder simple notarial ante el Juzgado de Letras en lo Civil competente de tu domicilio. Plazo: vigencia definida en el documento; se puede otorgar en cualquier momento..",
+    "ciudad": null,
+    "categoria": "Poder simple notarial",
+    "noindex": false
+  },
+  "recurso-de-proteccion": {
+    "faqs": [
+      {
+        "q": "¿Qué es recurso de protección en Chile?",
+        "a": "Es una acción constitucional consagrada en el Art. 20 de la Constitución que protege los derechos fundamentales ante actos u omisiones ilegales o arbitrarios."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta recurso de protección?",
+        "a": "Se presenta ante la Corte de Apelaciones del domicilio del afectado o del lugar donde ocurrió el acto."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar recurso de protección?",
+        "a": "30 días corridos desde el acto u omisión que vulnera el derecho."
+      },
+      {
+        "q": "¿Qué documentación necesito para recurso de protección?",
+        "a": "Necesitas cédula de identidad vigente, documento que acredite el acto u omisión recurrido, pruebas de la vulneración de derechos. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de recurso de protección ante la Corte de Apelaciones del domicilio del afectado o del lugar donde ocurrió el acto. Plazo: 30 días corridos desde el acto u omisión que vulnera el derecho..",
+    "ciudad": null,
+    "categoria": "Recurso de protección",
+    "noindex": false
+  },
+  "servicios-legales": {
+    "faqs": [
+      {
+        "q": "¿Qué es servicios legales en Chile?",
+        "a": "LegalHelp Chile ofrece generación de documentos legales y escritos judiciales para diversos trámites. Seleccioná el tipo de documento que necesitas y completá el formulario para obtenerlo listo en minutos."
+      },
+      {
+        "q": "¿Ante qué tribunal o institución se presenta servicios legales?",
+        "a": "Se presenta ante el Juzgado de Letras en lo Civil competente de tu domicilio."
+      },
+      {
+        "q": "¿Cuánto tiempo tengo para presentar servicios legales?",
+        "a": "Minutos desde que completas el formulario."
+      },
+      {
+        "q": "¿Qué documentación necesito para servicios legales?",
+        "a": "Necesitas cédula de identidad vigente, contratos o títulos ejecutivos, comprobantes de pago o mora, escrituras públicas. LegalHelp genera el documento base; verifica los requisitos específicos con la institución receptora."
+      }
+    ],
+    "paragraph": "Presenta tu solicitud de servicios legales ante el Juzgado de Letras en lo Civil competente de tu domicilio. Plazo: minutos desde que completas el formulario..",
+    "ciudad": null,
+    "categoria": "Servicios legales",
+    "noindex": false
+  }
+}
