@@ -1,31 +1,24 @@
 'use client';
 
 import { useEffect, useRef, useState, lazy, Suspense } from 'react';
-import { CaseData, Message, DOC_TYPES, EMPTY_CASE } from '@/lib/constants';
-import CourtDocument from '@/components/CourtDocument';
-import DocumentPreview from '@/components/DocumentPreview';
+import { Message, DOC_TYPES } from '@/lib/constants';
 
-// Lazy load: solo se descarga cuando el usuario abre el paywall o descarga
+// Lazy load: solo se descarga cuando el usuario abre el paywall
 const PaywallModal = lazy(() => import('@/components/PaywallModal'));
 const DevBypassModal = lazy(() => import('@/components/DevBypassModal'));
-const LastMileModal = lazy(() => import('@/components/LastMileModal'));
 
 export default function Home() {
-  const [caseData, setCaseData]         = useState<CaseData>(EMPTY_CASE);
   const [messages, setMessages]         = useState<Message[]>([]);
   const [input, setInput]               = useState('');
   const [loading, setLoading]           = useState(false);
   const [selectedDoc, setSelectedDoc]   = useState<string | null>(null);
-  const [generatedDoc, setGeneratedDoc] = useState<string | null>(null);
-  const [previewDoc, setPreviewDoc]     = useState<string | null>(null);
-  const [generating, setGenerating]     = useState(false);
   const [paid, setPaid]                 = useState(false);
   const [showPaywall, setShowPaywall]   = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [showDevBypass, setShowDevBypass] = useState(false);
-  const [showLastMile, setShowLastMile]   = useState(false);
-  const [tramiteLoading, setTramiteLoading] = useState(false);
-  const [receiptUrl, setReceiptUrl]       = useState<string | null>(null);
+
+  // Texto crudo de Gemini para el panel de preview
+  const [ultimoTextoCrudo, setUltimoTextoCrudo] = useState<string>('');
 
   const devClickCount = useRef(0);
   const devClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -35,39 +28,33 @@ export default function Home() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  useEffect(() => {
-    if (caseData.ready && !paid && !previewDoc && !generating) {
-      handleGeneratePreview();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseData.ready]);
-
-  useEffect(() => {
-    if (paid && caseData.ready && !generatedDoc && !generating) {
-      handleGenerate();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paid, caseData.ready]);
-
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
     const text = input.trim();
     setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: text }]);
+    const updatedHistory: Message[] = [...messages, { role: 'user', content: text }];
+    setMessages(updatedHistory);
     setLoading(true);
 
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, caseHistory: messages, currentCaseData: caseData }),
+        body: JSON.stringify({ history: updatedHistory }),
       });
-      if (!res.ok) throw new Error();
-      const data: CaseData = await res.json();
-      setCaseData(prev => ({ ...prev, ...data }));
-      setMessages(prev => [...prev, { role: 'assistant', content: String(data.response_message ?? '') }]);
+      if (!res.ok) throw new Error('Error en la respuesta del servidor');
+      const data = await res.json();
+
+      const botText = data.textoCrudo ?? '';
+      setMessages(prev => [...prev, { role: 'assistant', content: botText }]);
+      setUltimoTextoCrudo(botText);
+
+      // Si Gemini activa el código [COBRAR], abrir pasarela de pago
+      if (data.triggerPayment) {
+        setShowPaywall(true);
+      }
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', content: 'Problema al conectar. Intenta de nuevo.' }]);
     } finally {
@@ -75,52 +62,14 @@ export default function Home() {
     }
   };
 
-  const handleGeneratePreview = async () => {
-    setGenerating(true);
-    try {
-      const res = await fetch('/api/generate-final', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(caseData),
-      });
-      const data = await res.json();
-      if (data.document) setPreviewDoc(data.document);
-    } catch {
-      console.error('Error generando preview');
-    } finally {
-      setGenerating(false);
-    }
-  };
-
-  const handleGenerate = async () => {
-    setGenerating(true);
-    try {
-      const storedOrder = sessionStorage.getItem('lh_paid_order');
-      const orderId = storedOrder ? JSON.parse(storedOrder)?.orderId : undefined;
-
-      const res = await fetch('/api/generate-final', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...caseData, ...(orderId ? { orderId } : {}) }),
-      });
-      const data = await res.json();
-      if (data.document) setGeneratedDoc(data.document);
-    } catch {
-      console.error('Error generando documento');
-    } finally {
-      setGenerating(false);
-    }
-  };
-
+  // Restore session after MercadoPago return
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('paid') === '1') {
-      const stored     = sessionStorage.getItem('lh_paid_order');
-      const storedCase = sessionStorage.getItem('lh_case_data');
+      const stored = sessionStorage.getItem('lh_paid_order');
       const storedMsgs = sessionStorage.getItem('lh_messages');
       try {
-        if (storedCase) setCaseData(JSON.parse(storedCase));
         if (storedMsgs) setMessages(JSON.parse(storedMsgs));
         if (stored) {
           const orderData = JSON.parse(stored);
@@ -138,14 +87,11 @@ export default function Home() {
       const res = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // El precio se resuelve en el servidor a partir de docId (no se envía el monto)
-        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+        body: JSON.stringify({ plan, docId: selectedDoc }),
       });
       const data = await res.json();
-
       if (data.checkoutUrl) {
-        sessionStorage.setItem('lh_case_data', JSON.stringify(caseData));
-        sessionStorage.setItem('lh_messages',  JSON.stringify(messages));
+        sessionStorage.setItem('lh_messages', JSON.stringify(messages));
         sessionStorage.setItem('lh_pending_order', data.orderId);
         window.location.href = data.checkoutUrl;
       } else {
@@ -164,7 +110,7 @@ export default function Home() {
       const res = await fetch('/api/payment/test', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, caseData, docId: selectedDoc }),
+        body: JSON.stringify({ plan, docId: selectedDoc }),
       });
       const data = await res.json();
       if (data.orderId) {
@@ -174,64 +120,6 @@ export default function Home() {
       }
     } catch (err) { console.error('Error en pago de prueba:', err); }
     finally { setPaymentLoading(false); }
-  };
-
-  const handleDownload = async () => {
-    if (!generatedDoc) return;
-    const { downloadLegalPdf } = await import('@/lib/generatePdf');
-    const nombreStr = String(caseData.nombre ?? 'documento');
-    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
-    downloadLegalPdf(generatedDoc, fileName);
-  };
-
-  const handleDownloadWord = async () => {
-    if (!generatedDoc) return;
-    const { downloadLegalDocx } = await import('@/lib/generateDocx');
-    const nombreStr = String(caseData.nombre ?? 'documento');
-    const fileName = `escrito-legal-${nombreStr.replace(/\s+/g, '-').toLowerCase()}`;
-    await downloadLegalDocx(generatedDoc, fileName);
-  };
-
-  const handleLastMileConfirm = async (email: string, pass: string, rut: string, claveUnica: string) => {
-    if (!generatedDoc) return;
-    setTramiteLoading(true);
-    try {
-      const { getLegalPdfBase64 } = await import('@/lib/generatePdf');
-      const pdfBase64 = getLegalPdfBase64(generatedDoc);
-      
-      const res = await fetch('/api/demandas/tramitar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          pass,
-          rut,
-          claveUnica,
-          pdfBase64,
-          routingData: {
-            system_target: 'PJUD', // Hardcode fallback, idealmente viene de caseData.routing_data
-            target_code: 'TEST',
-            portal_url: ''
-          },
-          caseId: caseData.id || 'case-' + Date.now()
-        })
-      });
-      
-      const data = await res.json();
-      if (data.success) {
-        setReceiptUrl(data.receiptUrl);
-        setShowLastMile(false);
-        // Redirigir al dashboard
-        window.location.href = `/dashboard?caseId=${data.caseId || caseData.id}`;
-      } else {
-        alert('Error en tramitación: ' + data.error);
-      }
-    } catch (e) {
-      console.error(e);
-      alert('Fallo de conexión al tramitar.');
-    } finally {
-      setTramiteLoading(false);
-    }
   };
 
   const statusText = paid
@@ -257,7 +145,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white">
-      {/* Estilos de glow inyectados directamente - NO pasan por Tailwind purge */}
+      {/* Estilos de glow */}
       <style dangerouslySetInnerHTML={{ __html: `
         .lg-glow-logo { filter: drop-shadow(0 0 14px rgba(0,212,255,0.8)) drop-shadow(0 0 35px rgba(0,212,255,0.4)); }
         .lg-glow-title { text-shadow: 0 0 25px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.2); }
@@ -286,8 +174,6 @@ export default function Home() {
         }}
       />
 
-      {/* Nav viene del layout global */}
-
       {/* ── HERO ────────────────────────────────────────────────────── */}
       <header className="pt-16 pb-12">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -304,23 +190,6 @@ export default function Home() {
             en tiempo real. Describe tu caso y el núcleo redacta el escrito exacto,
             con la ley correcta y formato listo para presentar.
           </p>
-          <div className="flex flex-wrap justify-center gap-2.5 mt-7">
-            {['✦ Consulta gratuita', '🔒 Datos cifrados', '⚖ Formato judicial chileno'].map(b => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/8 text-white lg-glow-badge">
-                {b}
-              </span>
-            ))}
-          </div>
-
-          {/* CTA único */}
-          <div className="flex justify-center mt-10">
-            <div className="max-w-[300px] rounded-xl border-2 border-[#00d4ff]/60 bg-[#00d4ff]/10 p-5 text-center lg-glow-pill cursor-default">
-              <div className="text-2xl mb-2">📄</div>
-              <div className="text-white font-bold text-sm">Documentos Legales con IA</div>
-              <div className="text-[#9ab0cc] text-xs mt-1">Cartas, poderes, finiquitos, reclamos, recursos y más</div>
-              <div className="text-[#00d4ff] text-xs font-mono mt-2">🔥 50% DSCTO. Lanzamiento — Desde $4.990</div>
-            </div>
-          </div>
         </div>
       </header>
 
@@ -348,11 +217,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── VENTANAS DEL SISTEMA OPERATIVO ──────────────────────────── */}
+      {/* ── VENTANAS DEL SISTEMA (doble panel) ──────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-[560px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-          {/* ASISTENTE JURÍDICO */}
+          {/* ASISTENTE JURÍDICO (CHAT) */}
           <div className="glass-panel rounded-2xl overflow-hidden flex flex-col">
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#60a5fa]/15 bg-[#0d1426]/60">
               <div className="flex items-center gap-2">
@@ -367,7 +236,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" style={{ minHeight: '400px', maxHeight: '500px' }}>
               {messages.length === 0 && (
                 <div className="h-full flex items-center justify-center">
                   <p className="text-[#9ab0cc] text-sm text-center">
@@ -378,7 +247,7 @@ export default function Home() {
               )}
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                  <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
                     m.role === 'user'
                       ? 'bg-[#00d4ff]/15 border border-[#00d4ff]/30 text-white rounded-br-sm'
                       : 'bg-[#0d1426]/80 border border-[#60a5fa]/15 text-white rounded-bl-sm'
@@ -425,148 +294,53 @@ export default function Home() {
                 <span className="window-dot bg-[#28c840]" />
                 <span className="hud-label text-[#9ab0cc] ml-2">vista_previa.doc</span>
               </div>
-              {!!caseData.ready && (
+              {ultimoTextoCrudo && (
                 <span className="hud-label text-cyan flex items-center gap-1.5">
-                  <span className="lg-status-dot" /> Listo
+                  <span className="lg-status-dot" /> Activo
                 </span>
               )}
             </div>
 
-            <div className="flex-1 overflow-y-auto bg-[#f7f8fb] px-7 py-6 text-[#1a2230]">
-              {generating && (
-                <div className="h-full flex flex-col items-center justify-center gap-3">
-                  <div className="flex gap-1.5">
-                    {[0, 150, 300].map(d => (
-                      <span key={d} className="w-2 h-2 rounded-full bg-[#00aacc] animate-bounce" style={{ animationDelay: `${d}ms` }} />
-                    ))}
-                  </div>
-                  <p className="text-[#7a90aa] text-sm">
-                    {paid ? 'Preparando tu PDF…' : 'Redactando tu escrito legal…'}
+            <div className="flex-1 overflow-y-auto bg-[#f7f8fb] px-7 py-6 text-[#1a2230]" style={{ minHeight: '400px', maxHeight: '500px' }}>
+              {ultimoTextoCrudo ? (
+                <div className="prose prose-sm max-w-none prose-headings:text-[#0b1f3a] prose-p:text-[#1a2230] prose-strong:text-[#0b1f3a]">
+                  {ultimoTextoCrudo.split('\n').map((line, i) => {
+                    if (!line.trim()) return <br key={i} />;
+                    // Renderizar encabezados simples
+                    if (line.startsWith('### ')) return <h3 key={i} className="text-base font-bold mt-4 mb-1">{line.slice(4)}</h3>;
+                    if (line.startsWith('## ')) return <h2 key={i} className="text-lg font-bold mt-5 mb-2">{line.slice(3)}</h2>;
+                    if (line.startsWith('# ')) return <h1 key={i} className="text-xl font-bold mt-6 mb-3">{line.slice(2)}</h1>;
+                    if (line.startsWith('- ')) return <li key={i} className="ml-4 text-sm">{line.slice(2)}</li>;
+                    if (line.match(/^\d+\.\s/)) return <li key={i} className="ml-4 text-sm list-decimal">{line.replace(/^\d+\.\s/, '')}</li>;
+                    return <p key={i} className="text-sm leading-relaxed mb-1">{line}</p>;
+                  })}
+                </div>
+              ) : (
+                <div className="h-full flex items-center justify-center">
+                  <p className="text-[#9ab0cc] text-sm text-center">
+                    Aquí aparecerá el borrador<br />
+                    <span className="text-xs text-[#7a90aa]">enviado por el asistente jurídico.</span>
                   </p>
                 </div>
               )}
-
-              {generatedDoc && !generating && (
-                <div>
-                  <CourtDocument text={generatedDoc} />
-                  
-                  {receiptUrl && (
-                    <div className="mt-4 p-4 bg-[#28c840]/10 border border-[#28c840]/30 rounded-xl flex items-center justify-between">
-                      <div>
-                        <h4 className="text-[#28c840] font-bold text-sm">✅ Tramitación Exitosa</h4>
-                        <p className="text-xs text-[#28c840]/80">Tu documento ya fue ingresado al tribunal.</p>
-                      </div>
-                      <a href={receiptUrl} target="_blank" rel="noreferrer" className="text-xs bg-[#28c840] text-black px-3 py-1.5 rounded-lg font-semibold hover:bg-[#22aa36] transition">
-                        Ver Comprobante
-                      </a>
-                    </div>
-                  )}
-
-                  {/* ETAPA 2: Segunda Tarjeta de Opciones (La Última Milla) */}
-                  <div className="mt-8 pt-6 border-t border-[#e8e2d8]">
-                    <h3 className="text-[#0b1f3a] font-bold mb-4 text-center">¿Cómo deseas proceder?</h3>
-                    <div className="flex flex-col gap-4">
-                      {/* CAMINO B: Upsell Automático */}
-                      {!receiptUrl && (
-                        <div className="bg-[#f0f9ff] border-2 border-[#00d4ff] rounded-2xl p-5 shadow-[0_0_20px_rgba(0,212,255,0.2)]">
-                          <h4 className="text-[#0b1f3a] font-bold text-base mb-2">⭐ Presentación Automática (Recomendado)</h4>
-                          <p className="text-sm text-[#4a5568] mb-4 leading-relaxed">
-                            Evita el laberinto de la Oficina Judicial Virtual (OJV) y la necesidad de contratar un abogado. Nuestro sistema ingresará este escrito firmado directamente en el Poder Judicial (PJUD) o Juzgado de Policía Local correspondiente de forma inmediata.
-                          </p>
-                          <button onClick={() => setShowLastMile(true)}
-                            className="w-full bg-[#00d4ff] hover:bg-[#22ddff] text-[#05070f] py-3 rounded-xl text-sm font-bold transition shadow-[0_0_15px_rgba(0,212,255,0.4)]">
-                            🚀 Subir automáticamente al PJUD / Tribunal por +$7.999
-                          </button>
-                        </div>
-                      )}
-
-                      {/* CAMINO A: Descarga Manual */}
-                      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-5">
-                        <h4 className="text-[#4a5568] font-bold text-sm mb-2">Opción Manual (Incluido)</h4>
-                        <p className="text-xs text-[#718096] mb-4">
-                          Descarga el documento y tramítalo por tu cuenta de forma presencial o a través de la OJV usando tu propia firma electrónica.
-                        </p>
-                        <div className="flex gap-3">
-                          <button onClick={handleDownload}
-                            className="flex-1 bg-[#05070f] hover:bg-[#101a30] text-white py-2.5 rounded-xl text-sm font-medium transition text-center">
-                            ↓ PDF
-                          </button>
-                          <button onClick={handleDownloadWord}
-                            className="flex-1 bg-white border border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#f0f4fa] py-2.5 rounded-xl text-sm font-medium transition text-center">
-                            ↓ Word
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {previewDoc && !generatedDoc && !generating && (
-                <div style={{ position: 'relative' }}>
-                  <CourtDocument text={previewDoc} />
-                  <div style={{
-                    position: 'absolute', top: '65%', left: '-28px', right: '-28px', bottom: '-24px',
-                    background: 'linear-gradient(to bottom, transparent 0%, rgba(247,248,251,0.65) 15%, rgba(247,248,251,0.96) 40%)',
-                    backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    padding: '40px 20px 24px',
-                  }}>
-                    <div style={{
-                      background: '#05070f', borderRadius: '14px', padding: '18px 24px', textAlign: 'center',
-                      boxShadow: '0 8px 32px rgba(0,212,255,0.25)', maxWidth: '280px', width: '100%',
-                      border: '1px solid rgba(0,212,255,0.4)',
-                    }}>
-                      <div style={{ fontSize: '22px', marginBottom: '8px' }}>🔒</div>
-                      <p style={{ fontSize: '14px', fontWeight: 700, color: '#fff', margin: '0 0 6px 0' }}>
-                        Documento Redactado
-                      </p>
-                      <p style={{ fontSize: '12px', color: '#a8c0dc', margin: '0 0 16px 0', lineHeight: '1.5' }}>
-                        Tu defensa ha sido redactada. Desbloquea el documento 100% para leerlo completo, revisarlo y proceder con su presentación.
-                      </p>
-                      <button
-                        onClick={() => setShowPaywall(true)}
-                        style={{
-                          background: '#00d4ff', border: 'none', borderRadius: '8px', padding: '12px 20px',
-                          fontSize: '13px', fontWeight: 700, color: '#05070f', cursor: 'pointer', width: '100%',
-                        }}>
-                        ↓ Desbloquear Base (${DOC_TYPES.find(d => d.id === selectedDoc)?.price ?? '7.490'})
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {!previewDoc && !generatedDoc && !generating && <DocumentPreview caseData={caseData} />}
             </div>
           </div>
 
         </div>
-      </section>
 
-      {/* ── GUÍAS POPULARES ─────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 py-10">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="hud-label text-[#60a5fa]/70">Guías legales populares</span>
-          <div className="flex-1 h-px bg-gradient-to-r from-[#60a5fa]/25 to-transparent" />
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {[
-            { href: '/p/prescripcion-deuda-tag', label: 'Prescripción de deuda TAG' },
-            { href: '/p/prescripcion-deuda-bancaria', label: 'Prescripción de deuda bancaria' },
-            { href: '/p/demanda-alimentos', label: 'Demanda de alimentos' },
-            { href: '/p/carta-reclamo-sernac', label: 'Carta reclamo SERNAC' },
-            { href: '/p/denuncia-despido-injustificado', label: 'Denuncia por despido injustificado' },
-            { href: '/p/recurso-proteccion', label: 'Recurso de protección' },
-            { href: '/p/finiquito-laboral', label: 'Finiquito laboral' },
-            { href: '/p/demanda-desalojo', label: 'Demanda de desalojo' },
-            { href: '/p/poder-simple', label: 'Poder simple' },
-          ].map(({ href, label }) => (
-            <a key={href} href={href}
-              className="text-xs text-[#c8ddf0] bg-[#0d1426]/50 hover:bg-[#0d1426] hover:text-cyan px-3 py-1.5 rounded-full border border-[#60a5fa]/15 transition-colors">
-              {label}
-            </a>
-          ))}
+        {/* ── BOTÓN DE PAGO FUERA DEL CHAT ──────────────────────────── */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowPaywall(true)}
+            disabled={paid}
+            className={`${
+              paid
+                ? 'bg-emerald-600 cursor-default'
+                : 'bg-[#00d4ff] hover:bg-[#22ddff] hover:shadow-[0_0_30px_rgba(0,212,255,0.5)]'
+            } text-[#05070f] font-bold py-3.5 px-8 rounded-xl text-base transition shadow-[0_0_15px_rgba(0,212,255,0.3)]`}
+          >
+            {paid ? '✅ Documento Pagado' : '💳 Pagar y Descargar Documento Oficial'}
+          </button>
         </div>
       </section>
 
@@ -583,7 +357,6 @@ export default function Home() {
       {showPaywall && (
         <Suspense fallback={null}>
           <PaywallModal
-            caseData={caseData}
             selectedDoc={selectedDoc}
             paymentLoading={paymentLoading}
             onPayment={handlePayment}
@@ -596,21 +369,9 @@ export default function Home() {
       {showDevBypass && (
         <Suspense fallback={null}>
           <DevBypassModal
-            caseData={caseData}
             docId={selectedDoc}
             onBypassed={handleDevBypassed}
             onClose={() => setShowDevBypass(false)}
-          />
-        </Suspense>
-      )}
-
-      {showLastMile && (
-        <Suspense fallback={null}>
-          <LastMileModal
-            caseData={caseData}
-            onClose={() => setShowLastMile(false)}
-            onConfirm={handleLastMileConfirm}
-            loading={tramiteLoading}
           />
         </Suspense>
       )}

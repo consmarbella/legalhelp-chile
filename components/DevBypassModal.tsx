@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 
 interface DevBypassModalProps {
-  caseData: Record<string, unknown>;
+  caseData?: Record<string, unknown>;
   docId?: string | null;
   onBypassed: (orderId: string) => void;
   onClose: () => void;
 }
 
-export default function DevBypassModal({ caseData, docId, onBypassed, onClose }: DevBypassModalProps) {
+export default function DevBypassModal({ caseData = {}, docId, onBypassed, onClose }: DevBypassModalProps) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

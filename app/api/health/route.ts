@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import { activeProvider } from '@/lib/llm';
 
 export async function GET() {
   return NextResponse.json({
-    provider: activeProvider(),
-    model: 'deepseek-chat',
-    keySet: !!process.env.DEEPSEEK_API_KEY,
+    status: 'ok',
+    model: 'gemini-2.5-flash',
+    keySet: !!process.env.GEMINI_API_KEY,
   });
 }

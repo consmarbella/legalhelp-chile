@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { CaseData, DOC_TYPES } from '@/lib/constants';
 
 interface PaywallModalProps {
-  caseData: CaseData;
+  caseData?: CaseData;
   selectedDoc: string | null;
   paymentLoading: boolean;
   onPayment: (plan: 'single' | 'monthly') => void;
@@ -12,7 +12,7 @@ interface PaywallModalProps {
   onClose: () => void;
 }
 
-export default function PaywallModal({ caseData, selectedDoc, paymentLoading, onPayment, onTestPayment, onClose }: PaywallModalProps) {
+export default function PaywallModal({ caseData = {}, selectedDoc, paymentLoading, onPayment, onTestPayment, onClose }: PaywallModalProps) {
   const [bypassCode, setBypassCode] = useState('');
 
   const handleBypassChange = (e: React.ChangeEvent<HTMLInputElement>) => {
