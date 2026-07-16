@@ -102,20 +102,35 @@ export default function TagPageClient({
       const res = await fetch('/api/payment/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan, docId: 'tag' }),
+        body: JSON.stringify({
+          plan,
+          docId: 'tag',
+          caseData: {
+            tipo_documento: 'Prescripción de Deuda TAG',
+            comuna: comunaName,
+            ready: assistant.step >= 6,
+            nombre: assistant.nombreCliente || '',
+            rut: assistant.rutCliente || '',
+            email: assistant.correoCliente || '',
+          },
+        }),
       });
       const data = await res.json();
       if (data.checkoutUrl) {
         sessionStorage.setItem('lh_tag_data', JSON.stringify(assistant));
         sessionStorage.setItem('lh_tag_slug', slug);
         window.location.href = data.checkoutUrl;
+      } else if (data.error) {
+        console.error('Error de pago:', data.error, data.detail);
+        alert('Error al iniciar pago: ' + (data.detail || data.error));
       }
     } catch (err) {
       console.error('Error al iniciar pago:', err);
+      alert('Error de conexión al iniciar pago. Intenta de nuevo.');
     } finally {
       setPaymentLoading(false);
     }
-  }, [assistant, slug]);
+  }, [assistant, slug, comunaName]);
 
   const handleTestPayment = useCallback(async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
