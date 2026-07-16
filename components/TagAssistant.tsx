@@ -66,9 +66,9 @@ export default function TagAssistant({
         formData.append('patente', data.patenteVehiculo);
       }
       
-      const resp = await fetch('/api/parse-multas', {
+      const resp = await fetch('/api/parse_multas_python', {
         method: 'POST',
-        body: formData
+        body: formData,
       });
       const result = await resp.json();
       if (!result.ok) throw new Error(result.error || 'Error del servidor');
