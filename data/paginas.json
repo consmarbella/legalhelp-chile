@@ -3002,5 +3002,465 @@
     "entidad": "la persona o institución correspondiente (es un documento privado y, para usos habituales, no requiere notaría)",
     "direccion": "Varía según domicilio",
     "release": "2026-06-21"
+  },
+  {
+    "slug": "prescripcion-deuda-tag",
+    "categoria": "Prescripción de deuda TAG",
+    "variable": null,
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "el Juzgado de Policía Local de la comuna donde se cursó la infracción",
+    "direccion": "Varía según comuna",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-santiago",
+    "categoria": "Prescripción de deuda TAG en Santiago",
+    "variable": "Santiago",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Santiago ante Juzgado de Policía Local de Santiago. Autopistas: Costanera Norte, Autopista Central, Vespucio Sur, Vespucio Norte Express.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Santiago",
+    "direccion": "Av. Matta 1141, Santiago",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-providencia",
+    "categoria": "Prescripción de deuda TAG en Providencia",
+    "variable": "Providencia",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Providencia ante Juzgado de Policía Local de Providencia. Autopistas: Costanera Norte, Vespucio Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Providencia",
+    "direccion": "Pedro de Valdivia 963, Providencia",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-las-condes",
+    "categoria": "Prescripción de deuda TAG en Las Condes",
+    "variable": "Las Condes",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Las Condes ante Juzgado de Policía Local de Las Condes. Autopistas: Costanera Norte, Vespucio Sur, Américo Vespucio.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Las Condes",
+    "direccion": "Av. Apoquindo 3400, Las Condes",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-vitacura",
+    "categoria": "Prescripción de deuda TAG en Vitacura",
+    "variable": "Vitacura",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Vitacura ante Juzgado de Policía Local de Vitacura. Autopistas: Costanera Norte, Américo Vespucio.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Vitacura",
+    "direccion": "Av. Vitacura 5870, Vitacura",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-lo-barnechea",
+    "categoria": "Prescripción de deuda TAG en Lo Barnechea",
+    "variable": "Lo Barnechea",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Lo Barnechea ante Juzgado de Policía Local de Lo Barnechea. Autopistas: Costanera Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Lo Barnechea",
+    "direccion": "Av. La Dehesa 1445, Lo Barnechea",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-nunoa",
+    "categoria": "Prescripción de deuda TAG en Ñuñoa",
+    "variable": "Ñuñoa",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Ñuñoa ante Juzgado de Policía Local de Ñuñoa. Autopistas: Vespucio Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Ñuñoa",
+    "direccion": "Av. José Pedro Alessandri 1510, Ñuñoa",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-maipu",
+    "categoria": "Prescripción de deuda TAG en Maipú",
+    "variable": "Maipú",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Maipú ante Juzgado de Policía Local de Maipú. Autopistas: Autopista del Sol, Vespucio Sur, Ruta 78.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Maipú",
+    "direccion": "Av. 5 de Abril 0260, Maipú",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-pudahuel",
+    "categoria": "Prescripción de deuda TAG en Pudahuel",
+    "variable": "Pudahuel",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Pudahuel ante Juzgado de Policía Local de Pudahuel. Autopistas: Ruta 68, Costanera Norte, Vespucio Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Pudahuel",
+    "direccion": "Av. Pudahuel 9260, Pudahuel",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-la-florida",
+    "categoria": "Prescripción de deuda TAG en La Florida",
+    "variable": "La Florida",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en La Florida ante Juzgado de Policía Local de La Florida. Autopistas: Vespucio Sur, Acceso Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de La Florida",
+    "direccion": "Av. Vicuña Mackenna 9700, La Florida",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-puente-alto",
+    "categoria": "Prescripción de deuda TAG en Puente Alto",
+    "variable": "Puente Alto",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Puente Alto ante Juzgado de Policía Local de Puente Alto. Autopistas: Acceso Sur, Vespucio Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Puente Alto",
+    "direccion": "Av. Concha y Toro 1400, Puente Alto",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-san-bernardo",
+    "categoria": "Prescripción de deuda TAG en San Bernardo",
+    "variable": "San Bernardo",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en San Bernardo ante Juzgado de Policía Local de San Bernardo. Autopistas: Autopista Central, Acceso Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de San Bernardo",
+    "direccion": "Arturo Prat 450, San Bernardo",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-penalolen",
+    "categoria": "Prescripción de deuda TAG en Peñalolén",
+    "variable": "Peñalolén",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Peñalolén ante Juzgado de Policía Local de Peñalolén. Autopistas: Vespucio Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Peñalolén",
+    "direccion": "Av. Grecia 7219, Peñalolén",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-el-bosque",
+    "categoria": "Prescripción de deuda TAG en El Bosque",
+    "variable": "El Bosque",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en El Bosque ante Juzgado de Policía Local de El Bosque. Autopistas: Autopista Central, Acceso Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de El Bosque",
+    "direccion": "Av. Pedro Aguirre Cerda 5960, El Bosque",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-quilicura",
+    "categoria": "Prescripción de deuda TAG en Quilicura",
+    "variable": "Quilicura",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Quilicura ante Juzgado de Policía Local de Quilicura. Autopistas: Vespucio Norte Express, Ruta 5 Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Quilicura",
+    "direccion": "Av. Matta 1285, Quilicura",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-recoleta",
+    "categoria": "Prescripción de deuda TAG en Recoleta",
+    "variable": "Recoleta",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Recoleta ante Juzgado de Policía Local de Recoleta. Autopistas: Costanera Norte, Vespucio Norte Express.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Recoleta",
+    "direccion": "Av. Recoleta 1800, Recoleta",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-estacion-central",
+    "categoria": "Prescripción de deuda TAG en Estación Central",
+    "variable": "Estación Central",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Estación Central ante Juzgado de Policía Local de Estación Central. Autopistas: Autopista Central, Ruta 68.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Estación Central",
+    "direccion": "Av. Libertador Bernardo O'Higgins 3860, Estación Central",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-independencia",
+    "categoria": "Prescripción de deuda TAG en Independencia",
+    "variable": "Independencia",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Independencia ante Juzgado de Policía Local de Independencia. Autopistas: Costanera Norte, Vespucio Norte Express.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Independencia",
+    "direccion": "Av. Independencia 1300, Independencia",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-san-miguel",
+    "categoria": "Prescripción de deuda TAG en San Miguel",
+    "variable": "San Miguel",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en San Miguel ante Juzgado de Policía Local de San Miguel. Autopistas: Autopista Central, Vespucio Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de San Miguel",
+    "direccion": "Av. Pedro Aguirre Cerda 5960, San Miguel",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-cerro-navia",
+    "categoria": "Prescripción de deuda TAG en Cerro Navia",
+    "variable": "Cerro Navia",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Cerro Navia ante Juzgado de Policía Local de Cerro Navia. Autopistas: Ruta 68, Costanera Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Cerro Navia",
+    "direccion": "Av. Mapocho 6000, Cerro Navia",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-renca",
+    "categoria": "Prescripción de deuda TAG en Renca",
+    "variable": "Renca",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Renca ante Juzgado de Policía Local de Renca. Autopistas: Vespucio Norte Express, Costanera Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Renca",
+    "direccion": "Av. Jaime Rencoret 500, Renca",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-quinta-normal",
+    "categoria": "Prescripción de deuda TAG en Quinta Normal",
+    "variable": "Quinta Normal",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Quinta Normal ante Juzgado de Policía Local de Quinta Normal. Autopistas: Costanera Norte, Ruta 68.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Quinta Normal",
+    "direccion": "Av. Compañía 4100, Quinta Normal",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-colina",
+    "categoria": "Prescripción de deuda TAG en Colina",
+    "variable": "Colina",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Colina ante Juzgado de Policía Local de Colina. Autopistas: Ruta 5 Norte, Vespucio Norte Express.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Colina",
+    "direccion": "Av. Colina 1100, Colina",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-lampa",
+    "categoria": "Prescripción de deuda TAG en Lampa",
+    "variable": "Lampa",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Lampa ante Juzgado de Policía Local de Lampa. Autopistas: Ruta 5 Norte, Costanera Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Lampa",
+    "direccion": "Av. Colina 1100, Lampa",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-concepcion",
+    "categoria": "Prescripción de deuda TAG en Concepción",
+    "variable": "Concepción",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Concepción ante Juzgado de Policía Local de Concepción. Autopistas: Autopista Concepción-Talcahuano, Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Concepción",
+    "direccion": "O'Higgins 660, Concepción",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-valparaiso",
+    "categoria": "Prescripción de deuda TAG en Valparaíso",
+    "variable": "Valparaíso",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Valparaíso ante Juzgado de Policía Local de Valparaíso. Autopistas: Ruta 68.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Valparaíso",
+    "direccion": "Blanco 1151, Valparaíso",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-vina-del-mar",
+    "categoria": "Prescripción de deuda TAG en Viña del Mar",
+    "variable": "Viña del Mar",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Viña del Mar ante Juzgado de Policía Local de Viña del Mar. Autopistas: Ruta 68, Troncal Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Viña del Mar",
+    "direccion": "Av. Arlegui 555, Viña del Mar",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-quilpue",
+    "categoria": "Prescripción de deuda TAG en Quilpué",
+    "variable": "Quilpué",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Quilpué ante Juzgado de Policía Local de Quilpué. Autopistas: Ruta 68, Troncal Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Quilpué",
+    "direccion": "Av. O'Higgins 540, Quilpué",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-san-antonio",
+    "categoria": "Prescripción de deuda TAG en San Antonio",
+    "variable": "San Antonio",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en San Antonio ante Juzgado de Policía Local de San Antonio. Autopistas: Ruta 78.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de San Antonio",
+    "direccion": "Av. Centenario 290, San Antonio",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-rancagua",
+    "categoria": "Prescripción de deuda TAG en Rancagua",
+    "variable": "Rancagua",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Rancagua ante Juzgado de Policía Local de Rancagua. Autopistas: Ruta 5 Sur, Carretera del Cobre.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Rancagua",
+    "direccion": "Av. Brasil 685, Rancagua",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-talca",
+    "categoria": "Prescripción de deuda TAG en Talca",
+    "variable": "Talca",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Talca ante Juzgado de Policía Local de Talca. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Talca",
+    "direccion": "2 Norte 1259, Talca",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-curico",
+    "categoria": "Prescripción de deuda TAG en Curicó",
+    "variable": "Curicó",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Curicó ante Juzgado de Policía Local de Curicó. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Curicó",
+    "direccion": "Prat 427, Curicó",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-temuco",
+    "categoria": "Prescripción de deuda TAG en Temuco",
+    "variable": "Temuco",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Temuco ante Juzgado de Policía Local de Temuco. Autopistas: Autopista de La Araucanía, Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Temuco",
+    "direccion": "Manuel Montt 660, Temuco",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-padre-las-casas",
+    "categoria": "Prescripción de deuda TAG en Padre Las Casas",
+    "variable": "Padre Las Casas",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Padre Las Casas ante Juzgado de Policía Local de Padre Las Casas. Autopistas: Ruta 5 Sur, Autopista de La Araucanía.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Padre Las Casas",
+    "direccion": "Manuel Montt 660, Temuco",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-la-serena",
+    "categoria": "Prescripción de deuda TAG en La Serena",
+    "variable": "La Serena",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en La Serena ante Juzgado de Policía Local de La Serena. Autopistas: Ruta 5 Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de La Serena",
+    "direccion": "Balmaceda 986, La Serena",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-coquimbo",
+    "categoria": "Prescripción de deuda TAG en Coquimbo",
+    "variable": "Coquimbo",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Coquimbo ante Juzgado de Policía Local de Coquimbo. Autopistas: Ruta 5 Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Coquimbo",
+    "direccion": "Av. Costanera 1000, Coquimbo",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-antofagasta",
+    "categoria": "Prescripción de deuda TAG en Antofagasta",
+    "variable": "Antofagasta",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Antofagasta ante Juzgado de Policía Local de Antofagasta. Autopistas: Ruta 1, Ruta 5 Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Antofagasta",
+    "direccion": "Av. Prat 256, Antofagasta",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-iquique",
+    "categoria": "Prescripción de deuda TAG en Iquique",
+    "variable": "Iquique",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Iquique ante Juzgado de Policía Local de Iquique. Autopistas: Ruta 1, Ruta 16.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Iquique",
+    "direccion": "Vivar 491, Iquique",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-arica",
+    "categoria": "Prescripción de deuda TAG en Arica",
+    "variable": "Arica",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Arica ante Juzgado de Policía Local de Arica. Autopistas: Ruta 5 Norte, Ruta 11-CH.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Arica",
+    "direccion": "Sotomayor 415, Arica",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-copiapo",
+    "categoria": "Prescripción de deuda TAG en Copiapó",
+    "variable": "Copiapó",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Copiapó ante Juzgado de Policía Local de Copiapó. Autopistas: Ruta 5 Norte.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Copiapó",
+    "direccion": "Los Carrera 201, Copiapó",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-punta-arenas",
+    "categoria": "Prescripción de deuda TAG en Punta Arenas",
+    "variable": "Punta Arenas",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Punta Arenas ante Juzgado de Policía Local de Punta Arenas. Autopistas: Ruta 9, Ruta 255.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Punta Arenas",
+    "direccion": "Av. Errázuriz 928, Punta Arenas",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-puerto-montt",
+    "categoria": "Prescripción de deuda TAG en Puerto Montt",
+    "variable": "Puerto Montt",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Puerto Montt ante Juzgado de Policía Local de Puerto Montt. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Puerto Montt",
+    "direccion": "Av. O'Higgins 222, Puerto Montt",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-osorno",
+    "categoria": "Prescripción de deuda TAG en Osorno",
+    "variable": "Osorno",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Osorno ante Juzgado de Policía Local de Osorno. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Osorno",
+    "direccion": "Manuel Rodríguez 855, Osorno",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-talcahuano",
+    "categoria": "Prescripción de deuda TAG en Talcahuano",
+    "variable": "Talcahuano",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Talcahuano ante Juzgado de Policía Local de Talcahuano. Autopistas: Autopista Concepción-Talcahuano.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Talcahuano",
+    "direccion": "Colón 601, Talcahuano",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-chillan",
+    "categoria": "Prescripción de deuda TAG en Chillán",
+    "variable": "Chillán",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Chillán ante Juzgado de Policía Local de Chillán. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Chillán",
+    "direccion": "Constitución 550, Chillán",
+    "release": "2026-07-16"
+  },
+  {
+    "slug": "prescripcion-deuda-tag-los-angeles",
+    "categoria": "Prescripción de deuda TAG en Los Ángeles",
+    "variable": "Los Ángeles",
+    "ley": "Ley 18.287 Art. 24 — prescripción de multas de tránsito a los 3 años en Los Ángeles ante Juzgado de Policía Local de Los Ángeles. Autopistas: Ruta 5 Sur.",
+    "plazo": "3 años desde la anotación en el Registro de Multas No Pagadas",
+    "entidad": "Juzgado de Policía Local de Los Ángeles",
+    "direccion": "Ercilla 368, Los Ángeles",
+    "release": "2026-07-16"
   }
 ]

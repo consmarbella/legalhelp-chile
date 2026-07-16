@@ -30,7 +30,7 @@ const HUB_PREFIXES = [
   'contrato-prestacion-servicios-honorarios', 'contrato-freelance', 'carta-cobranza-deuda',
   'acuerdo-pago-deuda', 'carta-prescripcion-deuda-general', 'solicitud-alzamiento-protesto',
   'escrito-defensa-infraccion-transito', 'escrito-impugnacion-multa-municipalidad',
-  'escrito-prescripcion-multa-transito', 'denuncia-ruidos-molestos-vecinos', 'denuncia-maltrato-animal',
+  'escrito-prescripcion-multa-transito', 'prescripcion-deuda-tag', 'denuncia-ruidos-molestos-vecinos', 'denuncia-maltrato-animal',
   'recurso-apelacion-juzgado-policia-local', 'eliminacion-de-antecedentes-penales',
   'limpieza-de-hoja-de-vida-del-conductor', 'omision-de-antecedentes-por-violencia-intrafamiliar',
   'certificado-de-antecedentes-para-fines-especiales', 'registro-nacional-de-deudores-de-pensiones-de-alimentos',
