@@ -93,8 +93,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Plantilla base no encontrada' }, { status: 500 });
     }
     let template = fs.readFileSync(templatePath, 'utf-8');
-    // Quitar línea de comentario de fuente
-    template = template.replace(/^<!--.*?-->\s*/s, '').trim();
+    // Quitar línea de comentario de fuente (compatible ES2017+)
+    template = template.replace(/^<!--[\s\S]*?-->\s*/, '').trim();
 
     const archivos: { nombre: string; contenido: string }[] = [];
 
