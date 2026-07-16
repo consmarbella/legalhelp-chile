@@ -1,0 +1,29 @@
+<!-- Fuente: https://www.bcn.cl/ / https://derecho.uchile.cl -->
+CARTA DE AVISO DE TÉRMINO DE CONTRATO DE ARRENDAMIENTO / DESAHUCIO
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_CARTA}}
+
+Señor(a)
+{{NOMBRE_ARRENDATARIO}}
+{{DIRECCION_PROPIEDAD}}
+{{COMUNA_PROPIEDAD}}
+Presente
+
+De mi consideración:
+
+Por medio de la presente, yo, {{NOMBRE_ARRENDADOR}}, RUT N° {{RUT_ARRENDADOR}}, en mi calidad de arrendador del inmueble ubicado en {{DIRECCION_PROPIEDAD}}, comuna de {{COMUNA_PROPIEDAD}}, vengo en notificar a usted de manera formal mi decisión de poner término de forma unilateral al contrato de arrendamiento que nos vincula, celebrado con fecha {{FECHA_CONTRATO_ORIGINAL}}.
+
+Esta comunicación constituye el aviso de desahucio a que se refieren los artículos 3 y siguientes de la Ley N° 18.101 sobre arrendamiento de predios urbanos, o bien el ejercicio de la facultad de no renovación estipulada en la cláusula {{NUMERO_CLAUSULA_PLAZO}} de nuestro contrato.
+
+En consecuencia, le solicito que proceda a la restitución material de la propiedad, completamente desocupada y en el estado de conservación acordado, a más tardar el día {{FECHA_LIMITE_RESTITUCION}} (respetando los plazos legales de desahucio y los meses adicionales concedidos por ley si corresponde).
+
+Le recuerdo que a la fecha de restitución se practicará la revisión detallada del estado del inmueble y de las cuentas de servicios básicos (agua, luz, gas, gastos comunes) a fin de proceder a la liquidación y posterior devolución del mes de garantía según lo estipulado contractualmente.
+
+Agradeciendo su atención y colaboración para una entrega ordenada del inmueble, saluda atentamente a usted,
+
+___________________________
+{{NOMBRE_ARRENDADOR}}
+RUT N° {{RUT_ARRENDADOR}}
+Arrendador
+
+*Nota: Para mayor seguridad y validez probatoria, se recomienda el envío de esta comunicación mediante carta certificada notarial.*

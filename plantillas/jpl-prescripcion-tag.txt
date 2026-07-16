@@ -1,0 +1,19 @@
+<!-- Fuente: https://www.munistgo.cl/uploads/descargables/formulario_prescripcion_multas.pdf -->
+SOLICITA DECLARACIÓN DE PRESCRIPCIÓN DE MULTAS DE TRÁNSITO (TAG)
+
+RUT: {{RUT_SOLICITANTE}}
+ROL DE CAUSA: {{ROL_CAUSA}}
+PATENTE DEL VEHÍCULO: {{PATENTE_VEHICULO}}
+
+AL JUEZ DE POLICÍA LOCAL DE {{COMUNA_JUZGADO}}
+
+Yo, {{NOMBRE_COMPLETO_SOLICITANTE}}, cédula de identidad N° {{RUT_SOLICITANTE}}, con domicilio en {{DOMICILIO_SOLICITANTE}}, comuna de {{COMUNA_SOLICITANTE}}, correo electrónico de notificación {{CORREO_ELECTRONICO}}, en la causa Rol N° {{ROL_CAUSA}}, sobre infracción al artículo 114 de la Ley de Tránsito, a US. respetuosamente digo:
+
+Que por este acto y conforme a lo dispuesto en el artículo 24 de la Ley N° 18.287 sobre procedimiento ante los Juzgados de Policía Local, vengo en interponer solicitud para que se declare la prescripción de la multa de tránsito asociada a la patente {{PATENTE_VEHICULO}}, que fuera cursada con fecha {{FECHA_INFRACCION}} y anotada en el Registro de Multas de Tránsito No Pagadas del Servicio de Registro Civil e Identificación con fecha {{FECHA_ANOTACION_REGISTRO}}.
+
+Al respecto, hago presente a US. que desde la fecha de anotación en el referido registro público, han transcurrido más de tres años sin que se haya pagado la multa o realizado gestiones útiles destinadas a su cobro por parte de este tribunal. Por consiguiente, se cumple plenamente con el plazo legal de prescripción extintiva de la acción y de la pena que prevé el citado artículo 24.
+
+POR TANTO,
+A US. RUEGO se sirva tener por presentada esta solicitud, tramitarla conforme a derecho y, en definitiva, declarar prescrita la multa de tránsito en cuestión, ordenando oficiar al Servicio de Registro Civil e Identificación para la eliminación de la respectiva anotación.
+
+OTROSÍ: Solicito que toda notificación derivada del presente trámite sea remitida al correo electrónico {{CORREO_ELECTRONICO}} previamente individualizado.

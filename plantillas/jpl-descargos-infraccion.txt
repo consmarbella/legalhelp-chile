@@ -1,0 +1,20 @@
+<!-- Fuente: https://www.munistgo.cl/ -->
+FORMULA DESCARGOS ANTE EL JUZGADO DE POLICÍA LOCAL
+
+ROL DE CAUSA: {{ROL_CAUSA}}
+PATENTE DEL VEHÍCULO: {{PATENTE_VEHICULO}} (si corresponde)
+
+AL JUEZ DE POLICÍA LOCAL DE {{COMUNA_JUZGADO}}
+
+Yo, {{NOMBRE_COMPLETO_DENUNCIADO}}, cédula de identidad N° {{RUT_DENUNCIADO}}, con domicilio en {{DOMICILIO_DENUNCIADO}}, comuna de {{COMUNA_DENUNCIADO}}, número telefónico {{TELEFONO_CONTACTO}} y correo electrónico {{CORREO_ELECTRONICO}}, en autos sobre denuncia por infracción a la Ley de Tránsito, causa Rol N° {{ROL_CAUSA}}, a US. respetuosamente digo:
+
+Que, dentro del plazo legal, vengo en formular descargos respecto del parte de tránsito N° {{NUMERO_PARTE}} cursado con fecha {{FECHA_PARTE}} por el funcionario de Carabineros de Chile / Inspector Municipal don {{NOMBRE_MINISTRO_FE}}, fundado en los siguientes hechos y fundamentos de derecho que paso a exponer:
+
+1. Que los hechos que motivaron la citación consistieron en: {{DETALLE_INFRACCION_REPORTADA}}.
+2. Que, sin perjuicio de lo anterior, la realidad de los hechos difiere debido a que: {{EXPLICACION_Y_DEFENSA_HECHOS}}.
+3. Que, en consecuencia, no existe responsabilidad de mi parte en la infracción imputada toda vez que no se cumplen los supuestos normativos establecidos en el artículo {{ARTICULO_LEY_TRANSITO}} de la Ley N° 18.290 de Tránsito.
+
+POR TANTO,
+A US. RUEGO se sirva tener por formulados mis descargos en tiempo y forma, ponderar los argumentos expuestos y, en definitiva, absolverme de la infracción denunciada o, en subsidio, aplicar una rebaja sustancial al monto de la multa o una amonestación verbal sin suspensión de licencia de conducir.
+
+OTROSÍ: Solicito que la resolución correspondiente me sea notificada a la dirección de correo electrónico {{CORREO_ELECTRONICO}} señalada.

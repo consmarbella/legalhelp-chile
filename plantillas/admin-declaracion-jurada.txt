@@ -1,0 +1,17 @@
+<!-- Fuente: https://www.chileatiende.gob.cl/ -->
+DECLARACIÓN JURADA SIMPLE
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_DECLARACION}}
+
+Yo, {{NOMBRE_DECLARANTE}}, de nacionalidad {{NACIONALIDAD_DECLARANTE}}, cédula de identidad N° {{RUT_DECLARANTE}}, de profesión/oficio {{ACTIVIDAD_DECLARANTE}}, con domicilio en {{DOMICILIO_DECLARANTE}}, comuna de {{COMUNA_DECLARANTE}}, bajo promesa o juramento de decir la verdad, vengo en declarar lo siguiente:
+
+1. Que {{DECLARACION_HECHOS}} (ej: no percibo ingresos adicionales, resido en el domicilio señalado, no me encuentro afecto a incompatibilidades legales).
+2. Que realizo esta declaración para ser presentada ante {{INSTITUCION_DESTINO}}, con el objetivo de tramitar {{TIPO_TRAMITE}}.
+3. Que asumo plena responsabilidad respecto de la veracidad de los hechos aquí declarados, en conocimiento de las sanciones legales aplicables en caso de falsedad.
+
+Para constancia de lo anterior y en cumplimiento de lo requerido, firmo el presente documento.
+
+___________________________
+{{NOMBRE_DECLARANTE}}
+RUT N° {{RUT_DECLARANTE}}
+Declarante

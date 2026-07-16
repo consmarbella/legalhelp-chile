@@ -1,0 +1,17 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+ANEXO DE CONTRATO DE TRABAJO
+
+En {{CIUDAD_ANEXO}}, a {{FECHA_ANEXO}}, entre {{RAZON_SOCIAL_EMPLEADOR}}, RUT N° {{RUT_EMPLEADOR}}, representada por don/ña {{NOMBRE_REPRESENTANTE_EMPLEADOR}}, en su calidad de empleador, y don/ña {{NOMBRE_TRABAJADOR}}, cédula de identidad N° {{RUT_TRABAJADOR}}, en su calidad de trabajador, se ha convenido el presente anexo que modifica el contrato de trabajo celebrado entre las partes con fecha {{FECHA_CONTRATO_ORIGINAL}}:
+
+PRIMERO: Las partes acuerdan modificar la cláusula {{NUMERO_CLAUSULA_MODIFICAR}} del contrato de trabajo original, referida a {{MATERIA_MODIFICACION}} (por ejemplo: jornada de trabajo, remuneración, lugar de prestación de servicios, cargo).
+
+SEGUNDO: En virtud de este acuerdo, a contar del {{FECHA_VIGENCIA_MODIFICACION}}, la referida cláusula quedará redactada del siguiente modo:
+"{{NUEVA_REDACCION_CLAUSULA}}"
+
+TERCERO: Se deja expresa constancia de que, con excepción de la modificación estipulada en el presente instrumento, las restantes cláusulas del contrato de trabajo original de fecha {{FECHA_CONTRATO_ORIGINAL}} y sus anexos previos permanecen plenamente vigentes y sin alteración alguna.
+
+El presente anexo se suscribe en dos ejemplares de igual tenor, quedando uno en poder de cada parte, y será registrado electrónicamente por el empleador ante la Dirección del Trabajo en cumplimiento de la normativa vigente.
+
+___________________________                    ___________________________
+{{RAZON_SOCIAL_EMPLEADOR}}                     {{NOMBRE_TRABAJADOR}}
+EMPLEADOR                                      TRABAJADOR

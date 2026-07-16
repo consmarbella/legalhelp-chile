@@ -1,0 +1,36 @@
+<!-- Fuente: https://www.sernac.cl/ -->
+CARTA DE RECLAMO FORMAL A PROVEEDOR
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_RECLAMO}}
+
+Señores
+{{RAZON_SOCIAL_PROVEEDOR}}
+Servicio de Atención al Cliente / Gerencia General
+{{DOMICILIO_PROVEEDOR}}
+Presente
+
+De mi consideración:
+
+Por medio de la presente, yo, {{NOMBRE_CONSUMIDOR}}, RUT N° {{RUT_CONSUMIDOR}}, con domicilio en {{DOMICILIO_CONSUMIDOR}}, comuna de {{COMUNA_CONSUMIDOR}}, teléfono {{TELEFONO_CONTACTO}} y correo electrónico {{CORREO_ELECTRONICO}}, me dirijo a ustedes en mi calidad de consumidor para interponer un reclamo formal en relación con la compra/servicio individualizado a continuación:
+
+- Producto/Servicio: {{DETALLE_PRODUCTO_SERVICIO}}
+- Número de Boleta/Factura o Contrato: {{NUMERO_BOLETA_FACTURA}}
+- Fecha de adquisición: {{FECHA_COMPRA}}
+- Valor total cancelado: ${{VALOR_PRODUCTO_SERVICIO}}
+
+El motivo de mi reclamo se debe a la siguiente situación ocurrida con fecha {{FECHA_EVENTO_FALLA}}:
+{{RELATO_HECHOS_PROBLEMA}}
+
+Lo anterior constituye un incumplimiento a las condiciones pactadas y una vulneración a mis derechos consagrados en la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores, particularmente en lo referido a la calidad, seguridad y cumplimiento del servicio/producto.
+
+Por lo tanto, solicito formalmente que su empresa adopte la siguiente solución al problema planteado:
+{{SOLUCION_REQUERIDA}} (ej: devolución total del dinero, cambio del producto, reparación o cumplimiento forzoso del servicio).
+
+Hago presente que de no obtener una respuesta favorable y definitiva a esta solicitud dentro del plazo de {{PLAZO_RESPUESTA_DIAS}} días hábiles, presentaré la respectiva denuncia ante el Servicio Nacional del Consumidor (SERNAC) y ante el Juzgado de Policía Local correspondiente para perseguir las sanciones infraccionales e indemnizaciones pertinentes de acuerdo a la ley.
+
+Esperando una pronta solución, saluda atentamente a ustedes,
+
+___________________________
+{{NOMBRE_CONSUMIDOR}}
+RUT N° {{RUT_CONSUMIDOR}}
+Consumidor

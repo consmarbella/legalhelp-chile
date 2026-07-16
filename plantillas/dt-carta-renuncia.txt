@@ -1,0 +1,29 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CARTA DE RENUNCIA VOLUNTARIA
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_CARTA}}
+
+Señores
+{{RAZON_SOCIAL_EMPLEADOR}}
+Presente
+
+De mi consideración:
+
+Por medio de la presente, vengo en comunicar a ustedes mi renuncia voluntaria al empleo que desempeño en su empresa como {{CARGO_TRABAJADOR}}, el cual inicié con fecha {{FECHA_INGRESO_TRABAJADOR}}.
+
+De acuerdo con lo dispuesto en el artículo 159 N° 2 del Código del Trabajo, informo que mi último día efectivo de labores en la empresa será el {{FECHA_ULTIMO_DIA_TRABAJO}}, fecha a partir de la cual quedará disuelto nuestro vínculo contractual de manera definitiva.
+
+Esta decisión responde a motivos estrictamente {{MOTIVOS_RENUNCIA}} (ej: personales, profesionales, nuevos proyectos).
+
+Agradezco la oportunidad que me brindaron de prestar servicios en su organización, así como el trato recibido durante el tiempo de vigencia de la relación laboral.
+
+Solicito se sirvan disponer el correspondiente finiquito de contrato y el pago de las remuneraciones y asignaciones proporcionales pendientes a la fecha indicada.
+
+Sin otro particular, saluda atentamente a ustedes,
+
+___________________________
+{{NOMBRE_TRABAJADOR}}
+RUT N° {{RUT_TRABAJADOR}}
+Trabajador(a)
+
+*Nota: Para tener validez legal, esta carta debe ser ratificada ante un Ministro de Fe (Notario Público, Inspector del Trabajo o Secretario Municipal) o firmada digitalmente en el portal Mi DT de la Dirección del Trabajo.*

@@ -1,0 +1,17 @@
+<!-- Fuente: https://www.nunoa.cl/ -->
+DENUNCIA INFRACCIÓN A LA ORDENANZA LOCAL SOBRE RUIDOS MOLESTOS
+
+AL JUEZ DE POLICÍA LOCAL DE {{COMUNA_JUZGADO}}
+
+Yo, {{NOMBRE_COMPLETO_DENUNCIANTE}}, cédula de identidad N° {{RUT_DENUNCIANTE}}, con domicilio en {{DOMICILIO_DENUNCIANTE}}, comuna de {{COMUNA_DENUNCIANTE}}, correo electrónico {{CORREO_ELECTRONICO}}, a US. respetuosamente digo:
+
+Que por medio del presente escrito vengo en interponer denuncia formal por ruidos molestos en contra de don/ña {{NOMBRE_DENUNCIADO}} / los responsables del establecimiento denominado {{NOMBRE_ESTABLECIMIENTO_DENUNCIADO}}, con domicilio en {{DOMICILIO_DENUNCIADO}}, comuna de {{COMUNA_DENUNCIADO}}, por infracción a la Ordenanza Municipal de la comuna sobre ruidos molestos y protección del medio ambiente acústico, en virtud de los siguientes antecedentes de hecho y derecho:
+
+1. Con fecha {{FECHA_EVENTO_RUIDO}}, y de forma reiterada los días {{DIAS_RUIDO_REITERADO}} a las {{HORA_EVENTO_RUIDO}} horas, desde el inmueble del denunciado se han emitido ruidos molestos originados por {{ORIGEN_RUIDOS}} (por ejemplo: música a alto volumen, fiestas, maquinaria, animales, construcciones).
+2. Dichos ruidos superan los decibeles máximos permitidos por la ordenanza municipal respectiva y la normativa del Ministerio del Medio Ambiente, impidiendo el descanso nocturno y alterando gravemente la tranquilidad del vecindario.
+3. Se han realizado llamadas de advertencia a Carabineros de Chile y a Seguridad Ciudadana Municipal, registrándose las denuncias N° {{NUMERO_REPORTE_POLICIAL}} de fecha {{FECHA_REPORTE_POLICIAL}}.
+
+POR TANTO,
+A US. RUEGO se sirva tener por interpuesta esta denuncia, acogerla a tramitación, ordenar la citación del denunciado a fin de que comparezca a declarar y, en definitiva, condenarle al pago de la multa establecida en la ordenanza municipal respectiva junto con ordenar el cese inmediato de los ruidos molestos.
+
+OTROSÍ: Solicito que la notificación de las resoluciones de esta causa me sea enviada al correo electrónico {{CORREO_ELECTRONICO}}.

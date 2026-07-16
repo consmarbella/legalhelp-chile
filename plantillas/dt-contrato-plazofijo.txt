@@ -1,0 +1,22 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CONTRATO DE TRABAJO A PLAZO FIJO
+
+En {{CIUDAD_CONTRATO}}, a {{FECHA_CONTRATO}}, entre {{RAZON_SOCIAL_EMPLEADOR}}, RUT N° {{RUT_EMPLEADOR}}, representada por don/ña {{NOMBRE_REPRESENTANTE_EMPLEADOR}}, cédula de identidad N° {{RUT_REPRESENTANTE_EMPLEADOR}}, ambos domiciliados en {{DOMICILIO_EMPLEADOR}}, comuna de {{COMUNA_EMPLEADOR}}, en adelante "el empleador", y don/ña {{NOMBRE_TRABAJADOR}}, de nacionalidad {{NACIONALIDAD_TRABAJADOR}}, nacido/a el {{FECHA_NACIMIENTO_TRABAJADOR}}, cédula de identidad N° {{RUT_TRABAJADOR}}, domiciliado/a en {{DOMICILIO_TRABAJADOR}}, comuna de {{COMUNA_TRABAJADOR}}, en adelante "el trabajador", se ha convenido el siguiente contrato de trabajo:
+
+PRIMERO: El trabajador se compromete a desempeñar el cargo de {{CARGO_TRABAJADOR}}, debiendo realizar las funciones de: {{FUNCIONES_DETALLADAS}}.
+
+SEGUNDO: Los servicios se prestarán en {{LUGAR_PRESTACION_SERVICIOS}}, comuna de {{COMUNA_PRESTACION_SERVICIOS}}.
+
+TERCERO: La jornada de trabajo será de {{CANTIDAD_HORAS_SEMANALES}} horas semanales, distribuidas de lunes a viernes en el horario de {{HORARIO_TRABAJO_DIARIO}}. El tiempo de descanso para colación será de {{TIEMPO_COLACION_MINUTOS}} minutos diarios, imputable/no imputable a la jornada.
+
+CUATRO: El empleador pagará al trabajador una remuneración mensual base de ${{SUELDO_BASE}} pesos chilenos, pagadera los días {{DIA_PAGO_REMUNERACION}} de cada mes. Adicionalmente, se pactan asignaciones de colación por ${{ASIGNACION_COLACION}} y movilización por ${{ASIGNACION_MOVILIZACION}}.
+
+QUINTO: Plazo del Contrato. El presente contrato comenzará a regir el {{FECHA_INGRESO_TRABAJADOR}} y tendrá una vigencia a plazo fijo hasta el {{FECHA_TERMINO_CONTRATO}}, fecha en la cual expirará de pleno derecho de conformidad al artículo 159 N° 4 del Código del Trabajo, sin perjuicio de que las partes puedan ponerle término anticipado por causales legales.
+
+SEXTO: Previsión y Salud. Se deja constancia de que el trabajador cotizará en la AFP {{AFP_TRABAJADOR}} y en Fonasa/Isapre {{SALUD_TRABAJADOR}}.
+
+El presente contrato se firma en dos ejemplares del mismo tenor y fecha.
+
+___________________________                    ___________________________
+{{RAZON_SOCIAL_EMPLEADOR}}                     {{NOMBRE_TRABAJADOR}}
+EMPLEADOR                                      TRABAJADOR

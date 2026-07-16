@@ -1,0 +1,22 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CONTRATO DE TRABAJO POR OBRA O FAENA
+
+En {{CIUDAD_CONTRATO}}, a {{FECHA_CONTRATO}}, entre {{RAZON_SOCIAL_EMPLEADOR}}, RUT N° {{RUT_EMPLEADOR}}, representada por don/ña {{NOMBRE_REPRESENTANTE_EMPLEADOR}}, cédula de identidad N° {{RUT_REPRESENTANTE_EMPLEADOR}}, ambos domiciliados en {{DOMICILIO_EMPLEADOR}}, comuna de {{COMUNA_EMPLEADOR}}, en adelante "el empleador", y don/ña {{NOMBRE_TRABAJADOR}}, de nacionalidad {{NACIONALIDAD_TRABAJADOR}}, nacido/a el {{FECHA_NACIMIENTO_TRABAJADOR}}, cédula de identidad N° {{RUT_TRABAJADOR}}, domiciliado/a en {{DOMICILIO_TRABAJADOR}}, comuna de {{COMUNA_TRABAJADOR}}, en adelante "el trabajador", se ha convenido el siguiente contrato de trabajo por obra o faena transitoria:
+
+PRIMERO: El trabajador se obliga a prestar servicios al empleador desempeñándose como {{CARGO_TRABAJADOR}}, para ejecutar de manera específica las siguientes labores: {{FUNCIONES_DETALLADAS}}.
+
+SEGUNDO: Las faenas referidas se llevarán a cabo en la obra denominada {{NOMBRE_OBRA_FAENA}}, ubicada en {{DIRECCION_OBRA_FAENA}}, comuna de {{COMUNA_OBRA_FAENA}}.
+
+TERCERO: La jornada ordinaria de trabajo será de {{CANTIDAD_HORAS_SEMANALES}} horas semanales, distribuidas en la forma establecida por el empleador de acuerdo al tipo de faena: {{HORARIO_TRABAJO_DIARIO}}. El descanso de colación será de {{TIEMPO_COLACION_MINUTOS}} minutos.
+
+CUATRO: La remuneración del trabajador consistirá en un sueldo mensual base de ${{SUELDO_BASE}} pesos chilenos, más las comisiones/tratos detallados en {{DETALLE_COMISION_TRATO}} (si aplica). El pago se efectuará el día {{DIA_PAGO_REMUNERACION}} de cada mes.
+
+QUINTO: Duración del contrato. El presente contrato comenzará a regir el {{FECHA_INGRESO_TRABAJADOR}} y durará por todo el tiempo que sea necesario para la completa ejecución de la obra o faena específica para la cual ha sido contratado, la que se define como: {{OBRA_O_FAENA_ESPECIFICA}}. Por ende, terminará de pleno derecho y sin necesidad de declaración judicial previa una vez concluidas las labores del trabajador en dicha obra o faena, de conformidad con el artículo 159 N° 5 del Código del Trabajo.
+
+SEXTO: Previsión. El trabajador declara estar afiliado en AFP {{AFP_TRABAJADOR}} y en Fonasa/Isapre {{SALUD_TRABAJADOR}}.
+
+El presente contrato se firma en duplicado, quedando un ejemplar en poder de cada contratante.
+
+___________________________                    ___________________________
+{{RAZON_SOCIAL_EMPLEADOR}}                     {{NOMBRE_TRABAJADOR}}
+EMPLEADOR                                      TRABAJADOR

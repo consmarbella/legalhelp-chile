@@ -1,0 +1,27 @@
+<!-- Fuente: https://www.sernac.cl/ -->
+DENUNCIA INFRACCIONAL Y DEMANDA CIVIL DE INDEMNIZACIÓN DE PERJUICIOS
+(Ley N° 19.496 sobre Protección de los Derechos de los Consumidores)
+
+AL JUEZ DE POLICÍA LOCAL DE {{COMUNA_JUZGADO}}
+
+Yo, {{NOMBRE_CONSUMIDOR}}, cédula de identidad N° {{RUT_CONSUMIDOR}}, de profesión/oficio {{ACTIVIDAD_CONSUMIDOR}}, con domicilio en {{DOMICILIO_CONSUMIDOR}}, comuna de {{COMUNA_CONSUMIDOR}}, correo electrónico de notificación {{CORREO_ELECTRONICO}}, a US. respetuosamente digo:
+
+Que vengo en interponer denuncia infraccional y, conjuntamente, demanda civil de indemnización de perjuicios en contra de la empresa {{RAZON_SOCIAL_PROVEEDOR}} (nombre de fantasía o razón social), RUT N° {{RUT_PROVEEDOR}} (si se conoce), representada legalmente por {{NOMBRE_REPRESENTANTE_PROVEEDOR}} (si se conoce), o por quien la represente, ambos domiciliados para estos efectos en {{DOMICILIO_PROVEEDOR}}, comuna de {{COMUNA_PROVEEDOR}}, en mérito de los hechos y fundamentos de derecho que paso a detallar:
+
+I. ANTECEDENTES DE HECHO
+Con fecha {{FECHA_COMPRA}}, adquirí en el establecimiento de la denunciada / a través de su sitio web el producto/servicio denominado {{DETALLE_PRODUCTO_SERVICIO}} por un valor total de ${{VALOR_PRODUCTO_SERVICIO}}, según consta en la boleta/factura/contrato N° {{NUMERO_BOLETA_FACTURA}} adjunta.
+El día {{FECHA_EVENTO}}, se suscitó el siguiente problema constitutivo de infracción a la Ley N° 19.496: {{RELATO_HECHOS_PROBLEMA}}.
+A pesar de haber realizado los reclamos correspondientes ante la empresa y ante el SERNAC bajo el caso N° {{NUMERO_CASO_SERNAC}}, no obtuve una respuesta favorable que reparara los perjuicios causados.
+
+II. FUNDAMENTOS DE DERECHO
+Los hechos descritos configuran una infracción a los artículos {{ARTICULOS_INFRINGIDOS}} (por ejemplo: Art. 12, obligación de respetar las condiciones; Art. 23, calidad del servicio y seguridad; Art. 3, derecho a la garantía legal) de la Ley N° 19.496, por cuanto la denunciada actuó con negligencia y causó menoscabo al consumidor.
+
+III. DEMANDA CIVIL DE INDEMNIZACIÓN DE PERJUICIOS
+La infracción descrita ha provocado a mi parte daños económicos directos por concepto de daño emergente equivalente a ${{MONTO_DANIO_EMERGENTE}} (valor del producto o gastos relacionados) y daño moral ascendente a ${{MONTO_DANIO_MORAL}}, derivado de la angustia y pérdida de tiempo.
+
+POR TANTO,
+A US. RUEGO se sirva tener por interpuesta esta denuncia infraccional y demanda civil, acogerlas a tramitación y, en definitiva:
+1. Condenar a la denunciada al pago de la multa máxima que prevé la ley por las infracciones cometidas.
+2. Condenar a la denunciada al pago de una indemnización por daños y perjuicios ascendente a la suma total de ${{MONTO_TOTAL_INDEMNIZACION}} o lo que US. determine de acuerdo con el mérito del proceso, con reajustes e intereses legales, más las costas de la causa.
+
+OTROSÍ: Acompaño en este acto copia de la boleta de compra N° {{NUMERO_BOLETA_FACTURA}}, el reclamo SERNAC N° {{NUMERO_CASO_SERNAC}} y el correo electrónico de notificación {{CORREO_ELECTRONICO}}.

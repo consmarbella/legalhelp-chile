@@ -1,0 +1,31 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CARTA DE DESPIDO / TÉRMINO DE CONTRATO DE TRABAJO
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_CARTA}}
+
+Señor(a)
+{{NOMBRE_TRABAJADOR}}
+{{DOMICILIO_TRABAJADOR}}
+Presente
+
+De nuestra consideración:
+
+Por medio de la presente, y de conformidad a lo establecido en los artículos 162 y siguientes del Código del Trabajo, venimos en comunicar a usted la terminación de su contrato de trabajo que le liga con esta empresa, el cual quedará sin efecto a contar del {{FECHA_EFECTIVA_DESPIDO}} (indicar si es inmediato o a 30 días plazo).
+
+La medida adoptada se funda en la causal establecida en el artículo {{ARTICULO_CAUSAL}} N° {{NUMERO_CAUSAL}} del Código del Trabajo, esto es: "{{TEXTO_CAUSAL_LEGAL}}" (por ejemplo: artículo 161 inciso 1°, Necesidades de la empresa).
+
+Los hechos en que se fundamenta esta decisión consisten detalladamente en: {{DETALLE_HECHOS_CAUSAL}}.
+
+Asimismo, para dar cumplimiento a lo dispuesto en el artículo 162 del Código del Trabajo, se le hace entrega adjunta del estado de sus cotizaciones previsionales, de salud y del seguro de desempleo, acreditando que éstas se encuentran totalmente pagadas al último día del mes anterior a esta comunicación, de conformidad con la Ley N° 19.631 (Ley Bustos). Sus cotizaciones fueron enteradas en la AFP {{AFP_TRABAJADOR}}, Isapre/Fonasa {{SALUD_TRABAJADOR}} y AFC {{AFC_TRABAJADOR}}.
+
+Le informamos que su finiquito estará a su disposición para firma dentro del plazo legal de diez días hábiles contados desde la separación del trabajador, en la Notaría {{NOMBRE_NOTARIA}} ubicada en {{DIRECCION_NOTARIA}}, o a través del portal electrónico de la Dirección del Trabajo.
+
+Atentamente,
+
+___________________________
+{{RAZON_SOCIAL_EMPLEADOR}}
+Representante Legal
+RUT N° {{RUT_EMPLEADOR}}
+EMPLEADOR
+
+*Nota: Copia de esta carta debe ser remitida a la Inspección del Trabajo respectiva dentro del plazo de 3 días hábiles (o 6 días hábiles en caso de caso fortuito o fuerza mayor) de la separación del trabajador.*

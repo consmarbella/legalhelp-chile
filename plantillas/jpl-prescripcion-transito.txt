@@ -1,0 +1,19 @@
+<!-- Fuente: https://www.munistgo.cl/uploads/descargables/formulario_prescripcion_multas.pdf -->
+SOLICITA DECLARACIÓN DE PRESCRIPCIÓN DE MULTA DE TRÁNSITO EMPADRONADA
+
+RUT: {{RUT_SOLICITANTE}}
+ROL DE CAUSA: {{ROL_CAUSA}}
+PATENTE DEL VEHÍCULO: {{PATENTE_VEHICULO}}
+
+AL JUEZ DE POLICÍA LOCAL DE {{COMUNA_JUZGADO}}
+
+Yo, {{NOMBRE_COMPLETO_SOLICITANTE}}, cédula de identidad N° {{RUT_SOLICITANTE}}, con domicilio en {{DOMICILIO_SOLICITANTE}}, comuna de {{COMUNA_SOLICITANTE}}, correo electrónico de notificación {{CORREO_ELECTRONICO}}, en autos sobre infracción de tránsito, causa Rol N° {{ROL_CAUSA}}, a US. respetuosamente digo:
+
+Que vengo en interponer solicitud para que se declare la prescripción de la multa de tránsito empadronada asociada al vehículo PPU {{PATENTE_VEHICULO}}, de la cual soy propietario/conductor, cursada por la infracción de fecha {{FECHA_INFRACCION}} e inscrita en el Registro de Multas de Tránsito No Pagadas bajo el N° de Resolución {{NUMERO_RESOLUCION}} con fecha {{FECHA_ANOTACION_REGISTRO}}.
+
+Fundo mi solicitud en lo dispuesto en el artículo 24 de la Ley N° 18.287, por cuanto han transcurrido más de tres años desde la fecha de anotación de dicha multa en el mencionado registro del Servicio de Registro Civil e Identificación, sin que a la fecha se registre pago alguno o actividad procesal útil tendiente a su cobro.
+
+POR TANTO,
+A US. RUEGO se sirva tener por presentada esta solicitud, acogerla a tramitación y declarar la prescripción extintiva de la multa singularizada, oficiando en su oportunidad al Servicio de Registro Civil e Identificación para que proceda a su eliminación inmediata del registro.
+
+OTROSÍ: Solicito que las resoluciones dictadas en esta causa sean notificadas al correo electrónico {{CORREO_ELECTRONICO}}.

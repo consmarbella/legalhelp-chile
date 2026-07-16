@@ -1,0 +1,38 @@
+<!-- Fuente: https://www.sernac.cl/ -->
+SOLICITUD FORMAL DE EJERCICIO DE GARANTÍA LEGAL
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_SOLICITUD}}
+
+Señores
+{{RAZON_SOCIAL_PROVEEDOR}}
+{{DOMICILIO_PROVEEDOR}}
+Presente
+
+De mi consideración:
+
+Por la presente, don/ña {{NOMBRE_CONSUMIDOR}}, RUT N° {{RUT_CONSUMIDOR}}, con domicilio en {{DOMICILIO_CONSUMIDOR}}, comuna de {{COMUNA_CONSUMIDOR}}, y correo electrónico {{CORREO_ELECTRONICO}}, viene a ejercer formalmente el derecho a la Garantía Legal consagrado en el artículo 20 de la Ley N° 19.496, respecto del producto adquirido en su establecimiento o sitio web según se detalla:
+
+- Producto: {{DETALLE_PRODUCTO}}
+- Boleta/Factura o Código de Compra N°: {{NUMERO_BOLETA_FACTURA}}
+- Fecha de compra: {{FECHA_COMPRA}} (dentro de los últimos 6 meses)
+- Valor del producto: ${{VALOR_PRODUCTO}}
+
+El mencionado producto presenta la siguiente falla de fabricación o defecto de calidad detectado el día {{FECHA_DETECCION_FALLA}}:
+{{RELATO_FALLA_DEFECTO}}
+
+De acuerdo con lo establecido en el citado artículo 20 de la Ley de Protección de los Derechos de los Consumidores, ante un desperfecto o falla no imputable al mal uso por parte del consumidor, es derecho de mi parte optar libremente por una de las siguientes tres alternativas sin que la empresa me pueda imponer condiciones:
+
+1. **Devolución de la totalidad del dinero** pagado.
+2. **Reemplazo o cambio del producto** defectuoso por uno nuevo del mismo modelo o de características similares.
+3. **Reparación gratuita** del producto en el servicio técnico autorizado.
+
+Mediante este documento, comunico que mi elección libre y soberana es la opción: **{{OPCION_ELEGIDA}}** (Devolución del dinero / Cambio de producto / Reparación gratuita).
+
+Solicito realizar la gestión respectiva de manera inmediata, reservando el derecho de acudir ante el Servicio Nacional del Consumidor (SERNAC) y el Juzgado de Policía Local competente en caso de negativa o demora injustificada en el cumplimiento de esta obligación legal.
+
+Saluda atentamente a ustedes,
+
+___________________________
+{{NOMBRE_CONSUMIDOR}}
+RUT N° {{RUT_CONSUMIDOR}}
+Consumidor

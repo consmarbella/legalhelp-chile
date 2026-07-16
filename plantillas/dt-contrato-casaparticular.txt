@@ -1,0 +1,22 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CONTRATO DE TRABAJO PARA TRABAJADORES DE CASA PARTICULAR
+
+En {{CIUDAD_CONTRATO}}, a {{FECHA_CONTRATO}}, entre don/ña {{NOMBRE_EMPLEADOR}}, cédula de identidad N° {{RUT_EMPLEADOR}}, domiciliado en {{DOMICILIO_EMPLEADOR}}, comuna de {{COMUNA_EMPLEADOR}}, en adelante "el empleador", y don/ña {{NOMBRE_TRABAJADOR}}, de nacionalidad {{NACIONALIDAD_TRABAJADOR}}, cédula de identidad N° {{RUT_TRABAJADOR}}, domiciliado/a en {{DOMICILIO_TRABAJADOR}}, comuna de {{COMUNA_TRABAJADOR}}, en adelante "el trabajador", se ha convenido el siguiente contrato de trabajo:
+
+PRIMERO: El trabajador se obliga a prestar sus servicios como trabajador de casa particular, realizando labores de {{TIPO_LABORES_CASA}} (limpieza, cocina, cuidado de personas, mantención, etc.) en el domicilio del empleador ubicado en {{DOMICILIO_EMPLEADOR}}.
+
+SEGUNDO: Régimen de trabajo. El contrato se pacta bajo la modalidad de: {{MODALIDAD_TRABAJO}} (indicar si es Puertas Adentro o Puertas Afuera).
+- Si es Puertas Afuera: La jornada de trabajo será de {{CANTIDAD_HORAS_SEMANALES}} horas semanales, distribuidas de la siguiente forma: {{HORARIO_TRABAJO_DIARIO}}.
+- Si es Puertas Adentro: Tendrá derecho a un descanso mínimo de 12 horas diarias y descanso semanal según lo dispuesto en el artículo 150 del Código del Trabajo.
+
+TERCERO: Remuneración. El empleador pagará al trabajador una remuneración mensual de ${{SUELDO_BASE}} pesos chilenos, la cual se pagará los días {{DIA_PAGO_REMUNERACION}} de cada mes. No se podrá descontar de esta remuneración el valor de la alimentación y habitación proporcionadas por el empleador (si aplica).
+
+CUATRO: Obligaciones previsionales. El empleador registrará este contrato en la Dirección del Trabajo y enterará las cotizaciones en AFP {{AFP_TRABAJADOR}} e institución de salud {{SALUD_TRABAJADOR}}, además de la cotización obligatoria para la indemnización a todo evento establecida en el artículo 163 del Código del Trabajo.
+
+QUINTO: El contrato comenzará a regir el {{FECHA_INGRESO_TRABAJADOR}} y su duración será indefinida/plazo fijo hasta {{FECHA_TERMINO_CONTRATO}}.
+
+Para constancia se firma en dos ejemplares de igual tenor.
+
+___________________________                    ___________________________
+{{NOMBRE_EMPLEADOR}}                           {{NOMBRE_TRABAJADOR}}
+EMPLEADOR                                      TRABAJADOR

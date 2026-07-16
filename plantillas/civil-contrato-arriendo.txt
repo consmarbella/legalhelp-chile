@@ -1,0 +1,20 @@
+<!-- Fuente: https://www.minvu.cl/ / https://derecho.uchile.cl -->
+CONTRATO DE ARRENDAMIENTO DE PREDIO URBANO (HABITACIONAL)
+
+En {{CIUDAD_CONTRATO}}, a {{FECHA_CONTRATO}}, entre don/ña {{NOMBRE_ARRENDADOR}}, de nacionalidad {{NACIONALIDAD_ARRENDADOR}}, cédula de identidad N° {{RUT_ARRENDADOR}}, domiciliado/a para estos efectos en {{DOMICILIO_ARRENDADOR}}, en adelante "el arrendador", y don/ña {{NOMBRE_ARRENDATARIO}}, de nacionalidad {{NACIONALIDAD_ARRENDATARIO}}, cédula de identidad N° {{RUT_ARRENDATARIO}}, domiciliado/a para estos efectos en {{DOMICILIO_ARRENDATARIO}}, en adelante "el arrendatario", se ha convenido el siguiente contrato de arrendamiento regido por la Ley N° 18.101:
+
+PRIMERO: Propiedad. El arrendador entrega en arrendamiento al arrendatario la propiedad ubicada en {{DIRECCION_PROPIEDAD}}, comuna de {{COMUNA_PROPIEDAD}}, para ser destinada única y exclusivamente a uso habitacional del arrendatario y su familia, quedando prohibido darle cualquier otro destino o subarrendar total o parcialmente el inmueble sin autorización por escrito del arrendador.
+
+SEGUNDO: Renta de Arrendamiento. La renta mensual de arrendamiento será la suma de ${{VALOR_RENTA_MENSUAL}} (o su equivalente en UF: {{VALOR_UF}}), la cual se reajustará semestralmente/anualmente según la variación del IPC. La renta deberá ser pagada por mes anticipado, dentro de los primeros {{DIAS_PLAZO_PAGO}} días de cada mes, mediante transferencia bancaria a la cuenta {{CUENTA_BANCARIA}} del arrendador.
+
+TERCERO: Plazo del Contrato. El presente contrato comenzará a regir el {{FECHA_INICIO_ARRENDAMIENTO}} y tendrá una duración de {{PLAZO_DURACION_MESES}} meses, prorrogable tácita y sucesivamente por periodos iguales si ninguna de las partes manifestare su intención de no renovarlo mediante aviso por carta certificada enviada con al menos {{ANTICIPACION_AVISO_DIAS}} días de anticipación al vencimiento del plazo.
+
+CUARTO: Garantía. En garantía de la conservación del inmueble y el pago de eventuales deterioros o deudas de servicios básicos (luz, agua, gas) y gastos comunes, el arrendatario entrega al arrendador la suma de ${{MONTO_GARANTIA}} (equivalente a un mes de renta). Dicha suma no podrá ser imputada a rentas de arrendamiento y será devuelta dentro de los 30 días posteriores a la restitución material de la propiedad, previa deducción de los gastos debidamente respaldados.
+
+QUINTO: Restitución. A la expiración del contrato, el arrendatario se obliga a restituir la propiedad desocupada, limpia y en el mismo estado de conservación en que la recibió, salvo el desgaste por el uso legítimo.
+
+Para constancia firman las partes ante Notario Público.
+
+___________________________                    ___________________________
+{{NOMBRE_ARRENDADOR}}                          {{NOMBRE_ARRENDATARIO}}
+ARRENDADOR                                     ARRENDATARIO

@@ -1,0 +1,19 @@
+<!-- Fuente: https://www.chileatiende.gob.cl/ -->
+CARTA PODER SIMPLE
+
+En {{CIUDAD_FIRMA}}, a {{FECHA_PODER}}
+
+Yo, {{NOMBRE_MANDANTE}}, cédula de identidad N° {{RUT_MANDANTE}}, domiciliado/a en {{DOMICILIO_MANDANTE}}, comuna de {{COMUNA_MANDANTE}}, por medio del presente instrumento vengo en otorgar poder amplio, pero simple, a don/ña {{NOMBRE_MANDATARIO}}, de nacionalidad {{NACIONALIDAD_MANDATARIO}}, cédula de identidad N° {{RUT_MANDATARIO}}, domiciliado/a en {{DOMICILIO_MANDATARIO}}, comuna de {{COMUNA_MANDATARIO}}, para que en mi nombre y representación realice el siguiente trámite:
+
+{{DETALLE_TRAMITE_AUTORIZADO}} (ej: retirar encomienda, tramitar patente municipal, solicitar certificado, etc.) ante la institución {{INSTITUCION_DESTINO}}.
+
+Para tales efectos, faculto a mi mandatario/a para firmar las solicitudes y documentos necesarios, retirar las copias correspondientes y realizar todas las gestiones conducentes a la satisfactoria finalización del encargo encomendado, no pudiendo delegar este poder a terceros.
+
+El presente poder tendrá vigencia desde la fecha de su firma hasta el {{FECHA_EXPIRACION_PODER}} o bien hasta el término definitivo del trámite señalado.
+
+Para constancia y validez de este acto, firmamos conjuntamente mandante y mandatario.
+
+___________________________                    ___________________________
+{{NOMBRE_MANDANTE}}                            {{NOMBRE_MANDATARIO}}
+RUT N° {{RUT_MANDANTE}}                        RUT N° {{RUT_MANDATARIO}}
+MANDANTE (Otorga Poder)                        MANDATARIO (Acepta Poder)

@@ -1,0 +1,50 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+DENUNCIA POR VULNERACIÓN DE DERECHOS FUNDAMENTALES (PROCEDIMIENTO DE TUTELA LABORAL)
+
+ANTE LA INSPECCIÓN PROVINCIAL/COMUNAL DEL TRABAJO DE {{CIUDAD_INSPECCION}}
+
+I. INDIVIDUALIZACIÓN DEL DENUNCIANTE (TRABAJADOR)
+Nombre Completo: {{NOMBRE_TRABAJADOR}}
+RUT: {{RUT_TRABAJADOR}}
+Fecha de Nacimiento: {{FECHA_NACIMIENTO_TRABAJADOR}}
+Domicilio: {{DOMICILIO_TRABAJADOR}}, Comuna: {{COMUNA_TRABAJADOR}}
+Teléfono: {{TELEFONO_CONTACTO}}
+Correo Electrónico: {{CORREO_ELECTRONICO}}
+Sindicato al que pertenece (si aplica): {{SINDICATO_TRABAJADOR}}
+
+II. INDIVIDUALIZACIÓN DEL DENUNCIADO (EMPLEADOR)
+Razón Social / Nombre Empleador: {{RAZON_SOCIAL_EMPLEADOR}}
+RUT Empleador: {{RUT_EMPLEADOR}}
+Domicilio Comercial: {{DOMICILIO_EMPLEADOR}}, Comuna: {{COMUNA_EMPLEADOR}}
+Representante Legal: {{NOMBRE_REPRESENTANTE_EMPLEADOR}}
+Giro de la Empresa: {{GIRO_EMPRESA}}
+
+III. ANTECEDENTES DE LA RELACIÓN LABORAL
+Fecha de ingreso del trabajador: {{FECHA_INGRESO_TRABAJADOR}}
+Cargo desempeñado: {{CARGO_TRABAJADOR}}
+Remuneración mensual: ${{SUELDO_BASE}}
+¿Se encuentra la relación laboral vigente?: {{RELACION_LABORAL_VIGENTE}} (Sí / No)
+En caso de término de la relación, fecha y causal: {{FECHA_Y_CAUSAL_TERMINO}}
+
+IV. DERECHOS FUNDAMENTALES VULNERADOS (Art. 485 Código del Trabajo)
+(Indicar cuáles de los siguientes derechos han sido afectados)
+- [ ] Derecho a la vida y a la integridad física o psíquica (Art. 19 N° 1 Constitución)
+- [ ] Respeto y protección a la vida privada y honra de la persona y su familia (Art. 19 N° 4 Constitución)
+- [ ] Inviolabilidad de toda forma de comunicación privada (Art. 19 N° 5 Constitución)
+- [ ] Libertad de conciencia y cultos (Art. 19 N° 6 Constitución)
+- [ ] Libertad de emitir opinión y de informar (Art. 19 N° 12 Constitución)
+- [ ] Libertad de trabajo y su libre elección (Art. 19 N° 16 Constitución)
+- [ ] Actos discriminatorios (Art. 2 inc 3° Código del Trabajo)
+
+V. RELATO CIRCUNSTANCIADO DE LOS HECHOS
+Describa detalladamente los hechos que constituyen la vulneración, señalando fechas, lugares, personas involucradas y la forma en que se produjo la afectación de sus derechos fundamentales:
+{{RELATO_HECHOS_VULNERACION}}
+
+VI. PRUEBAS OFRECIDAS
+Indique los medios de prueba con los que cuenta (documentos, testigos, grabaciones, correos electrónicos):
+{{MEDIOS_DE_PRUEBA}}
+
+Declaro bajo juramento que los datos aportados en esta denuncia son verídicos.
+
+Firma del Denunciante: ___________________________
+Fecha de Presentación: {{FECHA_PRESENTACION}}

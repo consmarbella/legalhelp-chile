@@ -1,0 +1,41 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+FORMULARIO DE DENUNCIA LEY KARIN (LEY N° 21.643)
+ACOSO LABORAL, ACOSO SEXUAL Y VIOLENCIA EN EL TRABAJO
+
+I. INDIVIDUALIZACIÓN DEL/LA DENUNCIANTE
+Nombre Completo: {{NOMBRE_DENUNCIANTE}}
+RUT: {{RUT_DENUNCIANTE}}
+Cargo: {{CARGO_DENUNCIANTE}}
+Área/Departamento: {{AREA_DENUNCIANTE}}
+Domicilio personal: {{DOMICILIO_DENUNCIANTE}}
+Correo Electrónico de contacto: {{CORREO_ELECTRONICO}}
+Teléfono: {{TELEFONO_CONTACTO}}
+
+II. INDIVIDUALIZACIÓN DE LA PERSONA DENUNCIADA
+Nombre Completo: {{NOMBRE_DENUNCIADO}}
+Cargo que desempeña: {{CARGO_DENUNCIADO}}
+Relación con el denunciante: {{RELACION_CON_DENUNCIADO}} (ej: jefatura, par, subalterno, tercero ajeno)
+Empresa/Razón Social: {{RAZON_SOCIAL_EMPLEADOR}}
+RUT Empleador: {{RUT_EMPLEADOR}}
+
+III. MATERIA DE LA DENUNCIANTE (Marcar opción correspondiente)
+- [ ] Acoso Sexual: Requerimientos de carácter sexual no consentidos por quien los recibe y que amenacen o perjudiquen su situación laboral o sus oportunidades en el empleo.
+- [ ] Acoso Laboral: Toda conducta que constituya agresión u hostigamiento ejercida por el empleador o por uno o más trabajadores, en forma sistemática o bien manifestada en un solo evento grave, que tenga como resultado el menoscabo, maltrato o humillación del trabajador afectado.
+- [ ] Violencia en el Trabajo ejercida por terceros ajenos a la relación laboral: Conductas que afecten a los trabajadores con ocasión de la prestación de servicios, por usuarios, clientes, proveedores o visitas.
+
+IV. RELACIÓN DE HECHOS DENUNCIADOS
+Describa detalladamente los hechos constitutivos de acoso o violencia. Especifique fechas, horas, lugares y el modo en que ocurrieron los acontecimientos:
+{{RELATO_HECHOS_LEY_KARIN}}
+
+V. TESTIGOS / MEDIOS DE PRUEBA
+Mencione testigos presenciales de los hechos o pruebas documentales/digitales (correos, mensajes de texto, chats, grabaciones) que aportará a la investigación:
+{{TESTIGOS_Y_PRUEBAS}}
+
+VI. SOLICITUD DE MEDIDAS DE RESGUARDO INMEDIATAS
+Solicito al empleador la adopción de las siguientes medidas provisionales de resguardo (ej: separación de espacios físicos, redistribución de la jornada, teletrabajo):
+{{MEDIDAS_RESGUARDO_SOLICITADAS}}
+
+Fecha de Presentación: {{FECHA_PRESENTACION}}
+
+Firma del Denunciante: ___________________________
+Firma del Receptor de la Denuncia (Recursos Humanos / Inspección): ___________________________

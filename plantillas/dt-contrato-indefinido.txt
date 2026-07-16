@@ -1,0 +1,22 @@
+<!-- Fuente: https://www.dt.gob.cl/ -->
+CONTRATO DE TRABAJO INDEFINIDO
+
+En {{CIUDAD_CONTRATO}}, a {{FECHA_CONTRATO}}, entre {{RAZON_SOCIAL_EMPLEADOR}}, RUT N° {{RUT_EMPLEADOR}}, representada por don/ña {{NOMBRE_REPRESENTANTE_EMPLEADOR}}, cédula de identidad N° {{RUT_REPRESENTANTE_EMPLEADOR}}, ambos domiciliados en {{DOMICILIO_EMPLEADOR}}, comuna de {{COMUNA_EMPLEADOR}}, en adelante "el empleador", y don/ña {{NOMBRE_TRABAJADOR}}, de nacionalidad {{NACIONALIDAD_TRABAJADOR}}, nacido/a el {{FECHA_NACIMIENTO_TRABAJADOR}}, cédula de identidad N° {{RUT_TRABAJADOR}}, domiciliado/a en {{DOMICILIO_TRABAJADOR}}, comuna de {{COMUNA_TRABAJADOR}}, en adelante "el trabajador", se ha convenido el siguiente contrato de trabajo:
+
+PRIMERO: El trabajador se compromete a desempeñar el cargo de {{CARGO_TRABAJADOR}}, debiendo realizar específicamente las siguientes funciones: {{FUNCIONES_DETALLADAS}}.
+
+SEGUNDO: Los servicios se prestarán en {{LUGAR_PRESTACION_SERVICIOS}}, sin perjuicio de la facultad del empleador de alterar dicho sitio de conformidad al artículo 12 del Código del Trabajo.
+
+TERCERO: La jornada de trabajo será de {{CANTIDAD_HORAS_SEMANALES}} horas semanales, distribuidas de lunes a viernes en el siguiente horario: {{HORARIO_TRABAJO_DIARIO}}. El trabajador tendrá derecho a un tiempo de colación de {{TIEMPO_COLACION_MINUTOS}} minutos diarios, el cual no se considerará como trabajado.
+
+CUATRO: El empleador pagará al trabajador una remuneración mensual base de ${{SUELDO_BASE}} pesos chilenos, la cual se liquidará y pagará a mes vencido los días {{DIA_PAGO_REMUNERACION}} de cada mes. Adicionalmente, el empleador pagará por concepto de movilización la suma de ${{ASIGNACION_MOVILIZACION}} y por colación ${{ASIGNACION_COLACION}}.
+
+QUINTO: El presente contrato tendrá una duración indefinida, comenzando a regir a contar del {{FECHA_INGRESO_TRABAJADOR}}.
+
+SEXTO: Se deja constancia de que el trabajador ingresa al servicio en calidad de {{ESTADO_AFILIACION_AFP}}, encontrándose afiliado a la AFP {{AFP_TRABAJADOR}} y a la institución de salud {{SALUD_TRABAJADOR}}.
+
+Para constancia de lo convenido, se firma el presente contrato en dos ejemplares de un mismo tenor y fecha, quedando uno en poder de cada parte.
+
+___________________________                    ___________________________
+{{RAZON_SOCIAL_EMPLEADOR}}                     {{NOMBRE_TRABAJADOR}}
+EMPLEADOR                                      TRABAJADOR
