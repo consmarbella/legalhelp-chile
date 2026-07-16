@@ -2,8 +2,7 @@ from flask import Flask, request, jsonify
 import pdfplumber
 import re
 import io
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -41,8 +40,8 @@ def parse_multas():
         # Parse data out of the full text
         lines = [line.strip() for line in full_text.split('\n') if line.strip()]
         
-        # We need to compute 3 years ago
-        three_years_ago = datetime.now() - relativedelta(years=3)
+        # We need to compute 3 years ago (approx 1095 days)
+        three_years_ago = datetime.now() - timedelta(days=1095)
         
         multas = []
         current_multa = {}
