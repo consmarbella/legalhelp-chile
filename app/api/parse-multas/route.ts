@@ -93,6 +93,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Se requiere un archivo PDF.' }, { status: 400 });
     }
 
+    if (typeof global.DOMMatrix === 'undefined') {
+      global.DOMMatrix = require('dommatrix');
+    }
+
     const pdfParse = require('pdf-parse');
     const buffer = Buffer.from(await file.arrayBuffer());
     const pdfData = await pdfParse(buffer);
@@ -107,15 +111,15 @@ export async function POST(req: NextRequest) {
     let globalPatente = patente;
 
     const checkAndPush = (m: Partial<MultaRaw>) => {
-      if (!m.fechaInfraccion) return;
-      const [d, mo, y] = m.fechaInfraccion.split('/').map(Number);
+      if (!m.fechaAnotacion) return; // Se requiere la fecha de ingreso al registro civil
+      const [d, mo, y] = m.fechaAnotacion.split('/').map(Number);
       const fecha = new Date(y, mo - 1, d);
       if (isNaN(fecha.getTime())) return;
-      if (fecha >= THREE_YEARS_AGO) return; // Solo prescribibles
+      if (fecha >= THREE_YEARS_AGO) return; // Solo prescribibles (3 años desde ingreso RMNP)
 
       multas.push({
-        fechaInfraccion: m.fechaInfraccion,
-        fechaAnotacion: m.fechaInfraccion,
+        fechaInfraccion: m.fechaInfraccion || m.fechaAnotacion,
+        fechaAnotacion: m.fechaAnotacion,
         rol: m.rol || 'Por determinar',
         comuna: m.comuna || 'Sin juzgado detectado',
         patente: globalPatente || '',
@@ -149,9 +153,12 @@ export async function POST(req: NextRequest) {
 
       const fechaMatch = line.match(/FECHA INFRACCION\s*:\s*(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4})/i);
       if (fechaMatch) currentMulta.fechaInfraccion = fechaMatch[1].replace(/-/g, '/');
+
+      const fechaAnotacionMatch = line.match(/FECHA INGRESO RMNP\s*:\s*(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4})/i);
+      if (fechaAnotacionMatch) currentMulta.fechaAnotacion = fechaAnotacionMatch[1].replace(/-/g, '/');
     }
     // Empujar la última multa
-    if (currentMulta.fechaInfraccion) {
+    if (currentMulta.fechaAnotacion) {
       checkAndPush(currentMulta);
     }
 
