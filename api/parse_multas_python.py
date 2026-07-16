@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import pdfplumber
 import re
+import io
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -19,16 +21,23 @@ def parse_multas():
     nombreSolicitante = request.form.get('nombreSolicitante', '')
     
     try:
-        import io
+        filename = file.filename.lower()
         file_bytes = file.read()
-        pdf = pdfplumber.open(io.BytesIO(file_bytes))
         full_text = ""
-        for page in pdf.pages:
-            # Extracting text normally
-            text = page.extract_text()
-            if text:
-                full_text += text + "\n"
-                
+        
+        if filename.endswith('.html') or filename.endswith('.htm'):
+            # Parse HTML
+            soup = BeautifulSoup(file_bytes, 'html.parser')
+            # Extract text preserving some line breaks
+            full_text = soup.get_text(separator='\n')
+        else:
+            # Load PDF using pdfplumber
+            pdf = pdfplumber.open(io.BytesIO(file_bytes))
+            for page in pdf.pages:
+                text = page.extract_text()
+                if text:
+                    full_text += text + "\n"
+                    
         # Parse data out of the full text
         lines = [line.strip() for line in full_text.split('\n') if line.strip()]
         
@@ -74,12 +83,16 @@ def parse_multas():
                 if id_match:
                     current_multa['id'] = id_match.group(1)
                     
-            comuna_match = re.search(r'(?:JPL|JUZ(?:GADO)?(?:\s+DE)?(?:\s+POLICÍA\s+LOCAL)?(?:\s+DE)?)[\s:]+([a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+)', line, re.IGNORECASE)
+            comuna_match = re.search(r'((?:\d+°?\s*)?(?:JPL|JUZGADO(?:\s+DE)?(?:\s+POLICÍA\s+LOCAL)?(?:\s+DE)?)\s+[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+)', line, re.IGNORECASE)
             if not comuna_match:
-                comuna_match = re.search(r'POLICIA LOCAL(?: DE)?\s+([A-Z\s]+)', line, re.IGNORECASE)
+                comuna_match = re.search(r'((?:\d+°?\s*)?POLICIA LOCAL(?: DE)?\s+[A-Z\s]+)', line, re.IGNORECASE)
             
             if comuna_match:
-                current_multa['comuna'] = comuna_match.group(1).strip()
+                # Normalizar: "1 JUZGADO DE POLICIA LOCAL DE SANTIAGO" -> "1° JUZGADO DE POLICIA LOCAL DE SANTIAGO"
+                raw_tribunal = comuna_match.group(1).strip()
+                # Si empieza con un número seguido de espacio (ej. "1 JUZGADO"), añadir el símbolo de grado
+                raw_tribunal = re.sub(r'^(\d+)\s+', r'\1° ', raw_tribunal)
+                current_multa['comuna'] = raw_tribunal.upper()
                 
             rol_match = re.search(r'ROL\s*:\s*([A-Z0-9\-]+)', line, re.IGNORECASE)
             if not rol_match:

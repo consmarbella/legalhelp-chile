@@ -348,7 +348,7 @@ export default function TagAssistant({
                   : 'border-[#60a5fa]/30 hover:border-[#00d4ff]/60 hover:bg-[#00d4ff]/5'
                 }`}
               >
-                <input ref={fileRef} type="file" accept=".pdf" className="hidden"
+                <input ref={fileRef} type="file" accept=".pdf,.html,.htm" className="hidden"
                   onChange={e => { if (e.target.files?.[0]) handleFile(e.target.files[0]); e.target.value = ''; }} />
                 
                 {pdfLoading ? (
@@ -362,7 +362,7 @@ export default function TagAssistant({
                       <Upload size={20} />
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-medium text-white">Arrastra o haz clic para subir tu PDF</p>
+                      <p className="text-sm font-medium text-white">Arrastra o haz clic para subir tu PDF o HTML</p>
                       <p className="text-[10px] text-[#9ab0cc] mt-0.5">Extraemos las multas de todas tus comunas automáticamente</p>
                     </div>
                   </>

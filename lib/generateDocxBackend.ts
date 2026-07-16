@@ -42,7 +42,7 @@ export async function generateDocxBackend(data: any): Promise<Buffer> {
 
   // Destinatario (SJL)
   paragraphs.push(new Paragraph({
-    children: [new TextRun({ text: `SJL JUZGADO POLICÍA LOCAL\n${juzgado}`.toUpperCase(), font: FONT, size: FONT_SIZE, bold: true })],
+    children: [new TextRun({ text: `SEÑOR JUEZ TITULAR DEL\n${juzgado}`.toUpperCase(), font: FONT, size: FONT_SIZE, bold: true })],
     alignment: AlignmentType.CENTER,
     spacing: { line: LINE_HEIGHT, before: 80, after: 160 },
   }));

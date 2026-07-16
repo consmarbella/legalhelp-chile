@@ -434,7 +434,7 @@ export const MultasFlow: React.FC = () => {
                     : 'border-slate-700 hover:border-violet-600/50 hover:bg-violet-900/10'
                 }`}
               >
-                <input ref={fileRef} type="file" accept=".pdf" className="hidden"
+                <input ref={fileRef} type="file" accept=".pdf,.html,.htm" className="hidden"
                   onChange={e => { if (e.target.files?.[0]) handleFile(e.target.files[0]); }} />
                 {pdfFile ? (
                   <>
