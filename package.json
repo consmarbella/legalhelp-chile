@@ -23,6 +23,7 @@
     "docx": "^9.7.1",
     "dommatrix": "^0.1.1",
     "jspdf": "^4.2.1",
+    "jszip": "^3.10.1",
     "langchain": "^1.5.2",
     "lucide-react": "^0.511.0",
     "mercadopago": "^2.12.0",

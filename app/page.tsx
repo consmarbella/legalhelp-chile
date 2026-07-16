@@ -133,31 +133,55 @@ export default function Home() {
   const generateDocument = async () => {
     setGenerating(true);
     try {
-      const body = isTagMode
-        ? JSON.stringify({ docId: 'tag', data: assistant, plan: 'single' })
-        : JSON.stringify({ docId: selectedDoc, data: formData, plan: 'single' });
-
-      const res = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      });
-      const data = await res.json();
-      if (data.documento) {
-        setPreview(data.documento);
-        setDocTitle(data.titulo || getTemplateTitle(selectedDoc || 'otro'));
-        setPaid(true);
-
-        // Actualizar preview TAG si corresponde
-        if (isTagMode) {
+      if (isTagMode && assistant.isBatch) {
+        // Lógica para Batch ZIP TAG
+        const res = await fetch('/api/generate-zip', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            comunas: assistant.parsedComunas,
+            rutSolicitante: assistant.rutCliente,
+            nombreSolicitante: assistant.nombreCliente,
+            patente: assistant.patenteVehiculo,
+            domicilio: assistant.direccionCliente,
+            correoElectronico: assistant.correoCliente
+          }),
+        });
+        const data = await res.json();
+        if (data.ok && data.dataUri) {
+          setDocumentUrl(data.dataUri);
+          setPaid(true);
           const { headText: h, bodyText: b } = generatePreviewHTML(assistant, true);
           setHeadText(h);
           setBodyText(b);
         }
+      } else {
+        // Lógica normal
+        const body = isTagMode
+          ? JSON.stringify({ docId: 'tag', data: assistant, plan: 'single' })
+          : JSON.stringify({ docId: selectedDoc, data: formData, plan: 'single' });
 
-        const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        setDocumentUrl(url);
+        const res = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+        });
+        const data = await res.json();
+        if (data.documento) {
+          setPreview(data.documento);
+          setDocTitle(data.titulo || getTemplateTitle(selectedDoc || 'otro'));
+          setPaid(true);
+
+          if (isTagMode) {
+            const { headText: h, bodyText: b } = generatePreviewHTML(assistant, true);
+            setHeadText(h);
+            setBodyText(b);
+          }
+
+          const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          setDocumentUrl(url);
+        }
       }
     } catch (err) {
       console.error('Error generando documento:', err);

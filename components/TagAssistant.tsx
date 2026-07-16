@@ -73,7 +73,11 @@ export default function TagAssistant({
       const result = await resp.json();
       if (!result.ok) throw new Error(result.error || 'Error del servidor');
       
-      let parsedComunas = result.comunas;
+      const { cliente, multas_por_tribunal, cobro } = result;
+      const tribunales = Object.keys(multas_por_tribunal || {});
+      
+      let parsedComunas = tribunales.map(t => ({ nombre: t, multas: multas_por_tribunal[t] }));
+      
       // If we are in a single comuna context, try to filter
       if (comunaName && parsedComunas.length > 0) {
         const found = parsedComunas.filter((c: any) => c.nombre.toLowerCase().includes(comunaName.toLowerCase()) || comunaName.toLowerCase().includes(c.nombre.toLowerCase()));
@@ -81,7 +85,7 @@ export default function TagAssistant({
       }
       
       if (parsedComunas.length === 0) {
-         setErrorMsg('No se encontraron multas en el PDF para procesar.');
+         setErrorMsg('No se encontraron multas que cumplan 3 años de ingreso en el RMNP para prescribir.');
          setPdfLoading(false);
          return;
       }
@@ -90,18 +94,27 @@ export default function TagAssistant({
       
       setTransitioning(true);
       setTimeout(() => {
-        // Guardar la data parseada y saltar a Identidad (Paso 4, index 3)
+        // Si logramos extraer el cliente, llenamos los datos y podemos saltar hasta Actividad (paso 4, index 3 es Identidad)
+        const skipIdentity = Boolean(cliente?.nombre && cliente?.run);
+
         onUpdate({ 
-          step: 3, 
+          step: skipIdentity ? 4 : 3, 
           isBatch: true, 
           parsedComunas, 
-          totalCobro: result.cobro,
-          totalMultas
+          totalCobro: cobro,
+          totalMultas,
+          nombreCliente: cliente?.nombre || data.nombreCliente,
+          rutCliente: cliente?.run || data.rutCliente,
+          patenteVehiculo: cliente?.patente || data.patenteVehiculo
         });
+
         setInputValues(prev => {
           const next = { ...prev };
           delete next['fecha'];
           delete next['rol'];
+          // Also prepopulate current input states just in case user goes back
+          if (cliente?.nombre) next['identidad'] = `${cliente.nombre} ${cliente.run || ''}`.trim();
+          if (cliente?.patente) next['patente'] = cliente.patente;
           return next;
         });
         setErrorMsg('');

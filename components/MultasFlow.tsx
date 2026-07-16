@@ -298,7 +298,16 @@ export const MultasFlow: React.FC = () => {
       });
       const data = await resp.json();
       if (!data.ok) throw new Error(data.error);
-      setArchivos(data.archivos);
+      
+      if (data.dataUri) {
+        const a = document.createElement('a');
+        a.href = data.dataUri;
+        a.download = 'escritos-prescripcion.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+      
       setInstrucciones(data.instrucciones);
       setPaso('descarga');
     } catch (e: any) {

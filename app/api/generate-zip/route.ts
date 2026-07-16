@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import JSZip from 'jszip';
+import { generateDocxBackend } from '@/lib/generateDocxBackend';
 
 // ============================================================
 // DICCIONARIO DE CORREOS JPL — DATOS PÚBLICOS MUNICIPALES
@@ -87,54 +87,35 @@ export async function POST(req: NextRequest) {
       correoElectronico,
     } = await req.json();
 
-    // Leer plantilla base (durante build Next.js copia /plantillas a process.cwd())
-    const templatePath = path.join(process.cwd(), 'plantillas', 'jpl-prescripcion-tag.txt');
-    if (!fs.existsSync(templatePath)) {
-      return NextResponse.json({ error: 'Plantilla base no encontrada' }, { status: 500 });
-    }
-    let template = fs.readFileSync(templatePath, 'utf-8');
-    // Quitar línea de comentario de fuente (compatible ES2017+)
-    template = template.replace(/^<!--[\s\S]*?-->\s*/, '').trim();
-
-    const archivos: { nombre: string; contenido: string }[] = [];
+    const zip = new JSZip();
 
     for (const c of comunas) {
-      const primeraMulta = c.multas[0] || {};
-      let doc = template
-        .replace(/\{\{RUT_SOLICITANTE\}\}/g, rutSolicitante || '')
-        .replace(/\{\{NOMBRE_COMPLETO_SOLICITANTE\}\}/g, nombreSolicitante || '')
-        .replace(/\{\{PATENTE_VEHICULO\}\}/g, patente || '')
-        .replace(/\{\{COMUNA_JUZGADO\}\}/g, c.nombre)
-        .replace(/\{\{DOMICILIO_SOLICITANTE\}\}/g, domicilio || 'indicar domicilio')
-        .replace(/\{\{COMUNA_SOLICITANTE\}\}/g, c.nombre)
-        .replace(/\{\{CORREO_ELECTRONICO\}\}/g, correoElectronico || '')
-        .replace(/\{\{ROL_CAUSA\}\}/g, primeraMulta.rol || 'Por determinar en tribunal')
-        .replace(/\{\{FECHA_INFRACCION\}\}/g, primeraMulta.fechaInfraccion || '')
-        .replace(/\{\{FECHA_ANOTACION_REGISTRO\}\}/g, primeraMulta.fechaAnotacion || '');
-
-      if (c.multas.length > 1) {
-        const lista = c.multas
-          .map((m: { fechaInfraccion: string; rol: string }, i: number) =>
-            `${i + 1}. Infracción del ${m.fechaInfraccion}, Rol ${m.rol}.`
-          )
-          .join('\n');
-        doc += `\n\nADEMÁS, hago presente las siguientes multas adicionales en este juzgado:\n\n${lista}\n\nSolicito se declare la prescripción de todas ellas por las mismas razones de derecho.`;
-      }
-
-      archivos.push({
-        nombre: `escrito-prescripcion-${c.nombre.toLowerCase().replace(/\s+/g, '-')}.txt`,
-        contenido: doc,
+      const docBuffer = await generateDocxBackend({
+        juzgado: c.nombre,
+        rutSolicitante: rutSolicitante || '',
+        nombreSolicitante: nombreSolicitante || '',
+        patente: patente || '',
+        domicilio: domicilio || 'indicar domicilio',
+        correoElectronico: correoElectronico || '',
+        multas: c.multas,
       });
+
+      const safeName = `escrito-prescripcion-${c.nombre.toLowerCase().replace(/[^a-z0-9]/g, '-')}.docx`;
+      zip.file(safeName, docBuffer);
     }
+
+    const zipBuffer = await zip.generateAsync({ type: 'nodebuffer' });
+    const zipBase64 = zipBuffer.toString('base64');
+    const dataUri = `data:application/zip;base64,${zipBase64}`;
 
     const instrucciones = comunas.map((c: { nombre: string; multas: unknown[] }) => ({
       juzgado: c.nombre,
       correo: getJplEmail(c.nombre),
-      archivoNombre: `escrito-prescripcion-${c.nombre.toLowerCase().replace(/\s+/g, '-')}.txt`,
+      archivoNombre: `escrito-prescripcion-${c.nombre.toLowerCase().replace(/[^a-z0-9]/g, '-')}.docx`,
       asunto: `Solicitud de Prescripción de Multa de Tránsito - Patente ${patente}`,
     }));
 
-    return NextResponse.json({ ok: true, archivos, instrucciones });
+    return NextResponse.json({ ok: true, dataUri, instrucciones });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : String(e);
     console.error('[generate-zip]', msg);

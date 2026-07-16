@@ -69,6 +69,7 @@ function getJplEmail(comuna: string): string {
 }
 
 interface MultaRaw {
+  id?: string;
   fechaInfraccion: string;
   fechaAnotacion: string;
   rol: string;
@@ -118,6 +119,7 @@ export async function POST(req: NextRequest) {
       if (fecha >= THREE_YEARS_AGO) return; // Solo prescribibles (3 años desde ingreso RMNP)
 
       multas.push({
+        id: m.id || 'Desconocido',
         fechaInfraccion: m.fechaInfraccion || m.fechaAnotacion,
         fechaAnotacion: m.fechaAnotacion,
         rol: m.rol || 'Por determinar',
@@ -135,10 +137,12 @@ export async function POST(req: NextRequest) {
       }
 
       if (line.includes('ID MULTA') || line.includes('ID_MULTA')) {
-        if (currentMulta.fechaInfraccion) {
+        if (currentMulta.fechaAnotacion) {
           checkAndPush(currentMulta);
         }
         currentMulta = {};
+        const idMatch = line.match(/(?:ID MULTA|ID_MULTA)\s*:\s*(\d+)/i);
+        if (idMatch) currentMulta.id = idMatch[1];
       }
 
       const comunaMatch = line.match(/(?:JPL|JUZ(?:GADO)?(?:\s+DE)?(?:\s+POLICÍA\s+LOCAL)?(?:\s+DE)?)[\s:]+(\w[\w\s]+)/i) 
@@ -162,6 +166,14 @@ export async function POST(req: NextRequest) {
       checkAndPush(currentMulta);
     }
 
+    // Extraer datos del cliente (DATOS DEL PROPIETARIO)
+    let nombreExtracted = nombreSolicitante;
+    let runExtracted = rutSolicitante;
+    const nombreMatch = pdfText.match(/Nombre\s*:\s*(.+)/i);
+    if (nombreMatch) nombreExtracted = nombreMatch[1].trim();
+    const runMatch = pdfText.match(/R\.U\.N\.\s*:\s*([0-9\.\-kK]+)/i);
+    if (runMatch) runExtracted = runMatch[1].trim();
+
     // Agrupar por comuna
     const grouped: Record<string, MultaRaw[]> = {};
     for (const m of multas) {
@@ -180,14 +192,27 @@ export async function POST(req: NextRequest) {
       multas: grouped[c],
     }));
 
+    const multas_por_tribunal: Record<string, any[]> = {};
+    for (const [tribunal, lista] of Object.entries(grouped)) {
+      multas_por_tribunal[tribunal] = lista.map(m => ({
+        id: m.id,
+        fecha_ingreso: m.fechaAnotacion,
+        rol: m.rol,
+      }));
+    }
+
     return NextResponse.json({
       ok: true,
+      cliente: {
+        nombre: nombreExtracted,
+        run: runExtracted,
+        patente: globalPatente || patente,
+      },
+      multas_por_tribunal,
+      // Retro-compatibilidad para el frontend mientras lo actualizamos
       totalMultas: multas.length,
       comunas: comunasConCorreo,
       cobro: totalCobro,
-      rutSolicitante,
-      nombreSolicitante,
-      patente,
     });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : String(e);
