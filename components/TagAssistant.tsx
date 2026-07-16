@@ -13,28 +13,8 @@ import {
 } from '@/lib/tagAssistantLogic';
 import { Upload, FileText, CheckCircle, RefreshCw, AlertTriangle } from 'lucide-react';
 
-// Lee el PDF como texto plano usando FileReader + extracción básica
-async function extractTextFromPdf(file: File): Promise<string> {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const buf = reader.result as ArrayBuffer;
-      const bytes = new Uint8Array(buf);
-      let str = '';
-      for (let i = 0; i < bytes.length; i++) {
-        str += String.fromCharCode(bytes[i]);
-      }
-      const textParts: string[] = [];
-      const reg = /\(([^)]+)\)/g;
-      let m;
-      while ((m = reg.exec(str)) !== null) {
-        textParts.push(m[1]);
-      }
-      resolve(textParts.join(' ') || str);
-    };
-    reader.readAsArrayBuffer(file);
-  });
-}
+// We no longer extract PDF text in the browser.
+// We send the file directly to the API where pdf-parse handles it robustly.
 
 interface TagAssistantProps {
   data: TagAssistantData;
@@ -80,11 +60,15 @@ export default function TagAssistant({
     setErrorMsg('');
     setPdfLoading(true);
     try {
-      const pdfText = await extractTextFromPdf(file);
+      const formData = new FormData();
+      formData.append('file', file);
+      if (data.patenteVehiculo) {
+        formData.append('patente', data.patenteVehiculo);
+      }
+      
       const resp = await fetch('/api/parse-multas', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pdfText, patente: data.patenteVehiculo })
+        body: formData
       });
       const result = await resp.json();
       if (!result.ok) throw new Error(result.error || 'Error del servidor');

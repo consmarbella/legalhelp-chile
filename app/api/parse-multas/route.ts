@@ -83,43 +83,76 @@ interface MultaRaw {
 // ============================================================
 export async function POST(req: NextRequest) {
   try {
-    const { pdfText, rutSolicitante, nombreSolicitante, patente } = await req.json();
+    const formData = await req.formData();
+    const file = formData.get('file') as File;
+    const patente = formData.get('patente') as string || '';
+    const rutSolicitante = formData.get('rutSolicitante') as string || '';
+    const nombreSolicitante = formData.get('nombreSolicitante') as string || '';
 
-    if (!pdfText) {
-      return NextResponse.json({ error: 'Se requiere el texto del PDF.' }, { status: 400 });
+    if (!file) {
+      return NextResponse.json({ error: 'Se requiere un archivo PDF.' }, { status: 400 });
     }
+
+    const pdfParse = require('pdf-parse');
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const pdfData = await pdfParse(buffer);
+    const pdfText = pdfData.text;
 
     const lines = pdfText.split('\n').map((l: string) => l.trim()).filter(Boolean);
     const THREE_YEARS_AGO = new Date();
     THREE_YEARS_AGO.setFullYear(THREE_YEARS_AGO.getFullYear() - 3);
 
     const multas: MultaRaw[] = [];
-    const linePattern = /(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4})/;
+    let currentMulta: Partial<MultaRaw> = {};
+    let globalPatente = patente;
 
-    for (const line of lines) {
-      const match = line.match(linePattern);
-      if (!match) continue;
-
-      const rawDate = match[1].replace(/-/g, '/');
-      const [d, m, y] = rawDate.split('/').map(Number);
-      const fecha = new Date(y, m - 1, d);
-      if (isNaN(fecha.getTime())) continue;
-      if (fecha >= THREE_YEARS_AGO) continue; // Solo prescribibles
-
-      const patenteMatch = line.match(/\b([A-Z]{2,4}[\s\-]?\d{2,4})\b/i);
-      const rolMatch = line.match(/\b(\d{1,6}[\/\-]\d{2,4})\b/);
-      const comunaMatch = line.match(
-        /(?:JPL|JUZ(?:GADO)?(?:\s+DE)?(?:\s+POLICÍA\s+LOCAL)?(?:\s+DE)?)[\s:]+(\w[\w\s]+)/i
-      );
+    const checkAndPush = (m: Partial<MultaRaw>) => {
+      if (!m.fechaInfraccion) return;
+      const [d, mo, y] = m.fechaInfraccion.split('/').map(Number);
+      const fecha = new Date(y, mo - 1, d);
+      if (isNaN(fecha.getTime())) return;
+      if (fecha >= THREE_YEARS_AGO) return; // Solo prescribibles
 
       multas.push({
-        fechaInfraccion: rawDate,
-        fechaAnotacion: rawDate,
-        rol: rolMatch ? rolMatch[1] : 'Por determinar',
-        comuna: comunaMatch ? comunaMatch[1].trim() : 'Sin juzgado detectado',
-        patente: patenteMatch ? patenteMatch[1].replace(/[\s\-]/g, '') : patente || '',
+        fechaInfraccion: m.fechaInfraccion,
+        fechaAnotacion: m.fechaInfraccion,
+        rol: m.rol || 'Por determinar',
+        comuna: m.comuna || 'Sin juzgado detectado',
+        patente: globalPatente || '',
         monto: 'Según Registro',
       });
+    };
+
+    for (const line of lines) {
+      // Intentar extraer la patente general si no la tenemos
+      if (!globalPatente) {
+        const patMatch = line.match(/PATENTE\s*UNICA\s*:\s*([A-Z0-9\-]+)/i);
+        if (patMatch) globalPatente = patMatch[1].replace(/[\s\-]/g, '');
+      }
+
+      if (line.includes('ID MULTA') || line.includes('ID_MULTA')) {
+        if (currentMulta.fechaInfraccion) {
+          checkAndPush(currentMulta);
+        }
+        currentMulta = {};
+      }
+
+      const comunaMatch = line.match(/(?:JPL|JUZ(?:GADO)?(?:\s+DE)?(?:\s+POLICÍA\s+LOCAL)?(?:\s+DE)?)[\s:]+(\w[\w\s]+)/i) 
+                       || line.match(/POLICIA LOCAL(?: DE)?\s+([A-Z\s]+)/i);
+      if (comunaMatch) {
+        // Limpiamos un poco el nombre de la comuna (evitar que capture " SAN MIGUEL" con espacios extra)
+        currentMulta.comuna = comunaMatch[1].trim();
+      }
+
+      const rolMatch = line.match(/ROL\s*:\s*([A-Z0-9\-]+)/i) || line.match(/\bROL\b\s+([A-Z0-9\-]+)/i);
+      if (rolMatch) currentMulta.rol = rolMatch[1].trim();
+
+      const fechaMatch = line.match(/FECHA INFRACCION\s*:\s*(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4})/i);
+      if (fechaMatch) currentMulta.fechaInfraccion = fechaMatch[1].replace(/-/g, '/');
+    }
+    // Empujar la última multa
+    if (currentMulta.fechaInfraccion) {
+      checkAndPush(currentMulta);
     }
 
     // Agrupar por comuna
