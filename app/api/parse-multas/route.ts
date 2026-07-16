@@ -95,7 +95,11 @@ export async function POST(req: NextRequest) {
     }
 
     if (typeof global.DOMMatrix === 'undefined') {
-      global.DOMMatrix = require('dommatrix');
+      // Usamos una clase dummy porque el paquete 'dommatrix' falla en Turbopack/Vercel ("not a constructor")
+      global.DOMMatrix = class DOMMatrix {
+        constructor() {}
+        get is2D() { return true; }
+      } as any;
     }
 
     const pdfParse = require('pdf-parse');
