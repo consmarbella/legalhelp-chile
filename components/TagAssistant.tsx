@@ -53,8 +53,9 @@ export default function TagAssistant({
   }, [currentStep]);
 
   const handleFile = async (file: File) => {
-    if (!file.name.toLowerCase().endsWith('.pdf')) {
-      setErrorMsg('Solo se acepta formato PDF del Registro Civil.');
+    const ext = file.name.toLowerCase();
+    if (!ext.endsWith('.pdf') && !ext.endsWith('.html') && !ext.endsWith('.htm')) {
+      setErrorMsg('Sube el Certificado de Multas (PDF o HTML).');
       return;
     }
     setErrorMsg('');
@@ -330,8 +331,8 @@ export default function TagAssistant({
             />
           </div>
 
-          {/* Opcional: Upload PDF Dropzone en paso 2 (Fecha) o 3 (Rol) */}
-          {(currentStep === 'fecha' || currentStep === 'rol') && (
+          {/* Opcional: Upload PDF Dropzone desde el paso 1 */}
+          {(currentStep === 'patente' || currentStep === 'fecha' || currentStep === 'rol') && (
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="h-px bg-[#60a5fa]/20 flex-1"></div>

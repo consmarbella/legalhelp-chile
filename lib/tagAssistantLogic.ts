@@ -26,8 +26,8 @@ export const TAG_STEPS: TagStep[] = [
   {
     id: 'patente',
     titulo: 'Paso 1 de 6',
-    pregunta: '¿Cuál es la patente de tu auto?',
-    subtitulo: 'Ej: BBBB12 (sin guiones ni espacios)',
+    pregunta: 'Sube tu Certificado de Multas',
+    subtitulo: 'Extraeremos todos tus datos automáticamente. Si no lo tienes, ingresa tu Patente:',
   },
   {
     id: 'fecha',

@@ -122,8 +122,9 @@ export const MultasFlow: React.FC = () => {
 
   // ── Paso 1: manejo del PDF ─────────────────────────────────────────────
   const handleFile = (file: File) => {
-    if (!file.name.toLowerCase().endsWith('.pdf')) {
-      setError('Solo se acepta formato PDF del Registro Civil.');
+    const ext = file.name.toLowerCase();
+    if (!ext.endsWith('.pdf') && !ext.endsWith('.html') && !ext.endsWith('.htm')) {
+      setError('Sube el Certificado de Multas (PDF o HTML).');
       return;
     }
     setError(null);
