@@ -14,15 +14,20 @@ interface TagPreviewProps {
   onCouponChange: (code: string) => void;
   documentUrl: string | null;
   generating: boolean;
+  isBatch?: boolean;
+  totalCobro?: number;
+  totalMultas?: number;
 }
 
 export default function TagPreview({
   headText, bodyText, fullText, paid, comunaName,
   onPayClick, paymentLoading, couponCode, onCouponChange,
-  documentUrl, generating,
+  documentUrl, generating, isBatch, totalCobro, totalMultas
 }: TagPreviewProps) {
   const isBypassed = couponCode === '4321';
   const isUnlocked = paid || isBypassed;
+  
+  const formattedPrice = totalCobro ? totalCobro.toLocaleString('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }) : '$15.990';
 
   return (
     <div className="glass-panel rounded-2xl overflow-hidden flex flex-col h-full">
@@ -87,14 +92,15 @@ export default function TagPreview({
                     Escrito de Defensa Listo para Descarga
                   </h3>
                   <p className="text-gray-300 text-sm mb-3 text-center leading-relaxed">
-                    Hemos redactado el documento formal de prescripción optimizado para el{' '}
-                    <strong className="text-white">
-                      Juzgado de Policía Local de {comunaName || 'tu comuna'}
-                    </strong>.
+                    {isBatch ? (
+                      <>Hemos redactado los documentos formales de prescripción para <strong className="text-white">{totalMultas || 0} multas</strong> en <strong className="text-white">{comunaName || 'varias comunas'}</strong>.</>
+                    ) : (
+                      <>Hemos redactado el documento formal de prescripción optimizado para el <strong className="text-white">Juzgado de Policía Local de {comunaName || 'tu comuna'}</strong>.</>
+                    )}
                   </p>
                   <div className="text-3xl font-bold text-[#00d4ff] mb-4">
-                    $15.990
-                    <span className="text-xs text-gray-400 block font-normal">Pago único · Sin suscripción</span>
+                    {formattedPrice}
+                    <span className="text-xs text-gray-400 block font-normal">{isBatch ? 'Pago único · Múltiples Juzgados' : 'Pago único · Sin suscripción'}</span>
                   </div>
                   <button
                     onClick={onPayClick}
@@ -127,14 +133,14 @@ export default function TagPreview({
           <div className="mt-5 text-center flex flex-col gap-2">
             <a
               href={documentUrl || '#'}
-              download={documentUrl ? 'escrito-prescripcion-tag.docx' : undefined}
+              download={documentUrl ? (isBatch ? 'escritos-prescripcion-tag.zip' : 'escrito-prescripcion-tag.docx') : undefined}
               className={`inline-block font-bold py-3 px-8 rounded-xl text-sm transition ${
                 documentUrl
                   ? 'bg-emerald-600 hover:bg-emerald-500 text-white'
                   : 'bg-[#2a3550] text-[#7a90aa] cursor-not-allowed'
               }`}
             >
-              ⬇️ Descargar Documento (.docx)
+              ⬇️ Descargar Documento{isBatch ? 's (.zip)' : ' (.docx)'}
             </a>
             {!documentUrl && (
               <p className="text-xs text-[#7a90aa]">

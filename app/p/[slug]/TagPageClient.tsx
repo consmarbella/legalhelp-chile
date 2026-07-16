@@ -62,6 +62,15 @@ export default function TagPageClient({
     setAssistant(prev => ({ ...prev, ...patch }));
   }, []);
 
+  // Update preview automatically if we jump to step 4 (after batch upload) or finish step 6
+  useEffect(() => {
+    if (assistant.step < 6 && !(assistant.isBatch && assistant.step >= 3)) return;
+    const { headText: h, bodyText: b, fullText: f } = generatePreviewHTML(assistant, paid);
+    setHeadText(h);
+    setBodyText(b);
+    setFullText(f);
+  }, [assistant.step, assistant.isBatch, paid]); // re-run only when these change
+
   const handleGenerate = useCallback(async () => {
     if (assistant.step < 6) return;
     if (!paid && couponCode !== '4321') {
@@ -71,23 +80,60 @@ export default function TagPageClient({
 
     setGenerating(true);
     try {
-      const res = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ docId: 'tag', data: assistant, plan: 'single' }),
-      });
-      const data = await res.json();
-      if (data.documento) {
-        setPaid(true);
-        const { headText: h, bodyText: b, fullText: f } = generatePreviewHTML(assistant, true);
-        setHeadText(h);
-        setBodyText(b);
-        setFullText(f);
+      if (assistant.isBatch && assistant.parsedComunas) {
+        const res = await fetch('/api/generate-zip', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            comunas: assistant.parsedComunas,
+            rutSolicitante: assistant.rutCliente,
+            nombreSolicitante: assistant.nombreCliente,
+            patente: assistant.patenteVehiculo,
+            domicilio: assistant.direccionCliente,
+            correoElectronico: assistant.correoCliente
+          }),
+        });
+        const data = await res.json();
+        if (data.ok && data.archivos) {
+          setPaid(true);
+          const { headText: h, bodyText: b, fullText: f } = generatePreviewHTML(assistant, true);
+          setHeadText(h);
+          setBodyText(b);
+          setFullText(f);
 
-        // Crear blob para descarga
-        const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        setDocumentUrl(url);
+          // Combina todos los archivos en un solo txt para facilitar descarga
+          let combinedText = 'ESCRITOS DE PRESCRIPCIÓN TAG BATCH\n\nInstrucciones de Envío:\n';
+          data.instrucciones?.forEach((inst: any) => {
+            combinedText += `- Juzgado de ${inst.juzgado}: Enviar a ${inst.correo}\n`;
+          });
+          
+          data.archivos.forEach((a: any) => {
+            combinedText += `\n\n======================================================\n${a.nombre}\n======================================================\n\n${a.contenido}`;
+          });
+          
+          const blob = new Blob([combinedText], { type: 'text/plain;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          setDocumentUrl(url);
+        }
+      } else {
+        const res = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ docId: 'tag', data: assistant, plan: 'single' }),
+        });
+        const data = await res.json();
+        if (data.documento) {
+          setPaid(true);
+          const { headText: h, bodyText: b, fullText: f } = generatePreviewHTML(assistant, true);
+          setHeadText(h);
+          setBodyText(b);
+          setFullText(f);
+
+          // Crear blob para descarga
+          const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          setDocumentUrl(url);
+        }
       }
     } catch (err) {
       console.error('Error generando documento TAG:', err);
@@ -106,12 +152,13 @@ export default function TagPageClient({
           plan,
           docId: 'tag',
           caseData: {
-            tipo_documento: 'Prescripción de Deuda TAG',
-            comuna: comunaName,
-            ready: assistant.step >= 6,
+            tipo_documento: assistant.isBatch ? 'Prescripción de Deuda TAG (Batch)' : 'Prescripción de Deuda TAG',
+            comuna: assistant.isBatch ? 'Varias Comunas' : comunaName,
+            ready: assistant.step >= 6 || (assistant.isBatch && assistant.step >= 3),
             nombre: assistant.nombreCliente || '',
             rut: assistant.rutCliente || '',
             email: assistant.correoCliente || '',
+            precio_personalizado: assistant.isBatch ? assistant.totalCobro : undefined
           },
         }),
       });
@@ -239,6 +286,9 @@ export default function TagPageClient({
               onCouponChange={setCouponCode}
               documentUrl={documentUrl}
               generating={generating}
+              isBatch={assistant.isBatch}
+              totalCobro={assistant.totalCobro}
+              totalMultas={assistant.totalMultas}
             />
           </div>
         </div>

@@ -308,6 +308,11 @@ export interface TagAssistantData {
   juzgadoComuna: string;
   step: number; // 0-based, 0..5
   paid: boolean;
+  // Batch PDF fields
+  isBatch?: boolean;
+  parsedComunas?: any[];
+  totalCobro?: number;
+  totalMultas?: number;
 }
 
 export function createEmptyAssistant(comuna?: string): TagAssistantData {
@@ -325,5 +330,9 @@ export function createEmptyAssistant(comuna?: string): TagAssistantData {
     juzgadoComuna: comuna || '',
     step: 0,
     paid: false,
+    isBatch: false,
+    parsedComunas: [],
+    totalCobro: 0,
+    totalMultas: 0,
   };
 }

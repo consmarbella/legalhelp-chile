@@ -11,6 +11,30 @@ import {
   procesarRUT,
   extraerNombre,
 } from '@/lib/tagAssistantLogic';
+import { Upload, FileText, CheckCircle, RefreshCw, AlertTriangle } from 'lucide-react';
+
+// Lee el PDF como texto plano usando FileReader + extracción básica
+async function extractTextFromPdf(file: File): Promise<string> {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const buf = reader.result as ArrayBuffer;
+      const bytes = new Uint8Array(buf);
+      let str = '';
+      for (let i = 0; i < bytes.length; i++) {
+        str += String.fromCharCode(bytes[i]);
+      }
+      const textParts: string[] = [];
+      const reg = /\(([^)]+)\)/g;
+      let m;
+      while ((m = reg.exec(str)) !== null) {
+        textParts.push(m[1]);
+      }
+      resolve(textParts.join(' ') || str);
+    };
+    reader.readAsArrayBuffer(file);
+  });
+}
 
 interface TagAssistantProps {
   data: TagAssistantData;
@@ -29,7 +53,10 @@ export default function TagAssistant({
   const [inputValues, setInputValues] = useState<Record<string, string>>({});
   const [errorMsg, setErrorMsg] = useState('');
   const [transitioning, setTransitioning] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const currentStep = STEP_KEYS[data.step];
   const stepInfo = TAG_STEPS[data.step];
@@ -44,6 +71,71 @@ export default function TagAssistant({
     setInputValues(prev => ({ ...prev, [currentStep]: value }));
     setErrorMsg('');
   }, [currentStep]);
+
+  const handleFile = async (file: File) => {
+    if (!file.name.toLowerCase().endsWith('.pdf')) {
+      setErrorMsg('Solo se acepta formato PDF del Registro Civil.');
+      return;
+    }
+    setErrorMsg('');
+    setPdfLoading(true);
+    try {
+      const pdfText = await extractTextFromPdf(file);
+      const resp = await fetch('/api/parse-multas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pdfText, patente: data.patenteVehiculo })
+      });
+      const result = await resp.json();
+      if (!result.ok) throw new Error(result.error || 'Error del servidor');
+      
+      let parsedComunas = result.comunas;
+      // If we are in a single comuna context, try to filter
+      if (comunaName && parsedComunas.length > 0) {
+        const found = parsedComunas.filter((c: any) => c.nombre.toLowerCase().includes(comunaName.toLowerCase()) || comunaName.toLowerCase().includes(c.nombre.toLowerCase()));
+        if (found.length > 0) parsedComunas = found;
+      }
+      
+      if (parsedComunas.length === 0) {
+         setErrorMsg('No se encontraron multas en el PDF para procesar.');
+         setPdfLoading(false);
+         return;
+      }
+      
+      const totalMultas = parsedComunas.reduce((acc: number, c: any) => acc + c.multas.length, 0);
+      
+      setTransitioning(true);
+      setTimeout(() => {
+        // Guardar la data parseada y saltar a Identidad (Paso 4, index 3)
+        onUpdate({ 
+          step: 3, 
+          isBatch: true, 
+          parsedComunas, 
+          totalCobro: result.cobro,
+          totalMultas
+        });
+        setInputValues(prev => {
+          const next = { ...prev };
+          delete next['fecha'];
+          delete next['rol'];
+          return next;
+        });
+        setErrorMsg('');
+        setPdfLoading(false);
+        setTransitioning(false);
+      }, 300);
+      
+    } catch (e: any) {
+      setErrorMsg('Error al analizar el PDF: ' + e.message);
+      setPdfLoading(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  };
 
   const handleNext = useCallback(() => {
     const value = (inputValues[currentStep] || '').trim();
@@ -240,6 +332,47 @@ export default function TagAssistant({
               spellCheck={false}
             />
           </div>
+
+          {/* Opcional: Upload PDF Dropzone en paso 2 (Fecha) o 3 (Rol) */}
+          {(currentStep === 'fecha' || currentStep === 'rol') && (
+            <div className="mb-4">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="h-px bg-[#60a5fa]/20 flex-1"></div>
+                <span className="text-[10px] text-[#7a90aa] uppercase tracking-wider font-bold">O Sube tu Certificado PDF</span>
+                <div className="h-px bg-[#60a5fa]/20 flex-1"></div>
+              </div>
+              <div
+                onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={handleDrop}
+                onClick={() => !pdfLoading && fileRef.current?.click()}
+                className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center gap-2 p-4 cursor-pointer transition-all ${
+                  isDragging ? 'border-[#00d4ff] bg-[#00d4ff]/10'
+                  : 'border-[#60a5fa]/30 hover:border-[#00d4ff]/60 hover:bg-[#00d4ff]/5'
+                }`}
+              >
+                <input ref={fileRef} type="file" accept=".pdf" className="hidden"
+                  onChange={e => { if (e.target.files?.[0]) handleFile(e.target.files[0]); e.target.value = ''; }} />
+                
+                {pdfLoading ? (
+                  <>
+                    <RefreshCw size={24} className="text-[#00d4ff] animate-spin" />
+                    <p className="text-sm font-medium text-white">Analizando Certificado...</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="p-2 bg-[#00d4ff]/10 text-[#00d4ff] rounded-lg border border-[#00d4ff]/20">
+                      <Upload size={20} />
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm font-medium text-white">Arrastra o haz clic para subir tu PDF</p>
+                      <p className="text-[10px] text-[#9ab0cc] mt-0.5">Extraemos las multas de todas tus comunas automáticamente</p>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Error message (red alert) */}
           {errorMsg && (
