@@ -33,6 +33,7 @@ export async function POST(req: NextRequest) {
         fuente: 'plantilla-tag',
         titulo: 'Escrito de Prescripción TAG (Art. 24 Ley 18.287)',
       });
+    }
     // ── OTROS DOCS: Híbrido (DeepSeek para narrativa -> Python determinista) ────────────────────────
     
     // 1. Identificar campos narrativos que requieren formalización por IA
