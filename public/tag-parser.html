@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prescripción TAG · LegalHelp Chile</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+:root{
+  --bg:#05070f; --fg:#ffffff; --cyan:#00d4ff; --blue:#60a5fa;
+  --sub:#c8d8e8; --panel:#0b0f1c; --line:rgba(96,165,250,.18);
+  --ok:#34d399; --warn:#fbbf24; --err:#fb7185;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:'Segoe UI',ui-sans-serif,system-ui,sans-serif;
+  min-height:100vh;
+}
+.mono{font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+nav{border-bottom:1px solid var(--line); padding:18px 28px; display:flex; align-items:center; justify-content:space-between}
+.logo{font-weight:800; font-size:20px; letter-spacing:.02em}
+.logo .cyan{color:var(--cyan); text-shadow:0 0 24px rgba(0,212,255,.5)}
+.tag-badge{font-size:10px; letter-spacing:.18em; color:var(--cyan); border:1px solid var(--line); padding:4px 10px; border-radius:2px}
+main{max-width:920px; margin:0 auto; padding:36px 20px 90px}
+h1{font-size:26px; margin:6px 0 4px; letter-spacing:-.01em}
+.lede{color:var(--sub); font-size:14px; margin-bottom:28px; line-height:1.5}
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px; margin-bottom:22px}
+.panel h2{font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); margin:0 0 18px; font-family:monospace}
+.drop{border:1.5px dashed var(--line); border-radius:6px; padding:44px 20px; text-align:center; cursor:pointer; transition:.15s}
+.drop:hover{border-color:var(--cyan); background:rgba(0,212,255,.03)}
+.drop input{display:none}
+.drop .hint{color:var(--sub); font-size:13px; margin-top:8px}
+.btn{
+  background:var(--cyan); color:#04121a; border:none; font-weight:700;
+  padding:13px 22px; border-radius:4px; cursor:pointer; font-size:14px;
+  transition:.12s;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{background:#2a3346; color:#6b7688; cursor:not-allowed}
+.btn.ghost{background:transparent; border:1px solid var(--blue); color:var(--blue)}
+.row{display:flex; gap:14px; flex-wrap:wrap}
+.stat{flex:1; min-width:140px; border:1px solid var(--line); border-radius:5px; padding:14px 16px}
+.stat .n{font-size:26px; font-weight:800; color:var(--cyan)}
+.stat .l{font-size:11px; color:var(--sub); text-transform:uppercase; letter-spacing:.06em; margin-top:2px}
+table{width:100%; border-collapse:collapse; margin-top:14px; font-size:13px}
+th,td{border:1px solid var(--line); padding:8px 10px; text-align:left}
+th{color:var(--cyan); font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em}
+.court-card{border:1px solid var(--line); border-radius:5px; padding:16px 18px; margin-top:12px}
+.court-card h3{margin:0 0 4px; font-size:15px}
+.court-card .meta{color:var(--sub); font-size:12px; margin-bottom:8px}
+.pill{display:inline-block; font-size:10px; font-family:monospace; background:rgba(0,212,255,.1); color:var(--cyan); padding:3px 8px; border-radius:20px; margin-right:4px}
+label{display:block; font-size:12px; color:var(--sub); margin:14px 0 6px; letter-spacing:.02em}
+input[type=text],input[type=email],input[type=tel]{
+  width:100%; background:#080c17; border:1px solid var(--line); color:var(--fg);
+  padding:11px 12px; border-radius:4px; font-size:14px;
+}
+input:focus{outline:none; border-color:var(--cyan)}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:0 16px}
+.err{color:var(--err); font-size:12px; margin-top:14px}
+.ok{color:var(--ok)}
+.total-box{display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); margin-top:18px; padding-top:16px}
+.total-box .amount{font-size:28px; font-weight:800; color:var(--cyan)}
+.preview-doc{background:#f4f4f2; color:#111; padding:34px; border-radius:4px; font-family:Georgia,'Times New Roman',serif; font-size:13.5px; line-height:1.55; max-height:480px; overflow:auto}
+.preview-doc b{font-weight:700}
+.preview-doc table{font-family:Georgia,serif; font-size:12.5px; color:#111}
+.preview-doc th{background:#e6e6e2; color:#111}
+.preview-doc table td{color:#111} /* ensure visible */
+.footer-note{font-size:11px; color:#5b6b85; margin-top:10px; line-height:1.5}
+.hidden{display:none !important}
+.spinner{width:16px;height:16px;border:2px solid rgba(0,212,255,.25);border-top-color:var(--cyan);border-radius:50%;display:inline-block;animation:spin .7s linear infinite; vertical-align:middle; margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.download-row{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(96,165,250,.08)}
+.download-row:last-child{border-bottom:none}
+.small-btn{background:transparent; border:1px solid var(--blue); color:var(--blue); padding:6px 12px; border-radius:4px; font-size:12px; cursor:pointer}
+.small-btn:hover{background:rgba(96,165,250,.1)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span style="color:#fff">LEGAL</span><span class="cyan">HELP</span></div>
+  <div class="tag-badge">PRESCRIPCIÓN TAG · IA</div>
+</nav>
+
+<main>
+  <h1>Prescripción de multas TAG / pórtico</h1>
+  <p class="lede">Sube tu certificado de multas del Registro Civil (PDF). Nuestra IA extrae las multas, detecta cuáles ya cumplieron 3 años (Art. 24, Ley N° 18.287) y prepara los escritos por juzgado.</p>
+
+  <div class="panel">
+    <h2>01 · Sube el certificado</h2>
+    <label class="drop" id="dropZone">
+      <input type="file" id="fileInput" accept="application/pdf">
+      <div id="dropLabel">📄 Arrastra o haz clic para subir el <b>Certificado de Registro de Multas de Tránsito No Pagadas</b> (PDF del Registro Civil de Chile)</div>
+      <div class="hint">El PDF se procesa con IA (DeepSeek) a través del servidor LegalHelp. No se almacena.</div>
+    </label>
+    <div id="parseStatus" class="footer-note"></div>
+  </div>
+
+  <div id="resultArea" class="hidden">
+    <div class="panel">
+      <h2>02 · Multas que califican para prescripción</h2>
+      <div class="row" id="summaryStats"></div>
+      <div id="courtsList"></div>
+      <div class="total-box">
+        <div>
+          <div style="font-size:12px;color:var(--sub)">Escritos a presentar</div>
+          <div id="courtCount" style="font-size:15px;font-weight:700"></div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px;color:var(--sub)">Precio por escrito</div>
+          <div class="amount" id="priceAmount">$0</div>
+        </div>
+      </div>
+      <div class="footer-note">$10.000 primer escrito + $4.000 cada adicional. Un escrito por Juzgado de Policía Local.</div>
+      <div style="margin-top:20px"><button class="btn" id="toStep3">Solicitar escritos de prescripción →</button></div>
+    </div>
+
+    <div class="panel">
+      <h2>03 · Tus datos (obligatorios)</h2>
+      <div class="grid2">
+        <div>
+          <label>Nombre completo *</label>
+          <input type="text" id="f_nombre">
+        </div>
+        <div>
+          <label>RUN *</label>
+          <input type="text" id="f_run">
+        </div>
+      </div>
+      <label>Actividad, profesión u oficio *</label>
+      <input type="text" id="f_actividad" placeholder="Ej: Comerciante, Ingeniero, Dueña de casa...">
+      <div class="grid2">
+        <div>
+          <label>Calle y número *</label>
+          <input type="text" id="f_calle" placeholder="Ej: Av. Las Condes 8080, depto 42">
+        </div>
+        <div>
+          <label>Comuna de domicilio *</label>
+          <input type="text" id="f_comuna_domicilio">
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <label>Correo electrónico *</label>
+          <input type="email" id="f_correo">
+        </div>
+        <div>
+          <label>Teléfono *</label>
+          <input type="tel" id="f_telefono" placeholder="+56 9 ....">
+        </div>
+      </div>
+      <div id="formErr" class="err hidden"></div>
+      <div style="margin-top:20px"><button class="btn" id="generateBtn">Generar escritos →</button></div>
+    </div>
+
+    <div class="panel">
+      <h2>04 · Tus escritos, listos para presentar</h2>
+      <div id="downloadList"></div>
+      <div style="margin-top:18px"><button class="btn ghost" id="downloadZipBtn">Descargar todos (.zip)</button></div>
+
+      <h2 style="margin-top:30px; font-size:15px;">Vista previa</h2>
+      <div id="previewSelect"></div>
+      <div class="preview-doc" id="previewDoc"><p style="color:#666;font-family:Georgia,serif;">Genera los escritos para ver una vista previa aquí.</p></div>
+    </div>
+  </div>
+</main>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+const API_BASE = '/api';  // En Vercel es relativo, en local: http://127.0.0.1:8000
+
+let extracted = null;     // resultado del backend
+let groups = null;
+let clientData = null;
+let generatedDocs = [];
+
+const $ = (id) => document.getElementById(id);
+
+// ── Drop zone ──
+const dropZone = $('dropZone'), fileInput = $('fileInput');
+dropZone.addEventListener('click', ()=> fileInput.click());
+['dragover','dragleave','drop'].forEach(evt=>{
+  dropZone.addEventListener(evt, e=>e.preventDefault());
+});
+dropZone.addEventListener('drop', e=>{
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', e=>{
+  if (e.target.files[0]) handleFile(e.target.files[0]);
+});
+
+// ── Leer PDF y enviar a backend ──
+async function handleFile(file){
+  $('parseStatus').innerHTML = '<span class="spinner"></span> Extrayendo texto del PDF...';
+  try{
+    const buf = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({data: buf}).promise;
+    let fullText = '';
+    for(let i=1;i<=pdf.numPages;i++){
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      fullText += content.items.map(it=>it.str).join(' ') + '\n';
+    }
+
+    $('parseStatus').innerHTML = '<span class="spinner"></span> Enviando a IA (DeepSeek) para análisis...';
+
+    const res = await fetch(API_BASE + '/parse-tag', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ texto_pdf: fullText })
+    });
+
+    if (!res.ok){
+      const errData = await res.json().catch(()=>({}));
+      throw new Error(errData.detail || `Error ${res.status}`);
+    }
+
+    const data = await res.json();
+    extracted = data;
+
+    const groupKeys = Object.keys(data.groups);
+    if (groupKeys.length === 0){
+      $('parseStatus').innerHTML = '<span class="err">No se detectaron multas con 3+ años de antigüedad en este certificado.</span>';
+      return;
+    }
+
+    groups = data.groups;
+    $('parseStatus').innerHTML = `<span class="ok">✓ ${groupKeys.reduce((a,k)=>a+groups[k].length,0)} multas prescribibles en ${groupKeys.length} juzgado(s). Patente ${data.patente}.</span>`;
+    renderSummary();
+    $('resultArea').classList.remove('hidden');
+    window.scrollTo({top: $('resultArea').offsetTop - 20, behavior: 'smooth'});
+  }catch(err){
+    console.error(err);
+    $('parseStatus').innerHTML = '<span class="err">Error: ' + err.message + '</span>';
+  }
+}
+
+function clp(n){ return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+function computePrice(){
+  const n = Object.keys(groups).length;
+  return n === 0 ? 0 : 10000 + Math.max(0, n-1)*4000;
+}
+
+function renderSummary(){
+  const groupKeys = Object.keys(groups);
+  const totalMultas = groupKeys.reduce((a,k)=>a+groups[k].length,0);
+  const nCourts = groupKeys.length;
+  const comunasUnicas = new Set();
+  groupKeys.forEach(k => groups[k].forEach(m => comunasUnicas.add(m.comuna)));
+
+  $('summaryStats').innerHTML = `
+    <div class="stat"><div class="n">${extracted.patente || '—'}</div><div class="l">Patente</div></div>
+    <div class="stat"><div class="n">${totalMultas}</div><div class="l">Multas prescribibles</div></div>
+    <div class="stat"><div class="n">${nCourts}</div><div class="l">Escritos (juzgados)</div></div>
+    <div class="stat"><div class="n">${comunasUnicas.size}</div><div class="l">Comunas</div></div>
+  `;
+
+  $('courtsList').innerHTML = groupKeys.sort().map(key => {
+    const multas = groups[key];
+    const roles = multas.map(m=>`${m.rol}${m.anio?'-'+m.anio:''}`).join(', ');
+    return `<div class="court-card">
+      <h3>${multas[0].juzgadoTitulo}</h3>
+      <div class="meta">${multas.length} multa(s) · Rol(es): ${roles}</div>
+      <span class="pill">Art. 24 Ley 18.287</span><span class="pill">≥ 3 años desde RMNP</span>
+    </div>`;
+  }).join('');
+
+  $('courtCount').textContent = `${nCourts} escrito(s)`;
+  $('priceAmount').textContent = clp(computePrice());
+}
+
+// ── Generar escritos ──
+$('toStep3').addEventListener('click', ()=>{
+  $('f_nombre').value = extracted.propietario || '';
+  $('f_run').value = extracted.run || '';
+  $('toStep3').scrollIntoView({behavior:'smooth'});
+});
+
+$('generateBtn').addEventListener('click', ()=>{
+  const fields = ['f_nombre','f_run','f_actividad','f_calle','f_comuna_domicilio','f_correo','f_telefono'];
+  const values = {};
+  let missing = [];
+  for (const id of fields){
+    const v = $(id).value.trim();
+    values[id] = v;
+    if (!v) missing.push(id);
+  }
+  if (missing.length){
+    $('formErr').textContent = 'Completa todos los campos obligatorios antes de continuar.';
+    $('formErr').classList.remove('hidden');
+    return;
+  }
+  $('formErr').classList.add('hidden');
+  clientData = {
+    nombre: values.f_nombre,
+    run: values.f_run,
+    actividad: values.f_actividad,
+    calle: values.f_calle,
+    comunaDomicilio: values.f_comuna_domicilio,
+    correo: values.f_correo,
+    telefono: values.f_telefono,
+  };
+  generateAllDocs();
+  renderDownloads();
+});
+
+// ── Plantilla de escrito legal ──
+function buildEscritoHTML(tribunalKey, multas){
+  const { juzgadoTitulo, comuna } = multas[0];
+  const patente = extracted.patente;
+  const n = multas.length;
+  const causasStr = multas.map(m => `${m.rol}${m.anio?'-'+m.anio:''}`).join(', ');
+  const domicilioCompleto = `${clientData.calle}, comuna de ${clientData.comunaDomicilio}`;
+
+  const rowsHtml = multas.map(m => `
+    <tr><td>${m.id}</td><td>${m.rol}${m.anio?'-'+m.anio:''}</td><td>${m.fechaInfraccion||''}</td><td>${m.fechaIngreso||''}</td></tr>
+  `).join('');
+
+  return `
+<p><b>PRESCRIPCIÓN PARTES TAG</b></p>
+<p><b>EN LO PRINCIPAL:</b> Alega prescripción de ${n>1?'multas':'multa'} de tránsito. <b>EN EL OTROSÍ:</b> Acompaña documentos;</p>
+<p><b>S.J.L. ${juzgadoTitulo.toUpperCase()}</b></p>
+<p>${clientData.nombre}, ${clientData.actividad}, cédula de identidad N° ${clientData.run}; domiciliado en ${domicilioCompleto}, correo electrónico ${clientData.correo}, teléfono ${clientData.telefono}, en calidad de propietario del vehículo PPU ${patente}, en causa(s) Rol N° ${causasStr}, a SS con respeto digo:</p>
+<p>Por medio de la presente, vengo en alegar prescripción de ${n>1? 'las '+n+' multas impuestas':'la multa impuesta'} al vehículo de mi propiedad PPU ${patente}, conforme lo establece el art. 24 de la Ley N° 18.287 que establece el Procedimiento ante los Juzgados de Policía Local, por haber transcurrido más de tres años desde su anotación en el Registro de Multas No Pagadas del Servicio de Registro Civil e Identificación.</p>
+<p><b>Detalle de las multas cuya prescripción se solicita:</b></p>
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse:collapse;width:100%">
+<tr><th>ID Multa</th><th>Rol / Año</th><th>Fecha Infracción</th><th>Fecha Anotación RMNP</th></tr>
+${rowsHtml}
+</table>
+<p><b>POR TANTO:</b> Ruego a SS tener por alegada la prescripción de ${n>1?'las multas':'la multa'} asociada${n>1?'s':''} a la PPU ${patente} y acogerla a tramitación;</p>
+<p><b>OTROSÍ:</b> Solicito a SS tener por acompañado certificado de multas no pagadas del Registro Civil.</p>
+<br><br>
+<p>_______________________<br><b>FIRMA</b><br>${clientData.nombre}<br>RUN ${clientData.run}</p>
+`;
+}
+
+function htmlToWordDoc(innerHtml, title){
+  return `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+  <head><meta charset="utf-8"><title>${title}</title>
+  <!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View></w:WordDocument></xml><![endif]-->
+  <style>body{font-family:'Times New Roman',serif; font-size:12pt;} table{border-collapse:collapse;} td,th{border:1px solid #000;padding:6px;}</style>
+  </head><body>${innerHtml}</body></html>`;
+}
+
+function generateAllDocs(){
+  generatedDocs = Object.entries(groups).sort().map(([key, multas])=>{
+    const html = buildEscritoHTML(key, multas);
+    const safe = multas[0].juzgadoTitulo.replace(/[^A-Za-z0-9]+/g,'_');
+    return { name: `Escrito_Prescripcion_${safe}.doc`, html, groupKey: key, comuna: multas[0].comuna, n: multas.length };
+  });
+}
+
+function renderDownloads(){
+  $('downloadList').innerHTML = generatedDocs.map((d,i)=>`
+    <div class="download-row">
+      <div><b>${d.comuna}</b> — ${d.n} multa(s) <span class="footer-note">(${d.name})</span></div>
+      <button class="small-btn" onclick="downloadDoc(${i})">Descargar .doc</button>
+    </div>
+  `).join('');
+
+  $('previewSelect').innerHTML = `<select id="previewPicker" style="background:#080c17;color:#fff;border:1px solid var(--line);padding:8px;border-radius:4px;margin-bottom:12px">
+    ${generatedDocs.map((d,i)=>`<option value="${i}">${d.comuna}</option>`).join('')}
+  </select>`;
+  $('previewPicker').addEventListener('change', e=> renderPreview(+e.target.value));
+  renderPreview(0);
+}
+
+function renderPreview(i){
+  $('previewDoc').innerHTML = generatedDocs[i]?.html || '<p style="color:#666;">Sin vista previa disponible.</p>';
+}
+
+function downloadDoc(i){
+  const d = generatedDocs[i];
+  const blob = new Blob(['\ufeff', htmlToWordDoc(d.html, d.name)], {type:'application/msword'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = d.name;
+  a.click();
+}
+
+$('downloadZipBtn').addEventListener('click', async ()=>{
+  const zip = new JSZip();
+  for (const d of generatedDocs){
+    zip.file(d.name, htmlToWordDoc(d.html, d.name));
+  }
+  const blob = await zip.generateAsync({type:'blob'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Escritos_Prescripcion_${extracted.patente || 'multas'}.zip`;
+  a.click();
+});
+</script>
+</body>
+</html>

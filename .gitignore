@@ -1,6 +1,10 @@
 node_modules/
 .next/
 .env.local
+.env
+.env.*
 *.log
 test-results/
 .vercel
+__pycache__/
+*.pyc

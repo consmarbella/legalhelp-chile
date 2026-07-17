@@ -20,6 +20,10 @@
     },
     "app/api/demandas/payment/route.ts": {
       "maxDuration": 30
+    },
+    "api/index.py": {
+      "maxDuration": 60,
+      "memory": 512
     }
   },
   "redirects": [
@@ -27,5 +31,14 @@
     { "source": "/servicios", "destination": "/", "permanent": true },
     { "source": "/contacto", "destination": "/", "permanent": true },
     { "source": "/(.*)", "has": [{ "type": "host", "value": "http://legalhelp.cl" }], "destination": "https://legalhelp.cl/$1", "permanent": true }
-  ]
+  ],
+  "rewrites": [
+    { "source": "/api/parse-tag", "destination": "/api/index" },
+    { "source": "/api/health", "destination": "/api/index" }
+  ],
+  "overrides": {
+    "api/index.py": {
+      "path": "api/index.py"
+    }
+  }
 }
