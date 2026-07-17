@@ -126,9 +126,21 @@ export default function TagPageClient({
           setFullText(f);
 
           // Crear blob para descarga
-          const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          setDocumentUrl(url);
+          if (data.zip_base64) {
+            const byteCharacters = atob(data.zip_base64);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+              byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: 'application/zip' });
+            const url = URL.createObjectURL(blob);
+            setDocumentUrl(url);
+          } else {
+            const blob = new Blob([data.documento], { type: 'text/markdown;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            setDocumentUrl(url);
+          }
         }
       }
     } catch (err) {

@@ -24,15 +24,34 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'docId y data son requeridos' }, { status: 400 });
     }
 
-    // ── TAG: Plantilla determinista, SIN IA ─────────────────────────────
+    // ── TAG: Motor Determinista en Python (Descarga ZIP) ─────────────────────────────
     if (docId === 'tag') {
-      const { generateTagDocument } = await import('@/lib/tagTemplate');
-      const documento = generateTagDocument(data);
-      return NextResponse.json({
-        documento,
-        fuente: 'plantilla-tag',
-        titulo: 'Escrito de Prescripción TAG (Art. 24 Ley 18.287)',
-      });
+      try {
+        const pythonUrl = process.env.NEXT_PUBLIC_API_URL 
+          ? `${process.env.NEXT_PUBLIC_API_URL}/api/generate_tag_zip`
+          : 'http://127.0.0.1:5328/api/generate_tag_zip';
+          
+        const response = await fetch(pythonUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        
+        if (response.ok) {
+          // El endpoint retorna un binario (application/zip)
+          const arrayBuffer = await response.arrayBuffer();
+          const base64 = Buffer.from(arrayBuffer).toString('base64');
+          return NextResponse.json({
+            documento: "Tus escritos están listos y empaquetados. Haz clic en el botón de descarga para obtener tus archivos de Word listos para imprimir.",
+            fuente: 'plantilla-tag',
+            titulo: 'Escritos de Prescripción TAG',
+            zip_base64: base64
+          });
+        }
+      } catch (e) {
+        console.error('[generate] Error al generar ZIP TAG:', e);
+      }
+      return NextResponse.json({ error: 'Error generando ZIP de multas TAG' }, { status: 500 });
     }
     // ── OTROS DOCS: Híbrido (DeepSeek para narrativa -> Python determinista) ────────────────────────
     
