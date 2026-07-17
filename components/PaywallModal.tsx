@@ -18,7 +18,8 @@ export default function PaywallModal({ caseData = {}, selectedDoc, paymentLoadin
   const handleBypassChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const code = e.target.value;
     setBypassCode(code);
-    if (code === '4321' && onTestPayment) {
+    // Bypass only available in development mode for E2E tests
+    if (code === 'dev_bypass_4321' && process.env.NODE_ENV === 'development' && onTestPayment) {
       onTestPayment('single');
     }
   };

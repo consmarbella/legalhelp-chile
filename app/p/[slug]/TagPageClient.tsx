@@ -50,12 +50,8 @@ export default function TagPageClient({
     setFullText(f);
   }, [assistant, paid]);
 
-  // Detectar bypass 4321
   useEffect(() => {
-    if (couponCode === '4321' && !paid) {
-      setPaid(true);
-      setShowPaywall(false);
-    }
+    // Aquí podrías validar contra el backend si está pagado
   }, [couponCode, paid]);
 
   const handleAssistantUpdate = useCallback((patch: Partial<TagAssistantData>) => {
@@ -73,7 +69,7 @@ export default function TagPageClient({
 
   const handleGenerate = useCallback(async () => {
     if (assistant.step < 6) return;
-    if (!paid && couponCode !== '4321') {
+    if (!paid) {
       setShowPaywall(true);
       return;
     }
@@ -140,7 +136,7 @@ export default function TagPageClient({
     } finally {
       setGenerating(false);
     }
-  }, [assistant, paid, couponCode]);
+  }, [assistant, paid]);
 
   const handlePayment = useCallback(async (plan: 'single' | 'monthly') => {
     setPaymentLoading(true);
@@ -188,16 +184,20 @@ export default function TagPageClient({
         body: JSON.stringify({ plan, docId: 'tag' }),
       });
       const data = await res.json();
-      if (data.orderId) {
-        setPaid(true);
+      const handlePaywallSuccess = () => {
         setShowPaywall(false);
+        setPaid(true);
+        handleGenerate();
+      };
+      if (data.orderId) {
+        handlePaywallSuccess();
       }
     } catch (err) {
       console.error('Error en pago de prueba:', err);
     } finally {
       setPaymentLoading(false);
     }
-  }, []);
+  }, [handleGenerate]);
 
   // Restore session after payment return
   useEffect(() => {

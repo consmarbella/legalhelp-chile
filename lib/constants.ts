@@ -9,12 +9,12 @@ export interface Message {
 
 export const DOC_TYPES = [
   { id: 'tag',            icon: '\u{1F697}', label: 'Prescripción TAG',       desc: 'Multas de tránsito y TAG',    price: '$7.490' },
+  { id: 'dt-carta-renuncia', icon: '\u{1F4DD}', label: 'Carta de Renuncia',   desc: 'Renuncia voluntaria (Piloto)', price: '$9.990' },
+  { id: 'civil-contrato-arriendo',  icon: '\u{1F3E0}', label: 'Contrato Arriendo', desc: 'Arriendo habitacional (Piloto)', price: '$14.990' },
+  { id: 'sernac-carta-reclamo', icon: '\u{1F4EE}', label: 'Reclamo SERNAC',   desc: 'Derechos del consumidor (Piloto)', price: '$7.490' },
+  { id: 'admin-poder-simple', icon: '\u{1F91D}', label: 'Poder Simple',       desc: 'Mandatos para trámites (Piloto)', price: '$4.990'  },
+  { id: 'jpl-descargos-infraccion', icon: '\u2696\uFE0F', label: 'Descargos Multa', desc: 'Infracción de Tránsito (Piloto)', price: '$9.990' },
   { id: 'finiquito',      icon: '\u{1F4C4}', label: 'Finiquito Laboral',      desc: 'Disputas con empleador',      price: '$14.990' },
-  { id: 'reclamo',        icon: '\u{1F4EE}', label: 'Carta Reclamo',          desc: 'SERNAC y comercio',           price: '$7.490' },
-  { id: 'poder',          icon: '\u{1F91D}', label: 'Poder Simple',           desc: 'Mandatos y autorizaciones',   price: '$4.990'  },
-  { id: 'familia',        icon: '\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}', label: 'Derecho de Familia', desc: 'Alimentos, tuición, visitas', price: '$19.990' },
-  { id: 'arrendamiento',  icon: '\u{1F3E0}', label: 'Arrendamiento',          desc: 'Contratos y desalojos',       price: '$14.990' },
-  { id: 'proteccion',     icon: '\u2696\uFE0F', label: 'Recurso de Protección', desc: 'Derechos fundamentales',    price: '$24.990' },
   { id: 'otro',           icon: '\u{1F4DD}', label: 'Otro documento',         desc: 'Cualquier escrito legal',     price: '$9.990' },
 ] as const;
 

@@ -50,6 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 // ─── PAGE COMPONENT ─────────────────────────────────────────────────────────
+import { redirect } from 'next/navigation';
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
@@ -58,6 +60,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const comunaInfo = extracted.esTAG && extracted.comunaSlug
     ? getComunaBySlug(extracted.comunaSlug)
     : null;
+
+  // Si no es TAG, redirigir al home por ahora (Piloto de 5 templates no tiene pSEO individual aún)
+  if (!extracted.esTAG) {
+    redirect('/');
+  }
 
   return (
     <TagPageClient

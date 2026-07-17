@@ -4,6 +4,7 @@ import re
 import io
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
+import os
 
 app = Flask(__name__)
 
@@ -164,3 +165,53 @@ def parse_multas():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/generate_template', methods=['POST'])
+def generate_template():
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'ok': False, 'error': 'No JSON payload provided'}), 400
+            
+        template_id = data.get('template_id')
+        variables = data.get('variables', {})
+        
+        if not template_id:
+            return jsonify({'ok': False, 'error': 'template_id is required'}), 400
+            
+        # Determine the base path (Vercel serverless function root is usually the project root)
+        # plantillas/ is at the root of the repo.
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        template_path = os.path.join(base_dir, 'plantillas', f"{template_id}.txt")
+        
+        if not os.path.exists(template_path):
+            # Fallback to current dir if running locally differently
+            template_path = os.path.join(os.getcwd(), 'plantillas', f"{template_id}.txt")
+            if not os.path.exists(template_path):
+                return jsonify({'ok': False, 'error': f'Plantilla {template_id} no encontrada'}), 404
+                
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template_text = f.read()
+            
+        # Replace variables deterministically
+        # For each key in variables, replace {{KEY}} with the value
+        for key, value in variables.items():
+            if value is None:
+                value = ""
+            placeholder = "{{" + str(key) + "}}"
+            template_text = template_text.replace(placeholder, str(value))
+            
+        # Optional: You can also handle remaining unfilled placeholders if needed, 
+        # but for now we leave them so the user sees what's missing.
+        
+        return jsonify({
+            'ok': True,
+            'documento': template_text,
+            'fuente': 'python-deterministic-template'
+        })
+        
+    except Exception as e:
+        return jsonify({'ok': False, 'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5328)

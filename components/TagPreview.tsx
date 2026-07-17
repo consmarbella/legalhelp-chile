@@ -24,7 +24,7 @@ export default function TagPreview({
   onPayClick, paymentLoading, couponCode, onCouponChange,
   documentUrl, generating, isBatch, totalCobro, totalMultas
 }: TagPreviewProps) {
-  const isBypassed = couponCode === '4321';
+  const isBypassed = false;
   const isUnlocked = paid || isBypassed;
   
   const formattedPrice = totalCobro ? totalCobro.toLocaleString('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }) : '$15.990';
@@ -39,9 +39,9 @@ export default function TagPreview({
           <span className="hud-label text-[#9ab0cc] ml-2">escrito_prescr_tag.doc</span>
         </div>
         {fullText && !paid && (
-          <span className={`hud-label flex items-center gap-1.5 ${isBypassed ? 'text-emerald-400' : 'text-yellow-400'}`}>
-            <span className={`w-2 h-2 rounded-full ${isBypassed ? 'bg-emerald-400' : 'bg-yellow-400'}`} />
-            {isBypassed ? 'BYPASS ADMIN' : 'BLOQUEADO'}
+          <span className="hud-label flex items-center gap-1.5 text-yellow-400">
+            <span className="w-2 h-2 rounded-full bg-yellow-400" />
+            {'BLOQUEADO'}
           </span>
         )}
         {fullText && paid && (
@@ -67,6 +67,23 @@ export default function TagPreview({
           </div>
         ) : (
           <div className="relative">
+            {paid && (
+              <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl flex items-center justify-between shadow-inner mb-6">
+                <div className="flex flex-col">
+                  <span className="font-semibold text-emerald-800">
+                    ¡Documento Desbloqueado!
+                  </span>
+                  <span className="text-sm opacity-90 mt-1">
+                    El pago ha sido procesado exitosamente y tu escrito está listo.
+                  </span>
+                </div>
+                <div className="bg-emerald-100 p-2 rounded-full">
+                  <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+            )}
             {/* Documento A4 */}
             <div className="max-w-[210mm] mx-auto" style={{ fontFamily: '"Times New Roman", Times, Georgia, serif' }}>
               {/* Encabezado visible siempre */}
@@ -150,13 +167,7 @@ export default function TagPreview({
           </div>
         )}
 
-        {isBypassed && fullText && (
-          <div className="mt-3 px-3 py-2 bg-yellow-900/30 border border-yellow-500/30 rounded-xl text-center">
-            <p className="text-yellow-400 text-[10px] font-mono">
-              ⚠ MODO ADMIN: Bypass activado · Código 4321
-            </p>
-          </div>
-        )}
+
       </div>
 
       <style jsx>{`

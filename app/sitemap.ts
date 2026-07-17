@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages: MetadataRoute.Sitemap = paginas
     .filter((p) => !seen.has(p.slug) && seen.add(p.slug))
+    // Solo indexar las de TAG por ahora (Piloto de 5 templates no tiene páginas pSEO estáticas individuales aún)
+    .filter((p) => p.slug.startsWith('prescripcion-multas-tag-'))
     // Goteo: solo páginas ya publicadas (release pasada o sin release)
     .filter((p) => isReleased((p as { release?: string }).release))
     .map((p) => ({

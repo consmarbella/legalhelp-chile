@@ -118,8 +118,6 @@ export default function FormPanel({
                 </span>
               ) : paid ? (
                 'Documento Generado'
-              ) : couponCode === '4321' ? (
-                'Desbloquear y Generar (Admin)'
               ) : (
                 'Generar e Ir al Pago'
               )}

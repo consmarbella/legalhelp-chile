@@ -60,14 +60,6 @@ export default function Home() {
     setBodyText(b);
   }, [assistant, paid, isTagMode]);
 
-  // Detectar bypass 4321
-  useEffect(() => {
-    if (couponCode === '4321' && !paid) {
-      setPaid(true);
-      setShowPaywall(false);
-    }
-  }, [couponCode, paid]);
-
   // Documento normal: actualizar preview
   useEffect(() => {
     if (isTagMode) return;
@@ -102,7 +94,7 @@ export default function Home() {
   const handleGenerate = async () => {
     if (isTagMode) {
       // TAG: si no pagado, mostrar paywall
-      if (!paid && couponCode !== '4321') {
+      if (!paid) {
         setShowPaywall(true);
         return;
       }
